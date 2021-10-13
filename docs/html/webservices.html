@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Services &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Other APIs and protocols" href="apis_protocols.html" />
+    <link rel="prev" title="Cron jobs and daemons" href="cron_jobs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#oai-pmh">OAI-PMH</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample-oai-conf-file">Sample OAI Conf File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sru-server">SRU server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#explain">Explain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search">Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#retrieve">Retrieve</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ils-di">ILS-DI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#json-reports-services">JSON reports services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#versioned-restful-api-effort">Versioned RESTful API Effort</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#oauth2-client-credentials-grant">OAuth2 client credentials grant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-key-management-interface-for-patrons">API key management interface for patrons</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#barcode-image-generator">Barcode image generator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Web Services</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/webservices.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="cron_jobs.html" class="btn btn-neutral float-left" title="Cron jobs and daemons" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="apis_protocols.html" class="btn btn-neutral float-right" title="Other APIs and protocols" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="web-services">
+<span id="webservices-label"></span><h1>Web Services<a class="headerlink" href="#web-services" title="永久链接至标题"></a></h1>
+<p>Koha provides a number of APIs allowing access to it’s data and functions.</p>
+<div class="section" id="oai-pmh">
+<span id="webservices-oai-pmh-label"></span><h2>OAI-PMH<a class="headerlink" href="#oai-pmh" title="永久链接至标题"></a></h2>
+<p>For the Open Archives Initiative-Protocol for Metadata Harvesting
+(OAI-PMH) there are two groups of ‘participants’: Data Providers and
+Service Providers. Data Providers (open archives, repositories) provide
+free access to metadata, and may, but do not necessarily, offer free
+access to full texts or other resources. OAI-PMH provides an easy to
+implement, low barrier solution for Data Providers. Service Providers
+use the OAI interfaces of the Data Providers to harvest and store
+metadata. Note that this means that there are no live search requests to
+the Data Providers; rather, services are based on the harvested data via
+OAI-PMH.</p>
+<p>Koha at present can only act as a Data Provider. It can not harvest from
+other repositories. The biggest stumbling block to having Koha harvest
+from other repositories is that MARC is the only metadata format that
+Koha indexes natively. Visit
+<a class="reference external" href="http://www.oaforum.org/tutorial/english/page3.htm">http://www.oaforum.org/tutorial/english/page3.htm</a> for diagrams of how
+OAI-PMH works.</p>
+<p>By default Koha won’t include item information in OAI-PMH result sets,
+but they can be added by using the include_items option in the a
+configuration file linked from <a class="reference internal" href="webservicespreferences.html#oai-pmh-conffile"><span class="std std-ref">OAI-PMH:ConfFile</span></a>.</p>
+<p>Learn more about OAI-PMH at: <a class="reference external" href="http://www.openarchives.org/pmh/">http://www.openarchives.org/pmh/</a></p>
+<p>To enable OAI-PMH in Koha edit the <a class="reference internal" href="webservicespreferences.html#oai-pmh-pref-label"><span class="std std-ref">OAI-PMH</span></a> preference.
+Once enabled you can visit <a class="reference external" href="http://YOURKOHACATALOG/cgi-bin/koha/oai.pl">http://YOURKOHACATALOG/cgi-bin/koha/oai.pl</a> to
+see your file.</p>
+<div class="section" id="sample-oai-conf-file">
+<span id="sample-oai-conf-file-label"></span><h3>Sample OAI Conf File<a class="headerlink" href="#sample-oai-conf-file" title="永久链接至标题"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">format</span><span class="p">:</span>
+  <span class="n">vs</span><span class="p">:</span>
+    <span class="n">metadataPrefix</span><span class="p">:</span> <span class="n">vs</span>
+    <span class="n">metadataNamespace</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">veryspecial</span><span class="o">.</span><span class="n">tamil</span><span class="o">.</span><span class="n">fr</span><span class="o">/</span><span class="n">vs</span><span class="o">/</span><span class="nb">format</span><span class="o">-</span><span class="n">pivot</span><span class="o">/</span><span class="mf">1.1</span><span class="o">/</span><span class="n">vs</span>
+    <span class="n">schema</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">veryspecial</span><span class="o">.</span><span class="n">tamil</span><span class="o">.</span><span class="n">fr</span><span class="o">/</span><span class="n">vs</span><span class="o">/</span><span class="nb">format</span><span class="o">-</span><span class="n">pivot</span><span class="o">/</span><span class="mf">1.1</span><span class="o">/</span><span class="n">vs</span><span class="o">.</span><span class="n">xsd</span>
+    <span class="n">xsl_file</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">koha</span><span class="o">/</span><span class="n">xslt</span><span class="o">/</span><span class="n">vs</span><span class="o">.</span><span class="n">xsl</span>
+  <span class="n">marcxml</span><span class="p">:</span>
+     <span class="n">metadataPrefix</span><span class="p">:</span> <span class="n">marxml</span>
+     <span class="n">metadataNamespace</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">loc</span><span class="o">.</span><span class="n">gov</span><span class="o">/</span><span class="n">MARC21</span><span class="o">/</span><span class="n">slim</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">loc</span><span class="o">.</span><span class="n">gov</span><span class="o">/</span><span class="n">standards</span><span class="o">/</span><span class="n">marcxml</span><span class="o">/</span><span class="n">schema</span><span class="o">/</span><span class="n">MARC21slim</span>
+     <span class="n">schema</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">loc</span><span class="o">.</span><span class="n">gov</span><span class="o">/</span><span class="n">MARC21</span><span class="o">/</span><span class="n">slim</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">loc</span><span class="o">.</span><span class="n">gov</span><span class="o">/</span><span class="n">standards</span><span class="o">/</span><span class="n">marcxml</span><span class="o">/</span><span class="n">schema</span><span class="o">/</span><span class="n">MARC21slim</span><span class="o">.</span><span class="n">xsd</span>
+     <span class="n">include_items</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="n">oai_dc</span><span class="p">:</span>
+     <span class="n">metadataPrefix</span><span class="p">:</span> <span class="n">oai_dc</span>
+     <span class="n">metadataNamespace</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">openarchives</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">OAI</span><span class="o">/</span><span class="mf">2.0</span><span class="o">/</span><span class="n">oai_dc</span><span class="o">/</span>
+     <span class="n">schema</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">openarchives</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">OAI</span><span class="o">/</span><span class="mf">2.0</span><span class="o">/</span><span class="n">oai_dc</span><span class="o">.</span><span class="n">xsd</span>
+     <span class="n">xsl_file</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">koha</span><span class="o">/</span><span class="n">koha</span><span class="o">-</span><span class="n">tmpl</span><span class="o">/</span><span class="n">intranet</span><span class="o">-</span><span class="n">tmpl</span><span class="o">/</span><span class="n">xslt</span><span class="o">/</span><span class="n">UNIMARCslim2OAIDC</span><span class="o">.</span><span class="n">xsl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sru-server">
+<span id="sru-server-label"></span><h2>SRU server<a class="headerlink" href="#sru-server" title="永久链接至标题"></a></h2>
+<p>Koha implements the Search/Retrieve via URL (SRU) protocol. More
+information about the protocol itself can be found at
+<a class="reference external" href="http://www.loc.gov/standards/sru/">http://www.loc.gov/standards/sru/</a>. The version implemented is version
+1.1.</p>
+<div class="section" id="explain">
+<span id="explain-label"></span><h3>Explain<a class="headerlink" href="#explain" title="永久链接至标题"></a></h3>
+<p>If you want to have information about the implementation of SRU on a
+given server, you should have access to the Explain file using a request
+to the server without any parameter. Like
+<a class="reference external" href="http://myserver.com:9999/biblios/">http://myserver.com:9999/biblios/</a>. The response from the server is an
+XML file that should look like the following and will give you
+information about the default settings of the SRU server.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       &lt;zs:explainResponse&gt;
+            &lt;zs:version&gt;1.1&lt;/zs:version&gt;
+            &lt;zs:record&gt;
+                 &lt;zs:recordSchema&gt;http://explain.z3950.org/dtd/2.0/&lt;/zs:recordSchema&gt;
+                 &lt;zs:recordPacking&gt;xml&lt;/zs:recordPacking&gt;
+                 &lt;zs:recordData&gt;
+                 &lt;explain xml:base=&quot;zebradb/explain-biblios.xml&quot;&gt;
+                 &lt;!--
+                 try stylesheet url: http://./?stylesheet=docpath/sru2.xsl
+                 --&gt;
+            &lt;serverInfo protocol=&quot;SRW/SRU/Z39.50&quot;&gt;
+                 &lt;host&gt;biblibre&lt;/host&gt;
+                 &lt;port&gt;9999&lt;/port&gt;
+                 &lt;database&gt;biblios&lt;/database&gt;
+            &lt;/serverInfo&gt;
+            &lt;databaseInfo&gt;
+                 &lt;title lang=&quot;en&quot; primary=&quot;true&quot;&gt;Koha 3 Bibliographic SRU/SRW/Z39.50 server&lt;/title&gt;
+                 &lt;description lang=&quot;en&quot; primary=&quot;true&quot;&gt;Koha 3 Bibliographic Server&lt;/description&gt;
+                 &lt;links&gt;
+                      &lt;sru&gt;http://biblibre:9999&lt;/sru&gt;
+                 &lt;/links&gt;
+            &lt;/databaseInfo&gt;
+            &lt;indexInfo&gt;
+                 &lt;set name=&quot;cql&quot; identifier=&quot;info:srw/cql-context-set/1/cql-v1.1&quot;&gt;
+                      &lt;title&gt;CQL Standard Set&lt;/title&gt;
+                 &lt;/set&gt;
+                 &lt;index search=&quot;true&quot; scan=&quot;true&quot; sort=&quot;false&quot;&gt;
+                 &lt;title lang=&quot;en&quot;&gt;CQL Server Choice&lt;/title&gt;
+                 &lt;map&gt;
+                      &lt;name set=&quot;cql&quot;&gt;serverChoice&lt;/name&gt;
+                 &lt;/map&gt;
+            &lt;map&gt;
+               &lt;attr type=&quot;1&quot; set=&quot;bib1&quot;&gt;text&lt;/attr&gt;
+               &lt;/map&gt;
+          &lt;/index&gt;
+      &lt;index search=&quot;true&quot; scan=&quot;true&quot; sort=&quot;false&quot;&gt;
+         &lt;title lang=&quot;en&quot;&gt;CQL All&lt;/title&gt;
+             &lt;map&gt;
+&lt;name set=&quot;cql&quot;&gt;all&lt;/name&gt;
+&lt;/map&gt;
+&lt;map&gt;
+&lt;attr type=&quot;1&quot; set=&quot;bib1&quot;&gt;text&lt;/attr&gt;
+&lt;/map&gt;
+&lt;/index&gt;
+&lt;!-- Record ID index --&gt;
+&lt;index search=&quot;true&quot; scan=&quot;true&quot; sort=&quot;false&quot;&gt;
+&lt;title lang=&quot;en&quot;&gt;Record ID&lt;/title&gt;
+&lt;map&gt;
+&lt;name set=&quot;rec&quot;&gt;id&lt;/name&gt;
+&lt;/map&gt;
+&lt;map&gt;
+&lt;attr type=&quot;1&quot; set=&quot;bib1&quot;&gt;rec:id&lt;/attr&gt;
+&lt;attr type=&quot;4&quot; set=&quot;bib1&quot;&gt;3&lt;/attr&gt;
+&lt;/map&gt;
+&lt;/index&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="search">
+<span id="webservices-search-label"></span><h3>Search<a class="headerlink" href="#search" title="永久链接至标题"></a></h3>
+<p>This url :
+<a class="reference external" href="http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=reefs">http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=reefs</a>
+is composed of the following elements:</p>
+<ul class="simple">
+<li>base url of the SRU server : <a class="reference external" href="http://myserver.com:9999/biblios">http://myserver.com:9999/biblios</a>?</li>
+<li>search part with the 3 required parameters : version, operation and
+query. The parameters within the search part should be of the
+key=value form, and can be combined with the &amp; character.</li>
+</ul>
+<p>One can add optional parameters to the query, for instance
+maximumRecords indicating the maximum number of records to be returned
+by the server. So
+<a class="reference external" href="http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=reefs&amp;maximumRecords=5">http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=reefs&amp;maximumRecords=5</a>
+will only get the first 5 results results from the server.</p>
+<p><a class="reference external" href="http://www.loc.gov/standards/sru/sru1-1archive/search-retrieve-operation.html">http://www.loc.gov/standards/sru/sru1-1archive/search-retrieve-operation.html</a>
+gives more details about the search operations and in particular the
+list of optional parameters for searching.</p>
+<p>The “operation” key can take two values: scan or searchRetrieve.</p>
+<p>If operation=searchRetrieve, then the search key should be query. As in
+: operation=searchRetrieve&amp;query=reefs</p>
+<p>If operation=scan, then the search key should be scanClause. As in :
+operation=scan&amp;scanClause=reefs</p>
+<p>etc/zebradb/biblios/etc/bib1.att defines Zebra/3950 indexes that exist
+on your system. For instance you’ll see that we have indexes for Subject
+and for Title: att 21 Subject and att 4 Title respectively.</p>
+<p>In the pqf.properties file located under etc/zebradb/pqf.properties I
+see that an access point already uses my Subject index (index.dc.subject
+= 1=21) while another uses my Title index (index.dc.title = 1=4) I know
+this is my Subject index because as I’ve seen just before in my bib1.att
+file, it’s called with =1=21 in Z3950: so index.dc.subject = 1=21
+correctly points to my Subject index. And Title was called with 1=4 so
+index.dc.title = 1=4 correctly points to my Title index. I can now
+construct my query just like I would in a search box, just preceding it
+with the “query” key: query=Subject=reefs and Title=coral searches
+“reefs” in the subject and “coral” in the title. The full url would be
+<a class="reference external" href="http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=Subject=reefs">http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=Subject=reefs</a>
+and Title=coral If I want to limit the result set to just 5 records, I
+can do
+<a class="reference external" href="http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=Subject=reefs">http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=Subject=reefs</a>
+and Title=coral&amp;maximumRecords=5</p>
+<p>I can also play with truncate, relations, etc. Those are also defined in
+my pqf.properties file. I can see for instance the position properties
+defined as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">position</span><span class="o">.</span><span class="n">first</span>              <span class="o">=</span> <span class="mi">3</span><span class="o">=</span><span class="mi">1</span> <span class="mi">6</span><span class="o">=</span><span class="mi">1</span>
+<span class="c1"># &quot;first in field&quot;</span>
+ <span class="n">position</span><span class="o">.</span><span class="n">any</span>                <span class="o">=</span> <span class="mi">3</span><span class="o">=</span><span class="mi">3</span> <span class="mi">6</span><span class="o">=</span><span class="mi">1</span>
+   <span class="c1"># &quot;any position in field&quot;</span>
+</pre></div>
+</div>
+<p>So as an example if I want “coral” to be at the beginning of the title,
+I can do this query :
+<a class="reference external" href="http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=Title=coral">http://myserver.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=Title=coral</a>
+first</p>
+</div>
+<div class="section" id="retrieve">
+<span id="retrieve-label"></span><h3>Retrieve<a class="headerlink" href="#retrieve" title="永久链接至标题"></a></h3>
+<p>My search for
+<a class="reference external" href="http://univ_lyon3.biblibre.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=coral">http://univ_lyon3.biblibre.com:9999/biblios?version=1.1&amp;operation=searchRetrieve&amp;query=coral</a>
+reefs&amp;maximumRecords=1 retrieves just on record. The response looks like
+this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>          <span class="o">&lt;</span><span class="n">zs</span><span class="p">:</span><span class="n">searchRetrieveResponse</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">zs</span><span class="p">:</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.1</span><span class="o">&lt;/</span><span class="n">zs</span><span class="p">:</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">zs</span><span class="p">:</span><span class="n">numberOfRecords</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">zs</span><span class="p">:</span><span class="n">numberOfRecords</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">zs</span><span class="p">:</span><span class="n">records</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">zs</span><span class="p">:</span><span class="n">record</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">zs</span><span class="p">:</span><span class="n">recordPacking</span><span class="o">&gt;</span><span class="n">xml</span><span class="o">&lt;/</span><span class="n">zs</span><span class="p">:</span><span class="n">recordPacking</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">zs</span><span class="p">:</span><span class="n">recordData</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">record</span> <span class="n">xsi</span><span class="p">:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s2">&quot;http://www.loc.gov/MARC21/slim http://www.loc.gov/ standards/marcxml/schema/MARC21slim.xsd&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">leader</span><span class="o">&gt;</span> <span class="n">cam</span> <span class="n">a22</span> <span class="mi">4500</span><span class="o">&lt;/</span><span class="n">leader</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">datafield</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;010&quot;</span> <span class="n">ind1</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="n">ind2</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">-</span><span class="mi">603</span><span class="o">-</span><span class="mi">01193</span><span class="o">-</span><span class="mi">6</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="o">&gt;</span><span class="n">rel</span><span class="o">.&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="o">&gt;</span><span class="mi">159</span> <span class="n">F</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">datafield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">datafield</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;020&quot;</span> <span class="n">ind1</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="n">ind2</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="o">&gt;</span><span class="n">FR</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="o">&gt;</span><span class="mi">00065351</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">datafield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">datafield</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;101&quot;</span> <span class="n">ind1</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">ind2</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="o">&gt;</span><span class="n">ita</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">datafield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">datafield</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;105&quot;</span> <span class="n">ind1</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="n">ind2</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="o">&gt;</span><span class="n">a</span> <span class="n">z</span> <span class="mi">00</span><span class="o">|</span><span class="n">y</span><span class="o">|&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">datafield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">datafield</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;106&quot;</span> <span class="n">ind1</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="n">ind2</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="o">&gt;</span><span class="n">r</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">datafield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">datafield</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;100&quot;</span> <span class="n">ind1</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="n">ind2</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="o">&gt;</span><span class="mi">20091130</span> <span class="n">frey50</span> <span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">datafield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">datafield</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;200&quot;</span> <span class="n">ind1</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">ind2</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="o">&gt;</span><span class="n">Guide</span> <span class="n">des</span> <span class="n">récifs</span> <span class="n">coralliens</span> <span class="o">/</span> <span class="n">A</span> <span class="n">Guide</span> <span class="n">to</span> <span class="n">Coral</span> <span class="n">Reefs</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="o">&gt;</span><span class="n">Texte</span> <span class="n">imprimé</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;e&quot;</span><span class="o">&gt;</span><span class="n">la</span> <span class="n">faune</span> <span class="n">sous</span><span class="o">-</span><span class="n">marine</span> <span class="n">des</span> <span class="n">coraux</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;f&quot;</span><span class="o">&gt;</span><span class="n">A</span><span class="o">.</span> <span class="n">et</span> <span class="n">A</span><span class="o">.</span> <span class="n">Ferrari</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">datafield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">datafield</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;210&quot;</span> <span class="n">ind1</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="n">ind2</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="o">&gt;</span><span class="n">Lausanne</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="o">&gt;</span><span class="n">Paris</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="o">&gt;</span><span class="n">Delachaux</span> <span class="n">et</span> <span class="n">Niestlé</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="o">&gt;</span><span class="n">cop</span><span class="o">.</span> <span class="mi">2000</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;e&quot;</span><span class="o">&gt;</span><span class="n">impr</span><span class="o">.</span> <span class="n">en</span> <span class="n">Espagne</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">datafield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">datafield</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;215&quot;</span> <span class="n">ind1</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="n">ind2</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="o">&gt;</span><span class="mi">287</span> <span class="n">p</span><span class="o">.&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="o">&gt;</span><span class="n">ill</span><span class="o">.</span> <span class="n">en</span> <span class="n">coul</span><span class="o">.</span><span class="p">,</span> <span class="n">couv</span><span class="o">.</span> <span class="n">ill</span><span class="o">.</span> <span class="n">en</span> <span class="n">coul</span><span class="o">.&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">subfield</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="o">&gt;</span><span class="mi">20</span> <span class="n">cm</span><span class="o">&lt;/</span><span class="n">subfield</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">datafield</span><span class="o">&gt;</span>
+<span class="o">......</span>
+<span class="o">&lt;</span><span class="n">idzebra</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="mi">4725</span><span class="o">&lt;/</span><span class="n">size</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">localnumber</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">localnumber</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nw10BJv9Pk</span><span class="o">/</span><span class="n">upd_biblio</span><span class="o">/</span><span class="n">exported_records</span><span class="o">&lt;/</span><span class="n">filename</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">idzebra</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">record</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">zs</span><span class="p">:</span><span class="n">recordData</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">zs</span><span class="p">:</span><span class="n">recordPosition</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">zs</span><span class="p">:</span><span class="n">recordPosition</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">zs</span><span class="p">:</span><span class="n">record</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">zs</span><span class="p">:</span><span class="n">records</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">zs</span><span class="p">:</span><span class="n">searchRetrieveResponse</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ils-di">
+<span id="webservices-ils-di-label"></span><h2>ILS-DI<a class="headerlink" href="#ils-di" title="永久链接至标题"></a></h2>
+<p>As of writing, the self documenting ILS-DI is the most complete interface and
+after it has been enabled as described in the <a class="reference internal" href="webservicespreferences.html#webservices-ils-di-system-preferences-label"><span class="std std-ref">ILS-DI</span></a> system
+preferences section the documentation should be available at
+<a class="reference external" href="https://YOURKOHACATALOG/cgi-bin/koha/ilsdi.pl">https://YOURKOHACATALOG/cgi-bin/koha/ilsdi.pl</a></p>
+</div>
+<div class="section" id="json-reports-services">
+<span id="json-reports-services-label"></span><h2>JSON reports services<a class="headerlink" href="#json-reports-services" title="永久链接至标题"></a></h2>
+<p>Koha implements a JSON reports service for every report saved
+using the <a class="reference internal" href="reports.html#guided-report-wizard-label"><span class="std std-ref">Guided Reports Wizard</span></a>
+or <a class="reference internal" href="reports.html#report-from-sql-label"><span class="std std-ref">Report from SQL</span></a> features.</p>
+<p>By default reports will be non-public and only accessible by authenticated
+users. If a report is explicitly set to <em>public</em> it will be accessible
+without authentication by anyone. This feature should only be used
+when the data can be shared safely not containing any patron information.</p>
+<p>The reports can be accessed using the following URLs:</p>
+<ul class="simple">
+<li>Public reports<ul>
+<li>OpacBaseURL/cgi-bin/koha/svc/report?id=REPORTID</li>
+</ul>
+</li>
+<li>Non-public reports<ul>
+<li>StaffBaseURL/cgi-bin/koha/svc/report?id=REPORTID</li>
+</ul>
+</li>
+</ul>
+<p>There are also some additional parameters available:</p>
+<ul class="simple">
+<li>Instead of accessing the report by REPORTID you can also use the
+report’s name:<ul>
+<li>…/cgi-bin/koha/svc/report?name=REPORTNAME</li>
+</ul>
+</li>
+<li>For easier development there is also an option to generate an
+annotated output of the data. It will generate an array of hashes
+that include the field names as keys.<ul>
+<li>…/cgi-bin/koha/svc/report?name=REPORTNAME&amp;annotated=1</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="versioned-restful-api-effort">
+<span id="api-rest-label"></span><h2>Versioned RESTful API Effort<a class="headerlink" href="#versioned-restful-api-effort" title="永久链接至标题"></a></h2>
+<p>There is an ongoing effort to converge the APIs above into a single versioned
+set of modern RESTful endpoints documented using the OpenAPI standard and
+available by default under <a class="reference external" href="https://YOURKOHACATALOG/api/v1/">https://YOURKOHACATALOG/api/v1/</a></p>
+<div class="section" id="oauth2-client-credentials-grant">
+<span id="oauth2-client-credentials-grant-label"></span><h3>OAuth2 client credentials grant<a class="headerlink" href="#oauth2-client-credentials-grant" title="永久链接至标题"></a></h3>
+<p>Koha supports the OAuth2 client credentials grant as a means to secure the API
+for using it from other systems to adhere to current industry standards.
+More information on the OAuth2 client credentials grant standard <a class="reference external" href="https://auth0.com/docs/api-auth/grant/client-credentials">can be found
+here</a>.</p>
+</div>
+<div class="section" id="api-key-management-interface-for-patrons">
+<h3>API key management interface for patrons<a class="headerlink" href="#api-key-management-interface-for-patrons" title="永久链接至标题"></a></h3>
+<p>In order for API keys to be create for patrons, the system preference
+<a class="reference internal" href="webservicespreferences.html#restoauth2clientcredentials"><span class="std std-ref">RESTOAuth2ClientCredentials</span></a> <strong>must</strong> be enabled for the option to appear
+in a patron record.</p>
+<ol class="arabic simple">
+<li>Navigate to a patron record and select <em>More &gt; Manage API keys</em></li>
+</ol>
+<blockquote>
+<div><img alt="image1336" src="_images/manageapikeysmenu.png" /></div></blockquote>
+<ol class="arabic simple" start="2">
+<li>If no API keys exist for a patron there will be a message prompting to
+generate a client id/secret pair</li>
+</ol>
+<blockquote>
+<div><img alt="image1337" src="_images/noapikeysdefined.png" /></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Enter a description for the client id/secret pair and click Save</li>
+</ol>
+<blockquote>
+<div><img alt="image1338" src="_images/clientid-secret-description.png" /></div></blockquote>
+<ol class="arabic" start="4">
+<li><p class="first">Koha will generate a client id/secret pair for use to connect to Koha from
+other third-party systems as an authenticated client</p>
+<p><img alt="image1339" src="_images/sample-api-key.png" /></p>
+</li>
+<li><p class="first">Clicking the Revoke button next to an API credential pair will render the
+specific credential pair inactive until reactivated</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="barcode-image-generator">
+<h2>Barcode image generator<a class="headerlink" href="#barcode-image-generator" title="永久链接至标题"></a></h2>
+<p>Koha provides a barcode image generator on both the staff interface and the public interface. Both require a user to be logged in to use the service, to prevent abuse by third parties.</p>
+<dl class="docutils">
+<dt>For example::</dt>
+<dd>/cgi-bin/koha/svc/barcode?barcode=123456789&amp;type=UPCE</dd>
+</dl>
+<p>The URL above will generate a barcode image for the barcode “123456789”, using the UPCE barcode format.</p>
+<p>The available barcode types are:
+* Code39
+* UPCE
+* UPCA
+* QRcode
+* NW7
+* Matrix2of5
+* ITF
+* Industrial2of5
+* IATA2of5
+* EAN8
+* EAN13
+* COOP2of5</p>
+<p>If no type is specified, Code39 will be used.</p>
+<p>By default, the barcode image will contain the text of the barcode as well. If this is not desired, the parameter “notext” may be passed to supress this behavior.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/cgi-bin/koha/svc/barcode?barcode=123456789&amp;notext=1
+</pre></div>
+</div>
+<p>will generate a barcode image 123456789 without the text “123456789” below it.</p>
+<p>This service can be used to embed barcode images into slips and notices printed from the browser, and to embed a patron cardnumber into the OPAC, among other possibilities.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cron_jobs.html" class="btn btn-neutral float-left" title="Cron jobs and daemons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="apis_protocols.html" class="btn btn-neutral float-right" title="Other APIs and protocols" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

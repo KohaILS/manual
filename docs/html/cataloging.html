@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cataloging &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Course reserves" href="course_reserves.html" />
+    <link rel="prev" title="Circulation" href="circulation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cataloging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bibliographic-records">Bibliographic records</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-records">Adding records</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-editor-cataloging">Basic editor cataloging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-editor-cataloging">Advanced editor cataloging</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-analytic-records">Adding analytic records</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#easy-analytics">Easy analytics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analytics-enhanced-workflow">Analytics enhanced workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-analytics">Editing analytics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-records">Editing records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#duplicating-records">Duplicating records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attaching-files-to-records">Attaching files to records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merging-records">Merging records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-records">Deleting records</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#item-records">Item records</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-items">Adding items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-items">Editing items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quick-item-status-updates">Quick item status updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duplicating-items">Duplicating items</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#item-information">Item information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-cover-images-for-items">Adding cover images for items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#moving-items">Moving items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-items">Deleting items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#item-specific-circulation-history">Item specific circulation history</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#authorities">Authorities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-authorities">Adding authorities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#searching-authorities">Searching authorities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-authorities">Editing authorities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merging-authorities">Merging authorities</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cataloging-guides">Cataloging guides</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bibliographic-record-cataloging-cheat-sheet">Bibliographic record cataloging cheat sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#item-holdings-record-cataloging-guide">Item/Holdings Record Cataloging Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#koha-xslt-material-type-icons">Koha XSLT material type icons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-on-order-items-and-holds">Handling On Order Items and Holds</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Cataloging</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cataloging.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="circulation.html" class="btn btn-neutral float-left" title="Circulation" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="course_reserves.html" class="btn btn-neutral float-right" title="Course reserves" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="cataloging">
+<span id="cataloging-label"></span><h1>Cataloging<a class="headerlink" href="#cataloging" title="永久链接至标题"></a></h1>
+<p>Before you start cataloging in Koha you’re going to want to do some
+basic setup. Refer to the <a class="reference internal" href="implementation_checklist.html#implementation-checklist-label"><span class="std std-ref">Implementation checklist</span></a>
+for a full list of these things. Most importantly you’re going to want
+to make sure that your <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC bibliographic frameworks</span></a>
+are all defined the way you want. Once in the cataloging module you will not be
+able to add or remove fields and subfields so your frameworks must be
+ready before you start cataloging.</p>
+<p>You can also use OCLC Connexion to send records directly in to Koha. For
+more information on that please review the <a class="reference internal" href="third_party_software.html#oclc-connexion-gateway"><span class="std std-ref">OCLC Connexion Gateway</span></a>
+setup Appendix.</p>
+<ul class="simple">
+<li><em>Get there:</em> More &gt; Cataloging</li>
+</ul>
+<div class="section" id="bibliographic-records">
+<span id="bibliographic-records-label"></span><h2>Bibliographic records<a class="headerlink" href="#bibliographic-records" title="永久链接至标题"></a></h2>
+<p>In Koha the bibliographic record contains the main information related
+to the material. This includes things like the title, author, ISBN, etc.
+This information is stored in Koha in Marc (different flavors of Marc
+are supported in Koha). Once this information is saved,
+<a class="reference internal" href="#item-records-label"><span class="std std-ref">item records</span></a> can be attached.</p>
+<div class="section" id="adding-records">
+<span id="adding-records-label"></span><h3>Adding records<a class="headerlink" href="#adding-records" title="永久链接至标题"></a></h3>
+<p>Records can be added to Koha via original or copy cataloging. You can
+also choose to use the basic or advanced cataloging interface for all of
+your work.</p>
+<p>If you would like to catalog a record using a blank template in the
+basic editor</p>
+<ul>
+<li><p class="first">Click ‘New record’</p>
+<p><img alt="image627" src="_images/newfromframework.png" /></p>
+<ul>
+<li><p class="first">Choose the framework you would like to base your record on</p>
+<p><strong>Note</strong></p>
+<p>You can create or modify frameworks in the <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">Administration
+module</span></a>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>If you would like to catalog a record using a blank template in the
+advanced editor</p>
+<ul>
+<li><p class="first">Enable the <a class="reference internal" href="catalogingpreferences.html#enableadvancedcatalogingeditor"><span class="std std-ref">EnableAdvancedCatalogingEditor</span></a> preference</p>
+</li>
+<li><p class="first">Click the ‘Advanced editor’ button</p>
+<p><img alt="image1262" src="_images/advanceditorbtn.png" /></p>
+</li>
+</ul>
+<p>If you want to catalog a record based on an existing record at another
+library in the basic or advanced editor</p>
+<ul>
+<li><p class="first">Click ‘New from Z39.50/SRU’</p>
+</li>
+<li><p class="first">Click on the arrow to pre-select a framework for your imported your
+catalog record (the Default framework is used if you do not make a selection).</p>
+<p><img alt="image628" src="_images/zsearch.png" /></p>
+<ul class="simple">
+<li>Search for the item you would like to catalog</li>
+</ul>
+<p><strong>Note</strong></p>
+<p>If no results are found, try searching for fewer fields,
+not all Z39.50 targets can search all of the fields above.</p>
+</li>
+<li><p class="first">Search targets can be altered by using the <a class="reference internal" href="administration.html#z39-50-sru-servers-label"><span class="std std-ref">Z39.50 admin</span></a> area.</p>
+</li>
+<li><p class="first">The display of extra MARC fields and subfields can be configured via
+the <a class="reference internal" href="catalogingpreferences.html#additionalfieldsinz3950resultsearch"><span class="std std-ref">AdditionalFieldsInZ3950ResultSearch</span></a> preference.</p>
+</li>
+<li><p class="first">From the results’ ‘Actions’ button you can view the MARC or Card
+view for the record or choose to import it into Koha.</p>
+<p><img alt="image629" src="_images/zsearchresults.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: resultst).</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first">If you don’t find the title you need in your Z39.50 search
+results you can click the ‘Try Another Search’ button at the
+bottom left of your results</p>
+<p><img alt="image631" src="_images/tryanotherzsearch.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="basic-editor-cataloging">
+<span id="basic-editor-cataloging-label"></span><h4>Basic editor cataloging<a class="headerlink" href="#basic-editor-cataloging" title="永久链接至标题"></a></h4>
+<p>In the basic editor once you’ve opened a blank framework or imported a
+record via Z39.50 you will be presented with the form to continue
+cataloging</p>
+<p><img alt="image1452" src="_images/catalogingform.png" /></p>
+<ul>
+<li><p class="first">If you would rather not see the MARC tag numbers you can change the
+value in your <a class="reference internal" href="catalogingpreferences.html#hide-marc-label"><span class="std std-ref">hide_marc</span></a> system preference or each
+user can check the box next to ‘Show tags’ found under ‘Settings’.</p>
+<p><img alt="image632" src="_images/showtags.png" /></p>
+</li>
+<li><p class="first">To expand a collapsed tag click on the tag description</p>
+</li>
+<li><p class="first">To get help from the Library of Congress on a MARC tag click the
+question mark (?) to the right of each field number</p>
+<ul class="simple">
+<li>It is possible to change the source of the MARC documentation using the
+<a class="reference internal" href="catalogingpreferences.html#marcfielddocurl"><span class="std std-ref">MARCFieldDocURL</span></a> system preference</li>
+<li>If you feel that this clutters the screen you can hide the
+question marks by unchecking the box next to the ‘Show MARC tag
+documentation links’ note found under ‘Settings’</li>
+</ul>
+</li>
+<li><p class="first">Sometimes fields may not be editable due to the value in your
+<a class="reference internal" href="authoritiespreferences.html#biblioaddsauthorities"><span class="std std-ref">BiblioAddsAuthorities</span></a> system preference.
+If you have this preference set to not allow catalogers to type in
+fields controlled by authorities you may see a lock symbol to the
+left of the field.</p>
+<p><img alt="image633" src="_images/lockedauthority.png" /></p>
+<ul>
+<li><p class="first">If this icon appears you must click the icon to the right of the
+field to search for an existing authority.</p>
+<p><img alt="image634" src="_images/catauthoritysearch.png" /></p>
+</li>
+<li><p class="first">From the results list click ‘Choose authority’ to bring that into
+your catalog record</p>
+<p><img alt="image635" src="_images/catauthoritysearchresults.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">To duplicate a field click on the ‘repeat this tag’ icon to the right
+of the tag</p>
+<p><img alt="image636" src="_images/dupfield.png" /></p>
+<ul>
+<li><p class="first">To move subfields in to the right order, click the up arrow to the
+left of the field</p>
+</li>
+<li><p class="first">To duplicate a subfield click on the clone icon (to remove a
+copied field, click the delete clone icon) to the right of the
+field</p>
+<p><img alt="image637" src="_images/clonesubfield.png" /></p>
+</li>
+<li><p class="first">To remove a subfield (if there is more than one of the same type),
+click the - (minus sign) to the right of the field</p>
+</li>
+</ul>
+</li>
+<li><p class="first">To use a plugin click on the icon to the right of the field</p>
+<p><img alt="image638" src="_images/leaderbuilder.png" /></p>
+<ul>
+<li><p class="first">Some fixed fields have editors that will change based on the
+material type you’re cataloging (for example the 006 and the 008
+fields)</p>
+<p><img alt="image639" src="_images/008plugin.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Once you’ve finished, click the ‘Save’ button at the top and choose
+whether you want to save and view the bib record you have created or
+continue on to add/edit items attached to the record</p>
+<p><img alt="image640" src="_images/savecataloging.png" /></p>
+<ul class="simple">
+<li>Choosing ‘Save and view record’ will bring you right to the record
+you just cataloged</li>
+<li>Choosing ‘Save and edit items’ will bring you to the add/edit item
+form after saving the bib record so that you can attach holdings</li>
+<li>Choosing ‘Save and continue editing’ will allow you to save your
+work so far and keep you in the editor to continue working</li>
+</ul>
+</li>
+<li><p class="first">If you are about to add a duplicate record to the system you will be
+warned before saving</p>
+<p><img alt="image641" src="_images/duprecordwarn.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="advanced-editor-cataloging">
+<span id="advanced-editor-cataloging-label"></span><h4>Advanced editor cataloging<a class="headerlink" href="#advanced-editor-cataloging" title="永久链接至标题"></a></h4>
+<p>In order to use the Advanced cataloging editor you need to enable the
+<a class="reference internal" href="catalogingpreferences.html#enableadvancedcatalogingeditor"><span class="std std-ref">EnableAdvancedCatalogingEditor</span></a>
+preference.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This feature does not currently include any support for
+UNIMARC or NORMARC fixed fields.</p>
+</div></blockquote>
+<p>In the advanced editor once you’ve opened a blank framework or imported
+a record via Z39.50 you will be presented with the form to continue
+cataloging</p>
+<p><img alt="image1263" src="_images/advancededitor.png" /></p>
+<p>Using the search box on the left you can perform Z39.50 searches</p>
+<p><img alt="image642" src="_images/advancedzresults.png" /></p>
+<p>And from those Z39.50 results you can view the marc record by clicking
+the link to the right</p>
+<p><img alt="image643" src="_images/advancedzviewmarc.png" /></p>
+<p>Clicking ‘Import’ will bring the record in to the editor where you can
+perform your edits</p>
+<p><img alt="image644" src="_images/advancedcataloging.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>When adding a new field in the Advanced Editor, you need to key
+underscores for a blank indicator, and surround the indicators with
+spaces.</p>
+<p><strong>Note</strong></p>
+<p>You need to key a space before the first subfield delimiter, but not
+before or after other subfield delimiters in the field.</p>
+</div></blockquote>
+<p>At the bottom of the editor you will see help from the Library of
+Congress for the field you are on. In cases where your MARC is invalid
+you will see red highlighting. To edit the record using only keyboard
+functions the Keyboard shortcuts button will inform you of the necessary
+commands.</p>
+<p>A clipboard is available to copy and paste text between fields.  See the image
+and table below for the shortcuts used with the clipboard.</p>
+<p><img alt="image645" src="_images/advancedkeyshort.png" /></p>
+<div class="section" id="advanced-cataloging-keyboard-shortcuts">
+<span id="advanced-cataloging-keyboard-shortcuts-label"></span><h5>Advanced cataloging keyboard shortcuts<a class="headerlink" href="#advanced-cataloging-keyboard-shortcuts" title="永久链接至标题"></a></h5>
+<p>The following keyboard shortcuts can be used in the advanced cataloging
+module to save time and clicking.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Shortcut</th>
+<th class="head">Behavior</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Ctrl-C</td>
+<td>Copy current field</td>
+</tr>
+<tr class="row-odd"><td>Shift-Ctrl-C</td>
+<td>Copy current subfield</td>
+</tr>
+<tr class="row-even"><td>Ctrl-X</td>
+<td>Delete current field and copy
+to ‘clipboard’</td>
+</tr>
+<tr class="row-odd"><td>Shift-Ctrl-X</td>
+<td>Delete current subfield and
+copy to ‘clipboard’</td>
+</tr>
+<tr class="row-even"><td>Alt-C</td>
+<td>Insert copyright symbol (©)</td>
+</tr>
+<tr class="row-odd"><td>Alt-P</td>
+<td>Insert copyright symbol (℗)
+(sound recordings)</td>
+</tr>
+<tr class="row-even"><td>Ctrl-D</td>
+<td>Insert delimiter (‡)</td>
+</tr>
+<tr class="row-odd"><td>Ctrl-I</td>
+<td>Copy current field on next
+line</td>
+</tr>
+<tr class="row-even"><td>Shift-Enter</td>
+<td>Insert line break</td>
+</tr>
+<tr class="row-odd"><td>Shift-Ctrl-L</td>
+<td>Link field to authorities</td>
+</tr>
+<tr class="row-even"><td>Enter</td>
+<td>New field on next line</td>
+</tr>
+<tr class="row-odd"><td>Tab</td>
+<td>Move to next position</td>
+</tr>
+<tr class="row-even"><td>Ctrl-P</td>
+<td>Paste selection from
+‘clipboard’</td>
+</tr>
+<tr class="row-odd"><td>Shift-Tab</td>
+<td>Move to previous position</td>
+</tr>
+<tr class="row-even"><td>Ctrl-H</td>
+<td>Get help on current subfield</td>
+</tr>
+<tr class="row-odd"><td>Shift-Ctrl-K</td>
+<td>Toggle Keyboard</td>
+</tr>
+<tr class="row-even"><td>Ctrl-S</td>
+<td>Save record (cannot be
+remapped)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="advanced-cataloging-virtual-keyboard">
+<span id="advanced-cataloging-virtual-keyboard-label"></span><h5>Advanced cataloging virtual keyboard<a class="headerlink" href="#advanced-cataloging-virtual-keyboard" title="永久链接至标题"></a></h5>
+<p><img alt="image1458" src="_images/advancedkeyboard.png" /></p>
+<p>A virtual keyboard is available for adding diacritics and symbols.  Use the
+shortcut Shift-Ctrl-K to display the keyboard.  A ‘Keyboard layouts’ button will
+display at the top of the advanced editor that allows you to set the virtual
+keyboard layout for different languages.</p>
+</div>
+<div class="section" id="macros-in-advanced-cataloging">
+<span id="macros-in-advanced-cataloging-label"></span><h5>Macros in advanced cataloging<a class="headerlink" href="#macros-in-advanced-cataloging" title="永久链接至标题"></a></h5>
+<p>To record a new macro:</p>
+<ul class="simple">
+<li>Select the “Macros…” button</li>
+<li>A window will pop up. In this window, select “New macro…,” key the
+new macro’s name in the pop-up box and select OK.</li>
+<li>Now click to the right of the little number 1, and key the first line
+of your macro. For a multi-line, i.e., multi-field macro, hit the
+return key so that a little number 2 appears, and key the second
+line/field, etc.</li>
+<li>Your macros will be automatically saved. When finished you can select
+the “x” to close the window, or select a macro to run on the record
+that you’re editing, or select another macro to run.</li>
+</ul>
+<p>To edit an existing macro:</p>
+<ul class="simple">
+<li>Select the “Macros…” button</li>
+<li>A window will pop up. In this window, select the macro that you wish
+to edit &amp; make your changes.</li>
+<li>Your work will automatically be saved, and when finished you can
+select the “x” to close the window, or select a macro to run on the
+record that you’re editing, or select another macro to run.</li>
+</ul>
+<p>The basic syntax of the macro language:</p>
+<ul class="simple">
+<li>new 500=‡aEdited with Rancor<ul>
+<li>Creates a new 500 with a ‡a subfield and sets it to “Edited with
+Rancor”.</li>
+</ul>
+</li>
+<li>245c= by J.K. Rowling.<ul>
+<li>Sets the first ‡c subfield of the first 245 tag in the record to ”
+by J.K. Rowling”, creating it if necessary.</li>
+</ul>
+</li>
+<li>082a={084a}<ul>
+<li>Sets the ‡a subfield of the first 082 tag (creating the subfield
+if necessary) to the contents of the first 084‡a.</li>
+</ul>
+</li>
+<li>indicators=_1<ul>
+<li>Sets the indicators of the last mentioned tag (in this case, 082)
+to “_” and “1”.</li>
+</ul>
+</li>
+<li>new 090a=Z674.75.W67<ul>
+<li>Creates a new ‡a subfield on the first 090 (but only if that field
+already exists) and sets it to Z674.75.W67.</li>
+</ul>
+</li>
+<li>new 090a at end=Z674.75.W67<ul>
+<li>Same as above.</li>
+</ul>
+</li>
+<li>new 245b after a= a tale of might and magic /<ul>
+<li>Creates a new ‡b after the first a subfield and sets it to ” a
+tale of might and magic /”.</li>
+</ul>
+</li>
+<li>delete 245b<ul>
+<li>Deletes the first ‡b subfield on the first 245 to ‡b</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="adding-analytic-records">
+<span id="adding-analytic-records-label"></span><h3>Adding analytic records<a class="headerlink" href="#adding-analytic-records" title="永久链接至标题"></a></h3>
+<p>Libraries sometimes make journal articles and articles within monographs
+and serials accessible to library patrons through analytics cataloging.
+Analytics cataloging creates separate bibliographic records for these
+articles, chapters, sections, etc. found within a larger resource such
+as a book, an article within a journal, newspaper or serial. In
+analytics cataloging, although a separate bib record is created for the
+title, it is not physically separated from the host item.&nbsp; Learn more
+about Analytics in Chapter 13 of AACR2.</p>
+<p>If you would like to catalog analytic records there are two options. One
+is to use the <a class="reference internal" href="#easy-analytics"><span class="std std-ref">Easy analytics</span></a> funtion; the
+other is the <a class="reference internal" href="#analytics-enhanced-workflow-label"><span class="std std-ref">Analytics enhanced workflow</span></a>.</p>
+<div class="section" id="easy-analytics">
+<span id="easy-analytics-label"></span><h4>Easy analytics<a class="headerlink" href="#easy-analytics" title="永久链接至标题"></a></h4>
+<p>The easy analytics feature makes linking analytic records together
+easier. The first thing you need to do is set the
+<a class="reference internal" href="catalogingpreferences.html#easyanalyticalrecords"><span class="std std-ref">EasyAnalyticalRecords</span></a> preference to
+‘Display’ and the <a class="reference internal" href="catalogingpreferences.html#usecontrolnumber"><span class="std std-ref">UseControlNumber</span></a> preference to
+‘Don’t use.’</p>
+<p>After cataloging your analytic record (see <a class="reference internal" href="#adding-records-label"><span class="std std-ref">adding
+records</span></a> for more on creating records) click ‘Edit’ from
+the normal view and choose to ‘Link to host item’</p>
+<p><img alt="image646" src="_images/analyticslink.png" /></p>
+<p>This will prompt you to enter the barcode for the item this record
+should be linked to.</p>
+<p><img alt="image647" src="_images/analyticsbarcode.png" /></p>
+<p>After entering the item’s barcode and clicking ‘Select’ you will receive
+a confirmation message.</p>
+<p><img alt="image648" src="_images/analyticlinksuccess.png" /></p>
+<p>The record will now have the 773 field filled in properly to complete
+the link.</p>
+<p><img alt="image649" src="_images/analytics773.png" /></p>
+<p>To view all of the items tied to the host record, do a search for the
+record, click the ‘Analytics’ tab on the left and the analytics tied to
+each barcode will be shown under the ‘Used in’ column.</p>
+<p><img alt="image650" src="_images/analyticstab.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>It is also possible to create analytic records from this screen by
+clicking on ‘Create analytics’</p>
+</div></blockquote>
+<p>You can also see the analytics attached to this record by clicking the
+‘Show analytic’ link towards the top of the record in the normal view.</p>
+<p><img alt="image651" src="_images/anayticbib.png" /></p>
+<p>When looking at the analytic record you will also see a link to the host
+item under the ‘Host records’ column in the holdings table when viewing
+the ‘Analytics’ tab.</p>
+<p><img alt="image652" src="_images/hostrecords.png" /></p>
+</div>
+<div class="section" id="analytics-enhanced-workflow">
+<span id="analytics-enhanced-workflow-label"></span><h4>Analytics enhanced workflow<a class="headerlink" href="#analytics-enhanced-workflow" title="永久链接至标题"></a></h4>
+<p>To use the enhanced workflow method of adding analytics, the first thing
+you need to do is set the
+<a class="reference internal" href="catalogingpreferences.html#easyanalyticalrecords"><span class="std std-ref">EasyAnalyticalRecords</span></a> preference to ‘Don’t
+display’ and the <a class="reference internal" href="catalogingpreferences.html#usecontrolnumber"><span class="std std-ref">UseControlNumber</span></a> preference to
+‘Use.’</p>
+<p>After cataloging your original record (see <a class="reference internal" href="#adding-records-label"><span class="std std-ref">adding
+records</span></a> for more on creating records) click ‘New’ from
+the normal view and choose to ‘New child record.’</p>
+<p><img alt="image653" src="_images/analyticschildlink.png" /></p>
+<p>This will open a new blank record for cataloging. The blank record will have
+the 773 field filled in properly to complete the link once the record is saved.</p>
+<p><img alt="image654" src="_images/analytics773child.png" /></p>
+<p>The ‘Show analytics’ link from the host record will now use the hosts record
+control number (001) to search for all records on the system of the type
+‘mongragphic component part’ or ‘serial component part’ (Leader position 7)
+with a 773 subfield w that contains the hosts record control number.</p>
+</div>
+<div class="section" id="editing-analytics">
+<span id="editing-analytics-label"></span><h4>Editing analytics<a class="headerlink" href="#editing-analytics" title="永久链接至标题"></a></h4>
+<p>If you have linked an analytic record incorrectly you can remove that
+link by editing the analytic record (not the host record).</p>
+<p>To do this, go to the analytic record and click the ‘Edit’ button.
+For <cite>UseControlNumber</cite> simply edit or remove the corresponding 773.</p>
+<p>If using <cite>EasyAnalytics</cite> choose to ‘Edit items’; To the left of each item
+you will see two options.</p>
+<p><img alt="image658" src="_images/analyticdelink.png" /></p>
+<ul class="simple">
+<li>Clicking ‘Edit in host’ will allow you to edit the item on the host
+record.</li>
+<li>Clicking ‘Delink’ will remove the 773 field and the link between the
+analytic and the host.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="editing-records">
+<span id="editing-records-label"></span><h3>Editing records<a class="headerlink" href="#editing-records" title="永久链接至标题"></a></h3>
+<p>To edit a record you can click the ‘Actions’ button and choose ‘Edit biblio’
+from the search results on the cataloging search page</p>
+<p><img alt="image659" src="_images/catalogsearch.png" /></p>
+<p>or by clicking the Edit button on the Bibliographic Record and choosing
+‘Edit Record’</p>
+<p><img alt="image660" src="_images/editrecord.png" /></p>
+<p>The record will open in the MARC editor</p>
+<p><img alt="image661" src="_images/editingrecord.png" /></p>
+<p>The alternative is to search via Z39.50 to overlay your record with a
+fuller record found at another library. You can do this by choosing
+‘Replace record via Z39.50/SRU’ from the ‘Edit’ menu.</p>
+<p><img alt="image662" src="_images/replaceviaz39.png" /></p>
+<p>Once you choose that, you will be brought to a Z39.50 search window to
+search other libraries for the record in question.</p>
+<p>Once you have made your edits (via either method) you can click ‘Save’
+at the top left of the editor.</p>
+<p>You can also use the edit menu to add your own custom cover image if you
+have either <a class="reference internal" href="enhancedcontentpreferences.html#opaclocalcoverimages"><span class="std std-ref">OPACLocalCoverImages</span></a> and/or
+<a class="reference internal" href="enhancedcontentpreferences.html#localcoverimages"><span class="std std-ref">LocalCoverImages</span></a> set to ‘Display’ by choosing
+‘Upload image’ from the menu.</p>
+<p><img alt="image663" src="_images/uploadimage.png" /></p>
+<p>Choosing ‘Upload image’ will take you to the <a class="reference internal" href="tools.html#upload-local-cover-image-label"><span class="std std-ref">Upload Local Cover
+Image Tool</span></a>.</p>
+</div>
+<div class="section" id="duplicating-records">
+<span id="duplicating-records-label"></span><h3>Duplicating records<a class="headerlink" href="#duplicating-records" title="永久链接至标题"></a></h3>
+<p>Sometimes a copy of the record you need to catalog can’t be found via
+Z39.50. In these cases you can create a duplicate of similar record and
+edit the necessary pieces to create a new record. To duplicate an
+existing record click ‘Edit as new (duplicate)’ from the ‘Edit’ menu on
+the bibliographic record.</p>
+<p><img alt="image664" src="_images/createduplicate.png" /></p>
+<p>This will open a new MARC record with the fields filled in with the
+values from the original bibliographic record.</p>
+<p><img alt="image665" src="_images/newduprecord.png" /></p>
+</div>
+<div class="section" id="attaching-files-to-records">
+<span id="attaching-files-to-records-label"></span><h3>Attaching files to records<a class="headerlink" href="#attaching-files-to-records" title="永久链接至标题"></a></h3>
+<p>If you would like to upload files to Koha you can do so with a few
+settings.</p>
+<ul>
+<li><p class="first">You will need to ask your system administrator to set the
+‘upload_path’ config variable to point to where the files will be
+stored</p>
+<ul>
+<li><p class="first">You can see if your upload path is set correctly by visiting About
+Koha &gt; System information. If there is an error you will see it
+there.</p>
+<p><img alt="image1264" src="_images/uploadwarning.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">You will want to be sure that your <a class="reference internal" href="opacpreferences.html#opacbaseurl"><span class="std std-ref">OPACBaseURL</span></a>
+system preference is set appropriately</p>
+</li>
+<li><p class="first">You will want to add the upload.pl plugin to the 856$u subfield in
+one (or multiple) of your <a class="reference internal" href="administration.html#edit-framework-fields-and-subfields-label"><span class="std std-ref">frameworks</span></a></p>
+</li>
+</ul>
+<p>Once you are all set up you can continue with cataloging as regular. You
+will see a plugin icon next to the 856$u that will open up the upload
+and/or search window</p>
+<p><img alt="image1265" src="_images/uploadfilebib.png" /></p>
+<p>From this menu you can click browse to find a file and attach it, or you
+can search files you have uploaded previously using the search box. From
+the search results you can choose which file to attach.</p>
+<p><img alt="image1266" src="_images/uploadedfiles.png" /></p>
+<p>Once the file is chosen it will appear as a link in the MARC record and
+on the detail display.</p>
+<p><img alt="image1334" src="_images/uploadedfiledetail.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If the file is a PDF, it will be opened directly in the user’s browser
+whereas if the file is an image or another type of file, the user will
+be prompted to download it.</p>
+</div></blockquote>
+</div>
+<div class="section" id="merging-records">
+<span id="merging-records-label"></span><h3>Merging records<a class="headerlink" href="#merging-records" title="永久链接至标题"></a></h3>
+<p>To merge bibliographic records together you will want to go to the
+Cataloging module and perform a search.</p>
+<p>If you see duplicates on that search results screen you can check the
+boxes next to the duplicates and click the ‘Merge selected’ button at
+the top of the results.</p>
+<p>Once you have selected the records you want to merge, click the ‘Merge
+selected’ button at the top of the list. You will be asked which of the
+records you would like to keep as your primary record and which will be
+deleted after the merge. If the records were created using different
+frameworks, Koha will also ask you what Framework you would like the
+newly merged record to use.</p>
+<p><img alt="image666" src="_images/mergeprimary.png" /></p>
+<p>You will be presented with the MARC for all of the records (each
+accessible by tabs labeled with the bib numbers for those records). By
+default the entire first record will be selected, uncheck the fields you
+don’t want in the final (destination) record and then move on to the
+second tab to choose which fields should be in the final (destination)
+record.</p>
+<p><img alt="image667" src="_images/mergerecs.png" /></p>
+<p>Should you try to add a field that is not repeatable two times (like
+choosing the 245 field from both record #1 and #2) you will be presented
+with an error</p>
+<p><img alt="image668" src="_images/nondupfield.png" /></p>
+<p>Below the records you are merging is an option to enter fields to report
+on. This will allow you to control what fields you see on the merge
+confirmation page:</p>
+<p><img alt="image669" src="_images/mergereportvalues.png" /></p>
+<p>If you enter nothing you will be presented with a confirmation of
+biblionumbers only</p>
+<p><img alt="image670" src="_images/mergeblankreport.png" /></p>
+<p>If you enter fields you will see those on the confirmation page (you can
+set defaults with the <a class="reference internal" href="catalogingpreferences.html#mergereportfields"><span class="std std-ref">MergeReportFields</span></a>
+preference)</p>
+<p><img alt="image671" src="_images/mergereport.png" /></p>
+<p>Once you have completed your selections click the ‘merge’ button. The
+primary record will now CONTAIN the data you chose for it as well as all
+of the items/holdings from both bib records, and the second record will
+be deleted.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you would like you can also use the <a class="reference internal" href="opac.html#lists-opac-label"><span class="std std-ref">Lists</span></a> tool for
+merging records together. <a class="reference internal" href="lists.html#merging-bibliographic-records-via-lists-label"><span class="std std-ref">Learn more here</span></a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="deleting-records">
+<span id="deleting-records-label"></span><h3>Deleting records<a class="headerlink" href="#deleting-records" title="永久链接至标题"></a></h3>
+<p>To delete a bibliographic record simply choose the ‘Edit’ button and
+select ‘Delete record’</p>
+<p><img alt="image672" src="_images/deleterecord.png" /></p>
+<p>Bibliographic records can only be deleted once all items have been
+deleted. If you try to delete a bibliographic record with items still
+attached you will see that the delete option is grayed out.</p>
+<p><img alt="image673" src="_images/nodeleterecord.png" /></p>
+</div>
+</div>
+<div class="section" id="item-records">
+<span id="item-records-label"></span><h2>Item records<a class="headerlink" href="#item-records" title="永久链接至标题"></a></h2>
+<p>In Koha each bibliographic record can have one or more items attached.
+These items are sometimes referred to as holdings. Each item includes
+information to the physical copy the library has.</p>
+<div class="section" id="adding-items">
+<span id="adding-items-label"></span><h3>Adding items<a class="headerlink" href="#adding-items" title="永久链接至标题"></a></h3>
+<p>After saving a new bibliographic record, you will be redirected to a
+blank item record so that you can attach an item to the bibliographic
+record. You can also click ‘Add/Edit items’ from the cataloging search
+results</p>
+<p><img alt="image674" src="_images/catalogsearch.png" /></p>
+<p>or you can add new item at any time by clicking ‘New’ on the
+bibliographic record and choosing ‘New item’</p>
+<p><img alt="image675" src="_images/newitem.png" /></p>
+<p>The item edit form will appear:</p>
+<p><img alt="image676" src="_images/additem.png" /></p>
+<p>At the very least, if you plan on circulating the item, the following
+fields should be entered for new items:</p>
+<ul>
+<li><p class="first">2 - Source of classification</p>
+</li>
+<li><p class="first">a - Permanent location</p>
+</li>
+<li><p class="first">b - Current location</p>
+</li>
+<li><p class="first">o - Full call number</p>
+<ul>
+<li><p class="first">If you’d like you can use the <a class="reference external" href="#cnbrowseplugin">call number browser
+plugin</a> for this field. If it’s enabled you’ll
+see a … to the right of the field. When clicked that will open a
+call number browser window if the row is highlighted in Red then
+the call number is in use, if there is a thin Green line instead
+then the call number can be used.</p>
+<p><img alt="image1267" src="_images/cnbrowser.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">p - Barcode</p>
+</li>
+<li><p class="first">v - Cost, replacement price</p>
+<ul class="simple">
+<li>This value will be charged to patrons when you mark an item they
+have checked out as ‘Lost’</li>
+</ul>
+</li>
+<li><p class="first">y - Koha item type</p>
+</li>
+</ul>
+<p>To make sure that these values are filled in you can mark them as
+mandatory in the <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">framework</span></a> you’re using and
+then they will appear in red with a ‘required’ label. The item will not
+save until the required fields are filled in.</p>
+<p><img alt="image677" src="_images/requireditemfields.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>To make item subfields required in a framework you’ll want to
+edit the 952 field in the <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">framework
+editor</span></a>.</p>
+</div></blockquote>
+<p>You can add a new authorized value directly from the add and edit item screen for any fields that are linked
+to authorized value categories such as Shelving location (subfield$c) or Collection code (subfield$8).</p>
+<ul class="simple">
+<li>Start to type the authorised value description, if a match is not found you will see the option ‘(Select to create)’.</li>
+<li>Click on this option to display a pop-up window where you can create you new authorized value.</li>
+<li>The authorized value category will be pre-populated from the field you are using, for example LOC for Shelving location, CCODE
+for Collection code.  Take care when choosing your authorized value code.  Refer to the notes on <a class="reference internal" href="administration.html#add-new-authorized-value-label"><span class="std std-ref">adding new authorized
+values</span></a> for the correct format of these codes.  Use the Description field for the actual value that
+will be displayed</li>
+</ul>
+<p><img alt="Adding a new authorized value from cataloguing" src="_images/addauthvalue1.png" /></p>
+<ul class="simple">
+<li>You can add authorized values in the same way from bibliographic and authority records.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">You must have the manage_auth_values administration permission to add authorized values from cataloguing.</p>
+</div>
+<p>Below the add form there are 3 buttons for adding the item.</p>
+<p><img alt="image678" src="_images/additembuttons.png" /></p>
+<ul class="simple">
+<li>‘Add item’ will add just the one item</li>
+<li>‘Add &amp; duplicate’ will add the item and fill in a new form with the
+same values for you to alter</li>
+<li>‘Add multiple items’ will ask how many items and will then add that
+number of items adding +1 to the barcode so each barcode is unique</li>
+</ul>
+<p>Your added items will appear above the add form once submitted</p>
+<p><img alt="image679" src="_images/items.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: Items Editor).</li>
+</ul>
+</div></blockquote>
+<p>Your items will also appear below the bibliographic details on the bib
+record display.</p>
+<p><img alt="image680" src="_images/items-withoutlabelprint.png" /></p>
+<p>If you have <a class="reference internal" href="catalogingpreferences.html#spinelabelshowprintonbibdetails"><span class="std std-ref">SpineLabelShowPrintOnBibDetails</span></a> set to ‘Display’ then there
+will also be a link to print a quick spine label next to each item.</p>
+<p><img alt="image681" src="_images/items-withlabelprint.png" /></p>
+<p>You can also filter the contents of your holdings table by clicking the
+‘Activate filters’ links. This will show a row at the top where you can
+type in any column to filter the results in the table.</p>
+<p><img alt="image682" src="_images/items-activatefilters.png" /></p>
+</div>
+<div class="section" id="editing-items">
+<span id="editing-items-label"></span><h3>Editing items<a class="headerlink" href="#editing-items" title="永久链接至标题"></a></h3>
+<p>Items can be edited in several ways.</p>
+<ul>
+<li><p class="first">Clicking ‘Edit’ and ‘Edit items’ from the bibliographic record</p>
+<p><img alt="image683" src="_images/edititem.png" /></p>
+<p>Which will open up a list of items where you can click the ‘Actions’
+button to the left of the specific item you would like to edit and
+choose ‘Edit’.</p>
+<p><img alt="image684" src="_images/edititemlink.png" /></p>
+</li>
+<li><p class="first">Clicking ‘Edit items’ beside the item on the ‘Items’ tab</p>
+<p><img alt="image685" src="_images/itemstab.png" /></p>
+<p>Which will open up the editor on the item you’d like to edit</p>
+<p><img alt="image686" src="_images/edititemlinkfromtab.png" /></p>
+</li>
+<li><p class="first">Clicking ‘Edit’ and then ‘Edit items in batch’</p>
+<p><img alt="image687" src="_images/editinbatch.png" /></p>
+<p>This will open up the <a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">batch item modification
+tool</span></a> where you can edit all of the items on
+this record as a batch.</p>
+</li>
+<li><p class="first">You can also enable <a class="reference internal" href="staffclientpreferences.html#staffdetailitemselection"><span class="std std-ref">StaffDetailItemSelection</span></a> to have
+checkboxes appear to the left of each item on the detail display. You
+can then check off the items you would like to edit and click ‘Modify
+selected items’ at the top of the list.</p>
+<p><img alt="image688" src="_images/editwithitemchecks.png" /></p>
+</li>
+<li><p class="first">You can click ‘Edit’ to the right of each item in the Holdings
+tab</p>
+<p><img alt="image1268" src="_images/editindividual.png" /></p>
+</li>
+<li><p class="first">There is also a link to Edit items from the search results in the
+staff client</p>
+<p><img alt="image1269" src="_images/edititemssearch.png" /></p>
+</li>
+<li><p class="first">Finally you can use the <a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">batch item
+modification</span></a> tool</p>
+</li>
+</ul>
+<div class="section" id="quick-item-status-updates">
+<span id="quick-item-status-updates-label"></span><h4>Quick item status updates<a class="headerlink" href="#quick-item-status-updates" title="永久链接至标题"></a></h4>
+<p>Often circulation staff need to change the status of an item to Lost or
+Damaged. This doesn’t require you to edit the entire item record.
+Instead clicking on the item barcode on the checkout summary or checkin
+history will bring you to an item summary. You can also get to the item
+summary by clicking on the Items tab to the left of the bib detail page.</p>
+<p><img alt="image689" src="_images/quickitemedit.png" /></p>
+<p>From this view you can mark an item lost by choosing a lost status from
+the pull down and clicking the ‘Set status’ button.</p>
+<p><img alt="image690" src="_images/editloststatus.png" /></p>
+<p>You can also mark an item as damaged by choosing a damaged status from
+the pull down and clicking the ‘Set status’ button.</p>
+<p><img alt="image691" src="_images/editdamagedstatus.png" /></p>
+</div>
+<div class="section" id="duplicating-items">
+<span id="duplicating-items-label"></span><h4>Duplicating items<a class="headerlink" href="#duplicating-items" title="永久链接至标题"></a></h4>
+<p>You can easily duplicate each item by clicking the ‘Actions’ button the
+left of each item on the edit items screen</p>
+<p><img alt="image692" src="_images/edititemlink.png" /></p>
+<p>From here you can choose to ‘Duplicate’ the item and this will populate
+the form with the values from the item you chose.</p>
+</div>
+</div>
+<div class="section" id="item-information">
+<span id="item-information-label"></span><h3>Item information<a class="headerlink" href="#item-information" title="永久链接至标题"></a></h3>
+<p>To the left of every bibliographic record there is a tab to view the
+items.</p>
+<p><img alt="image693" src="_images/quickitemedit.png" /></p>
+<p>Clicking that tab will give you basic information about the items. From
+here you can see basic information about the item such as the home
+library, item type, collection code, call number and replacement price.
+You can also see and edit the status information. If an item is marked
+lost or withdrawn you will also see the date that status was applied.</p>
+<p><img alt="image1270" src="_images/itemstatuses.png" /></p>
+<p>In the ‘History’ section you will see information about the check out
+history of the item and if you ordered the item via the acquisitions
+module then this section will include information about the order.</p>
+<p><img alt="image694" src="_images/itemorderinfo.png" /></p>
+<p>If the Order or Accession date is linked, clicking it will bring you to
+the acquisitions information for that item.</p>
+</div>
+<div class="section" id="adding-cover-images-for-items">
+<span id="adding-cover-images-for-items-label"></span><h3>Adding cover images for items<a class="headerlink" href="#adding-cover-images-for-items" title="永久链接至标题"></a></h3>
+<p>If you have either OPACLocalCoverImages and/or LocalCoverImages set to ‘Display’ you can upload
+cover images for individual item records from the ‘Upload image’ option from the Edit button on
+the right of the Holdings table.</p>
+<p><img alt="Upload a cover image for an item from Edit button" src="_images/uploaditemcoverimage.png" /></p>
+<p>Click Choose file to find the image file on your computer and then Upload file.</p>
+<p>On the next screen you are given the option to replace existing images.  You can then click on
+Process images.</p>
+<p>The image will display in a Cover image column in the holdings display.</p>
+<p><img alt="Display of a cover image for an item" src="_images/itemcoverimagedisplay.png" /></p>
+<p>To delete an image, click on the image in the holdings display.  You will see a greyed out copy of the
+image with the option to delete.</p>
+<p><img alt="Deleting a cover image for an item" src="_images/itemcoverimagedelete.png" /></p>
+</div>
+<div class="section" id="moving-items">
+<span id="moving-items-label"></span><h3>Moving items<a class="headerlink" href="#moving-items" title="永久链接至标题"></a></h3>
+<p>Items can be moved from one bibliographic record to another using the
+‘Attach item’ option</p>
+<p><img alt="image695" src="_images/attachitem.png" /></p>
+<p>Visit the bibliographic record you want to attach the item to and choose
+‘Attach item’ from the ‘Edit’ menu.</p>
+<p><img alt="image696" src="_images/attachitemform.png" /></p>
+<p>Simply enter the barcode for the item you want to move and click
+‘Submit’</p>
+<p>If this is the last remaining item attached to a bibliographic record
+you will be presented with a button to delete the original host record.</p>
+<p>If you want to move all items to a new record creating only one
+bibliographic record you can use the <a class="reference internal" href="lists.html#merging-bibliographic-records-via-lists-label"><span class="std std-ref">merge Records
+tool</span></a> instead.</p>
+</div>
+<div class="section" id="deleting-items">
+<span id="deleting-items-label"></span><h3>Deleting items<a class="headerlink" href="#deleting-items" title="永久链接至标题"></a></h3>
+<p>There are many ways to delete item records. If you only need to delete
+one item you can do this by opening up the detail page for the bib
+record and clicking the ‘Edit’ button at the top. From there you can
+choose to ‘Edit items’.</p>
+<p><img alt="image697" src="_images/edititemstodelete.png" /></p>
+<p>You will be presented with a list of items and next to each one will be
+a link labeled ‘Delete’. Click that link and if the item is not checked
+out it will delete that item.</p>
+<p><img alt="image698" src="_images/deleteitemlink.png" /></p>
+<p>If you know that all of the items attached to your record are not
+currently checked out you can use the ‘Delete all items’ option under
+the ‘Edit menu’ and it will remove all items from the record.</p>
+<p>You can also enable <a class="reference internal" href="staffclientpreferences.html#staffdetailitemselection"><span class="std std-ref">StaffDetailItemSelection</span></a> to have
+checkboxes appear to the left of each item on the detail display. You
+can then check off the items you would like to delete and click ‘Delete
+selected items’ at the top of the list.</p>
+<p><img alt="image699" src="_images/editwithitemchecks.png" /></p>
+<p>Finally you can use the <a class="reference internal" href="tools.html#batch-item-deletion-label"><span class="std std-ref">batch delete tool</span></a> to
+delete a batch of items.</p>
+</div>
+<div class="section" id="item-specific-circulation-history">
+<span id="item-specific-circulation-history-label"></span><h3>Item specific circulation history<a class="headerlink" href="#item-specific-circulation-history" title="永久链接至标题"></a></h3>
+<p>Each bibliographic record keeps a circulation history (with or without
+the patron information depending on your settings), but each item also
+has its own circulation history page. To see this, click on the ‘Items’
+tab to the left of the record you are viewing.</p>
+<p><img alt="image700" src="_images/itemstab-long.png" /></p>
+<p>Below the ‘History’ heading is a link to ‘View item’s checkout history,’
+clicking that will open up the item’s history which will look slightly
+different from the bibliographic record’s history page.</p>
+<p><img alt="image701" src="_images/itemspecifichistory.png" /></p>
+</div>
+</div>
+<div class="section" id="authorities">
+<span id="authorities-label"></span><h2>Authorities<a class="headerlink" href="#authorities" title="永久链接至标题"></a></h2>
+<p>Authority records are a way of controlling fields in your MARC records.
+Using authority records will provide you with control over subject
+headings, personal names and places.</p>
+<div class="section" id="adding-authorities">
+<span id="adding-authorities-label"></span><h3>Adding authorities<a class="headerlink" href="#adding-authorities" title="永久链接至标题"></a></h3>
+<p>To add a new authority record you can either choose the authority type
+from the ‘New authority’ button or search another library by clicking
+the ‘New from Z39.50’ button.</p>
+<p><img alt="image702" src="_images/newauthtypes.png" /></p>
+<p>If you choose to enter a new authority from scratch, the form that
+appears will allow you to enter all of the necessary details regarding
+your authority record.</p>
+<p><img alt="image703" src="_images/newauthrec.png" /></p>
+<p>To expand collapsed values simply click on the title and the subfields
+will appear. To duplicate a field or subfield just click the plus sign
+(+) to the right of the label. To use field helper plugins simply click
+the ellipsis (…) to the right of the field.</p>
+<p>When linking authorities to other headings, you can use the authority
+finder plugin by clicking the ellipsis (…) to the right of the field.</p>
+<p><img alt="image704" src="_images/creatnewauthfromlink.png" /></p>
+<p>From there you can search your authority file for the authority to link.
+If you can’t find the authority to link, you can click the ‘Create new’
+button and add the necessary authority for the link. This plugin also
+allows for you to choose the link relationship between the authorities.</p>
+<p><img alt="image705" src="_images/authrelationships.png" /></p>
+<p>If you choose to search another library for the authority record you
+will be presented with a search box</p>
+<p><img alt="image706" src="_images/authzsearch.png" /></p>
+<p>From the results you can choose the ‘Import’ link to the right of the
+record you would like to add to Koha</p>
+<p><img alt="image707" src="_images/authimport.png" /></p>
+<p>You will then be presented with the form to edit the authority before
+saving it to your system</p>
+<p><img alt="image708" src="_images/authorityimported.png" /></p>
+</div>
+<div class="section" id="searching-authorities">
+<span id="searching-authorities-label"></span><h3>Searching authorities<a class="headerlink" href="#searching-authorities" title="永久链接至标题"></a></h3>
+<p>From the authorities page you can search for existing terms and the
+bibliographic records they are attached to.</p>
+<p><img alt="image709" src="_images/authoritysearch.png" /></p>
+<p>From the results you will see the authority record, how many
+bibliographic records it is attached to, an ‘Actions’ menu that includes
+the ability to <a class="reference internal" href="#editing-authorities-label"><span class="std std-ref">edit</span></a>, <a class="reference internal" href="#merging-authorities-label"><span class="std std-ref">merge</span></a>
+and <a class="reference internal" href="#editing-authorities-label"><span class="std std-ref">delete</span></a> (if there are no bibliographic records
+attached).</p>
+<p><img alt="image710" src="_images/authorityresults.png" /></p>
+<p>Clicking on the ‘Details’ link to the right of the authority record
+summary will open the full record and the option to edit the record.</p>
+<p><img alt="image711" src="_images/authrecord.png" /></p>
+<p>If the authority has ‘See also’s in it you will see those broken out on
+the search results, clicking the linked headings will run a search for
+that heading instead.</p>
+<p><img alt="image712" src="_images/authoritiesseealso.png" /></p>
+</div>
+<div class="section" id="editing-authorities">
+<span id="editing-authorities-label"></span><h3>Editing authorities<a class="headerlink" href="#editing-authorities" title="永久链接至标题"></a></h3>
+<p>Authorities can be edited by clicking on the authority summary from the
+search results and then clicking the ‘Edit’ button above the record. Or
+by clicking on the ‘Edit’ link to the left of the authority on the
+search results.</p>
+<p><img alt="Authority editing form" src="_images/editauthority.png" /></p>
+<p>Once you’ve made the necessary edits, simply click ‘Save’.</p>
+<p>Depending on the number of bibliographic records this authority record is
+linked to, the bibliographic records may be updated right away. This depends
+on the value in the <a class="reference internal" href="authoritiespreferences.html#authoritymergelimit"><span class="std std-ref">AuthorityMergeLimit</span></a> system preference (the default
+is 50). If the number of bibliographic records is under the value of
+<a class="reference internal" href="authoritiespreferences.html#authoritymergelimit"><span class="std std-ref">AuthorityMergeLimit</span></a>, the bibliographic records will be changed right
+away. If the number of bibliographic records exceeds the value of
+<a class="reference internal" href="authoritiespreferences.html#authoritymergelimit"><span class="std std-ref">AuthorityMergeLimit</span></a>, they will only be updated when the
+<a class="reference internal" href="cron_jobs.html#cron-update-authorities-label"><span class="std std-ref">merge_authorities.pl script</span></a> is run.</p>
+<p>To delete an authority record you first must make sure it’s not linked
+to any bibliographic records. If it is not used by any bibliographic
+records a ‘Delete’ link will appear to the right of the record on the
+search results and as a button that appears after clicking on the
+summary of the authority record.</p>
+</div>
+<div class="section" id="merging-authorities">
+<span id="merging-authorities-label"></span><h3>Merging authorities<a class="headerlink" href="#merging-authorities" title="永久链接至标题"></a></h3>
+<p>If you have duplicate authority records you can merge them together by
+clicking the ‘Merge’ link, found in the Actions menu, next to two
+results on an authority search.</p>
+<p><img alt="image714" src="_images/dupauth.png" /></p>
+<p>After clicking ‘Merge’ on the first result you will see that authority
+listed at the top of the results.</p>
+<p><img alt="image715" src="_images/authmergesearch.png" /></p>
+<p>Next you need to click ‘Merge’ next to the second result you’d like to
+merge.</p>
+<p>You will be asked which of the two records you would like to keep as
+your primary record and which will be deleted after the merge.</p>
+<p><img alt="image716" src="_images/authmergechoice.png" /></p>
+<p>You will be presented with the MARC for both of the records (each
+accessible by tabs labeled with the authority numbers for those
+records). By default the entire first record will be selected, uncheck
+the fields you don’t want in the final (destination) record and then
+move on to the second tab to choose which fields should be in the final
+(destination) record.</p>
+<p><img alt="image717" src="_images/authmerging.png" /></p>
+<p>Once you have completed your selections click the ‘Merge’ button. The
+primary record will now contain the data you chose for it and the second
+record will be deleted.</p>
+<p><img alt="image718" src="_images/authmerged.png" /></p>
+<p>If you have two authority records for the same heading in different frameworks,
+you can merge them together by clicking the ‘Merge’ link, found in the actions
+menu, next to two results on an authority search.  For example, these authority
+records using different frameworks can be merged.</p>
+<p><a href="#id1"><span class="problematic" id="id2">|MergeAutsDiffFrameworksScreenshot1.png|</span></a> :alt:Screenshot of authority search
+results for Ahab, Captain, the top one a Topical Term and the bottom one a Personal Name</p>
+<p>If you select the ‘Merge’ link, found in the action menu of the top record.</p>
+<p><a href="#id3"><span class="problematic" id="id4">|MergeAutsDiffFrameworksScreenshot2.png|</span></a> :alt:Same screenshot showing the opened Edit menu with Merge selected</p>
+<p>You will see that authority record listed at the top of the results.</p>
+<p><a href="#id5"><span class="problematic" id="id6">|MergeAutsDiffFrameworksScreenshot3.png|</span></a> :alt:Screenshot showing the authorized term and its authority record number, and Cancel Merge option at top of search results</p>
+<p>Next you need to select ‘Merge’ next to the second result you’d like to merge.</p>
+<p>You will be asked which of the two records you would like to keep as your
+primary record and which will be deleted after the merge.  You will also
+use the dropdown menu to pick which framework to use.</p>
+<p><a href="#id7"><span class="problematic" id="id8">|MergeAutsDiffFrameworksScreenshot4.png|</span></a> :alt:Screenshot showing the top record selected as Primary with the Using Framework menu opened and Personal Name selected</p>
+<p>You will be presented with the MARC for both of the records (each accessible
+by tabs labeled with the authority numbers for those records). By default the
+entire first record will be selected, uncheck the fields you don’t want in the
+final (destination) record and then move on to the second tab to choose which
+fields should be in the final (destination) record.</p>
+<p>The “ref” record (the primary record) will be in the framework that you chose:</p>
+<p><a href="#id9"><span class="problematic" id="id10">|MergeAutsDiffFrameworksScreenshot5.png|</span></a> :alt:Screenshot of the Merging Records window showing the Source Records and Destination Records in MARC</p>
+<p>Once you have completed your selections click the ‘Merge’ button. The primary
+record will now contain the data you chose for it and the second record will be deleted.</p>
+<p><a href="#id11"><span class="problematic" id="id12">|MergeAutsDiffFrameworksScreenshot6.png|</span></a> :alt:Screenshot showing the new Primary Record</p>
+<p>The MARC tag of the linked headings will have been updated accordingly.</p>
+<p><a href="#id13"><span class="problematic" id="id14">|MergeAutsDiffFrameworksScreenshot7.png|</span></a> :alt:Screenshot of one bibliographic record’s linked subject heading for Ahab, Captain, now updated from a 650 Topic field to a 600 Personal Name field</p>
+</div>
+</div>
+<div class="section" id="cataloging-guides">
+<span id="cataloging-guides-label"></span><h2>Cataloging guides<a class="headerlink" href="#cataloging-guides" title="永久链接至标题"></a></h2>
+<div class="section" id="bibliographic-record-cataloging-cheat-sheet">
+<span id="bibliographic-record-cataloging-cheat-sheet-label"></span><h3>Bibliographic record cataloging cheat sheet<a class="headerlink" href="#bibliographic-record-cataloging-cheat-sheet" title="永久链接至标题"></a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="3%" />
+<col width="13%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Tag</th>
+<th class="head">Label</th>
+<th class="head">Description</th>
+<th class="head">Instructions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>000</td>
+<td>LEADER</td>
+<td>Describes the record(i.e. surrogate) – is it a record for a monograph? A serial?</td>
+<td>Click in this field to fill it in. Then set “Bibliographic level” to ‘a’ for articles or ‘s’ for serials. Otherwise, leave everything as is.</td>
+</tr>
+<tr class="row-odd"><td>001</td>
+<td>CONTROL NUMBER</td>
+<td>Accession number.</td>
+<td>Enter the accession number written inside the item here. For articles and items which do not have accession numbers, leave blank.</td>
+</tr>
+<tr class="row-even"><td>003</td>
+<td>CONTROL NUMBER IDENTIFIER</td>
+<td>Your MARC organizational code</td>
+<td>Click in this field to fill it in (will auto fill if you have your <a class="reference internal" href="catalogingpreferences.html#marcorgcode"><span class="std std-ref">MARCOrgCode</span></a> preference set).</td>
+</tr>
+<tr class="row-odd"><td>005</td>
+<td>D &amp; T LATEST TRANSACTION</td>
+<td>Current date and time.</td>
+<td>Click in this field to fill it in.</td>
+</tr>
+<tr class="row-even"><td>008</td>
+<td>FIXED-LENGTH DATA ELEMENTS</td>
+<td>Field containing computer-readable representations of a number of things.</td>
+<td>Generally you will only use ‘s’ (single) or ‘m’ (multiple) options for position 06- use the former when the item was published in a single year, the latter when it was published over the course of several. If there is a single date, only enter a date in the first date field (positions 07-10). Enter the three-digit country code in positions 15-17, being sure to add spaces if the country code is fewer than three characters long. If there is an index, note that fact in position 31. Enter the three-letter language code in positions 35-37.</td>
+</tr>
+<tr class="row-odd"><td>010</td>
+<td>LCCN</td>
+<td>A number assigned by the Library of Congress to uniquely identify the work.</td>
+<td>Check on the copyright page of the book (if it was published in the US) or the LC catalog for this number. If you can’t find it, don’t worry about it.</td>
+</tr>
+<tr class="row-even"><td>020</td>
+<td>ISBN</td>
+<td>Unique number used by publishers to identify books.</td>
+<td>If this number isn’t listed on the book, there probably isn’t one.</td>
+</tr>
+<tr class="row-odd"><td>022</td>
+<td>ISSN</td>
+<td>Unique number used by publishers to identify serials.</td>
+<td>If this number isn’t listed on the book, there probably isn’t one.</td>
+</tr>
+<tr class="row-even"><td>033</td>
+<td>DATE/TIME OF EVENT</td>
+<td>Used for auction dates. Required for auction catalogs.</td>
+<td>For auctions that took place on only one day, enter the date of the auction in the format YYYYMMDD in the subfield ‘a’ and a ‘0’ in the first indicator. For auctions that took place over two consecutive days or any number of non-consecutive days, create a subfield ‘a’ for each day with the date in the format YYYYMMDD, and put a ‘1’ in the first indicator. For auctions that took place over more than two consecutive days, create a subfield ‘a’ (in format YYYYMMDD) for the first day and a subfield ‘a’ (also in format YYYYMMDD) for the last day, and put a ‘2’ in the first indicator.</td>
+</tr>
+<tr class="row-odd"><td>040</td>
+<td>CATALOGING SOURCE</td>
+<td>Identifies which libraries created and modified the record.</td>
+<td>For imported records, add a subfield ‘d’ with your OCLC code as the value. For new records, make sure that the subfield ‘c’ with your OCLC code as the value.</td>
+</tr>
+<tr class="row-even"><td>041</td>
+<td>LANGUAGE CODE</td>
+<td>Identifies all the languages used in an item, when two or more languages are present.</td>
+<td>For significant portions of a text in a given language, there should be a subfield ‘a’ with that language code. If there are only summaries or abstracts in a specific language, create a subfield ‘b’ with that language code.</td>
+</tr>
+<tr class="row-odd"><td>100</td>
+<td>MAIN ENTRY–PERSONAL</td>
+<td>Authorized form of the main author’s name</td>
+<td>See Authorized headings sheet and AACR2. The first indicator should generally be a ‘1’, to indicate that the entry is surname first. If the name consists only of a forename, however, the first indicator should be ‘0’.</td>
+</tr>
+<tr class="row-even"><td>110</td>
+<td>MAIN ENTRY–CORPORATE</td>
+<td>Authorized form of the name of the main corporate author. Required for auction catalogs.</td>
+<td>Auction catalogs should use a 110 field rather than a 100 field. See Authorized headings sheet and AACR2. Set the first indicator to ‘2’.</td>
+</tr>
+<tr class="row-odd"><td>111</td>
+<td>MAIN ENTRY–MEETING</td>
+<td>Authorized form of the name of a meeting which acted as a main offer (e.g. conference proceedings)</td>
+<td>See Authorized headings sheet and AACR2. Set the first indicator to ‘2’.</td>
+</tr>
+<tr class="row-even"><td>245</td>
+<td>TITLE STATEMENT</td>
+<td>Transcription of the title statement from the title page (or chief source of information)</td>
+<td>Enter the title in subfield ‘a’, the subtitle in subfield ‘b’, and the statement of responsibility in subfield ‘c’. If you are creating a record for a single volume or part of a multi-part item, you should put the part number in subfield ‘n’ and the part title in subfield ‘p.’ For auction catalogs, the date (in ‘MM/DD/YYYY’ format) should be listed in square brackets in subfield ‘f’. See ISBD punctuation sheet. Set the first indicator to ‘0’ if there is no author, otherwise set it to ‘1’. Set the second indicator to the number of non-filing characters (i.e. characters in an initial articles plus the space… for “The ” set the second indicator to ‘4’).</td>
+</tr>
+<tr class="row-odd"><td>246</td>
+<td>VARYING FORM OF TITLE</td>
+<td>Alternate form of title for searching and filing purposes</td>
+<td>If the patron might look for the work under a different title, enter it here. Do not include initial articles. The first indicator should be ‘3’, unless the title is merely a variant spelling, in which case the first indicator should be ‘1’.</td>
+</tr>
+<tr class="row-even"><td>250</td>
+<td>EDITION STATEMENT</td>
+<td>Transcription of the edition statement from the title page (or chief source of information)</td>
+<td>Transcribe the edition statement exactly as it appears on the title-page. You may abbreviate if the edition statement is very long.</td>
+</tr>
+<tr class="row-odd"><td>260</td>
+<td>PUBLICATION (IMPRINT)</td>
+<td>Publication information.</td>
+<td>Put the location of publication in subfield ‘a’, the publisher in subfield ‘b’, and the year (or probable year) in subfield ‘c’. See ISBD punctuation sheet.</td>
+</tr>
+<tr class="row-even"><td>264</td>
+<td>PRODUCTION, PUBLICATION ETC.</td>
+<td>Production, Publication, Distribution, Manufacture, and Copyright Notice.</td>
+<td>Put the location of publication in subfield ‘a’, the publisher in subfield ‘b’, and the year (or probable year) in subfield ‘c’. See ISBD punctuation sheet.  The label is set dynamically from the second indicator so generally this would be set to ‘1’ for Publisher: .</td>
+</tr>
+<tr class="row-odd"><td>300</td>
+<td>PHYSICAL DESCRIPTION</td>
+<td>Physical description</td>
+<td>Enter the pagination statement in subfield ‘a’, a brief description of “special” contents such as illustrations or maps in subfield ‘b’ (see AACR2), and the size of the item in subfield ‘c’. See ISBD punctuation sheet.</td>
+</tr>
+<tr class="row-even"><td>490</td>
+<td>SERIES STATEMENT</td>
+<td>Shows the series statement exactly as it appears on the item.</td>
+<td>Transcribe the series statement into subfield ‘a’ with the volume number in subfield ‘v’. See ISBD punctuation sheet. Set the first indicator to ‘1’ if you are using an 830. As a general rule, you should do so.</td>
+</tr>
+<tr class="row-odd"><td>500</td>
+<td>GENERAL NOTE</td>
+<td>Notes that don’t fit anywhere else.</td>
+<td>Enter notes as full sentences, with a separate 500 field for each distinct topic.</td>
+</tr>
+<tr class="row-even"><td>501</td>
+<td>WITH NOTE</td>
+<td>Notes whether the work is bound with the works described by other records.</td>
+<td>Put description of relationship in subfield ‘a’.</td>
+</tr>
+<tr class="row-odd"><td>504</td>
+<td>BIBLIOGRAPHY, ETC. NOTE</td>
+<td>Indicates whether the work includes a bibliography.</td>
+<td>If the work includes a bibliography and index, put the text “Includes bibliographical references (p. XXX-XXX) and index.” in subfield ‘a’. If the work does not include an index, remove that part of the sentence. If the references are scattered throughout the work and not gathered into a distinct sentence, remove the parenthetical statement.</td>
+</tr>
+<tr class="row-even"><td>505</td>
+<td>FORMATTED CONTENTS</td>
+<td>List of contents in a standard format. Unformatted contents can be listed in a 500 (General Note) field.</td>
+<td>See ISBD punctuation sheet. Set the first indicator to ‘0’. If you are separately coding authors and titles, set the second indicator to ‘0’. Otherwise, leave the second indicator blank.</td>
+</tr>
+<tr class="row-odd"><td>518</td>
+<td>DATE/TIME OF EVENT NOTE</td>
+<td>Used for auction dates.</td>
+<td>For auction catalogs, enter the date of the auction in the format ‘January 2, 1984’ in the subfield ‘a’</td>
+</tr>
+<tr class="row-even"><td>520</td>
+<td>SUMMARY, ETC.</td>
+<td>A brief summary or abstract of the book or article.</td>
+<td>In general you do not need to write a summary. A summary might be called for, however, with items that cannot be easily reviewed by a patron, such as books with highly acidic paper or CD-ROMs.</td>
+</tr>
+<tr class="row-odd"><td>546</td>
+<td>LANGUAGE NOTE</td>
+<td>Note describing the languages used in the work</td>
+<td>Only needed for works in multiple languages. See ISBD punctuation sheet.</td>
+</tr>
+<tr class="row-even"><td>561</td>
+<td>PROVENANCE INFORMATION</td>
+<td>Describes the previous ownership of the item.</td>
+<td>Used only for rare books.</td>
+</tr>
+<tr class="row-odd"><td>563</td>
+<td>BINDING INFORMATION</td>
+<td>Describes the binding of the item.</td>
+<td>Used only for rare books.</td>
+</tr>
+<tr class="row-even"><td>590</td>
+<td>LOCAL NOTE</td>
+<td>Local notes. Required for auction catalogs.</td>
+<td>Used for auction catalogs to indicate what types of coins are sold in the auction- Roman, Greek, etc.</td>
+</tr>
+<tr class="row-odd"><td>600</td>
+<td>SUBJECT ADDED–PERSONAL</td>
+<td>Authorized form of personal names for people discussed in the work</td>
+<td>See Authorized headings sheet and AACR2. The first indicator should generally be a ‘1’, to indicate that the entry is surname first. If the name consists only of a forename, however, the first indicator should be ‘0’. If you found the name in the LC authority file, set the second indicator to ‘0’. Otherwise set the second indicator to ‘4’.</td>
+</tr>
+<tr class="row-even"><td>610</td>
+<td>SUBJECT ADDED–CORPORATE</td>
+<td>Authorized form of corporate names for organizations discussed in the work</td>
+<td>See Authorized headings sheet and AACR2. Set the first indicator to ‘2’. If you found the name in the LC authority file, set the second indicator to ‘0’. Otherwise set the second indicator to ‘4’.</td>
+</tr>
+<tr class="row-odd"><td>611</td>
+<td>SUBJECT ADDED–MEETING</td>
+<td>Authorized form of meeting names for meetings discussed in the work</td>
+<td>See Authorized headings sheet and AACR2. Set the first indicator to ‘2’. If you found the name in the LC authority file, set the second indicator to ‘0’. Otherwise set the second indicator to ‘4’.</td>
+</tr>
+<tr class="row-even"><td>630</td>
+<td>SUBJECT ADDED–UNIFORM TITLE</td>
+<td>Authorized form of titles for other works discussed in the work</td>
+<td>See Authorized headings sheet and AACR2. Set the first indicator to the number of non-filing characters (i.e. characters in an initial articles plus the space… for “The ” set the first indicator to ‘4’). If you found the name in the LC authority file, set the second indicator to ‘0’. Otherwise set the second indicator to ‘4’.</td>
+</tr>
+<tr class="row-odd"><td>650</td>
+<td>SUBJECT ADDED–TOPICAL</td>
+<td>Library of Congress Subject Heading terms describing the subject of the work</td>
+<td>See Authorized headings sheet and AACR2. If you found the name in the LC authority file, set the second indicator to ‘0’. Otherwise set the second indicator to ‘4’.</td>
+</tr>
+<tr class="row-even"><td>651</td>
+<td>SUBJECT ADDED–GEOGRAPHICAL</td>
+<td>Library of Congress Subject Heading geographical terms describing the subject of the work</td>
+<td>See Authorized headings sheet and AACR2. If you found the name in the LC authority file, set the second indicator to ‘0’. Otherwise set the second indicator to ‘4’.</td>
+</tr>
+<tr class="row-odd"><td>655</td>
+<td>INDEX TERM–GENRE/FORM</td>
+<td>Describes what an item is as opposed to what the item is about.</td>
+<td>Generally used only for auction catalogs, which should have the genre heading “Auction catalogs.” (make sure to find the authorized heading!) If you found the name in the LC authority file, set the second indicator to ‘0’. If you are using a term from a specific thesaurus, set the second indicator to ‘7’ and put the code for the thesaurus in subfield ‘2’. Otherwise set the second indicator to ‘4’.</td>
+</tr>
+<tr class="row-even"><td>690</td>
+<td>LOCAL SUBJECT ADDED–TOPICAL</td>
+<td>Used for headings from any custom subject authority file.</td>
+<td>If there is no appropriate LCSH term, you can use a 690 with subject headings you find on other items in the catalog.</td>
+</tr>
+<tr class="row-odd"><td>691</td>
+<td>LOCAL SUBJECT ADDED–GEOGRAPHICAL</td>
+<td>Used for headings from any custom subject authority file.</td>
+<td>If there is no appropriate LCSH term, you can use a 691 with subject headings you find on other items in the catalog.</td>
+</tr>
+<tr class="row-even"><td>700</td>
+<td>ADDED ENTRY–PERSONAL</td>
+<td>Used for second authors and other persons related to the production of the work.</td>
+<td>See Authorized headings sheet and AACR2. The first indicator should generally be a ‘1’, to indicate that the entry is surname first. If the name consists only of a forename, however, the first indicator should be ‘0’.</td>
+</tr>
+<tr class="row-odd"><td>710</td>
+<td>ADDED ENTRY–CORPORATE</td>
+<td>Used for corporate bodies related to the production of the work (e.g. publishers).</td>
+<td>See Authorized headings sheet and AACR2. Set the first indicator to ‘2’.</td>
+</tr>
+<tr class="row-even"><td>711</td>
+<td>ADDED ENTRY–MEETING</td>
+<td>Used for meetings related to the production of the work (e.g. symposia that contributed to the work).</td>
+<td>See Authorized headings sheet and AACR2. Set the first indicator to ‘2’.</td>
+</tr>
+<tr class="row-odd"><td>730</td>
+<td>ADDED ENTRY–UNIFORM TITLE</td>
+<td>Used for uniform titles related to the production of the work (e.g. a work that inspired the present work)</td>
+<td>See Authorized headings sheet and AACR2. Set the first indicator to the number of non-filing characters (i.e. characters in an initial articles plus the space… for “The ” set the first indicator to ‘4’).</td>
+</tr>
+<tr class="row-even"><td>773</td>
+<td>HOST ITEM ENTRY</td>
+<td>Describes the larger bibliographic unit that contains the work (e.g. book or journal containing the article being described in the current record)</td>
+<td>If the host publication is author main entry, enter the authorized form of the author’s name in subfield ‘a’. Put the title in subfield ‘t’. If the host publication is an independent work, put publication information in subfield ‘d’. When available, ISSN and ISBN should always be used in, in subfields ‘x’ and ‘z’ respectively. Relationship information (e.g. volume number, page number, etc.) goes in subfield ‘g’. Subfield ‘q’ contains an encoded representation of the location of the item: volume, issue, and section numbers are separated by colons, and the first page is entered following a ‘&lt;’ at the end of the subfield. See ISBD punctuation sheet. Set the first indicator to ‘0’. If you want the label “In:” to be generated, leave the second indicator blank. If you want something else displayed before the 773 text, set the second indicator to ‘8’ and add a subfield ‘i’ with the label you want at the beginning of the field (e.g. “$iOffprint from:”).</td>
+</tr>
+<tr class="row-odd"><td>830</td>
+<td>SERIES ENTRY–UNIFORM TITLE</td>
+<td>Authorized form of the series name transcribed in the 490 field. Often this will just be the same as the 490.</td>
+<td>See Authorized headings sheet and AACR2. Set the second indicator to the number of non-filing characters (i.e. characters in an initial articles plus the space… for “The ” set the second indicator to ‘4’).</td>
+</tr>
+<tr class="row-even"><td>852</td>
+<td>LOCATION/CALL NUMBER</td>
+<td>Provides the section name for pre-barcode books, pamphlets, and some articles and serials.</td>
+<td>Do not put anything in this field if you are cataloging a volume which gets only one record and a barcode. If the item does not get a barcode, or you are currently creating a record for an article in a volume, put the section in subfield ‘a’ (see ANS cataloging documentation), and the call number in subfield ‘i’. Set the first indicator to ‘8’.</td>
+</tr>
+<tr class="row-odd"><td>856</td>
+<td>ELECTRONIC ACCESS</td>
+<td>Links to material available online.</td>
+<td>Put the URL of any electronic copies or summaries, etc. in subfield ‘u’ and a link title in subfield ‘y’. Set the first indicator to ‘4’.</td>
+</tr>
+<tr class="row-even"><td>942</td>
+<td>ADDED ENTRY ELEMENTS (KOHA)</td>
+<td>Used for Koha-specific data.</td>
+<td>Set the subfield ‘c’ to the appropriate item type.</td>
+</tr>
+</tbody>
+</table>
+<p>Table: Cataloging Guide</p>
+</div>
+<div class="section" id="item-holdings-record-cataloging-guide">
+<span id="item-holdings-record-cataloging-guide-label"></span><h3>Item/Holdings Record Cataloging Guide<a class="headerlink" href="#item-holdings-record-cataloging-guide" title="永久链接至标题"></a></h3>
+<p>This table represents the default embedded holdings data in Koha. This
+information can be used for migration or importing data purposes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="13%" />
+<col width="19%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">MARC21 Tag/subfield</th>
+<th class="head">Data Element</th>
+<th class="head">Description</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>952$0</td>
+<td>Withdrawn status</td>
+<td><p class="first">Default values:</p>
+<ul class="last simple">
+<li>0 = Not withdrawn</li>
+<li>1 = Withdrawn</li>
+</ul>
+</td>
+<td>Coded value, matching <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">Authorized value</span></a> category (‘WITHDRAWN’ in default installation)</td>
+</tr>
+<tr class="row-odd"><td>952$1</td>
+<td>Lost status</td>
+<td><p class="first">Default values:</p>
+<ul class="last simple">
+<li>0 = Available</li>
+<li>1 = Lost</li>
+<li>2 = Long Overdue (Lost)</li>
+<li>3 = Lost and Paid For</li>
+<li>4 = Missing in Inventory</li>
+<li>5 = Missing in Hold Queue</li>
+</ul>
+</td>
+<td><p class="first">It’s possible to configure OPAC so that lost items don’t display with the <a class="reference internal" href="opacpreferences.html#hidelostitems"><span class="std std-ref">hidelostitems</span></a> system preference.</p>
+<p class="last">Coded value, matching <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">Authorized value</span></a> category (‘LOST’ in default installation)</p>
+</td>
+</tr>
+<tr class="row-even"><td>952$2</td>
+<td>Classification</td>
+<td>Classification scheme that defines filing rules used for sorting call numbers.</td>
+<td>A choice of <a class="reference internal" href="administration.html#classification-sources-label"><span class="std std-ref">classification sources</span></a> as they are defined in administration. If no classification scheme is entered, the system will use the value entered in the <a class="reference internal" href="catalogingpreferences.html#defaultclassificationsource"><span class="std std-ref">DefaultClassificationSource</span></a> preference.</td>
+</tr>
+<tr class="row-odd"><td>952$3</td>
+<td>Materials specified</td>
+<td>Specific issues of serials or multi-part items.</td>
+<td>Displayed when items are checked out and in to tell the staff how many pieces the item has. Copy/volume data is stored in 952$h and $t for display in Normal views.</td>
+</tr>
+<tr class="row-even"><td>952$4</td>
+<td>Damaged status</td>
+<td><p class="first">Default values:</p>
+<ul class="last simple">
+<li>0 = Not damaged</li>
+<li>1 = Damaged</li>
+</ul>
+</td>
+<td>Coded value, matching <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">Authorized value</span></a> category (‘DAMAGED’ in default installation)</td>
+</tr>
+<tr class="row-odd"><td>952$5</td>
+<td>Use restrictions</td>
+<td><p class="first">Default values:</p>
+<ul class="last simple">
+<li>0 = No use restrictions</li>
+<li>1 = Restricted Access</li>
+</ul>
+</td>
+<td>Coded value, matching <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">Authorized value</span></a> category (‘RESTRICT’ in default installation). This value has no effect on circulation.</td>
+</tr>
+<tr class="row-even"><td>952$7</td>
+<td>Not for loan</td>
+<td><p class="first">Default values:</p>
+<ul class="last simple">
+<li>-1 = Ordered</li>
+<li>0 = Available for loans</li>
+<li>1 = Not for Loan</li>
+<li>2 = Staff Collection</li>
+</ul>
+</td>
+<td>Coded value, matching <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">Authorized value</span></a> category (‘NOT_LOAN’ in default installation). Negative number values can still be placed on hold.</td>
+</tr>
+<tr class="row-odd"><td>952$8</td>
+<td>Collection code</td>
+<td>Coded value</td>
+<td>Coded value, matching <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">Authorized value</span></a> category (‘CCODE’ in default installation)</td>
+</tr>
+<tr class="row-even"><td>952$9</td>
+<td>Item number</td>
+<td>System-generated item number.</td>
+<td>Does not display in the item record.</td>
+</tr>
+<tr class="row-odd"><td>952$a</td>
+<td>Owning Library **</td>
+<td>Branch code</td>
+<td><strong>Required</strong>. Code must be defined in <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">Libraries</span></a></td>
+</tr>
+<tr class="row-even"><td>952$b</td>
+<td>Holding library ** (usually the same as 952$a )</td>
+<td>Branch code</td>
+<td><strong>Required</strong>. Code must be defined in <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">Libraries</span></a></td>
+</tr>
+<tr class="row-odd"><td>952$c</td>
+<td>Shelving location code</td>
+<td>&#160;</td>
+<td>Coded value, matching <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">Authorized value</span></a> category (‘LOC’ in default installation)</td>
+</tr>
+<tr class="row-even"><td>952$d</td>
+<td>Date acquired</td>
+<td>YYYY-MM-DD</td>
+<td>Date formats in the 952 subfields are required to be in the system internal format for data loading and subsequent item editing: YYYY-MM-DD</td>
+</tr>
+<tr class="row-odd"><td>952$e</td>
+<td>Source of acquisition</td>
+<td>Coded value or vendor string</td>
+<td>Filled in automatically with the Koha assigned vendor id by Acquisitions when an item is received.</td>
+</tr>
+<tr class="row-even"><td>952$g</td>
+<td>Purchase price</td>
+<td>Decimal number, no currency symbol (ex. 10.00)</td>
+<td>Filled in automatically by Acquisitions when an item is received.</td>
+</tr>
+<tr class="row-odd"><td>952$h</td>
+<td>Serial enumeration</td>
+<td>&#160;</td>
+<td>Filled in automatically by Serials if the issue is received there.</td>
+</tr>
+<tr class="row-even"><td>952$o</td>
+<td>Koha full call number</td>
+<td>&#160;</td>
+<td>Can be filled in automatically based on the <a class="reference internal" href="catalogingpreferences.html#itemcallnumber"><span class="std std-ref">itemcallnumber</span></a> system preference.</td>
+</tr>
+<tr class="row-odd"><td>952$p</td>
+<td>Barcode *</td>
+<td>Max 20 characters</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>952$t</td>
+<td>Copy number</td>
+<td>Max 32 characters</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>952$u</td>
+<td>Uniform Resource Identifier</td>
+<td>Item specific URL</td>
+<td>Full URL starting with <a class="reference external" href="http://">http://</a> Only needed if your item has its own URL, not necessary if the bib record has a 856$u that applies to all items on the record.</td>
+</tr>
+<tr class="row-even"><td>952$v</td>
+<td>Replacement price</td>
+<td>Decimal number, no currency symbol (ex. 10.00)</td>
+<td>Filled in automatically by Acquisitions when an item is received.</td>
+</tr>
+<tr class="row-odd"><td>952$w</td>
+<td>Price effective from</td>
+<td>YYYY-MM-DD</td>
+<td>Date formats in the 952 subfields are required to be in the system internal format for data loading and subsequent item editing: YYYY-MM-DD. Filled in automatically by Acquisitions when an item is received.</td>
+</tr>
+<tr class="row-even"><td>952$x</td>
+<td>Nonpublic note</td>
+<td>&#160;</td>
+<td>This is a note field for notes that will not appear in the OPAC. Right now this note does not appear anywhere but in the item edit screen in the staff client.</td>
+</tr>
+<tr class="row-odd"><td>952$y</td>
+<td>Koha item type **</td>
+<td>Coded value, required field for circulation</td>
+<td><strong>Required</strong>. Coded value, must be defined in <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">Item types</span></a></td>
+</tr>
+<tr class="row-even"><td>952$z</td>
+<td>Public note</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Table: Koha Embedded Holdings Data</p>
+<p>* - required for circulation</p>
+<p>** - required by Koha</p>
+</div>
+<div class="section" id="koha-xslt-material-type-icons">
+<span id="material-type-cataloging-guide-label"></span><h3>Koha XSLT material type icons<a class="headerlink" href="#koha-xslt-material-type-icons" title="永久链接至标题"></a></h3>
+<p>When you have any of the XSLT system preferences
+(<a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a>,
+<a class="reference internal" href="opacpreferences.html#opacxsltresultsdisplay"><span class="std std-ref">OPACXSLTResultsDisplay</span></a>,
+<a class="reference internal" href="staffclientpreferences.html#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a>, and/or
+<a class="reference internal" href="staffclientpreferences.html#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a>) along with the
+<a class="reference internal" href="opacpreferences.html#displayopaciconsxslt"><span class="std std-ref">DisplayOPACiconsXSLT</span></a> and
+<a class="reference internal" href="staffclientpreferences.html#displayiconsxslt"><span class="std std-ref">DisplayIconsXSLT</span></a> preferences turned on you will
+see material type icons on the related screen.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>These images are coming from values found in your leader, if your
+leader is not cataloged properly it might be best to turn off the
+<a class="reference internal" href="opacpreferences.html#displayopaciconsxslt"><span class="std std-ref">DisplayOPACiconsXSLT</span></a> preference (which
+can be done while leaving the other XSLT preferences turned on).</p>
+</div></blockquote>
+<p><img alt="image1081" src="_images/book.png" /></p>
+<ul class="simple">
+<li>Book [BK]<ul>
+<li>leader6 = a (and one of the leader7 values below)<ul>
+<li>leader7 = a</li>
+<li>leader7 = c</li>
+<li>leader7 = d</li>
+<li>leader7 = m</li>
+</ul>
+</li>
+<li>leader6 = t</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1082" src="_images/comp.png" /></p>
+<ul class="simple">
+<li>Computer File [CF]<ul>
+<li>leader6 = m</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1083" src="_images/cr.png" /></p>
+<ul class="simple">
+<li>Continuing Resource [CR]<ul>
+<li>leader7 = b</li>
+<li>leader7 = i</li>
+<li>leader7 = s</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1084" src="_images/map.png" /></p>
+<ul class="simple">
+<li>Map [MP]<ul>
+<li>leader6 = e</li>
+<li>leader6 = f</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1085" src="_images/mixed.png" /></p>
+<ul class="simple">
+<li>Mixed [MX]<ul>
+<li>leader6 = p</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1086" src="_images/sound.png" /></p>
+<ul class="simple">
+<li>Sound [MU]<ul>
+<li>leader6 = c</li>
+<li>leader6 = d</li>
+<li>leader6 = i</li>
+<li>leader6 = j</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1087" src="_images/visual.png" /></p>
+<ul class="simple">
+<li>Visual Material [VM]<ul>
+<li>leader6 = g</li>
+<li>leader6 = k</li>
+<li>leader6 = r</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1088" src="_images/kit.png" /></p>
+<ul class="simple">
+<li>Kit<ul>
+<li>leader6 = o</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="handling-on-order-items-and-holds">
+<span id="handling-on-order-items-and-holds-label"></span><h3>Handling On Order Items and Holds<a class="headerlink" href="#handling-on-order-items-and-holds" title="永久链接至标题"></a></h3>
+<p>If you tend to import your MARC records when you have ordered the book
+(as opposed to when you receive the books), and allow patrons to place
+holds on those books, you may need to add item records to the *.mrc
+file before importing.</p>
+<p>The easiest way to import your latest order is to first run your records
+through <a class="reference external" href="http://marcedit.reeset.net/">MARCEdit</a>. Download your MARC
+records, saving them to your desktop or some other location you use/will
+remember. If you have MARCEdit already installed you should simply have
+to double click on your MARC records, and they will automatically open
+in MARCEdit.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This tutorial was written with MARCEdit version 5.2.3769.41641 on
+Windows XP, instructions may be different if your version or
+operating system is different.</p>
+</div></blockquote>
+<ul>
+<li><p class="first">Your original file will automatically be in the input; ensure
+MarcBreaker is chosen, and then click “Execute”</p>
+<p><img alt="image719" src="_images/marcbreaker.png" /></p>
+</li>
+<li><p class="first">You will be presented with a summary of the records processed at the
+bottom of the screen</p>
+<p><img alt="image720" src="_images/marcbreaker-summary.png" /></p>
+</li>
+<li><p class="first">Click ‘Edit Records’ to continue on to adding item records</p>
+</li>
+<li><p class="first">Your screen will be replaced with a larger screen containing the MARC
+records</p>
+<p><img alt="image721" src="_images/editrecords.png" /></p>
+</li>
+<li><p class="first">Click on Tools &gt; Add/Edit Field</p>
+<p><img alt="image722" src="_images/addfield1.png" /></p>
+</li>
+<li><p class="first">Enter in the Koha specific item info</p>
+<p><img alt="image723" src="_images/add942.png" /></p>
+<ul class="simple">
+<li>In the Field box, type 942</li>
+<li>In the Field Data box, type \$c and the item type code
+(\$cBOOK in this example)</li>
+<li>Check the ‘Insert last’ option</li>
+<li>Click ‘Add Field’</li>
+</ul>
+</li>
+<li><p class="first">Enter in the item record data</p>
+<p><img alt="image724" src="_images/add952.png" /></p>
+<ul class="simple">
+<li>In the Field box, type 952</li>
+<li>In the Field Data box, type
+$7ORDERED_STATUS$aPERM_LOC$bCURR_LOC$cSHELVING_LOCATION$eSOURCE_OF_ACQ$yITEM_TYPE<ul>
+<li>ex. $7-1$aCPL$bCPL$cNEW$eBrodart$yBOOK<ul>
+<li>In a default install of Koha -1 is the value for the Ordered
+status</li>
+</ul>
+</li>
+<li>You may want to look at other subfields you would like data in
+– for example, changing the collection code to put all the
+items in the same collection (8), automatically fill in the
+acquisition date (d), or put in a public note (z).</li>
+<li>Be sure you use the $ to separate subfields; adding each
+subfield on a separate line will cause that many items to be
+imported with your MARC record (in the example above, four
+items, each with one of those subfields corrected)</li>
+<li>Make sure you look at the Administration &gt; Authorized Values in
+Koha to put the correct code into the field</li>
+</ul>
+</li>
+<li>Check the ‘Insert last’ option</li>
+<li>Click ‘Add Field’</li>
+</ul>
+</li>
+<li><p class="first">Close the field editor window</p>
+</li>
+<li><p class="first">Click on File &gt; Compile into MARC</p>
+<p><img alt="image725" src="_images/compile.png" /></p>
+</li>
+<li><p class="first">Choose where to save your file</p>
+</li>
+</ul>
+<p>Now you want to go into your Koha system and follow the instructions for
+<a class="reference internal" href="tools.html#stage-marc-records-for-import-label"><span class="std std-ref">importing MARC records</span></a>.</p>
+<p>Once the item has come in, you will need to go to the item record and
+individually change the item to have the correct barcode, and manually
+change the status from Ordered to the blank line in the Not for Loan
+field.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you purchase your cataloged item records, you may want to request
+your vendor put in the information you need into the MARC records
+for you; that way, you could import the edited-by-the-vendor file,
+overwriting the current record, automatically replacing the data
+with what you need.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="circulation.html" class="btn btn-neutral float-left" title="Circulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="course_reserves.html" class="btn btn-neutral float-right" title="Course reserves" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

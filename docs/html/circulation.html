@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circulation &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Cataloging" href="cataloging.html" />
+    <link rel="prev" title="Cash management" href="cash_management.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Circulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#check-out-issuing">Check out (issuing)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#checking-items-out">Checking items out</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#printing-receipts">Printing receipts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clear-patron-information">Clear patron information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-checkouts">Batch checkouts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-out-messages">Check out messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-out-warnings">Check out warnings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#renewing">Renewing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-in-returning">Check in (returning)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#checking-items-in">Checking items in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-in-messages">Check in messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#circulation-messages">Circulation messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-messages">Setting up messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-message">Adding a message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-messages">Viewing messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#holds">Holds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#placing-holds-in-staff-client">Placing holds in staff client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-holds">Managing holds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receiving-holds">Receiving holds</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transfers">Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-library">Set library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fast-add-cataloging">Fast add cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#circulation-reports">Circulation reports</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#holds-queue">Holds queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-to-pull">Holds to pull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-awaiting-pickup">Holds awaiting pickup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hold-ratios">Hold ratios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transfers-to-receive">Transfers to receive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#article-requests">Article requests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-article-requests">Setting up article requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#placing-article-requests">Placing article requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-article-requests">Managing article requests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#overdues">Overdues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overdues-with-fines">Overdues with fines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pending-on-site-checkouts">Pending on-site checkouts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tracking-in-house-use">Tracking in-house use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#self-checkout">Self checkout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#self-check-in">Self check-in</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#offline-circulation-utilities">Offline circulation utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#offline-circulation-in-koha">Offline circulation in Koha</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circulating">Circulating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#koha-offline-uploading">Koha offline uploading</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#firefox-plugin">Firefox plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline-circ-tool-for-windows">Offline circ tool for Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#upload-offline-circ-file">Upload offline circ file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Circulation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/circulation.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="cash_management.html" class="btn btn-neutral float-left" title="Cash management" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cataloging.html" class="btn btn-neutral float-right" title="Cataloging" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="circulation">
+<span id="circulation-label"></span><h1>Circulation<a class="headerlink" href="#circulation" title="永久链接至标题"></a></h1>
+<p>Circulation functions can be accessed in several different ways. On the
+main page of the staff client there are some quick links in the center
+of the page to check items out, in or transfer them. For a complete
+listing of Circulation functions you can visit the Circulation page
+which is linked from the top left of every page or from the center of
+the main page.</p>
+<p>Before circulating your collection you will want to set your <a class="reference internal" href="globalpreferences.html#global-system-preferences-label"><span class="std std-ref">Global
+system preferences</span></a>, <a class="reference internal" href="administration.html#basic-parameters-label"><span class="std std-ref">Basic
+parameters</span></a> and <a class="reference internal" href="administration.html#patrons-and-circulation-label"><span class="std std-ref">Patrons and circulation
+rules</span></a>.</p>
+<p>While in Circulation you can jump between the tabs on the quick search
+box at the top of the screen by using the following hot keys:</p>
+<ul>
+<li><p class="first">jump to the catalog search with Alt+Q</p>
+</li>
+<li><p class="first">jump to the checkout with Alt+U</p>
+<ul class="simple">
+<li>this will not work for Mac users</li>
+</ul>
+</li>
+<li><p class="first">jump to the checkin with Alt+R</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Mac users use the OPTION button in place of ALT</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="check-out-issuing">
+<span id="check-out-issuing-label"></span><h2>Check out (issuing)<a class="headerlink" href="#check-out-issuing" title="永久链接至标题"></a></h2>
+<p>To begin the checkout process you must enter the patron barcode or part
+of their name. The checkout option appears in three main places:</p>
+<ul>
+<li><p class="first">Check out option on the top of the main staff client</p>
+<p><img alt="image482" src="_images/checkoutmain.png" /></p>
+</li>
+<li><p class="first">Check out option on the quick search bar on the circulation page</p>
+<p><img alt="image484" src="_images/circquickbox.png" /></p>
+</li>
+</ul>
+<p>Those two options allow you to search for a patron either by card number, name,
+user ID, email, etc. If you only have one result, Koha will automatically go
+to the patron’s file. If your search gives you more than one result, it will
+ask you to choose which patron you want to check out to.</p>
+<p><img alt="image1494" src="_images/patronsearchcirc.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module- Under Circulation Tab (table id: table_borrowers).</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first">Check out option on the patron record</p>
+<p><img alt="image483" src="_images/checkoutpatron.png" /></p>
+</li>
+<li><p class="first">If you have enabled <a class="reference internal" href="circulationpreferences.html#batch-checkout-label"><span class="std std-ref">batch checkouts</span></a> then
+click the batch check out option on the patron record</p>
+<p><img alt="image1254" src="_images/batchcheckout.png" /></p>
+</li>
+</ul>
+<div class="section" id="checking-items-out">
+<span id="checking-items-out-label"></span><h3>Checking items out<a class="headerlink" href="#checking-items-out" title="永久链接至标题"></a></h3>
+<p>To check an item out to a patron, first search for that patron using one
+of the many options listed above. You will then be presented with the
+checkout screen.</p>
+<p><img alt="Checkout screen with checkouts hidden" src="_images/checkingout-noshow.png" /></p>
+<p>If you have chosen to ‘Always show checkouts immediately’ then you will
+see the list of checkouts below the check out box.</p>
+<p><img alt="Checkout screen with checkouts displayed" src="_images/checkingout.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The <a class="reference internal" href="circulationpreferences.html#previousissuesdefaultsortorder"><span class="std std-ref">previousIssuesDefaultSortOrder</span></a> system preference controls
+in which order these previous checkouts appear (earliest to latest,
+or latest to earliest).</p>
+<p><strong>Note</strong></p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: issues-table).</p>
+</div></blockquote>
+<p>At the top of the check out screen is a box for you to type or scan the
+item’s barcode into.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Many modern barcode scanners will send a ‘return’ to the browser,
+making it so that the ‘Check out’ button is automatically clicked</p>
+</div></blockquote>
+<ul class="simple">
+<li>If the barcode is not found you will be prompted to use fast
+cataloging to add the item. Learn more about <a class="reference internal" href="#fast-add-cataloging-label"><span class="std std-ref">fast
+cataloging</span></a> later in this manual.</li>
+<li>If you have <a class="reference internal" href="circulationpreferences.html#itembarcodefallbacksearch"><span class="std std-ref">itemBarcodeFallbackSearch</span></a> set to
+‘Enable’, then you can enter a keyword search in this box instead of
+just a barcode (this will make it possible to check out using title
+and/or call number).</li>
+<li>If you have <a class="reference internal" href="circulationpreferences.html#autoswitchpatron"><span class="std std-ref">AutoSwitchPatron</span></a> set to ‘Enable’,
+scanning a patron barcode here will take you to that patron’s file.</li>
+</ul>
+<p>To see more checkout options click the ‘Checkout settings’ link to
+expand the checkout area.</p>
+<p><img alt="Checkout box with checkout settings section opened" src="_images/checkoutsettings.png" /></p>
+<p>Below the box for the barcode there may be options for you to override
+the default due date for the item.</p>
+<ul class="simple">
+<li>This option will only appear if you have set the
+<a class="reference internal" href="circulationpreferences.html#specifyduedate"><span class="std std-ref">SpecifyDueDate</span></a> system preference to allow staff
+to override the due date</li>
+</ul>
+<p>Below the box for the barcode you will see a checkbox for ‘Automatic
+renewal’. This will allow this item to automatically renew if the
+<a class="reference internal" href="cron_jobs.html#cron-automatic-renewal-label"><span class="std std-ref">appropriate cron job</span></a> is running and there
+are no holds on the item.</p>
+<p>Next is an option to not decrease the loan length based on holds. This
+overrides the <a class="reference internal" href="circulationpreferences.html#decreaseloanhighholds-preferences-label"><span class="std std-ref">decreaseLoanHighHolds</span></a> system preference.</p>
+<p>If you’re allowing the <a class="reference internal" href="circulationpreferences.html#onsitecheckouts-label"><span class="std std-ref">checkout of items on site</span></a>
+to patrons (these are usually items that are not for loan that you would
+like to check for in library use) then you will see the ‘On-site
+checkout’ checkbox after clicking the ‘Checkout settings’ link to expand
+your circulation options.</p>
+<p><img alt="Checkout box with checkout settings section opened and 'Automatic renewal' option selected" src="_images/allowonsitecheckout.png" /></p>
+<p>At the bottom of the page there is a summary of the patron’s current
+checked out items along with the due date (and time if the item is an
+hourly loan). Items checked out today will appear at the top.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Items that are hourly loan items will include the time with the due
+date.</p>
+</div></blockquote>
+<p><img alt="Table of patron's current checkouts" src="_images/checkoutsummary.png" /></p>
+<p>If you checked out an item for on site use you will see that highlighted
+in red in the checkout summary.</p>
+<p><img alt="Section of the patron's current checkouts table showing only onsite checkouts" src="_images/onsitecheckout.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The <a class="reference internal" href="circulationpreferences.html#todaysissuesdefaultsortorder"><span class="std std-ref">todaysIssuesDefaultSortOrder</span></a> system preference controls in
+which order these new checkouts appear (earliest to latest, or latest
+to earliest).</p>
+</div></blockquote>
+<p>The ‘Export’ button at the top of the table allows you to export the patron’s
+current checkouts in either Microsoft Excel or CSV format, or even copy or print
+their checkouts.</p>
+<p><img alt="Export checkouts options (Excel, CSV, copy or print)" src="_images/exportcheckouts.png" /></p>
+<p>Also at the bottom of the page is the list of items the patron has on
+hold.</p>
+<p><img alt="Table of patron's current holds" src="_images/holdssummary.png" /></p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#suspendholdsintranet"><span class="std std-ref">SuspendHoldsIntranet</span></a> system preference set to
+‘allow’, you can suspend or resume patrons holds using the options at the
+bottom of the holds list .</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you have your <a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> system preference
+set to “Don’t allow”, you will not have the option to put an end
+date on the hold suspension</p>
+</div></blockquote>
+<p>If there are notes on the patron record these will appear to the right
+of the checkout box</p>
+<p><img alt="Checkout box with notes and messages next to it" src="_images/patronnotes.png" /></p>
+<p>If the patron has a hold waiting at the library, that too will appear to
+the right of the check out box making it easy for the circulation
+staff to see that there is another item to give to the patron.</p>
+<p><img alt="Checkout screen with a hold waiting message next to the checkout box" src="_images/holdwaiting.png" /></p>
+<p>The details of the checkouts will appear on the record detail page in the
+staff client as well.</p>
+<p><img alt="Item table in a record detail page showing which items are checked out and to whom" src="_images/circonholdings.png" /></p>
+<div class="section" id="printing-receipts">
+<span id="printing-receipts-label"></span><h4>Printing receipts<a class="headerlink" href="#printing-receipts" title="永久链接至标题"></a></h4>
+<p>Once you have checked out all of the items for the patron you can print
+them a receipt by choosing one of two methods.</p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#circautoprintquickslip"><span class="std std-ref">CircAutoPrintQuickSlip</span></a>
+preference set to ‘open a print quick slip window’ you can simply hit
+enter on your keyboard or scan a blank piece of paper with your barcode
+scanner. The idea being that you’re “checking out” a blank barcode which
+triggers Koha to print the ‘Quick slip.’</p>
+<p>You can also click the Print button at the top of the screen and choose
+‘Print slip’ or ‘Print quick slip’.</p>
+<p><img alt="image494" src="_images/printslip.png" /></p>
+<p>If you choose ‘Print slip’ it will print all of the items the patron has
+checked out, including those they checked out at an earlier date.
+Choosing ‘Print quick slip’ will print only the items that were checked
+out today.</p>
+<p>‘Print summary’ will generate a full page summary for the patron’s
+circulation information and ‘Print overdues’ will print out a slip that
+lists all items that are overdue.</p>
+<p>What prints on the slips can be customized by altering the slip
+templates under the <a class="reference internal" href="tools.html#notices-slips"><span class="std std-ref">Notices &amp; slips</span></a> tool.</p>
+</div>
+<div class="section" id="clear-patron-information">
+<span id="clear-patron-information-label"></span><h4>Clear patron information<a class="headerlink" href="#clear-patron-information" title="永久链接至标题"></a></h4>
+<p>When you’re done checking an item out if you have the
+<a class="reference internal" href="circulationpreferences.html#displayclearscreenbutton"><span class="std std-ref">DisplayClearScreenButton</span></a> preference set
+to ‘Show’ you can clear the current patron by clicking the X in the top
+right of the patron’s info to remove the current patron from the screen
+and start over.</p>
+<p><img alt="image495" src="_images/DisplayClearScreenButton.png" /></p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#circautoprintquickslip"><span class="std std-ref">CircAutoPrintQuickSlip</span></a>
+preference set to ‘clear the screen’ then you simply need to hit enter
+or scan a blank barcode and the screen will be cleared of the current
+patron.</p>
+</div>
+</div>
+<div class="section" id="batch-checkouts">
+<span id="batch-checkouts-label"></span><h3>Batch checkouts<a class="headerlink" href="#batch-checkouts" title="永久链接至标题"></a></h3>
+<p>If you would like to perform a batch check out you can do so by turning
+on the <a class="reference internal" href="circulationpreferences.html#batchcheckouts"><span class="std std-ref">BatchCheckouts</span></a> system preference and
+assigning the proper patron categories via the
+<a class="reference internal" href="circulationpreferences.html#batchcheckoutsvalidcategories"><span class="std std-ref">BatchCheckoutsValidCategories</span></a>
+preference. This will allow you to use an RFID pad that reads multiple
+barcodes or perform a batch check out for training internal use.</p>
+<p><img alt="image1257" src="_images/batchcheckoutscan.png" /></p>
+<p>From this screen you can scan several barcodes or load a file of
+barcodes. If those items cannot be checked out they will provide a
+warning on the following screen.</p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#specifyduedate"><span class="std std-ref">SpecifyDueDate</span></a> system preference enabled you will
+have the option to set a due date for the checkouts.</p>
+<p><img alt="image496" src="_images/batchcheckoutwarn.png" /></p>
+<p>If you are using a statistical patron type then you’ll see that local
+use was recorded for each item you scanned.</p>
+<p><img alt="image497" src="_images/batchlocaluse.png" /></p>
+</div>
+<div class="section" id="check-out-messages">
+<span id="check-out-messages-label"></span><h3>Check out messages<a class="headerlink" href="#check-out-messages" title="永久链接至标题"></a></h3>
+<p>If you check out an item that has multiple pieces and you have cataloged
+that information in subfield 3 of the item record (in MARC21) a message
+will pop up when you check out that item telling you how many pieces
+should be there.</p>
+<p><img alt="image498" src="_images/materialspecified.png" /></p>
+<p>There are times when Koha will prevent the librarian from being able to
+check out items to a patron. When this happens a warning will appear
+notifying the librarian of why the patron cannot check items out.</p>
+<ul>
+<li><p class="first">Patron owes too much in fines</p>
+<p><img alt="image499" src="_images/fineswarning.png" /></p>
+<ul class="simple">
+<li>You can set the amount at which patron checkouts are blocked with
+the <a class="reference internal" href="circulationpreferences.html#noissuescharge"><span class="std std-ref">noissuescharge</span></a> system preference</li>
+</ul>
+</li>
+<li><p class="first">Patron has a restriction on their account</p>
+<p><img alt="image500" src="_images/debarwarning.png" /></p>
+<ul>
+<li><p class="first">This can be set by the librarian editing a patron record and
+adding a <a class="reference external" href="#patronflags">restriction</a> or by the <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue/Notice
+Status Triggers</span></a></p>
+</li>
+<li><p class="first">If the staff member has the right permission they can override the
+restriction temporarily</p>
+<p><img alt="image501" src="_images/overridetemporarily.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Patron needs to confirm their address</p>
+<p><img alt="image502" src="_images/addresswarning.png" /></p>
+<ul class="simple">
+<li>This can be set by the librarian editing a patron record and
+adding a <a class="reference external" href="#patronflags">flag</a></li>
+</ul>
+</li>
+<li><p class="first">Patrons has lost their library card</p>
+<p><img alt="image503" src="_images/lostcardwarning.png" /></p>
+<ul class="simple">
+<li>This can be set by the librarian editing a patron record and
+adding a <a class="reference external" href="#patronflags">flag</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="check-out-warnings">
+<span id="check-out-warnings-label"></span><h3>Check out warnings<a class="headerlink" href="#check-out-warnings" title="永久链接至标题"></a></h3>
+<p>Sometimes checkouts will trigger warning messages that will appear in a
+yellow box above the check out field. These warnings need to be
+acknowledged before you will be able to continue checking items out.</p>
+<ul>
+<li><p class="first">Patron has outstanding fines</p>
+<p><img alt="image504" src="_images/patrondebt.png" /></p>
+</li>
+<li><p class="first">Item on hold for someone else</p>
+<p><img alt="image505" src="_images/onhold.png" /></p>
+</li>
+<li><p class="first">Item should be on the hold shelf waiting for someone else</p>
+<p><img alt="image506" src="_images/holdwaiting1.png" /></p>
+</li>
+<li><p class="first">Item already checked out to this patron</p>
+<p><img alt="image507" src="_images/alreadycheckedout.png" /></p>
+</li>
+<li><p class="first">Item checked out to another patron</p>
+<p><img alt="image508" src="_images/checkedoutelse.png" /></p>
+<ul class="simple">
+<li>This warning will allow you to place a hold on the item for the
+patron you’re trying to check it out to.</li>
+</ul>
+</li>
+<li><p class="first">Item not for loan</p>
+<p><img alt="image509" src="_images/notforloan.png" /></p>
+</li>
+<li><p class="first">Patron has too many things checked out and
+<a class="reference internal" href="circulationpreferences.html#allowtoomanyoverride"><span class="std std-ref">AllowTooManyOverride</span></a> is set to ‘Allow’</p>
+<p><img alt="image510" src="_images/toomanycheckouts.png" /></p>
+</li>
+<li><p class="first">Patron has too many things checked out and
+<a class="reference internal" href="circulationpreferences.html#allowtoomanyoverride"><span class="std std-ref">AllowTooManyOverride</span></a> is set to “Don’t
+allow”</p>
+<p><img alt="image511" src="_images/toomanycheckouts-no.png" /></p>
+</li>
+<li><p class="first">Item cannot be renewed</p>
+<p><img alt="image512" src="_images/norenewals.png" /></p>
+<ul class="simple">
+<li>This can be overridden with the
+<a class="reference internal" href="circulationpreferences.html#allowrenewallimitoverride"><span class="std std-ref">AllowRenewalLimitOverride</span></a> system
+preference</li>
+</ul>
+</li>
+<li><p class="first">Barcode not found</p>
+<p><img alt="image513" src="_images/barcodefastadd.png" /></p>
+<ul class="simple">
+<li>Learn more about <a class="reference internal" href="#fast-add-cataloging-label"><span class="std std-ref">fast cataloging</span></a> later in this
+manual.</li>
+</ul>
+</li>
+<li><p class="first">Item being checked out is marked as ‘lost’</p>
+<ul>
+<li><p class="first">Depending on the value in your <a class="reference internal" href="circulationpreferences.html#issuelostitem"><span class="std std-ref">IssueLostItem</span></a>
+preference, you may just see a warning</p>
+<p><img alt="image514" src="_images/lostitemmsg.png" /></p>
+<p>or a confirmation box</p>
+<p><img alt="image515" src="_images/lostitemconfirm.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Item being checked out is not recommended for a patron of this age</p>
+<p><img alt="image516" src="_images/agewarning.png" /></p>
+</li>
+<li><p class="first">Item being checked out meets the
+<a class="reference internal" href="circulationpreferences.html#decreaseloanhighholds-preferences-label"><span class="std std-ref">decreaseLoanHighHolds</span></a> system preference
+criteria</p>
+<p><img alt="image517" src="_images/decreaseLoanHighHoldsDuration.png" /></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="renewing">
+<span id="renewing-label"></span><h2>Renewing<a class="headerlink" href="#renewing" title="永久链接至标题"></a></h2>
+<p>Checked out items can be renewed (checked out for another period of
+time) based on your <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation rules</span></a>
+and <a class="reference internal" href="circulationpreferences.html#renewalperiodbase-label"><span class="std std-ref">renewal preferences</span></a>.</p>
+<p>If <a class="reference internal" href="opacpreferences.html#opacrenewalallowed-label"><span class="std std-ref">you allow it</span></a>, patrons can renew their own
+items via the OPAC, but sometimes you’ll need to help them by renewing
+their items via the staff client.</p>
+<p>To renew items checked out to a patron, you can do one of two things.</p>
+<p>The first is to visit their details page or checkout page and review
+their checkout summary at the bottom.</p>
+<p><img alt="image518" src="_images/circsummary.png" /></p>
+<p>In the Renew column you will see how many times each item has been
+renewed and a checkbox to renew the item for the patron. Check the boxed
+of the items you would like to renew and click the ‘Renew or return
+checked items’ button, or to renew all items checked out to the patron
+simply click the ‘Renew all’ button.</p>
+<p><img alt="image519" src="_images/renewbutton.png" /></p>
+<p>Sometimes renewals will be blocked based on your circulation rules, to
+override this block you must have your
+<a class="reference internal" href="circulationpreferences.html#allowrenewallimitoverride"><span class="std std-ref">AllowRenewalLimitOverride</span></a> preference
+set to ‘Allow’. If you allow renewal limit overrides, you will see a
+checkbox at the bottom left of the circulation summary. Check that box
+and then choose the items you would like to renew.</p>
+<p><img alt="image520" src="_images/overriderenew.png" /></p>
+<p>Checking that box will add checkboxes in the renew column above where
+before the item was not renewable.</p>
+<p>The second option is to visit the ‘Renew’ page found under the
+Circulation menu.</p>
+<p><img alt="image521" src="_images/renewcirc.png" /></p>
+<p>And scan the barcodes of the items you would like to renew.</p>
+<p><img alt="image522" src="_images/renewbarcode.png" /></p>
+<p>If the item is renewed you will receive a confirmation message.</p>
+<p><img alt="image523" src="_images/renewed.png" /></p>
+<p>If the barcode is not found you will be presented with an error.</p>
+<p><img alt="image524" src="_images/renewnomatch.png" /></p>
+<p>If the item is not actually checked out you will also receive an error.</p>
+<p><img alt="image525" src="_images/renewnotchecked.png" /></p>
+</div>
+<div class="section" id="check-in-returning">
+<span id="check-in-returning-label"></span><h2>Check in (returning)<a class="headerlink" href="#check-in-returning" title="永久链接至标题"></a></h2>
+<p>Checking in items can be performed from various different locations</p>
+<ul>
+<li><p class="first">The check in box on the top of the main staff client</p>
+<p><img alt="image526" src="_images/checkinmain.png" /></p>
+</li>
+<li><p class="first">The check in option on the quick search bar on the Circulation page</p>
+<p><img alt="image527" src="_images/checkinquickbox.png" /></p>
+</li>
+<li><p class="first">The check in link on the patron’s checkout summary (and on the
+checkout summary page)</p>
+<p><img alt="image528" src="_images/checkinlink.png" /></p>
+</li>
+<li><p class="first">The Check in page under the Circulation menu</p>
+<p><img alt="image529" src="_images/checkincirc.png" /></p>
+</li>
+</ul>
+<div class="section" id="checking-items-in">
+<span id="checking-items-in-label"></span><h3>Checking items in<a class="headerlink" href="#checking-items-in" title="永久链接至标题"></a></h3>
+<p>To check an item in scan the barcode for the item into the box provided.
+A summary of all items checked in will appear below the checkin box</p>
+<p><img alt="image530" src="_images/checkin.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: checkedintable).</li>
+</ul>
+</div></blockquote>
+<p>If you are checking items in that were put in the book drop while the
+library was closed you can check the ‘Book drop mode’ box before
+scanning items. This will effectively roll back the returned date to the
+last date the library was open.</p>
+<ul class="simple">
+<li>This requires that you have your closings added to the <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">calendar tool</span></a></li>
+</ul>
+<p>You can also choose to forgive all overdue charges for items you are
+checking in by checking the ‘Forgive overdue charges’ box before
+scanning items.</p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#specifyreturndate"><span class="std std-ref">SpecifyReturnDate</span></a> preference
+set to ‘Allow’ you will be able to arbitrarily set the return date from
+below the check in box.</p>
+<p><img alt="image1258" src="_images/SpecifyReturnDate.png" /></p>
+</div>
+<div class="section" id="check-in-messages">
+<span id="check-in-messages-label"></span><h3>Check in messages<a class="headerlink" href="#check-in-messages" title="永久链接至标题"></a></h3>
+<p>There are several messages that can appear when checking items in:</p>
+<ul>
+<li><p class="first">If you are checking an item in at a library other than the home
+branch, a message will appear asking you to transfer the book to the
+home library</p>
+<p><img alt="image531" src="_images/checkintransfer.png" /></p>
+<ul>
+<li><p class="first">After this item is checked in the status of the item will be
+changed in the catalog to ‘in transit’</p>
+<p><img alt="image532" src="_images/transferstatus.png" /></p>
+</li>
+<li><p class="first">To mark an item as back at the home branch, check the item in at
+the home branch</p>
+<p><img alt="image533" src="_images/transfercheckin.png" /></p>
+<ul class="simple">
+<li>A message will appear tell you that the item is not checked
+out, but the status will now say available in the catalog. This
+step is necessary to mark items as received by the home branch.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">If you are checking in an item that should have multiple parts or
+pieces a message will appear warning you about the number of pieces
+you should have in your hand</p>
+<p><img alt="image534" src="_images/materialspecified.png" /></p>
+</li>
+<li><p class="first">If you’re checking an item in that has a hold on it, you will be
+prompted to confirm the hold</p>
+<p><img alt="image535" src="_images/holdfound.png" /></p>
+<ul>
+<li><p class="first">Clicking the Confirm hold button will mark the item as waiting for
+pickup from the library</p>
+<p><img alt="image536" src="_images/waitingstatus.png" /></p>
+</li>
+<li><p class="first">Clicking the ‘Print slip and confirm’ button will mark the item as
+waiting for pickup at the library and present the library with a
+receipt to print and place on the book with the patron’s
+information</p>
+</li>
+<li><p class="first">Ignoring the hold will leave the item on hold, but leave its
+status as Available (it will not cancel the hold)</p>
+</li>
+</ul>
+</li>
+<li><p class="first">If you’re checking in an item that has a hold on it at another branch
+you will be prompted to confirm and transfer the item</p>
+<p><img alt="image537" src="_images/holdconfirmtransfer.png" /></p>
+<ul>
+<li><p class="first">Clicking the ‘Confirm hold and transfer’ button will mark the item
+as in transit to the library where the hold was placed</p>
+<p><img alt="image538" src="_images/intransithold.png" /></p>
+</li>
+<li><p class="first">Clicking the ‘Print slip, transfer and confirm’ button will mark the
+item as in transit to the library where the hold was placed and
+present the library with a receipt to print and place on the book
+with the patron’s information</p>
+</li>
+<li><p class="first">Ignoring the hold will leave the item on hold, but leave its
+status as Available (it will not cancel the hold)</p>
+</li>
+</ul>
+</li>
+<li><p class="first">If you have the system showing you fines at the time of checkin
+(<a class="reference internal" href="circulationpreferences.html#finenotifyatcheckin"><span class="std std-ref">FineNotifyAtCheckin</span></a>) you will see a
+message telling you about the fine and providing you a link to the
+payment page for that patron</p>
+<p><img alt="image539" src="_images/FineNotifyAtCheckin.png" /></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="circulation-messages">
+<span id="circulation-messages-label"></span><h2>Circulation messages<a class="headerlink" href="#circulation-messages" title="永久链接至标题"></a></h2>
+<p>Circulation messages are short messages that librarians can leave for
+their patrons or their colleagues that will appear at the time of
+circulation.</p>
+<div class="section" id="setting-up-messages">
+<span id="setting-up-messages-label"></span><h3>Setting up messages<a class="headerlink" href="#setting-up-messages" title="永久链接至标题"></a></h3>
+<p>Circulation messages are set up as <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized
+values</span></a>. To add or edit circulation messages you
+want to work with the <a class="reference external" href="#bornotes">BOR_NOTES</a> value.</p>
+<p><img alt="image540" src="_images/bor_notes1.png" /></p>
+<p>The ‘Description’ field can hold a canned message that you would like to
+appear on the patron’s record.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>The ‘Description’ field is limited to 80 characters, but the patron
+message field can hold more than that. Enter 80 characters in the
+‘Description’ field and then type the rest on the patron record.</p>
+</div></blockquote>
+</div>
+<div class="section" id="adding-a-message">
+<span id="adding-a-message-label"></span><h3>Adding a message<a class="headerlink" href="#adding-a-message" title="永久链接至标题"></a></h3>
+<p>When on the patron’s check out tab you will see a link to ‘Add a new
+message’ to the right of the check out box and a button at the top to
+‘Add message’.</p>
+<p><img alt="image541" src="_images/staffmessages.png" /></p>
+<p>When you click either of these options you will be asked to choose if
+the message is for the librarians or the patron and the message you
+would like to leave.</p>
+<p><img alt="image542" src="_images/leavecircmsg.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>A message for the patron will also show to the library staff.</p>
+</div></blockquote>
+</div>
+<div class="section" id="viewing-messages">
+<span id="viewing-messages-label"></span><h3>Viewing messages<a class="headerlink" href="#viewing-messages" title="永久链接至标题"></a></h3>
+<p>Circulation messages meant for the staff and/or the patron will appear
+on the patron’s checkout screen to the right of the checkout box.
+Messages in bold and red are meant for the library staff only, whereas
+messages in regular italics font are meant for the patron and the
+librarian.</p>
+<p><img alt="image543" src="_images/staffmessages.png" /></p>
+<p>Circulation messages meant for the patron will also appear when they log
+into the OPAC.</p>
+<p><img alt="image544" src="_images/opacmsg.png" /></p>
+</div>
+</div>
+<div class="section" id="holds">
+<span id="holds-circulation-label"></span><h2>Holds<a class="headerlink" href="#holds" title="永久链接至标题"></a></h2>
+<p>Koha allows patrons to put things on hold. A ‘Hold’ is a way to reserve
+an item. Depending on your <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines
+rules</span></a> and <a class="reference internal" href="circulationpreferences.html#holds-policy-label"><span class="std std-ref">hold preference</span></a>
+settings patrons will be able to place items on hold for pickup at the
+library at a later date/time.</p>
+<div class="section" id="placing-holds-in-staff-client">
+<span id="placing-holds-in-staff-client-label"></span><h3>Placing holds in staff client<a class="headerlink" href="#placing-holds-in-staff-client" title="永久链接至标题"></a></h3>
+<p>There are several ways to place holds from the staff client. The most
+obvious is using the ‘Place hold’ button at the top of any bibliographic
+record.</p>
+<p><img alt="image545" src="_images/placeholdbib.png" /></p>
+<p>You can also click the smaller ‘Place hold’ link found at the top of
+your catalog search results, or the ‘Holds’ link found below each
+result.</p>
+<p><img alt="image546" src="_images/placeholdsearch.png" /></p>
+<p>You will be asked to search for a patron by barcode or any part of their
+name to start the hold process.</p>
+<p><img alt="image547" src="_images/placeholdfindpatron.png" /></p>
+<p>If you’d like to search for the patron first and then the bib record for
+the hold, you can open the patron record and click on the ‘Search to
+Hold’ button at the top of the patron record.</p>
+<p><img alt="image548" src="_images/searchtohold.png" /></p>
+<p>After clicking the button you will be brought to the catalog search page
+where you can find the book(s) you want to place a hold on. Under each
+title on the results you’ll see an option to ‘Hold for Patron Name.’</p>
+<p><img alt="image549" src="_images/holdresults.png" /></p>
+<p>If you want to place a hold on multiple items, simply check the boxes to
+the left of them and click the arrow to the right of the ‘Place Hold’
+button.</p>
+<p><img alt="image550" src="_images/holdmultiresults.png" /></p>
+<p>Depending on how many items you choose to place a hold on at once you
+will see a different place hold form. If you are placing a hold on one
+bibliographic record you will see a list of all of the items you can
+place a hold on.</p>
+<p><img alt="image551" src="_images/placeholdsingle.png" /></p>
+<ul>
+<li><p class="first">Enter any notes that might apply to this hold</p>
+</li>
+<li><p class="first">Choose the library where the patron will pick up the item</p>
+</li>
+<li><p class="first">If you have the
+<a class="reference internal" href="circulationpreferences.html#allowholditemtypeselection"><span class="std std-ref">AllowHoldItemTypeSelection</span></a>
+preference set to ‘Allow’ and the record had more than one item type
+attached you will see an option to choose to limit the hold to a
+specific item type</p>
+<p><img alt="image1259" src="_images/AllowHoldItemTypeSelection.png" /></p>
+</li>
+<li><p class="first">If the patron wants the hold to start on a date other than today,
+enter that in the ‘Hold starts on date’ field</p>
+<ul class="simple">
+<li>This option will only appear if the
+<a class="reference internal" href="circulationpreferences.html#allowholddateinfuture"><span class="std std-ref">AllowHoldDateInFuture</span></a> system
+preference is set to ‘Allow’</li>
+</ul>
+</li>
+<li><p class="first">If the patron has specified that they don’t want the item after a
+certain date, or if you have limits on hold lengths, you can enter an
+expiration date for the hold in the ‘Hold expires on date’</p>
+<ul class="simple">
+<li>To have expired holds cancelled automatically you will need to have
+the <a class="reference internal" href="cron_jobs.html#expired-holds"><span class="std std-ref">Expired holds</span></a> cron job set to run on a
+regular basis.</li>
+</ul>
+</li>
+<li><p class="first">Next choose if you want to place a hold on the next available item or
+a specific item by clicking the radio button next to an individual
+item.</p>
+</li>
+</ul>
+<p>If you’re placing a hold on multiple items you will be presented with
+the next available option for all titles. If no items are available for
+hold it will say so on the confirmation screen.</p>
+<p><img alt="image552" src="_images/placeholdmultiple.png" /></p>
+<p>Once your hold is placed, if you’d like to have Koha forget that you
+used the ‘Search to hold’ function, you can choose to have Koha ‘forget’
+the patron’s name by clicking the arrow to the right of the ‘Place hold’
+button on the search results and choosing the ‘Forget’ option.</p>
+<p><img alt="image553" src="_images/forgethold.png" /></p>
+</div>
+<div class="section" id="managing-holds">
+<span id="managing-holds-label"></span><h3>Managing holds<a class="headerlink" href="#managing-holds" title="永久链接至标题"></a></h3>
+<p>Holds can be altered and cancelled from the holds tab found on the left
+of the bibliographic record.</p>
+<p><img alt="image554" src="_images/holdtab.png" /></p>
+<p>From the list of holds you can change the order of the holds, the pickup
+location, suspend and/or cancel the hold.</p>
+<p><img alt="image555" src="_images/holdslist.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you have your
+<a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> preference
+set to “Don’t allow” then you will not have the option to put an end
+date on the hold suspension.</p>
+<p><strong>Note</strong></p>
+<p>If you have your
+<a class="reference internal" href="circulationpreferences.html#allowholddateinfuture"><span class="std std-ref">AllowHoldDateInFuture</span></a> preference
+set to “Don’t allow” you will not have the option to edit the date the
+hold was placed (the column labelled Date).</p>
+<p><strong>Note</strong></p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#holdssplitqueue"><span class="std std-ref">HoldsSplitQueue</span></a> system preference
+set you will see the holds list split across different tables by either
+pickup library, itemtype or both.</p>
+<p><strong>Note</strong></p>
+<p>Depending on how you have your <a class="reference internal" href="staffclientpreferences.html#hidepatronname"><span class="std std-ref">HidePatronName</span></a>
+system preference set the list may show card numbers instead of
+names in the patron column like in the image above.</p>
+</div></blockquote>
+<p>To rearrange or delete holds, simply make a selection from the
+‘Priority’ pull down or click the arrows to the right of the priority
+pull down.</p>
+<p><img alt="image556" src="_images/holdpriority.png" /></p>
+<p>If you use the priority pull down to rearrange or delete holds you will
+need to click the ‘Update hold(s)’ button to save your changes.</p>
+<p>Clicking the down arrow to the right of the hold will stick the hold at
+the bottom of the list even if more requests are made.</p>
+<p>For example, your library has home-bound patrons that are allowed to
+keep books out for months at a time. It would not be fair to other
+patrons if a home-bound patron were able to check out a brand new book
+and keep it for months. For this reason, the home-bound patron’s hold
+request would stay at the bottom of the queue until everyone else who
+wanted to read that book has already done so.</p>
+<p><img alt="image557" src="_images/lowestpriority.png" /></p>
+<p>If a patron asks to have their hold suspended and you have the
+<a class="reference internal" href="circulationpreferences.html#suspendholdsintranet"><span class="std std-ref">SuspendHoldsIntranet</span></a> system preference set
+to ‘allow’ you can do so by clicking the ‘Suspend’ button to far right. If
+the patron gives you a date for the items to become unsuspended you can
+enter that in the date box and click the ‘Update hold(s)’ button to save
+your changes.</p>
+<p><img alt="image558" src="_images/suspendholds.png" /></p>
+<p>To delete or cancel a hold click the red ‘X’ to the right of the hold
+line. To delete/cancel a bunch of holds you can choose ‘del’ from pull
+down to the left of each line and then click ‘Update hold(s)’ at the
+bottom of the list.</p>
+<p><img alt="image559" src="_images/cancelholds.png" /></p>
+<p>If your library uses the <a class="reference internal" href="tools.html#patron-clubs-label"><span class="std std-ref">patron clubs feature</span></a>, use the clubs tab to place a hold for a club. To place a hold for a club, click the clubs tab, search for and select the club name, and click the ‘Place hold’ button.</p>
+<p><img alt="image1460" src="_images/placeclubhold.png" /></p>
+</div>
+<div class="section" id="receiving-holds">
+<span id="receiving-holds-label"></span><h3>Receiving holds<a class="headerlink" href="#receiving-holds" title="永久链接至标题"></a></h3>
+<p>When items that are on hold are <a class="reference internal" href="#check-in-returning-label"><span class="std std-ref">checked in</span></a> or
+<a class="reference internal" href="#check-out-issuing-label"><span class="std std-ref">out</span></a> the system will remind the circulation librarian
+that the item is on hold and offer them options for managing the hold.</p>
+<p>When you check in an item that has a hold on it the system will ask you
+to either confirm and transfer the item</p>
+<p><img alt="image560" src="_images/holdconfirmtransfer.png" /></p>
+<p>or just confirm the hold</p>
+<p><img alt="image561" src="_images/holdconfirm.png" /></p>
+<p>Clicking the ‘Confirm’ button will mark the item as on hold for the
+patron. If the item needs to be transferred the item will also be marked
+as in transit to the proper branch. Clicking ‘Ignore’ will retain the
+hold, but allow you to check the item out to another patron. Choosing to
+confirm and print will present you with a printable page that you can
+slip inside the book with the necessary hold and/or transfer
+information.</p>
+<p>Once confirmed the hold will show on the patron record and on the
+checkout screen under the ‘Hold’ tab.</p>
+<p><img alt="Table of patron's current holds" src="_images/holdssummary.png" /></p>
+<p>From here if the patron would like you suspend their holds you can do so
+one by one or in bulk.</p>
+<p>The item record will also show that the item is on hold.</p>
+<p><img alt="image563" src="_images/holditem.png" /></p>
+<p>In some cases a patron may come in to pick up a hold on behalf of someone else.
+In this case you want to make sure that the hold is cancelled when you check the item
+out to someone else. Alternatively a check out might be attempted in error for an item that
+is already waiting for someone else.  In this case you will be presented with a warning message.</p>
+<p><img alt="image564" src="_images/holdwaitingwarn.png" /></p>
+<p>From here you can check the item out to the patron at the desk and
+cancel the hold for the patron.  If the hold should remain in place you can choose not to check out.</p>
+<p>If you try to check in an item that already waiting on the hold shelf you will be presented with the
+following message.</p>
+<p><img alt="Hold found item is already waiting checkin message" src="_images/holdwaitingcheckinwarn.png" /></p>
+<p>From here you can click on ‘Confirm hold’ to keep the existing hold or use the ‘Cancel hold’ option
+to remove the hold.  If you cancel the hold and further holds exist for the item you will be
+presented with a new option to confirm the hold for the next patron.</p>
+</div>
+</div>
+<div class="section" id="transfers">
+<span id="transfers-label"></span><h2>Transfers<a class="headerlink" href="#transfers" title="永久链接至标题"></a></h2>
+<p>If you work in a multi-branch system you can transfer items from one
+library to another by using the Transfer tool.</p>
+<ul class="simple">
+<li><em>Get there</em>: Circulation &gt; Transfer</li>
+</ul>
+<p>To transfer an item</p>
+<ul>
+<li><p class="first">Click ‘Transfer’ on the Circulation page</p>
+<p><img alt="image565" src="_images/transfer.png" /></p>
+<ul class="simple">
+<li>Enter the library you would like to transfer the item to</li>
+<li>Scan or type the barcode on the item you would like to transfer</li>
+</ul>
+</li>
+<li><p class="first">Click ‘Submit’</p>
+<p><img alt="image566" src="_images/itemtransferred.png" /></p>
+</li>
+<li><p class="first">The item will now say that it is in transit</p>
+<p><img alt="image567" src="_images/itemintransit.png" /></p>
+</li>
+<li><p class="first">When the item arrives at the other branch the librarian must check
+the item in to acknowledge that it is no longer in transit</p>
+</li>
+<li><p class="first">The item will not be permanently moved to the new library</p>
+<p><img alt="image568" src="_images/itemlocations.png" /></p>
+<ul class="simple">
+<li>The item shows the same ‘Home library’ but has updated the
+‘Current location’ to note where it resides at this time</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="set-library">
+<span id="set-library-label"></span><h2>Set library<a class="headerlink" href="#set-library" title="永久链接至标题"></a></h2>
+<p>By default you will enter the staff client as if you are at your home
+library. This library will appear in the top right of the staff client.</p>
+<p><img alt="image569" src="_images/mylibrary.png" /></p>
+<p>This is the library that all circulation transactions will take place
+at. If you are at another library (or on a bookmobile) you will want to
+set your library before you start circulating items. To do this you can
+click ‘Set’ at the top right or on the Circulation page.</p>
+<p><img alt="image570" src="_images/setlibrary.png" /></p>
+<p>Once you have saved your changes you new library will appear in the top
+right.</p>
+</div>
+<div class="section" id="fast-add-cataloging">
+<span id="fast-add-cataloging-label"></span><h2>Fast add cataloging<a class="headerlink" href="#fast-add-cataloging" title="永久链接至标题"></a></h2>
+<p>Sometimes circulation librarians need to quickly add a record to the
+system for an item they are about to check out. This is called ‘Fast
+add’. To allow circulation librarians access to the Fast add cataloging
+tool, simply make sure they have the
+<a class="reference external" href="#fastaddpermissions">fast_cataloging</a> permissions. There are two
+ways to add titles via fast add. If you know that you’re about to check
+out an item that isn’t in you catalog you can go to the Circulation
+module and click ‘Fast cataloging.’</p>
+<p><img alt="image571" src="_images/circmenu.png" /></p>
+<p>The cataloging interface will open up with the short cataloging record:</p>
+<p><img alt="image572" src="_images/fastadd.png" /></p>
+<p>After adding your cataloging data you will be asked to enter item data.
+Enter the items barcode, collection code, etc and save the item before
+checking it out.</p>
+<p>The other way to fast catalog is from the checkout screen. When you
+enter a barcode at checkout that Koha can’t find, it will prompt you to
+use fast cataloging to add the item to Koha and check it out.</p>
+<p><img alt="image573" src="_images/barcodefastadd.png" /></p>
+<p>Clicking ‘Fast cataloging’ will bring you to the fast cataloging form
+where you can enter the title information</p>
+<p><img alt="image574" src="_images/fastaddbarcode.png" /></p>
+<p>After clicking ‘Save’ you will be brought to the item record where the
+barcode will already be filled in with the barcode you’re trying to
+check out.</p>
+<p><img alt="image575" src="_images/fastadditem.png" /></p>
+<p>After clicking the ‘Add item’ button the item will automatically be
+checked out the patron you were trying to check the book out to
+originally.</p>
+<p><img alt="image576" src="_images/fastaddcheckedout.png" /></p>
+</div>
+<div class="section" id="circulation-reports">
+<span id="circulation-reports-label"></span><h2>Circulation reports<a class="headerlink" href="#circulation-reports" title="永久链接至标题"></a></h2>
+<p>Most reports can be found via the Reports module, but some of the more
+common circulation reports are available right from the Circulation
+module.</p>
+<ul class="simple">
+<li><em>Get there</em>: Circulation &gt; Circulation reports</li>
+</ul>
+<div class="section" id="holds-queue">
+<span id="holds-queue-label"></span><h3>Holds queue<a class="headerlink" href="#holds-queue" title="永久链接至标题"></a></h3>
+<p>This report will show you all holds waiting to be pulled off the shelf at your library.</p>
+<p><img alt="image577" src="_images/holdsqueue.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holds-table).</li>
+</ul>
+</div></blockquote>
+<p>To generate this report, you must have the <a class="reference internal" href="cron_jobs.html#cron-holds-queue-report-label"><span class="std std-ref">Build holds queue cron
+job</span></a> running. This cron job is a script that should
+be run periodically if your library system allows borrowers to place
+on-shelf holds. This script decides which library should be responsible
+for fulfilling a given hold request.</p>
+<p>It’s behavior is controlled by the system preferences
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">StaticHoldsQueueWeight</span></a>,
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">RandomizeHoldsQueueWeight</span></a> and
+<a class="reference internal" href="circulationpreferences.html#usetransportcostmatrix"><span class="std std-ref">UseTransportCostMatrix</span></a>.</p>
+<p>If you do not want all of your libraries to participate in the on-shelf
+holds fulfillment process, you should list the libraries that *do*
+participate in the process here by inputting all the participating
+library’s branchcodes, separated by commas ( e.g. “MPL,CPL,SPL,BML” etc.
+).</p>
+<p>By default, the holds queue will be generated such that the system will
+first attempt to hold fulfillment using items already at the pickup
+library if possible. If there are no items available at the pickup
+library to fill a hold, build_holds_queue.pl will then use the list of
+libraries defined in StaticHoldsQueueWeight. If
+RandomizeHoldsQueueWeight is disabled (which it is by default), the
+script will assign fulfillment requests in the order the branches are
+placed in the StaticHoldsQueueWeight system preference.</p>
+<p>For example, if your system has three libraries, of varying sizes (
+small, medium and large) and you want the burden of holds fulfillment
+to be on larger libraries before smaller libraries, you would want
+StaticHoldsQueueWeight to look something like “LRG,MED,SML”.</p>
+<p>If you want the burden of holds fulfillment to be spread out equally
+throughout your library system, simply enable RandomizeHoldsQueueWeight.
+When this system preference is enabled, the order in which libraries
+will be requested to fulfill an on-shelf hold will be randomized each
+time the list is regenerated.</p>
+<p>An alternative to static and randomized is using the
+<a class="reference internal" href="administration.html#transport-cost-matrix-label"><span class="std std-ref">Tansport cost matrix</span></a>.
+It takes precedence in controlling where holds are filled from and allows you
+to define the ‘cost’ of transport between any two libraries.
+To use the Transport cost matrix simply set your <a class="reference internal" href="circulationpreferences.html#usetransportcostmatrix"><span class="std std-ref">UseTransportCostMatrix</span></a> preference to ‘Use’.</p>
+</div>
+<div class="section" id="holds-to-pull">
+<span id="holds-to-pull-label"></span><h3>Holds to pull<a class="headerlink" href="#holds-to-pull" title="永久链接至标题"></a></h3>
+<p>This report will show you all of the items that have holds on them that
+are available at the library for pulling. If the items are available at
+multiple libraries then all libraries with that item available will see
+the hold to pull until one library triggers the hold.</p>
+<p>If enabled, clicking the <em>Mark item as lost</em> button will mark item as lost and notify
+the requesting patron depending on the value of the <a class="reference internal" href="circulationpreferences.html#canmarkholdstopullaslost"><span class="std std-ref">CanMarkHoldsToPullAsLost</span></a>
+system preference.</p>
+<p><img alt="image578" src="_images/holdstopull.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holds-to-pull).</li>
+</ul>
+</div></blockquote>
+<p>You can choose which <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOST value</span></a> to set the
+item to with the <a class="reference internal" href="circulationpreferences.html#updateitemwhenlostfromholdlist"><span class="std std-ref">UpdateItemWhenLostFromHoldList</span></a> system preference.</p>
+<p>You can limit the results you see by using the Refine box on the left
+side of the page:</p>
+<p><img alt="image579" src="_images/refineholdstopull.png" /></p>
+</div>
+<div class="section" id="holds-awaiting-pickup">
+<span id="holds-awaiting-pickup-label"></span><h3>Holds awaiting pickup<a class="headerlink" href="#holds-awaiting-pickup" title="永久链接至标题"></a></h3>
+<p>This report will show all of the holds that are waiting for patrons to
+pick them up.</p>
+<p><img alt="image580" src="_images/holdspickup.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holdst).</li>
+</ul>
+</div></blockquote>
+<p>Items that have been on the hold shelf longer than you normally allow
+(based on the <a class="reference internal" href="circulationpreferences.html#reservesmaxpickupdelay"><span class="std std-ref">ReservesMaxPickUpDelay</span></a>
+preference value) will appear on the ‘Holds over’ tab, they will not
+automatically be cancelled unless you have set the <a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">cron
+job</span></a> to do that for you, but you can cancel all
+holds using the button at the top of the list.</p>
+<p><img alt="image581" src="_images/holdspickupover.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holdso).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="hold-ratios">
+<span id="hold-ratios-label"></span><h3>Hold ratios<a class="headerlink" href="#hold-ratios" title="永久链接至标题"></a></h3>
+<p>Hold ratios help with collection development. Using this report you will
+be able to see how many of your patrons have holds on items and whether
+you should buy more. By default it will be set to the library needing 3
+items per hold that has been placed. The report will tell you how many
+additional items need to be purchased to meet this quota.</p>
+<p><img alt="image582" src="_images/holdratio.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holds-ratios).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="transfers-to-receive">
+<span id="transfers-to-receive-label"></span><h3>Transfers to receive<a class="headerlink" href="#transfers-to-receive" title="永久链接至标题"></a></h3>
+<p>This report will list all of the items that Koha thinks are in transit
+to your library.</p>
+<p><img alt="image583" src="_images/transitreceive.png" /></p>
+<p>If your transfers are late in arriving at your library you will see a
+message stating how late your items are.</p>
+<p><img alt="image584" src="_images/transferlate.png" /></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>An item is considered late based on the number of days you have
+entered in the
+<a class="reference internal" href="circulationpreferences.html#transfersmaxdayswarning"><span class="std std-ref">TransfersMaxDaysWarning</span></a> system
+preference.</p>
+</div></blockquote>
+</div>
+<div class="section" id="article-requests">
+<span id="article-requests-circulation-label"></span><h3>Article requests<a class="headerlink" href="#article-requests" title="永久链接至标题"></a></h3>
+<p>Article requests are somewhat similar to holds, but are not requests
+for an item to check out. Instead, article requests are requests for a
+photocopy of a particular section of a book or an article from a serial
+issue. This is very common in academic libraries where researchers may
+request a copy of a single article found in a journal.</p>
+<div class="section" id="setting-up-article-requests">
+<span id="setting-up-article-requests-label"></span><h4>Setting up article requests<a class="headerlink" href="#setting-up-article-requests" title="永久链接至标题"></a></h4>
+<p>First, enable your system preference for <a class="reference internal" href="circulationpreferences.html#articlerequests"><span class="std std-ref">ArticleRequests</span></a>.</p>
+<p>Set to ‘Enable’ patrons to place article requests.</p>
+<p>Next you will need to decide how your patrons will make requests,
+either record only, item only, or both record and item level.</p>
+<p>You can set 3 different system preferences for mandatory fields to be filled
+in depending on how your records are requested.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfields"><span class="std std-ref">ArticleRequestsMandatoryFields</span></a>: make the following fields
+mandatory for records that are record level or item level requestable</li>
+<li><a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfieldsitemsonly"><span class="std std-ref">ArticleRequestsMandatoryFieldsItemsOnly</span></a> make the following
+fields mandatory for records that are only item level requestable</li>
+<li><a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfieldsrecordonly"><span class="std std-ref">ArticleRequestsMandatoryFieldsRecordOnly</span></a> make the
+following fields mandatory for records that are only record level
+requestable</li>
+</ul>
+</div></blockquote>
+<p>Next you will want to go into your <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules
+matrix</span></a> and select each rule for which
+you want to allow requests.</p>
+<p>You can allow requests to be made at the record level, item level,
+yes (which means both) and no (which means no article requests may
+be placed).</p>
+</div>
+<div class="section" id="placing-article-requests">
+<span id="placing-article-requests-label"></span><h4>Placing article requests<a class="headerlink" href="#placing-article-requests" title="永久链接至标题"></a></h4>
+<p>Now you can place requests on both the staff client and OPAC.</p>
+<p>In the staff client, on the record details page, you will see a
+‘Request article’ button at the top and an ‘Article requests’ tab
+to the left. The two options lead to the same page.</p>
+<p><img alt="image1394" src="_images/placingrequest1.png" /></p>
+<p>Just like a hold, you will be prompted to enter the patron’s card
+number or name.</p>
+<p><img alt="image1395" src="_images/placingrequest2.png" /></p>
+<p>Fill in the form.</p>
+<p><img alt="image1396" src="_images/placingrequest3.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Remember, the mandatory fields are set through the three system
+preferences <a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfields"><span class="std std-ref">ArticleRequestsMandatoryFields</span></a>,
+<a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfieldsitemsonly"><span class="std std-ref">ArticleRequestsMandatoryFieldsItemsOnly</span></a>, and
+<a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfieldsrecordonly"><span class="std std-ref">ArticleRequestsMandatoryFieldsRecordOnly</span></a>.</p>
+</div></blockquote>
+<p>If allowed, choose the specific item to request.</p>
+<p>Then, click on ‘Place request’.</p>
+<p>From the OPAC, patrons can place requests themselves either from the
+results list</p>
+<p><img alt="image1397" src="_images/opacresults.png" /></p>
+<p>or by going to the detailed record.</p>
+<p><img alt="image1398" src="_images/opacdetails.png" /></p>
+<p>As with a hold, if the patron is not logged in, they will be
+asked to do so.</p>
+<p>The form is the same as the one in the staff interface.</p>
+<p><img alt="image1399" src="_images/opacform.png" /></p>
+<p>If allowed, the patron can choose the specific item to request.</p>
+<p>From their acocunt, the patron will be able to follow the progress
+of their request from ‘pending’</p>
+<p><img alt="image1400" src="_images/opacarticlerequestpending.png" /></p>
+<p>to ‘processing’.</p>
+<p><img alt="image1401" src="_images/opacarticlerequestprocessing.png" /></p>
+<p>The patron will also receive an email notification when the status of
+the request changes.</p>
+<p>Once the request is completed the patron will receive an email notification
+and the article request will no longer appear in their account.</p>
+</div>
+<div class="section" id="managing-article-requests">
+<h4>Managing article requests<a class="headerlink" href="#managing-article-requests" title="永久链接至标题"></a></h4>
+<p>Once the article request has been placed, staff will see new requests at
+the bottom of the home page on the staff client. (In the same location
+as tags, comments and modifications).</p>
+<p><img alt="image1402" src="_images/staffinterfacenotification.png" /></p>
+<p>From there staff will be able to select requests to process.</p>
+<p><img alt="image1403" src="_images/requestmanagement.png" /></p>
+<p>The first step would be for a staff member to process the request, that moves
+the request to the processing tab and alerts other staff members that the
+request is in process. In the actions column, click on the dropdown menu and
+select ‘Process request’. This will move the request to the processing tab.</p>
+<p><img alt="image1404" src="_images/actionsmenu.png" /></p>
+<p>Next staff will go to the shelf and make a copy of the requested article.</p>
+<p>Once that is complete, staff can print the article request slip (this can be
+customized in <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">notices and slips</span></a> under AR_SLIP)
+and staple or paper clip it to the article. In the actions column, you can
+select the dropdown and select print slip.</p>
+<p>Finally, staff will select the complete article request from the actions
+dropdown menu which will send a notice to the patron who made the request
+letting them know the request is ready for pickup.</p>
+<p>This removes the article request from the processing tab.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Actions can also be made in bulk by checking the boxes next to the
+requests to process or by clicking ‘Select all’, and choosing the new
+status from the actions menu on top of the table.</p>
+<p><img alt="image1405" src="_images/batchprocess.png" /></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="overdues">
+<span id="overdues-label"></span><h3>Overdues<a class="headerlink" href="#overdues" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>For libraries with a large patron base, this report may take a
+significant amount of time to run.</p>
+<p><strong>Note</strong></p>
+<p>Large libraries can choose to filter the report before it runs by
+setting the
+<a class="reference internal" href="circulationpreferences.html#filterbeforeoverduereport"><span class="std std-ref">FilterBeforeOverdueReport</span></a> system
+preference to ‘Require’.</p>
+</div></blockquote>
+<p>This report will list all items that are overdue at your library.</p>
+<p><img alt="image585" src="_images/overdues.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: circ-overdues).</li>
+</ul>
+</div></blockquote>
+<p>The report can be filtered using the menu options found on the left of
+the report.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The ‘Show any items currently checked out’ checkbox basically
+switches this from a report of overdues to a report of checkouts. It
+will show all titles checked out regardless of due date.</p>
+</div></blockquote>
+</div>
+<div class="section" id="overdues-with-fines">
+<span id="overdues-with-fines-label"></span><h3>Overdues with fines<a class="headerlink" href="#overdues-with-fines" title="永久链接至标题"></a></h3>
+<p>This report will show you any overdues at your library that have accrued
+fines on them.</p>
+<p><img alt="image586" src="_images/overduewfines.png" /></p>
+<p>If you would like to limit the report you can use the pull down menu at
+the top to limit to a specific shelving location at your branch. To see
+overdues with fines at other branches you will have to <a class="reference internal" href="#set-library-label"><span class="std std-ref">change your
+branch</span></a> or log in at that branch.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>If you do not charge fines and/or don’t have the <a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">fines cron
+job</span></a> running you will see no data on this report.</p>
+</div></blockquote>
+</div>
+<div class="section" id="pending-on-site-checkouts">
+<span id="pending-on-site-checkouts-label"></span><h3>Pending on-site checkouts<a class="headerlink" href="#pending-on-site-checkouts" title="永久链接至标题"></a></h3>
+<p>If you are using the on site checkouts functionality
+(<a class="reference internal" href="circulationpreferences.html#onsitecheckouts"><span class="std std-ref">OnSiteCheckouts</span></a>) then you’ll have a report to
+view all items that are currently checked out on site.</p>
+<p><img alt="image1260" src="_images/pendingonsite.png" /></p>
+<p>This will list the due date (overdues in red), who has the item, item
+information and what library the item is at.</p>
+</div>
+</div>
+<div class="section" id="tracking-in-house-use">
+<span id="tracking-in-house-use-label"></span><h2>Tracking in-house use<a class="headerlink" href="#tracking-in-house-use" title="永久链接至标题"></a></h2>
+<p>Many libraries track the use of items within the library.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This is different from tracking on-site usage. In-house use is the
+use of items in the library by patrons without them having to check
+them out. On-site use is the use of items on site that must first be
+checked out. To learn more about on site usage please review the
+<a class="reference internal" href="circulationpreferences.html#onsitecheckouts"><span class="std std-ref">OnSiteCheckouts</span></a> preference.</p>
+</div></blockquote>
+<p>Tracking the use of items in the library without checking them out can
+be done in Koha one of two ways. The first is to create one or more
+<a class="reference internal" href="patrons.html#add-a-statistical-patron-label"><span class="std std-ref">Statistical Patrons</span></a>. When collecting items that
+have been used within the library, you will want to check them out to
+your statistical patron:</p>
+<p><img alt="image587" src="_images/checkoutinhouse.png" /></p>
+<p>Instead of marking the item as ‘checked out’ the system will record that
+the item was used in house:</p>
+<p><img alt="image588" src="_images/localuserecorded.png" /></p>
+<p>Repeat these steps for all items that have been used within the library
+to keep accurate statistics for item use.</p>
+<p>The other way to record local use of items is to set your
+<a class="reference internal" href="circulationpreferences.html#recordlocaluseonreturn"><span class="std std-ref">RecordLocalUseOnReturn</span></a> preference to
+‘Record.’ Then whenever you check an item in that is not checked out and
+not on hold a local use will be recorded.</p>
+<p><img alt="image589" src="_images/localusecheckin.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you have <a class="reference internal" href="circulationpreferences.html#recordlocaluseonreturn"><span class="std std-ref">RecordLocalUseOnReturn</span></a> set
+to ‘Record’ you can still use your statistical patrons to record
+local use as well.</p>
+</div></blockquote>
+</div>
+<div class="section" id="self-checkout">
+<span id="self-checkout-label"></span><h2>Self checkout<a class="headerlink" href="#self-checkout" title="永久链接至标题"></a></h2>
+<p>Koha comes with a very basic self checkout module. To enable this module
+you need to set the <a class="reference internal" href="circulationpreferences.html#webbasedselfcheck"><span class="std std-ref">WebBasedSelfCheck</span></a> system
+preference to ‘Enable.’ To use this module you have to log in as a
+<a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">staff member</span></a> with <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">self_check
+permissions</span></a>.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Create a <a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">staff patron</span></a> specifically for this
+action so that you don’t leave a real staff client logged into a
+computer all day</p>
+</div></blockquote>
+<p>There is no link to the Self checkout module, but a simple addition to
+the <a class="reference internal" href="opacpreferences.html#opacuserjs"><span class="std std-ref">OPACUserJS</span></a> system preference can add one.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$(document).ready(function(){
+    $(&quot;#login .btn&quot;).parent().after(&quot;&lt;p&gt;&lt;a href=\&quot;http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sco/sco-main.pl\&quot; target=\&quot;_blank\&quot;&gt;Self-Checkout&lt;/a&gt;&lt;/p&gt;&quot;);
+});
+
+**Important**
+
+The code above has line breaks added to make it more readable,
+please be sure to enter the above as one line in when putting it in
+the system preference.
+</pre></div>
+</div>
+<p>The link will then appear at the bottom of the log in page:</p>
+<p><img alt="image591" src="_images/selfcheckoutlink.png" /></p>
+<p>You can also access this module by going to:
+<a class="reference external" href="http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sco/sco-main.pl">http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sco/sco-main.pl</a></p>
+<p>When on the self checkout page, depending on the value in your
+<a class="reference internal" href="circulationpreferences.html#selfcheckoutbylogin-label"><span class="std std-ref">SelfCheckoutByLogin</span></a> system preference
+you will be asked to enter your cardnumber</p>
+<p><img alt="image592" src="_images/selfcheckout.png" /></p>
+<p>or your username and password</p>
+<p><img alt="image593" src="_images/SelfCheckoutByLogin.png" /></p>
+<p>Once you’re logged in to the self check module you will be asked to scan
+the items you are checking out</p>
+<p><img alt="image594" src="_images/selfcheckoutuser.png" /></p>
+<p>As you scan items they will appear below the barcode box</p>
+<p><img alt="image595" src="_images/selfcheckoutsummary.png" /></p>
+<p>When you are finished scanning items it is important to click the
+‘Finish’ button. This will prompt you to print a receipt and log you out
+of the self check module.</p>
+<p><img alt="image596" src="_images/selfreceiptprint.png" /></p>
+<p>When attempting to check items out there are some instances where error
+messages will appear and the patron will be directed to the librarian.
+This will happen even if you are allowing overrides on circulation
+functions. Only a librarian can override a circulation block and so
+patrons must go to the librarian for help in these situations.</p>
+<p><img alt="image597" src="_images/selfcheckoutfines.png" /></p>
+</div>
+<div class="section" id="self-check-in">
+<span id="self-checkin-label"></span><h2>Self check-in<a class="headerlink" href="#self-check-in" title="永久链接至标题"></a></h2>
+<p>In order to use the self check-in module, you must first set the :ref:
+<cite>SelfCheckInModule &lt;selfscheckinmodule-label&gt;</cite> system preference to
+‘Enable’.</p>
+<p>Then, you will have to <a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">create a patron</span></a>
+with the <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">self_checkin_module permission</span></a>.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Create a <a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">staff patron</span></a> specifically for this
+action so that you don’t leave a real staff client logged into a
+computer all day. You can give this patron only the aforementionned
+permission so it cannot be used for anything else.</p>
+</div></blockquote>
+<p>Once this is done, you can head over to the self check-in page:
+<a class="reference external" href="http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sci/sci-main.pl">http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sci/sci-main.pl</a></p>
+<p>Log in with your staff patron with self check-in permissions</p>
+<p>Once the computer or kiosk is set and the self check-in user logged in,
+patrons will be able to check-in their items themselves.</p>
+<p><img alt="image1331" src="_images/selfcheckin.png" /></p>
+<p>The patron will either scan the item’s barcode, if the computer is
+attached to a barcode scanner, or type in their item’s barcode in the box
+and click ‘Add’ or press enter.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Most barcode scanners will automatically hit return after scanning.</p>
+</div></blockquote>
+<p>Once they have scanned or entered all their items’ barcodes, they can
+click on the ‘Check-in’ button to return all the items at once.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>If the patron doesn’t click the ‘Check-in’ button, the items will not
+be returned and will stay in their account.</p>
+<p><strong>Important</strong></p>
+<p>The self check-in module will not warn user if the item is late, if
+they have fines, if the item is on hold for someone else, or if they
+have messages in their account.</p>
+</div></blockquote>
+<p><img alt="image1332" src="_images/selfcheckinaddbarcode.png" /></p>
+<p>They can then click ‘Finish’ to return to the main self check-in page.</p>
+<p><img alt="image1333" src="_images/selfcheckincheckin.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If the patron doesn’t click ‘Finish’, the screen will refresh after the
+timeout period specified in the <a class="reference internal" href="circulationpreferences.html#selfcheckintimeout"><span class="std std-ref">SelfCheckInTimeout</span></a> system preference.</p>
+<p><strong>Note</strong></p>
+<p>Even if the patron doesn’t click ‘Finish’ the item will still be checked
+in from their account.</p>
+</div></blockquote>
+<p>You can cutomize the look of your self check-in screens by using the
+<a class="reference internal" href="circulationpreferences.html#selfcheckinusercss"><span class="std std-ref">SelfCheckInUserCSS</span></a> system preference or
+the <a class="reference internal" href="circulationpreferences.html#selfcheckinuserjs"><span class="std std-ref">SelfCheckInUserJS</span></a> system preference.</p>
+<p>You can add content, like instructions on how to use the self check-in system
+for example, by using the <a class="reference internal" href="circulationpreferences.html#selfcheckinmainuserblock"><span class="std std-ref">SelfCheckInMainUserBlock</span></a> system preference.</p>
+<p>Statistics about the transactions made through the self check-in module
+are logged into the action_logs table in the Koha database. You can therefore
+<a class="reference internal" href="reports.html#custom-reports-label"><span class="std std-ref">build a custom report</span></a> to get the statistics you
+need.</p>
+</div>
+<div class="section" id="offline-circulation-utilities">
+<span id="offline-circulation-utilities-label"></span><h2>Offline circulation utilities<a class="headerlink" href="#offline-circulation-utilities" title="永久链接至标题"></a></h2>
+<p>Koha allows for you to continue circulation actions while offline by
+using any one of three utilities.</p>
+<div class="section" id="offline-circulation-in-koha">
+<span id="offline-circulation-in-koha-label"></span><h3>Offline circulation in Koha<a class="headerlink" href="#offline-circulation-in-koha" title="永久链接至标题"></a></h3>
+<p>If the <a class="reference internal" href="circulationpreferences.html#allowofflinecirculation"><span class="std std-ref">AllowOfflineCirculation</span></a> preference
+is set to ‘Enable’ the library staff can continue to perform circulation
+actions within Koha when the system is offline. You will want to visit
+<a class="reference external" href="http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl">http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl</a> at least
+once while online and bookmark that page. That is the page you will go
+to when you are offline.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>The offline interface uses HTML LocalStorage, which depending on the
+browser and user setting, is limited to 2.5MB or 5MB per domain.
+This means that larger systems will not be able to synchronize their
+data and are recommended to use either the
+<a class="reference internal" href="#firefox-plugin-label"><span class="std std-ref">Firefox</span></a> or
+<a class="reference internal" href="#offline-circ-tool-for-windows-label"><span class="std std-ref">Windows</span></a> application for offline
+circulation.</p>
+</div></blockquote>
+<div class="section" id="setup">
+<span id="setup-offline-circulation-label"></span><h4>Setup<a class="headerlink" href="#setup" title="永久链接至标题"></a></h4>
+<p>Before the first time the system goes offline go to Circulation and
+choose ‘Built-in offline circulation interface’</p>
+<p><img alt="image598" src="_images/offlinecirc.png" /></p>
+<p>And synchronize your data on every circulation computer by clicking the
+‘Synchronize’ link on the right of the screen.</p>
+<p><img alt="image599" src="_images/syncoffline.png" /></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>The offline interface uses HTML LocalStorage, which depending on the
+browser and user setting, is limited to 2.5MB or 5MB per domain.
+This means that larger systems will not be able to synchronize their
+data and are recommended to use either the
+<a class="reference internal" href="#firefox-plugin-label"><span class="std std-ref">Firefox</span></a> or
+<a class="reference internal" href="#offline-circ-tool-for-windows-label"><span class="std std-ref">Windows</span></a> application for offline
+circulation.</p>
+</div></blockquote>
+<p>This will allow you download a local copy of your patrons and
+circulation data. Click the ‘Download records’ link at the top of the
+page to synchronize your data.</p>
+<p><img alt="image600" src="_images/downloadoffline.png" /></p>
+<p>Once your data is downloaded you will see the dates your data was last
+synced to the right of each data set.</p>
+<p><img alt="image1261" src="_images/syncedoffline.png" /></p>
+<p>This should be done regularly in preparation for any unexpected connection losses.</p>
+</div>
+<div class="section" id="circulating">
+<span id="circulating-label"></span><h4>Circulating<a class="headerlink" href="#circulating" title="永久链接至标题"></a></h4>
+<p>When your system goes offline visit the Offline Circulation page
+(<a class="reference external" href="http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl">http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl</a>) in Koha
+and click ‘Check out’ or ‘Check in’ to perform offline actions.</p>
+<p>Checking out is done by searching for the patron by barcode or name at
+the top of the ‘Check out’ screen. After selecting a patron you will be
+presented with the synced patron info, including fines and check outs.</p>
+<p><img alt="image601" src="_images/offlinecheckout.png" /></p>
+<p>Scan the barcode of the item you would like to check out and enter a due
+date. If you don’t enter a due date Koha will prompt you for one.</p>
+<p><img alt="image602" src="_images/offlineduedate.png" /></p>
+<p>Once the item is checked out it will appear below the patron’s info.</p>
+<p><img alt="image603" src="_images/offlinecheckouts.png" /></p>
+</div>
+<div class="section" id="koha-offline-uploading">
+<span id="koha-offline-uploading-label"></span><h4>Koha offline uploading<a class="headerlink" href="#koha-offline-uploading" title="永久链接至标题"></a></h4>
+<p>Once the system is back online visit the ‘Synchronize’ page on the Offline
+circulation module and click ‘Upload transactions’</p>
+<p><img alt="image604" src="_images/offlineupload.png" /></p>
+<p>After the files are uploaded you can click ‘View pending offline
+circulation actions’ on the right.</p>
+<p><img alt="image605" src="_images/viewkohaoffline.png" /></p>
+<p>After clicking ‘View pending offline circulation actions’ you will be
+brought to a summary of all of the actions you loaded in to Koha in your
+*.koc file.</p>
+<p><img alt="image606" src="_images/offlinecirclog.png" /></p>
+<ul class="simple">
+<li>Once all of the logs from all of the circulation computers are loaded
+you will be able to check them all or select just those you want to
+process into Koha.</li>
+<li>Click on the ‘Process’ button and Koha will record every stored
+transaction one by one. For each transaction, the status will change
+to:<ul>
+<li>“Success.” if the transaction was processed correctly</li>
+<li>“Borrower not found.” if the borrower card number is incorrect</li>
+<li>“Item not found.” if the item barcode is wrong</li>
+<li>“Item not issued.” if you checked in an available item</li>
+</ul>
+</li>
+</ul>
+<p>Once finished you will have a summary of all of your transactions</p>
+<p><img alt="image607" src="_images/offlinecircsuccess.png" /></p>
+</div>
+</div>
+<div class="section" id="firefox-plugin">
+<span id="firefox-plugin-label"></span><h3>Firefox plugin<a class="headerlink" href="#firefox-plugin" title="永久链接至标题"></a></h3>
+<p>There is an offline circulation tool that you can add to your Firefox
+browser as an addon. To do so, just go to
+<a class="reference external" href="https://addons.mozilla.org/en/firefox/addon/koct/">https://addons.mozilla.org/en/firefox/addon/koct/</a> page and click on the
+“install now” button. You may have to confirm the installation, just
+click on “install now” and then restart Firefox to complete the
+installation.</p>
+<p>Once you have installed the plugin and restarted Firefox, you will see
+the Koha logo in the download bar at the bottom right of Firefox.</p>
+<p><img alt="image608" src="_images/koctstatusbar.png" /></p>
+<p>A click on the logo will open the tool in its own window.</p>
+<p><img alt="image609" src="_images/koct.png" /></p>
+<p>The plugin connsists of three sections:</p>
+<ul>
+<li><p class="first">The ‘Check out’ section is where you check out items</p>
+</li>
+<li><p class="first">The ‘Check in’ section is where you check in items</p>
+</li>
+<li><p class="first">The ‘Transactions’ section is where you can track the transactions done while in offline mode</p>
+<ul>
+<li><p class="first">The transactions will keep information until you empty it.</p>
+<p><img alt="image610" src="_images/koctwarn.png" /></p>
+<p>If you’d like to clear the transactions, click the ‘Clear’
+box before hitting the ‘OK’ button.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The first thing you want to do then is to set up the plugin. Proceed to the settings page, linked in the top right of the page or under ‘Configuration page’ in the Transactions section.</p>
+<p><img alt="image611" src="_images/koctparam.png" /></p>
+<p>Answer the 5 questions presented:</p>
+<ul>
+<li><p class="first">Server = the URL of the librarian interface</p>
+</li>
+<li><p class="first">Username = your staff account login</p>
+</li>
+<li><p class="first">Password = your staff account password</p>
+</li>
+<li><p class="first">Branch code = the code for the branch where you are located</p>
+</li>
+<li><p class="first">Commit Type = If you select ‘Send data to Koha’, your account will need to be approved by an administrator. If you select ‘Apply directly to Koha’, your account will not need to be approved.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>To save the settings, you will have to close the plugin window and
+re-open it by clicking again on the Koha logo in the add-on bar.</p>
+<p><strong>Note</strong></p>
+<p>You can create a staff account dedicated to the offline circulation.
+So that, no matter who is at the circulation desk, they can all use
+the same login. Along those lines, you can use a group login that
+you already have in place for circulation as well.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Once you have everything set up you can start checking items in and out.</p>
+<p>Checking out:</p>
+<p><img alt="A screenshot of the KOCT Checkout section" src="_images/koctcheckout.png" /></p>
+<ul class="simple">
+<li>Under the ‘Checkout’ heading</li>
+<li>Scan the patron barcode</li>
+<li>Scan the item barcode</li>
+<li>Click ‘Checkout’</li>
+</ul>
+<p>Checking in:</p>
+<p><img alt="image613" src="_images/koctcheckin.png" /></p>
+<ul class="simple">
+<li>Under the ‘Checkin’ heading</li>
+<li>Scan the item barcode</li>
+<li>Click ‘Checkin’</li>
+</ul>
+<p>Each time, you check out or check in an item, a new transaction is
+recorded in the local plugin database. This is recorded in the Transactions section bellow.</p>
+<p><img alt="image615" src="_images/koctlog.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The status will be “Local.” as long as you are offline and don’t
+process the transactions into Koha.</p>
+</div></blockquote>
+<p>When your Internet connection comes back up you will want to get these
+transactions in to Koha. Before processing these transactions you should
+be aware of a few issues.</p>
+<p>Because you are not connected to your Koha database when using this
+plugin holds will need additional processing. If an item you check in
+while offline has a hold, the hold is kept on the item. Since, you can’t
+confirm holds found during the processing of every check in, the holds
+stay on the item and will need to be managed later. If you only checked
+in a few items you can just keep a record of them all. If you checked in
+a lot of items you can use the Holds queue once it rebuilds to see what
+holds made it to the shelf erroneously.</p>
+<p>Similarly, if an patron card was expired, the offline circulation tool
+won’t know about it, so the checkout will be recorded regardless of the
+patron’s account being blocked normally.</p>
+<p>You have two options for adding this data to Koha</p>
+<p><img alt="A screenshot of the KOCT Checkout section" src="_images/koctcheckout.png" /></p>
+<ul>
+<li><p class="first">Apply to Koha</p>
+<ul>
+<li><p class="first">If you checked in/out on more than one computer at the same time,
+what you want is to process every transaction consistently. Let’s
+say for instance that one patron checked a book out on one
+computer and then checked the same book in on another computer. To
+be consistent, you need to record the check out first and then the
+check in. Not the opposite! To do so, you need to group every
+transaction in one place, sort them all and then, process
+everything. So, you need to use the “Apply to Koha” option from
+every plugin/computer you worked with. This way, the log will go
+to Koha and be accessible from the Offline Circulation page.</p>
+<p><img alt="image616" src="_images/offlinecirclink.png" /></p>
+</li>
+<li><p class="first"><em>Get there:</em> Circulation &gt; Pending offline circulation actions</p>
+<p><img alt="image617" src="_images/offlinecirclog.png" /></p>
+</li>
+<li><p class="first">Once all of the logs from all of the circulation computers are
+loaded you will be able to check them all or select just those you
+want to process into Koha.</p>
+</li>
+<li><p class="first">Click on the Process button and Koha will record every stored
+transaction one by one. For each transaction, the status will
+change to:</p>
+<ul class="simple">
+<li>“Success.” if the transaction was processed correctly</li>
+<li>“Borrower not found.” if the borrower card number is incorrect</li>
+<li>“Item not found.” if the item barcode is wrong</li>
+<li>“Item not issued.” if you checked in an available item</li>
+</ul>
+</li>
+<li><p class="first">Once finished you will have a summary of all of your transactions</p>
+<p><img alt="image618" src="_images/offlinecircsuccess.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Apply directly</p>
+<ul class="simple">
+<li>If you performed all of the circulation actions on one computer
+then everything is sorted already so you can choose to “Apply
+directly”</li>
+<li>The status column will be updated to let you know if the
+transactions were applied<ul>
+<li>“Success.” if the transaction was processed correctly</li>
+<li>“Borrower not found.” if the borrower card number is incorrect</li>
+<li>“Item not found.” if the item barcode is wrong</li>
+<li>“Item not issued.” if you checked in an available item</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="offline-circ-tool-for-windows">
+<span id="offline-circ-tool-for-windows-label"></span><h3>Offline circ tool for Windows<a class="headerlink" href="#offline-circ-tool-for-windows" title="永久链接至标题"></a></h3>
+<p>The Offline circulation utility can be downloaded at:
+<a class="reference external" href="https://github.com/bywatersolutions/koha-offline-circulation/releases">https://github.com/bywatersolutions/koha-offline-circulation/releases</a></p>
+<p>To generate a borrowers.db file for loading in to the Windows tool you
+will need to run the <a class="reference internal" href="cron_jobs.html#cron-generate-patron-file-for-offline-circulation-label"><span class="std std-ref">file generator via a cron
+job</span></a>.</p>
+<div class="section" id="upload-offline-circ-file">
+<span id="upload-offline-circ-file-label"></span><h4>Upload offline circ file<a class="headerlink" href="#upload-offline-circ-file" title="永久链接至标题"></a></h4>
+<p>The <a class="reference internal" href="#offline-circ-tool-for-windows-label"><span class="std std-ref">offline circulation tool for Windows</span></a> will
+generate a KOC file that you can upload into Koha once your system comes
+back up.</p>
+<p>On the Circulation menu click ‘Upload offline circulation file (.koc)’</p>
+<p><img alt="image621" src="_images/offlinecirclink.png" /></p>
+<p>Browse your computer for the *.koc file</p>
+<p><img alt="image622" src="_images/uploadofflinecirc.png" /></p>
+<p>Once the file is uploaded, click the process the file</p>
+<p><img alt="image623" src="_images/processoffline.png" /></p>
+<p>When this is complete you’ll be able to upload another file or tend to
+pending offline circulation actions.</p>
+<p><img alt="image624" src="_images/offlinesummary.png" /></p>
+<p>After clicking ‘View pending offline circulation actions’ you will be
+brought to a summary of all of the actions you loaded in to Koha in your
+*.koc file.</p>
+<p><img alt="image625" src="_images/offlinecirclog.png" /></p>
+<ul class="simple">
+<li>Once all of the logs from all of the circulation computers are loaded
+you will be able to check them all or select just those you want to
+process into Koha.</li>
+<li>Click on the Process button and Koha will record every stored
+transaction one by one. For each transaction, the status will change
+to:<ul>
+<li>“Success.” if the transaction was processed correctly</li>
+<li>“Borrower not found.” if the borrower card number is incorrect</li>
+<li>“Item not found.” if the item barcode is wrong</li>
+<li>“Item not issued.” if you checked in an available item</li>
+</ul>
+</li>
+</ul>
+<p>Once finished you will have a summary of all of your transactions</p>
+<p><img alt="image626" src="_images/offlinecircsuccess.png" /></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cash_management.html" class="btn btn-neutral float-left" title="Cash management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cataloging.html" class="btn btn-neutral float-right" title="Cataloging" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cron jobs and daemons &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Web Services" href="webservices.html" />
+    <link rel="prev" title="Implementation checklist" href="implementation_checklist.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cron jobs and daemons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#crontab-example">Crontab example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cron-jobs">Cron jobs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#backup">Backup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#daily-backup">Daily backup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#search">Search</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sitemap">Sitemap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rebuild-index">Rebuild index</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#circulation">Circulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#holds-queue">Holds queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expired-holds">Expired holds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unsuspend-holds">Unsuspend holds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fines">Fines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#static-fines">Static fines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#long-overdues">Long overdues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#track-total-checkouts">Track total checkouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-patron-file-for-offline-circulation">Generate patron file for offline circulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-renewal">Automatic renewal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#patrons">Patrons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#batch-delete-patrons">Batch delete patrons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#anonymize-patron-data">Anonymize patron data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-patron-categories">Update patron categories</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#notices">Notices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#message-queue">Message queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-notice">Advanced notice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overdue-notice">Overdue notice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print-overdues">Print overdues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print-hold-notices">Print hold notices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#talking-tech">Talking Tech</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notify-patrons-of-expiration">Notify patrons of expiration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#in-processing-book-cart">In processing/book cart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catalog">Catalog</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-webservice-batch">Import webservice batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connexion-import-daemon">Connexion import daemon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batch-item-deletion">Batch item deletion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-url-quick">Check URL quick</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-records-via-leader">Delete records via leader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-authorities">Update authorities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serials-update">Serials update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-item-update">Automatic item update</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opac">OPAC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rss-feeds">RSS feeds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authorities-browser">Authorities browser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subject-author-clouds">Subject/author clouds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#system-administration">System administration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#services-throttle">Services throttle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clean-up-database">Clean up database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#share-usage-stats">Share usage stats</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#acquisitions">Acquisitions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#clean-up-old-suggestions">Clean up old suggestions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#email-suggestions-to-process">Email suggestions to process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edi-message-processing">EDI message processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-temporary-edi-files">Remove temporary EDI files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reports">Reports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#run-report">Run report</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#social-data">Social data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-report-social-data">Get report social data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-social-data">Update social data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#daemons">Daemons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zebra-indexer-daemon">Zebra indexer daemon</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deprecated-scripts">Deprecated scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Cron jobs and daemons</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cron_jobs.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="implementation_checklist.html" class="btn btn-neutral float-left" title="Implementation checklist" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="webservices.html" class="btn btn-neutral float-right" title="Web Services" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="cron-jobs-and-daemons">
+<span id="cron-jobs-label"></span><h1>Cron jobs and daemons<a class="headerlink" href="#cron-jobs-and-daemons" title="永久链接至标题"></a></h1>
+<p>Koha is supported by a number of background tasks.  These tasks can either
+be periodically executed tasks (cron jobs) or continuously running tasks called
+daemons.</p>
+<p>A cron job is a Linux command for scheduling a command or script on your
+server to complete repetitive tasks automatically. Scripts executed as a
+cron job are typically used to modify files or databases; however, they
+can perform other tasks that do not modify data on the server, like
+sending out email notifications.</p>
+<p>A daemon is a Linux command that is typically started when the system is
+booted and runs in the background doing some function. The database used
+by Koha (either MySQL or MariaDB) is a daemon as is the web server (typically
+Apache).</p>
+<p>Koha has many cron jobs in place that you can enable
+(search engine indexing, overdue notice generation, data
+cleanup and more), and a few daemons.  This chapter will explain those for you.</p>
+<div class="section" id="crontab-example">
+<h2>Crontab example<a class="headerlink" href="#crontab-example" title="永久链接至标题"></a></h2>
+<p>An example of a Koha crontab can be found in misc/cronjobs/crontab.example</p>
+<p>The example includes sample boilerplate cron job entries for the most
+commonly-used cron jobs.</p>
+</div>
+<div class="section" id="cron-jobs">
+<span id="cron-jobs-subchapter-label"></span><h2>Cron jobs<a class="headerlink" href="#cron-jobs" title="永久链接至标题"></a></h2>
+<p>The locations below assume a dev install which puts the crons in misc/,
+if you have a standard install you may want to look in bin/ for these
+files if you cannot find them in misc/</p>
+<div class="section" id="backup">
+<span id="cron-daily-backup-label"></span><h3>Backup<a class="headerlink" href="#backup" title="永久链接至标题"></a></h3>
+<div class="section" id="daily-backup">
+<h4>Daily backup<a class="headerlink" href="#daily-backup" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/backup.sh</p>
+<p>Does: creates a daily backup of the Koha database.</p>
+<p>Frequency suggestion: daily</p>
+</div>
+</div>
+<div class="section" id="search">
+<span id="cron-search-label"></span><h3>Search<a class="headerlink" href="#search" title="永久链接至标题"></a></h3>
+<div class="section" id="sitemap">
+<span id="cron-sitemap-label"></span><h4>Sitemap<a class="headerlink" href="#sitemap" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/sitemap.pl</p>
+<p>Does: processes all biblio records from a Koha instance and generates sitemap files
+complying with the protocol as described on <a class="reference external" href="http://sitemaps.org">http://sitemaps.org</a>. The goal of this
+script is to be able to provide to search engines direct access to biblio records.
+It avoids leaving search engines browsing Koha’s OPAC which would generate a lot
+of site traffic and server workload.</p>
+<blockquote>
+<div><p><strong>Note</strong>
+A file named sitemapindex.xml is generated. It contains references to multiple
+sitemap files. Each file contains at most 50,000 URLs and is named
+sitemapXXXX.xml.</p>
+<p>The files must be stored on the Koha OPAC’s root directory. In the same directory
+a robots.txt file with the following contents is required:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Sitemap:</span> <span class="pre">sitemapindex.xml</span>
+<span class="pre">User-agent:</span> <span class="pre">*</span>
+<span class="pre">Disallow:</span> <span class="pre">/cgi-bin/</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="rebuild-index">
+<span id="cron-rebuild-index-label"></span><h4>Rebuild index<a class="headerlink" href="#rebuild-index" title="永久链接至标题"></a></h4>
+<p>Script path: misc/migration_tools/rebuild_zebra.pl</p>
+<p>Does: updates Zebra indexes with recently changed data.</p>
+<p>Required by: Zebra</p>
+<p>Frequency suggestion: every x minutes, (between 5-15 minutes) depending
+on performance needs</p>
+<blockquote>
+<div><strong>Note</strong>
+On newer Koha installations, this cron job has been replaced by  the
+<a class="reference internal" href="#cron-koha-indexer-label"><span class="std std-ref">koha-indexer daemon</span></a> which indexes new
+and modified Koha data every 30 seconds.</div></blockquote>
+</div>
+</div>
+<div class="section" id="circulation">
+<span id="cron-circulation-label"></span><h3>Circulation<a class="headerlink" href="#circulation" title="永久链接至标题"></a></h3>
+<div class="section" id="holds-queue">
+<span id="cron-holds-queue-report-label"></span><h4>Holds queue<a class="headerlink" href="#holds-queue" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/holds/build_holds_queue.pl</p>
+<p>Does: updates holds queue report</p>
+<p>Required by: <a class="reference internal" href="circulation.html#holds-queue-label"><span class="std std-ref">Holds queue report</span></a></p>
+<p>Frequency suggestion: every 1-4 hours</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">A script that should be run periodically if your library system
+allows borrowers to place on-shelf holds. This script decides which
+library should be responsible for fulfilling a given hold request.</p>
+<p>It’s behavior is controlled by the system preferences
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">StaticHoldsQueueWeight</span></a> and
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">RandomizeHoldsQueueWeight</span></a>.</p>
+<p>If you do not want all of your libraries to participate in the
+on-shelf holds fulfillment process, you should list the the libraries
+that *do* participate in the process here by inputting all the
+participating library’s branchcodes, separated by commas ( e.g.
+“MPL,CPL,SPL,BML” etc. ).</p>
+<p>By default, the holds queue will be generated such that the system
+will first attempt to hold fulfillment using items already at the
+pickup library if possible. If there are no items available at the
+pickup library to fill a hold, build_holds_queue.pl will then use
+the list of libraries defined in StaticHoldsQueueWeight. If
+RandomizeHoldsQueueWeight is disabled ( which it is by default ), the
+script will assign fulfillment requests in the order the branches are
+placed in the StaticHoldsQueueWeight system preference.</p>
+<p>For example, if your system has three libraries, of varying sizes (
+small, medium and large ) and you want the burden of holds
+fulfillment to be on larger libraries before smaller libraries, you
+would want StaticHoldsQueueWeight to look something like
+“LRG,MED,SML”.</p>
+<p>If you want the burden of holds fulfillment to be spread out equally
+throughout your library system, simply enable
+RandomizeHoldsQueueWeight. When this system preference is enabled,
+the order in which libraries will be requested to fulfill an on-shelf
+hold will be randomized each time the list is regenerated.</p>
+<p>Leaving StaticHoldsQueueWeight empty is contraindicated at this time.
+Doing so will cause the build_holds_queue script to ignore
+RandomizeHoldsQueueWeight, causing the script to request hold
+fulfillment not randomly, but by alphabetical order.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="expired-holds">
+<span id="cron-expired-holds-label"></span><h4>Expired holds<a class="headerlink" href="#expired-holds" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/holds/cancel_expired_holds.pl</p>
+<p>Does: cancels holds
+where the user has set an expiration date. If the library is using the
+<a class="reference internal" href="circulationpreferences.html#expirereservesmaxpickupdelay"><span class="std std-ref">ExpireReservesMaxPickUpDelay</span></a> and
+<a class="reference internal" href="circulationpreferences.html#expirereservesmaxpickupdelaycharge"><span class="std std-ref">ExpireReservesMaxPickUpDelayCharge</span></a>
+preferences then this script will also cancel holds that have been
+sitting on the hold shelf for too long and will (if the library does)
+charge the patron for not picking up the hold.</p>
+<p>Frequency suggestion: daily</p>
+</div>
+<div class="section" id="unsuspend-holds">
+<span id="cron-unsuspend-holds-label"></span><h4>Unsuspend holds<a class="headerlink" href="#unsuspend-holds" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/holds/auto_unsuspend_holds.pl</p>
+<p>Does: checks to find holds that should no longer be
+suspended and removes the suspension if the
+<a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> preference is
+set to ‘allow’. This puts the patron back in to the queue where they
+were when the hold was suspended.</p>
+<p>Frequency suggestion: daily</p>
+</div>
+<div class="section" id="fines">
+<span id="cron-fines-label"></span><h4>Fines<a class="headerlink" href="#fines" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/fines.pl</p>
+<p>Does: calculates and charges (or increments) overdue fines per item to patron
+accounts. The fine calculation is done using the grace period, fine interval,
+fine amount and other parameters from the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a>.</p>
+<p>Required by: <a class="reference internal" href="circulationpreferences.html#finesmode"><span class="std std-ref">finesMode</span></a> system preference</p>
+<p>Frequency suggestion: nightly</p>
+<blockquote>
+<div><p><strong>Note</strong>
+If the Koha system preference ‘finesMode’ is set to ‘production’, the fines
+are charged to the patron accounts. If set to ‘test’, the fines are calculated
+but not applied.</p>
+<p><strong>Note</strong>
+Fines will not be applied on a holiday.</p>
+<p><strong>PARAMETERS</strong>
+-  -h|–help</p>
+<blockquote>
+<div><ul class="simple">
+<li>get help message</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>-l|–log<ul>
+<li>log the output to a file (optional if the -o parameter is given)</li>
+</ul>
+</li>
+<li>-o|–out<ul>
+<li>ouput directory for logs (defaults to env or /tmp if the directory does not exist)</li>
+</ul>
+</li>
+<li>-v|–verbose<ul>
+<li>verbose mode</li>
+</ul>
+</li>
+<li>-m|–maxdays<ul>
+<li>how many days back of overdues to process</li>
+<li>this can improve performance by simply the number of records that need
+to be processed. It can be safe to limit the overdues processed to those
+under X days overdues given that circulation policy often caps fines at
+a maximum after a number of days.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="static-fines">
+<span id="cron-staticfines-label"></span><h4>Static fines<a class="headerlink" href="#static-fines" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/staticfines.pl</p>
+<p>Does: charges a single static fine for any/all overdues a patron currently has
+outstanding. The charge amount is either defined on the command line per
+borrower category or will use the circulation rules associated with the oldest
+overdue item the patron has currently checked out (for the first fine period only)
+Once charged, the fine is static: No new fines will be added until the existing
+fine is paid off in full.</p>
+<p>Frequency suggestion: nightly</p>
+<blockquote>
+<div><p><strong>Note</strong>
+If the Koha system preference ‘finesMode’ is set to ‘production’, the fines
+are charged to the patron accounts. If set to ‘test’, the fines are calculated
+but not applied.</p>
+<p><strong>Note</strong>
+Fines won’t be applied on a holiday.</p>
+</div></blockquote>
+</div>
+<div class="section" id="long-overdues">
+<span id="cron-long-overdues-label"></span><h4>Long overdues<a class="headerlink" href="#long-overdues" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/longoverdue.pl</p>
+<p>Does: allows one to specify delays for changing items to different lost
+statuses, and optionally charge for them using the replacement price
+listed on the item record.</p>
+<p>Frequency suggestion: nightly</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Staff can control some of the parameters for the longoverdue cron
+job with the
+<a class="reference internal" href="circulationpreferences.html#defaultlongoverduelostvalue-and-defaultlongoverduedays-label"><span class="std std-ref">DefaultLongOverdueLostValue</span></a> and
+<a class="reference internal" href="circulationpreferences.html#defaultlongoverduechargevalue"><span class="std std-ref">DefaultLongOverdueChargeValue</span></a>
+preferences.</p>
+</div></blockquote>
+</div>
+<div class="section" id="track-total-checkouts">
+<span id="cron-track-total-checkouts-label"></span><h4>Track total checkouts<a class="headerlink" href="#track-total-checkouts" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/update_totalissues.pl</p>
+<p>Does: updates the biblioitems.totalissues field in the database with the
+latest tally of checkouts based on historical issue statistics.</p>
+<p>Frequency suggestion: nightly</p>
+<blockquote>
+<div><p><strong>Warning</strong></p>
+<p>If the time on your database server does not match the time on your Koha
+server you will need to take that into account, and probably use the
+–since argument instead of the –interval argument for incremental
+updating.</p>
+<p><strong>Note</strong></p>
+<p>This cronjob can be used if there is a performance concern. Otherwise,
+use the UpdateTotalIssuesOnCirc System Preference.</p>
+</div></blockquote>
+</div>
+<div class="section" id="generate-patron-file-for-offline-circulation">
+<span id="cron-generate-patron-file-for-offline-circulation-label"></span><h4>Generate patron file for offline circulation<a class="headerlink" href="#generate-patron-file-for-offline-circulation" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/create_koc_db.pl</p>
+<p>Does: generates the borrowers.db file for use with the <a class="reference internal" href="circulation.html#offline-circ-tool-for-windows-label"><span class="std std-ref">Koha offline
+circulation</span></a> tool</p>
+<p>Frequency suggestion: weekly</p>
+</div>
+<div class="section" id="automatic-renewal">
+<span id="cron-automatic-renewal-label"></span><h4>Automatic renewal<a class="headerlink" href="#automatic-renewal" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/automatic_renewals.pl</p>
+<p>Does: renews items if you’re allowing automatic
+renewal with your <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a>.</p>
+<p>Frequency suggestion: nightly</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>To run this properly, you must use the –confirm parameter, otherwise it
+will only run in test mode</p>
+<p><strong>PARAMETERS</strong>
+-  -h|–help</p>
+<blockquote>
+<div><ul class="simple">
+<li>get help message</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>–send-notices<ul>
+<li>sends the AUTO_RENEWALS notice to patrons if the automatic renewal has
+been done</li>
+</ul>
+</li>
+<li>-v|–verbose<ul>
+<li>verbose mode</li>
+</ul>
+</li>
+<li>-c|–confirm<ul>
+<li>without this parameter no changes will be made, the script will run in
+test mode</li>
+<li>without this parameter, the script will default to verbose mode as well</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="patrons">
+<span id="cron-patrons-label"></span><h3>Patrons<a class="headerlink" href="#patrons" title="永久链接至标题"></a></h3>
+<div class="section" id="batch-delete-patrons">
+<span id="cron-delete-patrons-label"></span><h4>Batch delete patrons<a class="headerlink" href="#batch-delete-patrons" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/delete_patrons.pl</p>
+<p>Does: deletes patron records in batch based on date not borrowed since,
+expired before, last seen, category code, or library branch.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Dates should be in ISO format, e.g., 2013-07-19, and can be
+generated with date -d ‘-3 month’ “+%Y-%m-%d”.</p>
+<p><strong>Important</strong></p>
+<p>The options to select the patron records to delete are <strong>cumulative</strong>.
+For example, supplying both –expired_before and –library specifies
+that patron records must meet <em>both</em> conditions to be selected for deletion.</p>
+<p><strong>PARAMETERS</strong></p>
+<ul class="simple">
+<li>–not_borrowed_since
+Delete patrons who have not borrowed since this date.</li>
+<li>–expired_before
+Delete patrons with an account expired before this date.</li>
+<li>–last_seen
+Delete patrons who have not been connected since this date.
+The system preference <a class="reference internal" href="patronspreferences.html#tracklastpatronactivity"><span class="std std-ref">TrackLastPatronActivity</span></a> must be
+enabled to use this option.</li>
+<li>–category_code
+Delete patrons who have this category code.</li>
+<li>–library
+Delete patrons in this library.</li>
+<li>-c|–confirm
+This flag must be provided in order for the script to actually
+delete patron records. If it is not supplied, the script will
+only report on the patron records it would have deleted.</li>
+<li>-v|–verbose
+Verbose mode.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="anonymize-patron-data">
+<span id="cron-anonymize-patron-data-label"></span><h4>Anonymize patron data<a class="headerlink" href="#anonymize-patron-data" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/batch_anonymise.pl</p>
+<p>Does: removes borrowernumbers
+from circulation history so that the stats are kept, but the patron
+information is removed for privacy reasons.</p>
+</div>
+<div class="section" id="update-patron-categories">
+<span id="cron-update-patron-categories-label"></span><h4>Update patron categories<a class="headerlink" href="#update-patron-categories" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/update_patrons_category.pl</p>
+<p>Does: Updates the patron category of patrons matching the given criteria to
+another specified patron category. This can be used to convert child patrons
+from a child patron category to an adult patron category when they reach
+the upper age limit defined in the <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category</span></a>.</p>
+<p>This script replaces the j2a.pl script.</p>
+<p>Frequency suggestion: nightly</p>
+<blockquote>
+<div><p><strong>DESCRIPTION</strong></p>
+<p>This script is designed to update patrons from one category to another using
+the criteria specified using command line arguments.</p>
+<p><strong>PARAMETERS</strong></p>
+<ul class="simple">
+<li>–too_old
+Update, if patron is over the upper age limit of their current
+<a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category</span></a>.</li>
+<li>–too_young
+Update, if patron is below the minimum age limit of their
+<a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category</span></a>.</li>
+<li>–fo=X|–fineover=X
+Update, if the total fine amount on the patron account is over X.</li>
+<li>–fu=X|–fineunder=X
+Update, if the total fine amount on the patron account is below X.</li>
+<li>–rb=date|regbefore=date
+Update, if the registration date of the patron is before the given date.</li>
+<li>–ra=date|regafter=date
+Update, if the registration date of the patron is after the given date.</li>
+<li>-d –field name=value
+Update, if the given condition is met. &lt;name&gt; has to be replaced by a column name
+of the borrowers table. The condition is met, if the the content of the field equals &lt;value&gt;.</li>
+<li>–where &lt;conditions&gt;
+Update, if the SQL &lt;where&gt; clause is met.</li>
+<li>-v|–verbose
+Verbose mode: Without this flag only fatal errors are reported.</li>
+<li>-c|–confirm
+Commits the changes to the database. No changes will be made unless this argument is added to the
+command.</li>
+<li>-b|–branch &lt;branchcode&gt;
+Update, if the home branch of the patron matches the &lt;branchcode&gt; given.</li>
+<li>-f|–form &lt;categorycode&gt;
+Update, if the patron currently has this patron category.</li>
+<li>-t|–to &lt;categorycode&gt;
+Update the patrons matching the criteria to this patron category.</li>
+</ul>
+<p><strong>USAGE EXAMPLES</strong></p>
+<p>“update_patrons_category.pl”</p>
+<p>“update_patrons_category.pl” -b=&lt;branchcode&gt; -f=&lt;categorycode&gt; -t=&lt;categorycode&gt; -c”
+(Processes a single branch, and updates the patron categories from
+category to category)</p>
+<p>“update_patrons_category.pl” -f=&lt;categorycode&gt; -t=&lt;categorycode&gt; -v”
+(Processes all branches, shows all messages, and reports the patrons who would be
+affected. Takes no action on the database)</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="notices">
+<span id="cron-notices-label"></span><h3>Notices<a class="headerlink" href="#notices" title="永久链接至标题"></a></h3>
+<div class="section" id="message-queue">
+<span id="cron-message-queue-label"></span><h4>Message queue<a class="headerlink" href="#message-queue" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/process_message_queue.pl</p>
+<p>Does: processes the message queue to send the check out, check in and
+hold filled emails and SMS message to users and sends outgoing emails to
+patrons. requires
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences"><span class="std std-ref">EnhancedMessagingPreferences</span></a> to be
+on</p>
+<p>Frequency suggestion: 1-4 hours</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Item due and Advanced due notices are controlled by the
+<a class="reference internal" href="#cron-advanced-notice-label"><span class="std std-ref">advance_notices cron</span></a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="advanced-notice">
+<span id="cron-advanced-notice-label"></span><h4>Advanced notice<a class="headerlink" href="#advanced-notice" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/advance_notices.pl</p>
+<p>Does: prepares “pre-due” notices and “item due” notices for patrons who
+request them prepares notices for patrons for items just due or coming
+due soon. requires
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences"><span class="std std-ref">EnhancedMessagingPreferences</span></a> to be
+on</p>
+<p>Frequency suggestion: nightly</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This script does not actually send the notices. It queues them in
+the <a class="reference internal" href="#cron-message-queue-label"><span class="std std-ref">message queue</span></a> for later</p>
+</div></blockquote>
+</div>
+<div class="section" id="overdue-notice">
+<span id="cron-overdue-notice-label"></span><h4>Overdue notice<a class="headerlink" href="#overdue-notice" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/overdue_notices.pl</p>
+<p>Does: prepares messages to alert patrons of overdue messages (both via
+email and print)</p>
+<p>Frequency suggestion: nightly</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This script does not actually send the notices. It queues them in
+the <a class="reference internal" href="#cron-message-queue-label"><span class="std std-ref">message queue</span></a> for later or generates the
+HTML for later printing</p>
+<p><strong>See also</strong></p>
+<p>The misc/cronjobs/advance_notices.pl program allows you to send
+messages to patrons in advance of their items becoming due, or to alert
+them of items that have just become due.</p>
+</div></blockquote>
+</div>
+<div class="section" id="print-overdues">
+<span id="cron-printoverdues-label"></span><h4>Print overdues<a class="headerlink" href="#print-overdues" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/printoverdues.sh</p>
+<p>Does: generates PDF files from HTML files in directories and prints them</p>
+</div>
+<div class="section" id="print-hold-notices">
+<span id="cron-print-hold-notices-label"></span><h4>Print hold notices<a class="headerlink" href="#print-hold-notices" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/gather_print_notices.pl</p>
+<p>Does: looks through the message queue for hold notices that didn’t go
+through because the patron didn’t have an email address and generates a
+print notice</p>
+<p>Frequency suggestion: nightly</p>
+</div>
+<div class="section" id="talking-tech">
+<span id="cron-talking-tech-label"></span><h4>Talking Tech<a class="headerlink" href="#talking-tech" title="永久链接至标题"></a></h4>
+<p>To learn more about setting up this third party product view the
+<a class="reference internal" href="third_party_software.html#talking-tech-label"><span class="std std-ref">Talking Tech</span></a> chapter.</p>
+<div class="section" id="sending-notices-file">
+<span id="cron-sending-notices-file-label"></span><h5>Sending notices file<a class="headerlink" href="#sending-notices-file" title="永久链接至标题"></a></h5>
+<p>Script path: misc/cronjobs/thirdparty/TalkingTech_itiva_outbound.pl</p>
+<p>Does: generates Spec C outbound notifications file for Talking
+Tech i-tiva phone notification system.</p>
+<p>Required by:
+<a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification"><span class="std std-ref">TalkingTechItivaPhoneNotification</span></a></p>
+<p>Frequency suggestion: nightly</p>
+</div>
+<div class="section" id="receiving-notices-file">
+<span id="cron-receiving-notices-file-label"></span><h5>Receiving notices file<a class="headerlink" href="#receiving-notices-file" title="永久链接至标题"></a></h5>
+<p>Script path: misc/cronjobs/thirdparty/TalkingTech_itiva_inbound.pl</p>
+<p>Does: processes received results files for Talking Tech i-tiva
+phone notification system.</p>
+<p>Required by:
+<a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification"><span class="std std-ref">TalkingTechItivaPhoneNotification</span></a></p>
+<p>Frequency suggestion: nightly</p>
+</div>
+</div>
+<div class="section" id="notify-patrons-of-expiration">
+<span id="cron-notify-patrons-of-expiration-label"></span><h4>Notify patrons of expiration<a class="headerlink" href="#notify-patrons-of-expiration" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/membership_expiry.pl</p>
+<p>Does: sends messages to warn patrons of their card expiration to the
+<a class="reference internal" href="#cron-message-queue-label"><span class="std std-ref">message queue</span></a> cron.</p>
+<p>Requires: <a class="reference internal" href="patronspreferences.html#membershipexpirydaysnotice"><span class="std std-ref">MembershipExpiryDaysNotice</span></a></p>
+<p>Frequency: nightly</p>
+</div>
+</div>
+<div class="section" id="in-processing-book-cart">
+<span id="cron-in-processing-book-cart-label"></span><h3>In processing/book cart<a class="headerlink" href="#in-processing-book-cart" title="永久链接至标题"></a></h3>
+<p>Script path: misc/cronjobs/cart_to_shelf.pl</p>
+<p>Does: updates all items with a location of CART to the item’s permanent
+location.</p>
+<p>Required by: <a class="reference internal" href="catalogingpreferences.html#newitemsdefaultlocation"><span class="std std-ref">NewItemsDefaultLocation</span></a>, and
+<a class="reference internal" href="circulationpreferences.html#updateitemlocationoncheckin"><span class="std std-ref">UpdateItemLocationOnCheckin</span></a> system preferences</p>
+<p>Frequency suggestion: hourly</p>
+</div>
+<div class="section" id="catalog">
+<span id="cron-catalog-label"></span><h3>Catalog<a class="headerlink" href="#catalog" title="永久链接至标题"></a></h3>
+<div class="section" id="import-webservice-batch">
+<span id="cron-import-webservice-batch-label"></span><h4>Import webservice batch<a class="headerlink" href="#import-webservice-batch" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/import_webservice_batch.pl</p>
+<p>Does: processes import bach queues of type ‘webservice’.
+Batches can also be processed through the UI.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This script is used for OCLC Connexion</p>
+</div></blockquote>
+</div>
+<div class="section" id="connexion-import-daemon">
+<span id="cron-connexion-import-daemon-label"></span><h4>Connexion import daemon<a class="headerlink" href="#connexion-import-daemon" title="永久链接至标题"></a></h4>
+<p>Script path: misc/bin/connexion_import_daemon.pl</p>
+<p>Does: listens for OCLC Connexion requests and is compliant with
+OCLC Gateway specification. It takes requests with MARC XML and import batch
+parameters from a configuration file and forwards it to svc/import_bib</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This script is used for OCLC Connexion</p>
+</div></blockquote>
+</div>
+<div class="section" id="batch-item-deletion">
+<span id="cron-delete-items-label"></span><h4>Batch item deletion<a class="headerlink" href="#batch-item-deletion" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/delete_items.pl</p>
+<p>Does: generates a query against the items
+database and deletes the items matching the criteria specified in the
+command line arguments.</p>
+<blockquote>
+<div><p><strong>PARAMETERS</strong></p>
+<ul class="simple">
+<li>–verbose
+Send the “WHERE” clause generated by the collected C&lt;–where&gt;
+arguments, as well as items affected to Standard Out.</li>
+<li>–where
+The C&lt;–where&gt; option may called multiple times. The following
+argument must be a syntactically valid SQL statement which is
+part of the C&lt;WHERE&gt; clause querying the items table.
+These are joined by C&lt;AND&gt;.</li>
+<li>–commit
+No items will be deleted unless the C&lt;–commit&gt; flag is present.</li>
+</ul>
+<p><strong>EXAMPLES</strong></p>
+<p>The following are examples of this script:</p>
+<p>delete_items.pl –where “items.withdrawn ! 0” –where “items.withdrawn_on &lt; $(date –date=”13 month ago” –rfc-3339=date)” –commit</p>
+<p>delete_items.pl –where “itemlost &gt;= ‘1’” –where “itemlost &lt;=’4’” –where “itemlost_on &lt; ‘2014-04-28’” –commit</p>
+</div></blockquote>
+</div>
+<div class="section" id="check-url-quick">
+<span id="cron-check-url-quick-label"></span><h4>Check URL quick<a class="headerlink" href="#check-url-quick" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/check-url-quick.pl</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This script replaces the deprecated check-url.pl script</p>
+</div>
+<p>Does: checks URLs from biblio records; scans all URLs found by default in
+856$u of bibliographic records and displays if resources are available or
+not.</p>
+<blockquote>
+<div><p><strong>PARAMETERS</strong></p>
+<ul>
+<li><p class="first">–host=http://default.tld
+Server host used when URL doesn’t have one, ie doesn’t begin with
+‘http:’. For example, if –host=mylib.com, then when 856$u contains
+‘img/image.jpg’, the url checked is: <a class="reference external" href="http://www.mylib.com/image.jpg">http://www.mylib.com/image.jpg</a>.</p>
+</li>
+<li><p class="first">–tags
+Tags containing URLs in $u subfields. If not provided, 856 tag is
+checked. Multiple tags can be specified, for example:</p>
+<p>check-url-quick.pl –tags 310 410 856</p>
+</li>
+<li><p class="first">–verbose|v
+Outputs both successful and failed URLs.</p>
+</li>
+<li><p class="first">–html
+Formats output in HTML. The result can be redirected to a file
+accessible by http. This way, it’s possible to link directly to the
+bibliographic record in edit mode. With this parameter –host-intranet
+is required.</p>
+</li>
+<li><p class="first">–host-intranet=http://koha-pro.tld
+Server host used to link to bibliographic record editing page in
+Koha intranet interface.</p>
+</li>
+<li><p class="first">–timeout=10
+Timeout for fetching URLs. By default 10 seconds.</p>
+</li>
+<li><p class="first">–maxconn=1000
+Number of simulaneous HTTP requests. By default 200 connexions.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="delete-records-via-leader">
+<span id="cron-delete-records-via-leader-label"></span><h4>Delete records via leader<a class="headerlink" href="#delete-records-via-leader" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/delete_records_via_leader.pl</p>
+<p>Does: attempts to delete any MARC records where the leader character 5 equals ‘d’.</p>
+<blockquote>
+<div><p><strong>PARAMETERS</strong></p>
+<ul class="simple">
+<li>-c|–confirm
+Script will do nothing without this parameter</li>
+<li>-v|–verbose
+Verbose mode</li>
+<li>-t|–test
+Test mode, does not delete records. Test mode cannot determine
+if a record/item will be deleted successfully, it will only tell
+you what records and items the script will attempt to delete.</li>
+<li>-i|–delete-items
+Try deleting items before deleting record.
+Records with items cannot be deleted.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="update-authorities">
+<span id="cron-update-authorities-label"></span><h4>Update authorities<a class="headerlink" href="#update-authorities" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/merge_authorities.pl</p>
+<p>Does: updates biblio data with changes to authorities records</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The name of this script is misleading. This script does not merge
+authorities together it instead merges authority data with linked
+bib records. Edits to authority records will be applied to
+bibliographic records that use that authority when this script is
+run.</p>
+</div></blockquote>
+<p>Required by: <a class="reference internal" href="authoritiespreferences.html#authoritymergelimit"><span class="std std-ref">AuthorityMergeLimit</span></a>
+system preference</p>
+<p>Frequency suggestion: nightly</p>
+</div>
+<div class="section" id="serials-update">
+<span id="cron-serials-update-label"></span><h4>Serials update<a class="headerlink" href="#serials-update" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/serialsUpdate.pl</p>
+<p>Does: checks if there is a “late” issue on active subscriptions, and if
+there is, the script will set it as late, and add the next one as
+expected.</p>
+<p>Frequency suggestion: nightly</p>
+</div>
+<div class="section" id="automatic-item-update">
+<span id="cron-automatic-item-update-label"></span><h4>Automatic item update<a class="headerlink" href="#automatic-item-update" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/automatic_item_modification_by_age.pl</p>
+<p>Does: updates items based on the list of rules set forth in the
+<a class="reference internal" href="tools.html#automatic-item-modifications-by-age"><span class="std std-ref">Automatic item modifications by age</span></a> tool</p>
+<p>Required by: <a class="reference internal" href="tools.html#automatic-item-modifications-by-age"><span class="std std-ref">Automatic item modifications by age</span></a></p>
+<p>Frequency suggestions: nightly</p>
+</div>
+</div>
+<div class="section" id="opac">
+<span id="cron-opac-label"></span><h3>OPAC<a class="headerlink" href="#opac" title="永久链接至标题"></a></h3>
+<div class="section" id="rss-feeds">
+<span id="cron-rss-feeds-label"></span><h4>RSS feeds<a class="headerlink" href="#rss-feeds" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/rss/rss.pl</p>
+<p>Does: produces an RSS XML document for any SQL query (not used for
+search results RSS feed). <a class="reference internal" href="opac.html#custom-rss-feeds-label"><span class="std std-ref">Learn more</span></a>.</p>
+<p>Frequency suggestion: hourly</p>
+</div>
+<div class="section" id="authorities-browser">
+<span id="cron-authorities-browser-label"></span><h4>Authorities browser<a class="headerlink" href="#authorities-browser" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/build_browser_and_cloud.pl</p>
+<p>Does: generates content for authorities browse in OPAC</p>
+<p>Required by: <a class="reference internal" href="opacpreferences.html#opacbrowser"><span class="std std-ref">OpacBrowser</span></a> system preference</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This preference and cron job should only be used on French systems.</p>
+</div></blockquote>
+</div>
+<div class="section" id="subject-author-clouds">
+<span id="cron-subject-author-clouds-label"></span><h4>Subject/author clouds<a class="headerlink" href="#subject-author-clouds" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/cloud-kw.pl</p>
+<p>Does: generates HTML keywords clouds from Koha Zebra indexes.
+misc/cronjobs/cloud-sample.conf has a sample of how this script
+operates.</p>
+<p>Frequency: This is the type of script you can run once a month or so,
+the content generated isn’t going to change very much over time.</p>
+</div>
+</div>
+<div class="section" id="system-administration">
+<span id="cron-system-administration-label"></span><h3>System administration<a class="headerlink" href="#system-administration" title="永久链接至标题"></a></h3>
+<div class="section" id="services-throttle">
+<span id="cron-services-throttle-label"></span><h4>Services throttle<a class="headerlink" href="#services-throttle" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/services_throttle.pl</p>
+<p>Does: resets the xISBN services throttle</p>
+<p>Frequency suggestion: nightly</p>
+</div>
+<div class="section" id="clean-up-database">
+<span id="cron-clean-up-database-label"></span><h4>Clean up database<a class="headerlink" href="#clean-up-database" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/cleanup_database.pl</p>
+<p>Does: truncates the sessions table, cleans out old zebraqueue entries,
+action logs and staged MARC files.</p>
+<p>See <a class="reference external" href="http://schema.koha-community.org/">http://schema.koha-community.org/</a> for the Koha database schema.</p>
+<blockquote>
+<div><p><strong>PARAMETERS</strong>
+-  –del-exp-selfreg</p>
+<blockquote>
+<div><ul class="simple">
+<li>Delete expired self registration accounts (accounts that haven’t been
+upgraded from the ‘temporary’ category) from the borrowers table.</li>
+<li>The number of days for expiry is set in the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationexpiretemporaryaccountsdelay"><span class="std std-ref">PatronSelfRegistrationExpireTemporaryAccountsDelay</span></a> system
+preference.</li>
+<li>The temporary patron category is set in the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationdefaultcategory"><span class="std std-ref">PatronSelfRegistrationDefaultCategory</span></a> system preference.</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first">–del-unv-selfreg DAYS</p>
+<ul class="simple">
+<li>Delete all unverified self registrations in borrower_modifications
+older than DAYS.</li>
+</ul>
+</li>
+<li><p class="first">–deleted-catalog DAYS</p>
+<ul class="simple">
+<li>Purge bibliographic records deleted more than DAYS days ago from tables
+deletedbiblio, deletedbiblio_metadata, deletedbiblioitems and deleteditems.</li>
+</ul>
+</li>
+<li><p class="first">–deleted-patrons DAYS</p>
+<ul class="simple">
+<li>Purge patrons deleted more than DAYS days ago from the deletedborrowers
+table.</li>
+</ul>
+</li>
+<li><p class="first">–fees DAYS</p>
+<ul class="simple">
+<li>Purge entries in the accountlines table older than DAYS days, where the
+amountoutstanding is 0 or NULL.</li>
+<li>In the case of –fees, DAYS must be greater than or equal to 1.</li>
+</ul>
+</li>
+<li><p class="first">-h|–help</p>
+<ul class="simple">
+<li>Get help message</li>
+</ul>
+</li>
+<li><p class="first">–import DAYS</p>
+<ul class="simple">
+<li>Purge entries from import tables older than DAYS days.</li>
+<li>This includes import_batches, import_biblios, import_items,
+import_record_matches and import_records.</li>
+<li>In import_batches, the batches that are the result of Z39.50 searches
+are removed with the –z3950 parameter.</li>
+<li>Defaults to 60 days if no days specified.</li>
+</ul>
+</li>
+<li><table class="first docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--list-invites</span></kbd></td>
+<td><p class="first last">DAYS</p>
+</td></tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>Purge (unaccepted) list share invites from the virtualshelfshares table
+older than DAYS days</li>
+<li>Defaults to 14 days if no days specified.</li>
+</ul>
+</li>
+<li><p class="first">–logs DAYS</p>
+<ul class="simple">
+<li>Purge entries from the action_logs table older than DAYS days.</li>
+<li>Defaults to 180 days if no days specified.</li>
+</ul>
+</li>
+<li><p class="first">-m|–mail DAYS</p>
+<ul class="simple">
+<li>Purge entries from the message_queue table that are older than DAYS days.</li>
+<li>Defaults to 30 days if no days specified.</li>
+</ul>
+</li>
+<li><p class="first">–merged</p>
+<ul class="simple">
+<li>Purge completed entries from the need_merge_authorities table.</li>
+</ul>
+</li>
+<li><p class="first">–oauth-tokens</p>
+<ul class="simple">
+<li>Delete expired OAuth2 tokens</li>
+</ul>
+</li>
+<li><p class="first">–old-issues DAYS</p>
+<ul class="simple">
+<li>Purge checkouts returned more than DAYS days ago from the old_issues
+table.</li>
+</ul>
+</li>
+<li><p class="first">–old-reserves DAYS</p>
+<ul class="simple">
+<li>Purge holds more than DAYS old from the old_reserves table.</li>
+</ul>
+</li>
+<li><p class="first">–restrictions DAYS</p>
+<ul class="simple">
+<li>Purge patrons restrictions from the borrower_debarments table expired since more than DAYS days.</li>
+<li>Defaults to 30 days if no days specified.</li>
+</ul>
+</li>
+<li><p class="first">–all-restrictions</p>
+<ul class="simple">
+<li>Purge all expired patrons restrictions from the borrower_debarments table.</li>
+</ul>
+</li>
+<li><p class="first">–searchhistory DAYS</p>
+<ul class="simple">
+<li>Purge entries from the search_history table older than DAYS days.</li>
+<li>Defaults to 30 days if no days specified</li>
+</ul>
+</li>
+<li><p class="first">–sessions</p>
+<ul class="simple">
+<li>Purge the sessions table.</li>
+<li>If you use this while users are logged into Koha, they will have to
+reconnect.</li>
+</ul>
+</li>
+<li><p class="first">–sessdays DAYS</p>
+<ul class="simple">
+<li>Purge only sessions older than DAYS days.</li>
+</ul>
+</li>
+<li><p class="first">–statistics DAYS</p>
+<ul class="simple">
+<li>Purge entries from the statistics tables that are more than DAYS days
+old.</li>
+</ul>
+</li>
+<li><p class="first">–temp-uploads</p>
+<ul class="simple">
+<li>Delete temporary uploads from the uploaded_files table older than the
+number of days specified in the <a class="reference internal" href="toolspreferences.html#uploadpurgetemporaryfilesdays"><span class="std std-ref">UploadPurgeTemporaryFilesDays</span></a>
+system preference.</li>
+</ul>
+</li>
+<li><p class="first">–temp-uploads-days DAYS</p>
+<ul class="simple">
+<li>Override the <a class="reference internal" href="toolspreferences.html#uploadpurgetemporaryfilesdays"><span class="std std-ref">UploadPurgeTemporaryFilesDays</span></a> system preference value.</li>
+</ul>
+</li>
+<li><p class="first">–transfers DAYS</p>
+<ul class="simple">
+<li>Purge transfers completed more than DAYS days ago from the
+branchtransfers table.</li>
+</ul>
+</li>
+<li><p class="first">–unique-holidays DAYS</p>
+<ul class="simple">
+<li>Delete all unique holidays from the special_holidays table older than DAYS</li>
+</ul>
+</li>
+<li><p class="first">–uploads-missing FLAG</p>
+<ul class="simple">
+<li>Delete upload records for missing files when FLAG is true, count them otherwise</li>
+</ul>
+</li>
+<li><p class="first">-v|–verbose</p>
+<ul class="simple">
+<li>verbose mode</li>
+</ul>
+</li>
+<li><p class="first">–zebraqueue DAYS</p>
+<ul class="simple">
+<li>Purge completed zebraqueue entries older than DAYS days.</li>
+<li>Defaults to 30 days if no days specified.</li>
+</ul>
+</li>
+<li><p class="first">–z3950</p>
+<ul class="simple">
+<li>Purge records from import tables that are the result of Z39.50 searches.</li>
+<li>To purge all other import information, see the –import parameter above.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="share-usage-stats">
+<span id="cron-share-usage-stats-label"></span><h4>Share usage stats<a class="headerlink" href="#share-usage-stats" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/share_usage_with_koha_community.pl</p>
+<p>Does: sends your info to the <a class="reference external" href="http://hea.koha-community.org/">Hea
+website</a>
+if you’re sharing information via the <a class="reference internal" href="administrationpreferences.html#usagestats"><span class="std std-ref">UsageStats</span></a>
+feature</p>
+<p>Frequency: monthly</p>
+</div>
+</div>
+<div class="section" id="acquisitions">
+<span id="cron-acquisitions-label"></span><h3>Acquisitions<a class="headerlink" href="#acquisitions" title="永久链接至标题"></a></h3>
+<div class="section" id="clean-up-old-suggestions">
+<span id="cron-clean-up-old-suggestions-label"></span><h4>Clean up old suggestions<a class="headerlink" href="#clean-up-old-suggestions" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/purge_suggestions.pl</p>
+<p>Does: removes old (defined by you) suggestions from the suggestion
+management area.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The system preference <a class="reference internal" href="acquisitionspreferences.html#purgesuggestionsolderthan"><span class="std std-ref">PurgeSuggestionsOlderThan</span></a> defines the number
+of days used in the script</p>
+</div></blockquote>
+</div>
+<div class="section" id="email-suggestions-to-process">
+<span id="cron-email-suggestions-to-process-label"></span><h4>Email suggestions to process<a class="headerlink" href="#email-suggestions-to-process" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/notice_unprocessed_suggestions.pl</p>
+<p>Does: generates a notice to the fund owner that there are suggestions in
+need of processing</p>
+</div>
+<div class="section" id="edi-message-processing">
+<span id="cron-edi-message-processing-label"></span><h4>EDI message processing<a class="headerlink" href="#edi-message-processing" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/edi_cron.pl</p>
+<p>Does: sends and received EDI messages</p>
+<p>Frequency: Every 15 minutes</p>
+</div>
+<div class="section" id="remove-temporary-edi-files">
+<span id="cron-remove-temporary-edi-files-label"></span><h4>Remove temporary EDI files<a class="headerlink" href="#remove-temporary-edi-files" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/remove_temporary_edifiles.pl</p>
+<p>Does: removes temporary EDI files that are older than 5 days</p>
+</div>
+</div>
+<div class="section" id="reports">
+<span id="cron-reports-label"></span><span id="cron-deprecated-scripts-label"></span><h3>Reports<a class="headerlink" href="#reports" title="永久链接至标题"></a></h3>
+<div class="section" id="run-report">
+<h4>Run report<a class="headerlink" href="#run-report" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/runreport.pl</p>
+<p>Does: runs pre-existing saved reports</p>
+<blockquote>
+<div><p><strong>PARAMETERS</strong></p>
+<ul class="simple">
+<li>-v|–verbose
+Verbose output</li>
+<li>–format=s
+Selects format. Choice of text, html, csv or tsv</li>
+<li>-e|–email
+Whether or not to use e-mail (implied by –to or –from)</li>
+<li>-a|–attachment
+Attach the report as a file. Cannot be used with html format</li>
+<li>–username
+Username to pass to the SMTP server for authentication</li>
+<li>–password
+Password to pass to the SMTP server for authentication</li>
+<li>–method
+The type of authentication. Ie. LOGIN, DIGEST-MD5, etc.</li>
+<li>–to=s
+E-mail address to send report to</li>
+<li>–from=s
+E-mail address to send report from</li>
+<li>–subject=s
+Subject for the e-mail</li>
+<li>–store-results
+Store the result of the report</li>
+<li>–csv-header
+Add column names as first line of csv output</li>
+</ul>
+<p><strong>ARGUMENTS</strong></p>
+<ul class="simple">
+<li>reportID
+Report ID Number from saved_sql.id, multiple ID’s may be specified</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="social-data">
+<h3>Social data<a class="headerlink" href="#social-data" title="永久链接至标题"></a></h3>
+<div class="section" id="get-report-social-data">
+<h4>Get report social data<a class="headerlink" href="#get-report-social-data" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/social_data/get_report_social_data.pl</p>
+<p>Does: downloads data from Babelthèque to add to OPAC records</p>
+<p>Frequency suggestion: nightly</p>
+</div>
+<div class="section" id="update-social-data">
+<h4>Update social data<a class="headerlink" href="#update-social-data" title="永久链接至标题"></a></h4>
+<p>Script path: misc/cronjobs/social_data/update_social_data.pl</p>
+<p>Does: updates OPAC records with Babelthèque social data</p>
+</div>
+</div>
+</div>
+<div class="section" id="daemons">
+<span id="cron-daemons-subchapter-label"></span><h2>Daemons<a class="headerlink" href="#daemons" title="永久链接至标题"></a></h2>
+<p>Daemons are continuously running tasks that help support Koha
+operation.  Your database and webserver are run as daemons.
+Newer versions of Koha start two different daemons for most koha instances:</p>
+<blockquote>
+<div><ul class="simple">
+<li>zebra - this is the index server</li>
+<li>koha-indexer - this daemon updates the index server with
+new and modified data (biblios and authorities)</li>
+</ul>
+</div></blockquote>
+<p>These daemons are started by the script /etc/init.d/koha-common.</p>
+<div class="section" id="zebra-indexer-daemon">
+<span id="cron-koha-indexer-label"></span><h3>Zebra indexer daemon<a class="headerlink" href="#zebra-indexer-daemon" title="永久链接至标题"></a></h3>
+<p>Script path: /usr/sbin/koha-indexer (invoked from /etc/init.d/koha-common)</p>
+<p>The koha-indexer script invokes rebuild_zebra.pl in daemon mode.
+In this mode, the script will run continuously and check the database
+for new or modified data every 30 seconds.  New or modified records
+are then sent to Zebra for indexing, which only takes a second or so.
+The advantage of this approach is a search system which is much more
+responsive to changes, compared to the
+<a class="reference internal" href="#cron-rebuild-index-label"><span class="std std-ref">cron job approach</span></a>.</p>
+</div>
+</div>
+<div class="section" id="deprecated-scripts">
+<h2>Deprecated scripts<a class="headerlink" href="#deprecated-scripts" title="永久链接至标题"></a></h2>
+<p>These should not be run without modification:</p>
+<p>Script path: misc/cronjobs/update_items.pl</p>
+<p>Script path:misc/cronjobs/smsoverdues.pl</p>
+<p>Script path:misc/cronjobs/notifyMailsOp.pl</p>
+<p>Script path:misc/cronjobs/reservefix.pl</p>
+<p>Script path:misc/cronjobs/zebraqueue_start.pl</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="implementation_checklist.html" class="btn btn-neutral float-left" title="Implementation checklist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="webservices.html" class="btn btn-neutral float-right" title="Web Services" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

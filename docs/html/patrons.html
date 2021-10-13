@@ -1,0 +1,2472 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patrons &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Cash management" href="cash_management.html" />
+    <link rel="prev" title="Tools" href="tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Patrons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-a-new-patron">Add a new patron</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quick-add-a-patron">Quick add a patron</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#add-a-staff-patron">Add a staff patron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-a-statistical-patron">Add a statistical patron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#duplicate-a-patron">Duplicate a patron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-patron-images">Add patron images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-patrons">Editing patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#renew-patron-account">Renew patron account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deleting-a-patron-account">Deleting a patron account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-patron-self-edits">Managing patron self edits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merging-patron-records">Merging patron records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#patron-permissions">Patron permissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-patron-permissions">Setting patron permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-permissions-defined">Patron permissions defined</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#patron-information">Patron information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#check-out">Check out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#details">Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#circulation-summary">Circulation summary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#accounting">Accounting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#actions">Actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#charging-fines-fees">Charging fines/fees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pay-and-writeoff-fines">Pay and Writeoff fines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#void-payments">Void payments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-manual-invoices">Creating manual invoices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-manual-credits">Creating manual credits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#printing-invoices">Printing invoices</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#routing-lists">Routing lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#circulation-history">Circulation history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-history">Holds history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modification-log">Modification log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notices">Notices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#statistics">Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purchase-suggestions">Purchase suggestions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-discharges">Patron discharges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#housebound-patrons">Housebound patrons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#chooser">Chooser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deliverer">Deliverer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#housebound-borrowers">Housebound borrowers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coordinating-deliveries">Coordinating deliveries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#patron-search">Patron search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#communicating-with-patrons">Communicating with patrons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opac-notes">OPAC notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opac-messages">OPAC messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advance-notices-and-hold-notices">Advance notices and hold notices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overdue-notices">Overdue notices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-emails">Custom emails</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Patrons</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/patrons.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="tools.html" class="btn btn-neutral float-left" title="Tools" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cash_management.html" class="btn btn-neutral float-right" title="Cash management" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="patrons">
+<span id="patrons-label"></span><h1>Patrons<a class="headerlink" href="#patrons" title="永久链接至标题"></a></h1>
+<p>Before importing or adding patrons be sure to set up your
+<a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron categories</span></a>.</p>
+<div class="section" id="add-a-new-patron">
+<span id="add-a-new-patron-label"></span><h2>Add a new patron<a class="headerlink" href="#add-a-new-patron" title="永久链接至标题"></a></h2>
+<p>Patrons are added by going to the ‘Patrons’ module.</p>
+<ul class="simple">
+<li><em>Get there:</em> Patrons</li>
+</ul>
+<p>Once there you can add a new patron.</p>
+<ul>
+<li><p class="first">Click ‘New patron’</p>
+<p><img alt="Drop down of patron categories when adding a new patron" src="_images/newpatron.png" /></p>
+</li>
+<li><p class="first">The fields that appear on the patron add form can be controlled by
+editing the <a class="reference internal" href="patronspreferences.html#borrowerunwantedfield"><span class="std std-ref">BorrowerUnwantedField</span></a> system preference.</p>
+</li>
+<li><p class="first">Required fields are defined in the <a class="reference internal" href="patronspreferences.html#borrowermandatoryfield"><span class="std std-ref">BorrowerMandatoryField</span></a> system
+preference</p>
+</li>
+<li><p class="first">First, enter the identifying information regarding your patron</p>
+<p><img alt="'Patron identity' section of the patron form" src="_images/addpatronform.png" /></p>
+<ul>
+<li><p class="first">‘Salutation’ is populated by the <a class="reference internal" href="patronspreferences.html#borrowerstitles"><span class="std std-ref">BorrowersTitles</span></a> system preference</p>
+</li>
+<li><p class="first"><strong>Note</strong></p>
+<blockquote>
+<div><p>If you’d like to prevent full names from printing on
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">slips</span></a> and you’re not using the Initials or
+Other name fields for anything else, you can use them for
+shortened versions of the name to then be printed on the slip.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Firstname</span><span class="p">:</span> <span class="n">Nicole</span> <span class="n">C</span><span class="o">.</span>
+<span class="n">Surname</span><span class="p">:</span> <span class="n">Engard</span>
+<span class="n">Initials</span><span class="p">:</span> <span class="n">NCE</span>
+</pre></div>
+</div>
+<p>Then on the slip you can have it print the
+&lt;&lt;borrowers.initials&gt;&gt; instead of the full name (NCE).</p>
+<p>Or you could do something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Firstname</span><span class="p">:</span> <span class="n">Nicole</span>
+<span class="n">Surname</span><span class="p">:</span> <span class="n">Engard</span>
+<span class="n">Initials</span><span class="p">:</span> <span class="n">E</span>
+</pre></div>
+</div>
+<p>Then on the slip you can have it print the
+&lt;&lt;borrowers.initials&gt;&gt;, &lt;&lt;borrowers.firstname&gt;&gt; instead of the
+full name (E, Nicole).</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">If this patron is a child, you will be asked to attach the child
+patron to an adult patron (guarantor)</p>
+<p><strong>Note</strong>
+Guarantors can only be attached to patrons whose <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">category</span></a>
+is of the ‘Child’, ‘Professional’ or ‘Organization’ type.</p>
+<p><img alt="'Patron guarantor' and 'Non-patron guarantor' sections of the patron form" src="_images/addGuarantor.png" /></p>
+<ul>
+<li><p class="first">If the guarantor is a patron of the library, click ‘Search to add’ to
+search your system for an existing patron</p>
+<p><img alt="Search for patron pop up window" src="_images/addGuarantor2.png" /></p>
+</li>
+<li><p class="first">Click ‘Select’ to choose the patron</p>
+<p><img alt="Lst of results from the patron search" src="_images/addGuarantor3.png" /></p>
+</li>
+<li><p class="first">The relationships are set using the <a class="reference internal" href="patronspreferences.html#borrowerrelationship"><span class="std std-ref">borrowerRelationship</span></a> system
+preference</p>
+<p><img alt="Patron guarantor section of the add new patron form with a patron selected as guarantor" src="_images/addGuarantor4.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>It is possible to add more than one guarantor to a patron account
+(both parents for example).</p>
+</div></blockquote>
+</li>
+<li><p class="first">If the guarantor is not a patron, you can still add their information in
+the ‘Non-patron guarantor’ section.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Next enter the main address and contact information</p>
+<p><img alt="Main address section of the add new patron form" src="_images/addmainaddress.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The street type is populated by the ROADTYPE
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized values</span></a></p>
+</div></blockquote>
+<p><img alt="image409" src="_images/addcontact.png" /></p>
+<ul class="simple">
+<li>For contact information, note that the primary phone number and primary
+email address are the ones that appear on notices and slips printed
+during circulation (receipts, transfer slips and hold slips). The
+primary email is also the one that overdue notices and other
+messages go to.</li>
+</ul>
+</li>
+<li><p class="first">You can also record an alternate address for each patron. This could be used
+in an academic setting to store the patron’s home address for example.</p>
+<p><img alt="'Alternate address' section of the patron form" src="_images/addaltaddress.png" /></p>
+</li>
+<li><p class="first">Each patron can have an alternate contact. An alternate contact could be a
+parent or guardian, for example.</p>
+<p><img alt="'Altenate contact' section of the patron form" src="_images/addaltcontact.png" /></p>
+</li>
+<li><p class="first">The library management section includes values that are used within
+the library</p>
+<p><img alt="'Library management' section of the patron form" src="_images/addlibmanagement.png" /></p>
+<ul>
+<li><p class="first">The card number field is automatically calculated if you have the
+<a class="reference internal" href="patronspreferences.html#automembernum"><span class="std std-ref">autoMemberNum</span></a> system preference set that way</p>
+<ul>
+<li><p class="first"><strong>Note</strong></p>
+<blockquote>
+<div><p>For a newly installed system this preference will start at
+1 and increment by 1 each time after. To have it start with
+the starting number of your barcodes, enter the first
+barcode by hand in the patron record and save the patron.
+After that the field will increment that number by 1.</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">If you accidentally chose the wrong patron category at the
+beginning you can fix that here</p>
+</li>
+<li><p class="first">Sort 1 and 2 are used for statistical purposes within your library</p>
+<ul class="simple">
+<li>You can create drop-down menus for these fields by adding values
+in the Bsort1 and Bsort2 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized values categories</span></a></li>
+</ul>
+</li>
+<li><p class="first">‘Allow auto-renewal of items’ is used to control whether this patron
+wants to automatically renew their checkouts. This requires the
+<a class="reference internal" href="cron_jobs.html#cron-automatic-renewal-label"><span class="std std-ref">automatic_renewal cronjob</span></a> to run
+daily.</p>
+</li>
+<li><p class="first">‘Check for previous checkouts’ is used to set the patron’s personal
+preference regarding checking their circulation history to see if they
+have borrowed This item in the past. This overrides the setting of the
+<a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">patron category</span></a> and of the
+<a class="reference internal" href="patronspreferences.html#checkprevcheckout"><span class="std std-ref">CheckPrevCheckout</span></a> system preference.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Next, the library set-up section includes additional library settings</p>
+<p><img alt="'Library set-up' and 'OPAC/Staff login' sections of the patron form" src="_images/addlibsetup.png" /></p>
+<ul>
+<li><p class="first">The registration date will automatically be filled in with today’s
+date</p>
+</li>
+<li><p class="first">The expiry date will automatically be calculated based on your
+<a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category settings</span></a></p>
+</li>
+<li><p class="first">The OPAC note is a note for the patron, it will appear in the patron’s
+online account on the OPAC</p>
+<p><img alt="'Messages for you' box in the patron's online account with a note saying 'This is an OPAC note'" src="_images/opacnote.png" /></p>
+<p><strong>Note</strong></p>
+<p>See also <a class="reference internal" href="#opac-messages-label"><span class="std std-ref">OPAC messages</span></a></p>
+</li>
+<li><p class="first">The Circulation note is meant solely for your library staff and
+will appear when the circulation staff goes to check an item out
+to the patron</p>
+<p><img alt="Circulation note appearing in red to the right of the checkout box" src="_images/circnote.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">The ‘OPAC/Staff interface login’ section asks for the username and
+password to be used by the patron (or staff member) to log into their
+account in the OPAC and for staff to log in to the staff interface.</p>
+<ul class="simple">
+<li>Staff will only be able to use this login information to log in to
+the staff interface if they have at least the
+<a class="reference internal" href="#patron-permissions-label"><span class="std std-ref">catalogue permission</span></a>.</li>
+</ul>
+</li>
+<li><p class="first">If you have enabled the housebound module (with the <a class="reference internal" href="circulationpreferences.html#houseboundmodule"><span class="std std-ref">HouseboundModule</span></a>
+system preference), you will be able to choose a
+<a class="reference internal" href="#housebound-patrons-label"><span class="std std-ref">housebound role</span></a> for this patron.</p>
+<p><img alt="'Housebound roles' section of the patron form" src="_images/addhouseboundroles.png" /></p>
+</li>
+<li><p class="first">If you have set <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">additional patron attributes</span></a>
+in the administration module, these will appear next</p>
+<p><img alt="'Additional attributes' section of the patron form" src="_images/addattributes.png" /></p>
+</li>
+<li><p class="first">Finally, if you have the <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences"><span class="std std-ref">EnhancedMessagingPreferences</span></a> system
+preference set to ‘allow,’ you can choose the messaging preferences for
+this patron.</p>
+<p><img alt="'Patron messaging preferences' section of the patron form" src="_images/addpatronmsg.png" /></p>
+<p>See the definition of each notice in the
+<a class="reference internal" href="#advance-notices-and-hold-notices-label"><span class="std std-ref">advance notices and hold notices</span></a>
+section</p>
+<ul>
+<li><p class="first"><strong>Important</strong></p>
+<blockquote>
+<div><p>These preferences will override any you set via the <a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">patron
+categories</span></a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Important</strong></p>
+<blockquote>
+<div><p>These preference can be altered by the patron via the OPAC if the
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a> system preference is set to
+‘show’</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">Once finished, click ‘Save’</p>
+</li>
+</ul>
+<p>If the system suspects this patron is a duplicate of another it will
+warn you.</p>
+<p><img alt="'Duplicate patron record' warning with options to view existing patron record, to edit existing record or to save as new record" src="_images/duplicatewarn.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>See the <a class="reference internal" href="patronspreferences.html#patronduplicatematchingaddfields"><span class="std std-ref">PatronDuplicateMatchingAddFields</span></a> system preference to see
+or change which fields are used to detect duplicate patrons. The default is
+the surname, the firstname and the date of birth.</p>
+</div></blockquote>
+<p>If you have set a minimum or upper age limit on the patron category and
+are requiring that the birth date be filled in, Koha will warn you if
+the patron you’re adding is too old or young for the patron category you
+have selected:</p>
+<p><img alt="Warning 'The following fields are wrong. Please fix them. Patron's age is incorrect for their category. Ages allowed are 5-17.'" src="_images/patronagelimit.png" /></p>
+<p>If the patron’s <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">category</span></a> has an enrollment
+fee, the fee will be charged to the patron’s account when the account is
+created. You can then manage the charge in the patron’s <a class="reference internal" href="#fines-label"><span class="std std-ref">accounting tab</span></a>.</p>
+<div class="section" id="quick-add-a-patron">
+<span id="quick-add-patron-label"></span><h3>Quick add a patron<a class="headerlink" href="#quick-add-a-patron" title="永久链接至标题"></a></h3>
+<p>If your circulation desk is very busy and you want to register patron quickly,
+you can use the ‘quick add’ feature. It’s a shortened version of the add
+patron form with only a couple of necessary fields to fill out.</p>
+<p>This feature uses two system preferences: <a class="reference internal" href="patronspreferences.html#borrowermandatoryfield"><span class="std std-ref">BorrowerMandatoryField</span></a>
+and <a class="reference internal" href="patronspreferences.html#patronquickaddfields"><span class="std std-ref">PatronQuickAddFields</span></a>. These are the two system preferences that
+control which fields are in the quick add form.</p>
+<p>To quick add a patron, go to the Patrons module</p>
+<ul class="simple">
+<li><em>Get there:</em> Patrons</li>
+</ul>
+<p>Click on the ‘Quick add new patron’ button.</p>
+<p>You will be asked to choose a patron category.</p>
+<p>Then, you will be presented with a shortened form.</p>
+<p><img alt="image1346" src="_images/quickadd.png" /></p>
+<p>Once the form is filled out, click on ‘Save’.</p>
+<p>If you need to access the full form, you can click on ‘Show full form’
+above the ‘Save’ button.</p>
+</div>
+</div>
+<div class="section" id="add-a-staff-patron">
+<span id="add-a-staff-patron-label"></span><h2>Add a staff patron<a class="headerlink" href="#add-a-staff-patron" title="永久链接至标题"></a></h2>
+<p>All staff members must be entered into Koha as patrons of the ‘Staff’
+type. Follow the steps in <a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">Add a Patron</span></a> to add a
+staff member. To give the staff member permissions to access the staff
+client, follow the steps in <a class="reference internal" href="#patron-permissions-label"><span class="std std-ref">patron permissions</span></a></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Remember to assign your staff secure usernames and passwords since
+these will be used to log into the staff client.</p>
+</div></blockquote>
+</div>
+<div class="section" id="add-a-statistical-patron">
+<span id="add-a-statistical-patron-label"></span><h2>Add a statistical patron<a class="headerlink" href="#add-a-statistical-patron" title="永久链接至标题"></a></h2>
+<p>One way to track use of in house items is to “check out” the materials
+to a statistical patron. The “check out” process doesn’t check the book
+out, but instead tracks an in house use of the item. To use this method
+for tracking in house use you first will need a <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron
+category</span></a> set up for your statistical patron.</p>
+<p><img alt="image420" src="_images/statspatcat.png" /></p>
+<p>Next, you will need to create a new patron of the statistical type.</p>
+<p><img alt="image421" src="_images/newinhouse.png" /></p>
+<p>Next, follow the steps put forth in the ‘<a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">Add a new
+patron</span></a>’ section of this manual. Since this patron is
+not a real person, simply fill in the required fields, the correct
+library and nothing else.</p>
+<p>To learn about other methods of tracking in house use visit the
+<a class="reference internal" href="circulation.html#tracking-in-house-use-label"><span class="std std-ref">tracking inhouse use</span></a> section of this manual.</p>
+</div>
+<div class="section" id="duplicate-a-patron">
+<span id="duplicate-a-patron-label"></span><h2>Duplicate a patron<a class="headerlink" href="#duplicate-a-patron" title="永久链接至标题"></a></h2>
+<p>Sometimes when you’re adding a new family to your system you don’t want
+to type the contact information over and over. Koha allows for you to
+duplicate a patron and change only the parts you want to (or need to)
+change.</p>
+<ul>
+<li><p class="first">Open the patron you want to use as your base (the patron you want to
+duplicate information from)</p>
+</li>
+<li><p class="first">Click the ‘Duplicate’ button at the top of their record</p>
+<p><img alt="image422" src="_images/patronedit.png" /></p>
+</li>
+<li><p class="first">All of the fields with the exception of first name, card number,
+username and password have been duplicated. Fill in the missing
+pieces and click ‘Save’</p>
+<p><img alt="image423" src="_images/duplicatedpatron.png" /></p>
+<ul>
+<li><p class="first"><strong>Note</strong></p>
+<blockquote>
+<div><p>Clicking in a field that is already populated with data will
+clear that field of all information (making it easier for you
+to type in something different)</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">You will be brought to your new patron</p>
+<p><img alt="image424" src="_images/duplicatedpatronfinal.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="add-patron-images">
+<span id="add-patron-images-label"></span><h2>Add patron images<a class="headerlink" href="#add-patron-images" title="永久链接至标题"></a></h2>
+<p>If you would like you can add patron images to help identify patrons. To
+enable this feature you must first set the
+<a class="reference internal" href="patronspreferences.html#patronimages"><span class="std std-ref">patronimages</span></a> preference to ‘Allow’.</p>
+<p>If the preference is set to ‘Allow’ you will see a placeholder image
+under the patron’s name and box to upload a patron image below the basic
+contact information.</p>
+<p><img alt="image425" src="_images/addpatronimage.png" /></p>
+<p>In the ‘Upload patron image’ box click ‘Browse’ to find the image on
+your computer and ‘Upload’ to load the image on to the patron record.</p>
+<p><img alt="image426" src="_images/patronimage.png" /></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>There is a limit of 100K on the size of the picture uploaded and it
+is recommended that the image be 200x300 pixels, but smaller images
+will work as well.</p>
+</div></blockquote>
+</div>
+<div class="section" id="editing-patrons">
+<span id="editing-patrons-label"></span><h2>Editing patrons<a class="headerlink" href="#editing-patrons" title="永久链接至标题"></a></h2>
+<p>Patrons in Koha can be edited using one of many edit buttons.</p>
+<ul>
+<li><p class="first">To edit the entire patron record simply click the ‘Edit’ button at
+the top of the patron record.</p>
+<p><img alt="Row of action buttons at the top of the patron's detail page" src="_images/patronedit.png" /></p>
+</li>
+<li><p class="first">Patron passwords are not recoverable. The stars show on the patron
+detail next to the password label are always there even if a password
+isn’t set. If a patron forgets their password the only option is to
+reset their password. To change the patron’s password, click the
+‘Change password’ button.</p>
+<p><img alt="image428" src="_images/patronpassword.png" /></p>
+<ul class="simple">
+<li>Koha cannot display existing passwords as they are encrypted in the
+database. Leave the field blank to leave password unchanged.</li>
+<li>This form can automatically generate a random password if you
+click the link labeled “Click to fill with a randomly generated
+suggestion. Passwords will be displayed as text.”</li>
+</ul>
+</li>
+<li><p class="first">To edit a specific section of the patron record (for example the
+‘Library use’ section) click the ‘Edit’ button beside the section.</p>
+<p><img alt="'Library use' section of the patron's file" src="_images/patroneditsection.png" /></p>
+</li>
+<li><p class="first">A patron image can be added by browsing for the image on your machine
+from the ‘Manage patron image’ section.</p>
+<p><img alt="image430" src="_images/patronaddimage.png" /></p>
+<ul class="simple">
+<li>This form will not appear if you have the
+<a class="reference internal" href="patronspreferences.html#patronimages"><span class="std std-ref">patronimages</span></a> system preference to not allow
+patron images.</li>
+<li>To add patron images in bulk, use the <a class="reference internal" href="tools.html#upload-patron-images-label"><span class="std std-ref">Upload patron
+images</span></a> tool.</li>
+</ul>
+</li>
+<li><p class="first">Patrons can also be blocked from checking items out by setting Patron
+flags</p>
+<p><img alt="image431" src="_images/patronflags.png" /></p>
+<ul>
+<li><p class="first">If you would like your circulation staff to confirm a patron’s
+address before checking items out to the patron, you can see the
+‘Gone no address’ flag</p>
+<p><img alt="image432" src="_images/patronaddress.png" /></p>
+</li>
+<li><p class="first">If the patron reports that they have lost their card you can set
+the ‘Lost card’ flag to prevent someone else from using that card
+to check items out</p>
+<p><img alt="image433" src="_images/patroncardlost.png" /></p>
+</li>
+<li><p class="first">If you would like to bar a patron from the library you can add a
+manual restriction</p>
+<p><img alt="image434" src="_images/addpatronrestriction.png" /></p>
+<ul>
+<li><p class="first"><strong>Note</strong></p>
+<blockquote>
+<div><p>This flag can automatically be set with the <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue/notice
+status triggers</span></a></p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">If you enter in a date and/or note related to the restriction you
+will see that in the restricted message as well</p>
+<p><img alt="image435" src="_images/restricteduntil.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Children patrons do not become adults automatically in Koha unless
+you have the <a class="reference internal" href="cron_jobs.html#cron-update-patron-categories-label"><span class="std std-ref">Update patron categories</span></a> cron job running. To
+upgrade a child patron to and adult patron category manually go to
+the ‘More’ menu and choose ‘Update child to adult patron’</p>
+<p><img alt="image436" src="_images/updatetoadult.png" /></p>
+<ul>
+<li><p class="first">You will then be presented with a pop up window asking which one
+of your adult patron categories this Child should be updated to</p>
+<p><img alt="image437" src="_images/choosadulttype.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="renew-patron-account">
+<span id="renew-patron-account-label"></span><h2>Renew patron account<a class="headerlink" href="#renew-patron-account" title="永久链接至标题"></a></h2>
+<p>When renewing a patron account you can either edit the the expiry date
+manually in the patron record or use the ‘Renew patron’ option from the
+More menu in the toolbar at the top.</p>
+<p><img alt="image1393" src="_images/renew_account.png" /></p>
+<p>Using the latter the new expiry date will be calculated using the
+enrollment period configured for the patron category of the user.
+The system preference <a class="reference internal" href="patronspreferences.html#borrowerrenewalperiodbase"><span class="std std-ref">BorrowerRenewalPeriodBase</span></a> determines if
+the new expiry date will be calculated from the current date or from the
+old expiry date.</p>
+<p>One advantage of using the ‘Renew patron’ option is that it will be logged
+as a membership renewal in the action_logs table and be visible as such
+when using the <a class="reference internal" href="tools.html#log-viewer-label"><span class="std std-ref">Log viewer</span></a> or the
+<a class="reference internal" href="#modification-log-label"><span class="std std-ref">Modificaton log</span></a> from the patron account.</p>
+<p>The renewal date of the patron account will be visible on the details tab.</p>
+<p><img alt="image1392" src="_images/account_renewal_date.png" /></p>
+<p>If the patron is in a <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category</span></a> with a
+membership fee, the charge will also be added upon renewal. You can then manage
+the charge in the patron’s <a class="reference internal" href="#fines-label"><span class="std std-ref">accounting tab</span></a>.</p>
+</div>
+<div class="section" id="deleting-a-patron-account">
+<span id="delete-patron-account-label"></span><h2>Deleting a patron account<a class="headerlink" href="#deleting-a-patron-account" title="永久链接至标题"></a></h2>
+<p>From the ‘More’ drop-down, the patron account can be deleted.</p>
+<p><img alt="image1469" src="_images/deletepatron.png" /></p>
+<p>There will be an alert if the patron has checkouts, holds, fines or credits.</p>
+<ul>
+<li><p class="first">If a patron has current checkouts, the deletion will not be possible.</p>
+<p><img alt="image1470" src="_images/deletepatroncheckout.png" /></p>
+</li>
+<li><p class="first">If a patron has outstanding fines, the deletion will not be possible.</p>
+<p><img alt="image1468" src="_images/deletepatronfines.png" /></p>
+</li>
+<li><p class="first">If a patron has unused credits, the option to delete the patron is possible
+but there will be a warning.</p>
+<p><img alt="image1471" src="_images/deletepatroncredit.png" /></p>
+</li>
+<li><p class="first">If a patron has existing holds on their account, the option to delete the
+patron is possible. The hold will be cancelled and moved to the old reserves
+table.</p>
+<p><img alt="image1462" src="_images/delete_with_holds.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="managing-patron-self-edits">
+<span id="managing-patron-self-edits-label"></span><h2>Managing patron self edits<a class="headerlink" href="#managing-patron-self-edits" title="永久链接至标题"></a></h2>
+<p>If you are allowing patrons to edit their accounts via the OPAC with the
+<a class="reference internal" href="opacpreferences.html#opacpatrondetails"><span class="std std-ref">OPACPatronDetails</span></a> preference then you will need
+to approve all changes via the staff client before they’re applied. If
+there are patron edits awaiting action they will appear on the staff
+client dashboard below the modules list (along with other items awaiting
+action).</p>
+<p><img alt="image438" src="_images/pendingpatronrequest.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Superlibrarians will see modifications for any branch, other staff
+will only see modifications for patrons who belong to their logged
+in branch.</p>
+</div></blockquote>
+<p>When you click the ‘Patrons requesting modifications’ link you will be
+brought to a list of patrons with requested changes.</p>
+<p><img alt="image439" src="_images/managepatronupdates.png" /></p>
+<p>From here you can ‘Approve’ and apply the changes to the patron record,
+‘Delete’ and remove the changes or ‘Ignore’ and keep the changes pending
+to review later.</p>
+<p>If you would like to see the entire patron record you can click the
+‘Patron details’ links to the right of the buttons. This will open in a
+new tab.</p>
+</div>
+<div class="section" id="merging-patron-records">
+<h2>Merging patron records<a class="headerlink" href="#merging-patron-records" title="永久链接至标题"></a></h2>
+<p>If you accidentally end up with one patron with two cards it is possible
+to merge their records together so that you don’t lose their loan history
+or holds.</p>
+<ul class="simple">
+<li>In the patron list, check the boxes next to the records you want to
+merge and click on the ‘Merge selected patrons’ button.</li>
+</ul>
+<p><img alt="image1326" src="_images/mergepatrons1.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>It is possible to merge more than two records at a time.</p>
+</div></blockquote>
+<ul class="simple">
+<li>Select the patron record you want to keep and click on the ‘Merge
+patrons’ button.</li>
+</ul>
+<p><img alt="image1327" src="_images/mergepatrons2.png" /></p>
+<p>The checkouts and statistics will be transferred to the right record and
+the other one will be deleted.</p>
+<p><img alt="image1328" src="_images/mergepatrons3.png" /></p>
+</div>
+<div class="section" id="patron-permissions">
+<span id="patron-permissions-label"></span><h2>Patron permissions<a class="headerlink" href="#patron-permissions" title="永久链接至标题"></a></h2>
+<p>Patron permissions are used to allow staff members access to the staff
+client.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>In order for a staff member to log into the staff interface they
+must have (at the very least) ‘catalogue’ permissions which allow
+them to view the staff interface.</p>
+</div></blockquote>
+<div class="section" id="setting-patron-permissions">
+<span id="setting-patron-permissions-label"></span><h3>Setting patron permissions<a class="headerlink" href="#setting-patron-permissions" title="永久链接至标题"></a></h3>
+<ul>
+<li><p class="first">On the patron record click ‘More’ and choose ‘Set permissions’ to alter
+patron permissions</p>
+<p><img alt="image440" src="_images/editpatronpermissions.png" /></p>
+</li>
+<li><p class="first">You will be presented with a list of preferences, some of which can
+be expanded by clicking the ‘Show details’ link on the right
+title.</p>
+<p><img alt="image441" src="_images/patronpermissions.png" /></p>
+</li>
+<li><p class="first">In all cases, if the parent permission is checked, the user has all the
+child permissions. If you want to set permissions on a more granular level,
+expand the section and only check the permissions you want that user to
+have.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="patron-permissions-defined">
+<span id="patron-permissions-defined-label"></span><h3>Patron permissions defined<a class="headerlink" href="#patron-permissions-defined" title="永久链接至标题"></a></h3>
+<ul>
+<li><p class="first">Access to all librarian functions (superlibrarian)</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>With this selected there is no need to choose any other
+permissions</p>
+</div></blockquote>
+</li>
+<li><p class="first">Check out and check in items (circulate)</p>
+<ul class="simple">
+<li>Remaining circulation permissions (circulate_remaining_permissions)<ul>
+<li>This permission grants all circulation rights except those covered by
+permissions listed below</li>
+</ul>
+</li>
+<li>Force checkout if a limitation exists (force_checkout)<ul>
+<li>With this permission a staff member will be allowed to override a
+check out restriction in the following cases:<ul>
+<li>age restriction</li>
+<li>the item is issued to another patron</li>
+<li>the item is not for loan</li>
+<li>the patron has overdue items</li>
+<li>the item is lost</li>
+<li>the item is a high demand item</li>
+<li>the item is on hold</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Mark checkout notes as seen/not seen (manage_checkout_notes)<ul>
+<li><dl class="first docutils">
+<dt>The permission to manage the checkout notes written by users</dt>
+<dd>through the OPAC</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li>Manage restrictions for accounts (manage_restrictions)<ul>
+<li>Grants permission to the staff member to lift a restriction that
+might be on the patron’s record</li>
+</ul>
+</li>
+<li>Execute overdue items report (overdues_report)<ul>
+<li>The permission to run the overdues reports found under Circulation</li>
+</ul>
+</li>
+<li>Override blocked renewals (override_renewals)<ul>
+<li>With this permission, a staff member can override renewals if there
+is a restriction</li>
+<li>Requires that the staff member also has
+circulate_remaining_permissions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Staff access, allows viewing the catalogue in staff client (catalogue)
+<strong>Required for staff login.</strong></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Must be given to all staff members to allow them to login
+to the staff interface</p>
+</div></blockquote>
+</li>
+<li><p class="first">Manage Koha system settings (Administration panel) (parameters)</p>
+<ul>
+<li><p class="first">Manage account debit and credit types (manage_accounts)</p>
+<ul class="simple">
+<li>This gives access to the <a class="reference internal" href="administration.html#debit-types-label"><span class="std std-ref">debit types section</span></a></li>
+</ul>
+</li>
+<li><p class="first">Manage additional fields for baskets or subscriptions (manage_additional
+_fields)</p>
+<ul>
+<li><p class="first">This gives access to the
+<a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields section</span></a></p>
+</li>
+<li><p class="first"><strong>Important</strong></p>
+<p>This permission requires that the staff member also have the ‘Edit
+an existing subscription’ permission from the ‘Manage serial
+subscriptions’ section and the ‘Manage basket and order lines’
+permission from the ‘Acquisition and/or suggestion management’ section</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Manage audio alerts (manage_audio_alerts)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#audio-alerts-label"><span class="std std-ref">audio alerts</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage authorized value categories and authorised values (manage_auth_
+values)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">auhorized values</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage circulation rules (manage_circ_rules)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a> configuration in the
+administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage circulation rules form any library (manage_circ_rules_from_
+any_libraries)</p>
+<ul class="simple">
+<li>If not set the logged in user can only edit circulation rules from
+their own library</li>
+<li>The staff member still has to have the ‘Manage circulation rules’
+permission above.</li>
+</ul>
+</li>
+<li><p class="first">Manage cities and towns (manage_cities)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#cities-and-towns-label"><span class="std std-ref">cities and towns</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage classification sources and filing rules (manage_classifications)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#classification-sources-label"><span class="std std-ref">classification sources</span></a> configuration in the administration
+module.</li>
+</ul>
+</li>
+<li><p class="first">Manage column configuration (manage_column_config)</p>
+<ul class="simple">
+<li>The ability the access the <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">configure columns</span></a>
+page in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage Did you mean? configuration (manage_didyoumean)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#did-you-mean-label"><span class="std std-ref">Did you mean?</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage item circulation alerts (manage_item_circ_alerts)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#item-circulation-alerts-label"><span class="std std-ref">item circulation alerts</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage item search fields (manage_item_search_fields)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#item-search-fields-label"><span class="std std-ref">item search fields</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage item types (manage_itemtypes)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item types</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage keyboard shortcuts for the advanced cataloging editor (manage_
+keyboard_shortcuts)</p>
+<ul class="simple">
+<li>The ability to access the keyboard shortcuts configuration in the
+administration module</li>
+</ul>
+</li>
+<li><p class="first">Manage libraries and library groups (manage_libraries)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">libraries</span></a> and
+<a class="reference internal" href="administration.html#library-groups-label"><span class="std std-ref">library groups</span></a> configuration pages
+in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage Mana KB content sharing (manage_mana)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#share-with-mana-kb-label"><span class="std std-ref">share content with Mana KB</span></a> in the administration module</li>
+</ul>
+</li>
+<li><p class="first">Manage MARC bibliographic and authority frameworks and test them
+(manage_marc_frameworks)</p>
+</li>
+<li><p class="first">The ability to access the
+<a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC bibliographic framework</span></a>,
+<a class="reference internal" href="administration.html#authority-types-label"><span class="std std-ref">authority types</span></a>,
+<a class="reference internal" href="administration.html#koha-to-marc-mapping-label"><span class="std std-ref">Koha to MARC mapping</span></a>, and
+<a class="reference internal" href="administration.html#marc-bibliographic-framework-test-label"><span class="std std-ref">MARC Bibliographic framework test</span></a>
+configuration areas in the administration module.</p>
+</li>
+<li><p class="first">Manage record matching rules (manage_matching_rules)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#record-matching-rules-label"><span class="std std-ref">record matching rules</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage OAI sets (manage_oai_sets)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#oai-sets-configuration-label"><span class="std std-ref">OAI sets</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage extened patron attributes (manage_patron_attributes)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">patron attribute types</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage patron categories (manage_patron_categories)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">Patron categories</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage search engine configuration (manage_search_engine_config)</p>
+<ul class="simple">
+<li>The ability to access the Search engine configuraton in the
+administration module. Note: This area will only be visible when
+the <a class="reference internal" href="administrationpreferences.html#searchengine"><span class="std std-ref">SearchEngine</span></a> system preference is set to ‘Elasticsearch’.</li>
+</ul>
+</li>
+<li><p class="first">Manage Z39.50 and SRU server configuration (manage_search_targets)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#z39-50-sru-servers-label"><span class="std std-ref">Z39.50/SRU servers</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage SMS cellular providers (manage_sms_providers)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#sms-cellular-providers-label"><span class="std std-ref">SMS cellular providers</span></a> configuration in the administration
+module. Note: This area will only be visible when the
+<a class="reference internal" href="patronspreferences.html#smssenddriver"><span class="std std-ref">SMSSendDriver</span></a> system preference is set to ‘Email’.</li>
+</ul>
+</li>
+<li><p class="first">Manage global system preferences (manage_sysprefs)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administrationpreferences.html#administration-system-preferences-label"><span class="std std-ref">global system preferences</span></a> in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage library transfer limits and transport cost matrix (manage_transfers)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administration.html#library-transfer-limits-label"><span class="std std-ref">library transfer limits</span></a>
+and <a class="reference internal" href="administration.html#transport-cost-matrix-label"><span class="std std-ref">transport cost matrix</span></a>
+configuration pages in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Manage usage statistics settings (manage_usage_stats)</p>
+<ul class="simple">
+<li>The ability to access the <a class="reference internal" href="administrationpreferences.html#share-anonymous-usage-statistics-label"><span class="std std-ref">share your usage statistics</span></a>
+configuration in the administration module.</li>
+</ul>
+</li>
+<li><p class="first">Remaining system parameters permissions (parameters_remaining_permissions)</p>
+<ul class="simple">
+<li>The ability to access all remaining areas in the administration module.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Add, modify and view patron information (borrowers)</p>
+<ul class="simple">
+<li>Add, modify and view patron information (edit_borrowers)<ul>
+<li>The ability to access the Patrons module to view patron files,
+as well as adding new patrons and editing patron files</li>
+</ul>
+</li>
+<li>View patron infos from any libraries (view_borrower_infos_from_any_libraries)</li>
+<li>If not set the logged in user will only be able to access patron
+information from their own library or group of libraries.</li>
+</ul>
+</li>
+<li><p class="first">Set user permissions (permissions)</p>
+<ul class="simple">
+<li>The ability to set permissions for other staff members</li>
+</ul>
+</li>
+<li><p class="first">Place and modify holds for patrons (reserveforothers)</p>
+<ul class="simple">
+<li>Modify holds priority (modify_holds_priority)<ul>
+<li>Allows staff members to alter the holds priority (moving patrons up
+and down the queue)</li>
+</ul>
+</li>
+<li>Place holds for patrons (place_holds)<ul>
+<li>Allows staff members to place holds in the staff interface</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Edit catalog (Modify bibliographic/holdings data) (editcatalogue)</p>
+<ul>
+<li><p class="first">Use the advanced cataloging editor (advanced_editor)</p>
+<ul>
+<li><p class="first">Grants the ability to use the advanced cataloging editor in the
+cataloging module</p>
+</li>
+<li><p class="first"><strong>Note</strong></p>
+<p>Staff members with this permission need to also have the ‘Edit catalog
+(Modify bibliographic/holdings data)’ permission</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Delete all items at once (delete_all_items)</p>
+<ul class="simple">
+<li>Ability to use the ‘Delete all items’ option found under the
+‘Edit’ menu in cataloging</li>
+</ul>
+</li>
+<li><p class="first">Edit catalog (Modify bibliographic/holdings data) (edit_catalogue)</p>
+<ul class="simple">
+<li>Ability to access all cataloging functions via the
+<a class="reference external" href="#cataloging">Cataloging</a> page</li>
+</ul>
+</li>
+<li><p class="first">Edit items (edit_items)</p>
+<ul class="simple">
+<li>Ability to make <a class="reference internal" href="cataloging.html#editing-items-label"><span class="std std-ref">edits to item/holdings
+records</span></a>, but not bibliographic records</li>
+</ul>
+</li>
+<li><p class="first">Limit item modification to subfields defined in the
+<a class="reference internal" href="catalogingpreferences.html#subfieldstoallowforrestrictedediting"><span class="std std-ref">SubfieldsToAllowForRestrictedEditing</span></a> system preference
+(edit_items_restricted)</p>
+<ul>
+<li><p class="first">If checked, the staff member will only be able to modify some
+item subfields</p>
+</li>
+<li><p class="first"><strong>Note</strong></p>
+<p>Please note that the ‘Edit items’ permission is still required</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Fast cataloging (fast_cataloging)</p>
+<ul class="simple">
+<li>The ability to catalog using only the <a class="reference internal" href="circulation.html#fast-add-cataloging-label"><span class="std std-ref">Fast add
+framework</span></a> found on the
+<a class="reference external" href="#circulation">Circulation</a> page</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Manage patrons fines and fees (updatecharges)</p>
+<ul class="simple">
+<li>Discount debits for patrons (discount)<ul>
+<li>Grant the ability to apply discounts to charges</li>
+</ul>
+</li>
+<li>Payout credits to patrons (payout)<ul>
+<li>Grant the ability to reimburse credits to patrons</li>
+</ul>
+</li>
+<li>Refund payments to patrons (refund)<ul>
+<li>Grant the ability to refund payments that patrons have already made to
+the library</li>
+</ul>
+</li>
+<li>Remaining permissions for managing fines and fees (remaining_permissions)<ul>
+<li>Grant the ability to manage fines and fees other than the actions
+described in the other subpermissions (dicounts, payouts, refunds and
+writeoffs)</li>
+</ul>
+</li>
+<li>Write off fines and fees (writeoff)<ul>
+<li>Grants the ability to write off patron fees</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Acquisition and/or suggestion management (acquisition)</p>
+<p><strong>Note</strong></p>
+<p>All the acquisitions sub-permissions give access to the acquisitions home
+page. That means that staff who have one or more of the following permissions
+will be able to view the budgets, search and view vendor information, and
+view invoices.</p>
+<ul class="simple">
+<li>Add and delete funds (but can’t modify funds) (budget_add_del)<ul>
+<li>Grants the ability to add and delete funds within a budget</li>
+<li>Note that the budget_manage and budget_modify permissions are
+required for this one to work correctly</li>
+</ul>
+</li>
+<li>Manage funds (budget_manage)<ul>
+<li>Grants the ability to acces the <a class="reference internal" href="administration.html#funds-label"><span class="std std-ref">fund administration page</span></a></li>
+<li>Note that this only gives viewing access to the page, you will need
+to give your staff budget_add_del and budget_modify if you want
+them to be able to make changes to the funds</li>
+</ul>
+</li>
+<li>Manage all funds (budget_manage_all)<ul>
+<li>Grants viewing access to all funds regardless of restrictions on
+them (owner, user or library restrictions)</li>
+<li>Note that the budget_manage permission is required</li>
+</ul>
+</li>
+<li>Modify funds (can’t create lines, but can modify existing ones) (budget_modify)<ul>
+<li>Grants the ability to edit fund information and amounts</li>
+<li>Note that the budget_add_del and budget_manage permissions are
+required for this one to work correctly</li>
+</ul>
+</li>
+<li>Manage contracts (contracts_manage)<ul>
+<li>Grants the ability to add, edit and delete contracts with vendors</li>
+</ul>
+</li>
+<li>Manage currencies and exchange rates (currencies_manage)<ul>
+<li>The ability to access the <a class="reference internal" href="administration.html#currencies-and-exchange-rates-label"><span class="std std-ref">Currencies and exchange rates</span></a> configuration page.</li>
+</ul>
+</li>
+<li>Manage EDIFACT transmissions (edi_manage)<ul>
+<li>Grants the ability to access the <a class="reference internal" href="administration.html#edi-accounts-label"><span class="std std-ref">EDI account</span></a>
+administration page, the <a class="reference internal" href="administration.html#library-eans-label"><span class="std std-ref">library EANs</span></a>
+administration page and access sent <a class="reference internal" href="acquisitions.html#edifact-messages-label"><span class="std std-ref">EDI messages</span></a></li>
+<li>In order to be able to send orders via EDI, your staff member also
+needs the</li>
+</ul>
+</li>
+<li>Manage basket groups (group_manage)<ul>
+<li>Grants the ability to <a class="reference internal" href="acquisitions.html#create-a-basket-group-label"><span class="std std-ref">create, edit, close and delete basket
+groups</span></a></li>
+</ul>
+</li>
+<li>Manage baskets and order lines (order_manage)<ul>
+<li>Grants the ability to <a class="reference internal" href="acquisitions.html#placing-orders-label"><span class="std std-ref">place orders</span></a>,
+including creating baskets, adding order lines, closing baskets, etc.</li>
+</ul>
+</li>
+<li>Manage all baskets and order lines, regardless of restrictions on them
+(order_manage_all)<ul>
+<li>Grants the ability to manage all baskets and orders even if they are
+restricted to the owner, users or library</li>
+<li>Note that the order_manage permission is required</li>
+</ul>
+</li>
+<li>Receive orders and manage shipments (order_receive)<ul>
+<li>Grants the ability to create invoices, receive items and claim late
+orders</li>
+</ul>
+</li>
+<li>Manage budgets (period_manage)<ul>
+<li>Grants access to the <a class="reference internal" href="administration.html#budgets-label"><span class="std std-ref">budget administration page</span></a>
+and the ability to create, edit and delete budgets</li>
+<li>This permission does not give the ability to edit budget funds.</li>
+</ul>
+</li>
+<li>Manage budget plannings (planning_manage)<ul>
+<li>Grants the ability to view <a class="reference internal" href="administration.html#budget-planning-label"><span class="std std-ref">budget planning</span></a></li>
+<li>Note that the budget_manage and the period_manage permissions are
+required for this one to work</li>
+</ul>
+</li>
+<li>Manage purchase suggestions (suggestions_manage)<ul>
+<li>Grants the ability to <a class="reference internal" href="acquisitions.html#managing-purchase-suggestions-label"><span class="std std-ref">create and manage purchase suggestions</span></a>, including creating new
+suggestions and changing the suggestions’ statuses</li>
+</ul>
+</li>
+<li>Manage vendors (vendors_manage)<ul>
+<li>Grants the ability to <a class="reference internal" href="acquisitions.html#vendors-label"><span class="std std-ref">add, edit and delete vendors</span></a></li>
+<li>Note that vendors are used in the acquisition and the serials module.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Use all tools (tools)</p>
+<ul class="simple">
+<li>Access to the files stored on the server (access_files)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#upload-label"><span class="std std-ref">Upload tool</span></a></li>
+</ul>
+</li>
+<li>Upload patron images in batch or one at a time (batch_upload_patron_images)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#upload-patron-images-label"><span class="std std-ref">Image upload tool</span></a></li>
+</ul>
+</li>
+<li>Delete old borrowers and anonymize circulation/reading history
+(deletes borrower reading history) (delete_anonymize_patrons)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#patrons-anonymize-bulk-delete-label"><span class="std std-ref">Anonymize patron tool</span></a></li>
+</ul>
+</li>
+<li>Define days when the library is closed (edit_calendar)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">Calendar/holidays tool</span></a></li>
+</ul>
+</li>
+<li>Write news for the OPAC and staff interfaces (edit_news)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">News tool</span></a></li>
+</ul>
+</li>
+<li>Set notice/status triggers for overdue items (edit_notice_status_triggers)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue notice status/triggers
+tool</span></a></li>
+</ul>
+</li>
+<li>Define notices (edit_notices)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a></li>
+</ul>
+</li>
+<li>Perform batch modification of patrons (edit_patrons)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#batch-patron-modification-label"><span class="std std-ref">Batch patron modification tool</span></a></li>
+</ul>
+</li>
+<li>Edit quotes for the quote-of-the-day feature (edit_quotes)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#quote-of-the-day-qotd-editor-label"><span class="std std-ref">Quote of the Day (QOTD) Editor</span></a></li>
+</ul>
+</li>
+<li>Export bibliographic and holdings data (export_catalog)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#export-data-marc-and-authorities-label"><span class="std std-ref">Export data tool</span></a></li>
+</ul>
+</li>
+<li>Import patron data (import_patrons)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#patron-import-label"><span class="std std-ref">Import patrons tool</span></a></li>
+</ul>
+</li>
+<li>Perform inventory of your catalog (inventory)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#inventory-tool-label"><span class="std std-ref">Inventory tool</span></a></li>
+</ul>
+</li>
+<li>Perform batch deletion of items (items_batchdel)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#batch-item-deletion-label"><span class="std std-ref">Batch item deletion tool</span></a></li>
+</ul>
+</li>
+<li>Perform batch modification of items (items_batchmod)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">Batch item modification tool</span></a></li>
+</ul>
+</li>
+<li>Limit batch item modification to subfields defined in the
+SubfieldsToAllowForRestrictedBatchmod preference (items_batchmod_restricted)<ul>
+<li>Restricts the <a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">batch item modification</span></a> tool
+to modify only the subfields defined in the
+<a class="reference internal" href="catalogingpreferences.html#subfieldstoallowforrestrictedbatchmod"><span class="std std-ref">SubfieldsToAllowForRestrictedBatchmod</span></a> preference</li>
+<li>Please note that items_batchmod permission is still required</li>
+</ul>
+</li>
+<li>Create printable labels and barcodes from catalog and patron data
+(label_creator)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#patron-card-creator-label"><span class="std std-ref">Patron card creator</span></a>,
+the <a class="reference internal" href="tools.html#label-creator-label"><span class="std std-ref">Label creator</span></a> and the
+<a class="reference internal" href="tools.html#quick-spine-label-creator-label"><span class="std std-ref">Quick label creator</span></a> tools</li>
+</ul>
+</li>
+<li>Manage CSV export profiles (manage_csv_profiles)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV profiles tool</span></a></li>
+</ul>
+</li>
+<li>Add, edit and delete patron lists and their contents (manage_patron_lists)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#patron-lists-label"><span class="std std-ref">Patron lists tool</span></a></li>
+</ul>
+</li>
+<li>Manage staged MARC records, including completing and reversing imports
+(manage_staged_marc)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#staged-marc-record-management-label"><span class="std std-ref">Manage staged MARC records tool</span></a></li>
+</ul>
+</li>
+<li>Manage MARC modification templates (marc_modification_templates)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#marc-modification-templates-label"><span class="std std-ref">MARC modification templates tool</span></a></li>
+</ul>
+</li>
+<li>Moderate patron comments (moderate_comments)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#comments-label"><span class="std std-ref">Comments tool</span></a></li>
+</ul>
+</li>
+<li>Moderate patron tags (moderate_tags)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#tag-moderation-label"><span class="std std-ref">Tags tool</span></a></li>
+</ul>
+</li>
+<li>Perform batch deletion of records (bibliographic or authority)
+(records_batchdel)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#batch-record-deletion-label"><span class="std std-ref">Batch record deletion tool</span></a></li>
+</ul>
+</li>
+<li>Perform batch modification of records (bibliographic or authorities)
+(records_batchmod)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#batch-record-modification-label"><span class="std std-ref">Batch record modification tool</span></a></li>
+</ul>
+</li>
+<li>Manage rotating collections (rotating_collections)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#rotating-collections-label"><span class="std std-ref">Rotating collections tool</span></a></li>
+</ul>
+</li>
+<li>Schedule tasks to run (schedule_tasks)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#task-scheduler-label"><span class="std std-ref">Task scheduler tool</span></a></li>
+</ul>
+</li>
+<li>Stage MARC records into the reservoir (stage_marc_import)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#stage-marc-records-for-import-label"><span class="std std-ref">Stage MARC records tool</span></a></li>
+</ul>
+</li>
+<li>Upload any file (upload_general_files)<ul>
+<li>Access to upload files via the <a class="reference internal" href="tools.html#upload-label"><span class="std std-ref">Upload tool</span></a></li>
+</ul>
+</li>
+<li>Upload local cover images (upload_local_cover_images)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#upload-local-cover-image-label"><span class="std std-ref">Upload local cover image
+tool</span></a> as well as permission to add and
+delete local cover images from the record detail page</li>
+</ul>
+</li>
+<li>Manage uploaded files (upload_manage)<ul>
+<li>Access to uploaded files via the <a class="reference internal" href="tools.html#upload-label"><span class="std std-ref">Upload tool</span></a></li>
+<li>Note that the upload_general_files permission is required for this
+permission to work</li>
+</ul>
+</li>
+<li>Browse the system logs (view_system_logs)<ul>
+<li>Access to the <a class="reference internal" href="tools.html#log-viewer-label"><span class="std std-ref">Log viewer tool</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Edit authorities (editauthorities)</p>
+<ul class="simple">
+<li>Grants the ability to create, edit and delete authority records</li>
+<li>Note that it is possible to search authority records with only the
+catalogue permission</li>
+</ul>
+</li>
+<li><p class="first">Manage serial subscriptions (serials)</p>
+<ul class="simple">
+<li>Check the expiration of a serial (check_expiration)</li>
+<li>Gives ability to check the <a class="reference internal" href="serials.html#check-serial-expiration-label"><span class="std std-ref">expiration date of serials</span></a></li>
+<li>Claim missing serials (claim_serials)<ul>
+<li>Gives the ability to <a class="reference internal" href="serials.html#claim-late-serials-label"><span class="std std-ref">claim missing issues</span></a></li>
+</ul>
+</li>
+<li>Create a new subscription (create_subscription)<ul>
+<li>Gives the ability to <a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">add new subscriptions</span></a></li>
+</ul>
+</li>
+<li>Delete an existing subscription (delete_subscription)<ul>
+<li>Gives the ability to delete serial subscriptions</li>
+</ul>
+</li>
+<li>Edit an existing subscription (edit_subscription)<ul>
+<li>Gives the ability to <a class="reference internal" href="serials.html#edit-subscription-label"><span class="std std-ref">edit existing serial subscriptions</span></a></li>
+<li>This permission does not include the ability to delete or create a
+subscription</li>
+</ul>
+</li>
+<li>Serials receiving (receive_serials)<ul>
+<li>Gives the ability to <a class="reference internal" href="serials.html#receive-issues-label"><span class="std std-ref">receive issues</span></a> of
+existing subscriptions</li>
+</ul>
+</li>
+<li>Renew a subscription (renew_subscription)<ul>
+<li>Gives the ability to <a class="reference internal" href="serials.html#renewing-serials-label"><span class="std std-ref">renew serial subscriptions</span></a></li>
+</ul>
+</li>
+<li>Routing (routing)<ul>
+<li>Gives the ability to manage <a class="reference internal" href="serials.html#create-a-routing-list-label"><span class="std std-ref">routing lists</span></a></li>
+</ul>
+</li>
+<li>Manage subscriptions from any branch (superserials)<ul>
+<li>This permission is only useful if the <a class="reference internal" href="administrationpreferences.html#independentbranches"><span class="std std-ref">IndependentBranches</span></a>
+system preference is used</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Allow access to the reports module (reports)</p>
+<ul class="simple">
+<li>Reports found on the <a class="reference internal" href="circulation.html#circulation-reports-label"><span class="std std-ref">Circulation page</span></a>
+are not controlled by this permission; this only controls access to the
+:ref:Reports module &lt;reports-label&gt;`</li>
+<li>Reports in the <a class="reference internal" href="reports.html#statistics-reports-label"><span class="std std-ref">Statistics wizard</span></a> section
+and the other reports on the main reports page can be run with any one
+of the following permissions. They only affect the SQL reports.</li>
+<li>Create SQL reports (create_reports)<ul>
+<li>The ability to create <a class="reference internal" href="reports.html#guided-report-wizard-label"><span class="std std-ref">guided reports</span></a>
+or <a class="reference internal" href="reports.html#report-from-sql-label"><span class="std std-ref">SQL reports</span></a>, but not run saved ones</li>
+</ul>
+</li>
+<li>Delete SQL reports (delete_reports)<ul>
+<li>The ability to delete saved <a class="reference internal" href="reports.html#report-from-sql-label"><span class="std std-ref">SQL reports</span></a></li>
+<li>Note that you need execute_reports in order to be able to delete them</li>
+</ul>
+</li>
+<li>Execute SQL reports (execute_reports)<ul>
+<li>The ability to <a class="reference internal" href="reports.html#running-custom-reports-label"><span class="std std-ref">run custom SQL reports</span></a>,
+but not create or edit them</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Allow staff members to modify permissions for other staff members (staffaccess)</p>
+<ul class="simple">
+<li>This permission requires the borrowers permission above</li>
+</ul>
+</li>
+<li><p class="first">Course reserves (coursereserves)</p>
+<ul class="simple">
+<li>Allow access to the <a class="reference internal" href="course_reserves.html#course-reserves-label"><span class="std std-ref">course reserves module</span></a></li>
+<li>Note that if the <a class="reference internal" href="circulationpreferences.html#usecoursereserves"><span class="std std-ref">UseCourseReserves</span></a> system preference is not enabled,
+these permissions will not have any effect</li>
+<li>Add course reserves (add_reserves)<ul>
+<li>Grants the ability to <a class="reference internal" href="course_reserves.html#adding-reserve-materials-label"><span class="std std-ref">add items to existing courses</span></a></li>
+</ul>
+</li>
+<li>Remove course reserves (delete_reserves)<ul>
+<li>Grant the ability to remove items from existing courses</li>
+</ul>
+</li>
+<li>Add, edit and delete courses (manage_courses)<ul>
+<li>Grants the ability to <a class="reference internal" href="course_reserves.html#adding-courses-label"><span class="std std-ref">create, edit and delete courses</span></a>, but not manage the items</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Koha plugins (plugins)</p>
+<ul class="simple">
+<li>Configure plugins (configure)<ul>
+<li>Gives the ability to run the ‘configure’ section of a plugin if it has
+one</li>
+<li>Note that the staff member needs either the report permission or the
+tool permission (below) in order to be able to access the plugins</li>
+</ul>
+</li>
+<li>Manage plugins (manage)<ul>
+<li>The ability to install or uninstall plugins</li>
+<li>Note that the staff member needs either the report permission or the
+tool permission (below) in order to be able to access the plugins</li>
+</ul>
+</li>
+<li>Use report plugins (report)<ul>
+<li>The ability to use report plugins</li>
+</ul>
+</li>
+<li>Use tool plugins (tool)<ul>
+<li>The ability to use tool plugins</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Lists (lists)</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>All staff have permission to create and modify their own
+lists, this permission is only necessary if you’d like to give
+a staff member permission to delete public lists that they
+have not created.</p>
+</div></blockquote>
+<ul class="simple">
+<li>Delete public lists (delete_public_lists)<ul>
+<li>The ability to delete public lists created by someone else</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Patron clubs (clubs)</p>
+<ul class="simple">
+<li>Create and edit clubs (edit_clubs)<ul>
+<li>Create and edit patron clubs using the <a class="reference internal" href="tools.html#patron-clubs-label"><span class="std std-ref">Patron clubs tool</span></a></li>
+</ul>
+</li>
+<li>Create and edit club templates (edit_templates)<ul>
+<li>Create and edit club templates using the <a class="reference internal" href="tools.html#patron-clubs-label"><span class="std std-ref">Patron clubs tool</span></a></li>
+</ul>
+</li>
+<li>Enroll patrons in clubs (enroll)<ul>
+<li>Enroll patrons from the patron file</li>
+<li>The borrowers permissions is required in order to enroll patrons in
+clubs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Create and modify interlibrary loan requests (ill)</p>
+<ul class="simple">
+<li>Gives access to the <a class="reference internal" href="ILL_requests.html#ill-requests-label"><span class="std std-ref">Interlibrary loan (ILL) module</span></a></li>
+</ul>
+</li>
+<li><p class="first">Self check modules (self_check)</p>
+<ul>
+<li><p class="first">Log into the self check-in module (self_checkin_module)</p>
+<p><strong>Note</strong></p>
+<p>This permission prevents the patron from using any other OPAC
+functionality</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Perform self checkout at the OPAC (self_checkout_module)</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This permission should be used for the patron matching the
+<a class="reference internal" href="circulationpreferences.html#autoselfcheck-preferences-label"><span class="std std-ref">AutoSelfCheckID</span></a>
+system preference</p>
+</div></blockquote>
+</li>
+<li><p class="first">Manage <a class="reference internal" href="tools.html#stock-rotation-label"><span class="std std-ref">stockrotation</span></a> operations (stockrotation)</p>
+<ul class="simple">
+<li>Add and remove items from rotas (manage_rota_items)<ul>
+<li>Staff with only this permission will be able to manage the items in the
+rotas, but not the rotas themselves</li>
+</ul>
+</li>
+<li>Create, edit and delete rotas (manage_rotas)<ul>
+<li>Staff with only this permission will be able to manage the rotas, but not
+the actual items</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Cash management (cash_management)</p>
+<ul class="simple">
+<li>Add, edit and archive cash registers (manage_cash_registers)<ul>
+<li>Staff with this permissions will be able to manage the <a class="reference internal" href="administration.html#cashregisters-label"><span class="std std-ref">cash
+registers in the administration module</span></a></li>
+</ul>
+</li>
+<li>Access the point of sale page and take payments (takepayment)<ul>
+<li>Grants access to the point of sale module</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="patron-information">
+<span id="patron-information-label"></span><h2>Patron information<a class="headerlink" href="#patron-information" title="永久链接至标题"></a></h2>
+<p>When viewing a patron record you have the option to view information
+from one of many tabs found on the left hand side of the record.</p>
+<ul class="simple">
+<li><em>Get there:</em> Patrons &gt; Browse or search for patron &gt; Click patron
+name</li>
+</ul>
+<div class="section" id="check-out">
+<span id="check-out-label"></span><h3>Check out<a class="headerlink" href="#check-out" title="永久链接至标题"></a></h3>
+<p>For instruction on checking items out, view the <a class="reference internal" href="circulation.html#check-out-issuing-label"><span class="std std-ref">Checking
+out</span></a> section of this manual.</p>
+<p>Staff members can access their own check out screen by clicking their
+username in the top right of the staff client and choosing ‘My
+checkouts’</p>
+<p><img alt="image1178" src="_images/mycheckouts.png" /></p>
+</div>
+<div class="section" id="details">
+<span id="details-label"></span><h3>Details<a class="headerlink" href="#details" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Staff members can access their own account details by clicking their
+username in the top right of the staff client and choosing ‘My account’</p>
+<p><img alt="image442" src="_images/myaccount.png" /></p>
+</div></blockquote>
+<p>All patron information will appear in the Details tab. This includes all
+the contact information, notes, custom patron attributes, messaging
+preferences, etc. entered when adding the patron.</p>
+<p><img alt="image1359" src="_images/patrondetails.png" /></p>
+<p>In the case of patrons who are marked as ‘Child’ or ‘Professional’ and
+their guarantors additional information will appear on their record.</p>
+<ul>
+<li><p class="first">A child patron will list their guarantor</p>
+<p><img alt="image443" src="_images/child.png" /></p>
+</li>
+<li><p class="first">On the guarantor’s record, all children and/or professionals will be
+listed</p>
+<p><img alt="image444" src="_images/parent.png" /></p>
+</li>
+</ul>
+<p id="circulation-summary-label">If the age of the patron is outside the age range defined in their patron
+category a warning will appear on their record.</p>
+<blockquote>
+<div><img alt="image1461" src="_images/patronagecategory.png" /></div></blockquote>
+<div class="section" id="circulation-summary">
+<h4>Circulation summary<a class="headerlink" href="#circulation-summary" title="永久链接至标题"></a></h4>
+<p>Below the patron’s information on the details screen is a tabbed display
+of the items they have checked out, overdue, and on hold.</p>
+<div class="section" id="checkouts">
+<h5>Checkouts<a class="headerlink" href="#checkouts" title="永久链接至标题"></a></h5>
+<p>The first tab shows the items the patron currently has checked out.</p>
+<p><img alt="image445" src="_images/checkoutsummary1.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: issues-table).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="relatives-checkouts">
+<h5>Relatives’ checkouts<a class="headerlink" href="#relatives-checkouts" title="永久链接至标题"></a></h5>
+<p>If they have family at the library, staff can see what the other family
+members have checked out.</p>
+<p><img alt="image446" src="_images/relativecheckouts1.png" /></p>
+</div>
+<div class="section" id="charges">
+<h5>Charges<a class="headerlink" href="#charges" title="永久链接至标题"></a></h5>
+<p>The Charges tab will only show in the patron accounts that have unpaid amounts
+or unused credits.</p>
+<p>The tab will show the total amount, without any details. To see the details,
+go to the <a class="reference internal" href="#fines-label"><span class="std std-ref">accounting tab</span></a>.</p>
+<p><img alt="image1360" src="_images/finescharges.png" /></p>
+</div>
+<div class="section" id="holds">
+<h5>Holds<a class="headerlink" href="#holds" title="永久链接至标题"></a></h5>
+<p>If the patron has holds, the number of holds will appear on this tab’s
+title and the details will appear in the tab.</p>
+<p><img alt="Table of patron's current holds" src="_images/holdssummary.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The barcode and call number will only appear on item-level holds or
+holds that have been confirmed. Record-level holds that are not
+waiting to be picked up will not have barocdes or call numbers.</p>
+</div></blockquote>
+<p>From here you can manage the patron’s holds: change the pickup library,
+cancel or suspend holds.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>You will only be able to suspend holds if the <a class="reference internal" href="circulationpreferences.html#suspendholdsintranet"><span class="std std-ref">SuspendHoldsIntranet</span></a>
+system preference is set to “Allow”.</p>
+<p><strong>Note</strong></p>
+<p>If, when suspending a hold, you want to be able to set a date at which to
+automatically resume the hold, set the <a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds"><span class="std std-ref">AutoResumeSuspendedHolds</span></a>
+system preference to “Allow” and make sure the <a class="reference internal" href="cron_jobs.html#cron-unsuspend-holds-label"><span class="std std-ref">unsuspend_holds cron
+job</span></a> is activated.</p>
+</div></blockquote>
+</div>
+<div class="section" id="article-requests">
+<span id="article-requests-label"></span><h5>Article requests<a class="headerlink" href="#article-requests" title="永久链接至标题"></a></h5>
+<p>If the <a class="reference internal" href="circulationpreferences.html#articlerequests"><span class="std std-ref">ArticleRequests</span></a> system preference is enabled, and the circulation
+rules allow it, the patrons will be able to request articles, either through the
+OPAC or in the staff interface.</p>
+<p>The details of the patron’s request, and its status, are visible in this
+tab.</p>
+<p><img alt="image1361" src="_images/articlerequests.png" /></p>
+</div>
+<div class="section" id="restrictions">
+<h5>Restrictions<a class="headerlink" href="#restrictions" title="永久链接至标题"></a></h5>
+<p>The Restrictions tab will show for all patrons. If the patron has no
+restrictions you will see that on the tab.</p>
+<p><img alt="image447" src="_images/patronrestrictions-none.png" /></p>
+<p>If the patron has restrictions on their account the tab will show the
+number and the description.</p>
+<dl class="docutils">
+<dt>There are four kinds of restrictions:</dt>
+<dd><ul class="first last simple">
+<li>Manual</li>
+<li>Overdues</li>
+<li>Suspension</li>
+<li>Discharge</li>
+</ul>
+</dd>
+</dl>
+<p>Using the ‘Add manual restriction’ button you can add a restriction to
+the patron record from here. This can be used for any type of restriction
+you need to put manually on a patron record.</p>
+<p><img alt="image449" src="_images/addrestriction.png" /></p>
+<p><img alt="image448" src="_images/patronrestrictions.png" /></p>
+<p>The overdues restrictions are automatically set when overdue notices are sent
+if you specified you wanted the patron restricted in the
+<a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue notice/status triggers tool</span></a>.</p>
+<p>This restriction will not be removed automatically when the overdue items are
+returned unless the <a class="reference internal" href="circulationpreferences.html#autoremoveoverduesrestrictions"><span class="std std-ref">AutoRemoveOverduesRestrictions</span></a> system preference
+is set to ‘Do’.</p>
+<p>In the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation rules</span></a>, you can choose
+to fine users by suspending them instead of (or in addition to) fining them money.
+In that case, returning an overdue document will trigger a suspension restriction.</p>
+<p>Patrons may also be restricted if you have issued a <a class="reference internal" href="#patron-discharges-label"><span class="std std-ref">discharge</span></a> for them. Once the discharge is validated, the patron is automatically restricted.</p>
+<p>Restrictions on a patron record will block checkouts. In fact,
+a message will appear in red when going to the checkout page.</p>
+<p><img alt="image1363" src="_images/patronrestrictions-checkout.png" /></p>
+<p>Restrictions may also prevent renewing items if the <a class="reference internal" href="circulationpreferences.html#restrictionblockrenewing"><span class="std std-ref">RestrictionBlockRenewing</span></a>
+system preference is set to ‘block’.</p>
+<p>On the OPAC, patrons will get a message saying their account is frozen. They will
+not be able to place holds from the OPAC.</p>
+<p>If you have patrons that have more than one restriction, you can choose to
+cumulate their restriction periods or not through the <a class="reference internal" href="circulationpreferences.html#cumulativerestrictionperiods"><span class="std std-ref">CumulativeRestrictionPeriods</span></a>
+system preference.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you want to restrict patrons from doing various actions if their record
+is not pristine, check the following system preferences:</p>
+<ul class="simple">
+<li>Set the <a class="reference internal" href="circulationpreferences.html#overduesblockcirc"><span class="std std-ref">OverduesBlockCirc</span></a> system preference to ‘Block’ to prevent
+patrons who have overdue materials from checking out other materials.</li>
+<li>Set the <a class="reference internal" href="circulationpreferences.html#overduesblockrenewing"><span class="std std-ref">OverduesBlockRenewing</span></a> system preference to ‘block renewing
+for all the patron’s items’ or ‘block renewing only for this item’ to prevent
+patrons who have overdue materials from renewing their loans.</li>
+<li>Enter values in the <a class="reference internal" href="circulationpreferences.html#noissuescharge"><span class="std std-ref">noissuescharge</span></a> and <a class="reference internal" href="circulationpreferences.html#noissueschargeguarantees"><span class="std std-ref">NoIssuesChargeGuarantees</span></a>
+system preferences in order to block checking out to patrons who have more
+than a certain amount in fines or to patrons whose guarantees owe more than
+a certain amount.</li>
+<li>Enter a value in the <a class="reference internal" href="circulationpreferences.html#maxoutstanding"><span class="std std-ref">maxoutstanding</span></a> system preference to prevent
+patron from placing holds on the OPAC if they owe more than a certain amount.</li>
+<li>Enter a value in the <a class="reference internal" href="opacpreferences.html#opacfinenorenewals"><span class="std std-ref">OPACFineNoRenewals</span></a> system preference to prevent
+patron who owe more than a certain amount to renew their loans from the OPAC.</li>
+<li>Set the <a class="reference internal" href="opacpreferences.html#blockexpiredpatronopacactions"><span class="std std-ref">BlockExpiredPatronOpacActions</span></a> system preference to ‘Block’ if
+you want to prevent patron whose membership has expired to place hold or
+renew their loans from the OPAC.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="clubs">
+<h5>Clubs<a class="headerlink" href="#clubs" title="永久链接至标题"></a></h5>
+<p>If you use <a class="reference internal" href="tools.html#patron-clubs-label"><span class="std std-ref">patron clubs</span></a>, patrons will have a tab
+in their record indicating which club they are enrolled in, if any.</p>
+<p><img alt="image1362" src="_images/clubstab.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="accounting">
+<span id="fines-label"></span><h3>Accounting<a class="headerlink" href="#accounting" title="永久链接至标题"></a></h3>
+<p>The patron’s complete accounting history will appear on the Accounting tab.
+The Accounting tab will show all types of charges and credits: overdue fines,
+membership fees, rental fees, reserve fees and any other charge you may have
+for patrons.</p>
+<p><img alt="image450" src="_images/patronaccount.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: account-fines).</li>
+</ul>
+</div></blockquote>
+<p>The Transactions tab will show you the following columns:</p>
+<ul class="simple">
+<li>Date: the date the charge, payment or credit was posted<ul>
+<li>In the case of fines this will be the last day that the fine was
+accrued</li>
+</ul>
+</li>
+<li>Account type: what type of charge, payment or credit it is<ul>
+<li>In cases where an account type may have an accompanying <cite>status</cite> it will be
+displayed alongside the accounttype in brackets.</li>
+</ul>
+</li>
+<li>Description of charges: a description of the charges including the due date for
+overdue items and a link to the item record where one is available</li>
+<li>Barcode: if the charge is linked to a particular item, the barcode is
+displayed</li>
+<li>Due date: if the charge is an overdue fine, the due date is displayed</li>
+<li>Checkin date: if the charge is an overdue fine, the checkin date is displayed</li>
+<li>Checkout date: if the charge is an overdue fine, the check out date is displayed</li>
+<li>Home library: if the charge is linked to a particular item the home library
+is displayed</li>
+<li>Note: any notes about this charge/payment<ul>
+<li>If you’re allowing patrons to pay fines via the OPAC with PayPal
+(<a class="reference internal" href="opacpreferences.html#enablepaypalopacpayments-and-paypalsandboxmode-label"><span class="std std-ref">EnablePayPalOpacPayments</span></a>) you
+will see a Note that says ‘PayPal’ for items paid this way</li>
+</ul>
+</li>
+<li>Amount: the total amount of the payment or charge</li>
+<li>Outstanding: the amount still due on charge</li>
+<li>Actions:<ul>
+<li>A selection of actions available to take upon the account line as detailed below</li>
+</ul>
+</li>
+</ul>
+<p>At the top of the table you can click the ‘Filter paid transaction’ to
+hide all completed transaction and above that you can use the search box
+to find a specific charge or payment.</p>
+<div class="section" id="actions">
+<span id="charging-fines-actions-label"></span><h4>Actions<a class="headerlink" href="#actions" title="永久链接至标题"></a></h4>
+<p>Action buttons will be available for the different account lines depending on
+the users available permissions and the account type and status.</p>
+<ul class="simple">
+<li>A button to print a receipt for that line item</li>
+<li>A button to show further details about the charge and any payments that have been made</li>
+<li>A button to void (reverse) a payment/credit<ul>
+<li>This button will only appear on a payment/credit line. Upon voiding the
+line it will reverse the payment process restoring the amountoutstanding
+for any debts/debits which the payment/credit may have previously been
+used to offset. This action is most commonly used to correct cases where
+a payment was recorded but never actually recieved. The credit line will be
+set to a zero amount and updated to <cite>VOID</cite>.</li>
+</ul>
+</li>
+<li>A button to cancel (remove) a charge/debit<ul>
+<li>This button will only appear on a charge/debit line that has not already
+had any payment/credits applied to it. Upon cancelling the line it will
+be marked as ‘Cancelled’ and a <cite>CANCELLATION</cite> line will be added and offset
+against it. This action is most commonly used to correct cases where a
+charge was made mistakenly.</li>
+</ul>
+</li>
+<li>A button to pay against charges/debits with outstanding amounts<ul>
+<li>This button will appear against any charge/debit with an outstanding
+amount.  The subsequent page can be used to pay or writeoff the line
+partially or in full with a <cite>PAYMENT</cite> or <cite>WRITEOFF</cite> line will being added.</li>
+</ul>
+</li>
+<li>A button to issue a payout of credit<ul>
+<li>This button will appear against any credit line that has an amount
+outstanding and you have the <a class="reference internal" href="#patron-permissions-defined-label"><span class="std std-ref">payout permission</span></a>.
+It allows the librarian to return outstanding credit to the patron and
+record the action with a <cite>PAYOUT</cite> line.</li>
+</ul>
+</li>
+<li>A button to issue a refund against a charge/debit<ul>
+<li>This button will appear against any charge/debit line that has been paid or
+partially paid and you have the <a class="reference internal" href="#patron-permissions-defined-label"><span class="std std-ref">refund permission</span></a>.
+The subsequent modal dialogue will allow you to partially or fully refund
+the offset debt, either in <cite>CASH</cite> or by means of a credit added to the
+account.</li>
+</ul>
+</li>
+<li>A button to apply a discount to a charge/debit<ul>
+<li>This button will appear against any charge/debit which has not already been
+offset by a credit/payment and you have the
+<a class="reference internal" href="#patron-permissions-defined-label"><span class="std std-ref">discount permission</span></a>.
+The subsequent modal dialogue will allow you to add a discount upon the
+charge.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="charging-fines-fees">
+<span id="charging-fines-fees-label"></span><h4>Charging fines/fees<a class="headerlink" href="#charging-fines-fees" title="永久链接至标题"></a></h4>
+<p>Most fees and fines will be charged automatically if the <a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">fines cron
+job</span></a> is running.  Fines will also be charged when an overdue item is checked
+in if the <a class="reference internal" href="circulationpreferences.html#calculatefinesonreturn"><span class="std std-ref">CalculateFinesOnReturn</span></a> system preference is enabled.</p>
+<ul class="simple">
+<li>Fines will be charged based on your <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines
+rules</span></a></li>
+<li>Hold fees will be charged based on the rules you set in the <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">Patron
+types and categories</span></a> administration area</li>
+<li>Rental fees will be charged based on the settings in your <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">Item
+iypes</span></a> administration area</li>
+<li>Marking an item ‘Lost’ via the cataloging module will automatically
+charge the patron the replacement cost for that item</li>
+<li>Creating a patron in a <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">category</span></a>
+with an enrollment fee.</li>
+<li>Renewing a patron account in a <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">category</span></a>
+with an enrollment fee.</li>
+</ul>
+</div>
+<div class="section" id="pay-and-writeoff-fines">
+<span id="pay-and-writeoff-fines-label"></span><h4>Pay and Writeoff fines<a class="headerlink" href="#pay-and-writeoff-fines" title="永久链接至标题"></a></h4>
+<p>Each line item can be paid in full (or written off) using the ‘Pay charges’
+tab.  You can switch between ‘Pay’ and ‘Write off’ mode using the buttons located at
+the top of this tab if you are part way through a transaction.</p>
+<p><img alt="image451" src="_images/makepayment.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: pay-fines-table).</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first">Each line item can be paid in full, partially paid, or written off.</p>
+</li>
+<li><p class="first">Pay a fine in full</p>
+<ul class="simple">
+<li>If you have a note about the payment please type that first then
+move on</li>
+<li>Click “Pay” next to the fine you want to pay in full</li>
+<li>The full amount of the fine will be populated for you in the
+“Collect from patron” box</li>
+<li>There is a change feature included in this payment process. An option to
+specify how much money was collected when paying a fine, as well as defining how
+much was paid on the fine. If these numbers are different (i.e. more money was
+collected) a popup displaying the amount of change to be given will be displayed and
+require confirmation before proceeding</li>
+<li>If one or more values are defined under the PAYMENT_TYPE authorized value
+category a dropdown selection box will be displayed to specify a custom
+payment type.</li>
+<li>If the <a class="reference internal" href="accountspreferences.html#usecashregisters"><span class="std std-ref">UseCashRegisters</span></a> system preference is enabled, you will
+have a choice of cash register in which to enter the transaction</li>
+<li>Click “Confirm”</li>
+<li>The fine will be removed from outstanding fines, and displayed as
+fully paid.</li>
+</ul>
+<p><strong>Note</strong></p>
+<ul class="simple">
+<li>If the <a class="reference internal" href="accountspreferences.html#finepaymentautopopup"><span class="std std-ref">FinePaymentAutoPopup</span></a> system preference is enabled a print dialogue window
+will display.  If change was given for this trancaction the details will be included when
+using this system preference.</li>
+<li>In addition to printing receipts you can enable email receipts for payment and writeoff transactions
+with the <a class="reference internal" href="patronspreferences.html#useemailreceipts"><span class="std std-ref">UseEmailReceipts</span></a> system preference.</li>
+</ul>
+</li>
+<li><p class="first">Pay a partial fine</p>
+<ul>
+<li><p class="first">Click “Pay” next to the fine you want to partially pay</p>
+</li>
+<li><p class="first">Enter the amount you are collecting from the patron in the
+“Collect from patron” box</p>
+<p><img alt="image453" src="_images/paypartial.png" /></p>
+</li>
+<li><p class="first">Click “Confirm”</p>
+</li>
+<li><p class="first">The fine will be updated to show the original amount, and the
+current amount outstanding</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Pay an amount towards all fines</p>
+<ul>
+<li><p class="first">Click the “Pay amount” button</p>
+</li>
+<li><p class="first">Enter the amount you are collecting from the patron in “Collect
+from patron.” The sum of all fines is shown in “Total amount
+outstanding”</p>
+<p><img alt="image454" src="_images/payamount.png" /></p>
+</li>
+<li><p class="first">Click “Confirm”</p>
+</li>
+<li><p class="first">The fine totals will be updated with the payment applied to oldest
+fines first.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Pay selected fines</p>
+<ul>
+<li><p class="first">Check the selection boxes next to the fines you wish to pay, click
+“Pay selected”</p>
+<p><img alt="image455" src="_images/payselected-select.png" /></p>
+</li>
+<li><p class="first">Enter an amount to pay towards the fines.</p>
+<p><img alt="image456" src="_images/payselected.png" /></p>
+</li>
+<li><p class="first">Click “Confirm”</p>
+</li>
+<li><p class="first">The fine totals will be updated with the payment applied to the
+oldest selected fines first.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Writeoff a single fine</p>
+<ul class="simple">
+<li>Click “Writeoff” next to the fine you wish to writeoff.</li>
+<li>A confirmation box will appear to specify a total amount to writeoff.
+This box allows a partial writeoff of fines.</li>
+<li>The fine will be removed from outstanding fines, and displayed as
+written off.</li>
+</ul>
+</li>
+<li><p class="first">Writeoff selected fines</p>
+<ul class="simple">
+<li>Check the selection boxes next to the fines you wish to pay, click “Writeoff selected”.</li>
+<li>Click “Confirm”.</li>
+<li>The fine will be removed from outstanding fines, and displayed as written off.</li>
+</ul>
+</li>
+<li><p class="first">Writeoff all fines</p>
+<ul class="simple">
+<li>Click the “Writeoff all” button</li>
+<li>All fines will be removed from outstanding fines, and displayed as written off.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="void-payments">
+<span id="void-payments-label"></span><h4>Void payments<a class="headerlink" href="#void-payments" title="永久链接至标题"></a></h4>
+<p>If you accidentally mark and item as paid, you can reverse that line item
+by clicking ‘Void’ to the right of the line</p>
+<blockquote>
+<div><img alt="image457" src="_images/reverselink.png" /></div></blockquote>
+<ul>
+<li><p class="first">Once clicked a new line item will be added to the account showing
+the payment as ‘Voided’.  The payment line is added back to
+the Pay fines tab as an outstanding charge.</p>
+<p><img alt="image458" src="_images/reversed.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="creating-manual-invoices">
+<span id="creating-manual-invoices-label"></span><h4>Creating manual invoices<a class="headerlink" href="#creating-manual-invoices" title="永久链接至标题"></a></h4>
+<p>For fees that are not automatically charged, librarians can create a
+manual invoice</p>
+<p><img alt="image459" src="_images/manualinvoice.png" /></p>
+<ul class="simple">
+<li>First choose the type of invoice you would like to create<ul>
+<li>To add additional values to the manual invoice type pull down
+menu, add them to the <a class="reference internal" href="administration.html#add-debit-type-label"><span class="std std-ref">debit types</span></a>
+in the Administration module.</li>
+</ul>
+</li>
+<li>If the fee is associated with an item you can enter its barcode so
+that the line item shows a link to that item</li>
+<li>The description field is where you will enter the description of the
+charge</li>
+<li>In the amount field, do not enter currency symbols, only numbers and
+decimals</li>
+</ul>
+</div>
+<div class="section" id="creating-manual-credits">
+<span id="creating-manual-credits-label"></span><h4>Creating manual credits<a class="headerlink" href="#creating-manual-credits" title="永久链接至标题"></a></h4>
+<p>Manual credits can be used to pay off parts of fines, or to forgive a
+fine amount.</p>
+<p><img alt="image460" src="_images/manualcredit.png" /></p>
+<ul class="simple">
+<li>First choose the type of credit you’d like to apply</li>
+<li>If this credit is associated with an item you can enter that item’s
+barcode so that the line item links to the right item</li>
+<li>The description field is where you will enter the description of the
+credit</li>
+<li>In the amount field, do not enter currency symbols, only numbers and
+decimals</li>
+</ul>
+</div>
+<div class="section" id="printing-invoices">
+<span id="printing-invoices-label"></span><h4>Printing invoices<a class="headerlink" href="#printing-invoices" title="永久链接至标题"></a></h4>
+<p>To the right of each account line there is a print link. Clicking that
+link will print an invoice for the line item that includes the date and
+description of the line item along with the total outstanding on the
+account.</p>
+<p><img alt="image461" src="_images/patroninvoice.png" /></p>
+</div>
+</div>
+<div class="section" id="routing-lists">
+<span id="routing-lists-label"></span><h3>Routing lists<a class="headerlink" href="#routing-lists" title="永久链接至标题"></a></h3>
+<p>A list of all of the serial routing lists the patron belongs to will be
+accessible via the ‘Routing lists’ tab on the patron record.</p>
+<p><img alt="image462" src="_images/routinglisttab.png" /></p>
+<p>On this tab you will be able to see and edit all of the routing lists
+that this patron is on.</p>
+<p><img alt="image463" src="_images/patronroutinglists.png" /></p>
+</div>
+<div class="section" id="circulation-history">
+<span id="circulation-history-label"></span><h3>Circulation history<a class="headerlink" href="#circulation-history" title="永久链接至标题"></a></h3>
+<p>The circulation history tab will appear if you have set the
+<a class="reference internal" href="patronspreferences.html#intranetreadinghistory"><span class="std std-ref">intranetreadinghistory</span></a> preference to allow
+it to appear. If you have the <a class="reference internal" href="opacpreferences.html#opacprivacy"><span class="std std-ref">OPACPrivacy</span></a> system
+preference set to ‘Allow’ and the patron has decided that the library
+cannot keep this information this tab will only show currently checked
+out items.</p>
+<p><img alt="image464" src="_images/readinghistory.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: checkouthistory-table).</li>
+</ul>
+</div></blockquote>
+<p>If you would like to export a list of barcodes for the items checked in
+today you can find that option under the More menu on the top right of
+the page.</p>
+<p><img alt="image465" src="_images/readinghistory-export.png" /></p>
+<p>This will generate a text file with one barcode per line.</p>
+</div>
+<div class="section" id="holds-history">
+<span id="holds-history-label"></span><h3>Holds history<a class="headerlink" href="#holds-history" title="永久链接至标题"></a></h3>
+<p>The holds history tab shows all the holds the patron has made, with their status.</p>
+<p><img alt="image1496" src="_images/holdshistory.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holdshistory-table).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="modification-log">
+<span id="modification-log-label"></span><h3>Modification log<a class="headerlink" href="#modification-log" title="永久链接至标题"></a></h3>
+<p>If you have set your <a class="reference internal" href="logspreferences.html#borrowerslog"><span class="std std-ref">BorrowersLog</span></a> to track changes
+to patron records, then this tab will appear. The Modification log will
+show when changes were made to the patron record. If you also have
+turned on the <a class="reference internal" href="logspreferences.html#issuelog"><span class="std std-ref">IssueLog</span></a> and <a class="reference internal" href="logspreferences.html#returnlog"><span class="std std-ref">ReturnLog</span></a>
+you will see checkins and outs on this screen as well.</p>
+<p><img alt="image466" src="_images/borrowerlog.png" /></p>
+<ul class="simple">
+<li>The Librarian field shows the patron number for the librarian who
+made the changes</li>
+<li>The module lists ‘MEMBERS’ for the patron module</li>
+<li>The action will tell you what action was being logged</li>
+<li>The Object field lists the borrowernumber that is being modified (in
+the example above, it was my changing my own record)</li>
+</ul>
+</div>
+<div class="section" id="notices">
+<span id="notices-label"></span><h3>Notices<a class="headerlink" href="#notices" title="永久链接至标题"></a></h3>
+<p>The <a class="reference external" href="#setpatronmessaging">patron’s messaging preferences</a> are set
+when <a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">adding</span></a> or <a class="reference internal" href="#editing-patrons-label"><span class="std std-ref">editing</span></a> the
+patron. This tab will show the messages that have been sent and those
+that are queued to be sent:</p>
+<p><img alt="image467" src="_images/patnoticestab.png" /></p>
+<p>Clicking on the message title will expand the view to show you the full
+text of the message that was sent.</p>
+<p><img alt="image468" src="_images/patnoticestab-full.png" /></p>
+<p>If the message has a status of sent or failed you will have the option
+to ‘resend’ the message to the patron by clicking the ‘resend’ button
+found under the status.</p>
+<p><img alt="image469" src="_images/resendnotice.png" /></p>
+</div>
+<div class="section" id="statistics">
+<span id="statistics-label"></span><h3>Statistics<a class="headerlink" href="#statistics" title="永久链接至标题"></a></h3>
+<p>Depending on what you set for the values of your
+<a class="reference internal" href="patronspreferences.html#statisticsfields"><span class="std std-ref">StatisticsFields</span></a> system preference, you can see
+statistics for one patron’s circulation actions.</p>
+<p><img alt="image470" src="_images/patronstats.png" /></p>
+</div>
+<div class="section" id="files">
+<span id="files-label"></span><h3>Files<a class="headerlink" href="#files" title="永久链接至标题"></a></h3>
+<p>If you set the <a class="reference internal" href="patronspreferences.html#enableborrowerfiles"><span class="std std-ref">EnableBorrowerFiles</span></a> preference
+to ‘Do’ the Files tab will be visible on the patron information page.</p>
+<p><img alt="image471" src="_images/patronfilestab.png" /></p>
+<p>From here you can upload files to attach to the patron record.</p>
+<p><img alt="image472" src="_images/nopatronfiles.png" /></p>
+<p>All files that are uploaded will appear above a form where additional
+files can be uploaded from.</p>
+<p><img alt="image473" src="_images/patronfileslist.png" /></p>
+</div>
+<div class="section" id="purchase-suggestions">
+<span id="purchase-suggestions-label"></span><h3>Purchase suggestions<a class="headerlink" href="#purchase-suggestions" title="永久链接至标题"></a></h3>
+<p>If the patron has made any purchase suggestions you will see a purchase
+suggestions tab on the patron record.</p>
+<p><img alt="image1247" src="_images/purchasesuggestions.png" /></p>
+<p>From here you can see all suggestions made by the patron and their
+status, you can also create a purchase suggestion on the patron’s behalf
+by clicking the ‘New purchase suggestion’ button at the top.</p>
+<p>Learn more about <a class="reference internal" href="acquisitions.html#managing-purchase-suggestions-label"><span class="std std-ref">managing purchase suggestions</span></a> in the
+<a class="reference external" href="#acqmodule">Acquisitions</a> chapter of this manual.</p>
+</div>
+<div class="section" id="patron-discharges">
+<span id="patron-discharges-label"></span><h3>Patron discharges<a class="headerlink" href="#patron-discharges" title="永久链接至标题"></a></h3>
+<p>A discharge is a certificate that says the patron has no current
+checkouts, no holds and owe no money. To enable this opti`on on the
+patron record you need to set the <a class="reference internal" href="patronspreferences.html#usedischarge"><span class="std std-ref">useDischarge</span></a>
+system preference to ‘Allow’.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>In France a “quitus” (“discharge”) is needed if you want to register
+for an account in a library or a university.</p>
+<p><strong>Note</strong></p>
+<p>Academic libraries often require that you have a clear record at the
+library before you can graduate.</p>
+</div></blockquote>
+<p>Patrons can <a class="reference internal" href="opac.html#ask-for-a-discharge-label"><span class="std std-ref">request discharges via the OPAC</span></a>. Any
+pending discharges will be listed below the menu buttons on the main
+staff client page</p>
+<p><img alt="image1248" src="_images/dischargepending.png" /></p>
+<p>Clicking the pending requests will open a screen where you can allow
+those discharges</p>
+<p><img alt="image1249" src="_images/dischargependingapprove.png" /></p>
+<p>To generate a discharge for a specific patron click the ‘Discharge’ tab
+on the left of the patron record</p>
+<p><img alt="image1250" src="_images/discharge.png" /></p>
+<p>If the patron can have a discharge generated then it will have a button
+that says ‘Generate discharge’</p>
+<p><img alt="image474" src="_images/generatedischarge.png" /></p>
+<p>If not then you’ll see an error explaining why you can’t discharge the
+patron.</p>
+<p><img alt="image475" src="_images/cantdischarge.png" /></p>
+<p>Once the letter is generated you will have a PDF to download</p>
+<p><img alt="image476" src="_images/dischargeletter.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>You can style the PDF using the <a class="reference internal" href="circulationpreferences.html#noticecss"><span class="std std-ref">NoticeCSS</span></a>
+preference.</p>
+</div></blockquote>
+<p>The patron will have a restriction added to their account</p>
+<p><img alt="image1251" src="_images/dischargerestrict.png" /></p>
+<p>And a history of discharges will be added to the ‘Discharge’
+tab</p>
+<p><img alt="image1252" src="_images/dischargehistory.png" /></p>
+</div>
+<div class="section" id="housebound-patrons">
+<span id="housebound-patrons-label"></span><h3>Housebound patrons<a class="headerlink" href="#housebound-patrons" title="永久链接至标题"></a></h3>
+<p>There are three roles a patron can have in regard to housebound
+circulation: borrower, chooser or deliverer.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>In order to use the housebound module, the <a class="reference internal" href="circulationpreferences.html#houseboundmodule"><span class="std std-ref">HouseboundModule</span></a>
+and <a class="reference internal" href="patronspreferences.html#extendedpatronattributes"><span class="std std-ref">ExtendedPatronAttributes</span></a> system preferences must be
+enabled.</p>
+</div></blockquote>
+<div class="section" id="chooser">
+<span id="housebound-chooser-label"></span><h4>Chooser<a class="headerlink" href="#chooser" title="永久链接至标题"></a></h4>
+<p>If you have enabled the housebound module, with the
+<a class="reference internal" href="circulationpreferences.html#houseboundmodule"><span class="std std-ref">HouseboundModule</span></a> system preference, you will see that
+patrons now have a new section in their record called ‘Housebound
+roles’.</p>
+<p><img alt="image1349" src="_images/houseboundroles.png" /></p>
+<p>Click the ‘Add’ button to mark this
+patron as a ‘Chooser’.</p>
+<p><img alt="image1350" src="_images/houseboundroleschooser.png" /></p>
+<p>The chooser is in charge of choosing the materials for the
+housebound patron.</p>
+</div>
+<div class="section" id="deliverer">
+<span id="housebound-deliverer-label"></span><h4>Deliverer<a class="headerlink" href="#deliverer" title="永久链接至标题"></a></h4>
+<p>In the ‘Housebound roles’, click the ‘Add’ button to mark
+this patron as a ‘Deliverer’.</p>
+<p><img alt="image1351" src="_images/houseboundrolesdeliverer.png" /></p>
+<p>The deliverer is in charge of delivering the chosen materials
+to the housebound patron on a specific day at a specific time.</p>
+</div>
+<div class="section" id="housebound-borrowers">
+<span id="housebound-borrower-label"></span><h4>Housebound borrowers<a class="headerlink" href="#housebound-borrowers" title="永久链接至标题"></a></h4>
+<p>To create a housebound profile for an housebound patron, click on
+the ‘Housebound’ tab in their record.</p>
+<p><img alt="image1347" src="_images/houseboundtab.png" /></p>
+<p>From there, you can edit their housebound profile information.</p>
+<p><img alt="image1348" src="_images/houseboundprofile.png" /></p>
+<ul>
+<li><p class="first">Delivery day: choose which day (or ‘Any’) the patron prefers to
+receive their delivery.</p>
+</li>
+<li><p class="first">Frequency: choose the frequency at which they want to receive
+their deliveries.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The frequencies are managed through the HSBND_FREQ list of
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized values</span></a>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Preferred materials: enter notes that will help the chooser
+choose appropriate documents for the housebound patron.</p>
+<p>For example: books, dvds, magazines, etc.</p>
+</li>
+<li><p class="first">Subjects: if the housebound patron has a preference for
+particular subjects, enter it here. This will help the
+chooser choose interesting documents for the patron.</p>
+<p>For example: romance, cookbooks, thrillers, etc.</p>
+</li>
+<li><p class="first">Authors: if the housebound patron has favorite authors,
+enter them here.</p>
+<p>For example: Danielle Steel, James Patterson, etc.</p>
+</li>
+<li><p class="first">Referral: if the housebound patron has a referral, enter
+it here.</p>
+</li>
+<li><p class="first">Notes: enter any other notes that may help the chooser or
+the deliverer.</p>
+</li>
+</ul>
+<p>Click the ‘Save changes’ button to save the housebound profile.</p>
+</div>
+<div class="section" id="coordinating-deliveries">
+<span id="housebound-deliveries-label"></span><h4>Coordinating deliveries<a class="headerlink" href="#coordinating-deliveries" title="永久链接至标题"></a></h4>
+<p>To plan visits, go to the housebound patron’s record.</p>
+<p>In their housebound tab, you will be able to create deliveries.</p>
+<p><img alt="image1352" src="_images/housebounddeliveries.png" /></p>
+<p>Click on ‘Add a new delivery’.</p>
+<p><img alt="image1353" src="_images/housebounddeliveries1.png" /></p>
+<p>Fill out the information :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Date: Enter the date of the delivery.</li>
+<li>Time: Select a time of day for the delivery. The choices are
+morning, afternoon, or evening.</li>
+<li>Chooser: Select a chooser who will be in charge of selecting
+the materials for this housebound patron.</li>
+<li>Deliverer: Select a deliverer who will be in charge of picking
+up the materials and bringing them over to the housebound
+patron.</li>
+</ul>
+</div></blockquote>
+<p><img alt="image1354" src="_images/housebounddeliveries2.png" /></p>
+<p>Choosers and Deliverers can be notified of planned deliveries via reports.  Example reports be found in the SQL Reports Library at <a class="reference external" href="https://wiki.koha-community.org/wiki/SQL_Reports_Patrons#Patron_Characteristics">https://wiki.koha-community.org/wiki/SQL_Reports_Patrons#Patron_Characteristics</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="patron-search">
+<span id="patron-search-label"></span><h2>Patron search<a class="headerlink" href="#patron-search" title="永久链接至标题"></a></h2>
+<p>Clicking on the link to the Patron module will bring you to a
+search/browse screen for patrons. From here you can search for a patron
+by any part of their name or their card number.</p>
+<p><img alt="image477" src="_images/patronsearch1.png" /></p>
+<p>Clicking the small plus sign [+] to the right of the search box will
+open up an advanced patron search with more filters including the
+ability to limit to a specific category and/or library.</p>
+<p><img alt="image478" src="_images/patronsearchexpand.png" /></p>
+<p>You can also filter your patron results using the search options on the
+left hand side of the page.</p>
+<p><img alt="image1253" src="_images/patronsearchfilters.png" /></p>
+<p>Depending on what you have chosen for the ‘Search fields’ you can search
+for patrons in various different ways.</p>
+<p><img alt="image479" src="_images/patronfieldsearch.png" /></p>
+<ul class="simple">
+<li>Standard:<ul>
+<li>Enter any part of their name, username, email address or barcode</li>
+</ul>
+</li>
+<li>Email:<ul>
+<li>Enter any part of their email address and choose ‘Contains’
+instead of ‘Starts with’</li>
+</ul>
+</li>
+<li>Borrower number:<ul>
+<li>Enter the Koha borrower number</li>
+</ul>
+</li>
+<li>Phone number:<ul>
+<li>Enter the phone number exactly as it is in the system or by using
+spaces between each batch of numbers.</li>
+<li>Example: To find (212) 555-1212 you can search for it exactly as
+it was entered or by searching for 212 555 1212</li>
+</ul>
+</li>
+<li>Street address:<ul>
+<li>Enter any part of the patron’s address (includes all address
+fields) and choose ‘Contains’ instead of ‘Starts with’ to find the
+string anywhere in the address</li>
+</ul>
+</li>
+<li>Date of birth<ul>
+<li>Birth dates should be entered using the format set forth in the
+<a class="reference internal" href="i18npreferences.html#dateformat"><span class="std std-ref">dateformat</span></a> preference.</li>
+</ul>
+</li>
+<li>Sort field 1<ul>
+<li>This is a custom field that libraries can use for any type of data
+about the patron.</li>
+</ul>
+</li>
+<li>Sort field 2<ul>
+<li>This is a custom field that libraries can use for any type of data
+about the patron.</li>
+</ul>
+</li>
+</ul>
+<p>You can also choose to either search for fields that start with the
+string you entered or contain the string. Choosing ‘Contains’ will work
+like a wildcard search.</p>
+<p><img alt="image480" src="_images/patronsearchcontains.png" /></p>
+<p>You can also browse through the patron records by clicking on the linked
+letters across the top.</p>
+<p><img alt="image481" src="_images/patronbrowse.png" /></p>
+<p>If your search only returns one result, you will be taken directly to the
+patron’s file. If your search returns more than one result, you will be given
+a list from which to choose.</p>
+<p><img alt="image1495" src="_images/patronsearchresults.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: memberresultst).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="communicating-with-patrons">
+<span id="communication-with-patrons-label"></span><h2>Communicating with patrons<a class="headerlink" href="#communicating-with-patrons" title="永久链接至标题"></a></h2>
+<p>Koha offers several options for communicating with patrons, some of which have
+already been covered in this chapter.</p>
+<div class="section" id="opac-notes">
+<span id="opac-notes-label"></span><h3>OPAC notes<a class="headerlink" href="#opac-notes" title="永久链接至标题"></a></h3>
+<p>OPAC notes are added to the patron’s file through the
+<a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">add patron form</span></a> or the
+<a class="reference internal" href="#editing-patrons-label"><span class="std std-ref">edit patron form</span></a>, in the ‘Library set-up’
+section.</p>
+<p><img alt="'Library set-up' and 'OPAC/Staff login' sections of the patron form" src="_images/addlibsetup.png" /></p>
+<p>They show up in the <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">‘Your summary’ section</span></a> of the
+patron’s online account in the OPAC.</p>
+<p><img alt="'Messages for you' box in the patron's online account with a note saying 'This is an OPAC note'" src="_images/opacnote.png" /></p>
+<p>In the staff interface, OPAC notes will be in the ‘Library use’ section of the
+patron’s file.</p>
+<p><img alt="'Library use' section of the patron's file" src="_images/patroneditsection.png" /></p>
+</div>
+<div class="section" id="opac-messages">
+<span id="opac-messages-label"></span><h3>OPAC messages<a class="headerlink" href="#opac-messages" title="永久链接至标题"></a></h3>
+<p>OPAC messages are added to the patron’s file using the ‘Add message’ button.</p>
+<p><img alt="Row of action buttons at the top of the patron's detail page" src="_images/patronedit.png" /></p>
+<p>To leave a message that the patron will be able to see in the OPAC, choose
+“OPAC - Patron’s name” in the ‘Add a message for’ field. Enter your message
+in the box, or choose a predefined message in the drop-down menu.</p>
+<p><img alt="Pop-up modal for 'Add message' with the option 'Add a message for OPAC - Patron's name' chosen" src="_images/opacmessage.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Predefined messages are added in the BOR_NOTES
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a></p>
+</div></blockquote>
+<p>Once saved, the patron will be able to see the message in the
+<a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">‘Your summary’ section</span></a> of their online account.
+The patron will also be able to see the date on which the message was added as
+well as the name of the branch.</p>
+<p><img alt="'Messages for you' box in the patron's online account with a message saying &quot;'This is an OPAC message' written on 10/24/2020 by Centerville&quot;" src="_images/opacmessage2.png" /></p>
+<p>In the staff interface, OPAC messages are shown on the patron’s detail page,
+at the top of the page just under the row of action buttons.</p>
+<p><img alt="OPAC message appearing in the patron's detail page in the staff interface just under the edit buttons" src="_images/opacmessage3.png" /></p>
+<p>It will also appear on the checkout page, to the right of the checkout box.</p>
+<p><img alt="OPAC message appearing in the patron's checkout page to the right of the checkout box" src="_images/opacmessage4.png" /></p>
+</div>
+<div class="section" id="advance-notices-and-hold-notices">
+<span id="advance-notices-and-hold-notices-label"></span><h3>Advance notices and hold notices<a class="headerlink" href="#advance-notices-and-hold-notices" title="永久链接至标题"></a></h3>
+<p>If you have enabled the <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences"><span class="std std-ref">EnhancedMessagingPreferences</span></a> system preference,
+you cat set advance notices as well as hold notices when
+<a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">adding a new patron</span></a> or
+<a class="reference internal" href="#editing-patrons-label"><span class="std std-ref">editing a patron</span></a>.</p>
+<p>If the <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a> system preference is set to
+‘show’, patrons will be able to modify their messaging preferences in their
+online account.</p>
+<p><img alt="'Patron messaging preferences' section of the patron form" src="_images/addpatronmsg.png" /></p>
+<ul class="simple">
+<li>Item due: A notice on the day and item is due back at the library<ul>
+<li>Customize this notice by editing the DUE or DUEDGST notices in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips tool</span></a></li>
+</ul>
+</li>
+<li>Advance notice: A notice in advance of the patron’s items being due (the
+patron can choose the number of days in advance)<ul>
+<li>Customize this notice by editing the PREDUE or PREDUEDGST notices
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips tool</span></a></li>
+</ul>
+</li>
+<li>Hold filled: A notice when you have confirmed the hold is waiting for the
+patron<ul>
+<li>Customize this notice by editing the HOLD notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips tool</span></a></li>
+</ul>
+</li>
+<li>Item check-in: A notice that lists all the of the items the patron has just
+checked in<ul>
+<li>Customize this notice by editing the CHECKIN notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips tool</span></a></li>
+</ul>
+</li>
+<li>Item checkout: A notice that lists all the of the items the patron has just
+checked out and/or renewed, this is an electronic form of the checkout
+receipt<ul>
+<li>Customize this notice by editing the CHECKOUT notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips tool</span></a></li>
+</ul>
+</li>
+</ul>
+<p>Patrons can choose to receive their notices as a digest by checking the
+‘Digest only’ box along with the delivery method. A digest is a combination of
+all the messages of that type (so all items due in 3 days in one email) in to
+one email instead of multiple emails for each alert.</p>
+<p>The delivery methods currently supported are:</p>
+<ul class="simple">
+<li>Email</li>
+<li>SMS (text messages)</li>
+<li>Automated phone call system</li>
+<li>Print</li>
+</ul>
+<p>To generate the advance notices (advance notice and item due), you need to run the
+<a class="reference internal" href="cron_jobs.html#cron-advanced-notice-label"><span class="std std-ref">advance_notices.pl cronjob</span></a>. Then, the
+<a class="reference internal" href="cron_jobs.html#cron-message-queue-label"><span class="std std-ref">process_message_queue.pl cronjob</span></a> will send
+the notices or the <a class="reference internal" href="cron_jobs.html#cron-print-hold-notices-label"><span class="std std-ref">gather_print_notices.pl cronjob</span></a>
+will gather them in a nice file you can print out and send out via regular mail.</p>
+</div>
+<div class="section" id="overdue-notices">
+<span id="overdue-notices-label"></span><h3>Overdue notices<a class="headerlink" href="#overdue-notices" title="永久链接至标题"></a></h3>
+<p>Overdue notices are managed in <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips</span></a>
+and when they are sent is managed in
+<a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue notice/status triggers</span></a>.</p>
+<p>Patrons cannot opt out of receiving overdue notices like they can other
+notices (such as <a class="reference internal" href="#advance-notices-and-hold-notices-label"><span class="std std-ref">advance notices or hold notices</span></a>)</p>
+<p>To generate the overdue notices , you need to run the
+<a class="reference internal" href="cron_jobs.html#cron-overdue-notice-label"><span class="std std-ref">overdue_notices.pl cronjob</span></a>. Then, the
+<a class="reference internal" href="cron_jobs.html#cron-message-queue-label"><span class="std std-ref">process_message_queue.pl cronjob</span></a> will send
+the notices or the <a class="reference internal" href="cron_jobs.html#cron-print-hold-notices-label"><span class="std std-ref">gather_print_notices.pl cronjob</span></a>
+will gather them in a nice file you can print out and send out via regular mail.</p>
+</div>
+<div class="section" id="custom-emails">
+<span id="patron-emailer-label"></span><h3>Custom emails<a class="headerlink" href="#custom-emails" title="永久链接至标题"></a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tools.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cash_management.html" class="btn btn-neutral float-right" title="Cash management" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

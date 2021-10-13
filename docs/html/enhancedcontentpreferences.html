@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhanced content &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="I18N/L10N" href="i18npreferences.html" />
+    <link rel="prev" title="Circulation" href="circulationpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Enhanced content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adlibris">Adlibris</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adlibriscoversenabled">AdlibrisCoversEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adlibriscoversurl">AdlibrisCoversURL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#all">All</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#frbrizeeditions">FRBRizeEditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacfrbrizeeditions">OPACFRBRizeEditions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#amazon">Amazon</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#amazonassoctag">AmazonAssocTag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amazoncoverimages">AmazonCoverImages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amazonlocale">AmazonLocale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacamazoncoverimages">OPACAmazonCoverImages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#babeltheque">Babelthèque</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#babeltheque-label">Babelthèque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#babeltheque-url-js">Babeltheque_url_js</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#babeltheque-url-update">Babeltheque_url_update</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#baker-taylor">Baker &amp; Taylor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bakertaylorbookstoreurl">BakerTaylorBookstoreURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bakertaylorenabled">BakerTaylorEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bakertaylorusername-and-bakertaylorpassword">BakerTaylorUsername and BakerTaylorPassword</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#coce-cover-images-cache">Coce Cover images cache</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#coce">Coce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cocehost">CoceHost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coceproviders">CoceProviders</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#google">Google</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#googlejackets">GoogleJackets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#html5-media">HTML5 Media</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#html5mediaenabled">HTML5MediaEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#html5mediaextensions">HTML5MediaExtensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#html5mediayoutube">HTML5MediaYouTube</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#librarything">LibraryThing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librarythingforlibrariesenabled">LibraryThingForLibrariesEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#librarythingforlibrariesid">LibraryThingForLibrariesID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#librarythingforlibrariestabbedview">LibraryThingForLibrariesTabbedView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#thingisbn">ThingISBN</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#local-or-remote-cover-images">Local or remote cover images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowmultiplecovers">AllowMultipleCovers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customcoverimages">CustomCoverImages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaccustomcoverimages">OPACCustomCoverImages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customcoverimagesurl">CustomCoverImagesURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#localcoverimages">LocalCoverImages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaclocalcoverimages">OPACLocalCoverImages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#manual">Manual</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kohamanualbaseurl">KohaManualBaseURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kohamanuallanguage">KohaManualLanguage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#novelist-select">Novelist Select</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectenabled">NovelistSelectEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectprofile-and-novelistselectpassword">NovelistSelectProfile and NovelistSelectPassword</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectstaffenabled">NovelistSelectStaffEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectstaffprofile">NovelistSelectStaffProfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectstaffview">NovelistSelectStaffView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectview">NovelistSelectView</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#open-library">Open Library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openlibrarycovers">OpenLibraryCovers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openlibrarysearch">OpenLibrarySearch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#overdrive">Overdrive</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overdrivecirculation">OverDriveCirculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overdriveclientkey-and-overdriveclientsecret">OverDriveClientKey and OverDriveClientSecret</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overdrivelibraryid">OverDriveLibraryID</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#recordedbooks">RecordedBooks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recordedbooksclientsecret">RecordedBooksClientSecret</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recordedbooksdomain">RecordedBooksDomain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recordedbookslibraryid">RecordedBooksLibraryID</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#syndetics">Syndetics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsauthornotes">SyndeticsAuthorNotes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsawards">SyndeticsAwards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsclientcode">SyndeticsClientCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticscoverimages-and-syndeticscoverimagesize">SyndeticsCoverImages and SyndeticsCoverImageSize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticseditions">SyndeticsEditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsenabled">SyndeticsEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsexcerpt">SyndeticsExcerpt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsreviews">SyndeticsReviews</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsseries">SyndeticsSeries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticssummary">SyndeticsSummary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticstoc">SyndeticsTOC</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tagging">Tagging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tagsenabled">TagsEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsexternaldictionary">TagsExternalDictionary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsinputondetail">TagsInputOnDetail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsinputonlist">TagsInputOnList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsmoderation">TagsModeration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsshowondetail">TagsShowOnDetail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsshowonlist">TagsShowOnList</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Enhanced content</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhancedcontentpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="circulationpreferences.html" class="btn btn-neutral float-left" title="Circulation" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="i18npreferences.html" class="btn btn-neutral float-right" title="I18N/L10N" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="enhanced-content">
+<span id="enhanced-content-system-preferences-label"></span><h1>Enhanced content<a class="headerlink" href="#enhanced-content" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt;
+Enhanced content</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Always read the terms of service associated with external data
+sources to be sure that you are using the products within the
+allowed limits.</p>
+<p><strong>Note</strong></p>
+<p>You cannot have more than one service for cover images (including
+local cover images) set up. If you set up more than one you will get
+multiple cover images. Instead choose only one source for cover
+images.</p>
+</div></blockquote>
+<div class="section" id="adlibris">
+<span id="adlibris-label"></span><h2>Adlibris<a class="headerlink" href="#adlibris" title="永久链接至标题"></a></h2>
+<div class="section" id="adlibriscoversenabled">
+<span id="adlibriscoversenabled-label"></span><h3>AdlibrisCoversEnabled<a class="headerlink" href="#adlibriscoversenabled" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ cover images in OPAC results and detail listing from Swedish
+retailer Adlibris.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+</div>
+<div class="section" id="adlibriscoversurl">
+<span id="adlibriscoversurl-label"></span><h3>AdlibrisCoversURL<a class="headerlink" href="#adlibriscoversurl" title="永久链接至标题"></a></h3>
+<p>Default: <a class="reference external" href="http://www.adlibris.com/se/organisationer/showimagesafe.aspx">http://www.adlibris.com/se/organisationer/showimagesafe.aspx</a></p>
+<p>Asks: ___ for the Adlibris cover service.</p>
+</div>
+</div>
+<div class="section" id="all">
+<span id="all-label"></span><h2>All<a class="headerlink" href="#all" title="永久链接至标题"></a></h2>
+<div class="section" id="frbrizeeditions">
+<span id="frbrizeeditions-label"></span><h3>FRBRizeEditions<a class="headerlink" href="#frbrizeeditions" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ other editions of an item on the staff client</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t show</p>
+</li>
+<li><p class="first">Show</p>
+<p><img alt="image46" src="_images/editionstab.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">Using the rules set forth in the Functional Requirements for
+Bibliographic records, this option, when enabled, pulls all editions
+of the same title available in your collection regardless of material
+type. Items will appear under an ‘Editions’ tab on the detail page
+for the title in question.. According to <em>Libraries Unlimited’s
+Online Dictionary for Library and Information Science</em>
+(<a class="reference external" href="http://lu.com/odlis/">http://lu.com/odlis/</a>), FRBRizing the catalog involves collating MARC
+records of similar materials. FRBRization brings together entities
+(sets of Works, Expressions, or Manifestations), rather than just
+sets of Items. It can aid patrons in selecting related items,
+expressions, and manifestations that will serve their needs. When it
+is set to “Show”, the OPAC will query one or more ISBN web services
+for associated ISBNs and display an Editions tab on the details
+pages. Once this preference is enabled, the library must select one
+of the ISBN options (such as <a class="reference internal" href="#thingisbn"><span class="std std-ref">ThingISBN</span></a>). This option is only for the Staff
+Client - the <a class="reference internal" href="#opacfrbrizeeditions"><span class="std std-ref">OPACFRBRizeEditions</span></a> option must be enabled
+to have the Editions tab appear on the OPAC.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Requires that you turn on one or more of the ISBN services
+(such as <a class="reference internal" href="#thingisbn"><span class="std std-ref">ThingISBN</span></a>).</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="opacfrbrizeeditions">
+<span id="opacfrbrizeeditions-label"></span><h3>OPACFRBRizeEditions<a class="headerlink" href="#opacfrbrizeeditions" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ other editions of an item on the OPAC.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Using the rules set forth in the Functional Requirements for
+Bibliographic records, this option, when enabled, pulls all editions
+of the same title available in your collection regardless of material
+type. Items will appear under an ‘Editions’ tab on the detail page
+for the title in question.. According to <em>Libraries Unlimited’s
+Online Dictionary for Library and Information Science</em>
+(<a class="reference external" href="http://lu.com/odlis/">http://lu.com/odlis/</a>), FRBRizing the catalog involves collating MARC
+records of similar materials. FRBRization brings together entities
+(sets of Works, Expressions, or Manifestations), rather than just
+sets of Items. It can aid patrons in selecting related items,
+expressions, and manifestations that will serve their needs. When it
+is set to “Show”, the OPAC will query one or more ISBN web services
+for associated ISBNs and display an Editions tab on the details
+pages. Once this preference is enabled, the library must select one
+of the ISBN options (such as <a class="reference internal" href="#thingisbn"><span class="std std-ref">ThingISBN</span></a>). This option is only for the OPAC - the
+<a class="reference internal" href="#frbrizeeditions"><span class="std std-ref">FRBRizeEditions</span></a> option must be turned “On” to
+have the Editions tab appear on the Staff Client.</li>
+</ul>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t show</p>
+</li>
+<li><p class="first">Show</p>
+<p><img alt="image47" src="_images/editions.png" /></p>
+</li>
+</ul>
+<p>This preference pulls all editions of the same title available in your
+collection regardless of material type. Items will appear under an
+‘Editions’ tab on the detail page for the title in question.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Requires that you turn on one or more of the ISBN services
+(such as <a class="reference internal" href="#thingisbn"><span class="std std-ref">ThingISBN</span></a>).</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="amazon">
+<span id="amazon-system-preferences-label"></span><h2>Amazon<a class="headerlink" href="#amazon" title="永久链接至标题"></a></h2>
+<div class="section" id="amazonassoctag">
+<span id="amazonassoctag-label"></span><h3>AmazonAssocTag<a class="headerlink" href="#amazonassoctag" title="永久链接至标题"></a></h3>
+<p>Asks: Put the associate tag ___ on links to Amazon.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This can net your library referral fees if a patron decides to buy
+an item after clicking through to Amazon from your site.</p>
+</div></blockquote>
+<p>Description:</p>
+<ul class="simple">
+<li>An Amazon Associates Tag allows a library to earn a percentage of all
+purchases made on Amazon when a patron accesses Amazon’s site via
+links on the library’s website. More information about the Amazon
+Associates program is available at Amazon’s Affiliate Program’s
+website, <a class="reference external" href="https://affiliate-program.amazon.com/">https://affiliate-program.amazon.com/</a>. Before a tag can be
+obtained, however, the library must first apply for an Amazon Web
+Services (AWS) account. Applications are free of charge and can be
+made at <a class="reference external" href="http://aws.amazon.com">http://aws.amazon.com</a>. Once an AWS account has been
+established, the library can then obtain the Amazon Associates Tag.</li>
+</ul>
+<p>Sign up at: <a class="reference external" href="https://affiliate-program.amazon.com/">https://affiliate-program.amazon.com/</a></p>
+</div>
+<div class="section" id="amazoncoverimages">
+<span id="amazoncoverimages-label"></span><h3>AmazonCoverImages<a class="headerlink" href="#amazoncoverimages" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ cover images from Amazon on search results and item detail
+pages on the staff interface.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference makes it possible to either allow or prevent Amazon
+cover images from being displayed in the Staff Client. Cover images
+are retrieved by Amazon, which pulls the content based on the first
+ISBN number in the item’s MARC record. Amazon offers this service
+free of charge. If the value for this preference is set to “Show”,
+the cover images will appear in the Staff Client, and if it is set to
+“Don’t show”, the images will not appear. Finally, if you’re using
+Amazon cover images, all other cover image services must be disabled.
+If they are not disabled, they will prevent AmazonCoverImages from
+functioning properly.</li>
+</ul>
+</div>
+<div class="section" id="amazonlocale">
+<span id="amazonlocale-label"></span><h3>AmazonLocale<a class="headerlink" href="#amazonlocale" title="永久链接至标题"></a></h3>
+<p>Default: American</p>
+<p>Asks: Use Amazon data from its ___ website.</p>
+<p>Value:</p>
+<ul class="simple">
+<li>American</li>
+<li>British</li>
+<li>Canadian</li>
+<li>French</li>
+<li>German</li>
+<li>Indian</li>
+<li>Japanese</li>
+</ul>
+</div>
+<div class="section" id="opacamazoncoverimages">
+<span id="opacamazoncoverimages-label"></span><h3>OPACAmazonCoverImages<a class="headerlink" href="#opacamazoncoverimages" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ cover images from Amazon on search results and item detail
+pages on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference makes it possible to either allow or prevent Amazon
+cover images from being displayed in the OPAC. Cover images are
+retrieved by Amazon, which pulls the content based on the first ISBN
+number in the item’s MARC record. Amazon offers this service free of
+charge. If the value for this preference is set to “Show”, the cover
+images will appear in the OPAC, and if it is set to “Don’t show”, the
+images will not appear. Finally, if you’re using Amazon cover images,
+all other cover image services must be disabled. If they are not
+disabled, they will prevent AmazonCoverImages from functioning
+properly.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="babeltheque">
+<span id="babeltheque-system-preferences-label"></span><h2>Babelthèque<a class="headerlink" href="#babeltheque" title="永久链接至标题"></a></h2>
+<div class="section" id="babeltheque-label">
+<span id="id1"></span><h3>Babelthèque<a class="headerlink" href="#babeltheque-label" title="永久链接至标题"></a></h3>
+<p>Default: Don’t</p>
+<p>Asks: ___ include information (such as reviews and citations) from
+Babelthèque in item detail pages on the OPAC.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference makes it possible to display a Babelthèque tab in the
+OPAC, allowing patrons to access tags, reviews, and additional title
+information provided by Babelthèque. The information which
+Babelthèque supplies is drawn from the French language-based
+<a class="reference external" href="http://www.babelio.com/">Babelio.com</a>, a French service similar
+to LibraryThing for Libraries. More information about Babelthèque is
+available through its website,
+<a class="reference external" href="http://www.babeltheque.com/">http://www.babeltheque.com</a>.
+Libraries that wish to allow access to this information must first
+register for the service at <a class="reference external" href="http://www.babeltheque.com">http://www.babeltheque.com</a>. Please note
+that this information is only provided in French.</li>
+</ul>
+<p>Values:</p>
+<ul>
+<li><p class="first">Do</p>
+<p><img alt="image48" src="_images/Babeltheque.png" /></p>
+</li>
+<li><p class="first">Don’t</p>
+</li>
+</ul>
+</div>
+<div class="section" id="babeltheque-url-js">
+<span id="babeltheque-url-js-label"></span><h3>Babeltheque_url_js<a class="headerlink" href="#babeltheque-url-js" title="永久链接至标题"></a></h3>
+<p>Asks: ___ Defined the url for the Babelthèque javascript file (eg.
+<a class="reference external" href="http://www.babeltheque.com/bw_XX.js">http://www.babeltheque.com/bw_XX.js</a>)</p>
+</div>
+<div class="section" id="babeltheque-url-update">
+<span id="babeltheque-url-update-label"></span><h3>Babeltheque_url_update<a class="headerlink" href="#babeltheque-url-update" title="永久链接至标题"></a></h3>
+<p>Asks: ___ Defined the url for the Babelthèque update periodically
+(eq. <a class="reference external" href="http://www.babeltheque.com/.../file.csv.bz2">http://www.babeltheque.com/…/file.csv.bz2</a>).</p>
+</div>
+</div>
+<div class="section" id="baker-taylor">
+<span id="baker-and-taylor-label"></span><h2>Baker &amp; Taylor<a class="headerlink" href="#baker-taylor" title="永久链接至标题"></a></h2>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This is a pay service, you must contact Baker &amp; Taylor to subscribe
+to this service before setting these options.</p>
+</div></blockquote>
+<div class="section" id="bakertaylorbookstoreurl">
+<span id="bakertaylorbookstoreurl-label"></span><h3>BakerTaylorBookstoreURL<a class="headerlink" href="#bakertaylorbookstoreurl" title="永久链接至标题"></a></h3>
+<p>Asks: Baker and Taylor “My Library Bookstore” links should be accessed
+at <a class="reference external" href="https://">https://</a> ___ isbn</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Some libraries generate additional funding for the library by selling
+books and other materials that are purchased from or have been
+previously leased from Baker &amp; Taylor. These materials can be
+accessed via a link on the library’s website. This service is often
+referred to as “My Library Bookstore.” In order to participate in
+this program, the library must first register and pay for the service
+with Baker &amp; Taylor. Additional information about this and other
+services provided by Baker &amp; Taylor is available at the Baker &amp;
+Taylor website, <a class="reference external" href="https://www.baker-taylor.com/">https://www.baker-taylor.com/</a>. The BakerTaylorBookstoreURL
+preference establishes the URL in order to link to the library’s
+Baker &amp; Taylor-backed online bookstore, if such a bookstore has been
+established. The default for this field is left blank; if no value is
+entered, the links to My Library Bookstore will remain inactive. If
+enabling this preference, enter the library’s Hostname and Parent
+Number in the appropriate location within the URL. The “key” value
+(key=) should be appended to the URL, and <a class="reference external" href="https://">https://</a> should be
+prepended.</li>
+</ul>
+<p>This should be filled in with something like
+koha.mylibrarybookstore.com/MLB/actions/searchHandler.do?nextPage=bookDetails&amp;parentNum=10923&amp;key=</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Leave it blank to disable these links.</p>
+<p><strong>Important</strong></p>
+<p>Be sure to get this information from Baker &amp; Taylor when
+subscribing.</p>
+</div></blockquote>
+</div>
+<div class="section" id="bakertaylorenabled">
+<span id="bakertaylorenabled-label"></span><h3>BakerTaylorEnabled<a class="headerlink" href="#bakertaylorenabled" title="永久链接至标题"></a></h3>
+<p>Default: Don’t add</p>
+<p>Asks: ___ Baker and Taylor links and cover images to the OPAC and
+staff client. This requires that you have entered in a username and
+password (which can be seen in image links).</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Add</li>
+<li>Don’t add</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference makes it possible to display Baker &amp; Taylor content
+(book reviews, descriptions, cover images, etc.) in both the Staff
+Client and the OPAC. Libraries that wish to display Baker &amp; Taylor
+content must first register and pay for this service with Baker &amp;
+Taylor (<a class="reference external" href="https://www.baker-taylor.com/">https://www.baker-taylor.com/</a>). If Baker &amp; Taylor content is enabled be
+sure to turn off other cover and review services to prevent
+interference.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>To use this you will need to also set the <a class="reference internal" href="#bakertaylorusername-and-bakertaylorpassword-label"><span class="std std-ref">BakerTaylorUsername and
+BakerTaylorPassword</span></a> system preferences</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bakertaylorusername-and-bakertaylorpassword">
+<span id="bakertaylorusername-and-bakertaylorpassword-label"></span><h3>BakerTaylorUsername and BakerTaylorPassword<a class="headerlink" href="#bakertaylorusername-and-bakertaylorpassword" title="永久链接至标题"></a></h3>
+<p>Asks: Access Baker and Taylor using username ___ and password ___</p>
+<p>Descriptions:</p>
+<ul>
+<li><p class="first">This setting in only applicable if the library has a paid
+subscription to the external Content CafÃ© service from Baker &amp;
+Taylor. Use the box provided to enter in the library’s Content CafÃ©
+username and password. Also, ensure that the
+<a class="reference internal" href="#bakertaylorbookstoreurl"><span class="std std-ref">BakerTaylorBookstoreURL</span></a> and
+<a class="reference internal" href="#bakertaylorenabled"><span class="std std-ref">BakerTaylorEnabled</span></a> settings are properly
+set. The Content CafÃ© service is a feed of enhanced content such as
+cover art, professional reviews, and summaries that is displayed
+along with Staff Client/OPAC search results. For more information on
+this service please see the Baker &amp; Taylor website:
+<a class="reference external" href="https://www.baker-taylor.com/">https://www.baker-taylor.com/</a></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Be sure to get this information from Baker &amp; Taylor when
+subscribing.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="coce-cover-images-cache">
+<span id="coce-cover-images-cache-label"></span><h2>Coce Cover images cache<a class="headerlink" href="#coce-cover-images-cache" title="永久链接至标题"></a></h2>
+<p>Coce is a remote image URL cache. With this option, cover images are not
+fetched directly from Amazon, Google, and so on. Their URLs are
+requested via a web service to Coce which manages a cache of URLs.</p>
+<div class="section" id="coce">
+<span id="coce-label"></span><h3>Coce<a class="headerlink" href="#coce" title="永久链接至标题"></a></h3>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ a Coce image cache service.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t enable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">Coce has many benefits when it comes to choosing and displaying cover
+images in Koha:</p>
+<ul>
+<li><p class="first">If a book cover is not available from a provider, but is available
+from another one, Koha will be able to display a book cover, which
+isn’t the case now</p>
+</li>
+<li><p class="first">Since URLs are cached, it isn’t necessary for each book cover to
+request, again and again, the provider, and several of them if
+necessary.</p>
+</li>
+<li><p class="first">Amazon book covers are retrieved with Amazon Product Advertising
+API, which means that more covers are retrieved (ISBN13).</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Coce does not come bundled with Koha. Your Koha install will not
+already have a Coce server set up. Before enabling this
+functionality you will want to be sure to have a Coce server set
+up. Instructions on installing and setting up Coce can be found
+on the official github page at <a class="reference external" href="https://github.com/fredericd/coce">https://github.com/fredericd/coce</a>.</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="cocehost">
+<span id="cocehost-label"></span><h3>CoceHost<a class="headerlink" href="#cocehost" title="永久链接至标题"></a></h3>
+<p>Asks: Coce server URL ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This will be the full URL (starting with <a class="reference external" href="http://">http://</a>) to your Coce
+server.</li>
+</ul>
+</div>
+<div class="section" id="coceproviders">
+<span id="coceproviders-label"></span><h3>CoceProviders<a class="headerlink" href="#coceproviders" title="永久链接至标题"></a></h3>
+<p>Asks: Use the following providers to fetch the covers ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>[Select all]</li>
+<li>Amazon Web Services</li>
+<li>Google Books</li>
+<li>Open Library</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>The providers chosen here will be used to gather cover images for
+display in your Koha catalog.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="google">
+<span id="google-label"></span><h2>Google<a class="headerlink" href="#google" title="永久链接至标题"></a></h2>
+<div class="section" id="googlejackets">
+<span id="googlejackets-label"></span><h3>GoogleJackets<a class="headerlink" href="#googlejackets" title="永久链接至标题"></a></h3>
+<p>Default: Don’t add</p>
+<p>Asks: ___ cover images from Google Books to search results and item
+detail pages on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Add</li>
+<li>Don’t add</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This setting controls the display of applicable cover art from the
+free Google Books database, via the Google Books API. Please note
+that to use this feature, all other cover services should be turned
+off.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="html5-media">
+<span id="html5-media-label"></span><h2>HTML5 Media<a class="headerlink" href="#html5-media" title="永久链接至标题"></a></h2>
+<div class="section" id="html5mediaenabled">
+<span id="html5mediaenabled-label"></span><h3>HTML5MediaEnabled<a class="headerlink" href="#html5mediaenabled" title="永久链接至标题"></a></h3>
+<p>Default: not at all</p>
+<p>Asks: Show a tab with a HTML5 media player for files catalogued in field
+856 ___</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">in OPAC and staff client</p>
+</li>
+<li><p class="first">in the OPAC</p>
+<p><img alt="image49" src="_images/HTML5MediaEnabled-opac.png" /></p>
+</li>
+<li><p class="first">in the staff client</p>
+<p><img alt="image50" src="_images/HTML5MediaEnabled-staff.png" /></p>
+</li>
+<li><p class="first">not at all</p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If you have media elements in the 856 of your MARC record this
+preference can run/show those media files in a separate tab using
+HTML5.</li>
+</ul>
+</div>
+<div class="section" id="html5mediaextensions">
+<span id="html5mediaextensions-label"></span><h3>HTML5MediaExtensions<a class="headerlink" href="#html5mediaextensions" title="永久链接至标题"></a></h3>
+<p>Default: webm|ogg|ogv|oga|vtt</p>
+<p>Asks: Media file extensions ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Enter in file extensions separated with bar (|)</li>
+</ul>
+</div>
+<div class="section" id="html5mediayoutube">
+<span id="html5mediayoutube-label"></span><h3>HTML5MediaYouTube<a class="headerlink" href="#html5mediayoutube" title="永久链接至标题"></a></h3>
+<p>Default: Don’t embed</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>To turn this on first enable
+<a class="reference internal" href="#html5mediaenabled"><span class="std std-ref">HTML5MediaEnabled</span></a></p>
+</div></blockquote>
+<p>Asks: ___ YouTube links as videos.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t embed</li>
+<li>Embed</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference will allow MARC21 856$u that points to YouTube to
+appear as a playable video on the pages defined in
+<a class="reference internal" href="#html5mediaenabled"><span class="std std-ref">HTML5MediaEnabled</span></a>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="librarything">
+<span id="librarything-label"></span><h2>LibraryThing<a class="headerlink" href="#librarything" title="永久链接至标题"></a></h2>
+<p>LibraryThing for Libraries is a pay service. You must first contact
+LibraryThing directly for pricing and subscription information. Learn
+more at <a class="reference external" href="http://www.librarything.com/forlibraries">http://www.librarything.com/forlibraries</a>. Also, for further
+configuration instructions please see the LibraryThing Wiki:
+<a class="reference external" href="http://www.librarything.com/wiki/index.php/Koha">http://www.librarything.com/wiki/index.php/Koha</a></p>
+<div class="section" id="librarythingforlibrariesenabled">
+<span id="librarythingforlibrariesenabled-label"></span><h3>LibraryThingForLibrariesEnabled<a class="headerlink" href="#librarythingforlibrariesenabled" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ reviews, similar items, and tags from Library Thing for
+Libraries on item detail pages on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This setting is only applicable if the library has a paid
+subscription to the external LibraryThing for Libraries service. This
+service can provide patrons with the display of expanded information
+on catalog items such as book recommendations. It also can offer
+advanced features like tagged browsing, patron written reviews, and a
+virtual library display accessed from the details tab.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>If this is set to ‘show’ you will need to enter a value in the
+<a class="reference internal" href="#librarythingforlibrariesid"><span class="std std-ref">LibraryThingForLibrariesID</span></a> system preference.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="librarythingforlibrariesid">
+<span id="librarythingforlibrariesid-label"></span><h3>LibraryThingForLibrariesID<a class="headerlink" href="#librarythingforlibrariesid" title="永久链接至标题"></a></h3>
+<p>Asks: Access Library Thing for Libraries using the customer ID ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This setting is only applicable if the library has a paid
+subscription to the external LibraryThing for Libraries service. Use
+the box provided to enter in the library’s LibraryThing for Libraries
+ID as provided to the library by LibraryThing. The ID number is a
+series of numbers in the form ###-#########, and can be found on the
+library’s account page at LibraryThing for Libraries. This service
+can provide patrons with the display of expanded information on
+catalog items such as book recommendations and cover art. It also can
+offer advanced features like tagged browsing, patron written reviews,
+and a virtual library display accessed from the details tab.</li>
+</ul>
+</div>
+<div class="section" id="librarythingforlibrariestabbedview">
+<span id="librarythingforlibrariestabbedview-label"></span><h3>LibraryThingForLibrariesTabbedView<a class="headerlink" href="#librarythingforlibrariestabbedview" title="永久链接至标题"></a></h3>
+<p>Default: in line with bibliographic information</p>
+<p>Asks: Show Library Thing for Libraries content ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>in line with bibliographic information</li>
+<li>in tabs</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This setting is only applicable if the library has a paid
+subscription to the external LibraryThing for Libraries service. This
+service can provide patrons with the display of expanded information
+on catalog items such as book recommendations and cover art. It also
+can offer advanced features like tagged browsing, patron written
+reviews, and a virtual library display accessed from the details tab.</li>
+</ul>
+</div>
+<div class="section" id="thingisbn">
+<span id="thingisbn-label"></span><h3>ThingISBN<a class="headerlink" href="#thingisbn" title="永久链接至标题"></a></h3>
+<p>Default: Don’t use</p>
+<p>Asks: ___ the ThingISBN service to show other editions of a title</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use</li>
+<li>Use</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">Set to ‘Use’ to display an “Editions” tab on the item’s detail page.
+Editions are listed, complete with cover art (if you have one of the
+cover services enabled) and bibliographic information. The feed comes
+from LibraryThing’s ThingISBN web service. This is a free service to
+non-commercial sites with fewer than 1,000 requests per day.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Requires <a class="reference internal" href="#frbrizeeditions"><span class="std std-ref">FRBRizeEditions</span></a> and/or
+<a class="reference internal" href="#opacfrbrizeeditions"><span class="std std-ref">OPACFRBRizeEditions</span></a> set to ‘show’</p>
+<p><strong>Important</strong></p>
+<p>This is separate from Library Thing for Libraries and does not have
+a cost associated with it.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="local-or-remote-cover-images">
+<span id="local-cover-images-label"></span><h2>Local or remote cover images<a class="headerlink" href="#local-or-remote-cover-images" title="永久链接至标题"></a></h2>
+<div class="section" id="allowmultiplecovers">
+<span id="allowmultiplecovers-label"></span><h3>AllowMultipleCovers<a class="headerlink" href="#allowmultiplecovers" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ multiple images to be attached to each bibliographic
+record.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">If this preference is set to ‘Allow’ then you can upload multiple
+images that will appear in the images tab on the bib record in the
+OPAC and the staff client. This preference requires that either one
+or both <a class="reference internal" href="#localcoverimages"><span class="std std-ref">LocalCoverImages</span></a> and
+<a class="reference internal" href="#opaclocalcoverimages"><span class="std std-ref">OPACLocalCoverImages</span></a> are set to
+‘Display.^</p>
+<p><img alt="image54" src="_images/AllowMultipleCovers.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="customcoverimages">
+<span id="customcoverimages-label"></span><h3>CustomCoverImages<a class="headerlink" href="#customcoverimages" title="永久链接至标题"></a></h3>
+<p>Default: Don’t display</p>
+<p>Asks: ___ custom remote url images in the staff client.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Display</li>
+<li>Don’t display</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If you use <a class="reference internal" href="#customcoverimagesurl"><span class="std std-ref">CustomCoverImagesURL</span></a>, this preference indicates if you
+want these cover images to appear in the staff interface.</li>
+<li>Use <a class="reference internal" href="#opaccustomcoverimages"><span class="std std-ref">OPACCustomCoverImages</span></a> if you want those images to appear in the
+OPAC.</li>
+</ul>
+</div>
+<div class="section" id="opaccustomcoverimages">
+<span id="opaccustomcoverimages-label"></span><h3>OPACCustomCoverImages<a class="headerlink" href="#opaccustomcoverimages" title="永久链接至标题"></a></h3>
+<p>Default: Don’t display</p>
+<p>Asks: ___ custom remote url images at the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Display</li>
+<li>Don’t display</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If you use <a class="reference internal" href="#customcoverimagesurl"><span class="std std-ref">CustomCoverImagesURL</span></a>, this preference indicates if you
+want these cover images to appear in the OPAC.</li>
+<li>Use <a class="reference internal" href="#customcoverimages"><span class="std std-ref">CustomCoverImages</span></a> if you want those images to appear in the
+staff interface.</li>
+</ul>
+</div>
+<div class="section" id="customcoverimagesurl">
+<span id="customcoverimagesurl-label"></span><h3>CustomCoverImagesURL<a class="headerlink" href="#customcoverimagesurl" title="永久链接至标题"></a></h3>
+<p>Asks: Using the following URL: ___</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">You can use codes to substitute bibliographic information in the URL:
+{isbn}, {issn}, {normalized_isbn}</p>
+<p>For example:
+<a class="reference external" href="http://www.mylibrarysite.com/covers">http://www.mylibrarysite.com/covers</a>/{isbn}.png</p>
+</li>
+<li><p class="first">You can also use MARC fields and subfields in the URL like so:
+{024$a}</p>
+<p>For example:
+<a class="reference external" href="http://www.mylibrarysite.com/covers">http://www.mylibrarysite.com/covers</a>/{024$a}.png</p>
+</li>
+<li><p class="first">Make sure to enable <a class="reference internal" href="#customcoverimages"><span class="std std-ref">CustomCoverImages</span></a> if you want those images to
+appear in the staff interface and <a class="reference internal" href="#opaccustomcoverimages"><span class="std std-ref">OPACCustomCoverImages</span></a> if you want
+those images to appear in the OPAC.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="localcoverimages">
+<span id="localcoverimages-label"></span><h3>LocalCoverImages<a class="headerlink" href="#localcoverimages" title="永久链接至标题"></a></h3>
+<p>Default: Don’t display</p>
+<p>Asks: ___ local cover images on intranet search and details pages.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Display</li>
+<li>Don’t display</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Setting this preference to ‘Display’ allows you to upload your own
+cover images to bib records and display them on the detail page in
+the staff client. At this time the cover will only show under the
+‘Images’ tab on the holdings table on the detail display, not next to
+the title at the top left or on the search results.</li>
+</ul>
+</div>
+<div class="section" id="opaclocalcoverimages">
+<span id="opaclocalcoverimages-label"></span><h3>OPACLocalCoverImages<a class="headerlink" href="#opaclocalcoverimages" title="永久链接至标题"></a></h3>
+<p>Default: Don’t display</p>
+<p>Asks: ___ local cover images on OPAC search and details pages.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Display</li>
+<li>Don’t display</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Setting this preference to ‘Display’ allows you to upload your own
+cover images to bib records and display them on the detail page and
+search results in the OPAC.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="manual">
+<span id="manual-sysprefs-label"></span><h2>Manual<a class="headerlink" href="#manual" title="永久链接至标题"></a></h2>
+<div class="section" id="kohamanualbaseurl">
+<span id="kohamanualbaseurl-label"></span><h3>KohaManualBaseURL<a class="headerlink" href="#kohamanualbaseurl" title="永久链接至标题"></a></h3>
+<p>Default: <a class="reference external" href="https://koha-community.org/manual/">https://koha-community.org/manual/</a></p>
+<p>Asks: Location of the Koha manual ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>You can specify the location of the Koha manual to use. This is the
+URL that will be used for the help pages when you click ‘Help’ at
+the top right corner of the page.</li>
+<li>By default, the Koha manual is used, but you can use this system
+preference to substitute for your own help pages.</li>
+<li>If the URL starts with ‘/’, the value of <a class="reference internal" href="staffclientpreferences.html#staffclientbaseurl"><span class="std std-ref">staffClientBaseURL</span></a>
+will be used as a prefix.</li>
+<li>Note that it will be suffixed by the version / the language / the
+format (/17.11/en/html)</li>
+</ul>
+</div>
+<div class="section" id="kohamanuallanguage">
+<span id="kohamanuallanguage-label"></span><h3>KohaManualLanguage<a class="headerlink" href="#kohamanuallanguage" title="永久链接至标题"></a></h3>
+<p>Default: English</p>
+<p>Asks: Language of the online manual ­___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>By default, the language of the Koha interface will be used
+as the manual language. However, if the manual is not translated
+in that language, this system preference specifies the fallback
+language.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="novelist-select">
+<span id="novelist-select-label"></span><h2>Novelist Select<a class="headerlink" href="#novelist-select" title="永久链接至标题"></a></h2>
+<p>Novelist Select is not a free service. Contact your Ebsco representative
+to get your log in information to embed this content in the OPAC.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Novelist Select does not include cover images for the search results
+and bibliographic detail pages. You can choose any other cover image
+service for this content or you can contract with Ebsco to get
+access to the <a class="reference internal" href="#baker-and-taylor-label"><span class="std std-ref">Baker &amp; Taylor Content Cafe</span></a> for
+an added fee.</p>
+</div></blockquote>
+<div class="section" id="novelistselectenabled">
+<span id="novelistselectenabled-label"></span><h3>NovelistSelectEnabled<a class="headerlink" href="#novelistselectenabled" title="永久链接至标题"></a></h3>
+<p>Default: Don’t add</p>
+<p>Asks: ___ Novelist Select content to the OPAC.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Add</p>
+</li>
+<li><p class="first">Don’t add</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Enabling this requires that you have entered in a user profile and
+password in the <a class="reference internal" href="#novelistselectprofile-and-novelistselectpassword"><span class="std std-ref">NovelistSelectProfile and NovelistSelectPassword</span></a> preferences</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Novelist Select from Ebsco is a subscription service that can provide
+additional content in the OPAC.</li>
+</ul>
+</div>
+<div class="section" id="novelistselectprofile-and-novelistselectpassword">
+<span id="novelistselectprofile-and-novelistselectpassword-label"></span><h3>NovelistSelectProfile and NovelistSelectPassword<a class="headerlink" href="#novelistselectprofile-and-novelistselectpassword" title="永久链接至标题"></a></h3>
+<p>Asks: Access Novelist Select using user profile ___ and password
+___.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This information will be visible if someone views the source code on
+your OPAC.</p>
+</div></blockquote>
+<p>Description:</p>
+<ul class="simple">
+<li>Novelist Select from Ebsco is a subscription service that can provide
+additional content in the OPAC.</li>
+</ul>
+</div>
+<div class="section" id="novelistselectstaffenabled">
+<span id="novelistselectstaffenabled-label"></span><h3>NovelistSelectStaffEnabled<a class="headerlink" href="#novelistselectstaffenabled" title="永久链接至标题"></a></h3>
+<p>Default: Don’t add</p>
+<p>Asks: ___ Novelist Select content to the Staff client (requires that
+you have entered in a user profile and password, which can be seen in
+image links).</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t add</li>
+<li>Add</li>
+</ul>
+</div>
+<div class="section" id="novelistselectstaffprofile">
+<span id="novelistselectstaffprofile-label"></span><h3>NovelistSelectStaffProfile<a class="headerlink" href="#novelistselectstaffprofile" title="永久链接至标题"></a></h3>
+<p>Asks: Access Novelist Select using user profile ___ on the staff client</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">Without this value being set, Novelist features will be disabled on the staff
+client until a correct profile is obtained from Novelist and entered into
+the field.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This value must be set independently of the OPAC profile for Novelist</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="novelistselectstaffview">
+<span id="novelistselectstaffview-label"></span><h3>NovelistSelectStaffView<a class="headerlink" href="#novelistselectstaffview" title="永久链接至标题"></a></h3>
+<p>Default: in a tab</p>
+<p>Asks: Display Novelist Select staff content ___.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>above the holdings table</li>
+<li>below the holdings table</li>
+<li>in a tab</li>
+</ul>
+</div>
+<div class="section" id="novelistselectview">
+<span id="novelistselectview-label"></span><h3>NovelistSelectView<a class="headerlink" href="#novelistselectview" title="永久链接至标题"></a></h3>
+<p>Default: in an OPAC tab</p>
+<p>Asks: Display Novelist Select content ___</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">Novelist Select provides a lot of content, for that reason you have
+four choices of where to display this content. The default view is in
+a tab in the holdings table.</p>
+<p><img alt="image55" src="_images/novelisttab.png" /></p>
+<p>The content is the same if you choose to show it above the holdings
+table or below it. If shown in the right column of the page it’s the
+same content, but displays a bit differently since space is limited.</p>
+<p><img alt="image56" src="_images/novelistside.png" /></p>
+</li>
+</ul>
+<p>Values:</p>
+<ul class="simple">
+<li>above the holdings table</li>
+<li>below the holdings table</li>
+<li>in an OPAC tab</li>
+<li>under the Save Record dropdown on the right</li>
+</ul>
+</div>
+</div>
+<div class="section" id="open-library">
+<span id="open-library-label"></span><h2>Open Library<a class="headerlink" href="#open-library" title="永久链接至标题"></a></h2>
+<div class="section" id="openlibrarycovers">
+<span id="openlibrarycovers-label"></span><h3>OpenLibraryCovers<a class="headerlink" href="#openlibrarycovers" title="永久链接至标题"></a></h3>
+<p>Default: Don’t add</p>
+<p>Asks: ___ cover images from Open Library to search results and item
+detail pages on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Add</li>
+<li>Don’t add</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This setting controls the display of applicable cover art from the
+free Open Library database, via the Open Library API. Please note
+that to use this feature, all other cover services should be turned
+off.</li>
+</ul>
+</div>
+<div class="section" id="openlibrarysearch">
+<span id="openlibrarysearch-label"></span><h3>OpenLibrarySearch<a class="headerlink" href="#openlibrarysearch" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ search results from Open Library on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<blockquote>
+<div><img alt="image1187" src="_images/OpenLibrarySearch.png" /></div></blockquote>
+</div>
+</div>
+<div class="section" id="overdrive">
+<span id="overdrive-label"></span><h2>Overdrive<a class="headerlink" href="#overdrive" title="永久链接至标题"></a></h2>
+<p>OverDrive is an pay service. You must first contact OverDrive directly
+for pricing and subscription information. Enabling this service will
+integrate Overdrive results in to your OPAC searches. You will have to
+apply for these 3 pieces of information through an application as an API
+developer. Overdrive API applications are evaluated once a week so you
+may not be able to use this feature immediately after signing up. To
+learn more please contact your OverDrive representative.</p>
+<p><img alt="image57" src="_images/Overdrive.png" /></p>
+<div class="section" id="overdrivecirculation">
+<span id="overdrivecirculation-label"></span><h3>OverDriveCirculation<a class="headerlink" href="#overdrivecirculation" title="永久链接至标题"></a></h3>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ users to access their OverDrive circulation history, and circulate
+items. If you enable access, you must register auth return url of
+http(s)://my.opac.hostname/cgi-bin/koha/external/overdrive/auth.pl with OverDrive.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t enable</li>
+<li>Enable</li>
+</ul>
+</div>
+<div class="section" id="overdriveclientkey-and-overdriveclientsecret">
+<span id="overdriveclientkey-and-overdriveclientsecret-label"></span><h3>OverDriveClientKey and OverDriveClientSecret<a class="headerlink" href="#overdriveclientkey-and-overdriveclientsecret" title="永久链接至标题"></a></h3>
+<p>Asks: Include OverDrive availability information with the client key
+__ and client secret ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>OverDrive customers can get this information by visiting the
+<a class="reference external" href="https://developer.overdrive.com/docs/getting-started">OverDrive Developer
+Portal</a> and
+following the instructions found there to apply as an API developer.
+Once this data and the <a class="reference internal" href="#overdrivelibraryid"><span class="std std-ref">OverDriveLibraryID</span></a>
+are populated you will see OverDrive results on your OPAC searches.</li>
+</ul>
+</div>
+<div class="section" id="overdrivelibraryid">
+<span id="overdrivelibraryid-label"></span><h3>OverDriveLibraryID<a class="headerlink" href="#overdrivelibraryid" title="永久链接至标题"></a></h3>
+<p>Asks: Show items from the OverDrive catalog of library # ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>OverDrive customers can get this information by visiting the
+<a class="reference external" href="https://developer.overdrive.com/docs/getting-started">OverDrive Developer
+Portal</a> and
+following the instructions found there to apply as an API developer.
+Once this data and the <a class="reference internal" href="#overdriveclientkey-and-overdriveclientsecret-label"><span class="std std-ref">OverDriveClientKey and
+OverDriveClientSecret</span></a> are populated you will
+see OverDrive results on your OPAC searches.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="recordedbooks">
+<span id="recordedbooks-label"></span><h2>RecordedBooks<a class="headerlink" href="#recordedbooks" title="永久链接至标题"></a></h2>
+<p>RecordedBooks is a pay service. You must first contact RBmedia directly
+for pricing and subscription information.</p>
+<div class="section" id="recordedbooksclientsecret">
+<span id="recordedbooksclientsecret-label"></span><h3>RecordedBooksClientSecret<a class="headerlink" href="#recordedbooksclientsecret" title="永久链接至标题"></a></h3>
+<p>Asks: Include RecordedBooks availability information with the client secret ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Contact your Recorded Books representative for the library client secret code. (Visit the RBmedia
+homepage at <a class="reference external" href="https://rbmediaglobal.com/">https://rbmediaglobal.com/</a> for more information.)</li>
+</ul>
+</div>
+<div class="section" id="recordedbooksdomain">
+<span id="recordedbooksdomain-label"></span><h3>RecordedBooksDomain<a class="headerlink" href="#recordedbooksdomain" title="永久链接至标题"></a></h3>
+<p>Asks: RecordedBooks domain ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Enter the domain that your patrons access RecordedBooks.</li>
+</ul>
+</div>
+<div class="section" id="recordedbookslibraryid">
+<span id="recordedbookslibraryid-label"></span><h3>RecordedBooksLibraryID<a class="headerlink" href="#recordedbookslibraryid" title="永久链接至标题"></a></h3>
+<p>Asks: Show items from the RecordedBooks catalog of library ID ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Contact your Recorded Books representative for the catalog library id.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="syndetics">
+<span id="syndetics-label"></span><h2>Syndetics<a class="headerlink" href="#syndetics" title="永久链接至标题"></a></h2>
+<p>Syndetics is a pay service. You must first contact Syndetics directly
+for pricing and subscription information.</p>
+<div class="section" id="syndeticsauthornotes">
+<span id="syndeticsauthornotes-label"></span><h3>SyndeticsAuthorNotes<a class="headerlink" href="#syndeticsauthornotes" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ notes about the author of a title from Syndetics on item
+detail pages on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When this option is set to “Show”, Syndetics provides notes and short
+author biographies for more that 300,000 authors, in both fiction and
+nonfiction. With this option enabled the library can display
+Syndetics Author Notes on the OPAC. According to the Syndetics
+Solutions website (<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>), Author Notes
+include lists of contributors for many multi-author texts and
+compilations. The <a class="reference internal" href="#syndeticsclientcode"><span class="std std-ref">SyndeticsClientCode</span></a> must
+be entered and the <a class="reference internal" href="#syndeticsenabled"><span class="std std-ref">SyndeticsEnabled</span></a> option
+must be activated before this service can be used.</li>
+</ul>
+</div>
+<div class="section" id="syndeticsawards">
+<span id="syndeticsawards-label"></span><h3>SyndeticsAwards<a class="headerlink" href="#syndeticsawards" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ information from Syndetics about the awards a title has won
+on item detail pages on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When this option is set to “Show”, Syndetics provides its clients
+with a list of awards that any title has won. With this service
+enabled the library can display those awards for each book on its
+website. For each book or item that comes up during a user search,
+the list of awards for that title will be displayed. When a user
+clicks on a given award, information about that award is presented
+along with a list of the other titles that have won that award. If
+the user clicks on any title in the list, they will see holdings
+information about that title in their region. This option is a paid
+subscription service. The
+<a class="reference internal" href="#syndeticsclientcode"><span class="std std-ref">SyndeticsClientCode</span></a> must be entered and
+the <a class="reference internal" href="#syndeticsenabled"><span class="std std-ref">SyndeticsEnabled</span></a> option must be activated
+before this service can be used.</li>
+</ul>
+</div>
+<div class="section" id="syndeticsclientcode">
+<span id="syndeticsclientcode-label"></span><h3>SyndeticsClientCode<a class="headerlink" href="#syndeticsclientcode" title="永久链接至标题"></a></h3>
+<p>Asks: Use the client code ___ to access Syndetics.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">Once the library signs up for Syndetics’ services, Syndetics will
+provide the library with an access code. (Visit the Syndetics
+homepage at <a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a> for more information.)
+This is the code that must be entered to access Syndetics’
+subscription services. Syndetics is a paid subscription service. This
+value must be entered before
+<a class="reference internal" href="#syndeticseditions"><span class="std std-ref">SyndeticsEditions</span></a> can be enabled. If the
+code is lost, corrupted, or forgotten, a new one can be obtained from
+<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>You will need to get your client code directly from Syndetics.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="syndeticscoverimages-and-syndeticscoverimagesize">
+<span id="syndeticscoverimages-and-syndeticscoverimagesize-label"></span><h3>SyndeticsCoverImages and SyndeticsCoverImageSize<a class="headerlink" href="#syndeticscoverimages-and-syndeticscoverimagesize" title="永久链接至标题"></a></h3>
+<p>SyndeticsCoverImages Default: Don’t show</p>
+<p>SyndeticsCoverImageSize Default: medium</p>
+<p>Asks: ___ cover images from Syndetics on search results and item
+detail pages on the OPAC in a ___ size.</p>
+<p>Descriptions:</p>
+<ul class="simple">
+<li>When enabled, SyndeticsCoverImages, allows libraries to display
+Syndetics’ collection of full-color cover images for books, videos,
+DVDs and CDs on their OPAC. For each book or item that comes up
+during a user search, the cover image for that title will be
+displayed. Since these cover images come in three sizes, the optimum
+size must be selected using the SyndeticsCoverImageSize preference
+after SyndeticsCoverImages are enabled. Syndetics cover images come
+in two sizes: mid-size (187 x 187 pixels), and large (400 x 400
+pixels). Syndetics is a paid subscription service. The
+<a class="reference internal" href="#syndeticsclientcode"><span class="std std-ref">SyndeticsClientCode</span></a> must be entered and
+the <a class="reference internal" href="#syndeticsenabled"><span class="std std-ref">SyndeticsEnabled</span></a> option must be activated
+before this service can be used. Other cover image preferences should
+also be disabled to avoid interference.</li>
+</ul>
+<p>SyndeticsCoverImages Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>SyndeticsCoverImageSize Values:</p>
+<ul class="simple">
+<li>medium</li>
+<li>large</li>
+</ul>
+</div>
+<div class="section" id="syndeticseditions">
+<span id="syndeticseditions-label"></span><h3>SyndeticsEditions<a class="headerlink" href="#syndeticseditions" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ information about other editions of a title from Syndetics
+on item detail pages on the OPAC</p>
+<p>Description:</p>
+<ul class="simple">
+<li>When enabled this option shows information on other editions of a
+title from Syndetics on the item detail pages of the OPAC. Syndetics
+is a paid subscription service. The
+<a class="reference internal" href="#syndeticsclientcode"><span class="std std-ref">SyndeticsClientCode</span></a> must be entered and
+the <a class="reference internal" href="#syndeticsenabled"><span class="std std-ref">SyndeticsEnabled</span></a> option must be activated
+before this service can be used.</li>
+</ul>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t show</p>
+</li>
+<li><p class="first">Show</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Requires <a class="reference internal" href="#opacfrbrizeeditions"><span class="std std-ref">OPACFRBRizeEditions</span></a> set to
+‘show’</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="syndeticsenabled">
+<span id="syndeticsenabled-label"></span><h3>SyndeticsEnabled<a class="headerlink" href="#syndeticsenabled" title="永久链接至标题"></a></h3>
+<p>Default: Don’t use</p>
+<p>Asks: ___ content from Syndetics.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use</li>
+<li>Use</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">When this option is enabled any of the Syndetics options can be used.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Requires that you enter your
+<a class="reference internal" href="#syndeticsclientcode"><span class="std std-ref">SyndeticsClientCode</span></a> before this content
+will appear.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="syndeticsexcerpt">
+<span id="syndeticsexcerpt-label"></span><h3>SyndeticsExcerpt<a class="headerlink" href="#syndeticsexcerpt" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ excerpts from of a title from Syndetics on item detail
+pages on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows Syndetics to display excerpts given to them
+from selected publishers. The excerpts are available from prominently
+reviewed new titles, both fiction and non-fiction. The excerpts
+include poems, essays, recipes, forwards and prefaces. Automatic
+links provided by the ISBNs within local MARC records are required to
+integrate Syndetics secured, high-speed Internet servers to the
+library OPACs. For more information see
+(<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>).</li>
+</ul>
+</div>
+<div class="section" id="syndeticsreviews">
+<span id="syndeticsreviews-label"></span><h3>SyndeticsReviews<a class="headerlink" href="#syndeticsreviews" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ reviews of a title from Syndetics on item detail pages on
+the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Syndetics Reviews is an accumulation of book reviews available from a
+variety of journals and serials. The reviews page displays colored
+images of reviewed books dust jackets, partnered with the names of
+the journal or serial providing the review. Clicking on an icon opens
+a window revealing the book title, author’s name, book cover icon and
+the critic’s opinion of the book. Automatic links provided by the
+ISBNs within local MARC records are required to integrate Syndetics
+secured, high-speed Internet servers to the library OPACs. For more
+information see (<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>).</li>
+</ul>
+</div>
+<div class="section" id="syndeticsseries">
+<span id="syndeticsseries-label"></span><h3>SyndeticsSeries<a class="headerlink" href="#syndeticsseries" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ information on other books in a title’s series from
+Syndetics on item detail pages on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Each fiction title within a series is linked to the complete series
+record. The record displays each title in reading order and also
+displays the publication order, if different. Alternate series titles
+are also displayed. Automatic links provided by the ISBNs within
+local MARC records are required to integrate Syndetics secured, high-
+speed Internet servers to the library OPACs. For more information see
+(<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>).</li>
+</ul>
+</div>
+<div class="section" id="syndeticssummary">
+<span id="syndeticssummary-label"></span><h3>SyndeticsSummary<a class="headerlink" href="#syndeticssummary" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ a summary of a title from Syndetics on item detail pages on
+the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Providing more than 5.6 million summaries and annotations derived
+from book jackets, edited publisher copy, or independently written
+annotations from Book News, Inc. Covering fiction and non-fiction,
+this summaries option provides annotations on both trade and
+scholarly titles. For more information see
+(<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>).</li>
+</ul>
+</div>
+<div class="section" id="syndeticstoc">
+<span id="syndeticstoc-label"></span><h3>SyndeticsTOC<a class="headerlink" href="#syndeticstoc" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ the table of contents of a title from Syndetics on item
+detail pages on the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows staff and patrons to review the Table of
+Contents from a wide variety of publications from popular self-help
+books to conference proceedings. Specific Information access is the
+main purpose for this option, allowing patrons guidance to their
+preferred section of the book. Special arrangements with selected
+book services is used to obtain the table of contents for new
+publications each year. Automatic links provided by the ISBNs within
+local MARC records are required to integrate Syndetics secured,
+high-speed Internet servers to the library OPACs. For more
+information see (<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>).</li>
+</ul>
+</div>
+</div>
+<div class="section" id="tagging">
+<span id="tagging-label"></span><h2>Tagging<a class="headerlink" href="#tagging" title="永久链接至标题"></a></h2>
+<div class="section" id="tagsenabled">
+<span id="tagsenabled-label"></span><h3>TagsEnabled<a class="headerlink" href="#tagsenabled" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ patrons and staff to put tags on items.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Set to ‘Allow’ enable tagging. A tag is metadata, a word added to
+identify an item. Tags allow patrons to classify materials on their
+own. TagsEnabled is the main switch that permits the tagging
+features. TagsEnable must be set to ‘Allow’ to allow for other
+tagging features.</li>
+</ul>
+</div>
+<div class="section" id="tagsexternaldictionary">
+<span id="tagsexternaldictionary-label"></span><h3>TagsExternalDictionary<a class="headerlink" href="#tagsexternaldictionary" title="永久链接至标题"></a></h3>
+<p>Asks: Allow tags in the dictionary of the ispell executable ___ on
+the server to be approved without moderation.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The dictionary includes a list of accepted and rejected tags. The
+accepted list includes all the tags that have been pre-allowed. The
+rejected list includes tags that are not allowed. This preference
+identifies the “accepted” dictionary used. Ispell is an open source
+dictionary which can be used as a list of accepted terms. Since the
+dictionary allows for accurately spelled obscenities, the libraries
+policy may dictate that modifications are made to the Ispell
+dictionary if this preference is use. For more information about
+Ispell <a class="reference external" href="http://www.gnu.org/software/ispell/ispell.html">http://www.gnu.org/software/ispell/ispell.html</a>. Enter the path
+on your server to a local ispell executable, used to set
+$Lingua::Ispell::path.</li>
+</ul>
+</div>
+<div class="section" id="tagsinputondetail">
+<span id="tagsinputondetail-label"></span><h3>TagsInputOnDetail<a class="headerlink" href="#tagsinputondetail" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ patrons to input tags on item detail pages on the OPAC.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Allow</p>
+<p><img alt="image59" src="_images/TagsInputOnDetail.png" /></p>
+</li>
+<li><p class="first">Don’t allow</p>
+</li>
+</ul>
+</div>
+<div class="section" id="tagsinputonlist">
+<span id="tagsinputonlist-label"></span><h3>TagsInputOnList<a class="headerlink" href="#tagsinputonlist" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ patrons to input tags on search results on the OPAC.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Allow</p>
+<p><img alt="image58" src="_images/TagsInputOnList.png" /></p>
+</li>
+<li><p class="first">Don’t allow</p>
+</li>
+</ul>
+</div>
+<div class="section" id="tagsmoderation">
+<span id="tagsmoderation-label"></span><h3>TagsModeration<a class="headerlink" href="#tagsmoderation" title="永久链接至标题"></a></h3>
+<p>Default: Don’t require</p>
+<p>Asks: ___ that tags submitted by patrons be reviewed by a staff
+member before being shown.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t require</li>
+<li>Require</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When set to ‘Require,^ all tags to be first filtered by the tag
+moderator. Only approved tags will be visible to patrons. When set to
+‘Don’t require’ tags will bypass the tag moderator and patrons’ tags
+to be immediately visible. When this preference is enabled the
+moderator, a staff member, would approve the tag in the Staff Client.
+The moderator will have the option to approve or reject each pending
+tag suggestion.</li>
+</ul>
+<p>When moderation is required all tags go through the tag moderation tool
+before becoming visible.</p>
+<ul class="simple">
+<li><em>Get there:</em> More &gt; Tools &gt; <a class="reference internal" href="tools.html#tag-moderation-label"><span class="std std-ref">Tags</span></a></li>
+</ul>
+</div>
+<div class="section" id="tagsshowondetail">
+<span id="tagsshowondetail-label"></span><h3>TagsShowOnDetail<a class="headerlink" href="#tagsshowondetail" title="永久链接至标题"></a></h3>
+<p>Default: 10</p>
+<p>Asks: Show ___ tags on item detail pages on the OPAC.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Set the value to 0 (zero) to turn this feature off.</p>
+</div></blockquote>
+</div>
+<div class="section" id="tagsshowonlist">
+<span id="tagsshowonlist-label"></span><h3>TagsShowOnList<a class="headerlink" href="#tagsshowonlist" title="永久链接至标题"></a></h3>
+<p>Default: 6</p>
+<p>Asks: Show ___ tags on search results on the OPAC.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Set the value to 0 (zero) to turn this feature off.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="circulationpreferences.html" class="btn btn-neutral float-left" title="Circulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="i18npreferences.html" class="btn btn-neutral float-right" title="I18N/L10N" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

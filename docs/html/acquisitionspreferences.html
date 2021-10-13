@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acquisitions &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Administration" href="administrationpreferences.html" />
+    <link rel="prev" title="Accounting" href="accountspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Acquisitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#edifact">EDIFACT</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#edifactinvoiceimport">EdifactInvoiceImport</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#policy">Policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acqcreateitem">AcqCreateItem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqenablefiles">AcqEnableFiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqitemsetsubfieldswhenreceiptiscancelled">AcqItemSetSubfieldsWhenReceiptIsCancelled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqitemsetsubfieldswhenreceived">AcqItemSetSubfieldsWhenReceived</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqviewbaskets">AcqViewBaskets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqwarnonduplicateinvoice">AcqWarnOnDuplicateInvoice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#basketconfirmations">BasketConfirmations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#claimsbcccopy">ClaimsBccCopy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#currencyformat">CurrencyFormat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emailpurchasesuggestions-and-emailaddressforsuggestions">EmailPurchaseSuggestions and EmailAddressForSuggestions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcfieldstoorder">MarcFieldsToOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcitemfieldstoorder">MarcItemFieldsToOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#orderpricerounding">OrderPriceRounding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#purgesuggestionsolderthan">PurgeSuggestionsOlderThan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#taxrates">TaxRates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniqueitemfields">UniqueItemFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useacqframeworkforbibliorecords">UseACQFrameworkForBiblioRecords</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#printing">Printing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#orderpdfformat">OrderPdfFormat</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Acquisitions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/acquisitionspreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="accountspreferences.html" class="btn btn-neutral float-left" title="Accounting" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administrationpreferences.html" class="btn btn-neutral float-right" title="Administration" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="acquisitions">
+<span id="acquisitions-system-preferences-label"></span><h1>Acquisitions<a class="headerlink" href="#acquisitions" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt; Acquisitions</p>
+<div class="section" id="edifact">
+<span id="acquisitions-edifact-system-preferences-label"></span><h2>EDIFACT<a class="headerlink" href="#edifact" title="永久链接至标题"></a></h2>
+<div class="section" id="edifactinvoiceimport">
+<span id="edifactinvoiceimport-label"></span><h3>EdifactInvoiceImport<a class="headerlink" href="#edifactinvoiceimport" title="永久链接至标题"></a></h3>
+<p>Asks: ___ automatically import EDIFACT invoice message files when they are
+downloaded.</p>
+<p>Default: Do</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Don’t</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This feature allows libraries to delay the importing of EDI invoices until a
+time of their choosing. If the syspref is set to ‘Don’t’ the invoices are imported
+into the database but the invoice processing is skipped. Instead, any invoice file
+listed in EDIfact messages with a status of ‘New’ will have an ‘Import’ button to process the invoice manually.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="policy">
+<span id="acquisitions-policy-label"></span><h2>Policy<a class="headerlink" href="#policy" title="永久链接至标题"></a></h2>
+<div class="section" id="acqcreateitem">
+<span id="acqcreateitem-label"></span><h3>AcqCreateItem<a class="headerlink" href="#acqcreateitem" title="永久链接至标题"></a></h3>
+<p>Asks: Create an item when ___.</p>
+<p>Default: placing an order</p>
+<p>Values:</p>
+<ul class="simple">
+<li>cataloging a record</li>
+<li>placing an order</li>
+<li>receiving an order</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you decide when you’d like to create an item record in
+Koha.</li>
+<li>If you choose to add an item record when ‘placing an order’, you will enter
+item information in as you <a class="reference internal" href="acquisitions.html#create-a-basket-label"><span class="std std-ref">add records in your basket</span></a>.</li>
+<li>If you choose to add the item when ‘receiving an order’ you will be asked
+for item record information when you’re <a class="reference internal" href="acquisitions.html#receiving-orders-label"><span class="std std-ref">receiving orders</span></a>
+in acquisitions.</li>
+<li>If you choose to add the item when ‘cataloging a record’ then item records
+will not be created in acquisitions at all. You will need to go to the
+<a class="reference internal" href="cataloging.html#cataloging-label"><span class="std std-ref">cataloging module</span></a> to
+<a class="reference internal" href="cataloging.html#adding-items-label"><span class="std std-ref">add the items</span></a>.</li>
+<li>Note that this setting can be overridden when
+<a class="reference internal" href="acquisitions.html#create-a-basket-label"><span class="std std-ref">creating a basket</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="acqenablefiles">
+<span id="acqenablefiles-label"></span><h3>AcqEnableFiles<a class="headerlink" href="#acqenablefiles" title="永久链接至标题"></a></h3>
+<p>Asks: ___ enable the ability to upload and attach arbitrary files to
+invoices.</p>
+<p>Default: Don’t</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Don’t</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls whether or not you allow the
+<a class="reference internal" href="acquisitions.html#attaching-files-to-invoices-label"><span class="std std-ref">uploading of invoice files</span></a> via
+the acquisitions module.</li>
+</ul>
+</div>
+<div class="section" id="acqitemsetsubfieldswhenreceiptiscancelled">
+<span id="acqitemsetsubfieldswhenreceiptiscancelled-label"></span><h3>AcqItemSetSubfieldsWhenReceiptIsCancelled<a class="headerlink" href="#acqitemsetsubfieldswhenreceiptiscancelled" title="永久链接至标题"></a></h3>
+<p>Asks: Upon cancelling a receipt, update the item’s subfields if they
+were created when placing an order (e.g. o=5|a=”bar foo””). ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference is used in conjunction with the
+<a class="reference internal" href="#acqitemsetsubfieldswhenreceived"><span class="std std-ref">AcqItemSetSubfieldsWhenReceived</span></a>
+preference. If you have the system set to enter default values when
+you receive you will want to have those values revert back if the
+receipt is cancelled. This preference allows you to do that.</li>
+</ul>
+</div>
+<div class="section" id="acqitemsetsubfieldswhenreceived">
+<span id="acqitemsetsubfieldswhenreceived-label"></span><h3>AcqItemSetSubfieldsWhenReceived<a class="headerlink" href="#acqitemsetsubfieldswhenreceived" title="永久链接至标题"></a></h3>
+<p>Asks: Upon receiving items, update their subfields if they were created
+when placing an order (e.g. o=5|a=”foo bar”). ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows you to set default values for items that you
+receive via acquisitions. Enter the data as subfield=value and split
+your values with a bar ( | ). For example you can remove the Ordered
+status on the item automatically when you receive it just by entering
+7=0 in this preference. That will set the Not for Loan status
+(subfield 7) to 0 which is available.</li>
+</ul>
+</div>
+<div class="section" id="acqviewbaskets">
+<span id="acqviewbaskets-label"></span><h3>AcqViewBaskets<a class="headerlink" href="#acqviewbaskets" title="永久链接至标题"></a></h3>
+<p>Asks: Show baskets ___</p>
+<p>Default: created or managed by staff member</p>
+<p>Values:</p>
+<ul class="simple">
+<li>in system, regardless of owner</li>
+<li>from staff member’s library</li>
+<li>created or managed by staff member</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When in acquisitions, this preference allows you to control whose
+baskets you can see when looking at a vendor.</li>
+<li>The default value of ‘created or managed by staff member’ makes it so that
+you only see the baskets you created.</li>
+<li>Choosing to see baskets ‘from staff member’s library’ will show you the
+baskets created by anyone at the branch you’re logged in at.</li>
+<li>Finally, you can choose to set this preference to show you all baskets
+regardless of who created it (‘in system, regardless of owner’).</li>
+<li>Regardless of which value you choose for this preference,
+superlibrarians can see all baskets created in the system.</li>
+</ul>
+</div>
+<div class="section" id="acqwarnonduplicateinvoice">
+<span id="acqwarnonduplicateinvoice-label"></span><h3>AcqWarnOnDuplicateInvoice<a class="headerlink" href="#acqwarnonduplicateinvoice" title="永久链接至标题"></a></h3>
+<p>Asks: ___ when the librarian tries to create an invoice with a
+duplicate number.</p>
+<p>Default: Do not warn</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do not warn</li>
+<li>Warn</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When set to ‘Warn’, Koha will let staff know if an invoice with the same
+number has already been created. The staff member will have a choice to
+either receive on the existing invoice or create a new one with the same
+number.</li>
+</ul>
+<p><img alt="Screenshot of a warning message that says 'This invoice number has already been used. Would you like to receive on an existing invoice?' with an option to receive on the existing invoice or 'Create new invoice anyway'." src="_images/acqwarnonduplicateinvoice.png" /></p>
+</div>
+<div class="section" id="basketconfirmations">
+<span id="basketconfirmations-label"></span><h3>BasketConfirmations<a class="headerlink" href="#basketconfirmations" title="永久链接至标题"></a></h3>
+<p>Asks: When closing or reopening a basket, ___.</p>
+<p>Default: always ask for confirmation</p>
+<p>Values:</p>
+<ul class="simple">
+<li>always ask for confirmation</li>
+<li>do not ask for confirmation</li>
+</ul>
+<p>Descriptions:</p>
+<ul class="simple">
+<li>This preference adds the option to skip confirmations on closing and
+reopening a basket. If you skip the confirmation, you do not create a
+new basket group.</li>
+</ul>
+</div>
+<div class="section" id="claimsbcccopy">
+<span id="claimsbcccopy-label"></span><h3>ClaimsBccCopy<a class="headerlink" href="#claimsbcccopy" title="永久链接至标题"></a></h3>
+<p>Asks: ___ blind copy (BCC) to logged in user when sending serial or
+acquisitions claims notices.</p>
+<p>Default: Don’t send</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t send</li>
+<li>Send</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to choose whether or not you want to send
+a copy of the claim email to the staff member when
+<a class="reference internal" href="serials.html#claim-late-serials-label"><span class="std std-ref">claiming a late serial issue</span></a> or a
+<a class="reference internal" href="acquisitions.html#claims-and-late-orders-label"><span class="std std-ref">late acquisitions order</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="currencyformat">
+<span id="currencyformat-label"></span><h3>CurrencyFormat<a class="headerlink" href="#currencyformat" title="永久链接至标题"></a></h3>
+<p>Asks: Display currencies using the following format ___</p>
+<p>Default: 360,000.00 (US)</p>
+<p>Values:</p>
+<ul class="simple">
+<li>360’000.00 (CH)</li>
+<li>360 000,00 (FR)</li>
+<li>360,000.00 (US)</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference controls how prices are displayed in Koha.</li>
+</ul>
+</div>
+<div class="section" id="emailpurchasesuggestions-and-emailaddressforsuggestions">
+<span id="emailpurchasesuggestions-and-emailaddressforsuggestions-label"></span><h3>EmailPurchaseSuggestions and EmailAddressForSuggestions<a class="headerlink" href="#emailpurchasesuggestions-and-emailaddressforsuggestions" title="永久链接至标题"></a></h3>
+<p>Asks: Choose email address that new purchase suggestions will be sent to:
+___. If you choose EmailAddressForSuggestions you have to enter a valid
+email address: ___</p>
+<p>Default: none</p>
+<p>Values:</p>
+<ul class="simple">
+<li>none</li>
+<li>email address of branch</li>
+<li>EmailAddressForSuggestions</li>
+<li>KohaAdminEmailAddress</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If you want Koha to send purchase suggestions via email, choose which email
+address it should send them to<ul>
+<li>none will deactivate this feature</li>
+<li>email address of branch will use the email address entered in the
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">libraries settings</span></a></li>
+<li>if you choose EmailAddressForSuggestions, enter the email address in the
+input field</li>
+<li>if you choose KohaAdminEmailAddress, the email will be sent to the main
+email address, as entered in <a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress"><span class="std std-ref">KohaAdminEmailAddress</span></a></li>
+</ul>
+</li>
+<li>You can customize the message that is sent with the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>, the letter code is
+NEW_SUGGESTION</li>
+</ul>
+</div>
+<div class="section" id="marcfieldstoorder">
+<span id="marcfieldstoorder-label"></span><h3>MarcFieldsToOrder<a class="headerlink" href="#marcfieldstoorder" title="永久链接至标题"></a></h3>
+<p>Asks: Set the mapping values for a new order line created from a MARC
+record in a staged file.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference includes MARC fields to check for order information
+to use when you <a class="reference internal" href="acquisitions.html#order-from-a-new-file-label"><span class="std std-ref">order from a new .mrc file</span></a>
+or when you <a class="reference internal" href="acquisitions.html#order-from-a-staged-file-label"><span class="std std-ref">order from a staged file</span></a> in
+acquisitions. You can use the following fields:</p>
+<ul class="simple">
+<li>price,</li>
+<li>quantity,</li>
+<li>budget_code,</li>
+<li>discount,</li>
+<li>sort1, and</li>
+<li>sort2.</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>price: 947$a|947$c
+quantity: 969$h
+budget_code: 922$a
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>Requires YAML syntax to work</p>
+<p>This means</p>
+<ul class="last simple">
+<li>Make sure there is NO space between the field name and the colon</li>
+<li>Make sure there IS a space between the colon and the value</li>
+<li>Make sure each pair is on its own line</li>
+</ul>
+</div>
+</div>
+<div class="section" id="marcitemfieldstoorder">
+<span id="marcitemfieldstoorder-label"></span><h3>MarcItemFieldsToOrder<a class="headerlink" href="#marcitemfieldstoorder" title="永久链接至标题"></a></h3>
+<p>Asks: Set the mapping values for new item records created from a MARC record
+in a staged file.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference automatically generates items in Koha with populated
+information based on a 9XX field and subfield. You can use the following
+fields:<ul>
+<li>homebranch,</li>
+<li>holdingbranch,</li>
+<li>itype,</li>
+<li>nonpublic_note,</li>
+<li>public_note,</li>
+<li>loc,</li>
+<li>ccode,</li>
+<li>notforloan,</li>
+<li>uri,</li>
+<li>copyno,</li>
+<li>price,</li>
+<li>replacementprice, and</li>
+<li>itemcallnumber.</li>
+</ul>
+</li>
+<li>You can also use the following special fields:<ul>
+<li>quantity, and</li>
+<li>budget_code.</li>
+</ul>
+</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>homebranch: 975$a
+holdingbranch: 975$b
+public_note: 975$z
+loc: 975$c
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>Requires YAML syntax to work</p>
+<p>This means</p>
+<ul class="last simple">
+<li>Make sure there is NO space between the field name and the colon</li>
+<li>Make sure there IS a space between the colon and the value</li>
+<li>Make sure each pair is on its own line</li>
+</ul>
+</div>
+</div>
+<div class="section" id="orderpricerounding">
+<span id="orderpricerounding-label"></span><h3>OrderPriceRounding<a class="headerlink" href="#orderpricerounding" title="永久链接至标题"></a></h3>
+<p>Asks: ___ to nearest cent.</p>
+<p>Default: Don’t round</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t round</li>
+<li>Round</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference determines whether full precision values or rounded
+values should be used in price calculations.</li>
+<li>This is particularly important when your tax rates have more decimals than
+your currency</li>
+</ul>
+</div>
+<div class="section" id="purgesuggestionsolderthan">
+<span id="purgesuggestionsolderthan-label"></span><h3>PurgeSuggestionsOlderThan<a class="headerlink" href="#purgesuggestionsolderthan" title="永久链接至标题"></a></h3>
+<p>Asks: Keep accepted or rejected purchase suggestions for a period of ___
+days.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Leave this field empty if you don’t want to activate this automatic
+feature.</p>
+</div>
+<p>Description:</p>
+<ul class="simple">
+<li>Enter the number of days after which you want to automatically
+delete accepted or rejected purchase suggestions.</li>
+<li>For example: [30] Sets purgation of suggestions for those older than 30 days.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This system preference is used when the cronjob
+<a class="reference internal" href="cron_jobs.html#cron-clean-up-old-suggestions-label"><span class="std std-ref">purge_suggestions.pl</span></a> is
+active and called without a specific number of days.</p>
+</div>
+</div>
+<div class="section" id="taxrates">
+<span id="taxrates-label"></span><h3>TaxRates<a class="headerlink" href="#taxrates" title="永久链接至标题"></a></h3>
+<p>Asks: Tax rates are ___</p>
+<p>Default: 0</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows the library to define goods and services tax rates
+for acquisitions.</li>
+<li>The first item in the list will be selected by default.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>Enter this value as a number (.06) versus a percent (6%).</p>
+<p>For more than one value, separate with | (pipe).</p>
+<p>For example</p>
+<p>0|0.05|0.1496</p>
+<p class="last">will give you choices of tax rates of 0%, 5% and 14.96%</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">The database only accepts values up to 4 decimals, further values will be
+rounded.</p>
+</div>
+</div>
+<div class="section" id="uniqueitemfields">
+<span id="uniqueitemfields-label"></span><h3>UniqueItemFields<a class="headerlink" href="#uniqueitemfields" title="永久链接至标题"></a></h3>
+<p>Asks: The following database columns should be unique in an item: ___</p>
+<p>Default: barcode</p>
+<p>Description:</p>
+<ul class="simple">
+<li>If this preference is left blank when adding items in acquisitions
+there will be no check for uniqueness. This means that a duplicate
+barcode can be created in acquisitions which will cause errors later
+when checking items in and out.</li>
+</ul>
+</div>
+<div class="section" id="useacqframeworkforbibliorecords">
+<span id="useacqframeworkforbibliorecords-label"></span><h3>UseACQFrameworkForBiblioRecords<a class="headerlink" href="#useacqframeworkforbibliorecords" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the framework ‘ACQ’ for bibliographic records fields</p>
+<p>Default: Don’t use</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use</li>
+<li>Use</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to use the
+<a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">ACQ bibliographic framework</span></a> to
+customize the bibliographic record fields that are shown when ordering from
+acquisitions</li>
+<li>Note that this does not affect the item fields (in MARC21, field 952), which
+are always taken from the ACQ framework regardless of this system preference</li>
+</ul>
+</div>
+</div>
+<div class="section" id="printing">
+<span id="acquisitions-printing-system-preferences-label"></span><h2>Printing<a class="headerlink" href="#printing" title="永久链接至标题"></a></h2>
+<div class="section" id="orderpdfformat">
+<span id="orderpdfformat-label"></span><h3>OrderPdfFormat<a class="headerlink" href="#orderpdfformat" title="永久链接至标题"></a></h3>
+<p>Asks: Use the ___ layout when printing basket groups.</p>
+<p>Default: English 3-page</p>
+<p>Values:</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Values will depend on the installed languages in your Koha installation.</p>
+</div>
+<ul class="simple">
+<li>2-page</li>
+<li>3-page</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference determines how <a class="reference internal" href="acquisitions.html#create-a-basket-group-label"><span class="std std-ref">basket groups</span></a>
+are printed when exported as PDFs.</li>
+<li>A 2-page layout will have vendor information on the first page and ordered
+titles on the second page</li>
+<li>A 3-page layout will additionally have a page with basket informations</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="accountspreferences.html" class="btn btn-neutral float-left" title="Accounting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administrationpreferences.html" class="btn btn-neutral float-right" title="Administration" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

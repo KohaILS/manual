@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Introduction to the Koha installation process" href="installation.html" />
+    <link rel="prev" title="Koha 21.05 Manual (en)" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#koha-basics">Koha basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#koha-recommendations">Koha recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-this-manual">Using this manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-to-the-manual">Contributing to the manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-to-koha">Contributing to Koha</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intro.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Koha 21.05 Manual (en)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Introduction to the Koha installation process" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="永久链接至标题"></a></h1>
+<div class="section" id="koha-basics">
+<span id="koha-basics-label"></span><h2>Koha basics<a class="headerlink" href="#koha-basics" title="永久链接至标题"></a></h2>
+<p>Koha is the first free and open source integrated library system (ILS).
+Development is sponsored by libraries of varying types
+and sizes, volunteers, and support companies from around the world.</p>
+<p>Learn more about Koha by visiting the official Koha website:
+<a class="reference external" href="http://koha-community.org">http://koha-community.org</a></p>
+</div>
+<div class="section" id="koha-recommendations">
+<span id="koha-recommendations-label"></span><h2>Koha recommendations<a class="headerlink" href="#koha-recommendations" title="永久链接至标题"></a></h2>
+<p>Full system recommendations can be found on the official Koha wiki along
+with the developer documentation: <a class="reference external" href="http://wiki.koha-community.org">http://wiki.koha-community.org</a></p>
+<p>When working in the Koha staff interface it is strongly recommended that you
+use an up-to-date version of either Mozilla Firefox or Google Chrome. The
+Koha community doesn’t support Internet Explorer for the staff interface.
+If your organization only allows Microsoft products, use Edge instead of
+Internet Explorer.</p>
+</div>
+<div class="section" id="using-this-manual">
+<span id="using-this-manual-label"></span><h2>Using this manual<a class="headerlink" href="#using-this-manual" title="永久链接至标题"></a></h2>
+<p>This manual is always changing and suggestions for edits can be sent to
+the Koha documentation team as a merge request via gitlab or via the
+<a class="reference external" href="https://lists.koha-community.org/cgi-bin/mailman/listinfo/koha-docs">koha-docs mailing list</a>.</p>
+<p>If you see an error or something missing, please file a bug report on
+<a class="reference external" href="https://bugs.koha-community.org">bugzilla</a> using the module
+‘Documentation’. You can also send an email to the <a class="reference external" href="http://lists.koha-community.org/cgi-bin/mailman/listinfo/koha-docs">koha-docs
+mailing list</a>.</p>
+<p>The manual is organized by Koha module. At the start of most sections
+(and throughout) you will find ‘Get there’ tips. These lines tell you
+how to get to the section in Koha.</p>
+<p>For example:
+<em>Get there:</em> More &gt; Administration &gt; Global system preferences</p>
+<p>The instruction tells you where to find the necessary menu option at the
+top of the Koha staff client.</p>
+<p>Links will be found throughout the manual to other sections in the
+manual and images will depict what should be seen on the screen.</p>
+</div>
+<div class="section" id="contributing-to-the-manual">
+<span id="contributing-to-the-manual-label"></span><h2>Contributing to the manual<a class="headerlink" href="#contributing-to-the-manual" title="永久链接至标题"></a></h2>
+<p>This manual is an ever-changing document and edits to the manual are
+welcome at any time.</p>
+<p>The <a class="reference external" href="http://manual.koha-community.org/">Koha manual</a> is managed by
+the documentation team, but that doesn’t mean we can’t all
+participate in making the best manual possible.</p>
+<p>The manual is stored in git at:
+<a class="reference external" href="https://gitlab.com/koha-community/koha-manual">https://gitlab.com/koha-community/koha-manual</a> (see a summary
+<a class="reference external" href="http://git.koha-community.org/gitweb/?p=kohadocs.git;a=summary">here</a>)</p>
+<p>The instructions for contributing to the manual are on the Koha wiki
+<a class="reference external" href="https://wiki.koha-community.org/wiki/Editing_the_Koha_Manual">https://wiki.koha-community.org/wiki/Editing_the_Koha_Manual</a></p>
+</div>
+<div class="section" id="contributing-to-koha">
+<span id="contributing-to-koha-label"></span><h2>Contributing to Koha<a class="headerlink" href="#contributing-to-koha" title="永久链接至标题"></a></h2>
+<p>As an open source project, contributions are of course not limited to the
+documentation, but are also welcomed and encouraged for all aspects of the
+project.</p>
+<p>If you’re interesting in contributing new features, bugfixes or even just
+bug reports to koha it’s worth familiarizing yourself with our release and
+development procedures as outlined at the following places:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://koha-community.org/about/policy/code-of-conduct/">Code of Conduct</a></li>
+<li><a class="reference external" href="https://koha-community.org/about/release-schedule/">Release Cycle</a></li>
+<li><a class="reference external" href="https://wiki.koha-community.org/wiki/Developer_handbook">Developer Handbook</a></li>
+<li><a class="reference external" href="https://wiki.koha-community.org/wiki/Development_workflow">Development Workflow</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Koha 21.05 Manual (en)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Introduction to the Koha installation process" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

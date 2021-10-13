@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authorities &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Cataloging" href="catalogingpreferences.html" />
+    <link rel="prev" title="Administration" href="administrationpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Authorities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general">General</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#authdisplayhierarchy">AuthDisplayHierarchy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authoritycontrolledindicators">AuthorityControlledIndicators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authoritymergelimit">AuthorityMergeLimit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authoritymergemode">AuthorityMergeMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autocreateauthorities">AutoCreateAuthorities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#biblioaddsauthorities">BiblioAddsAuthorities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcauthoritycontrolfield008">MARCAuthorityControlField008</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unimarcauthorityfield100">UNIMARCAuthorityField100</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useauthoritiesfortracings">UseAuthoritiesForTracings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linker">Linker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#catalogmodulerelink">CatalogModuleRelink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linkerkeepstale">LinkerKeepStale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linkermodule">LinkerModule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linkeroptions">LinkerOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linkerrelink">LinkerRelink</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Authorities</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/authoritiespreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="administrationpreferences.html" class="btn btn-neutral float-left" title="Administration" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="catalogingpreferences.html" class="btn btn-neutral float-right" title="Cataloging" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="authorities">
+<span id="authorities-system-preferences-label"></span><h1>Authorities<a class="headerlink" href="#authorities" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global System Preferences &gt;
+Authorities</p>
+<div class="section" id="general">
+<span id="authoritiesgeneral-label"></span><h2>General<a class="headerlink" href="#general" title="永久链接至标题"></a></h2>
+<div class="section" id="authdisplayhierarchy">
+<span id="authdisplayhierarchy-label"></span><h3>AuthDisplayHierarchy<a class="headerlink" href="#authdisplayhierarchy" title="永久链接至标题"></a></h3>
+<p>Default: Don’t display</p>
+<p>Asks: ___ broader term/narrower term hierarchies when viewing
+authorities.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Display</p>
+<p><img alt="image14" src="_images/AuthDisplayHierarchy.png" /></p>
+</li>
+<li><p class="first">Don’t display</p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If your authority records includes 5xx fields with linked references
+to broader and/or narrower see also references this preference will
+turn on a display of those authorities at the top of the record.</li>
+</ul>
+</div>
+<div class="section" id="authoritycontrolledindicators">
+<span id="authoritycontrolledindicators-label"></span><h3>AuthorityControlledIndicators<a class="headerlink" href="#authoritycontrolledindicators" title="永久链接至标题"></a></h3>
+<p>Asks: Use the following text to edit how authority records control indicators
+of attached biblio fields (and possibly subfield $2). Lines starting with a
+comment symbol (#) are skipped. Each line should be of the form: (marc21|unimarc),
+tag, ind1:(auth1|auth2|some_value), ind2:(auth1|auth2|thesaurus|some_value).
+Here auth1 and auth2 refer to the indicators of the authority record, tag is a
+biblio field number or an asterisk (*), and some_value is a fixed value
+(one character). The MARC21 option thesaurus refers to indicators controlled by
+authority field 008/11 and 040$f.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Used when merging authorities.</li>
+<li>Controls how the indicators of linked authority records affect the
+corresponding biblio indicators. Currently, the default value is fine-tuned
+for MARC21 and copies the authority indicators for UNIMARC.</li>
+<li>For example, a MARC21 field 100 in a biblio record should pick its first
+indicator from the linked authority record. The second indicator is not
+controlled by the authority. This report supports such MARC conventions.</li>
+</ul>
+</div>
+<div class="section" id="authoritymergelimit">
+<span id="authoritymergelimit-label"></span><h3>AuthorityMergeLimit<a class="headerlink" href="#authoritymergelimit" title="永久链接至标题"></a></h3>
+<p>Asks: When modifying an authority record, do not update attached bibliographic
+records if the number exceeds ___ records. (Above this limit, the
+<a class="reference internal" href="cron_jobs.html#cron-update-authorities-label"><span class="std std-ref">merge_authority cron job</span></a> will update them.)</p>
+<p>Default: 50</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference determines the maximum number of bibliographic records
+that can be updated when an authority record changes.</li>
+<li>This helps prevent overusing resources if an authority record is linked to
+many bibliographic records.</li>
+<li>Make sure to enable the <a class="reference internal" href="cron_jobs.html#cron-update-authorities-label"><span class="std std-ref">merge_authority cron job</span></a>
+to catch the updates that wouldn’t otherwise be transferred to bibliographic
+records.</li>
+</ul>
+</div>
+<div class="section" id="authoritymergemode">
+<span id="authoritymergemode-label"></span><h3>AuthorityMergeMode<a class="headerlink" href="#authoritymergemode" title="永久链接至标题"></a></h3>
+<p>Default: loose</p>
+<p>Asks: When updating biblio records from an attached authority record (“merging”),
+handle subfields of relevant biblio record fields in ___ mode. In strict mode
+subfields that are not found in the authority record, are deleted. Loose mode
+will keep them. Loose mode is the historical behavior and still the default.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>loose</li>
+<li>strict</li>
+</ul>
+</div>
+<div class="section" id="autocreateauthorities">
+<span id="autocreateauthorities-label"></span><h3>AutoCreateAuthorities<a class="headerlink" href="#autocreateauthorities" title="永久链接至标题"></a></h3>
+<p>Default: do not generate</p>
+<p>Asks: When editing records, ___ authority records that are missing.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">do not generate</p>
+</li>
+<li><p class="first">generate</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p><a class="reference external" href="#biblioaddsauthorities">BiblioAddsAuthorities</a> must be set to
+“allow” for this to have any effect</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When this and <a class="reference external" href="#biblioaddsauthorities">BiblioAddsAuthorities</a> are
+both turned on, automatically create authority records for headings
+that don’t have any authority link when cataloging. When
+BiblioAddsAuthorities is on and AutoCreateAuthorities is turned off,
+do not automatically generate authority records, but allow the user
+to enter headings that don’t match an existing authority. When
+BiblioAddsAuthorities is off, this has no effect.</li>
+</ul>
+</div>
+<div class="section" id="biblioaddsauthorities">
+<span id="biblioaddsauthorities-label"></span><h3>BiblioAddsAuthorities<a class="headerlink" href="#biblioaddsauthorities" title="永久链接至标题"></a></h3>
+<p>Default: allow</p>
+<p>Asks: When editing records, ___ them to automatically create new
+authority records if needed, rather than having to reference existing
+authorities.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>allow<ul>
+<li>This setting allows you to type values in the fields controlled by
+authorities and then adds a new authority if one does not exist</li>
+</ul>
+</li>
+<li>don’t allow<ul>
+<li>This setting will lock the authority controlled fields, forcing
+you to search for an authority versus allowing you to type the
+information in yourself.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="marcauthoritycontrolfield008">
+<span id="marcauthoritycontrolfield008-label"></span><h3>MARCAuthorityControlField008<a class="headerlink" href="#marcauthoritycontrolfield008" title="永久链接至标题"></a></h3>
+<p>Default: || aca||aabn | a|a d</p>
+<p>Asks: Use the following text for the contents of MARC21 authority
+control field 008 position 06-39 (fixed length data elements).</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Do not include the date (position 00-05) in this preference, Koha
+will calculate automatically and put that in before the values in
+this preference.</p>
+</div></blockquote>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls the default value in the 008 field on
+Authority records. It does not effect bibliographic records.</li>
+</ul>
+</div>
+<div class="section" id="unimarcauthorityfield100">
+<span id="unimarcauthorityfield100-label"></span><h3>UNIMARCAuthorityField100<a class="headerlink" href="#unimarcauthorityfield100" title="永久链接至标题"></a></h3>
+<p>Default: afrey50 ba0</p>
+<p>Asks: Use the following text for the contents of UNIMARC authority field
+100 position (fixed length data elements).</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Do not include the date (position 00-07) in this preference, Koha
+will calculate automatically and put that in before the values in
+this preference.</p>
+</div></blockquote>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls the default value in the 100 field on
+Authority records cataloged in UNIMARC. It does not effect
+bibliographic records.</li>
+</ul>
+</div>
+<div class="section" id="useauthoritiesfortracings">
+<span id="useauthoritiesfortracings-label"></span><h3>UseAuthoritiesForTracings<a class="headerlink" href="#useauthoritiesfortracings" title="永久链接至标题"></a></h3>
+<p>Default: Don’t use</p>
+<p>Asks: ___ authority record numbers instead of text strings for
+searches from subject tracings.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use<ul>
+<li>Search links look for subject/author keywords (example:
+opac-search.pl?q=su:Business%20networks)</li>
+</ul>
+</li>
+<li>Use<ul>
+<li>Search links look for an authority record (example:
+opac-search.pl?q=an:354)</li>
+</ul>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>For libraries that have authority files, they may want to make it so
+that when a link to an authorized subject or author is clicked on the
+OPAC or staff client it takes the searcher only to a list of results
+with that authority record. Most libraries do not have complete
+authority files and so setting this preference to ‘Don’t use’ will
+allow searchers to click on links to authors and subject headings and
+perform a keyword search against those fields, finding all possible
+relevant results instead.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="linker">
+<span id="linker-label"></span><h2>Linker<a class="headerlink" href="#linker" title="永久链接至标题"></a></h2>
+<p>These preferences will control how Koha links bibliographic records to
+authority records. All bibliographic records added to Koha after these
+preferences are set will link automatically to authority records, for
+records added before these preferences are set there is a script
+(misc/link_bibs_to_authorities.pl) that your system administrator can
+run to link records together.</p>
+<div class="section" id="catalogmodulerelink">
+<span id="catalogmodulerelink-label"></span><h3>CatalogModuleRelink<a class="headerlink" href="#catalogmodulerelink" title="永久链接至标题"></a></h3>
+<p>Default: Do not</p>
+<p>Asks: ___ automatically relink headings that have previously been
+linked when saving records in the cataloging module.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Do not</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Longtime users of Koha don’t expect the authority and bib records to
+link consistently. This preference makes it possible to disable
+authority relinking in the cataloging module only (i.e. relinking is
+still possible if link_bibs_to_authorities.pl is run). Note that
+though the default behavior matches the previous behavior of Koha
+(retaining links to outdated authority records), it does not match
+the intended behavior (updating biblio/authority link after
+bibliographic record is edited). Libraries that want the intended
+behavior of authority control rather than the way Koha used to handle
+linking should set CatalogModuleRelink to ‘Do’. Once setting this to
+‘Do’ the following preferences can also be set.</li>
+</ul>
+</div>
+<div class="section" id="linkerkeepstale">
+<span id="linkerkeepstale-label"></span><h3>LinkerKeepStale<a class="headerlink" href="#linkerkeepstale" title="永久链接至标题"></a></h3>
+<p>Default: Do not</p>
+<p>Asks: ___ keep existing links to authority records for headings where
+the linker is unable to find a match.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Do not</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When set to ‘Do’, the linker will never remove a link to an authority
+record, though, depending on the value of
+<a class="reference internal" href="#linkerrelink"><span class="std std-ref">LinkerRelink</span></a>, it may change the link.</li>
+</ul>
+</div>
+<div class="section" id="linkermodule">
+<span id="linkermodule-label"></span><h3>LinkerModule<a class="headerlink" href="#linkermodule" title="永久链接至标题"></a></h3>
+<p>Default: Default</p>
+<p>Asks: Use the ___ linker module for matching headings to authority
+records.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Default<ul>
+<li>Retains Koha’s previous behavior of only creating links when there
+is an exact match to one and only one authority record; if the
+<a class="reference internal" href="#linkeroptions"><span class="std std-ref">LinkerOptions</span></a> preference is set to
+‘broader_headings’, it will try to link headings to authority
+records for broader headings by removing subfields from the end of
+the heading</li>
+</ul>
+</li>
+<li>First match<ul>
+<li>Creates a link to the first authority record that matches a given
+heading, even if there is more than one authority record that
+matches</li>
+</ul>
+</li>
+<li>Last match<ul>
+<li>Creates a link to the last authority record that matches a given
+heading, even if there is more than one record that matches</li>
+</ul>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference tells Koha which match to use when searching for
+authority matches when saving a record.</li>
+</ul>
+</div>
+<div class="section" id="linkeroptions">
+<span id="linkeroptions-label"></span><h3>LinkerOptions<a class="headerlink" href="#linkeroptions" title="永久链接至标题"></a></h3>
+<p>Asks: Set the following options for the authority linker ___</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This feature is experimental and shouldn’t be used in a production
+environment until further expanded upon.</p>
+</div></blockquote>
+<p>Description:</p>
+<ul>
+<li><p class="first">This is a pipe separated (|) list of options. At the moment, the
+only option available is “broader_headings.” With this option set to
+“broader_headings”, the linker will try to match the following
+heading as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>=600 10$aCamins-Esakov, Jared$xCoin collections$vCatalogs$vEarly works to 1800.
+</pre></div>
+</div>
+<p>First: Camins-Esakov, Jared–Coin collections–Catalogs–Early works
+to 1800</p>
+<p>Next: Camins-Esakov, Jared–Coin collections–Catalogs</p>
+<p>Next: Camins-Esakov, Jared–Coin collections</p>
+<p>Next: Camins-Esakov, Jared (matches! if a previous attempt had
+matched, it would not have tried this)</p>
+</li>
+</ul>
+</div>
+<div class="section" id="linkerrelink">
+<span id="linkerrelink-label"></span><h3>LinkerRelink<a class="headerlink" href="#linkerrelink" title="永久链接至标题"></a></h3>
+<p>Default: Do</p>
+<p>Asks: ___ relink headings that have previously been linked to
+authority records.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Do not</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When set to ‘Do’, the linker will confirm the links for headings that
+have previously been linked to an authority record when it runs,
+correcting any incorrect links it may find. When set to ‘Do not’, any
+heading with an existing link will be ignored, even if the existing
+link is invalid or incorrect.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="administrationpreferences.html" class="btn btn-neutral float-left" title="Administration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="catalogingpreferences.html" class="btn btn-neutral float-right" title="Cataloging" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

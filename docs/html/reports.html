@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="OPAC" href="opac.html" />
+    <link rel="prev" title="Lists and cart" href="lists.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#custom-reports">Custom reports</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-custom-report">Add custom report</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#guided-report-wizard">Guided report wizard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#report-from-sql">Report from SQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sql-report-from-mana">SQL report from Mana</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duplicate-report">Duplicate report</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-custom-reports">Edit custom reports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-custom-reports">Running custom reports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-report-output-to-batch-modification-tools">Send report output to batch modification tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#statistics-reports">Statistics reports</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acquisitions-statistics">Acquisitions statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-statistics">Patron statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catalog-statistics">Catalog statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#circulation-statistics">Circulation statistics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tracking-in-house-use">Tracking in house use</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#serials-statistics">Serials statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-statistics">Holds statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patrons-with-the-most-checkouts">Patrons with the most checkouts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#most-circulated-items">Most circulated items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patrons-with-no-checkouts">Patrons with no checkouts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#items-with-no-checkouts">Items with no checkouts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catalog-by-item-type">Catalog by item type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lost-items">Lost items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#orders-by-fund">Orders by fund</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#average-loan-time">Average loan time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#report-dictionary">Report dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Reports</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/reports.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="lists.html" class="btn btn-neutral float-left" title="Lists and cart" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="opac.html" class="btn btn-neutral float-right" title="OPAC" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="reports">
+<span id="reports-label"></span><h1>Reports<a class="headerlink" href="#reports" title="永久链接至标题"></a></h1>
+<p>Reports in Koha are a way to gather data. Reports are used to generate
+statistics, member lists, shelving lists, or any list of data in your
+database.</p>
+<ul class="simple">
+<li><em>Get there:</em> More &gt; Reports</li>
+</ul>
+<div class="section" id="custom-reports">
+<span id="custom-reports-label"></span><h2>Custom reports<a class="headerlink" href="#custom-reports" title="永久链接至标题"></a></h2>
+<p>Koha’s data is stored in a MySQL database which means that librarians
+can generate nearly any report they would like by either using the
+<a class="reference internal" href="#guided-report-wizard-label"><span class="std std-ref">guided reports wizard</span></a> or writing their own
+<a class="reference internal" href="#report-from-sql-label"><span class="std std-ref">SQL query</span></a>.</p>
+<div class="section" id="add-custom-report">
+<span id="add-custom-report-label"></span><h3>Add custom report<a class="headerlink" href="#add-custom-report" title="永久链接至标题"></a></h3>
+<div class="section" id="guided-report-wizard">
+<span id="guided-report-wizard-label"></span><h4>Guided report wizard<a class="headerlink" href="#guided-report-wizard" title="永久链接至标题"></a></h4>
+<p>The guided report wizard will walk you through a six step process to
+generate a report.</p>
+<p>Step 1: Choose the module you want to report on. This will determine
+what tables and fields are available for you to query.</p>
+<p>‘Report is public’ should be left to the default of ‘No’ in most cases
+especially if the report contains patron or other sensitive information.
+A public report can be accessed using the
+<a class="reference internal" href="webservices.html#json-reports-services-label"><span class="std std-ref">JSON reports services</span></a> by anyone and without authentication.</p>
+<p><img alt="image881" src="_images/report1.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If your system administrator has set up memcache on your server you
+might see one more option for the Cache expiry. This is related to
+your public reports. If you make the report public then it’s
+constantly running and will cause a large load on your system.
+Setting this value prevents that.</p>
+<p><img alt="image1292" src="_images/cacheexiprywizard.png" /></p>
+</div></blockquote>
+<p>Step 2: Choose a report type. For now, Tabular is the only option
+available.</p>
+<p><img alt="image882" src="_images/report2.png" /></p>
+<p>Step 3: Choose the fields you want in your report. You can select
+multiple fields and add them all at once by using CTRL+click on each
+item you want to add before clicking the Add button.</p>
+<p><img alt="image883" src="_images/report3.png" /></p>
+<p>Step 4: Choose any limits you might want to apply to your report (such
+as item types or branches). If you don’t want to apply any limits,
+simply click ‘Next’ instead of choosing an option.</p>
+<p><img alt="image884" src="_images/report4.png" /></p>
+<p>Step 5: Perform math functions. If you don’t want to do any
+calculations, simply click ‘Next’ instead of choosing an option.</p>
+<p><img alt="image885" src="_images/report5.png" /></p>
+<p>Step 6: Choose data order. If you want the data to print out in the
+order it’s found in the database, simply click ‘Finish’.</p>
+<p><img alt="image886" src="_images/report6.png" /></p>
+<p>When you are finished you will be presented with the SQL generated by
+the report wizard. From here you can choose to save the report by
+clicking ‘Finish’ or copy the SQL and make edits to it by hand.</p>
+<p><img alt="image887" src="_images/reportconfirm.png" /></p>
+<p>If you choose to save the report you will be asked to name your report,
+sort it in to groups and subgroups and enter any notes regarding it.</p>
+<p><img alt="image888" src="_images/reportsave.png" /></p>
+<p>Once your report is saved it will appear on the ‘Use saved’ page with
+all other saved reports.</p>
+<p><img alt="image889" src="_images/savedreports.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: table_reports).</li>
+</ul>
+</div></blockquote>
+<p>From here you can make edits, run the report, or schedule a time to have
+the report run. To find the report you created you can sort by any of
+the columns by clicking the on the column header (creation date is the
+best bet for finding the report you just added). You can also filter
+your results using the filter menu on the left or use the tabs to find
+reports based on your custom groups.</p>
+</div>
+<div class="section" id="report-from-sql">
+<span id="report-from-sql-label"></span><h4>Report from SQL<a class="headerlink" href="#report-from-sql" title="永久链接至标题"></a></h4>
+<p>In addition to the report wizard, you have the option to write your own
+queries using SQL. To find reports written by other Koha users, visit
+the Koha wiki: <a class="reference external" href="http://wiki.koha-community.org/wiki/SQL_Reports_Library">http://wiki.koha-community.org/wiki/SQL_Reports_Library</a>.
+You can also find your database structure in
+/installer/data/mysql/kohastructure.sql or online at:
+<a class="reference external" href="http://schema.koha-community.org/">http://schema.koha-community.org</a>.</p>
+<p>To add your query, click the link to ‘Create from SQL’ on the main
+reports module or the ‘New report’ button at the top of the ‘Saved
+reports’ page.</p>
+<p><img alt="image890" src="_images/newsql.png" /></p>
+<p>Fill in the form presented</p>
+<p><img alt="image891" src="_images/reportfromsql.png" /></p>
+<ul>
+<li><p class="first">The ‘Name’ is what will appear on the Saved Reports page to help you
+identify the report later. It will also be searchable using the
+filters found the left of the Saved Reports page.</p>
+</li>
+<li><p class="first">You can use the ‘Report group’ to organize your reports so that you
+can easily filter reports by groups. Report groups are set in the
+<a class="reference external" href="#reportgroup">REPORT_GROUP</a> authorized value category or can be
+added on the fly when creating the report by choosing the ‘or create’
+radio button.</p>
+<p><img alt="image1293" src="_images/reportgroup.png" /></p>
+<p>Report groups set up in the authorised value category
+need to have unique authorised values and descriptions.</p>
+<ul>
+<li><p class="first"><strong>Note</strong></p>
+<blockquote>
+<div><p>If you’re adding a report group on the fly, remember that you
+code should be fewer than 10 characters and should not include
+special characters or spaces.</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">You can use ‘Report subgroup’ to further organize your reports so
+that you can easily filter reports by groups and subgroups. Report
+subgroups are set in the <a class="reference external" href="#reportsubgroup">REPORT_SUBGROUP</a>
+authorized value category or can be added on the fly when creating
+the report by choosing the ‘or create’ radio button.  Report subgroups
+are set up with unique values in ‘Authorised value’, and ‘Description’.
+The ‘Description (OPAC)’’ field needs to contain the authorised value for
+the report group that the subgroup falls under.</p>
+<p><img alt="image892" src="_images/reportsubgroup.png" /></p>
+<ul>
+<li><p class="first"><strong>Note</strong></p>
+<blockquote>
+<div><p>If you’re adding a report subgroup on the fly, remember that
+you code should be fewer than 10 characters and should not
+include special characters or spaces.</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><dl class="first docutils">
+<dt>‘Report is public’ should be left to the default of ‘No’ in most cases</dt>
+<dd><p class="first last">especially if the report contains patron or other sensitive information.
+A public report can be accessed using the
+<a class="reference internal" href="webservices.html#json-reports-services-label"><span class="std std-ref">JSON reports services</span></a> by anyone and without authentication.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">‘Notes’ will also appear on the saved reports page, this can be used
+to provide more details about the report or tips on how to enter
+values when it runs</p>
+</li>
+<li><p class="first">The type should always be ‘Tabular’ at this time since the other
+formats have not been implemented</p>
+</li>
+<li><p class="first">In the ‘SQL’ box you will type or paste the SQL for the report</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If your system administrator has set up memcache on your server you
+might see one more option for the Cache expiry. This is related to
+your public reports. If you make the report public then it’s
+constantly running and will cause a large load on your system.
+Setting this value prevents that.</p>
+<p><img alt="image1294" src="_images/cacheexpiry.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+<p>Once everything is entered click the ‘Save report’ button and you’ll be
+presented with options to run it. Once a report is saved you do not have
+to recreate it you can simply find it on the Saved Reports page and
+<a class="reference internal" href="#running-custom-reports-label"><span class="std std-ref">run</span></a> or <a class="reference internal" href="#edit-custom-reports-label"><span class="std std-ref">edit</span></a> it.</p>
+<div class="section" id="report-writing-tips">
+<span id="report-writing-tips-label"></span><h5>Report writing tips<a class="headerlink" href="#report-writing-tips" title="永久链接至标题"></a></h5>
+<p><strong>Runtime parameters</strong></p>
+<p>If you feel that your report might be too resource intensive you
+might want to consider using runtime parameters to your query.
+Runtime parameters basically make a filter appear before the report
+is run to save your system resources.</p>
+<p>There is a specific syntax that Koha will understand as ‘ask for
+values when running the report’. The syntax is &lt;&lt;Question to
+ask|authorized_value&gt;&gt;.</p>
+<ul class="simple">
+<li>The &lt;&lt; and &gt;&gt; are just delimiters. You must put &lt;&lt; at the
+beginning and &gt;&gt; at the end of your parameter</li>
+<li>The ‘Question to ask’ will be displayed on the left of the string
+to enter.</li>
+<li>The authorized_value can be omitted if not applicable. If it
+contains an authorized value category, ‘branches’, ‘itemtype’,
+‘categorycode’, ‘biblio_framework’, a list with the Koha authorized
+values will be displayed instead of a free field.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">You can have more than one parameter in a given SQL query.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>You have to put “%” in a text box to ‘leave it blank’. Otherwise,
+it literally looks for “” (empty string) as the value for the
+field.</p>
+<p>For example entering nothing for: “title=&lt;&lt;Enter title&gt;&gt;” will
+display results with title=’’ (no title).</p>
+<p class="last">If you want to have to have something not mandatory, use
+“title like &lt;&lt;Enter title&gt;&gt;” and enter a % at run time instead
+of nothing.</p>
+</div>
+<p>List of parameters that can be used in runtime parameters</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="48%" />
+<col width="28%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">What the user sees</th>
+<th class="head">What gets inserted in query</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>date</td>
+<td>date picker</td>
+<td>validly formatted date</td>
+</tr>
+<tr class="row-odd"><td>branches</td>
+<td>drop down of branch names</td>
+<td>branch code</td>
+</tr>
+<tr class="row-even"><td>itemtypes</td>
+<td>drop down of item type names</td>
+<td>item type</td>
+</tr>
+<tr class="row-odd"><td>categorycode</td>
+<td>drop down of patron category descriptions</td>
+<td>borrower category code</td>
+</tr>
+<tr class="row-even"><td>biblio_framework</td>
+<td>drop down of MARC bibliographic frameworks</td>
+<td>framework code</td>
+</tr>
+<tr class="row-odd"><td>list</td>
+<td>large text box</td>
+<td>comma separated values</td>
+</tr>
+<tr class="row-even"><td>(auth-value-category)</td>
+<td>drop down of auth-value descriptions in category</td>
+<td>authorized value</td>
+</tr>
+<tr class="row-odd"><td>(nothing)</td>
+<td>text box</td>
+<td>entered text</td>
+</tr>
+</tbody>
+</table>
+<p>Example 1</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">surname</span><span class="p">,</span>
+       <span class="n">firstname</span>
+<span class="k">FROM</span> <span class="n">borrowers</span>
+<span class="k">WHERE</span> <span class="n">branchcode</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="n">Enter</span> <span class="n">patrons</span> <span class="n">library</span><span class="o">|</span><span class="n">branches</span><span class="o">&gt;&gt;</span>
+    <span class="k">AND</span> <span class="n">surname</span> <span class="k">LIKE</span> <span class="o">&lt;&lt;</span><span class="n">Enter</span> <span class="n">filter</span> <span class="k">for</span> <span class="n">patron</span> <span class="n">surname</span> <span class="p">(</span><span class="o">%</span> <span class="k">if</span> <span class="k">none</span><span class="p">)</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to choose a library from a drop-down menu and enter a surname in an input text field" src="_images/runtimeparameterex1.png" /></p>
+<p>Example 2</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">items</span>
+<span class="k">WHERE</span> <span class="n">homebranch</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="n">Pick</span> <span class="n">your</span> <span class="n">branch</span><span class="o">|</span><span class="n">branches</span><span class="o">&gt;&gt;</span>
+    <span class="k">AND</span> <span class="n">barcode</span> <span class="k">LIKE</span> <span class="o">&lt;&lt;</span><span class="k">Partial</span> <span class="n">barcode</span> <span class="n">value</span> <span class="n">here</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to choose a library from a drop-down menu and enter a barcode in an input text field" src="_images/runtimeparameterex2.png" /></p>
+<p>Example 3</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">title</span><span class="p">,</span>
+       <span class="n">author</span>
+<span class="k">FROM</span> <span class="n">biblio</span>
+<span class="k">WHERE</span> <span class="n">frameworkcode</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="n">Enter</span> <span class="n">the</span> <span class="n">frameworkcode</span><span class="o">|</span><span class="n">biblio_framework</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to choose a bibliographic framework from a drop-down menu" src="_images/runtimeparameterex3.png" /></p>
+<p>Example 4</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">cardnumber</span><span class="p">,</span>
+       <span class="n">surname</span><span class="p">,</span>
+       <span class="n">firstname</span>
+<span class="k">FROM</span> <span class="n">borrowers</span>
+<span class="k">WHERE</span> <span class="n">dateexpiry</span> <span class="o">&lt;=</span> <span class="o">&lt;&lt;</span><span class="n">Expiry</span> <span class="nb">date</span><span class="o">|</span><span class="nb">date</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to pick a date in the calendar (date picker)" src="_images/runtimeparameterex4.png" /></p>
+<p>Example 5</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">items</span>
+<span class="k">WHERE</span> <span class="n">itemnumber</span> <span class="k">IN</span> <span class="o">&lt;&lt;</span><span class="n">List</span> <span class="k">of</span> <span class="n">itemnumbers</span> <span class="p">(</span><span class="n">one</span> <span class="n">per</span> <span class="n">line</span><span class="p">)</span><span class="o">|</span><span class="n">list</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to enter a list of values" src="_images/runtimeparameterex5.png" /></p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">In the case of the list parameter, users must write one value per line.</p>
+</div>
+</div>
+</div>
+<div class="section" id="sql-report-from-mana">
+<span id="mana-sql-report-label"></span><h4>SQL report from Mana<a class="headerlink" href="#sql-report-from-mana" title="永久链接至标题"></a></h4>
+<p>In the “Create report from SQL”, you can search Mana KB for pre-made reports
+by clicking on “New report” and choosing “New SQL from Mana”.</p>
+<p><img alt="image1428" src="_images/sqlfrommana.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This option will only appear if you’ve <a class="reference internal" href="administration.html#share-with-mana-kb-label"><span class="std std-ref">configured Mana KB</span></a> in the administration module.</p>
+</div></blockquote>
+<p>You will be prompted to enter keywords to search the knowledge base.</p>
+<p><img alt="image1429" src="_images/searchmana.png" /></p>
+<p>In the search results, you will see</p>
+<ul class="simple">
+<li>the details of the report (name, notes and type)</li>
+<li>how many people have used this entry (# of users)</li>
+<li>when it was used for the last time (last import)</li>
+<li>additional comments made by other Koha users (comments)</li>
+</ul>
+<p><img alt="image1430" src="_images/manasearchresults.png" /></p>
+<p>Click on “Import” to import a copy of the report in your own saved reports.</p>
+<p>You can then edit it, duplicate it, delete it, run it as you would any of
+your own reports.</p>
+</div>
+<div class="section" id="duplicate-report">
+<span id="duplicate-report-label"></span><h4>Duplicate report<a class="headerlink" href="#duplicate-report" title="永久链接至标题"></a></h4>
+<p>Reports can also be added by duplicating an existing report. Visit the
+‘Saved reports’ page to see all of the reports listed on your system
+already.</p>
+<p><img alt="image895" src="_images/duplicatereport.png" /></p>
+<p>To the right of every report there is an ‘Actions’ pull down. Clicking
+that and choose ‘Duplicate’ to use an existing report as the basis for
+your new report. That will populate the new report form with the
+existing SQL for easy editing and resaving.</p>
+</div>
+</div>
+<div class="section" id="edit-custom-reports">
+<span id="edit-custom-reports-label"></span><h3>Edit custom reports<a class="headerlink" href="#edit-custom-reports" title="永久链接至标题"></a></h3>
+<p>Every report can be edited from the reports lists. To see the list of
+reports already stored in Koha, click ‘Use saved.’</p>
+<p><img alt="image889" src="_images/savedreports.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: table_reports).</li>
+</ul>
+</div></blockquote>
+<p>To find the report you’d like to edit you can sort by any of the columns
+by clicking the on the column header. You can also filter your results
+using the filter menu on the left or use the tabs to find reports based
+on your custom groups.</p>
+<p>From this list you can edit any custom report by clicking ‘Actions’ to
+the right of the report and choosing ‘Edit’ from the menu that appears.</p>
+<p><img alt="image897" src="_images/editreportoption.png" /></p>
+<p>The form to edit the report will appear.</p>
+<p><img alt="image898" src="_images/editreport.png" /></p>
+</div>
+<div class="section" id="running-custom-reports">
+<span id="running-custom-reports-label"></span><h3>Running custom reports<a class="headerlink" href="#running-custom-reports" title="永久链接至标题"></a></h3>
+<p>Once custom reports are saved to Koha, you can run them by going to the
+Saved Reports page and clicking the ‘Actions’ button to the right of the
+report and choosing ‘Run’.</p>
+<p><img alt="image899" src="_images/runreport.png" /></p>
+<p>When you report runs you will either be asked for some values</p>
+<p><img alt="image900" src="_images/reportparameters.png" /></p>
+<p>or you will see the results right away</p>
+<p><img alt="image901" src="_images/reportresults.png" /></p>
+<p>From the results you can choose to rerun the report by clicking ‘Run
+report’ at the top, edit the report by clicking the ‘Edit’ button or
+starting over and creating a new report by using the ‘New’ button. You
+can also download your results by choosing a file type at the bottom of
+the results next to the ‘Download the report’ label and clicking
+‘Download.’</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>A comma separated text file is a CSV file and it can be opened by
+any spreadsheet application.</p>
+</div></blockquote>
+</div>
+<div class="section" id="send-report-output-to-batch-modification-tools">
+<span id="send-report-output-to-batch-modification-tools-label"></span><h3>Send report output to batch modification tools<a class="headerlink" href="#send-report-output-to-batch-modification-tools" title="永久链接至标题"></a></h3>
+<p>After running a report that contains itemnumbers, biblionumbers and/or patron cardnumbers
+the list of numbers can be imported directly into the relevant batch modification tool by clicking the ‘Batch operations with X visible records’ button in the report results.  The X depends on the number of records you have chosen to display on screen (up to 1000).</p>
+<p><img alt="image1343" src="_images/senditemnumberstobatch.png" /></p>
+</div>
+</div>
+<div class="section" id="statistics-reports">
+<span id="statistics-reports-label"></span><h2>Statistics reports<a class="headerlink" href="#statistics-reports" title="永久链接至标题"></a></h2>
+<p>Statistic reports will show you counts and sums. These reports are all
+about numbers and statistics, for reports that return more detailed
+data, use the <a class="reference internal" href="#guided-report-wizard"><span class="std std-ref">Guided report wizard</span></a>. These
+reports are limited in what data they can look at, so it’s often
+recommended to use <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">custom reports</span></a> for official end
+of the year statistics.</p>
+<div class="section" id="acquisitions-statistics">
+<span id="acquisitions-statistics-label"></span><h3>Acquisitions statistics<a class="headerlink" href="#acquisitions-statistics" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>These reports are limited in what data they can look at, so it’s
+often recommended to use <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">custom reports</span></a> for
+official end of the year statistics.</p>
+</div></blockquote>
+<p>Using the form provided, choose which value you would like to appear in
+the column and which will appear in the row.</p>
+<p><img alt="image902" src="_images/acqform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image903" src="_images/acqnumbers.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+<p>When generating your report, note that you get to choose between
+counting or summing the values.</p>
+<p><img alt="image904" src="_images/acqtotal.png" /></p>
+<p>Choosing amount will change your results to appear as the sum of the
+amounts spent.</p>
+<p><img alt="image905" src="_images/acqamounts.png" /></p>
+</div>
+<div class="section" id="patron-statistics">
+<span id="patron-statistics-label"></span><h3>Patron statistics<a class="headerlink" href="#patron-statistics" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>These reports are limited in what data they can look at, so it’s
+often recommended to use <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">custom reports</span></a> for
+official end of the year statistics.</p>
+</div></blockquote>
+<p>Using the form provided, choose which value you would like to appear in
+the column and which will appear in the row.</p>
+<p><img alt="image906" src="_images/patronform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image907" src="_images/patronresults.png" /></p>
+<p>Based on your selections, you may see some query information above your
+results table. You can also choose to export to a file that you can
+manipulate to your needs.</p>
+</div>
+<div class="section" id="catalog-statistics">
+<span id="catalog-statistics-label"></span><h3>Catalog statistics<a class="headerlink" href="#catalog-statistics" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>These reports are limited in what data they can look at, so it’s
+often recommended to use <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">custom reports</span></a> for
+official end of the year statistics.</p>
+</div></blockquote>
+<p>Using the form provided, choose which value you would like to appear in
+the column and which will appear in the row.</p>
+<p><img alt="image908" src="_images/catalogform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image909" src="_images/catalogresults.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+</div>
+<div class="section" id="circulation-statistics">
+<span id="circulation-statistics-label"></span><h3>Circulation statistics<a class="headerlink" href="#circulation-statistics" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>These reports are limited in what data they can look at, so it’s
+often recommended to use <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">custom reports</span></a> for
+official end of the year statistics.</p>
+</div></blockquote>
+<p>Using the form provided, choose which value you would like to appear in
+the column and which will appear in the row.</p>
+<p><img alt="image910" src="_images/circform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image911" src="_images/circresults.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>To get a complete picture of your monthly or daily circulation, you
+can run the report twice, once for ‘Type’ of ‘Checkout’ and again
+for ‘Renewal.’</p>
+<p>This report uses ‘Period,’ or date, filtering that allows you to
+limit to a month by simply selecting the first day of the first
+month through the first day of the next month. For example, 10/1 to
+11/1 to find statistics for the month of October.</p>
+<ul class="simple">
+<li>To find daily statistics, set your date range.&lt;/br&gt; Example: “I
+want circulation data starting with date XXX up to, but not
+including, date XXX.”</li>
+<li>For a whole month, an example range would be: 11/01/2009 to
+12/01/2009</li>
+<li>For a whole year, an example range would be: 01/01/2009 to
+01/01/2010</li>
+<li>For a single day, an example would be: 11/15/2009 to 11/16/2009
+to find what circulated on the 15th</li>
+</ul>
+</div></blockquote>
+<div class="section" id="tracking-in-house-use">
+<span id="tracking-in-house-use-reports-label"></span><h4>Tracking in house use<a class="headerlink" href="#tracking-in-house-use" title="永久链接至标题"></a></h4>
+<p>Using the Circulation statistics reporting wizard you can run reports on
+in house usage of items simply by choosing ‘Local use’ from the ‘Type’
+pull down:</p>
+<p><img alt="image912" src="_images/inhouse.png" /></p>
+</div>
+</div>
+<div class="section" id="serials-statistics">
+<span id="serials-statistics-label"></span><h3>Serials statistics<a class="headerlink" href="#serials-statistics" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>These reports are limited in what data they can look at, so it’s
+often recommended to use <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">custom reports</span></a> for
+official end of the year statistics.</p>
+</div></blockquote>
+<p>Using the form provided, choose how you would like to list the serials
+in your system.</p>
+<p><img alt="image913" src="_images/serialsform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image914" src="_images/serialsresults.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+</div>
+<div class="section" id="holds-statistics">
+<span id="holds-statistics-label"></span><h3>Holds statistics<a class="headerlink" href="#holds-statistics" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>These reports are limited in what data they can look at, so it’s
+often recommended to use <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">custom reports</span></a> for
+official end of the year statistics.</p>
+</div></blockquote>
+<p>Using the form provided you can see statistics for holds placed, filled,
+cancelled and more at your library. From the form choose what value you
+want to display in the column and what value to show in the row. You can
+also choose from the filters on the far right of the form.</p>
+<p><img alt="image915" src="_images/holdstatsform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image916" src="_images/holdstatsresults.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+</div>
+<div class="section" id="patrons-with-the-most-checkouts">
+<span id="patrons-with-the-most-checkouts-label"></span><h3>Patrons with the most checkouts<a class="headerlink" href="#patrons-with-the-most-checkouts" title="永久链接至标题"></a></h3>
+<p>This report will simply list the patrons who have the most checkouts.</p>
+<p><img alt="image917" src="_images/topcheckoutsform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image918" src="_images/topcheckoutsresult.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+</div>
+<div class="section" id="most-circulated-items">
+<span id="most-circulated-items-label"></span><h3>Most circulated items<a class="headerlink" href="#most-circulated-items" title="永久链接至标题"></a></h3>
+<p>This report will simply list the items that have the been checked out
+the most.</p>
+<p><img alt="image919" src="_images/topcircform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image920" src="_images/topcircresults.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+</div>
+<div class="section" id="patrons-with-no-checkouts">
+<span id="patrons-with-no-checkouts-label"></span><h3>Patrons with no checkouts<a class="headerlink" href="#patrons-with-no-checkouts" title="永久链接至标题"></a></h3>
+<p>This report will list for you the patrons in your system who haven’t
+checked any items out.</p>
+<p><img alt="image921" src="_images/patnocheckout.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image922" src="_images/patnocheckout-results.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+</div>
+<div class="section" id="items-with-no-checkouts">
+<span id="items-with-no-checkouts-label"></span><h3>Items with no checkouts<a class="headerlink" href="#items-with-no-checkouts" title="永久链接至标题"></a></h3>
+<p>This report will list items in your collection that have never been
+checked out.</p>
+<p><img alt="image923" src="_images/nocheckoutsform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image924" src="_images/nocheckoutsresults.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+</div>
+<div class="section" id="catalog-by-item-type">
+<span id="catalog-by-item-type-label"></span><h3>Catalog by item type<a class="headerlink" href="#catalog-by-item-type" title="永久链接至标题"></a></h3>
+<p>This report will list the total number of items of each item type per
+branch.</p>
+<p><img alt="image925" src="_images/itemtotals.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image926" src="_images/itemtotalsresults.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+</div>
+<div class="section" id="lost-items">
+<span id="lost-items-label"></span><h3>Lost items<a class="headerlink" href="#lost-items" title="永久链接至标题"></a></h3>
+<p>This report will allow you to generate a list of items that have been
+marked as Lost within the system</p>
+<p><img alt="image927" src="_images/lostitems.png" /></p>
+<p>Once you have chosen parameters, you will see the corresponding list of items.</p>
+<p><img alt="List of currently available MARC modification templates" src="_images/marcmodtemplates.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: lostitems-table).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="orders-by-fund">
+<span id="orders-by-fund-label"></span><h3>Orders by fund<a class="headerlink" href="#orders-by-fund" title="永久链接至标题"></a></h3>
+<p>If you use the <a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">Acquisitions module</span></a>, you will be able
+to see all the items that were ordered in each fund.</p>
+<p><img alt="image1499" src="_images/ordersbyfund.png" /></p>
+<p>Once you choose the fund you wish to view, you can export the results or view
+them in the browser. If you choose to view them directly, you will be shown the
+list of orders.</p>
+<p><img alt="Example of a report result of Orders by fund" src="_images/ordersbyfundresult.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: funds-table).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="average-loan-time">
+<span id="average-loan-time-label"></span><h3>Average loan time<a class="headerlink" href="#average-loan-time" title="永久链接至标题"></a></h3>
+<p>This report will list the average time items are out on loan based on
+the criteria you enter:</p>
+<p><img alt="image928" src="_images/averloanform.png" /></p>
+<p>If you choose to output to the browser your results will print to the
+screen.</p>
+<p><img alt="image929" src="_images/avercheckout.png" /></p>
+<p>You can also choose to export to a file that you can manipulate to your
+needs.</p>
+</div>
+</div>
+<div class="section" id="report-dictionary">
+<span id="report-dictionary-label"></span><h2>Report dictionary<a class="headerlink" href="#report-dictionary" title="永久链接至标题"></a></h2>
+<p>The report dictionary is a way to pre-define common filters you’d like
+to apply to your reports. This is a good way to add in filters that the
+report wizard doesn’t include by default. To add a new definition, or
+filter, click ‘New definition’ on the reports dictionary page and follow
+the 4 step process.</p>
+<p>Step 1: Name the definition and provide a description if necessary</p>
+<p><img alt="image930" src="_images/dict1.png" /></p>
+<p>Step 2: Choose the module that the will be queried.</p>
+<p><img alt="image931" src="_images/dict2.png" /></p>
+<p>Step 3: Choose columns to query from the tables presented.</p>
+<p><img alt="image932" src="_images/dict3.png" /></p>
+<p>Step 4: Choose the value(s) from the field(s). These will be
+automatically populated with options available in your database.</p>
+<p><img alt="image933" src="_images/dict4.png" /></p>
+<p>Confirm your selections to save the definition.</p>
+<p><img alt="image934" src="_images/dictconfirm.png" /></p>
+<p>Your definitions will all appear on the Reports Dictionary page</p>
+<p><img alt="image935" src="_images/dictlist.png" /></p>
+<p>Then when generating reports on the module you created the value for you
+will see an option to limit by the definition at the bottom of the usual
+filters.</p>
+<p><img alt="image936" src="_images/dictionarylimit.png" /></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lists.html" class="btn btn-neutral float-left" title="Lists and cart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="opac.html" class="btn btn-neutral float-right" title="OPAC" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

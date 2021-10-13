@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to the Koha installation process &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Global system preferences" href="globalpreferences.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to the Koha installation process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-koha-web-installer">What is the Koha web installer?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-koha-onboarding-tool">What is the Koha onboarding tool?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#web-installer">Web installer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-installer-login">Web installer login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#language-picker">Language picker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installer-perl-modules-installed">Installer perl modules installed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-settings">Database settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ready-to-fill-tables-with-data">Ready to fill tables with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-tables-created">Database tables created</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ready-for-basic-configurations">Ready for basic configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#select-marc-flavour">Select MARC flavour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marc21-and-unimarc-setup">MARC21 and UNIMARC setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marc21-setup">MARC21 setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unimarc-setup">UNIMARC setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selected-data-added">Selected data added</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redirect-to-onboarding-tool">Redirect to onboarding tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#onboarding-tool">Onboarding tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-library">Create a library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-patron-category">Create a patron category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-patron">Create a patron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-an-item-type">Create an item type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-circulation-rule">Create a circulation rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onboarding-tool-complete">Onboarding tool complete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login-to-access-staff-interface">Login to access staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#staff-interface">Staff interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Introduction to the Koha installation process</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="globalpreferences.html" class="btn btn-neutral float-right" title="Global system preferences" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="introduction-to-the-koha-installation-process">
+<span id="koha-installation-process-label"></span><h1>Introduction to the Koha installation process<a class="headerlink" href="#introduction-to-the-koha-installation-process" title="永久链接至标题"></a></h1>
+<p>This is the Koha installation manual.</p>
+<p>The Koha installation process uses 2 tools:</p>
+<ul class="simple">
+<li>Web installer</li>
+<li>Onboarding tool</li>
+</ul>
+<p>This documentation will outline both of these tools.</p>
+<div class="section" id="what-is-the-koha-web-installer">
+<h2>What is the Koha web installer?<a class="headerlink" href="#what-is-the-koha-web-installer" title="永久链接至标题"></a></h2>
+<p>The web installer sets up the database tables that store the all the data you work with in Koha, for example the library branches, patrons and items.</p>
+<p>The web installer starts with a login screen for you to enter the database administrator account credentials.</p>
+<p>The installer will then create the tables and fill the tables with data. The next step in the process is to set up a few mandatory first use settings, via the onboarding tool.</p>
+</div>
+<div class="section" id="what-is-the-koha-onboarding-tool">
+<h2>What is the Koha onboarding tool?<a class="headerlink" href="#what-is-the-koha-onboarding-tool" title="永久链接至标题"></a></h2>
+<p>The onboarding tool makes sure you have at least one library, patron category, patron, item type and circulation rule before you start using Koha.</p>
+<p>If you installed sample data for library, patron category, and/or item type then the screens to create these will be skipped.</p>
+<p>You will, however, always have to create a patron (to log into the staff interface at the end of the onboarding tool) and a circulation rule.</p>
+</div>
+</div>
+<div class="section" id="web-installer">
+<h1>Web installer<a class="headerlink" href="#web-installer" title="永久链接至标题"></a></h1>
+<div class="section" id="web-installer-login">
+<h2>Web installer login<a class="headerlink" href="#web-installer-login" title="永久链接至标题"></a></h2>
+<p><strong>Web installer login</strong></p>
+<p>This login screen is the first screen that appears when installing Koha.</p>
+<blockquote>
+<div><p><img alt="image1152" src="_images/installer_login.png" /></p>
+<p>Web installer login</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><strong>Koha version name</strong>: This will display whatever Koha version number you are installing.</li>
+<li><strong>Username</strong>: This is database administrator username which is <em>koha_kohadev</em> by default.</li>
+<li><strong>Password</strong>: This is the database administrator password which is <em>password</em> by default.</li>
+<li><em>Log in</em>: Select this button to login</li>
+</ol>
+</div>
+<div class="section" id="language-picker">
+<h2>Language picker<a class="headerlink" href="#language-picker" title="永久链接至标题"></a></h2>
+<p><strong>Installer start screen</strong></p>
+<p>This is the first screen of the web installer.</p>
+<blockquote>
+<div><p><img alt="image1166" src="_images/installer_start_screen.png" /></p>
+<p>Web installer start screen</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><em>Language picker</em> dropdown box: This is specifying the language you want Koha to be in.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Installing other languages that have translations for the installer (DE or FR, for example) will allow those languages to be used for the web installer.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Click the <em>Continue to the next step</em> button to load the next stage of the web installer.</li>
+</ol>
+</div>
+<div class="section" id="installer-perl-modules-installed">
+<h2>Installer perl modules installed<a class="headerlink" href="#installer-perl-modules-installed" title="永久链接至标题"></a></h2>
+<p>This screen tells you that the installer has all the dependencies it needs, to create the database in the next screen.</p>
+<blockquote>
+<div><p><img alt="image1167" src="_images/perl_modules_installed.png" /></p>
+<p>Perl modules installed</p>
+</div></blockquote>
+<p>Click on the <em>Continue to the next step</em> button to load the next stage of the web installer.</p>
+</div>
+<div class="section" id="database-settings">
+<h2>Database settings<a class="headerlink" href="#database-settings" title="永久链接至标题"></a></h2>
+<p>This screen informs you of the database settings and asks you to confirm them by clicking the <em>Continue to the next step</em> button.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">For the majority of users these settings should be correct, if not then you should contact your support provider.</p>
+</div>
+<p><img alt="image1168" src="_images/database_settings.png" /></p>
+<p>Database settings</p>
+<ol class="arabic simple">
+<li><strong>Database settings:</strong> Check these database settings are correct.</li>
+<li>Click the <em>Continue to the next step</em> button to confirm the database settings</li>
+</ol>
+<hr class="docutils" />
+<p><strong>Connection established</strong></p>
+<p>After you click the <em>Next</em> button the database connection is confirmed:</p>
+<p><img alt="image1169" src="_images/connection_established.png" /></p>
+<p>Database connection established</p>
+<ol class="arabic simple">
+<li><strong>Connection established message:</strong> This informs you that the database has been successfully created.</li>
+<li>Click the <em>Continue to the next step</em> button to load the next stage</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If you have database connection difficulties here, the installer will not proceed. Double check the connection information in your koha-conf.xml file, and verify that the permissions and credentials on the database itself are correct.</p>
+</div>
+</div>
+<div class="section" id="ready-to-fill-tables-with-data">
+<h2>Ready to fill tables with data<a class="headerlink" href="#ready-to-fill-tables-with-data" title="永久链接至标题"></a></h2>
+<p>This screen is informing you everything is set up for you to create the database tables in the next screen.</p>
+<blockquote>
+<div><p><img alt="image1170" src="_images/ready_for_data.png" /></p>
+<p>Database ready for data</p>
+</div></blockquote>
+<p>Click the <em>Continue to the next step</em> button to load the next stage</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This step can take some time. Please be patient.</p>
+</div>
+</div>
+<div class="section" id="database-tables-created">
+<h2>Database tables created<a class="headerlink" href="#database-tables-created" title="永久链接至标题"></a></h2>
+<blockquote>
+<div><p><img alt="image1171" src="_images/database_tables_created.png" /></p>
+<p>Database tables created</p>
+</div></blockquote>
+<p>Click the <em>Continue to the next step</em> button</p>
+</div>
+<div class="section" id="ready-for-basic-configurations">
+<h2>Ready for basic configurations<a class="headerlink" href="#ready-for-basic-configurations" title="永久链接至标题"></a></h2>
+<p>This screen leads onto installing basic configurations necessary to use Koha.</p>
+<blockquote>
+<div><p><img alt="image1172" src="_images/install_basic_configurations.png" /></p>
+<p>Ready for basic configurations</p>
+</div></blockquote>
+<p>Click the <em>Continue to the next step</em> button</p>
+</div>
+<div class="section" id="select-marc-flavour">
+<h2>Select MARC flavour<a class="headerlink" href="#select-marc-flavour" title="永久链接至标题"></a></h2>
+<p>You must choose your MARC flavour (format you want the bibliographic (catalog) records to be stored in the database) on this screen:</p>
+<blockquote>
+<div><p><img alt="image1173" src="_images/select_basic_configurations.png" /></p>
+<p>Select MARC flavour</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><strong>Unimarc:</strong> This is frequently used in European countries (except for the UK) such as Italy.</li>
+<li><strong>MARC21:</strong> Selected by default, as it is more commonly used globally than UNIMARC.</li>
+<li>Click the <em>Continue to the next step</em> button to confirm your choices</li>
+</ol>
+</div>
+<div class="section" id="marc21-and-unimarc-setup">
+<h2>MARC21 and UNIMARC setup<a class="headerlink" href="#marc21-and-unimarc-setup" title="永久链接至标题"></a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">In the previous screen you either choose MARC21 or UNIMARC as your MARC flavour. This page outlines both.</p>
+</div>
+</div>
+<div class="section" id="marc21-setup">
+<h2>MARC21 setup<a class="headerlink" href="#marc21-setup" title="永久链接至标题"></a></h2>
+<p><img alt="image1174" src="_images/marc21_basic_setup.png" /></p>
+<p>MARC21 setup</p>
+<ol class="arabic simple">
+<li><strong>Default MARC21 standard authority types:</strong> An authority type is a template of an authority record (stores the search fields used to search an institutions catalog for an item). This option will install sample authority types.</li>
+<li><strong>Default MARC21 bibliographic framework:</strong> Following on from the MARC21 selection in the previous screen selecting this checkbox (and the <em>Import</em> button) will actually setup the MARC21 bibliographic framework as the desired MARC flavour.</li>
+<li><strong>Selected matching rules for MARC21 bibliographic records:</strong> The MARC21 matching rules are used to find all the information about specific bibliographic records using the authority type search values.</li>
+<li><strong>‘FA’, a ‘fast add’ minimal MARC21 framework suitable for ILL, or on the fly cataloging:</strong> The FA MARC framework displays fewer fields, and allows for faster cataloguing on the fly. Select this checkbox to install this minimal framework.</li>
+<li><strong>Sample MARC21 bibliographic frameworks for some common types of bibliographic material:</strong> This installs the template you will use to create items.</li>
+<li><strong>Default Koha system authorised values:</strong> This installs mandatory authorised values that every Koha installation needs.</li>
+<li><strong>Default classification sources and filling rules:</strong> This will insert several common library classification sources such as dewey decimal.</li>
+<li><strong>Defines default message transports for email and SMS:</strong> This provides the option to the user of being able to change how the library contacts them. They can choose from the following: email address, printed message, SMS, or phone call. Notices will not work without these.</li>
+<li><strong>Patron attributes:</strong> This does not install any data, and it needs to be removed.</li>
+<li><strong>Sample frequencies for subscriptions:</strong> For items that arrive on a regular and predictable basis (e.g. monthly magazines), installing sample frequencies is useful because you can simply select a pre-installed sample frequency when you create the item.</li>
+<li><strong>Sample notices:</strong> This inserts sample notices into the database, meaning all you have to do is customize these sample notices before you use them. Creating these by hand can be very time consuming and error prone.</li>
+<li><strong>Defines default messages for the enhanced messaging configuration:</strong> The enhanced messaging configuration lets the user choose what messages they receive from the institution. Selecting this will insert sample message types for the due, predue, and advance notice message types.</li>
+<li><strong>Defines default message transports for sending item due messages and advance notice messages through email and SMS:</strong> This inserts the SMS and email transport types. Mandatory if you want to send notices by email or SMS.</li>
+<li><strong>Sample numbering patterns for subscriptions:</strong> This option will install sample numbering patterns, saving you having to manually insert them for magazines and other periodicals.</li>
+<li><strong>Some basic default authorised values for library locations, item lost status, etc. You can change these at any time after installation:</strong> This installs authorised values, which filter user inputs, to make sure they match specified criteria before the library or other object is created.</li>
+<li><strong>CSV profiles:</strong> Using Koha you can export items. The CSV profile defines how you want to export the item(s). CSV/tab exports will not work without these.</li>
+<li><strong>Coded values conforming to the Z39.71-2006 holdings statements for bibliographic items:</strong> Not required to use Koha. A holding statement tells the user if the library has a specific item and where it is located. Selecting will install sample code values for items in the holding statements.</li>
+<li><strong>MARC code list for relators:</strong> Not required to use Koha. A relator is a person who was involved in the development of the item (e.g. author). Selecting this will insert sample relator records into the database.</li>
+<li><strong>Some basic currencies with USA dollar as default for ACQ module:</strong> Install US dollar, Great British Pound, Canadian Dollar and Euro currencies. Set the US dollar as the default acquisition currency. Not installing these will mean that a currency will need to be defined before acquisitions can be used.</li>
+<li><strong>Useful patron attribute types:</strong> Not required to use Koha. Patrons have a barcode which identifies them. By clicking this checkbox you are making sure that this patron barcode is displayed on the patron summary screen.</li>
+<li><strong>Sample patron types and categories:</strong> Not required to use Koha. Selecting this will install sample patron categories into the database. This will mean the create patron category step in the onboarding tool is skipped.</li>
+<li><strong>Sample label and patron card data:</strong> Not required to use Koha, but recommended for most new installs. Selecting this will install sample data for labels and patron cards and will make it easier to create a labels and patron cards in the future.</li>
+<li><strong>Sample holidays: Sunday, Christmas, New Year’s</strong> Not required to use Koha. Selecting this will insert sample repeatable public holidays (e.g. Christmas) into the database.</li>
+<li><strong>A set of default item types:</strong> Not required for Koha. Selecting this will insert sample item type data into the database, meaning the create item type step in the onboarding tool will be skipped.</li>
+<li><strong>Sample libraries:</strong> Not required for Koha. Selecting this will insert sample libraries into the database. Developers will often want this for demo or development purposes. Selecting this means the create library step in the onboarding tool will be skipped.</li>
+<li><strong>Sample news items:</strong> Not required for Koha. Selecting this will insert sample news items that are displayed on the OPAC (Online Public Access Catalog) and staff client into the database.</li>
+<li><strong>Sample patrons:</strong> Not required for Koha. Patrons are the people who use the Koha Library Management System, for example: library users and staff. Selecting this will insert a number of sample patrons into the database. Developers will often want this for demo or development purposes.</li>
+<li><strong>Sample quotes:</strong> Not required for Koha. Quotes of the day can be displayed to library users on the OPAC (Online Public Access Catalog) interface. Selecting this will install a few library related sample quotes.</li>
+<li><strong>Allow access to the following servers to search and download record information:</strong> Not required to use Koha, but recommended for most new installs. Selecting this configures Koha to allow access to a selection of Z39.50 targets, which allow searching the target servers for MARC21 records to import them into your Koha instance. This can avoid the need to manually input all record information manually, or greatly speed up the process.</li>
+<li>Click the <em>Import</em> button to install the default and selected data values.</li>
+</ol>
+</div>
+<div class="section" id="unimarc-setup">
+<h2>UNIMARC setup<a class="headerlink" href="#unimarc-setup" title="永久链接至标题"></a></h2>
+<p>There are only two data values in the UNIMARC advanced setup which are unique:</p>
+<ul class="simple">
+<li>Authority structure for UNIMARC in English</li>
+<li>Default UNIMARC bibliographic framework in English</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Optional values are the same for both UNIMARC and MARC21, therefore their definition will not be repeated.</p>
+</div>
+<p><img alt="image1175" src="_images/unimarc_basic_setup.png" /></p>
+<p>UNIMARC setup</p>
+<ol class="arabic simple">
+<li><em>Authority structure for UNIMARC in English:</em> Authority records store the search terms used to find items in the database. Unlike MARC21, when using UNIMARC the authority structure needs to be compatible with UNIMARC. Selecting this option makes it compatible.</li>
+<li><em>Default UNIMARC bibliographic framework in English:</em> In the previous screen you clicked to use the UNIMARC flavour, now by selecting this option you are confirming you want to use that framework.</li>
+<li>Click the <em>Import</em> button to install the sample data</li>
+</ol>
+</div>
+<div class="section" id="selected-data-added">
+<h2>Selected data added<a class="headerlink" href="#selected-data-added" title="永久链接至标题"></a></h2>
+<p>After you have clicked the <em>Import</em> button in either the MARC21 or UNIMARC setup screen this screen will appear. It shows you if the selected/default data values were successfully inserted into the database.</p>
+<blockquote>
+<div><p><img alt="image1176" src="_images/data_added_1.png" /></p>
+<p>Selected data added</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><strong>Optional data added:</strong> If you selected an optional data value then it will be displayed here. If you did not choose any optional data value then the <strong>optional data added</strong> title will not be displayed.</li>
+<li><strong>MySQL data added:</strong> These data values will always be installed and consequently displayed on this screen.</li>
+<li><strong>Mandatory data added:</strong> Same as above.</li>
+<li><strong>Installation message:</strong> Tells you if the Koha database was successfully created ready for you to use the onboarding tool.</li>
+<li>Click the <em>Set up some of Koha’s basic requirements</em> button to go to a redirection screen, which in turn will take you to the onboarding tool.</li>
+</ol>
+</div>
+<div class="section" id="redirect-to-onboarding-tool">
+<h2>Redirect to onboarding tool<a class="headerlink" href="#redirect-to-onboarding-tool" title="永久链接至标题"></a></h2>
+<p>If you wait for around 10 seconds this screen should redirect you to the onboarding tool start screen.</p>
+<blockquote>
+<div><p><img alt="image1177" src="_images/redirect.png" /></p>
+<p>Redirect to onboarding tool</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If after waiting you are not redirected select the link pointed out by the arrow in the above screenshot.</p>
+</div>
+</div>
+</div>
+<div class="section" id="onboarding-tool">
+<h1>Onboarding tool<a class="headerlink" href="#onboarding-tool" title="永久链接至标题"></a></h1>
+<div class="section" id="create-a-library">
+<h2>Create a library<a class="headerlink" href="#create-a-library" title="永久链接至标题"></a></h2>
+<p>The installer will prompt to create the first library or branch if the sample libraries were not installed.</p>
+<p>A library in Koha is the digital representation of a “physical” place. More libraries can be added later by going to Administration -&gt; Libraries and groups.</p>
+<blockquote>
+<div><p><img alt="image1153" src="_images/create_library_screen_1.png" /></p>
+<p>Create library</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><strong>Library code:</strong> code consisting of up to 10 letters.</li>
+<li><strong>Name:</strong> Official name of the library, as it is commonly known.</li>
+<li><strong>Create more libraries:</strong> If more libraries are required, or changes need to be made to this freshly created library, go to Administration -&gt; Libraries and groups</li>
+<li>Click the <em>Submit</em> button to create a library.</li>
+</ol>
+<p>For example:</p>
+<blockquote>
+<div><p><img alt="image1154" src="_images/create_library_screen_1_example.png" /></p>
+<p>Create library example</p>
+</div></blockquote>
+<p><strong>Library code:</strong> The regular expression that filters the acceptable inputs for library code only accepts up to 10 letters.</p>
+</div>
+<div class="section" id="create-a-patron-category">
+<h2>Create a patron category<a class="headerlink" href="#create-a-patron-category" title="永久链接至标题"></a></h2>
+<p>All patrons in Koha must have a patron category. The patron category is like a jelly mold; multiple individual patron accounts can share common characteristics, such as circulation rules, notice frequency, holds allowed, and much more. Koha requires at least one patron category in order to add patrons.</p>
+<p>A patron category requires:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Category code</li>
+<li>Description</li>
+<li>Overdue notice required</li>
+<li>Category type</li>
+<li>Default privacy</li>
+<li>Enrolment period: In months OR Until date</li>
+</ul>
+<p><img alt="image1155" src="_images/create_patron_categories_1.png" /></p>
+<p>Create a patron category</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><strong>Library creation message:</strong> Indicates whether the library was created successfully.</li>
+<li><strong>Category code:</strong> Code consisting of up to 10 letters.</li>
+<li><strong>Description:</strong> Sentence describing what the patron category is.</li>
+<li><em>Overdue notice required</em> dropdown button: Set by default to ‘no’. This specifies if you want the patron category to receive overdue notices.</li>
+<li><strong>Category type:</strong> This makes the category created a staff member.</li>
+<li><strong>Default privacy:</strong> Set by default to ‘default’. The Default privacy controls the amount of time that the reading history of the patron is stored for.</li>
+<li><strong>Enrolment period - in months:</strong> This is the number of months that the patrons created from this patron category are enrolled for.</li>
+<li><strong>Enrolment period - until date:</strong> Select a date from the interactive datepicker calendar icon which appears when you click on this input box. The date you choose will be the enrolment end date for patrons created from this patron category.</li>
+<li><strong>Path to create patron category:</strong> More patron categories can be created or altered by going to Administration -&gt; Patron categories.</li>
+<li>Click the <em>Submit</em> button to create the patron category.</li>
+</ol>
+<p>For example:</p>
+<blockquote>
+<div><img alt="image1156" src="_images/create_patron_category_1_example.png" /></div></blockquote>
+</div>
+<div class="section" id="create-a-patron">
+<h2>Create a patron<a class="headerlink" href="#create-a-patron" title="永久链接至标题"></a></h2>
+<p>A superlibrarian patron user is required to log into the Koha staff interface, once the onboarding process has been completed.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">It is very important to document the username and password created here as they are the account credentials required to login as an administrator (superlibrarian) of Koha.</p>
+</div>
+<p>You will need to input/select:</p>
+<ul>
+<li><p class="first">Surname</p>
+</li>
+<li><p class="first">First name</p>
+</li>
+<li><p class="first">Card number</p>
+</li>
+<li><p class="first">Library</p>
+</li>
+<li><p class="first">Patron category</p>
+</li>
+<li><p class="first">Username</p>
+</li>
+<li><p class="first">Password</p>
+<p><img alt="image1157" src="_images/create_patron_1.png" /></p>
+<p>Create a patron</p>
+</li>
+</ul>
+<ol class="arabic simple">
+<li><strong>Patron category creation message:</strong> This indicates that if the patron category was created successfully.</li>
+<li><strong>Surname:</strong> Surname, or something descriptive</li>
+<li><strong>First name:</strong> First name, or something descriptive</li>
+<li><strong>Card number:</strong> This number must be unique</li>
+<li><em>Library</em> dropdown box: If a library has been created using this onboarding tool, it will be the only option. Otherwise select a random library from the sample libraries installed by the web installer.</li>
+<li><em>Patron category</em> dropdown box: If a patron category was created using this onboarding tool, it will be the only option. Otherwise select the <em>Staff</em> patron category.</li>
+<li><strong>Superlibrarian permission:</strong> This non-editable setting allows access to all librarian and web based Koha administration tasks in the staff interface. This user is the most powerful user in any Koha, so protect the credentials well.</li>
+<li><strong>Username:</strong> The username to log into the staff interface and OPAC (Online Patron Access Catalogue) with.</li>
+<li><strong>Password:</strong> A password consisting of letters, numbers, and spaces only which is greater than 8 characters.</li>
+<li><strong>Confirm password:</strong> Repeat the above password again</li>
+<li>Click the <em>Submit</em> button to create the patron account</li>
+<li><strong>Path to create patron:</strong> Patron’s can be created or altered by going to Patrons -&gt; New patron</li>
+<li><strong>Assign patron permissions:</strong> After creating a patron go More -&gt; Set permissions to assign permissions.</li>
+</ol>
+<p>For example:</p>
+<blockquote>
+<div><p><img alt="image1158" src="_images/create_patron_1_example.png" /></p>
+<p>Create a patron example</p>
+</div></blockquote>
+</div>
+<div class="section" id="create-an-item-type">
+<h2>Create an item type<a class="headerlink" href="#create-an-item-type" title="永久链接至标题"></a></h2>
+<p>If you did not install sample item types in the web installer then this screen will be displayed.</p>
+<p>As with the patron category the item type is basically a template which you use to make multiple items with common characteristics.</p>
+<p>You need to input:</p>
+<ul>
+<li><p class="first">Item type code</p>
+</li>
+<li><p class="first">Description</p>
+<p><img alt="image1159" src="_images/create_item_type_1.png" /></p>
+<p>Create item type</p>
+</li>
+</ul>
+<ol class="arabic simple">
+<li><strong>Administrator account creation message:</strong> Indicates if the administrator patron was created successfully</li>
+<li><strong>Item type code:</strong> Code consisting of up to 10 letters</li>
+<li><strong>Description:</strong> Sentence describing what the item type is.</li>
+<li><strong>Path to create item type:</strong> Item types can be created or altered by going to Administrator-&gt;Item types</li>
+<li>Click the <em>Submit</em> button to create the item type</li>
+</ol>
+<p>For example:</p>
+<blockquote>
+<div><p><img alt="image1160" src="_images/create_item_type_1_example.png" /></p>
+<p>Create item type example</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The regular expression filtering item type code input will only accept letters.</p>
+</div>
+</div>
+<div class="section" id="create-a-circulation-rule">
+<h2>Create a circulation rule<a class="headerlink" href="#create-a-circulation-rule" title="永久链接至标题"></a></h2>
+<p>This screen will always be displayed no matter what sample data you installed with the web installer.</p>
+<p>Here you are creating a rule which applies the pre-defined organisational decisions of your library as to what restrictions you place on patrons borrowing items.</p>
+<blockquote>
+<div><p><img alt="image1161" src="_images/create_circulation_rule_1.png" /></p>
+<p>Create circulation rule</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Numbers are the only valid input for all input fields in this form.</p>
+</div>
+<ol class="arabic simple">
+<li><strong>Item type creation message:</strong> Indicates if the item type was created successfully</li>
+<li><em>Library branch</em> dropdown box: This is the library (or libraries) you want to apply the circulation rule to. By default it is set to <em>all</em>, however you can select a singular library to apply the rule to from the dropdown box.</li>
+<li><em>Patron categories</em> dropdown box: This is the patron categories you want to apply the circulation rule to. As with <em>library branch</em> it is set to <em>all</em> by default but more options are avaliable.</li>
+<li><em>Item type</em> dropdown box: This is the item types that you want the circulation rule to apply to. Again more options are avaliable than the default selected <em>all</em> option.</li>
+<li><strong>Current checkouts allowed:</strong> This is the number of items allowed from the selected library, for selected patron categories and of the selected item type. Set to 50 by default.</li>
+<li><strong>Loan period:</strong> Number of days or hours that an item is allowed out for. Set to 14 by default.</li>
+<li><em>Units</em> dropdown box: Set by default to <em>aays</em>, the unit selecting in this field is applied to the numerical values written into <strong>loan period</strong> and <strong>renewals period</strong></li>
+<li><strong>Renewals allowed:</strong> Number of times a item can be renewed. Set to 10 by default.</li>
+<li><strong>Renewals period:</strong> Number of days or hours that a renewal lasts for. Set to 14 by default.</li>
+<li><em>On shelf holds allowed</em> dropdown box: If items can be held whilst they are on the shelf.</li>
+<li><strong>Path to create circulation rule:</strong> Circulation rules can be created or altered by going to Administration -&gt; Circulation and fines rules</li>
+<li>Click the <em>submit</em> button to create the circulation rule.</li>
+</ol>
+</div>
+<div class="section" id="onboarding-tool-complete">
+<h2>Onboarding tool complete<a class="headerlink" href="#onboarding-tool-complete" title="永久链接至标题"></a></h2>
+<p>This page tells you if the circulation rule was created successfully, and that the Koha installation is complete</p>
+<blockquote>
+<div><img alt="image1162" src="_images/onboarding_tool_complete.png" /></div></blockquote>
+<ol class="arabic simple">
+<li><strong>Web installer message:</strong> Indicates if the web installation is complete</li>
+<li><strong>Circulation rule creation message:</strong> Indicates if the circulation rule was created successfully.</li>
+<li><strong>Start using Koha:</strong> Click to login to Koha using the Koha administrator account you created using the onboarding tool.</li>
+</ol>
+</div>
+<div class="section" id="login-to-access-staff-interface">
+<h2>Login to access staff interface<a class="headerlink" href="#login-to-access-staff-interface" title="永久链接至标题"></a></h2>
+<p>You have now finished using the onboarding tool and can log into the staff interface using the patron account credentials you created in the onboarding tool</p>
+<blockquote>
+<div><p><img alt="image1163" src="_images/login.png" /></p>
+<p>Login screen</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><strong>Username:</strong> Enter the username you created for the patron</li>
+<li><strong>Password:</strong> Enter the password you created</li>
+<li><strong>Library:</strong> This is the library staff interface you want to log into. The options are either: <em>my library</em> or the library you installed/created. Leaving the default selected option of <em>my library</em> is fine to log in with first time.</li>
+<li>Click the <em>login</em> button to access the staff interface</li>
+</ol>
+<p>For example:</p>
+<blockquote>
+<div><p><img alt="image1164" src="_images/login_example.png" /></p>
+<p>Login example</p>
+</div></blockquote>
+</div>
+<div class="section" id="staff-interface">
+<h2>Staff interface<a class="headerlink" href="#staff-interface" title="永久链接至标题"></a></h2>
+<p>The staff interface should now appear</p>
+<blockquote>
+<div><p><img alt="image1165" src="_images/staff_interface.png" /></p>
+<p>Staff interface</p>
+</div></blockquote>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<p class="last">For more information about how to use the staff interface, please visit <a class="reference external" href="https://koha-community.org/documentation/">https://koha-community.org/documentation/</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="globalpreferences.html" class="btn btn-neutral float-right" title="Global system preferences" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

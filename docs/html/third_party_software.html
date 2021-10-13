@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using third party software with Koha &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Configuring Receipt Printers" href="hardware.html" />
+    <link rel="prev" title="Extending Koha" href="extending_koha.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using third party software with Koha</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#marcedit">MarcEdit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-prefix-to-call-numbers">Adding a prefix to call numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-excel-data-into-koha">Importing Excel data into Koha</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#converting-from-excel-format-into-mrk-format">Converting from Excel format into .mrk format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#convert-mrk-file-to-mrc">Convert .mrk file to .mrc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-mrc-into-koha">Import .mrc into Koha</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#oclc-connexion-gateway">OCLC Connexion Gateway</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-oclc-service-on-koha">Setting up OCLC service on Koha</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-your-oclc-desktop-client">Setting up your OCLC desktop client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-oclc-connexion-gateway">Using the OCLC Connexion Gateway</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exporting-records-one-by-one">Exporting records one by one</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exporting-records-in-a-batch">Exporting records in a batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#items-in-oclc">Items in OCLC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#talking-tech">Talking Tech</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-and-setup-instructions">Installation and Setup Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-notices-file">Sending Notices File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receiving-results-file">Receiving Results File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Using third party software with Koha</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/third_party_software.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="extending_koha.html" class="btn btn-neutral float-left" title="Extending Koha" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="hardware.html" class="btn btn-neutral float-right" title="Configuring Receipt Printers" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="using-third-party-software-with-koha">
+<span id="using-third-party-software-with-koha-label"></span><h1>Using third party software with Koha<a class="headerlink" href="#using-third-party-software-with-koha" title="永久链接至标题"></a></h1>
+<div class="section" id="marcedit">
+<span id="marc-edit-label"></span><h2>MarcEdit<a class="headerlink" href="#marcedit" title="永久链接至标题"></a></h2>
+<p>Many libraries like to use MarcEdit for modifications or data cleanup.
+If you’d like to do this you will need to download it at:
+<a class="reference external" href="http://marcedit.reeset.net/">http://marcedit.reeset.net/</a></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Many of the actions described in this chapter can be done in Koha
+using <a class="reference internal" href="tools.html#marc-modification-templates-label"><span class="std std-ref">Marc Modification Templates</span></a>, but this
+section is here for those who are used to MarcEdit.</p>
+</div></blockquote>
+<div class="section" id="adding-a-prefix-to-call-numbers">
+<span id="adding-a-prefix-to-call-numbers-label"></span><h3>Adding a prefix to call numbers<a class="headerlink" href="#adding-a-prefix-to-call-numbers" title="永久链接至标题"></a></h3>
+<p>When bringing data into Koha, you may want to first clean it up. One
+common action among Koha users is to add a prefix to the call number.</p>
+<ul>
+<li><p class="first">Open MarcEdit</p>
+<p><img alt="image1089" src="_images/marcedit.png" /></p>
+</li>
+<li><p class="first">Click ‘MarcEditor’</p>
+</li>
+<li><p class="first">Go to Tools &gt; Edit Subfield Data</p>
+<p><img alt="image1090" src="_images/marcedit-editsubfield.png" /></p>
+</li>
+<li><p class="first">To prepend data the special character is: ^b&nbsp; To simply prepend data
+to the beginning of a subfield, add ^b to the Field Data: textbox and
+the data to be appended in the Replace</p>
+<p><img alt="image1091" src="_images/editsubfield1.png" /></p>
+<ul class="simple">
+<li>To prepend data to the beginning of the subfield while replacing a
+text string, add ^b[string to replace] to the Field Data textbox
+and the data to be appended in the Replace With textbox.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="importing-excel-data-into-koha">
+<span id="importing-excel-data-into-koha-label"></span><h3>Importing Excel data into Koha<a class="headerlink" href="#importing-excel-data-into-koha" title="永久链接至标题"></a></h3>
+<p>Suppose you have records of your library in excel data sheet format and
+want them to import into Koha. But how will you do this? Koha will not
+let you import excel records directly. Well here is a very simple
+solution for you which will let you import your excel records in Koha
+easily. First, we will convert excel file into Marc file and then will
+import it into Koha.</p>
+<p>Follow the given steps to import your excel records into Koha</p>
+<div class="section" id="converting-from-excel-format-into-mrk-format">
+<span id="converting-from-excel-format-into-mrk-format-label"></span><h4>Converting from Excel format into .mrk format<a class="headerlink" href="#converting-from-excel-format-into-mrk-format" title="永久链接至标题"></a></h4>
+<p>First, we will convert excel format into .mrk format. For this we will
+use MarcEdit. You can download it from <a class="reference external" href="http://marcedit.reeset.net/">http://marcedit.reeset.net/</a></p>
+<p>Now open it and select Add-ins–&gt;Delimited Text Translator.</p>
+<p><img alt="image1092" src="_images/step-1.png" /></p>
+<p>Click Next when the following window appears.</p>
+<p><img alt="image1093" src="_images/step-2.png" /></p>
+<p>Browse for your excel file.</p>
+<p><img alt="image1094" src="_images/step-3.png" /></p>
+<p>Locate your excel file by choosing the format Excel File(*.xls).</p>
+<p><img alt="image1095" src="_images/step-4.png" /></p>
+<p>Similarly, fill all the other entries such as Output File, Excel Sheet
+Name and check UTF-8 Encoded (if required) and Click Next.</p>
+<p><img alt="image1096" src="_images/step-5.png" /></p>
+<p>Now you will be prompted for mapping the fields to recognise the fields
+by standard marc format.</p>
+<p>Suppose for Field 0 that is first column I entered Map to: 022$a( Valid
+ISSN for the continuing resource) and then click on Apply.</p>
+<p><img alt="image1097" src="_images/step-6.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>You can customize Indicators and all other things, for more
+information on marc21 format visit the <a class="reference external" href="http://www.loc.gov/marc/bibliographic/">official library of congress
+site</a>.</p>
+</div></blockquote>
+<p>Similarly map all other fields and then Click on Finish.</p>
+<p><img alt="image1098" src="_images/step-7.png" /></p>
+<p>And then a window will appear indicating that your Marc Text
+File(*.mrk) has been created.</p>
+<p><img alt="image1099" src="_images/step-8.png" /></p>
+<p>Click Close and we have created a .mrk file from .xls file in this step.
+You can view the file by double clicking on it.</p>
+</div>
+<div class="section" id="convert-mrk-file-to-mrc">
+<span id="convert-mrk-file-to-mrc-label"></span><h4>Convert .mrk file to .mrc<a class="headerlink" href="#convert-mrk-file-to-mrc" title="永久链接至标题"></a></h4>
+<p>We will convert .mrk file that we have created in the above step into
+raw Marc format that can be directly imported into Koha.</p>
+<p>For this again open MarcEdit and Select MARC Tools.</p>
+<p><img alt="image1100" src="_images/step-9.png" /></p>
+<p>Next Select MarcMaker to convert .mrk file into .mrc format.</p>
+<p><img alt="image1101" src="_images/step-10.png" /></p>
+<p>Locate your input file and name your output file. Then Click Execute.</p>
+<p><img alt="image1102" src="_images/step-11.png" /></p>
+<p>And it will show you the Result.</p>
+<p><img alt="image1103" src="_images/step-12.png" /></p>
+<p>Click Close and now we have raw Marc records with us (.mrc file).</p>
+</div>
+<div class="section" id="import-mrc-into-koha">
+<span id="import-mrc-into-koha-label"></span><h4>Import .mrc into Koha<a class="headerlink" href="#import-mrc-into-koha" title="永久链接至标题"></a></h4>
+<p>More information on importing records into Koha can be found in the
+‘<a class="reference internal" href="tools.html#stage-marc-records-for-import"><span class="std std-ref">Stage MARC records for import</span></a>’ section of this manual.</p>
+<p>Finally we will import above created .mrc file into Koha.</p>
+<p>Click on Tools in your Koha staff client.</p>
+<p><img alt="image1104" src="_images/step-13.png" /></p>
+<p>Next Click on Stage MARC Records for Import.</p>
+<p><img alt="image1105" src="_images/step-14.png" /></p>
+<p>After this, choose your previously created .mrc file and click on
+Upload.</p>
+<p><img alt="image1106" src="_images/step-15.png" /></p>
+<p>You can also add comment about file and finally click on Stage For
+Import.</p>
+<p><img alt="image1107" src="_images/step-17.png" /></p>
+<p>When the import is done, you will get a result something like this</p>
+<p><img alt="image1108" src="_images/step-18.png" /></p>
+<p>Next, click on Manage staged records.</p>
+<p>Here you can even change matching rules.</p>
+<p><img alt="image1109" src="_images/step-19.png" /></p>
+<p>Click on Import this batch into catalog when you are done.</p>
+<p>Thats it. After all the records get imported, check Status and it should
+read “imported”</p>
+<p><img alt="image1110" src="_images/step-20.png" /></p>
+<p>You can even undo the Import operation.</p>
+<p>And within few minutes, we have imported around 10,000 records in Koha</p>
+</div>
+</div>
+</div>
+<div class="section" id="oclc-connexion-gateway">
+<h2>OCLC Connexion Gateway<a class="headerlink" href="#oclc-connexion-gateway" title="永久链接至标题"></a></h2>
+<p>Koha can be set to work with the OCLC Connexion Gateway. This allows
+libraries to use OCLC Connexion as their cataloging tool and simply send
+those records to Koha with a single click. The following instructions
+will help you set up the OCLC Connexion Gateway, if you have a system
+administrator you will want to consult with them on this process.</p>
+<div class="section" id="setting-up-oclc-service-on-koha">
+<span id="setting-up-oclc-service-on-koha-label"></span><h3>Setting up OCLC service on Koha<a class="headerlink" href="#setting-up-oclc-service-on-koha" title="永久链接至标题"></a></h3>
+<p>First, you’ll need to create a file somewhere on your system with
+configuration information. &nbsp;You could put this anywhere that is visible
+to the account that will be running the service.</p>
+<p>The file contains 11 lines. The first 6 will be about your Koha system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">host</span><span class="p">:</span> <span class="n">The</span> <span class="n">IP</span> <span class="n">address</span> <span class="n">of</span> <span class="n">your</span> <span class="n">Koha</span> <span class="n">server</span>
+<span class="n">port</span><span class="p">:</span> <span class="n">The</span> <span class="n">port</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Connexion</span> <span class="n">service</span><span class="o">.</span> <span class="n">This</span> <span class="n">port</span> <span class="n">must</span> <span class="n">be</span> <span class="n">different</span> <span class="kn">from</span> <span class="nn">your</span> <span class="n">SIP</span> <span class="n">port</span><span class="p">,</span> <span class="ow">or</span> <span class="nb">any</span> <span class="n">other</span> <span class="n">service</span>
+<span class="n">koha</span><span class="p">:</span> <span class="n">The</span> <span class="n">full</span> <span class="n">URL</span> <span class="n">of</span> <span class="n">your</span> <span class="n">staff</span> <span class="n">client</span>
+<span class="n">log</span><span class="p">:</span> <span class="n">The</span> <span class="n">location</span> <span class="p">(</span><span class="n">full</span> <span class="n">file</span> <span class="n">specification</span><span class="p">)</span> <span class="n">of</span> <span class="n">your</span> <span class="n">log</span> <span class="k">for</span> <span class="n">the</span> <span class="n">service</span>
+<span class="n">user</span><span class="p">:</span> <span class="n">The</span> <span class="n">default</span> <span class="n">Koha</span> <span class="n">username</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">importing</span>
+<span class="n">password</span><span class="p">:</span> <span class="n">The</span> <span class="n">password</span> <span class="n">that</span> <span class="n">goes</span> <span class="k">with</span> <span class="n">that</span> <span class="n">username</span>
+</pre></div>
+</div>
+<p>The remaining lines describe how to do the staging:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">match</span><span class="p">:</span> <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">matching</span> <span class="n">rule</span> <span class="kn">from</span> <span class="nn">your</span> <span class="n">system</span> <span class="n">to</span> <span class="n">use</span>
+<span class="n">overlay_action</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="s2">&quot;create_new&quot;</span><span class="p">,</span> <span class="ow">or</span> <span class="s2">&quot;ignore&quot;</span><span class="o">--</span> <span class="n">what</span> <span class="n">to</span> <span class="n">do</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">match</span>
+<span class="n">nomatch_action</span><span class="p">:</span> <span class="s2">&quot;create_new&quot;</span> <span class="ow">or</span> <span class="s2">&quot;ignore&quot;</span><span class="o">--</span> <span class="n">what</span> <span class="n">to</span> <span class="n">do</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">match</span>
+<span class="n">item_action</span><span class="p">:</span> <span class="s2">&quot;always_add&quot;</span><span class="p">,</span><span class="s2">&quot;add_only_for_matches&quot;</span><span class="p">,</span><span class="s2">&quot;add_only_for_new&quot;</span><span class="p">,</span> <span class="ow">or</span> <span class="s2">&quot;ignore&quot;</span> <span class="o">--</span> <span class="n">what</span> <span class="n">to</span> <span class="n">do</span> <span class="k">with</span> <span class="n">embedded</span> <span class="mi">952</span> <span class="n">item</span> <span class="n">data</span>
+<span class="n">import_mode</span><span class="p">:</span> <span class="s2">&quot;direct&quot;</span> <span class="ow">or</span> <span class="s2">&quot;stage&quot;</span>
+</pre></div>
+</div>
+<p>A sample file would look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">host</span><span class="p">:</span> <span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span>
+<span class="n">port</span><span class="p">:</span> <span class="mi">8000</span>
+<span class="n">log</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">koha</span><span class="o">/</span><span class="n">koha</span><span class="o">-</span><span class="n">dev</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">connexion</span><span class="o">.</span><span class="n">log</span>
+<span class="n">koha</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">kohastaff</span><span class="o">.</span><span class="n">myuniversity</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">user</span><span class="p">:</span> <span class="n">koha_generic_staff</span>
+<span class="n">password</span><span class="p">:</span> <span class="n">password</span>
+<span class="n">match</span><span class="p">:</span> <span class="mi">001</span>
+<span class="n">overlay_action</span><span class="p">:</span> <span class="n">replace</span>
+<span class="n">nomatch_action</span><span class="p">:</span> <span class="n">create_new</span>
+<span class="n">item_action</span><span class="p">:</span> <span class="n">ignore</span>
+<span class="n">import_mode</span><span class="p">:</span> <span class="n">direct</span>
+</pre></div>
+</div>
+<p>When choosing an ‘import_mode’ if you use “direct” then the staged
+record will be immediately imported into Koha, and should be searchable
+after your indexes catch up. &nbsp;If you choose “stage”, then the record
+will be placed in a staged batch for you to later go the <a class="reference internal" href="tools.html#staged-marc-record-management-label"><span class="std std-ref">Manage Staged
+MARC Records</span></a> tool to finish the import.</p>
+<p>If you import multiple records, they’ll be in the same batch, until that
+batch is imported, then a new batch will be created.</p>
+<p>In “direct” mode, each record will be in its’ own batch.</p>
+<p>To start the service, run the script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">location</span><span class="o">/</span><span class="n">of</span><span class="o">/</span><span class="n">connexion</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="n">daemon</span><span class="o">/</span><span class="n">connexion_import_daemon</span><span class="o">.</span><span class="n">pl</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">location</span><span class="o">/</span><span class="n">of</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">cnf</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-your-oclc-desktop-client">
+<span id="setting-up-your-oclc-desktop-client-label"></span><h3>Setting up your OCLC desktop client<a class="headerlink" href="#setting-up-your-oclc-desktop-client" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Screenshots are OCLC Connexion Client v.2.50, Koha v.3.12</p>
+</div></blockquote>
+<p>To set up the OCLC Connexion desktop client to connect to Koha, go to
+Tools &gt; Options, then choose the Export tab.</p>
+<p><img alt="image1317" src="_images/oclcexporttab.png" /></p>
+<ul>
+<li><p class="first">Click the “Create…” button to set up a new destination, then choose
+“OCLC Gateway Export” and click OK.</p>
+<ul class="simple">
+<li>Enter the following information:<ul>
+<li>“Host Name:” Your catalog’s appropriate IP address (from your
+<a class="reference internal" href="#setting-up-oclc-service-on-koha-label"><span class="std std-ref">config file above</span></a>)</li>
+<li>“Port:” Your catalog’s appropriate port number (from your
+<a class="reference internal" href="#setting-up-oclc-service-on-koha-label"><span class="std std-ref">config file above</span></a>)</li>
+<li>“Login ID:” The cataloger’s Koha login</li>
+<li>“Password:” The cataloger’s Koha password</li>
+<li>“Notify Host Before Disconnect” = checked,</li>
+<li>“Timeout” = 100, “Retries” = 3, “Delay” = 0 (zero),</li>
+<li>“Send Local System Logon ID Password” = checked.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1111" src="_images/oclcgatewaysetup.png" /></p>
+</li>
+<li><p class="first">Select “OK” when finished, and you should see your new “Gateway
+Export” option listed (The catalog’s IP address and port are blacked
+out in the following screenshot)</p>
+<p>Gateway Export Added</p>
+</li>
+<li><p class="first">Click on “Record Characteristics” and make sure that the
+bibliographic records are using MARC21, UTF-8 Unicode, and click OK
+to save.</p>
+<p>Record Characteristics</p>
+</li>
+</ul>
+<p>You should be ready to go! &nbsp;To export a record from OCLC Connexion
+Client to Koha, just press F5 while the record is on-screen. &nbsp;The export
+dialog will pop up, and you’ll see Connexion attempting to talk to Koha.
+&nbsp;You should get a message that the record was added or overlaid,
+including its biblio number, and a URL that you can copy into your web
+browser to jump straight to the record.</p>
+</div>
+<div class="section" id="using-the-oclc-connexion-gateway">
+<span id="using-the-oclc-connexion-gateway-label"></span><h3>Using the OCLC Connexion Gateway<a class="headerlink" href="#using-the-oclc-connexion-gateway" title="永久链接至标题"></a></h3>
+<p>Records can be exported from Connexion either in a batch or one by one.</p>
+<div class="section" id="exporting-records-one-by-one">
+<span id="exporting-records-one-by-one-label"></span><h4>Exporting records one by one<a class="headerlink" href="#exporting-records-one-by-one" title="永久链接至标题"></a></h4>
+<p>To export bibliographic records one by one, be sure your “Batch” options
+are correct: from the “Tools” menu, select “Options”, and select the
+“Batch” tab. In the “Perform local actions in batch” area,
+“Bibliographic Record Export” should be unchecked</p>
+<p><img alt="image1318" src="_images/oclcoptions.png" /></p>
+<p>When ready to export, from the “Action” menu, select “Export” or use the
+F5 key. You will see a screen similar to the following if the import is
+successful and if the record is new to the Catalog; you may copy &amp; paste
+the resulting URL into your Koha catalog to see the new record.</p>
+<p><img alt="image1319" src="_images/oclcstatus.png" /></p>
+<p>If the record was overlaid, you will see a message to that effect in the
+“OCLC Gateway Export Status” window</p>
+<p><img alt="image1319" src="_images/oclcstatus.png" /></p>
+</div>
+<div class="section" id="exporting-records-in-a-batch">
+<span id="exporting-records-in-a-batch-label"></span><h4>Exporting records in a batch<a class="headerlink" href="#exporting-records-in-a-batch" title="永久链接至标题"></a></h4>
+<p>To export bibliographic records in a batch, be sure your “Batch” options
+are correct: from the “Tools” menu, select “Options”, and select the
+“Batch” tab. In the “Perform local actions in batch” area,
+“Bibliographic Record Export” should be checked</p>
+<p><img alt="image1320" src="_images/oclcexportbatch.png" /></p>
+<p>When a record is ready to export, from the “Action” menu, select
+“Export” or use the F5 key, and it’s export status will be “ready.”</p>
+<p>When ready to export the batch, from the “Batch” menu, select “Process
+batch” and check the appropriate “Path” and “Export” boxes</p>
+<p><img alt="image1321" src="_images/oclcprocessbatch.png" /></p>
+<p>The export will begin, and the bib records will be exported &amp; imported
+into Koha one by one; you will see “OCLC Gateway Export Status” windows,
+as above, showing you the results of each export. That window will stay
+there until you select “Close,” and then the next record’s export/import
+will begin. The process will continue until all records in the batch are
+completed. Then you may or may not see the Connexion Client export
+report (depending on your Client options for that).</p>
+</div>
+<div class="section" id="items-in-oclc">
+<span id="items-in-oclc-label"></span><h4>Items in OCLC<a class="headerlink" href="#items-in-oclc" title="永久链接至标题"></a></h4>
+<p>If you’d like to create your item records in OCLC you can do so by
+addding a 952 for each item to the bib record you’re cataloging. The
+<a class="reference internal" href="cataloging.html#item-holdings-record-cataloging-guide-label"><span class="std std-ref">Item/Holdings Cataloging Guide</span></a> will break down what
+subfields you can use in the 952, but at the minimum you want to have
+subfield 2, a, b, and y on your items.</p>
+<p>952
+\$2CLASSIFICATION$aHOMEBRANCHCODE$bHOLDINGBRANCHCODE$yITEMTYPECODE</p>
+<ul class="simple">
+<li>The subfield 2 holds the classification code. This can be ddc for
+Dewey or lcc for Library of Congress or z for Custom. Other
+classification sources can be found in the <a class="reference internal" href="administration.html#classification-sources-label"><span class="std std-ref">Classification
+Sources</span></a> area in administration</li>
+<li>Subfield a is your home library and needs to be the code for your
+home library, not the library name. You can find these codes in the
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">Libraries</span></a> administration area.</li>
+<li>Subfield b is your holding library and needs to be the code for your
+holding library, not the library name. You can find these codes in
+the <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">Libraries</span></a> administration area.</li>
+<li>Subfield y is your item type code. It needs to be the code, not the
+item type name. You can find these codes in the <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">Item
+Types</span></a> administration area.</li>
+</ul>
+<p>952 \$2ddc$aMAIN$bMAIN$yBOOK</p>
+<p>In addition to these required fields you can enter any other subfield
+you’d like. Most libraries will enter a call number in subfield o and a
+barcode in subfield p as well. Review the <a class="reference internal" href="cataloging.html#item-holdings-record-cataloging-guide-label"><span class="std std-ref">Item/Holdings Cataloging
+Guide</span></a> for a full list of subfields and values.</p>
+</div>
+</div>
+</div>
+<div class="section" id="talking-tech">
+<span id="talking-tech-label"></span><h2>Talking Tech<a class="headerlink" href="#talking-tech" title="永久链接至标题"></a></h2>
+<p>Talking Tech I-tiva is a third party, proprietary, product that
+libraries can subscribe to. Learn more here:
+<a class="reference external" href="http://www.talkingtech.com/solutions/library">http://www.talkingtech.com/solutions/library</a>.</p>
+<div class="section" id="installation-and-setup-instructions">
+<span id="installation-and-setup-instructions-label"></span><h3>Installation and Setup Instructions<a class="headerlink" href="#installation-and-setup-instructions" title="永久链接至标题"></a></h3>
+<p>Be sure you’ve run
+installer/data/mysql/atomicupdate/Bug-4246-Talking-Tech-itiva-phone-notifications.pl
+to install the required data pack (new syspref, notice placeholders and
+messaging transport preferences)</p>
+<p>To use,
+<a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification"><span class="std std-ref">TalkingTechItivaPhoneNotification</span></a>
+syspref must be turned on.</p>
+<p>If you wish to process PREOVERDUE or RESERVES messages, you’ll need the
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences"><span class="std std-ref">EnhancedMessagingPreferences</span></a> system
+preference turned on, and patrons to have filled in a preference for
+receiving these notices by phone.</p>
+<p>For OVERDUE messages, overdue notice triggers must be configured under
+More &gt; Tools &gt; <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue notice/status triggers</span></a>. Either
+branch-specific triggers or the default level triggers may be used
+(script will select whichever is appropriate).</p>
+</div>
+<div class="section" id="sending-notices-file">
+<span id="sending-notices-file-label"></span><h3>Sending Notices File<a class="headerlink" href="#sending-notices-file" title="永久链接至标题"></a></h3>
+<ol class="arabic simple">
+<li>Add the <a class="reference internal" href="cron_jobs.html#cron-sending-notices-file-label"><span class="std std-ref">TalkingTech_itiva_outbound.pl</span></a>
+script to your crontab</li>
+<li>Add an FTP/SFTP or other transport method to send the output file to
+the I-tiva server</li>
+<li>If you wish, archive the sent notices file in another directory after
+sending</li>
+</ol>
+<p>Run TalkingTech_itiva_outbound.pl –help for more information</p>
+</div>
+<div class="section" id="receiving-results-file">
+<span id="receiving-results-file-label"></span><h3>Receiving Results File<a class="headerlink" href="#receiving-results-file" title="永久链接至标题"></a></h3>
+<ol class="arabic simple">
+<li>Add an FTP/SFTP or other transport method to send the Results file to
+a known directory on your Koha server</li>
+<li>Add the <a class="reference internal" href="cron_jobs.html#cron-receiving-notices-file-label"><span class="std std-ref">TalkingTech_itiva_inbound.pl</span></a>
+script to your crontab, aimed at that directory</li>
+<li>If you wish, archive the results file in another directory after
+processing</li>
+</ol>
+<p>Run TalkingTech_itiva_inbound.pl –help for more information</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="extending_koha.html" class="btn btn-neutral float-left" title="Extending Koha" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="hardware.html" class="btn btn-neutral float-right" title="Configuring Receipt Printers" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

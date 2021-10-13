@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serials &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Acquisitions" href="acquisitions.html" />
+    <link rel="prev" title="Course reserves" href="course_reserves.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Serials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#manage-serial-frequencies">Manage serial frequencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-frequency">Adding a frequency</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-serial-numbering-patterns">Manage serial numbering patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-numbering-pattern">Adding a numbering pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-subscription">Adding a subscription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-a-subscription">Editing a subscription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#receiving-issues">Receiving issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serial-collection">Serial collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-routing-list">Creating a routing list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subscriptions-in-the-staff-interface">Subscriptions in the staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subscriptions-in-the-opac">Subscriptions in the OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#claiming-late-issues">Claiming late issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-serial-expiration">Checking serial expiration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#renewing-subscriptions">Renewing subscriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#searching-serials">Searching serials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Serials</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/serials.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="course_reserves.html" class="btn btn-neutral float-left" title="Course reserves" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="acquisitions.html" class="btn btn-neutral float-right" title="Acquisitions" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="serials">
+<span id="serials-label"></span><h1>Serials<a class="headerlink" href="#serials" title="永久链接至标题"></a></h1>
+<p>Serials actions can be accessed by going to the ‘More’ menu at the top of
+your screen and choosing ‘Serials’ or by clicking ‘Serials’ on the main Koha
+staff interface page. The serials module in Koha is used for keeping track
+of journals, newspapers and other items that come on a regular schedule.</p>
+<p>As with all modules, make sure you go through the related
+<a class="reference internal" href="implementation_checklist.html#serials-configuration-label"><span class="std std-ref">implementation checklist</span></a> and
+<a class="reference internal" href="serialspreferences.html#serials-system-preferences-label"><span class="std std-ref">system preferences</span></a> before using the
+serials module.</p>
+<ul class="simple">
+<li><em>Get there:</em> More &gt; Serials</li>
+</ul>
+<div class="section" id="manage-serial-frequencies">
+<span id="manage-serial-frequencies-label"></span><h2>Manage serial frequencies<a class="headerlink" href="#manage-serial-frequencies" title="永久链接至标题"></a></h2>
+<p>Koha keeps a record of publication frequencies for easy management and
+duplication.</p>
+<ul class="simple">
+<li><em>Get there:</em> More &gt; Serials &gt; Manage frequencies</li>
+</ul>
+<p>From this page you can view all of the existing frequencies in your system.</p>
+<p><img alt="Table of serial frequencies" src="_images/frequencies.png" /></p>
+<p>You can edit, delete and create new ones.</p>
+<div class="section" id="adding-a-frequency">
+<span id="adding-serial-frequency-label"></span><h3>Adding a frequency<a class="headerlink" href="#adding-a-frequency" title="永久链接至标题"></a></h3>
+<p>To add a new frequency, click on the ‘New frequency’ button.</p>
+<p><img alt="New frequency form" src="_images/newfrequency.png" /></p>
+<ul class="simple">
+<li>Description: this is the name that will appear in the drop-down menu
+when creating a new serial subscription; make sure it is descriptive</li>
+<li>Unit: this is the unit used for counting the cycle of publication. Choose
+either none (for irregular frequencies), day, week, month, or year.</li>
+<li>Issues per unit: this is how many issues are published during the unit chosen
+above (this will usually be 1).</li>
+<li>Units per issue: this is how many units must we count until the next issue
+is published.</li>
+<li>Display order: this is the display order in the drop-down menu when
+<a class="reference internal" href="#add-a-subscription-label"><span class="std std-ref">creating a new subscription</span></a> (you may want
+to put the most used frequencies at the top and the less frequent at the
+bottom; the top-most position is 0). Several frequencies can have the same
+display order value. If this is the case, they will appear in the order they
+were created.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">To understand ‘issues per unit’ versus ‘units per issue’ you can read it as
+‘&lt;<em>issues</em> per unit&gt; issue(s) every &lt;<em>units</em> per issues&gt; &lt;unit&gt;’. For example, a
+biweekly frenquency (every two weeks) would be ‘1 issue every 2 weeks’. So
+‘issues per unit’ would be 1 and ‘units per issue’ would be 2. See below for
+more examples.</p>
+</div>
+<p><strong>Examples</strong></p>
+<p>Here are some examples for most common serial publication frequencies.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="15%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Frequency</th>
+<th class="head">Unit</th>
+<th class="head">Issues per unit</th>
+<th class="head">Units per issue</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Daily (“1 issue every 1 day”)</td>
+<td>Day</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>Three times per week (“3 issues every 1 week”)</td>
+<td>Week</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>Semiweekly (“2 issues every 1 week”)</td>
+<td>Week</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>Weekly (“1 issue every 1 week”)</td>
+<td>Week</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>Biweekly (“1 issue every 2 weeks”)</td>
+<td>Week</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>Monthly (“1 issue every 1 month”)</td>
+<td>Month</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>Bimonthly (“1 issue every 2 months”)</td>
+<td>Month</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>Quarterly (“1 issue every 3 months”)</td>
+<td>Month</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>Semiannual (“1 issue every 6 months”)</td>
+<td>Month</td>
+<td>1</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>Annual (“1 issue every 1 year”)</td>
+<td>Year</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>Biennal (“1 issue every 2 years”)</td>
+<td>Year</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="manage-serial-numbering-patterns">
+<span id="manage-serial-numbering-patterns-label"></span><h2>Manage serial numbering patterns<a class="headerlink" href="#manage-serial-numbering-patterns" title="永久链接至标题"></a></h2>
+<p>Every time you create a new numbering pattern in serials you can save it
+for later use. These patterns are accessible via the ‘Manage numbering
+patterns’ page.</p>
+<ul class="simple">
+<li><em>Get there:</em> More &gt; Serials &gt; Manage numbering patterns</li>
+</ul>
+<p>This page will list for you the numbering patterns you have saved in the
+past as well as a few basic patterns.</p>
+<p><img alt="Numbering patterns table" src="_images/numpatterns.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If you have upgraded from an old version of Koha (before 3.14) you will see
+‘Backup patterns’ listed for patterns. This is how Koha saved your old
+numbering patterns. You can edit these to give them more meaningful names
+from here.</p>
+</div>
+</div>
+<div class="section" id="adding-a-numbering-pattern">
+<span id="adding-serial-numbering-pattern-label"></span><h2>Adding a numbering pattern<a class="headerlink" href="#adding-a-numbering-pattern" title="永久链接至标题"></a></h2>
+<p>To add new new pattern click the ‘New numbering pattern’ button.</p>
+<p><img alt="New numbering pattern form" src="_images/newnumpattern.png" /></p>
+<ul>
+<li><p class="first">Name: this is the name that will appear in the drop-down menu
+when <a class="reference internal" href="#add-a-subscription-label"><span class="std std-ref">creating a new serial subscription</span></a>;
+make sure it is descriptive.</p>
+</li>
+<li><p class="first">Description: this is to further describe the numbering pattern; this does
+not appear when creating a new subscription, it only displays in the
+<a class="reference internal" href="#manage-serial-numbering-patterns-label"><span class="std std-ref">numbering patterns table (see above)</span></a>.</p>
+</li>
+<li><p class="first">Numbering formula: this is what is used to create the number for each issue.
+You can use up to three variables {X}, {Y}, and {Z} (see below). Along with
+the variables, you can enter any text you want to have appear in the issue
+number. You must also include any spaces you want to see in the issue numbers.
+The text will stay the same for each issue and the variables will vary.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>The variables must be in capital letters and between curly brackets.</p>
+<p><strong>Examples</strong></p>
+<ul class="last simple">
+<li>Vol. {X} No {Y}</li>
+<li>Issue {X}</li>
+<li>{X} {Y}</li>
+</ul>
+</div>
+</li>
+<li><p class="first">Display order: this is the display order in the drop-down menu when
+<a class="reference internal" href="#add-a-subscription-label"><span class="std std-ref">creating a new subscription</span></a> (you may want
+to put the most used frequencies at the top and the less frequent at the
+bottom; the top-most position is 0). Several frequencies can have the same
+display order value. If this is the case, they will appear in the order they
+were created.</p>
+</li>
+</ul>
+<p>In the table, you need to enter the parameters for each variable.</p>
+<ul class="simple">
+<li>Label: this is simply a name for the variable, it is not
+used anywhere else, but it helps identify what the variable is supposed
+to be.</li>
+<li>Add: how many numbers or units are added to the variable.</li>
+<li>Each: the numbers or units added to the variable are added each how many
+issues.</li>
+<li>Set back to: this is used for cyclic numbering; enter the starting number.</li>
+<li>When more than: this is used for cyclic numbering; enter the last number.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">When filling out these four parameter (‘add’, ‘each’, ‘set back to’ and ‘when
+more than’), work column by column and read it as a sentence: “Add 1 Every 1
+issue, set back to 1 when greater than 10”.</p>
+</div>
+<ul>
+<li><p class="first">Formatting: this is used if, instead of numbers, you want words to appear
+in your issue number. You can choose</p>
+<blockquote>
+<div><ul class="simple">
+<li>Name of day (Monday, Tuesday, Wednesday, etc.)</li>
+<li>Name of day (abbreviated) (Mon, Tue, Wed, etc.)</li>
+<li>Name of month (January, February, March, etc.)</li>
+<li>Name of month (abbreviated) (Jan, Feb, Mar, etc.)</li>
+<li>Name of season (Spring, Summer, Fall, Winter)</li>
+<li>Name of season (abbreviated) (Spr, Sum, Fal, Win)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>When filling out the table, you must always use numbers, even to represent
+names of days, months or seasons. Here are the equivalent for each</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="28%" />
+<col width="55%" />
+<col width="18%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td rowspan="7">Days</td>
+<td>Sunday</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>Monday</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>Tuesday</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>Wednesday</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>Thursday</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>Friday</td>
+<td>5</td>
+</tr>
+<tr class="row-odd"><td>Saturday</td>
+<td>6</td>
+</tr>
+<tr class="row-even"><td rowspan="12">Months</td>
+<td>January</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>February</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>March</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>April</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>May</td>
+<td>4</td>
+</tr>
+<tr class="row-odd"><td>June</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>July</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>August</td>
+<td>7</td>
+</tr>
+<tr class="row-even"><td>September</td>
+<td>8</td>
+</tr>
+<tr class="row-odd"><td>October</td>
+<td>9</td>
+</tr>
+<tr class="row-even"><td>November</td>
+<td>10</td>
+</tr>
+<tr class="row-odd"><td>December</td>
+<td>11</td>
+</tr>
+<tr class="row-even"><td rowspan="4">Seasons</td>
+<td>Spring</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>Summer</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>Fall</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>Winter</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Before you save your numbering pattern, you can test it to make sure it
+behaves as you intend.</p>
+<ul>
+<li><p class="first">Frequency: choose a frequency that fits with your numbering pattern.</p>
+</li>
+<li><p class="first">First issue publication date: choose a date where your test will start.</p>
+</li>
+<li><p class="first">Subscription length: enter a number of issues, weeks or months to test
+your numbering pattern; if the numbering pattern is cyclic, it is
+recommended to try at least two cycles to see the change in cycles and
+make sure it behaves correctly.</p>
+</li>
+<li><p class="first">Locale: if using names of days, months or season, you can choose the
+language in which these names will be displayed.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Locale doesn’t currently work well with season names.</p>
+</div>
+</li>
+</ul>
+<p>Next enter the parameters for your variables.</p>
+<ul class="simple">
+<li>Begins with: enter the first value for each variable, these should be the
+values of the issue entered in ‘First issue publication date’ above.</li>
+<li>Inner counter: enter how many issues have already passed in the cycle, so
+that Koha can calculate when to cycle back.</li>
+</ul>
+<p>Click ‘Test pattern’ to see the results. If the result is what you expected,
+you can save your numbering pattern. If the results does not match your
+expectations, go back and tweak the parameters and test again.</p>
+<p><strong>Examples</strong></p>
+<blockquote>
+<div><p>Month and year for monthly serials</p>
+<blockquote>
+<div><p>Numbering formula: {X} {Y}</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&#160;</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+</tr>
+<tr class="row-even"><td>Label</td>
+<td>Month</td>
+<td>Year</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Add</td>
+<td>1</td>
+<td>1</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Every</td>
+<td>1</td>
+<td>12</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Set back to</td>
+<td>0</td>
+<td>0</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>When more than</td>
+<td>11</td>
+<td>99999</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Formatting</td>
+<td>Name of month</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Volume and number for monthly serials</p>
+<blockquote>
+<div><p>Numbering formula: Vol.{X} No.{Y}</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&#160;</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+</tr>
+<tr class="row-even"><td>Label</td>
+<td>Volume</td>
+<td>Number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Add</td>
+<td>1</td>
+<td>1</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Every</td>
+<td>12</td>
+<td>1</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Set back to</td>
+<td>0</td>
+<td>1</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>When more than</td>
+<td>99999</td>
+<td>12</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Formatting</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Season and year for quarterly serials</p>
+<blockquote>
+<div><p>Numbering formula: {X} {Y}</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="26%" />
+<col width="24%" />
+<col width="24%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&#160;</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+</tr>
+<tr class="row-even"><td>Label</td>
+<td>Season</td>
+<td>Year</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Add</td>
+<td>1</td>
+<td>1</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Every</td>
+<td>1</td>
+<td>4</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Set back to</td>
+<td>0</td>
+<td>0</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>When more than</td>
+<td>3</td>
+<td>99999</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Formatting</td>
+<td>Name of season</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Volume and number for weekly serials</p>
+<blockquote>
+<div><p>Numbering formula: Vol.{X} No.{Y}</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&#160;</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+</tr>
+<tr class="row-even"><td>Label</td>
+<td>Volume</td>
+<td>Number</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Add</td>
+<td>1</td>
+<td>1</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Every</td>
+<td>52</td>
+<td>1</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Set back to</td>
+<td>0</td>
+<td>1</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>When more than</td>
+<td>99999</td>
+<td>52</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Formatting</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last"><a class="reference external" href="https://wiki.koha-community.org/wiki/Serial_Pattern_Library">Find more numbering patterns on Koha’s wiki</a>.</p>
+</div>
+</div>
+<div class="section" id="adding-a-subscription">
+<span id="add-a-subscription-label"></span><h2>Adding a subscription<a class="headerlink" href="#adding-a-subscription" title="永久链接至标题"></a></h2>
+<p>Subscriptions can be added by clicking the ‘New’ button on any bibliographic
+record and choosing ‘New subscription’</p>
+<p><img alt="Click on New and choose New subscription in a bibliographic record" src="_images/newsubfromrecord.png" /></p>
+<p>Or click the ‘New subscription’ button in the serials module</p>
+<p><img alt="Main page of the serials module with the left hand side menu and the New subscription button" src="_images/serialsmodule.png" /></p>
+<p>If you are entering a new subscription from the Serials module you will
+be presented with a blank form (if creating new from a bibliographic
+record the form will include the record number info).</p>
+<p><img alt="Add a new subscription form (1 of 2)" src="_images/addsub.png" /></p>
+<ul>
+<li><p class="first">Vendor: can be found by either searching vendors entered via the
+<a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">Acquisitions module</span></a> or manually entering
+the vendor ID number</p>
+<ul>
+<li><p class="first">Vendor information is not required</p>
+</li>
+<li><p class="first">In order to claim missing and late issues you need to enter vendor
+information</p>
+<p><img alt="Warning pop up saying 'If you wish to claim late or missing issues you must link this subscription to a vendor. Click OK to ignore or Cancel to return and enter a vendor'" src="_images/vendorwarning.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Record: the biblionumber of the MARC record you’d like to link this
+subscription to</p>
+<ul class="simple">
+<li>If you created a new subscription from a bibliographic record, the
+biblionumber and the title will already be filled in</li>
+<li>You can search for an existing record by clicking on the ‘Search for
+record’ link below the boxes</li>
+<li>If there is no existing bibliographic record for this subscription, you
+can create one by clicking on the ‘Create record’ link below the boxes</li>
+<li>You can also manually enter the biblionumber for a record in the first
+box</li>
+</ul>
+</li>
+<li><p class="first">Next you can choose whether a new item is created when receiving an
+issue</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If you add barcodes to issues or if your circulate them, choose to create
+an item upon reception</p>
+</div>
+</li>
+<li><p class="first">When there is an irregular issue: choose how to handle irregularities in
+your subscription, by either skipping the issue number or keeping the issue
+number</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If the numbers are always sequential, choose ‘Keep issue number’</p>
+</div>
+</li>
+<li><p class="first">Manual history: if checked, you will be able to enter serials
+outside the prediction pattern once the subscription is saved. For example,
+‘The library has issues from June 1974 to December 1996’. To do so, go to
+the ‘Planning’ tab on the subscription detail page once the subscription is
+saved and click ‘Edit history’.</p>
+<p><img alt="Subscription details page, Planning tab" src="_images/subscriptionplanning.png" /></p>
+</li>
+<li><p class="first">Call number: your item’s call number or call number prefix, this will be
+copied to items if they are created upon receiving.</p>
+</li>
+<li><p class="first">Library: the branch that owns this subscription.</p>
+<ul>
+<li><p class="first">If more than one library subscribes to this serial you will need
+to create a subscription for each library</p>
+</li>
+<li><p class="first">This can be done easily by using the ‘Edit as new (duplicate)’
+option found on the subscription information page and changing
+only the ‘Library’ field</p>
+<p><img alt="The Edit as new (duplicate) option under the Edit button in the subscription details page" src="_images/newasduplicate.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Public note: any notes you would like to appear in the OPAC for the patrons</p>
+</li>
+<li><p class="first">Nonpublic note: should be used for notes that are only visible to staff
+members via the staff interface</p>
+</li>
+<li><p class="first">Patron notification: you can pick a notice to send to patrons who subscribe
+to updates on this serial via the OPAC.</p>
+<ul class="simple">
+<li>For this option to appear you need to make sure that you have a
+‘Serials (new issue)’-type notice set up in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">‘Notices and slips’ tool</span></a></li>
+</ul>
+</li>
+<li><p class="first">Location: the shelving location, this will be copied to items if they are
+created upon receiving.</p>
+</li>
+<li><p class="first">Item type: if creating items upon reception, choose the item type of the
+items created.</p>
+</li>
+<li><p class="first">Item type for older issues: if creating items upon reception, choose the
+item type that will be assigned to previous issues when receiving new issues.
+This will only appear only if the <a class="reference internal" href="serialspreferences.html#makepreviousserialavailable"><span class="std std-ref">makePreviousSerialAvailable</span></a> is
+enabled.</p>
+</li>
+<li><p class="first">Grace period: the number of days before an issue is automatically moved
+from ‘Expected’ status to ‘Late’. This mechanism requires that the
+<a class="reference internal" href="cron_jobs.html#cron-serials-update-label"><span class="std std-ref">SerialsUpdate.pl cron job</span></a> is set up to
+run regularly.</p>
+</li>
+<li><p class="first">Number of issues to display to staff: this allows you to control how many
+issues appear by default in the staff interface catalog, in the
+‘Subscriptions’ tab of the bibliographic record.</p>
+<ul class="simple">
+<li>If this is left empty, the value of the <a class="reference internal" href="serialspreferences.html#staffserialissuedisplaycount"><span class="std std-ref">StaffSerialIssueDisplayCount</span></a>
+system preference will be used.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This does not affect the number of items shown in the ‘Holdings’ tab if
+you create items for issues. It only affects the number of issues
+displayed in the ‘Subscriptions’ tab.</p>
+</div>
+</li>
+<li><p class="first">Number of issues to display to the public: this allows you to control how many
+issues appear by default in the OPAC, in the ‘Subscriptions’ tab in
+bibliographic records</p>
+<ul class="simple">
+<li>If this is left empty, the value of the <a class="reference internal" href="serialspreferences.html#opacserialissuedisplaycount"><span class="std std-ref">OPACSerialIssueDisplayCount</span></a>
+system preference will be used.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This does not affect the number of items shown in the ‘Holdings’ tab if
+you create items for issues. It only affects the number of issues
+displayed in the ‘Subscriptions’ tab.</p>
+</div>
+</li>
+</ul>
+<p>Once that data is filled in you can click ‘Next’ to enter the prediction
+pattern information.</p>
+<p><img alt="Add a new subscription form (2 of 2)" src="_images/addsub2.png" /></p>
+<ul>
+<li><p class="first">First issue publication date: enter the date of the issue you have in your
+hand, the date from which the prediction pattern will start</p>
+</li>
+<li><p class="first">Frequency: choose the frequency of your serial. There are several
+pre-defined options all of which are visible alongside your own custom
+frequencies in ‘<a class="reference internal" href="#manage-serial-frequencies-label"><span class="std std-ref">manage frequencies</span></a>’.
+If the frequency you are looking for is not there, you can
+<a class="reference internal" href="#adding-serial-frequency-label"><span class="std std-ref">add a custom frequency</span></a>.</p>
+</li>
+<li><p class="first">Subscription length: enter the number of issues, weeks, or months in the
+subscription. This is also used for setting up renewal alerts.</p>
+</li>
+<li><p class="first">Subscription start date: this is the date at which the subscription
+begins. This is used for setting up renewal alerts.</p>
+</li>
+<li><p class="first">Subscription end date: this should only be entered for subscriptions that
+have ended (if you’re entering in a backlog of serials).</p>
+</li>
+<li><p class="first">Numbering pattern: choose how issues are numbered. The options here are
+the ones in the <a class="reference internal" href="#manage-serial-numbering-patterns-label"><span class="std std-ref">manage numbering patterns</span></a>
+section.</p>
+<ul>
+<li><p class="first">If the numbering pattern you need has not been created yet, you can
+create a new one by clicking on ‘Show advanced pattern’ and then ‘Modify
+pattern’. This is be the same as
+<a class="reference internal" href="#adding-serial-numbering-pattern-label"><span class="std std-ref">adding a numbering pattern</span></a>
+(see section above).</p>
+<p><img alt="Form to create a new numbering pattern from the subscription form" src="_images/advancedpattern.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Locale: if using names of days, months or season, you can choose the
+language in which these names will be displayed.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Locale doesn’t currently work well with season names.</p>
+</div>
+</li>
+<li><p class="first">Once a ‘Numbering pattern’ is chosen the numbering table will appear.</p>
+<p><img alt="Table to enter the starting numbers for the numbering pattern" src="_images/numberonly.png" /></p>
+<ul>
+<li><p class="first">Begins with: enter the first value for each variable, these should be the
+values of the issue entered in ‘First issue publication date’ above.</p>
+</li>
+<li><p class="first">Inner counter: enter how many issues have already passed in the cycle, so
+that Koha can calculate when to cycle back.</p>
+<ul class="simple">
+<li>For example: If the first issue to receive is “vol. 4, no. 1,
+iss. 796”, you need to set up “inner counter = 0” But if it’s
+“vol. 4, no. 2, iss. 797”, the inner counter should be “1”.</li>
+</ul>
+</li>
+<li><p class="first">After filling in this data click the ‘Test prediction pattern’
+button to see what issues the system will generate, if there are
+irregularities you can choose which issues don’t exist from the
+list presented.</p>
+<p><img alt="Prediction of the numbering for each issue in the subscription" src="_images/predictionpattern.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">If you have added <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">custom fields</span></a>, they
+will be editable above the buttons at the bottom of the screen</p>
+</li>
+</ul>
+<p>Click ‘Save subscription’ to save the information you have entered.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last"><a class="reference external" href="https://wiki.koha-community.org/wiki/Serial_Pattern_Library">Find sample serial examples in the serial pattern library on the wiki</a>.</p>
+</div>
+</div>
+<div class="section" id="editing-a-subscription">
+<span id="edit-subscription-label"></span><h2>Editing a subscription<a class="headerlink" href="#editing-a-subscription" title="永久链接至标题"></a></h2>
+<p>To edit a subscription, click on ‘Edit’ and ‘Edit subscription’ from the
+subscription page. This will take you back to the same form as the one
+used when <a class="reference internal" href="#add-a-subscription-label"><span class="std std-ref">creating a new subscription</span></a>.</p>
+<p><img alt="The Edit subscription option under the Edit button in the subscription details page" src="_images/editsubscription.png" /></p>
+<p>You can also batch edit subscriptions. To do so, search for the subscriptions
+you want to change. In the results, check the boxes next to the subscriptions
+to edit. The link ‘Edit selected serials’ will appear.</p>
+<p><img alt="Subscription search results, two subscriptions are selected and the option Edit selected serials is available" src="_images/serialsearchresults.png" /></p>
+<p>From there, you can change:</p>
+<ul class="simple">
+<li>the vendor</li>
+<li>the shelving location</li>
+<li>the library</li>
+<li>the item type</li>
+<li>the public note</li>
+<li>the nonpublic note</li>
+<li>whether or not to create an item when receiving an issue</li>
+<li>the expiration date</li>
+<li>any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">custom fields</span></a></li>
+</ul>
+<p><img alt="Subscription batch editing form" src="_images/editbatch.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Leave the field unchanged to keep the original values.</p>
+</div>
+</div>
+<div class="section" id="receiving-issues">
+<span id="receive-issues-label"></span><h2>Receiving issues<a class="headerlink" href="#receiving-issues" title="永久链接至标题"></a></h2>
+<p>Issues can be marked as received from several locations. To find a
+subscription, use the search box at the top of the Serials page to
+search for the serial you’d like to receive issues for:</p>
+<p><img alt="Search for serial subscriptions in the search bar at the top of the screen, and results" src="_images/subsearch.png" /></p>
+<p>From the search results you can click the ‘Serial receive’ buton or you
+can click on the subscription title and then click the ‘Receive’ button.</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>The final way to receive serials is from the ‘Serial collection’ page.
+To the left of the Subscription summary page there is a menu with a link
+to ‘Serial collection’</p>
+<p>From the page that opens up, check the issue(s) you want to receive (the
+expected ones should be checked by default) and click ‘Edit serials’.</p>
+<p><img alt="Serial collection page, the issues table shows three issues that have already been received and one issue still expected, the expected issue is checked" src="_images/serialcollection.png" /></p>
+<p>All three of these options will open up the issue receive form:</p>
+<p><img alt="Issue receive form, the status drop-down menu is opened and the cursor points to Arrived" src="_images/receiveissue.png" /></p>
+<ul>
+<li><p class="first">Choose ‘Arrived’ from the status drop-down menu to mark an issue as
+received.</p>
+</li>
+<li><p class="first">If you have decided to have an item record created for each issue an
+<a class="reference internal" href="cataloging.html#adding-items-label"><span class="std std-ref">item add form</span></a> will appear after choosing ‘Arrived’.
+You can add multiple copies using the ‘Number of copies to be made of this item’
+option at the bottom of the form.</p>
+<p><img alt="Issue receive form with the item creation form opened" src="_images/serialitem.png" /></p>
+</li>
+<li><p class="first">If your issue has a supplemental issue with it, fill in the
+Supplemental issue information.</p>
+<ul class="simple">
+<li>Key the entire numbering in the box after “Supplemental issue” no
+numbering will be inherited/auto-filled from the main issue, and
+exactly what you key in the box after “Supplemental issue” will be
+auto-filled in the item record’s Serial enumeration/chronology
+[MARC21 952$h] (if you create item records).<ul>
+<li>E.g., key this in its entirety if it’s what you would like
+displayed: “v.69 no.3 (Mar. 2015) suppl.”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">If you have decided to have an item record created for each issue an
+<a class="reference internal" href="cataloging.html#adding-items-label"><span class="std std-ref">item add form</span></a> will appear for your supplement and
+for the issue itself</p>
+</li>
+<li><p class="first">Once you have entered your info you can click ‘Save’</p>
+</li>
+</ul>
+</div>
+<div class="section" id="serial-collection">
+<span id="serial-collection-label"></span><h2>Serial collection<a class="headerlink" href="#serial-collection" title="永久链接至标题"></a></h2>
+<p>Each subscription has a Serial collection page available from the main Serials
+menu.</p>
+<blockquote>
+<div><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></div></blockquote>
+<p>From this page you can manage additional tasks related to subscription
+issues such as receiving multiple issues and editing.</p>
+<blockquote>
+<div><img alt="Serial collection page, the issues table shows three issues that have already been received and one issue still expected, the expected issue is checked" src="_images/serialcollection.png" /></div></blockquote>
+<p>Clicking the Generate next button will generate the next issue for you and
+mark the previously expected issue as ‘Late’ automatically.</p>
+<p>Check the box in the Edit column for one or more previous issues and
+then click the Edit serials button. This will bring you to the same screen as
+when you are <a class="reference internal" href="#receive-issues-label"><span class="std std-ref">receiving issues</span></a>. From there, you can
+edit the numbering, dates, status, and add notes.</p>
+</div>
+<div class="section" id="creating-a-routing-list">
+<span id="create-a-routing-list-label"></span><h2>Creating a routing list<a class="headerlink" href="#creating-a-routing-list" title="永久链接至标题"></a></h2>
+<p>A routing list is a list of people who receive the serial before it goes
+to the shelf. To enable routing lists, set your <a class="reference internal" href="serialspreferences.html#routingserials"><span class="std std-ref">RoutingSerials</span></a> preference
+to ‘Use’.</p>
+<p>When on the subscription page you will see a link to the left that reads
+‘Create routing list’ or ‘Edit routing list’</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>Clicking that link will bring you to the form to add a new routing list.</p>
+<p><img alt="Create routing list form" src="_images/createroutinglist.png" /></p>
+<p>From here, click ‘Add recipients’ to add users to the routing list. In the menu
+that appears you can filter patrons by part of their name, their library,
+or their patron category.</p>
+<p><img alt="Patron search to add to routing list" src="_images/addtorouting.png" /></p>
+<p>Click ‘Add’ to the right of each name to add them to the routing
+list. When you have chosen all of the people for the list, click the
+‘Close’ button to be redirected to the routing list.</p>
+<p><img alt="Editing routing list form" src="_images/editroutinglist.png" /></p>
+<p>From this form, you can play with the order of the users and add notes.
+If you always add the same note, you can enter it in the
+<a class="reference internal" href="serialspreferences.html#routinglistnote"><span class="std std-ref">RoutingListNote</span></a> system preference.</p>
+<p>If the list looks the way you expect it to, click ‘Save’.</p>
+<p>Next, you will be brought to a preview of the routing list. To print the list
+click ‘Save and preview routing slip.’ This will open a printable
+version of the list.</p>
+<p><img alt="Routing list preview" src="_images/previewroutinglist.png" /></p>
+<p>If <a class="reference internal" href="serialspreferences.html#routinglistaddreserves"><span class="std std-ref">RoutingListAddReserves</span></a> is enabled, patrons listed in the routing list
+will automatically be added to the holds list for the issue.</p>
+<p>To see a list of all of the routing lists for a specific patron is visit
+the <a class="reference internal" href="patrons.html#routing-lists-label"><span class="std std-ref">routing lists tab</span></a> on their patron record.
+Patrons are able to see a list of their own routing lists when logged
+into the OPAC in the <a class="reference internal" href="opac.html#your-routing-lists-label"><span class="std std-ref">your routing lists</span></a> tab.</p>
+</div>
+<div class="section" id="subscriptions-in-the-staff-interface">
+<span id="subscriptions-in-staff-client-label"></span><h2>Subscriptions in the staff interface<a class="headerlink" href="#subscriptions-in-the-staff-interface" title="永久链接至标题"></a></h2>
+<p>Subscription information will appear on bibliographic records under the
+‘Subscriptions’ tab</p>
+<p><img alt="The Subscriptions tab of a bibliographic record in the staff interface" src="_images/subinfoonbib.png" /></p>
+<p>Clicking the ‘Subscription details’ link will take you to the
+Subscription summary page in the staff interface.</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>If you are using the <a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">acquisitions</span></a> module to keep
+track of <a class="reference internal" href="acquisitions.html#order-from-a-serial-subscription-label"><span class="std std-ref">serial subscriptions</span></a> you
+will see an extra ‘Acquisition details’ tab in your subscription details.</p>
+<p><img alt="Acquisitions details tab in a bibliographic record attached to a serial subscription" src="_images/subdetails.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: orders).</p>
+</div>
+</div>
+<div class="section" id="subscriptions-in-the-opac">
+<span id="subscriptions-in-opac-label"></span><h2>Subscriptions in the OPAC<a class="headerlink" href="#subscriptions-in-the-opac" title="永久链接至标题"></a></h2>
+<p>When viewing the subscription in the OPAC there will be several options. You
+can choose which tab appears by default with the <a class="reference internal" href="serialspreferences.html#opacserialdefaulttab"><span class="std std-ref">opacSerialDefaultTab</span></a>
+system preference.</p>
+<p>Like in the staff interface, there will be a Subscriptions tab on the
+bibliographic record.</p>
+<p><img alt="The Subscriptions tab of a bibliographic record in the OPAC" src="_images/subopac.png" /></p>
+<p>Under this tab will appear the number of issues you chose when
+<a class="reference internal" href="#add-a-subscription-label"><span class="std std-ref">setting up the subscription</span></a> or in your
+<a class="reference internal" href="serialspreferences.html#opacserialissuedisplaycount"><span class="std std-ref">OPACSerialIssueDisplayCount</span></a> system preference. Clicking the ‘More
+details’ link will provide you with additional information about the serial
+history. You can set the default view of the serial history in the OPAC with
+the <a class="reference internal" href="serialspreferences.html#subscriptionhistory"><span class="std std-ref">SubscriptionHistory</span></a> system preference.</p>
+<p>There are two views, brief and full. The brief serial subscription history
+will show basic information regarding the subscription.</p>
+<p><img alt="Brief history of a subscription in the OPAC" src="_images/SubscriptionHistory-brief.png" /></p>
+<p>From this brief display patrons can subscribe to be notified of new
+issues as they are released by clicking the ‘Subscribe to email
+notifications of new issues’ button. This link will only appear if you have
+chosen to notify patrons when
+<a class="reference internal" href="#add-a-subscription-label"><span class="std std-ref">creating the subscription</span></a>.</p>
+<p>You can see those who subscribe to new issue alerts by going to the
+subscription page in the staff client and looking on the right of the
+‘Information’ tab.</p>
+<p><img alt="Subscription details page, Information tab" src="_images/subscriptiondetailsinfo.png" /></p>
+<p>Whereas the full view shows extensive details, broken out by year,
+regarding the subscription</p>
+<p><img alt="Full history of a subscription in the OPAC" src="_images/SubscriptionHistory-full.png" /></p>
+</div>
+<div class="section" id="claiming-late-issues">
+<span id="claim-late-serials-label"></span><h2>Claiming late issues<a class="headerlink" href="#claiming-late-issues" title="永久链接至标题"></a></h2>
+<p>Koha can send email messages to your serial vendors if you have late
+issues. To the left of the main serials page there is a link to ‘Claims’.</p>
+<p><img alt="Main page of the serials module with the left hand side menu and the New subscription button" src="_images/serialsmodule.png" /></p>
+<p>The links to claims also appears to the left of the subscription detail
+page</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>If you don’t have a claim notice defined yet you will see a warning
+message that you need to first define a notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+<p><img alt="Warning No claims notice defined. Please define one." src="_images/noclaimnotice.png" /></p>
+<p>Clicking ‘Claims’ will open a report that will ask you to choose from
+your various serial vendors to generate claims for late issues.</p>
+<p><img alt="Claims report result" src="_images/serialclaims.png" /></p>
+<p>From the list of late issues you can choose which ones you want to send
+a claim email to by clicking the checkbox to the left of late issue,
+choosing the notice template to use and clicking the ‘Send notification’
+button.</p>
+<p>You can also export the results to a CSV file by choosing a
+<a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV profile</span></a> and clicking ‘Download selected
+claims’.</p>
+</div>
+<div class="section" id="checking-serial-expiration">
+<span id="check-serial-expiration-label"></span><h2>Checking serial expiration<a class="headerlink" href="#checking-serial-expiration" title="永久链接至标题"></a></h2>
+<p>When adding serials you enter a subscription length, using the check
+expiration tool you can see when your subscriptions are about to expire.
+To use the tool, click the link to ‘Check expiration’ on the serials
+menu.</p>
+<p><img alt="Check subscription expiration search form" src="_images/subexpiresearch.png" /></p>
+<p>In the form that appears you need to enter at least a date to search by.
+You can also search by title, ISBN or library.</p>
+<p>In your results you will see all subscriptions that will expire before
+the date you entered. From there you can choose to view the subscription
+further or renew it in one click.</p>
+<p><img alt="Check expiration search results" src="_images/subscriptionexpiration.png" /></p>
+<p>If there is more than one subscription, you can check the boxes and
+click on ‘Renew selected subscriptions’ to renew all the serials.
+The serials will be renewed for the same amount of time as their previous
+subscription (i.e. if the last subscription for that serial lasted one
+year, the serial will be renewed for one year; if the last subscription
+was for 16 issues, it will be renewed for another 16 issues).</p>
+<p><img alt="Check expiration search results, two results are checked and the Renew selected subscription is available" src="_images/batchrenew.png" /></p>
+</div>
+<div class="section" id="renewing-subscriptions">
+<span id="renewing-serials-label"></span><h2>Renewing subscriptions<a class="headerlink" href="#renewing-subscriptions" title="永久链接至标题"></a></h2>
+<p>If your serial subscription has expired you won’t be able to receive
+issues. To renew your subscription you can click the ‘Renew’ button at
+the top of your subscription detail page.</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>Once you click the ‘Renew’ button you will be presented with
+renewal options.</p>
+<p><img alt="Subscription renewal form" src="_images/subscriptionrenewal.png" /></p>
+<ul class="simple">
+<li>Start date: enter the date your subscription period starts.</li>
+<li>Subscription length: enter the number of issues, weeks or months your
+subscription lasts</li>
+<li>Library: enter the library for which this subscription is, this will only
+appear if <a class="reference internal" href="serialspreferences.html#renewserialaddssuggestion"><span class="std std-ref">RenewSerialAddsSuggestion</span></a> is set to ‘Add’</li>
+<li>Note for the librarian that will manage your renewal request: enter any
+notes you might have about this renewal. This will only appear if
+<a class="reference internal" href="serialspreferences.html#renewserialaddssuggestion"><span class="std std-ref">RenewSerialAddsSuggestion</span></a> is set to ‘Add’</li>
+</ul>
+<p>Click ‘Submit’.</p>
+<p>If your <a class="reference internal" href="serialspreferences.html#renewserialaddssuggestion"><span class="std std-ref">RenewSerialAddsSuggestion</span></a> system preference is enabled, renewing
+a subscription will create a purchase suggestion in the
+<a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">acquisitions module</span></a> so that your acquisitions staff
+can manage it.</p>
+</div>
+<div class="section" id="searching-serials">
+<span id="searching-serials-label"></span><h2>Searching serials<a class="headerlink" href="#searching-serials" title="永久链接至标题"></a></h2>
+<p>Once in the Serials module there is basic search box at the top that you
+can use to find subscriptions using any part of the ISSN and/or title.</p>
+<p><img alt="Search for serial subscriptions in the search bar at the top of the screen, and results" src="_images/subsearch.png" /></p>
+<p>You can also click the ‘Advanced search’ link to the right of the
+‘Submit’ button to do a more thorough search of your serials.</p>
+<p><img alt="Serials advanced search form" src="_images/advancedserialsearch.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If you have <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> that are
+searchable, they will appear in this form.</p>
+</div>
+<p>From your results you can filter by using the search boxes at the bottom
+of each column and adjust the number of results using the toolbar at the
+top of the results set.</p>
+<p><img alt="Subscription search results, two subscriptions are selected and the option Edit selected serials is available" src="_images/serialsearchresults.png" /></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="course_reserves.html" class="btn btn-neutral float-left" title="Course reserves" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="acquisitions.html" class="btn btn-neutral float-right" title="Acquisitions" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

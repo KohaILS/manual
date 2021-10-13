@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cataloging &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Circulation" href="circulationpreferences.html" />
+    <link rel="prev" title="Authorities" href="authoritiespreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cataloging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#display">Display</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acquisitiondetails">AcquisitionDetails</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authorityseparator">AuthoritySeparator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hide-marc">hide_marc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetbibliodefaultview">IntranetBiblioDefaultView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isbd">ISBD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#labelmarcview">LabelMARCView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcfielddocurl">MARCFieldDocURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mergereportfields">MergeReportFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notestohide">NotesToHide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacsuppression-opacsuppressionbyiprange-opacsuppressionredirect-and-opacsuppressionmessage">OpacSuppression, OpacSuppressionByIPRange, OpacSuppressionRedirect, and OpacSuppressionMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#separateholdings-and-separateholdingsbranch">SeparateHoldings and SeparateHoldingsBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#urllinktext">URLLinkText</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usecontrolnumber">UseControlNumber</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#exporting">Exporting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bibtexexportadditionalfields">BibtexExportAdditionalFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risexportadditionalfields">RisExportAdditionalFields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#importing">Importing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#additionalfieldsinz3950resultsearch">AdditionalFieldsInZ3950ResultSearch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aggressivematchonisbn">AggressiveMatchOnISBN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aggressivematchonissn">AggressiveMatchOnISSN</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interface">Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advancedmarceditor">advancedMARCeditor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultclassificationsource">DefaultClassificationSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultsaverecordfileid">DefaultSaveRecordFileID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#easyanalyticalrecords">EasyAnalyticalRecords</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enableadvancedcatalogingeditor">EnableAdvancedCatalogingEditor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#record-structure">Record Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#alternateholdingsfield-and-alternateholdingsseparator">AlternateHoldingsField and AlternateHoldingsSeparator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autobarcode">autoBarcode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultcountryfield008">DefaultCountryField008</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultlanguagefield008">DefaultLanguageField008</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#item-level-itypes">item-level_itypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#itemcallnumber">itemcallnumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcfieldforcreatorid-marcfieldforcreatorname-marcfieldformodifierid-marcfieldformodifiername">MarcFieldForCreatorId, MarcFieldForCreatorName, MarcFieldForModifierId, MarcFieldForModifierName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcflavour">marcflavour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcorgcode">MARCOrgCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#newitemsdefaultlocation">NewItemsDefaultLocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prefillitem">PrefillItem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subfieldstoallowforrestrictedbatchmod">SubfieldsToAllowForRestrictedBatchmod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subfieldstoallowforrestrictedediting">SubfieldsToAllowForRestrictedEditing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subfieldstousewhenprefill">SubfieldsToUseWhenPrefill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unimarcfield100language">UNIMARCField100Language</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#z3950normalizeauthor-and-z3950authorauthfields">z3950NormalizeAuthor and z3950AuthorAuthFields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#spine-labels">Spine Labels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spinelabelautoprint">SpineLabelAutoPrint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spinelabelformat">SpineLabelFormat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spinelabelshowprintonbibdetails">SpineLabelShowPrintOnBibDetails</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Cataloging</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/catalogingpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="authoritiespreferences.html" class="btn btn-neutral float-left" title="Authorities" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulationpreferences.html" class="btn btn-neutral float-right" title="Circulation" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="cataloging">
+<span id="cataloging-system-preferences-label"></span><h1>Cataloging<a class="headerlink" href="#cataloging" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global System Preferences &gt;
+Cataloging</p>
+<div class="section" id="display">
+<span id="display-label"></span><h2>Display<a class="headerlink" href="#display" title="永久链接至标题"></a></h2>
+<div class="section" id="acquisitiondetails">
+<span id="acquisitiondetails-label"></span><h3>AcquisitionDetails<a class="headerlink" href="#acquisitiondetails" title="永久链接至标题"></a></h3>
+<p>Default: Display</p>
+<p>Asks: ___ acquisition details on the biblio detail page.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Display</li>
+<li>Don’t display</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference controls whether a tab will show on the detail page
+in the staff client that includes detailed acquisitions information
+for the title. This tab will include links to order information
+stored in the acquisitions module.</p>
+<p><img alt="image1180" src="_images/AcquisitionDetails1.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="authorityseparator">
+<span id="authorityseparator-label"></span><h3>AuthoritySeparator<a class="headerlink" href="#authorityseparator" title="永久链接至标题"></a></h3>
+<p>Asks: Separate main entry and subdivisions with ___.</p>
+<p>Default: –</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This system preference allows you to choose the character or characters that
+is used to separate the main entry and the subdivisions in authorities.</p>
+<p>For example, – will make authorities appear like this:</p>
+<p>Cats–Fiction</p>
+</li>
+<li><p class="first">This is used for non-XSLT views only. Whether or not you use XSLT views is
+determined by the following system preferences:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></li>
+<li><a class="reference internal" href="opacpreferences.html#opacxsltlistsdisplay"><span class="std std-ref">OPACXSLTListsDisplay</span></a></li>
+<li><a class="reference internal" href="opacpreferences.html#opacxsltresultsdisplay"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></li>
+<li><a class="reference internal" href="staffclientpreferences.html#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a></li>
+<li><a class="reference internal" href="staffclientpreferences.html#xsltlistsdisplay"><span class="std std-ref">XSLTListsDisplay</span></a></li>
+<li><a class="reference internal" href="staffclientpreferences.html#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="hide-marc">
+<span id="hide-marc-label"></span><h3>hide_marc<a class="headerlink" href="#hide-marc" title="永久链接至标题"></a></h3>
+<p>Default: Display</p>
+<p>Asks: ___ MARC tag numbers, subfield codes and indicators in MARC
+views.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Display – shows the tag numbers on the cataloging interface</p>
+<p><img alt="image15" src="_images/hide_marc-display.png" /></p>
+</li>
+<li><p class="first">Don’t display – shows just descriptive text when cataloging</p>
+<p><img alt="image16" src="_images/hide_marc-dont.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="intranetbibliodefaultview">
+<span id="intranetbibliodefaultview-label"></span><h3>IntranetBiblioDefaultView<a class="headerlink" href="#intranetbibliodefaultview" title="永久链接至标题"></a></h3>
+<p>Default: ISBD form</p>
+<p>Asks: By default, display biblio records in ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>ISBD form – displays records in the staff client in the old card
+catalog format<ul>
+<li>See <a class="reference internal" href="#isbd"><span class="std std-ref">ISBD</span></a> preference for more information</li>
+</ul>
+</li>
+<li>Labelled MARC form – displays records in the staff client in MARC
+with text labels to explain the different fields</li>
+<li>MARC form – displays records in the staff client in MARC</li>
+<li>normal form – visual display in the staff client (for the average
+person)</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This setting determines the bibliographic record display when
+searching the catalog on the staff client. This setting does not
+affect the display in the OPAC which is changed using the
+<a class="reference internal" href="opacpreferences.html#bibliodefaultview"><span class="std std-ref">BiblioDefaultView</span></a> preference under the OPAC
+preference tab. This setting changes the look of the record when
+first displayed. The MARC and ISBD views can still be seen by
+clicking in the sidebar.</li>
+</ul>
+</div>
+<div class="section" id="isbd">
+<span id="isbd-label"></span><h3>ISBD<a class="headerlink" href="#isbd" title="永久链接至标题"></a></h3>
+<p>Default: See <cite>ISBD view configuration
+&lt;https://wiki.koha-community.org/wiki/ISBD_view_configuration&gt;</cite> on the wiki.</p>
+<p>Asks: Use the following as the ISBD template:</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This determines how the ISBD information will display in the staff
+client. Elements in the list can be reordered to produce a different
+ISBD view. ISBD, the International Standard Bibliographic
+Description, was first introduced by IFLA (International Federation
+of Library Associations) in 1969 in order to provide guidelines for
+descriptive cataloging. The purpose of ISBD is to aid the
+international exchange of bibliographic records for a variety of
+materials.</li>
+</ul>
+</div>
+<div class="section" id="labelmarcview">
+<span id="labelmarcview-label"></span><h3>LabelMARCView<a class="headerlink" href="#labelmarcview" title="永久链接至标题"></a></h3>
+<p>Default: Don’t</p>
+<p>Asks: ___ collapse repeated tags of the same type into one tag entry.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Do – will combine all identical tag numbers under one heading in the
+MARC view in the OPAC and Staff Client</p>
+<p><img alt="image17" src="_images/LabelMARCView-do.png" /></p>
+</li>
+<li><p class="first">Don’t – will list all of the tags individually in the MARC view in
+the OPAC and Staff Client</p>
+<p><img alt="image18" src="_images/LabelMARCView-dont.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="marcfielddocurl">
+<span id="marcfielddocurl-label"></span><h3>MARCFieldDocURL<a class="headerlink" href="#marcfielddocurl" title="永久链接至标题"></a></h3>
+<p>Default: blank</p>
+<p>Asks: Use ___ as the URL for MARC field documentation. Possible substitutions are {MARC} (marc flavour, eg. “MARC21” or “UNIMARC”), {FIELD} (field number, eg. “000” or “048”), {LANG} (user language, eg. “en” or “fi-FI”). If left empty, the format documentation on <a class="reference external" href="http://loc.gov">http://loc.gov</a> (MARC21) or <a class="reference external" href="http://archive.ifla.org">http://archive.ifla.org</a> (UNIMARC) is used. For example <a class="reference external" href="http://fielddoc.example.com/">http://fielddoc.example.com/</a>?marc={MARC}&amp;field={FIELD}&amp;language={LANG}</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you choose the source of the MARC documentation available through the “?” next to MARC fields.</li>
+</ul>
+</div>
+<div class="section" id="mergereportfields">
+<span id="mergereportfields-label"></span><h3>MergeReportFields<a class="headerlink" href="#mergereportfields" title="永久链接至标题"></a></h3>
+<p>Asks: ___ fields to display for deleted records after merge</p>
+<p>Description:</p>
+<ul class="simple">
+<li>When merging records together you can receive a report of the merge
+process once it’s done, this preference lets you set the default
+values for this report.</li>
+</ul>
+<p>Example: ‘001,245ab,600’ displays:</p>
+<ul class="simple">
+<li>value of 001</li>
+<li>subfields a and b of fields 245</li>
+<li>all subfields of fields 600</li>
+</ul>
+</div>
+<div class="section" id="notestohide">
+<span id="notestohide-label"></span><h3>NotesToHide<a class="headerlink" href="#notestohide" title="永久链接至标题"></a></h3>
+<p>Asks: Don’t show these ___ note fields in title notes separator (OPAC
+record details) and in the description separator (Staff client record
+details).</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you define which of your note fields are hidden
+from the title notes (OPAC) and descriptions (Staff) tabs. Enter the
+values as a comma separated list. For example to hide the local note
+and the bibliography note in MARC21 enter 504, 590.</li>
+</ul>
+</div>
+<div class="section" id="opacsuppression-opacsuppressionbyiprange-opacsuppressionredirect-and-opacsuppressionmessage">
+<span id="opacsuppression-preferences-label"></span><h3>OpacSuppression, OpacSuppressionByIPRange, OpacSuppressionRedirect, and OpacSuppressionMessage<a class="headerlink" href="#opacsuppression-opacsuppressionbyiprange-opacsuppressionredirect-and-opacsuppressionmessage" title="永久链接至标题"></a></h3>
+<div class="section" id="opacsuppression">
+<h4>OpacSuppression<a class="headerlink" href="#opacsuppression" title="永久链接至标题"></a></h4>
+<p>Asks: ___ bibliographic records marked as suppressed from OPAC search results.</p>
+<p>Default: Don’t hide</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t hide<ul>
+<li>Will show records in OPAC search results even if they are marked as
+suppressed</li>
+</ul>
+</li>
+<li>Hide<ul>
+<li>Will not show records in OPAC search results if they’re marked as
+suppressed</li>
+</ul>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls hiding of bibliographic records in the OPAC. Enter
+“1” in the field mapped to the suppress index (942$n in MARC21, no official
+field in UNIMARC) in each bibliographic record you want to hide from
+the OPAC. The indexer then hides it from display in OPAC but will still
+display it in the staff interface.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">An <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized value</span></a> should be set for the
+MARC21 942$n field (or the equivalent UNIMARC field) to eliminate errors.
+You can use the YES_NO authorized value category, or create a new one
+titled SUPPRESS, for example, with a value of 0 for don’t suppress and 1
+for suppress.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">If this preference is set to ‘hide’ and you have the 942$n field set to 1,
+it will hide the entire bibliographic record, not just an individual item.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>Suppressed records will show a note in the staff interface indicating that
+they are suppressed from view in the OPAC.</p>
+<p><img alt="Example of a bibliographic record in the staff interface with the 'Suppressed in OPAC' note at the top" src="_images/suppressedstaff.png" /></p>
+<p>This note can be styled by using the <a class="reference internal" href="staffclientpreferences.html#intranetusercss"><span class="std std-ref">IntranetUserCSS</span></a> preference to
+stand out more if you’d like.</p>
+<p><img alt="Example of a bibliographic record in the staff interface with the 'Suppressed in OPAC' note at the top; the note is red and large" src="_images/suppressedstyled.png" /></p>
+<p>Fot the example above, the following snippet was added to
+<a class="reference internal" href="staffclientpreferences.html#intranetusercss"><span class="std std-ref">IntranetUserCSS</span></a></p>
+<div class="last highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">suppressed_opac</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="p">:</span> <span class="kc">larger</span><span class="p">;</span>
+  <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="opacsuppressionbyiprange">
+<h4>OpacSuppressionByIPRange<a class="headerlink" href="#opacsuppressionbyiprange" title="永久链接至标题"></a></h4>
+<p>Asks: Restrict the suppression to IP addresses outside of the IP range ___
+(Leave blank if not used. Define a range like 192.168..)</p>
+<p>Description:</p>
+<ul class="simple">
+<li>If you want to further control suppression you can set an IP address range
+to still show suppressed items to. Define a range like 192.168.. If you
+don’t want to limit suppression in this way, leave the IP field blank.</li>
+</ul>
+</div>
+<div class="section" id="opacsuppressionredirect">
+<h4>OpacSuppressionRedirect<a class="headerlink" href="#opacsuppressionredirect" title="永久链接至标题"></a></h4>
+<p>Asks: Redirect the opac detail page for suppressed records to ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>the 404 error page (‘Not found’).</li>
+<li>an explanatory page (‘This record is blocked’).</li>
+</ul>
+<p>Default: an explanatory page (‘This record is blocked’)</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you decide what the patrons will see in the OPAC when
+a record is suppressed. You can either show the patron a 404 error page or
+an explanatory page when they try to see a suppressed record. You can change
+the message of the explanatory page with the
+<a class="reference internal" href="#opacsuppressionmessage"><span class="std std-ref">OpacSuppressionMessage</span></a> system preference.</li>
+</ul>
+</div>
+<div class="section" id="opacsuppressionmessage">
+<h4>OpacSuppressionMessage<a class="headerlink" href="#opacsuppressionmessage" title="永久链接至标题"></a></h4>
+<p>Asks: Display the following message on the redirect page for suppressed
+bibliographic records ___.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>If you chose to show an explanatory page when a patron tries to access a
+suppressed bibliographic record, you can customize the message with HTML.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="separateholdings-and-separateholdingsbranch">
+<span id="separateholdings-and-separateholdingsbranch-label"></span><h3>SeparateHoldings and SeparateHoldingsBranch<a class="headerlink" href="#separateholdings-and-separateholdingsbranch" title="永久链接至标题"></a></h3>
+<p>SeparateHoldings default: Don’t separate</p>
+<p>SeparateHoldingsBranch default: home library</p>
+<p>Asks: ___ items display into two tabs, where the first tab contains
+items whose ___ is the logged in user’s library. The second tab will
+contain all other items.</p>
+<p>SeparateHoldings values:</p>
+<ul class="simple">
+<li>Don’t separate</li>
+<li>Separate</li>
+</ul>
+<p>SeparateHoldingsBranch values:</p>
+<ul class="simple">
+<li>holding library</li>
+<li>home library</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference lets you decide if you would like to have the holding
+information on the bibliographic detail page in the staff client
+split in to multiple tabs. The default is to show all holdings on one
+tab.</p>
+<p><img alt="image19" src="_images/SeparateHoldings.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="urllinktext">
+<span id="urllinktext-label"></span><h3>URLLinkText<a class="headerlink" href="#urllinktext" title="永久链接至标题"></a></h3>
+<p>Default: Online Resource</p>
+<p>Asks: Show ___ as the text of links embedded in MARC records.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>If the 856 field does not have a subfield 3 or y defined, the OPAC
+will say ‘Click here to access online.^ If you would like the field
+to say something else enter that in this field.</li>
+</ul>
+</div>
+<div class="section" id="usecontrolnumber">
+<span id="usecontrolnumber-label"></span><h3>UseControlNumber<a class="headerlink" href="#usecontrolnumber" title="永久链接至标题"></a></h3>
+<p>Default: Don’t use</p>
+<p>Asks: ___ record control number ($w subfields) and control number
+(001) for linking of bibliographic records.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t use</p>
+<ul class="simple">
+<li>When clicking on links to titles that appear next to ‘Continues’
+and ‘Continued by’ in the detail display Koha will perform a title
+search</li>
+</ul>
+</li>
+<li><p class="first">Use</p>
+<ul class="simple">
+<li>When clicking on links to titles that appear next to ‘Continues’
+and ‘Continued by’ in the detail display Koha will perform a
+control number (MARC field 001) search</li>
+</ul>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Unless you are going in and manually changing 773$w to match your
+rigorously-defined bibliographic relationships, you should set this
+preference to “Don’t use” and instead set
+<a class="reference internal" href="#easyanalyticalrecords"><span class="std std-ref">EasyAnalyticalRecords</span></a> to “Display”</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">If you have a serial called “Journal of Interesting Things” which has
+a separate record from when it was called “Transactions of the
+Interesting Stuff Society,” you could add linking fields to indicate
+the relationship between the two records. UseControlNumber allows you
+to use your local accession numbers for those links. In MARC21, the
+relevant sections of the two records might look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>=001    12345
+=110  2_$aInteresting Stuff Society.
+=245  10$aTransactions of the Interesting Stuff Society.
+=785  00$aInteresting Stuff Society$tJournal of Interesting Things.$w12346
+
+=001    12346
+=110  2_$aInteresting Stuff Society.
+=245  10$aJournal of Interesting Things.
+=780  00$aInteresting Stuff Society$tTransactions of the Interesting Stuff Society.$w12345
+</pre></div>
+</div>
+<p>With UseControlNumber set to ‘Use’, the 78x links will use the
+Control Numbers is subfield $w, instead of doing a title search on
+“Journal of Interesting Things” and “Transactions of the Interesting
+Stuff Society” respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="exporting">
+<span id="exporting-label"></span><h2>Exporting<a class="headerlink" href="#exporting" title="永久链接至标题"></a></h2>
+<div class="section" id="bibtexexportadditionalfields">
+<span id="bibtexexportadditionalfields-label"></span><h3>BibtexExportAdditionalFields<a class="headerlink" href="#bibtexexportadditionalfields" title="永久链接至标题"></a></h3>
+<p>Asks: Include following fields when exporting BibTeX</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Use one line per tag in the format BT_TAG: TAG$SUBFIELD ( e.g. lccn:
+010$a )</li>
+<li>To specify multiple marc tags/subfields as targets for a repeating
+BibTex tag, use the following format: BT_TAG: [TAG2$SUBFIELD1,
+TAG2$SUBFIELD2] ( e.g. notes: [501$a, 505$g] )</li>
+<li>All values of repeating tags and subfields will be printed with the
+given BibTeX tag.</li>
+<li>Use ^&#64;^ ( with quotes ) as the BT_TAG to replace the bibtex record
+type with a field value of your choosing.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>Requires YAML syntax to work</p>
+<p>This means</p>
+<ul class="last simple">
+<li>Make sure there is NO space between the field name and the colon</li>
+<li>Make sure there IS a space between the colon and the value</li>
+<li>If there are more than one values for the same field, put them in
+square brakets, separated by comma and space</li>
+<li>Make sure each pair is on its own line</li>
+</ul>
+</div>
+</div>
+<div class="section" id="risexportadditionalfields">
+<span id="risexportadditionalfields-label"></span><h3>RisExportAdditionalFields<a class="headerlink" href="#risexportadditionalfields" title="永久链接至标题"></a></h3>
+<p>Asks: Include following fields when exporting RIS</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Use one line per tag in the format RIS_TAG: TAG$SUBFIELD ( e.g. LC:
+010$a )</li>
+<li>To specificy multiple marc tags/subfields as targets for a repeating
+RIS tag, use the following format: RIS_TAG: [TAG2$SUBFIELD1,
+TAG2$SUBFIELD2] ( e.g. NT: [501$a, 505$g] )</li>
+<li>All values of repeating tags and subfields will be printed with the
+given RIS tag.</li>
+<li>Use of TY ( record type ) as a key will <em>replace</em> the default TY with
+the field value of your choosing.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>Requires YAML syntax to work</p>
+<p>This means</p>
+<ul class="last simple">
+<li>Make sure there is NO space between the field name and the colon</li>
+<li>Make sure there IS a space between the colon and the value</li>
+<li>If there are more than one values for the same field, put them in
+square brakets, separated by comma and space</li>
+<li>Make sure each pair is on its own line</li>
+</ul>
+</div>
+<p>Requires YAML syntax to work</p>
+</div>
+</div>
+<div class="section" id="importing">
+<span id="importing-label"></span><h2>Importing<a class="headerlink" href="#importing" title="永久链接至标题"></a></h2>
+<div class="section" id="additionalfieldsinz3950resultsearch">
+<span id="additionalfieldsinz3950resultsearch-label"></span><h3>AdditionalFieldsInZ3950ResultSearch<a class="headerlink" href="#additionalfieldsinz3950resultsearch" title="永久链接至标题"></a></h3>
+<p>Asks: Display the MARC field/subfields ___ in the ‘Additional fields’ column of Z39.50 search results (use comma as delimiter e.g.: “001, 082$ab, 090$ab”).</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you define additional fields and subfields to display on the Z39.50 result list.</li>
+</ul>
+</div>
+<div class="section" id="aggressivematchonisbn">
+<span id="aggressivematchonisbn-label"></span><h3>AggressiveMatchOnISBN<a class="headerlink" href="#aggressivematchonisbn" title="永久链接至标题"></a></h3>
+<p>Default: don’t</p>
+<p>Asks: When matching on ISBN with the record import tool, ___ attempt
+to match aggressively by trying all variations of the ISBNs in the
+imported record as a phrase in the ISBN fields of already cataloged
+records.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>do</li>
+<li>don’t</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows you to choose to alter the ISBN matching rule
+used when staging records for import to be more aggressive. This
+means that all text will be stripped from the ISBN field so that a
+pure number match is possible. If this preference is set to “Don’t”
+then Koha will find a match only if the ISBN fields are identical.</li>
+</ul>
+</div>
+<div class="section" id="aggressivematchonissn">
+<span id="aggressivematchonissn-label"></span><h3>AggressiveMatchOnISSN<a class="headerlink" href="#aggressivematchonissn" title="永久链接至标题"></a></h3>
+<p>Default: don’t</p>
+<p>Asks: When matching on ISSN with the record import tool, ___ attempt
+to match aggressively by trying all variations of the ISSNs in the imported
+record as a phrase in the ISSN fields of already cataloged records.</p>
+</div>
+</div>
+<div class="section" id="interface">
+<span id="interface-label"></span><h2>Interface<a class="headerlink" href="#interface" title="永久链接至标题"></a></h2>
+<div class="section" id="advancedmarceditor">
+<span id="advancedmarceditor-label"></span><h3>advancedMARCeditor<a class="headerlink" href="#advancedmarceditor" title="永久链接至标题"></a></h3>
+<p>Default: Don’t display</p>
+<p>Asks: ___ descriptions of fields and subfields in the MARC editor.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference determines whether or not MARC field names will be
+present when editing or creating MARC records.</li>
+</ul>
+<p>Values:</p>
+<ul>
+<li><p class="first">Display</p>
+<p><img alt="image20" src="_images/advancedMARCeditor-display.png" /></p>
+</li>
+<li><p class="first">Don’t display</p>
+<p><img alt="image21" src="_images/advancedMARCeditor-dontdisplay.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="defaultclassificationsource">
+<span id="defaultclassificationsource-label"></span><h3>DefaultClassificationSource<a class="headerlink" href="#defaultclassificationsource" title="永久链接至标题"></a></h3>
+<p>Default: Dewey Decimal System</p>
+<p>Asks: Use ___ as the default classification source.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">ANSCR (Sound Recordings)</p>
+</li>
+<li><p class="first">Dewey Decimal Classification</p>
+</li>
+<li><p class="first">Library of Congress Classification</p>
+</li>
+<li><p class="first">Other/Generic Classification Scheme</p>
+</li>
+<li><p class="first">SuDoc Classification (U.S. GPO)</p>
+</li>
+<li><p class="first">Universal Decimal Classification</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Adding another classification under Administration &gt; Classification Sources
+will make it show up in this list as well.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="defaultsaverecordfileid">
+<span id="defaultsaverecordfileid-label"></span><h3>DefaultSaveRecordFileID<a class="headerlink" href="#defaultsaverecordfileid" title="永久链接至标题"></a></h3>
+<p>Asks: When saving in a MARC/MARCXML file in the advanced cataloging editor or
+exporting from the detail page in the staff interface, use the ___ in the
+file name.</p>
+<p>Default: bibliographic record number</p>
+<p>Values:</p>
+<ul class="simple">
+<li>bibliographic record number</li>
+<li>control number</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference determines what is the default file name that is used when
+downloading a MARC record.</li>
+<li>Choosing ‘bibliographic record number’ will result in a file name like
+bib-123456.mrc where 123456 is the biblionumber.</li>
+<li>Choosing ‘contol number’ will result in a file name like record-123456.mrc
+where 123456 is the record control number (in MARC21, this is the 001 field).</li>
+</ul>
+</div>
+<div class="section" id="easyanalyticalrecords">
+<span id="easyanalyticalrecords-label"></span><h3>EasyAnalyticalRecords<a class="headerlink" href="#easyanalyticalrecords" title="永久链接至标题"></a></h3>
+<p>Default: Don’t Display</p>
+<p>Asks: ___ easy ways to create analytical record relationships</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Display</p>
+</li>
+<li><p class="first">Don’t Display</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>If you decide to use this feature you’ll want to make sure that your
+<a class="reference internal" href="#usecontrolnumber"><span class="std std-ref">UseControlNumber</span></a> preference is set to “Don’t
+use” or else the “Show analytics” links in the staff client and the
+OPAC will be broken.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>An analytic entry in a catalog is one that describes a part of a
+larger work that is also described in the catalog. In bibliographic
+cataloging, analytic entries may be made for chapters in books or
+special issues of articles in periodicals. In archival cataloging,
+analytic entries may be made for series or items within a collection.
+This feature in Koha allows for an easy way of linking analytic
+entries to the host records, and this system preference adds several
+new menu options to the staff cataloging detail pages to allow that
+to happen.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="enableadvancedcatalogingeditor">
+<span id="enableadvancedcatalogingeditor-label"></span><h2>EnableAdvancedCatalogingEditor<a class="headerlink" href="#enableadvancedcatalogingeditor" title="永久链接至标题"></a></h2>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ the advanced cataloging editor.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference will allow you to choose between a basic editor and a
+advanced editor for cataloging.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This feature does not currently include any support for
+UNIMARC or NORMARC fixed fields.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="record-structure">
+<span id="record-structure-label"></span><h2>Record Structure<a class="headerlink" href="#record-structure" title="永久链接至标题"></a></h2>
+<div class="section" id="alternateholdingsfield-and-alternateholdingsseparator">
+<span id="alternateholdingsfield-and-alternateholdingsseparator-label"></span><h3>AlternateHoldingsField and AlternateHoldingsSeparator<a class="headerlink" href="#alternateholdingsfield-and-alternateholdingsseparator" title="永久链接至标题"></a></h3>
+<p>Asks: Display MARC subfield ___ as holdings information for records
+that do not have items, with the subfields separated by ___.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">Sometimes libraries migrate to Koha with their holding info in the
+852 field (OCLC holdings information field) and choose not to
+transfer that information into the 952 (Koha holdings information
+field) because they don’t plan on circulating those items. For those
+libraries or other libraries that have data in the 852 fields of
+their records that they want to display, these preferences let you
+choose to display holdings info from a field other than the 952
+field. The AlternateHoldingsField preference can contain multiple
+subfields to look in; for instance 852abhi would look in 852
+subfields a, b, h, and i.</p>
+</li>
+<li><p class="first">With AlternateHoldingsField set to 852abhi and
+AlternateHoldingsSeparator set to a space the holdings would look
+like the following:</p>
+<p><img alt="image22" src="_images/AlternateHoldingsField.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="autobarcode">
+<span id="autobarcode-label"></span><h3>autoBarcode<a class="headerlink" href="#autobarcode" title="永久链接至标题"></a></h3>
+<p>Default: generated in the form &lt;branchcode&gt;yymm0001</p>
+<p>Asks: Barcodes are ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>generated in the form &lt;branchcode&gt;yymm0001</li>
+<li>generated in the form &lt;year&gt;-0001, &lt;year&gt;-0002</li>
+<li>generated in the form 1, 2, 3</li>
+<li>incremental EAN-13 barcodes</li>
+<li>not generated automatically</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This setting is for libraries wishing to generate barcodes from
+within Koha (as opposed to scanning in pre-printed barcodes or
+manually assigning them). The default behavior makes it so that when
+you click in the barcode field (952$p in MARC21) it will populate
+with the automatic barcode you have chosen. If you would rather it
+only enter an automatic barcode when you click on the plugin (the …
+to the right of the field) you can change the plugin used for that
+field in the framework. Set the plugin for 952$p (if using MARC21 or
+equivalent field mapped to items.barcode in your local MARC format)
+for your frameworks to barcode_manual.pl instead of barcode.pl.
+Learn more about editing frameworks under the <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC Bibliographic
+Frameworks</span></a> section of this manual.</li>
+</ul>
+</div>
+<div class="section" id="defaultcountryfield008">
+<span id="defaultcountryfield008-label"></span><h3>DefaultCountryField008<a class="headerlink" href="#defaultcountryfield008" title="永久链接至标题"></a></h3>
+<p>Default: Empty defaults to xxu for United States</p>
+<p>Asks: Fill in the default country code for field 008 Range 15-17 of MARC21 -
+Place of publication, production, or execution. ___.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference will allow you to set the country code for your MARC21
+008 field by default. If this is left empty it will default to
+United States (xxu). See the <a class="reference external" href="http://www.loc.gov/marc/countries/countries_code.html">MARC Code List for
+Countries</a>
+for additional values for this preference.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This preference won’t have any effect if your records are in
+UNIMARC.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="defaultlanguagefield008">
+<span id="defaultlanguagefield008-label"></span><h3>DefaultLanguageField008<a class="headerlink" href="#defaultlanguagefield008" title="永久链接至标题"></a></h3>
+<p>Default: Empty defaults to eng</p>
+<p>Asks: Fill in the default language for field 008 Range 35-37 of MARC21
+records ___.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference will allow you to set the language for your MARC21
+008 field by default. If this is left empty it will default to
+English (eng). See the <a class="reference external" href="http://www.loc.gov/marc/languages/language_code.html">MARC Code List for
+Languages</a>
+for additional values for this preference.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This preference won’t have any effect if your records are in
+UNIMARC.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="item-level-itypes">
+<span id="item-level-itypes-label"></span><h3>item-level_itypes<a class="headerlink" href="#item-level-itypes" title="永久链接至标题"></a></h3>
+<p>Default: specific item</p>
+<p>Asks: Use the item type of the ___ as the authoritative item type
+(for determining circulation and fines rules, etc).</p>
+<p>Values:</p>
+<ul class="simple">
+<li>biblio record</li>
+<li>specific item</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference determines whether the item type Koha uses for
+issuing rules will be an attribute of the bibliographic record or the
+item record. Most libraries refer to the item record for item types.
+It also determines if the item type icon appears on the OPAC search
+results. If you have the preference set to ‘biblio record’ then Koha
+displays the item type icon on the search results to the left of the
+result info.</p>
+<p><img alt="image23" src="_images/item-level_itypes.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="itemcallnumber">
+<span id="itemcallnumber-label"></span><h3>itemcallnumber<a class="headerlink" href="#itemcallnumber" title="永久链接至标题"></a></h3>
+<p>Default: 082ab</p>
+<p>Asks: Map the MARC subfield to an item’s callnumber.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This can contain multiple subfields to look in; for instance 082ab
+would look in 082 subfields a and b.</p>
+</div></blockquote>
+<p>Description:</p>
+<ul>
+<li><p class="first">This setting determines which MARC field will be used to determine
+the call number that will be entered into item records automatically
+(952$o). The value is set by providing the MARC field code (050, 082,
+090, 852 are all common in MARC21) and the subfield codes without the
+delimiters ($a, $b would be ab).</p>
+</li>
+<li><p class="first">The field can also contain several MARC fields in priority order.
+For example, 082ab,050ab,080ab,090ab will look in priority in 082ab, if
+082 is not filled in, it will look in 050ab, etc.</p>
+<p><strong>Important</strong>
+When entering more than one MARC field, separate them with a comma, but do
+not put spaces after the commas.</p>
+</li>
+</ul>
+<p>Examples:</p>
+<ul class="simple">
+<li>Dewey: 082ab or 092ab; LOC: 050ab or 090ab; from the item record:
+852hi</li>
+</ul>
+</div>
+<div class="section" id="marcfieldforcreatorid-marcfieldforcreatorname-marcfieldformodifierid-marcfieldformodifiername">
+<span id="marcfieldforcreatorid-label"></span><h3>MarcFieldForCreatorId, MarcFieldForCreatorName, MarcFieldForModifierId, MarcFieldForModifierName<a class="headerlink" href="#marcfieldforcreatorid-marcfieldforcreatorname-marcfieldformodifierid-marcfieldformodifiername" title="永久链接至标题"></a></h3>
+<p>Asks: Store record’s creator borrowernumber in MARC subfield ___ and
+record’s creator name in MARC subfield ___ Store record’s last modifier
+borrowernumber in MARC subfield ___ and record’s last modifier name in MARC
+subfield ___ NOTE: Use a dollar sign between field and subfield like 123$a.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows you to define which MARC subfields to use to
+automatically save the details of the logged in user.  You can save details
+for the record creator and the most recent modifier.</li>
+</ul>
+</div>
+<div class="section" id="marcflavour">
+<span id="marcflavour-label"></span><h3>marcflavour<a class="headerlink" href="#marcflavour" title="永久链接至标题"></a></h3>
+<p>Default: MARC21</p>
+<p>Asks: Interpret and store MARC records in the ___ format.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>MARC21<ul>
+<li>The standard style for the US, Canada, Australia, New Zealand,
+United Kingdom, Germany and other countries</li>
+</ul>
+</li>
+<li>UNIMARC<ul>
+<li>The standard style used in France, Italy, Portugal, Russia, and
+other countries</li>
+</ul>
+</li>
+<li>NORMARC<ul>
+<li>The standard style for Norway</li>
+</ul>
+</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference defines global MARC style (MARC21, UNIMARC or
+NORMARC) used for encoding.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Changing the value of this preference will not convert your records
+from one MARC style to an other.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="marcorgcode">
+<span id="marcorgcode-label"></span><h3>MARCOrgCode<a class="headerlink" href="#marcorgcode" title="永久链接至标题"></a></h3>
+<p>Default: OSt</p>
+<p>Asks: Fill in the MARC organization code ___ by default in new MARC21
+records (leave blank to disable).</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The MARC Organization Code is used to identify libraries with
+holdings of titles and more.</li>
+</ul>
+<p>Learn more and find your library’s MARC21 code on the <a class="reference external" href="http://www.loc.gov/marc/organizations/orgshome.html">MARC Code list
+for
+Organizations</a>
+or in Canada on the <a class="reference external" href="http://www.collectionscanada.gc.ca/illcandir-bin/illsear/l=0/c=1">Canadian Symbols
+Directory</a>.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This preference won’t have any effect if your records are in
+UNIMARC.</p>
+</div></blockquote>
+</div>
+<div class="section" id="newitemsdefaultlocation">
+<span id="newitemsdefaultlocation-label"></span><h3>NewItemsDefaultLocation<a class="headerlink" href="#newitemsdefaultlocation" title="永久链接至标题"></a></h3>
+<p>Asks: When items are created, give them the temporary location of ___
+(should be a location code, or blank to disable).</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This allows you to set a specific location for all new items.</li>
+<li>Make sure to use location codes, from the
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOC authorized values list</span></a></li>
+<li>You can use the <a class="reference internal" href="circulationpreferences.html#updateitemlocationoncheckin"><span class="std std-ref">UpdateItemLocationOnCheckin</span></a> system preference along
+with this one to update the location upon checkin</li>
+</ul>
+</div>
+<div class="section" id="prefillitem">
+<span id="prefillitem-label"></span><h3>PrefillItem<a class="headerlink" href="#prefillitem" title="永久链接至标题"></a></h3>
+<p>Default: the new item is not prefilled with last created item values.</p>
+<p>Asks: When a new item is added ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>the new item is not prefilled with last created item values.</li>
+<li>the new item is prefilled with last created item values.</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls the behavior used when adding new items.
+Using the options here you can choose to have your next new item
+prefill with the values used in the last item was added to save time
+typing values or to have the item form appear completely blank. Using
+<a class="reference internal" href="#subfieldstousewhenprefill"><span class="std std-ref">SubfieldsToUseWhenPrefill</span></a> you can
+control specifically which fields are prefilled.</li>
+</ul>
+</div>
+<div class="section" id="subfieldstoallowforrestrictedbatchmod">
+<span id="subfieldstoallowforrestrictedbatchmod-label"></span><h3>SubfieldsToAllowForRestrictedBatchmod<a class="headerlink" href="#subfieldstoallowforrestrictedbatchmod" title="永久链接至标题"></a></h3>
+<p>Asks: Define a list of subfields for which editing is authorized when
+<a class="reference external" href="#items_batchmod_restricted">items_batchmod_restricted</a> permission
+is enabled, separated by spaces. ___</p>
+<p>Examples:</p>
+<ul class="simple">
+<li>UNIMARC: “995$f 995$h 995$j”</li>
+<li>MARC21: “952$a 952$b 952$c”</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference lets you define what fields can be edited via the
+<a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">batch item modification tool</span></a> if the
+items_batchmod_restricted permission is enabled.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The FA framework is excluded from the permission. If the pref is
+empty, no fields are restricted.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="subfieldstoallowforrestrictedediting">
+<span id="subfieldstoallowforrestrictedediting-label"></span><h3>SubfieldsToAllowForRestrictedEditing<a class="headerlink" href="#subfieldstoallowforrestrictedediting" title="永久链接至标题"></a></h3>
+<p>Asks: Define a list of subfields for which editing is authorized when
+edit_items_restricted permission is enabled, separated by spaces.
+___</p>
+<p>Examples:</p>
+<ul class="simple">
+<li>UNIMARC: “995$f 995$h 995$j”</li>
+<li>MARC21: “952$a 952$b 952$c”</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference lets you define what fields can be edited via
+cataloging if the
+<a class="reference external" href="#edit_items_restricted">edit_items_restricted</a> permission is
+enabled</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The Fast Add (FA) framework is excluded from the permission. If
+the pref is empty, no fields are restricted.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="subfieldstousewhenprefill">
+<span id="subfieldstousewhenprefill-label"></span><h3>SubfieldsToUseWhenPrefill<a class="headerlink" href="#subfieldstousewhenprefill" title="永久链接至标题"></a></h3>
+<p>Asks: Define a list of subfields to use when prefilling items ___</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Separate values with a space.</p>
+</div></blockquote>
+<p>Description:</p>
+<ul class="simple">
+<li>When the <a class="reference internal" href="#prefillitem"><span class="std std-ref">PrefillItem</span></a> preference is set to prefill
+item values with those from the last added item, this preference can
+control which fields are prefilled (and which are not). Enter a space
+separated list of fields that you would like to prefill when adding a
+new item.</li>
+</ul>
+</div>
+<div class="section" id="unimarcfield100language">
+<span id="unimarcfield100language-label"></span><h3>UNIMARCField100Language<a class="headerlink" href="#unimarcfield100language" title="永久链接至标题"></a></h3>
+<p>Default: fre</p>
+<p>Asks: Use the language (ISO 690-2) ___ as default language in the
+UNIMARC field 100 when creating a new record or in the field plugin.</p>
+</div>
+<div class="section" id="z3950normalizeauthor-and-z3950authorauthfields">
+<span id="z3950normalizeauthor-and-z3950authorauthfields-label"></span><h3>z3950NormalizeAuthor and z3950AuthorAuthFields<a class="headerlink" href="#z3950normalizeauthor-and-z3950authorauthfields" title="永久链接至标题"></a></h3>
+<p>Defaults: Don’t copy and 701,702,700</p>
+<p>Asks: ___ authors from the UNIMARC ___ tags (separated by commas)
+to the correct author tags when importing a record using Z39.50.</p>
+<p>Description for z3950NormalizeAuthor:</p>
+<ul class="simple">
+<li>This preference allows for ‘Personal Name Authorities’ to replace
+authors as the bibliographic authority. This preference should only
+be considered by libraries using UNIMARC.</li>
+</ul>
+<p>Values for z3950NormalizeAuthor:</p>
+<ul class="simple">
+<li>Copy</li>
+<li>Don’t copy</li>
+</ul>
+<p>Description for z3950AuthorAuthFields:</p>
+<ul class="simple">
+<li>This preference defines which MARC fields will be used for ‘Personal
+Name Authorities’ to replace authors as the bibliographic
+authorities. This preference only applies to those using UNIMARC
+encoding. The MARC fields selected here will only be used if
+‘z3950NormalizeAuthor’ is set to “Copy”. The default field are 700,
+701, and 702.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="spine-labels">
+<span id="spine-labels-label"></span><h2>Spine Labels<a class="headerlink" href="#spine-labels" title="永久链接至标题"></a></h2>
+<div class="section" id="spinelabelautoprint">
+<span id="spinelabelautoprint-label"></span><h3>SpineLabelAutoPrint<a class="headerlink" href="#spinelabelautoprint" title="永久链接至标题"></a></h3>
+<p>Default: don’t</p>
+<p>Asks: When using the quick spine label printer, ___ automatically pop
+up a print dialog.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>do</li>
+<li>don’t</li>
+</ul>
+</div>
+<div class="section" id="spinelabelformat">
+<span id="spinelabelformat-label"></span><h3>SpineLabelFormat<a class="headerlink" href="#spinelabelformat" title="永久链接至标题"></a></h3>
+<p>Default: &lt;itemcallnumber&gt;&lt;copynumber&gt;</p>
+<p>Asks: Include the following fields on a quick-printed spine label:
+(Enter in columns from the biblio, biblioitems or items tables,
+surrounded by &lt; and &gt;.)</p>
+</div>
+<div class="section" id="spinelabelshowprintonbibdetails">
+<span id="spinelabelshowprintonbibdetails-label"></span><h3>SpineLabelShowPrintOnBibDetails<a class="headerlink" href="#spinelabelshowprintonbibdetails" title="永久链接至标题"></a></h3>
+<p>Default: Don’t display</p>
+<p>Asks: ___ buttons on the bib details page to print item spine labels.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Display</p>
+<p><img alt="image24" src="_images/SpineLabelShowPrintOnBibDetails.png" /></p>
+</li>
+<li><p class="first">Don’t display</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="authoritiespreferences.html" class="btn btn-neutral float-left" title="Authorities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulationpreferences.html" class="btn btn-neutral float-right" title="Circulation" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

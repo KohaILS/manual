@@ -1,0 +1,3674 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circulation &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Enhanced content" href="enhancedcontentpreferences.html" />
+    <link rel="prev" title="Cataloging" href="catalogingpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Circulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#article-requests">Article Requests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequests">ArticleRequests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestslinkcontrol">ArticleRequestsLinkControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestsmandatoryfields">ArticleRequestsMandatoryFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestsmandatoryfieldsitemsonly">ArticleRequestsMandatoryFieldsItemsOnly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestsmandatoryfieldsrecordonly">ArticleRequestsMandatoryFieldsRecordOnly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-checkout">Batch Checkout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#batchcheckouts">BatchCheckouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batchcheckoutsvalidcategories">BatchCheckoutsValidCategories</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#checkin-policy">Checkin policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#blockreturnoflostitems">BlockReturnOfLostItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blockreturnofwithdrawnitems">BlockReturnOfWithdrawnItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculatefinesonbackdate">CalculateFinesOnBackdate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculatefinesonreturn">CalculateFinesOnReturn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cumulativerestrictionperiods">CumulativeRestrictionPeriods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hidepersonalpatrondetailoncirculation">HidePersonalPatronDetailOnCirculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdsautofill">HoldsAutoFill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdsautofillprintslip">HoldsAutoFillPrintSlip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdsneedprocessingsip">HoldsNeedProcessingSIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skipholdtraponnotforloanvalue">SkipHoldTrapOnNotForLoanValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storelastborrower">StoreLastBorrower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transfersblockcirc">TransfersBlockCirc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trapholdsonorder">TrapHoldsOnOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updateitemlocationoncheckin">UpdateItemLocationOnCheckin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updatenotforloanstatusoncheckin">UpdateNotForLoanStatusOnCheckin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#checkout-policy">Checkout Policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#agerestrictionmarker">AgeRestrictionMarker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#agerestrictionoverride">AgeRestrictionOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allfinesneedoverride">AllFinesNeedOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowfineoverride">AllowFineOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowitemsonholdcheckoutsco">AllowItemsOnHoldCheckoutSCO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowitemsonholdcheckoutsip">AllowItemsOnHoldCheckoutSIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowmultipleissuesonabiblio">AllowMultipleIssuesOnABiblio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allownotforloanoverride">AllowNotForLoanOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowrenewallimitoverride">AllowRenewalLimitOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowrenewalonholdoverride">AllowRenewalOnHoldOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowreturntobranch">AllowReturnToBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowtoomanyoverride">AllowTooManyOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automaticitemreturn">AutomaticItemReturn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autoremoveoverduesrestrictions">AutoRemoveOverduesRestrictions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autoreturncheckedoutitems">AutoReturnCheckedOutItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circcontrol">CircControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#consideronsitecheckoutsasnormalcheckouts">ConsiderOnSiteCheckoutsAsNormalCheckouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultlongoverduechargevalue">DefaultLongOverdueChargeValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultlongoverduelostvalue-and-defaultlongoverduedays">DefaultLongOverdueLostValue and DefaultLongOverdueDays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdsinnoissuescharge">HoldsInNoissuesCharge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#homeorholdingbranch">HomeOrHoldingBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issuelostitem">IssueLostItem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issuinginprocess">IssuingInProcess</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#itemsdeniedrenewal">ItemsDeniedRenewal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maninvinnoissuescharge">ManInvInNoissuesCharge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marklostitemsasreturned">MarkLostItemsAsReturned</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxoutstanding">maxoutstanding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noissuescharge">noissuescharge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noissueschargeguarantees">NoIssuesChargeGuarantees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#norenewalbeforeprecision">NoRenewalBeforePrecision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noticebcc">NoticeBcc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onsitecheckoutautocheck">OnSiteCheckoutAutoCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onsitecheckouts">OnSiteCheckouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onsitecheckoutsforce">OnSiteCheckoutsForce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacfinenorenewalsblockautorenew">OPACFineNoRenewalsBlockAutoRenew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overduenoticecalendar">OverdueNoticeCalendar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overduesblockcirc">OverduesBlockCirc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overduesblockrenewing">OverduesBlockRenewing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#printnoticesmaxlines">PrintNoticesMaxLines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renewaccruingiteminopac">RenewAccruingItemInOpac</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renewaccruingitemwhenpaid">RenewAccruingItemWhenPaid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renewalperiodbase">RenewalPeriodBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renewalsendnotice">RenewalSendNotice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rentalfeescheckoutconfirmation">RentalFeesCheckoutConfirmation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rentalsinnoissuescharge">RentalsInNoissuesCharge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restrictionblockrenewing">RestrictionBlockRenewing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#returnbeforeexpiry">ReturnBeforeExpiry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staffsearchresultsdisplaybranch">StaffSearchResultsDisplayBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switchonsitecheckouts">SwitchOnSiteCheckouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transfersmaxdayswarning">TransfersMaxDaysWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usebranchtransferlimits-and-branchtransferlimitstype">UseBranchTransferLimits and BranchTransferLimitsType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usedaysmode">useDaysMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usetransportcostmatrix">UseTransportCostMatrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#course-reserves">Course Reserves</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usecoursereserves">UseCourseReserves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fines-policy">Fines Policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#finescalendar">finesCalendar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finesincludegraceperiod">FinesIncludeGracePeriod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finesmode">finesMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdfeemode">HoldFeeMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#norefundonlostreturneditemsage">NoRefundOnLostReturnedItemsAge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processingfeenote">ProcessingFeeNote</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#refundlostonreturncontrol">RefundLostOnReturnControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suspensionscalendar">SuspensionsCalendar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usedefaultreplacementcost">useDefaultReplacementCost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whenlostchargereplacementfee">WhenLostChargeReplacementFee</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whenlostforgivefine">WhenLostForgiveFine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-policy">Holds Policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowholddateinfuture">AllowHoldDateInFuture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowholditemtypeselection">AllowHoldItemTypeSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowholdpolicyoverride">AllowHoldPolicyOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowholdsondamageditems">AllowHoldsOnDamagedItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowholdsonpatronspossessions">AllowHoldsOnPatronsPossessions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowrenewalifotheritemsavailable">AllowRenewalIfOtherItemsAvailable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autoresumesuspendedholds">AutoResumeSuspendedHolds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canmarkholdstopullaslost">CanMarkHoldsToPullAsLost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canreservefromotherbranches">canreservefromotherbranches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#confirmfutureholds">ConfirmFutureHolds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decreaseloanhighholds-decreaseloanhighholdsduration-decreaseloanhighholdsvalue-decreaseloanhighholdscontrol-and-decreaseloanhighholdsignorestatuses">decreaseLoanHighHolds, decreaseLoanHighHoldsDuration, decreaseLoanHighHoldsValue, decreaseLoanHighHoldsControl, and decreaseLoanHighHoldsIgnoreStatuses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displaymultiplacehold">DisplayMultiPlaceHold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emaillibrarianwhenholdisplaced">emailLibrarianWhenHoldIsPlaced</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#excludeholidaysfrommaxpickupdelay">ExcludeHolidaysFromMaxPickUpDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expirereservesmaxpickupdelay">ExpireReservesMaxPickUpDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expirereservesmaxpickupdelaycharge">ExpireReservesMaxPickUpDelayCharge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expirereservesonholidays">ExpireReservesOnHolidays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdssplitqueue">HoldsSplitQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdssplitqueuenumbering">HoldsSplitQueueNumbering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#localholdspriority-localholdsprioritypatroncontrol-localholdspriorityitemcontrol">LocalHoldsPriority, LocalHoldsPriorityPatronControl, LocalHoldsPriorityItemControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxreserves">maxreserves</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacallowholddateinfuture">OPACAllowHoldDateInFuture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacallowusertochoosebranch">OPACAllowUserToChooseBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacholdsifavailableatpickup">OPACHoldsIfAvailableAtPickup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacholdsifavailableatpickupexceptions">OPACHoldsIfAvailableAtPickupExceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reservescontrolbranch">ReservesControlBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reservesmaxpickupdelay">ReservesMaxPickUpDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reservesneedreturns">ReservesNeedReturns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staticholdsqueueweight-holdsqueueskipclosed-and-randomizeholdsqueueweight">StaticHoldsQueueWeight, HoldsQueueSkipClosed and RandomizeHoldsQueueWeight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suspendholdsintranet">SuspendHoldsIntranet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suspendholdsopac">SuspendHoldsOpac</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transferwhencancelallwaitingholds">TransferWhenCancelAllWaitingHolds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updateitemwhenlostfromholdlist">UpdateItemWhenLostFromHoldList</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#housebound-module">Housebound module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#houseboundmodule">HouseboundModule</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interface">Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowallmessagedeletion">AllowAllMessageDeletion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowcheckoutnotes">AllowCheckoutNotes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowofflinecirculation">AllowOfflineCirculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autoswitchpatron">AutoSwitchPatron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circautoprintquickslip">CircAutoPrintQuickSlip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circsidebar">CircSidebar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displayclearscreenbutton">DisplayClearScreenButton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exportcirchistory">ExportCircHistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exportremovefields">ExportRemoveFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filterbeforeoverduereport">FilterBeforeOverdueReport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finenotifyatcheckin">FineNotifyAtCheckin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdstopullstartdate">HoldsToPullStartDate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#itembarcodefallbacksearch">itemBarcodeFallbackSearch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#itembarcodeinputfilter">itemBarcodeInputFilter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noticecss">NoticeCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numreturneditemstoshow">numReturnedItemsToShow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronautocomplete">PatronAutoComplete</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#previousissuesdefaultsortorder">previousIssuesDefaultSortOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recordlocaluseonreturn">RecordLocalUseOnReturn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showallcheckins">ShowAllCheckins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specifyduedate">SpecifyDueDate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specifyreturndate">SpecifyReturnDate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#todaysissuesdefaultsortorder">todaysIssuesDefaultSortOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updatetotalissuesoncirc">UpdateTotalIssuesOnCirc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usecirculationdesks">UseCirculationDesks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#waitingnotifyatcheckin">WaitingNotifyAtCheckin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interlibrary-loans">Interlibrary Loans</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#circulateill">CirculateILL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illcheckavailability">ILLCheckAvailability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illdefaultstaffemail">ILLDefaultStaffEmail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illhiddenrequeststatuses">ILLHiddenRequestStatuses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illmodule">ILLModule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illmodulecopyrightclearance">ILLModuleCopyrightClearance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illmoduleunmediated">ILLModuleUnmediated</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illopacbackends">ILLOpacbackends</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illsendstaffnotices">ILLSendStaffNotices</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#return-claims">Return claims</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#claimreturnedchargefee">ClaimReturnedChargeFee</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#claimreturnedlostvalue">ClaimReturnedLostValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#claimreturnedwarningthreshold">ClaimReturnedWarningThreshold</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#self-check-in-module-sci-main-pl">Self check-in module (sci-main.pl)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckinmainuserblock">SelfCheckInMainUserBlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckinmodule">SelfCheckInModule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckintimeout">SelfCheckInTimeout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckinusercss">SelfCheckInUserCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckinuserjs">SelfCheckInUserJS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#self-check-out-module-sco-main-pl">Self check-out module (sco-main.pl)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scouserjs">SCOUserJS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scomainuserblock">SCOMainUserBlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scousercss">SCOUserCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showpatronimageinwebbasedselfcheck">ShowPatronImageInWebBasedSelfCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#webbasedselfcheck">WebBasedSelfCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckoutbylogin">SelfCheckoutByLogin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfchecktimeout">SelfCheckTimeout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scoallowcheckin">SCOAllowCheckin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckhelpmessage">SelfCheckHelpMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autoselfcheckallowed-autoselfcheckid-and-autoselfcheckpass">AutoSelfCheckAllowed, AutoSelfCheckID and AutoSelfCheckPass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckreceiptprompt">SelfCheckReceiptPrompt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckallowbyipranges">SelfCheckAllowByIPRanges</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#stock-rotation">Stock rotation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stockrotation">StockRotation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Circulation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/circulationpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="catalogingpreferences.html" class="btn btn-neutral float-left" title="Cataloging" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="enhancedcontentpreferences.html" class="btn btn-neutral float-right" title="Enhanced content" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="circulation">
+<span id="circulation-system-preferences-label"></span><h1>Circulation<a class="headerlink" href="#circulation" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global System Preferences &gt;
+Circulation</p>
+<div class="section" id="article-requests">
+<span id="article-requests-sysprefs-label"></span><h2>Article Requests<a class="headerlink" href="#article-requests" title="永久链接至标题"></a></h2>
+<div class="section" id="articlerequests">
+<span id="articlerequests-label"></span><h3>ArticleRequests<a class="headerlink" href="#articlerequests" title="永久链接至标题"></a></h3>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ patrons to place article requests.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Enable</li>
+<li>Don’t enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls whether or not article requests are allowed to be placed by patrons in the OPAC.</li>
+</ul>
+</div>
+<div class="section" id="articlerequestslinkcontrol">
+<span id="articlerequestslinkcontrol-label"></span><h3>ArticleRequestsLinkControl<a class="headerlink" href="#articlerequestslinkcontrol" title="永久链接至标题"></a></h3>
+<p>Default: Use algorithm to show or hide</p>
+<p>Asks: ___ article request link on search results.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Always show</li>
+<li>Use algorithm to show or hide</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>On the OPAC results page, either always show the ‘Request article’ link
+or check the branch, patron and item type combination to determine
+whether or not an article can be requested from this particular record
+before displaying the link.</li>
+</ul>
+</div>
+<div class="section" id="articlerequestsmandatoryfields">
+<span id="articlerequestsmandatoryfields-label"></span><h3>ArticleRequestsMandatoryFields<a class="headerlink" href="#articlerequestsmandatoryfields" title="永久链接至标题"></a></h3>
+<p>Default: None selected</p>
+<p>Asks: For records that are record level or item level requestable, make the following fields mandatory ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>[Select all]</li>
+<li>Author</li>
+<li>Chapters</li>
+<li>Date</li>
+<li>Issue</li>
+<li>Pages</li>
+<li>Title</li>
+<li>Volume</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls what fields must be filled in before an article request can be placed
+for either a record level or item level request. Choosing [Select all] indicates that all fields
+listed (Author, Chapters, Date, Issue, Pages, Title, Volume) must be completed before the article
+request can be placed.</li>
+</ul>
+</div>
+<div class="section" id="articlerequestsmandatoryfieldsitemsonly">
+<span id="articlerequestsmandatoryfieldsitemsonly-label"></span><h3>ArticleRequestsMandatoryFieldsItemsOnly<a class="headerlink" href="#articlerequestsmandatoryfieldsitemsonly" title="永久链接至标题"></a></h3>
+<p>Default: None selected</p>
+<p>Asks: For records that are only item level requestable, make the following fields mandatory ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>[Select all]</li>
+<li>Author</li>
+<li>Chapters</li>
+<li>Date</li>
+<li>Issue</li>
+<li>Pages</li>
+<li>Title</li>
+<li>Volume</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls what fields must be filled in before an article request can be placed
+for an item level request only. Choosing [Select all] indicates that all fields
+listed (Author, Chapters, Date, Issue, Pages, Title, Volume) must be completed before the article
+request can be placed.</li>
+</ul>
+</div>
+<div class="section" id="articlerequestsmandatoryfieldsrecordonly">
+<span id="articlerequestsmandatoryfieldsrecordonly-label"></span><h3>ArticleRequestsMandatoryFieldsRecordOnly<a class="headerlink" href="#articlerequestsmandatoryfieldsrecordonly" title="永久链接至标题"></a></h3>
+<p>Default: None selected</p>
+<p>Asks: For records that are only record level requestable, make the following fields mandatory ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>[Select all]</li>
+<li>Author</li>
+<li>Chapters</li>
+<li>Date</li>
+<li>Issue</li>
+<li>Pages</li>
+<li>Title</li>
+<li>Volume</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls what fields must be filled in before an article request can be placed
+for a record level request only. Choosing [Select all] indicates that all fields
+listed (Author, Chapters, Date, Issue, Pages, Title, Volume) must be completed before the article
+request can be placed.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="batch-checkout">
+<span id="batch-checkout-label"></span><h2>Batch Checkout<a class="headerlink" href="#batch-checkout" title="永久链接至标题"></a></h2>
+<div class="section" id="batchcheckouts">
+<span id="batchcheckouts-label"></span><h3>BatchCheckouts<a class="headerlink" href="#batchcheckouts" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ batch checkouts</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+</div>
+<div class="section" id="batchcheckoutsvalidcategories">
+<span id="batchcheckoutsvalidcategories-label"></span><h3>BatchCheckoutsValidCategories<a class="headerlink" href="#batchcheckoutsvalidcategories" title="永久链接至标题"></a></h3>
+<p>Asks: Patron categories allowed to checkout in a batch ___ (list of
+patron categories separated with a pipe ^|^)</p>
+</div>
+</div>
+<div class="section" id="checkin-policy">
+<span id="checkin-policy-label"></span><h2>Checkin policy<a class="headerlink" href="#checkin-policy" title="永久链接至标题"></a></h2>
+<div class="section" id="blockreturnoflostitems">
+<span id="blockreturnoflostitems-label"></span><h3>BlockReturnOfLostItems<a class="headerlink" href="#blockreturnoflostitems" title="永久链接至标题"></a></h3>
+<p>Asks: ___ returning of items that have been lost.</p>
+<p>Default: Don’t block</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Block</li>
+<li>Don’t block</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls whether and item with a lost status
+(952$1 in MARC21) can be checked in or not.</li>
+</ul>
+</div>
+<div class="section" id="blockreturnofwithdrawnitems">
+<span id="blockreturnofwithdrawnitems-label"></span><h3>BlockReturnOfWithdrawnItems<a class="headerlink" href="#blockreturnofwithdrawnitems" title="永久链接至标题"></a></h3>
+<p>Asks: ___ returning of items that have been withdrawn.</p>
+<p>Default: Block</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Block</li>
+<li>Don’t block</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls whether and item with a withdrawn status
+(952$0 in MARC21) can be checked in or not.</li>
+</ul>
+</div>
+<div class="section" id="calculatefinesonbackdate">
+<span id="calculatefinesonbackdate-label"></span><h3>CalculateFinesOnBackdate<a class="headerlink" href="#calculatefinesonbackdate" title="永久链接至标题"></a></h3>
+<p>Asks: ___ calculate and update overdue charges when an item is returned with
+a backdated return date.</p>
+<p>Default: Do</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Don’t</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference is similar to <a class="reference internal" href="#calculatefinesonreturn"><span class="std std-ref">CalculateFinesOnReturn</span></a> but is
+used when checkins are backdated either through the book drop mode or the
+specified return date (see <a class="reference internal" href="#specifyreturndate"><span class="std std-ref">SpecifyReturnDate</span></a>).</li>
+</ul>
+</div>
+<div class="section" id="calculatefinesonreturn">
+<span id="calculatefinesonreturn-label"></span><h3>CalculateFinesOnReturn<a class="headerlink" href="#calculatefinesonreturn" title="永久链接至标题"></a></h3>
+<p>Asks: ___ calculate and update overdue charges when an item is
+returned.</p>
+<p>Default: Do</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Don’t</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">If this preference is set to “Do” and the <a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">fines cron
+job</span></a> is off then Koha will calculate fines only
+when items are returned. If you have the fines cron job on and this
+preference set to “Do” then this preference will calculate fines
+based on the cron (usually run nightly) and then again when you check
+the item in. This option is best for those who are doing hourly
+loans. If this preference is set to “Don’t” then fines will only be
+accrued if the fines cron job is running.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>If you are doing hourly loans then you should have this set to ‘Do’.</p>
+<p><strong>Important</strong></p>
+<p>The <a class="reference internal" href="#finesmode"><span class="std std-ref">finesMode</span></a> system preference must be set to ‘Calculate and charge’
+in order for this system preference to have any effect.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="cumulativerestrictionperiods">
+<span id="cumulativerestrictionperiods-label"></span><h3>CumulativeRestrictionPeriods<a class="headerlink" href="#cumulativerestrictionperiods" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the restriction periods.</p>
+<p>Default: Don’t cumulate</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t cumulate</li>
+<li>Cumulate</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference controls whether or not restriction periods should be
+served concurrently or consecutively.</li>
+<li>If set to ‘Don’t cumulate’, the patron will be restricted only for the
+longest period. (For example, if a patron has a restriction of 10 days and
+another restriction of 15 days, they will be restricted for 15 days.)</li>
+<li>If set to ‘Cumulate’, the patron will be restricted for the sum of all the
+restriction period. (For example, if a patron has a restriction of 10 days
+and another restriction of 15 days, they will be restricted for 25 days.)</li>
+</ul>
+</div>
+<div class="section" id="hidepersonalpatrondetailoncirculation">
+<span id="hidepersonalpatrondetailoncirculation-label"></span><h3>HidePersonalPatronDetailOnCirculation<a class="headerlink" href="#hidepersonalpatrondetailoncirculation" title="永久链接至标题"></a></h3>
+<p>Asks: ___ hide patrons phone number, email address, street address
+and city in the circulation page</p>
+<p>Default: Don’t</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t</li>
+<li>Do</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls the display of the patron’s phone number,
+email address, and physical address from the left side of the screen
+(under their picture, if they have one).</li>
+<li>Set to ‘Do’ these informations will only be visible on the patron’s
+detail page.</li>
+</ul>
+</div>
+<div class="section" id="holdsautofill">
+<span id="holdsautofill-label"></span><h3>HoldsAutoFill<a class="headerlink" href="#holdsautofill" title="永久链接至标题"></a></h3>
+<p>Asks: ___ automatically fill holds instead of asking the librarian.</p>
+<p>Default: Don’t</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Don’t</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If set to ‘Do’, the holds confirmation pop-up will not appear upon checking
+in a reserved item.</li>
+</ul>
+</div>
+<div class="section" id="holdsautofillprintslip">
+<span id="holdsautofillprintslip-label"></span><h3>HoldsAutoFillPrintSlip<a class="headerlink" href="#holdsautofillprintslip" title="永久链接至标题"></a></h3>
+<p>Asks: ___ automatically display the holds slip dialog for auto-filled holds.</p>
+<p>Default: Don’t</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Don’t</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If set to ‘Do’, the holds slip print pop-up will appear automatically
+upon checking in a reserved item.</li>
+<li><a class="reference internal" href="#holdsautofill"><span class="std std-ref">HoldsAutoFill</span></a> must be set to ‘do’ for this preference to have any
+effect.</li>
+</ul>
+</div>
+<div class="section" id="holdsneedprocessingsip">
+<span id="holdsneedprocessingsip-label"></span><h3>HoldsNeedProcessingSIP<a class="headerlink" href="#holdsneedprocessingsip" title="永久链接至标题"></a></h3>
+<p>Asks: ___ holds automatically if matching item is returned via SIP protocol.</p>
+<p>Default: Fulfill</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Fulfill</li>
+<li>Don’t fulfill</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference controls whether or not holds are automatically filled
+by items returned via SIP (sorter, auto check-in stations, etc.)</li>
+</ul>
+</div>
+<div class="section" id="skipholdtraponnotforloanvalue">
+<span id="skipholdtraponnotforloanvalue-label"></span><h3>SkipHoldTrapOnNotForLoanValue<a class="headerlink" href="#skipholdtraponnotforloanvalue" title="永久链接至标题"></a></h3>
+<p>Asks: Never trap items with ‘not for loan’ values of ___ to fill holds.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference is used to completely exclude items with ‘not for loan’
+values from filling holds.</li>
+<li>Enter <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">NOT_LOAN authorized values</span></a> separated
+by pipes (|).</li>
+</ul>
+</div>
+<div class="section" id="storelastborrower">
+<span id="storelastborrower-label"></span><h3>StoreLastBorrower<a class="headerlink" href="#storelastborrower" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the last patron to return an item.</p>
+<p>Default: Don’t store</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t store</li>
+<li>Store</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference allows you to store the last patron to borrow an item
+even if the patron has chosen to have their reading history
+anonymized.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This setting is independent of
+<a class="reference internal" href="opacpreferences.html#opacreadinghistory"><span class="std std-ref">opacreadinghistory</span></a> and/or
+<a class="reference internal" href="opacpreferences.html#anonymouspatron"><span class="std std-ref">AnonymousPatron</span></a>.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="transfersblockcirc">
+<span id="transfersblockcirc-label"></span><h3>TransfersBlockCirc<a class="headerlink" href="#transfersblockcirc" title="永久链接至标题"></a></h3>
+<p>Asks: ___ staff from continuing to checkin items when a transfer is
+triggered.</p>
+<p>Default: Block</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t block</li>
+<li>Block</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference controls whether or not the transfer pop-up blocks
+further checkins.</li>
+</ul>
+</div>
+<div class="section" id="trapholdsonorder">
+<span id="trapholdsonorder-label"></span><h3>TrapHoldsOnOrder<a class="headerlink" href="#trapholdsonorder" title="永久链接至标题"></a></h3>
+<p>Asks: ___ items that are not for loan but holdable (notforlan &lt; 0) to fill
+holds.</p>
+<p>Default: Trap</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t trap</li>
+<li>Trap</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference controls whether or not items that have a
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">NOT_LOAN authorized value</span></a> smaller than 0
+(which means that the item can be put on hold, but not checked out), should
+be used to fill holds.</li>
+</ul>
+</div>
+<div class="section" id="updateitemlocationoncheckin">
+<span id="updateitemlocationincheckin-label"></span><h3>UpdateItemLocationOnCheckin<a class="headerlink" href="#updateitemlocationoncheckin" title="永久链接至标题"></a></h3>
+<p>Asks: This is a list of value pairs. The first value is followed immediately
+by colon, space, then the second value.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference affects the item’s current and permanent locations
+when the item is checked in (whether it was checked out or not).</li>
+<li>If the location value on the left of the colon (:) matches
+the item’s current location, it will be updated to match the location value
+on the right of the colon (:).</li>
+<li>The values are the LOC <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorised values</span></a>.</li>
+<li>For example, ‘STAFF: GEN’ will move an item from the staff office to the
+general collection when the item is checked in.</li>
+<li>Special terms<ul>
+<li>PROC: Processing center. When using PROC, only the current location will
+be affected.</li>
+<li>CART: Shelving cart. When using CART, only the current location will be
+affected.</li>
+<li>_PERM_: This will use the item’s permanent location, whatever that
+location is.</li>
+<li><dl class="first docutils">
+<dt>_BLANK_: Used on the left as a first value, it will add a location if</dt>
+<dd>there is none. Used on the right as a second value, it will remove the
+location.</dd>
+</dl>
+</li>
+<li>_ALL_: Used on the left as a first value, it will affect all items and
+override all other rules.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<blockquote>
+<div><p>Requires YAML syntax to work</p>
+<p>This means</p>
+</div></blockquote>
+<ul class="last simple">
+<li>Make sure there is NO space between the first value and the colon</li>
+<li>Make sure there IS a space between the colon and the second value</li>
+<li>Make sure each pair is on its own line</li>
+</ul>
+</div>
+<ul class="simple">
+<li>If using PROC or CART, use the
+<a class="reference internal" href="cron_jobs.html#cron-in-processing-book-cart-label"><span class="std std-ref">cart_to_shelf cron job</span></a> to
+return the items to their permanent location after a determined number of
+hours.</li>
+</ul>
+</div>
+<div class="section" id="updatenotforloanstatusoncheckin">
+<span id="updatenotforloanstatusoncheckin-label"></span><h3>UpdateNotForLoanStatusOnCheckin<a class="headerlink" href="#updatenotforloanstatusoncheckin" title="永久链接至标题"></a></h3>
+<p>Asks: This is a list of value pairs. When an item is checked in, if the
+not for loan value on the left matches the items not for loan value it
+will be updated to the right-hand value.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference affects the item’s ‘not for loan’ status
+when the item is checked in (whether it was checked out or not).</li>
+<li>If the status value on the left of the colon (:) matches
+the item’s current status, it will be updated to match the status value
+on the right of the colon (:).</li>
+<li>The values are the NOT_LOAN <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorised values</span></a>.</li>
+<li>For example, ‘-1: 0’ will cause an item that was set to ‘Ordered’ to now be
+available for loan</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>Requires YAML syntax to work</p>
+<p>This means</p>
+<ul class="last simple">
+<li>Make sure there is NO space between the first value and the colon</li>
+<li>Make sure there IS a space between the colon and the second value</li>
+<li>Make sure each pair is on its own line</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="checkout-policy">
+<span id="checkout-policy-label"></span><h2>Checkout Policy<a class="headerlink" href="#checkout-policy" title="永久链接至标题"></a></h2>
+<div class="section" id="agerestrictionmarker">
+<span id="agerestrictionmarker-label"></span><h3>AgeRestrictionMarker<a class="headerlink" href="#agerestrictionmarker" title="永久链接至标题"></a></h3>
+<p>Asks: Restrict patrons with the following target audience values from
+checking out inappropriate materials: ___</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference defines certain keywords that will trigger Koha to
+restrict checkout based on age. These restrictions can be overridden
+by the <a class="reference internal" href="#agerestrictionoverride"><span class="std std-ref">AgeRestrictionOverride</span></a>
+preference. Enter in this field a series of keywords separated by bar
+(|) with no spaces. For example PG|R|E|EC|Age| will look for PG
+followed by an age number, R folllowed by an age number, Age followed
+by an age number, and so on. These values can appear in any MARC
+field, but Library of Congress recommends the 521$a (Target Audience
+Note). Whatever field you decide to use you must map the word
+agerestriction in the biblioitems table to that field in the <a class="reference internal" href="administration.html#koha-to-marc-mapping-label"><span class="std std-ref">Koha to
+MARC Mapping</span></a>. When cataloging you can enter
+values like PG 13 or E 10 in the 521$a and Koha will then notify
+circulation librarians that the material may not be recommended for
+the patron based on their age.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>You must map the word agerestriction in the biblioitems table to
+the MARC field where this information will appear via the <a class="reference internal" href="administration.html#koha-to-marc-mapping-label"><span class="std std-ref">Koha
+to MARC Mapping</span></a> administration area.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="agerestrictionoverride">
+<span id="agerestrictionoverride-label"></span><h3>AgeRestrictionOverride<a class="headerlink" href="#agerestrictionoverride" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ staff to check out an item with age restriction.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Allow</p>
+<p><img alt="image25" src="_images/AgeRestrictionOverride.png" /></p>
+</li>
+<li><p class="first">Don’t allow</p>
+<p><img alt="image26" src="_images/AgeRestrictionMarker.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When the <a class="reference internal" href="#agerestrictionmarker"><span class="std std-ref">AgeRestrictionMarker</span></a> preference
+is set, Koha will try to warn circulation librarians before checking
+out an item that might have an age restriction listed in the MARC
+record. This preference asks if you would like the staff to be able
+to still check out these items to patrons under the age limit.</li>
+</ul>
+</div>
+<div class="section" id="allfinesneedoverride">
+<span id="allfinesneedoverride-label"></span><h3>AllFinesNeedOverride<a class="headerlink" href="#allfinesneedoverride" title="永久链接至标题"></a></h3>
+<p>Default: Require</p>
+<p>Asks: ___ staff to manually override all fines, even fines less than
+<a class="reference internal" href="#noissuescharge"><span class="std std-ref">noissuescharge</span></a>.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t require</li>
+<li>Require</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference let’s you decide if you want to always be warned that
+the patron has fines when checking out. If you have it set to
+‘Require’ then no matter how much money the patron owes a message
+will pop up warning you that the patron owes money.</li>
+</ul>
+</div>
+<div class="section" id="allowfineoverride">
+<span id="allowfineoverride-label"></span><h3>AllowFineOverride<a class="headerlink" href="#allowfineoverride" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ staff to manually override and check out items to patrons
+who have more than <a class="reference internal" href="#noissuescharge"><span class="std std-ref">noissuescharge</span></a> in fines.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you decide if you staff can check out to patrons
+who owe more money than you usually let them carry on their account.
+If set to ‘Allow’ staff will be warned that the patrons owes money,
+but it won’t stop the staff from checking out to the patron.</li>
+</ul>
+</div>
+<div class="section" id="allowitemsonholdcheckoutsco">
+<span id="allowitemsonholdcheckoutsco-label"></span><h3>AllowItemsOnHoldCheckoutSCO<a class="headerlink" href="#allowitemsonholdcheckoutsco" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ checkouts of items reserved to someone else in the SCO module.
+If allowed do not generate RESERVE_WAITING and RESERVED warning. This
+allows self checkouts for those items.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Allow</p>
+</li>
+<li><p class="first">Don’t allow</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This system preference relates only to Koha’s web based self checkout.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When this preference is set to ‘Allow’ patrons will be able to use
+Koha’s web based self checkout to check out a book to themselves
+even if it’s on hold for someone else. If you would like Koha to
+prevent people from checking out books that are on hold for someone
+else set this preference to “Don’t allow”.</li>
+</ul>
+</div>
+<div class="section" id="allowitemsonholdcheckoutsip">
+<span id="allowitemsonholdcheckout-label"></span><h3>AllowItemsOnHoldCheckoutSIP<a class="headerlink" href="#allowitemsonholdcheckoutsip" title="永久链接至标题"></a></h3>
+<p>Asks: ___ checkouts of items reserved to someone else via SIP checkout
+messages.</p>
+<p>Default: Don’t allow</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Allow</p>
+</li>
+<li><p class="first">Don’t allow</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This system preference relates only to SIP-based self-checkout, not
+Koha’s web based self checkout.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When this preference is set to ‘Allow’ patrons will be able to use
+your external self check machine to check out a book to themselves
+even if it’s on hold for someone else.</li>
+<li>If you would like Koha to prevent people from checking out books that are
+on hold for someone else set this preference to ‘Don’t allow’.</li>
+</ul>
+</div>
+<div class="section" id="allowmultipleissuesonabiblio">
+<span id="allowmultipleissuesonabiblio-label"></span><h3>AllowMultipleIssuesOnABiblio<a class="headerlink" href="#allowmultipleissuesonabiblio" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ patrons to check out multiple items from the same record.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">If this preference is set to ‘Allow’ then patrons will be able to
+check out multiple copies of the same title at the same time. If it’s
+set to “Don’t allow” then patrons will only be allowed to check out
+one item attached to a record at a time. Regardless of the option
+chosen in this preference records with subscriptions attached will
+allow multiple check outs.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This will only effect records without a subscription attached.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="allownotforloanoverride">
+<span id="allownotforloanoverride-label"></span><h3>AllowNotForLoanOverride<a class="headerlink" href="#allownotforloanoverride" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ staff to override and check out items that are marked as
+not for loan.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This parameter is a binary setting which controls the ability of
+staff (patrons will always be prevented from checking these items
+out) to check out items that are marked as “not for loan”. Setting it
+to “Allow” would allow such items to be checked out, setting it to
+“Don’t allow” would prevent this. This setting determines whether
+items meant to stay in the library, such as reference materials, and
+other library resources can be checked out by patrons.</li>
+</ul>
+</div>
+<div class="section" id="allowrenewallimitoverride">
+<span id="allowrenewallimitoverride-label"></span><h3>AllowRenewalLimitOverride<a class="headerlink" href="#allowrenewallimitoverride" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ staff to manually override the renewal limit and renew a
+checkout when it would go over the renewal limit.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference is a binary setting which controls the ability of
+staff to override the limits placed on the number of times an item
+can be renewed. Setting it to “Allow” would allow such limits to be
+overridden, setting it to “Don’t allow” would prevent this. This is a
+preference in which if it is set to “allow” it would allow the
+library staff to use their judgment for overriding the renew limit
+for special cases, setting it to “Don’t allow” prevents an
+opportunity for abuse by the library staff.</li>
+</ul>
+</div>
+<div class="section" id="allowrenewalonholdoverride">
+<span id="allowrenewalonholdoverride-label"></span><h3>AllowRenewalOnHoldOverride<a class="headerlink" href="#allowrenewalonholdoverride" title="永久链接至标题"></a></h3>
+<p>Asks: ___ staff to renew items that are on hold by manually specifying a due date.</p>
+<p>Default: Don’t allow</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference enables items that are on hold to be renewed with a due date specified by the user.</p>
+<p>It can appear in two locations:</p>
+<ol class="arabic simple">
+<li>In the “Checkouts” table on the Patron Details screen. It is possible to select on loan items that would otherwise fulfil a hold request to be renewed. When such an item is selected, an additional date selection box is displayed to allow the user to specify the due date for all on hold items that are to be renewed.</li>
+<li>In the Circulation &gt; Renew alert screen. When a barcode of an on loan item that would ordinarily fulfil a hold request is entered, the usual alert is displayed indicating that the item is on hold, it is still possible to override this, and renew. With this preference enabled it is also possible to specify a due date.</li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="section" id="allowreturntobranch">
+<span id="allowreturntobranch-label"></span><h3>AllowReturnToBranch<a class="headerlink" href="#allowreturntobranch" title="永久链接至标题"></a></h3>
+<p>Default: to any library</p>
+<p>Asks: Allow materials to be returned to ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>either the library the item is from or the library it was checked out
+from.</li>
+<li>only the library the item is from.</li>
+<li>only the library the item was checked out from.</li>
+<li>to any library.</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets the library system decide how they will accept
+returns. Some systems allow for items to be returned to any library
+in the system (the default value of this preference) others want to
+limit item returns to only specific branches. This preference will
+allow you to limit item returns (checkins) to the branch(es) set in
+the value.</li>
+</ul>
+</div>
+<div class="section" id="allowtoomanyoverride">
+<span id="allowtoomanyoverride-label"></span><h3>AllowTooManyOverride<a class="headerlink" href="#allowtoomanyoverride" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ staff to override and check out items when the patron has
+reached the maximum number of allowed checkouts.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Allow</p>
+<p><img alt="image27" src="_images/AllowTooManyOverride-yes.png" /></p>
+</li>
+<li><p class="first">Don’t allow</p>
+<p><img alt="image28" src="_images/AllowTooManyOverride-no.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If this preference is set to “Allow” then staff all will be presented
+with an option to checkout more items to a patron than are normally
+allowed in the <a class="reference internal" href="administration.html#circulation-and-fines-rules"><span class="std std-ref">Circulation and fines rules</span></a>. If
+this preference is set to “Don’t allow” then no staff member will be
+able to check out more than the circulation limit.</li>
+</ul>
+</div>
+<div class="section" id="automaticitemreturn">
+<span id="automaticitemreturn-label"></span><h3>AutomaticItemReturn<a class="headerlink" href="#automaticitemreturn" title="永久链接至标题"></a></h3>
+<p>Default: Do</p>
+<p>Asks: ___ automatically transfer items to their home branch when they
+are returned.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Don’t</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference is a binary setting which determines whether an item
+is returned to its home branch automatically or not. If set to
+“Don’t”, the staff member checking an item in at a location other
+than the item’s home branch will be asked whether the item will
+remain at the non-home branch (in which case the new location will be
+marked as a holding location) or returned. Setting it to “Do” will
+ensure that items checked in at a branch other than their home branch
+will be sent to that home branch.</li>
+</ul>
+</div>
+<div class="section" id="autoremoveoverduesrestrictions">
+<span id="autoremoveoverduesrestrictions-label"></span><h3>AutoRemoveOverduesRestrictions<a class="headerlink" href="#autoremoveoverduesrestrictions" title="永久链接至标题"></a></h3>
+<p>Default: Do not</p>
+<p>Asks: ___ allow OVERDUES restrictions triggered by sent notices to be
+cleared automatically when all overdue items are returned by a patron.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Do not</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Using the <a class="reference internal" href="tools.html#overdue-notice-status-triggers"><span class="std std-ref">Overdue notice/status triggers</span></a> you
+can restrict patrons after they receive an overdue notice. This
+preference lets you define whether Koha will automatically remove
+that restriction once the overdue items in question are returned or
+not.</li>
+</ul>
+</div>
+<div class="section" id="autoreturncheckedoutitems">
+<span id="autoreturncheckedoutitems-label"></span><h3>AutoReturnCheckedOutItems<a class="headerlink" href="#autoreturncheckedoutitems" title="永久链接至标题"></a></h3>
+<p>Asks: ___ require librarians to manually confirm a checkout where the item
+is already checked out to another patron.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do</li>
+<li>Don’t</li>
+</ul>
+<p>Default: Do</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference controls whether Koha asks for a confirmation when trying
+to check out an item that is already checked out to another patron.</p>
+</li>
+<li><p class="first">Set to ‘Do’, Koha will ask the staff member to confirm the check out.</p>
+<p><img alt="image1433" src="_images/autoreturncheckedoutitems-do.png" /></p>
+</li>
+<li><p class="first">Set to ‘Don’t’, Koha will simply return the item from the previous
+patron’s file and check it out to the actual patron and show a message.</p>
+<p><img alt="image1434" src="_images/autoreturncheckedoutitems-dont.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="circcontrol">
+<span id="circcontrol-label"></span><h3>CircControl<a class="headerlink" href="#circcontrol" title="永久链接至标题"></a></h3>
+<p>Default: the library the item is from</p>
+<p>Asks: Use the checkout and fines rules of ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>the library the item is from<ul>
+<li>The <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines policies</span></a>
+will be determined by the item’s library where <a class="reference internal" href="#homeorholdingbranch"><span class="std std-ref">HomeOrHoldingBranch</span></a>
+chooses if item’s home library is used or holding library is used.</li>
+</ul>
+</li>
+<li>the library the patron is from<ul>
+<li>The <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines policies</span></a>
+will be determined the patron’s home library</li>
+</ul>
+</li>
+<li>the library you are logged in at<ul>
+<li>The <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines policies</span></a> will be
+determined by the library that checked the item out to the patron</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="consideronsitecheckoutsasnormalcheckouts">
+<span id="consideronsitecheckoutsasnormalcheckouts-label"></span><h3>ConsiderOnSiteCheckoutsAsNormalCheckouts<a class="headerlink" href="#consideronsitecheckoutsasnormalcheckouts" title="永久链接至标题"></a></h3>
+<p>Asks: ___ on-site checkouts as normal checkouts. If enabled, on-site
+checkouts will count toward the checkout limit for regular checkouts. The
+on-site limit will still apply for on-site checkouts. If disabled, both values
+will be checked separately.</p>
+<p>Default: Consider</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Consider</li>
+<li>Don’t consider</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows you to decide if checkouts that are considered
+<a class="reference internal" href="#onsitecheckouts-label"><span class="std std-ref">on-site checkouts</span></a> are counted toward the total
+checkouts a patron can have. You can also set your
+<a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a> to
+allow only a certain number of normal and on-site checkouts.</li>
+</ul>
+</div>
+<div class="section" id="defaultlongoverduechargevalue">
+<span id="defaultlongoverduechargevalue-label"></span><h3>DefaultLongOverdueChargeValue<a class="headerlink" href="#defaultlongoverduechargevalue" title="永久链接至标题"></a></h3>
+<p>Asks: Charge a lost item to the borrower’s account when the LOST value
+of the item changes to ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Leave this field empty if you don’t want to charge the user for lost
+items. If you want the user to be charged enter the <a class="reference external" href="#lost">LOST authorized
+value</a> you are using in the
+<a class="reference internal" href="#defaultlongoverduelostvalue-and-defaultlongoverduedays-label"><span class="std std-ref">DefaultLongOverdueLostValue</span></a>
+preference. This preference is used when the <a class="reference internal" href="cron_jobs.html#cron-long-overdues-label"><span class="std std-ref">longoverdue cron
+job</span></a> is called without the –charge parameter.</li>
+</ul>
+</div>
+<div class="section" id="defaultlongoverduelostvalue-and-defaultlongoverduedays">
+<span id="defaultlongoverduelostvalue-and-defaultlongoverduedays-label"></span><h3>DefaultLongOverdueLostValue and DefaultLongOverdueDays<a class="headerlink" href="#defaultlongoverduelostvalue-and-defaultlongoverduedays" title="永久链接至标题"></a></h3>
+<p>Asks: By default, set the LOST value of an item to ___ when the item
+has been overdue for more than ___ days.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>These preferences are used when the <a class="reference internal" href="cron_jobs.html#cron-long-overdues-label"><span class="std std-ref">longoverdue cron
+job</span></a> is called without the –lost parameter. It
+allows users to set the values of the <a class="reference internal" href="cron_jobs.html#cron-long-overdues-label"><span class="std std-ref">longoverdue
+cron</span></a> without having to edit the crontab.
+Setting the values to 1 and 30 for example will mark the item with
+the <a class="reference external" href="#lost">LOST authorized value</a> of 1 after the item is 30 days
+overdue.</li>
+</ul>
+</div>
+<div class="section" id="holdsinnoissuescharge">
+<span id="holdsinnoissuescharge-label"></span><h3>HoldsInNoissuesCharge<a class="headerlink" href="#holdsinnoissuescharge" title="永久链接至标题"></a></h3>
+<p>Default: Don’t include</p>
+<p>Asks: ___ hold charges when summing up charges for noissuescharge.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t include</li>
+<li>Include</li>
+</ul>
+</div>
+<div class="section" id="homeorholdingbranch">
+<span id="homeorholdingbranch-label"></span><h3>HomeOrHoldingBranch<a class="headerlink" href="#homeorholdingbranch" title="永久链接至标题"></a></h3>
+<p>Default: the item’s home library (homebranch).</p>
+<p>Asks: Use the checkout and fines rules of ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>the item’s home library (homebranch).</li>
+<li>the item’s holding library (holdingbranch).</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference does several things.</p>
+<ul class="simple">
+<li>If <a class="reference internal" href="#circcontrol"><span class="std std-ref">CircControl</span></a> is set to ‘the library the item
+is from’ then the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines
+policies</span></a> will be determined by the item’s
+library where HomeOrHoldingBranch chooses if item’s home library
+is used or holding library is used.</li>
+<li>If <a class="reference internal" href="administrationpreferences.html#independentbranches"><span class="std std-ref">IndependentBranches</span></a> is set to
+‘Prevent’ then the value of this preference is used in figuring
+out if the item can be checked out. If the item’s home library
+does not match the logged in library, the item cannot be checked
+out unless you are a <a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">superlibrarian</span></a>.</li>
+</ul>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>It is not recommend that this setting be changed after initial setup
+of Koha because it will change the behavior of items already checked
+out.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="issuelostitem">
+<span id="issuelostitem-label"></span><h3>IssueLostItem<a class="headerlink" href="#issuelostitem" title="永久链接至标题"></a></h3>
+<p>Default: display a message</p>
+<p>Asks: When issuing an item that has been marked as lost, ___.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">display a message</p>
+<p><img alt="image29" src="_images/IssueLostItem-msg.png" /></p>
+</li>
+<li><p class="first">do nothing</p>
+<ul class="simple">
+<li>This option will just check the item out without notifying you
+that the item was marked lost.</li>
+</ul>
+</li>
+<li><p class="first">require confirmation</p>
+<p><img alt="image30" src="_images/IssueLostItem-confirm.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you define how library staff are notified that
+an item with a lost status is being checked out. This will help staff
+mark items as ‘available’ if you choose to ‘display a message’ or
+‘require confirmation.^ If you choose to ‘do nothing,^ there will be
+no notification that the item being checked out is marked as ‘lost.^</li>
+</ul>
+</div>
+<div class="section" id="issuinginprocess">
+<span id="issuinginprocess-label"></span><h3>IssuingInProcess<a class="headerlink" href="#issuinginprocess" title="永久链接至标题"></a></h3>
+<p>Default: Don’t prevent</p>
+<p>Asks: ___ patrons from checking out an item whose rental charge would
+take them over the limit.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t prevent</li>
+<li>Prevent</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference determines if a patron can check items out if there
+is an overdue fine on the account and any of the materials the patron
+wishes to check out will potentially tip the account balance over the
+maximum fines policy the library has in place.</li>
+</ul>
+<p>Example: Your library has a $5 limit set for ‘fines’ (ie, after
+incurring $5 in fines, a patron can no longer check out items). A patron
+comes to the desk with 5 items to check out (4 books and a video) The
+patron has $4 in charges already on their account. One of the videos has
+a rental charge of $1, therefore making the total fines on the patron’s
+account suddenly $5 (the limit).</p>
+</div>
+<div class="section" id="itemsdeniedrenewal">
+<span id="itemsdeniedrenewal-label"></span><h3>ItemsDeniedRenewal<a class="headerlink" href="#itemsdeniedrenewal" title="永久链接至标题"></a></h3>
+<p>Asks: Define custom rules to deny specific items from renewal.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference allows you to specify items that should not be renewed
+either from the OPAC or staff client.  You can enter any combination of
+fields (from the items table in the Koha database) followed by a colon
+then a space then a bracketed list of values separated by commas. e.g:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ccode</span><span class="p">:</span> <span class="p">[</span><span class="n">NEWFIC</span><span class="p">,</span><span class="n">NULL</span><span class="p">,</span><span class="n">DVD</span><span class="p">]</span>
+<span class="n">itype</span><span class="p">:</span> <span class="p">[</span><span class="n">NEWBK</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The word ‘NULL’ can be used to block renewal on undefined fields,
+while an empty string “” will block on an empty (but defined) field.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If using automatic renewal notices your notice text should be updated to
+account for the new reason that renewals may be denied “item_denied_renewal”.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="maninvinnoissuescharge">
+<span id="maninvinnoissuescharge-label"></span><h3>ManInvInNoissuesCharge<a class="headerlink" href="#maninvinnoissuescharge" title="永久链接至标题"></a></h3>
+<p>Default: Include</p>
+<p>Asks: ___ custom debit types when summing up charges for
+noissuescharge.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t include</li>
+<li>Include</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you decide if charges entered as manual invoices
+are included when calculating the
+<a class="reference internal" href="#noissuescharge"><span class="std std-ref">noissuescharge</span></a>. If this is set to ‘Include’ then
+Koha will include all manual invoices when deciding if the patron
+owes too much money to check anything else out of the library. If
+it’s set to ‘Don’t include’ then Koha will ignore all manual invoice
+charges when figuring out if the patron owes too much money to
+checkout additional materials.</li>
+</ul>
+</div>
+<div class="section" id="marklostitemsasreturned">
+<span id="marklostitemsasreturned-label"></span><h3>MarkLostItemsAsReturned<a class="headerlink" href="#marklostitemsasreturned" title="永久链接至标题"></a></h3>
+<p>Asks: ___ items as returned when flagged as lost.</p>
+<p>Default: Disable</p>
+<p>Values:</p>
+<ul class="simple">
+<li>[Select All]</li>
+<li>From the <a class="reference internal" href="circulation.html#holds-to-pull-label"><span class="std std-ref">‘holds to pull’</span></a> list</li>
+<li>From the <a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">batch item modification tool</span></a></li>
+<li>From the items tab of the catalog module</li>
+<li>From the <a class="reference internal" href="cron_jobs.html#cron-long-overdues-label"><span class="std std-ref">longoverdue cronjob</span></a></li>
+<li>When cataloging an item</li>
+<li>When marking an item as a return claim</li>
+<li>When receiving a payment for the items</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>The library can choose which of these actions or all of these actions, does an
+item gets automatically returned from the patron’s account or not.</li>
+</ul>
+</div>
+<div class="section" id="maxoutstanding">
+<span id="maxoutstanding-label"></span><h3>maxoutstanding<a class="headerlink" href="#maxoutstanding" title="永久链接至标题"></a></h3>
+<p>Default: 5</p>
+<p>Asks: Prevent patrons from making holds on the OPAC if they owe more
+than ___ USD in fines.</p>
+</div>
+<div class="section" id="noissuescharge">
+<span id="noissuescharge-label"></span><h3>noissuescharge<a class="headerlink" href="#noissuescharge" title="永久链接至标题"></a></h3>
+<p>Default: 5</p>
+<p>Asks: Prevent patrons from checking out books if they have more than
+___ USD in fines.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference is the maximum amount of money owed to the library
+before the user is banned from borrowing more items. Using the
+<a class="reference internal" href="#maninvinnoissuescharge"><span class="std std-ref">ManInvInNoissuesCharge</span></a> and
+<a class="reference internal" href="#rentalsinnoissuescharge"><span class="std std-ref">RentalsInNoissuesCharge</span></a> preferences
+you can control which types of charges are considered in this total.
+This also coincides with <a class="reference internal" href="#maxoutstanding"><span class="std std-ref">maxoutstanding</span></a> that
+limits patrons from placing holds when the maximum amount is owed to
+the library.</li>
+</ul>
+</div>
+<div class="section" id="noissueschargeguarantees">
+<span id="noissueschargeguarantees-label"></span><h3>NoIssuesChargeGuarantees<a class="headerlink" href="#noissueschargeguarantees" title="永久链接至标题"></a></h3>
+<p>Asks: Prevent a patron from checking out if the patron has guarantees
+owing in total more than ___ USD in fines.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Allows a library to prevent patrons from checking out items if his or
+her guarantees owe too much in fines.</li>
+</ul>
+</div>
+<div class="section" id="norenewalbeforeprecision">
+<span id="norenewalbeforeprecision-label"></span><h3>NoRenewalBeforePrecision<a class="headerlink" href="#norenewalbeforeprecision" title="永久链接至标题"></a></h3>
+<p>Default: date</p>
+<p>Asks: Calculate “No renewal before” based on ___.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">date</p>
+</li>
+<li><p class="first">exact time</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Only relevant for loans calculated in days, hourly loans are not
+affected.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows you to control how the ‘No renewal before”
+option in the <a class="reference internal" href="administration.html#circulation-and-fines-rules"><span class="std std-ref">Circulation and fines rules</span></a>
+administration area.</li>
+</ul>
+</div>
+<div class="section" id="noticebcc">
+<span id="noticebcc-label"></span><h3>NoticeBcc<a class="headerlink" href="#noticebcc" title="永久链接至标题"></a></h3>
+<p>Asks: Send all notices as a BCC to this email address ___</p>
+<p>This preference makes it so that a librarian can get a copy of every
+notice sent out to patrons.</p>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you’d like more than one person to receive the blind copy you can
+simply enter in multiple email addresses separated by commas.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="onsitecheckoutautocheck">
+<span id="onsitecheckoutautocheck-label"></span><h3>OnSiteCheckoutAutoCheck<a class="headerlink" href="#onsitecheckoutautocheck" title="永久链接至标题"></a></h3>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ onsite checkout by default if last checkout was an onsite one.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t enable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows you specify that if a preceding checkout was an onsite
+checkout, then the ‘On-site checkout’ checkbox will be ticked
+ready for the next checkout.</li>
+</ul>
+</div>
+<div class="section" id="onsitecheckouts">
+<span id="onsitecheckouts-label"></span><h3>OnSiteCheckouts<a class="headerlink" href="#onsitecheckouts" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ the on-site checkouts feature.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Disable</p>
+</li>
+<li><p class="first">Enable</p>
+<p><img alt="image1184" src="_images/OnSiteCheckouts.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you check out items that are ‘not for loan’ to
+patrons. A checkbox is added to the checkout screen when this
+preference is set to ‘Enable’ labeled ‘On-site checkout’. This allows
+you to track who’s using items that are normally not for loan or are
+in a closed stack setting.</li>
+</ul>
+</div>
+<div class="section" id="onsitecheckoutsforce">
+<span id="onsitecheckoutsforce-label"></span><h3>OnSiteCheckoutsForce<a class="headerlink" href="#onsitecheckoutsforce" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ the on-site for all cases (Even if a user is debarred,
+etc.).</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Disable</p>
+</li>
+<li><p class="first">Enable</p>
+<p><img alt="image31" src="_images/OnSiteCheckoutsForce.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets the staff override any restrictions a patron
+might have and check out items for use within the library. The
+<a class="reference internal" href="#onsitecheckouts"><span class="std std-ref">OnSiteCheckouts</span></a> preference must first be set
+to ‘Enable’ for this preference to be considered.</li>
+</ul>
+</div>
+<div class="section" id="opacfinenorenewalsblockautorenew">
+<span id="opacfinenorenewalsblockautorenew-label"></span><h3>OPACFineNoRenewalsBlockAutoRenew<a class="headerlink" href="#opacfinenorenewalsblockautorenew" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: If a patron owes more than the value of <a class="reference internal" href="opacpreferences.html#opacfinenorenewals"><span class="std std-ref">OPACFineNoRenewals</span></a>,
+___ his/her auto renewals.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Block</li>
+</ul>
+</div>
+<div class="section" id="overduenoticecalendar">
+<span id="overduenoticecalendar-label"></span><h3>OverdueNoticeCalendar<a class="headerlink" href="#overduenoticecalendar" title="永久链接至标题"></a></h3>
+<p>Asks: ___ when working out the period for overdue notices</p>
+<p>Default: Ignore calendar</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Ignore calendar<ul>
+<li>Notices do not take holidays into account, so they will be sent
+even if holidays have meant the item is not actually overdue yet</li>
+</ul>
+</li>
+<li>Use calendar<ul>
+<li>Notices take holidays into account, so they will not be sent if
+holidays mean the item is not actually overdue yet</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overduesblockcirc">
+<span id="overduesblockcirc-label"></span><h3>OverduesBlockCirc<a class="headerlink" href="#overduesblockcirc" title="永久链接至标题"></a></h3>
+<p>Default: Ask for confirmation</p>
+<p>Asks: ___ when checking out to a borrower that has overdues
+outstanding</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Ask for confirmation<ul>
+<li>Will not let you check an item out to patrons with overdues until
+a librarian confirms that it is okay</li>
+</ul>
+</li>
+<li>Block<ul>
+<li>Block all patrons with overdue items from being able to check out</li>
+</ul>
+</li>
+<li>Don’t block<ul>
+<li>Allow all patrons with overdue items to continue to check out</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overduesblockrenewing">
+<span id="overduesblockrenewing-label"></span><h3>OverduesBlockRenewing<a class="headerlink" href="#overduesblockrenewing" title="永久链接至标题"></a></h3>
+<p>Default: allow renewing</p>
+<p>Asks: When a patron’s checked out item is overdue, ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>allow renewing</li>
+<li>block renewing for all the patron’s items</li>
+<li>block renewing for only this item</li>
+</ul>
+</div>
+<div class="section" id="printnoticesmaxlines">
+<span id="printnoticesmaxlines-label"></span><h3>PrintNoticesMaxLines<a class="headerlink" href="#printnoticesmaxlines" title="永久链接至标题"></a></h3>
+<p>Asks: Include up to ___ item lines in a printed overdue notice.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If the number of items is greater than this number, the notice will
+end with a warning asking the borrower to check their online account
+for a full list of overdue items.</p>
+<p><strong>Note</strong></p>
+<p>Set to 0 to include all overdue items in the notice, no matter how
+many there are.</p>
+<p><strong>Important</strong></p>
+<p>This preference only refers to the print notices, not those sent via
+email.</p>
+</div></blockquote>
+</div>
+<div class="section" id="renewaccruingiteminopac">
+<span id="renewaccruingiteminopac-label"></span><h3>RenewAccruingItemInOpac<a class="headerlink" href="#renewaccruingiteminopac" title="永久链接至标题"></a></h3>
+<p>Asks: If a patron pays off all fines on an overdue item that is accruing fines
+in the OPAC via a payment plugin, ___ the item automatically.</p>
+<p>Default: Don’t renew</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t renew</li>
+<li>Renew</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This system preference allows you to control whether or not overdue items
+are renewed if the patron pays the fine online.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If the <a class="reference internal" href="#renewalperiodbase"><span class="std std-ref">RenewalPeriodBase</span></a> system preference is set to ‘due date’,
+renewed items may still be overdue even after renewal.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="renewaccruingitemwhenpaid">
+<span id="renewaccruingitemwhenpaid-label"></span><h3>RenewAccruingItemWhenPaid<a class="headerlink" href="#renewaccruingitemwhenpaid" title="永久链接至标题"></a></h3>
+<p>Asks: If a patron pays off all fines on an overdue item that is accruing fines
+___  the item automatically.</p>
+<p>Default: Don’t renew</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t renew</li>
+<li>Renew</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This system preference allows you to control whether or not overdue items
+are renewed if the fine is paid in the staff interface.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If the <a class="reference internal" href="#renewalperiodbase"><span class="std std-ref">RenewalPeriodBase</span></a> system preference is set to ‘due date’,
+renewed items may still be overdue even after renewal.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="renewalperiodbase">
+<span id="renewalperiodbase-label"></span><h3>RenewalPeriodBase<a class="headerlink" href="#renewalperiodbase" title="永久链接至标题"></a></h3>
+<p>Default: the old due date of the checkout</p>
+<p>Asks: When renewing checkouts, base the new due date on ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>the old due date of the checkout</li>
+<li>the current date</li>
+</ul>
+</div>
+<div class="section" id="renewalsendnotice">
+<span id="renewalsendnotice-label"></span><h3>RenewalSendNotice<a class="headerlink" href="#renewalsendnotice" title="永久链接至标题"></a></h3>
+<p>Default: Don’t send</p>
+<p>Asks: ____ a renewal notice according to patron checkout alert
+preferences.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t send</li>
+<li>Send</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">If a patron has chosen to receive a check out notice in their
+messaging preferences and this preference is set to ‘Send’ then those
+patrons will also receive a notice when they renew materials. You
+will want to set up a <a class="reference internal" href="tools.html#adding-notices-and-slips-label"><span class="std std-ref">new notice</span></a> with the code of
+RENEWAL (if you don’t already have it) with custom text for renewing
+items.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This preference requires that you have
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+set to ‘Allow’</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="rentalfeescheckoutconfirmation">
+<span id="rentalfeescheckoutconfirmation-label"></span><h3>RentalFeesCheckoutConfirmation<a class="headerlink" href="#rentalfeescheckoutconfirmation" title="永久链接至标题"></a></h3>
+<p>Default: do not ask</p>
+<p>Asks: When checking out an item with rental fees, ___ for
+confirmation.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>ask</li>
+</ul>
+<blockquote>
+<div><img alt="image1183" src="_images/RentalFeesCheckoutConfirmation.png" /></div></blockquote>
+<ul class="simple">
+<li>do not ask</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If you are charging rental fees for items this preference will make
+it so that you can show (or not show) a confirmation before checking
+out an item that will incur a rental charge.</li>
+</ul>
+</div>
+<div class="section" id="rentalsinnoissuescharge">
+<span id="rentalsinnoissuescharge-label"></span><h3>RentalsInNoissuesCharge<a class="headerlink" href="#rentalsinnoissuescharge" title="永久链接至标题"></a></h3>
+<p>Default: Include</p>
+<p>Asks: ___ rental charges when summing up charges for noissuescharge.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t include</li>
+<li>Include</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you decide if rental charges are included when
+calculating the <a class="reference internal" href="#noissuescharge"><span class="std std-ref">noissuescharge</span></a>. If this is set
+to include then Koha will include all rental charges when deciding if
+the patron owes too much money to check anything else out of the
+library. If it’s set to Don’t include then Koha will ignore all
+rental charges when figuring out if the patron owes too much money to
+checkout additional materials.</li>
+</ul>
+</div>
+<div class="section" id="restrictionblockrenewing">
+<span id="restrictionblockrenewing-label"></span><h3>RestrictionBlockRenewing<a class="headerlink" href="#restrictionblockrenewing" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: If patron is restricted, ___ renewing of items.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Block</li>
+</ul>
+</div>
+<div class="section" id="returnbeforeexpiry">
+<span id="returnbeforeexpiry-label"></span><h3>ReturnBeforeExpiry<a class="headerlink" href="#returnbeforeexpiry" title="永久链接至标题"></a></h3>
+<p>Default: Don’t require</p>
+<p>Asks: ___ patrons to return books before their accounts expire (by
+restricting due dates to before the patron’s expiration date).</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t require</li>
+<li>Require</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This is preference may prevent a patron from having items checked out
+after their library card has expired. If this is set to “Require”,
+then a due date of any checked out item can not be set for a date
+which falls after the patron’s card expiration. If the setting is
+left “Don’t require” then item check out dates may exceed the
+expiration date for the patron’s library card.</li>
+</ul>
+</div>
+<div class="section" id="staffsearchresultsdisplaybranch">
+<span id="staffsearchresultsdisplaybranch-label"></span><h3>StaffSearchResultsDisplayBranch<a class="headerlink" href="#staffsearchresultsdisplaybranch" title="永久链接至标题"></a></h3>
+<p>Default: the library the item is held by</p>
+<p>Asks: For search results in the staff client, display the branch of
+___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>the library the item is from</li>
+<li>the library the items is held by</li>
+</ul>
+</div>
+<div class="section" id="switchonsitecheckouts">
+<span id="switchonsitecheckouts-label"></span><h3>SwitchOnSiteCheckouts<a class="headerlink" href="#switchonsitecheckouts" title="永久链接至标题"></a></h3>
+<p>Default: Don’t switch</p>
+<p>Asks: ___ on-site checkouts to normal checkouts when checked out.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t switch</li>
+<li>Switch</li>
+</ul>
+</div>
+<div class="section" id="transfersmaxdayswarning">
+<span id="transfersmaxdayswarning-label"></span><h3>TransfersMaxDaysWarning<a class="headerlink" href="#transfersmaxdayswarning" title="永久链接至标题"></a></h3>
+<p>Default: 3</p>
+<p>Asks: Show a warning on the “Transfers to Receive” screen if the
+transfer has not been received ___ days after it is sent.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The TransferMaxDaysWarning preference is set at a default number of
+days. This preference allows for a warning to appear after a set
+amount of time if an item being transferred between library branches
+has not been received. The warning will appear in the <a class="reference internal" href="circulation.html#transfers-to-receive-label"><span class="std std-ref">Transfers to
+Receive</span></a> report.</li>
+</ul>
+</div>
+<div class="section" id="usebranchtransferlimits-and-branchtransferlimitstype">
+<span id="usebranchtransferlimits-and-branchtransferlimitstype-label"></span><h3>UseBranchTransferLimits and BranchTransferLimitsType<a class="headerlink" href="#usebranchtransferlimits-and-branchtransferlimitstype" title="永久链接至标题"></a></h3>
+<p>Defaults: Don’t enforce and collection code</p>
+<p>Asks: ___ branch transfer limits based on ___</p>
+<p>UseBranchTransferLimits Values:</p>
+<ul class="simple">
+<li>Don’t enforce</li>
+<li>Enforce</li>
+</ul>
+<p>BranchTransferLimitsType Values:</p>
+<ul class="simple">
+<li>collection code</li>
+<li>item type</li>
+</ul>
+<p>BranchTransferLimitsType Description:</p>
+<ul class="simple">
+<li>This parameter is a binary setting which determines whether items are
+transferred according to item type or collection code. This value
+determines how the library manager is able to restrict what items can
+be transferred between the branches.</li>
+</ul>
+</div>
+<div class="section" id="usedaysmode">
+<span id="usedaysmode-label"></span><h3>useDaysMode<a class="headerlink" href="#usedaysmode" title="永久链接至标题"></a></h3>
+<p>Asks: ___ when calculating the date due.</p>
+<p>Default: Use the calendar to skip days the library is closed</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Use the calendar to skip days the library is closed</li>
+<li>Use the calendar to push the due date to the next open day</li>
+<li>Ignore the calendar</li>
+<li>Use the calendar to push the due date to the next open matching weekday
+for weekly loan periods, or the next open day otherwise (Note: This preference
+setting only works with loan periods in multiples of 7).</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls how scheduled library closures affect the
+due date of a material.</li>
+<li>The ‘Use the calendar to skip all days the library is closed’ setting allows
+for a scheduled closure not to count as a day in the loan period.</li>
+<li>The ‘Ignore the calendar’ setting would not consider the scheduled closure
+at all</li>
+<li>The ‘Use the calendar to push the due date to the next open day’ would only
+affect the due date if the day the item is due would fall specifically on
+the day of closure.</li>
+<li>The final option, ‘Use the calendar to push the due date to the next open
+matching weekday for weekly loan periods, or the next open day otherwise’
+allows libraries to accommodate patrons who may only be able to visit the
+library on a certain day of the week, such as part-time students or patrons
+who rely on public transport.</li>
+</ul>
+<p>Example:</p>
+<ul class="simple">
+<li>The library has put December 24th and 25th in as closures on the
+calendar. A book checked out by a patron has a due date of December
+25th according to the circulation and fine rules.<ul>
+<li>If this preference is set to ‘Ignore the calendar’ then the item will
+remain due on the 25th.</li>
+<li>If the preference is set to ‘Use the calendar to push the due date to the
+next open day’, then the due date will be December 26th.</li>
+<li>If the preference is set to ‘Usethe calendar to skip all days the library
+is closed’ then the due date will be pushed to the 27th of December to
+accommodate for the two closed days.</li>
+<li>If the preference is set to ‘Use the calendar to push the due date to the
+next open matching weekday for weekly loan periods, or the next open day
+otherwise’ the item would be due back on January 1st. If January 1st was
+also a closed day then the item would be due back on the next available
+open day.</li>
+</ul>
+</li>
+</ul>
+<p>The calendar is defined on a branch by branch basis. To learn more about
+the calendar, check out the <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">Calendar</span></a>
+section of this manual.</p>
+</div>
+<div class="section" id="usetransportcostmatrix">
+<span id="usetransportcostmatrix-label"></span><h3>UseTransportCostMatrix<a class="headerlink" href="#usetransportcostmatrix" title="永久链接至标题"></a></h3>
+<p>Default: Don’t use</p>
+<p>Asks: ___ Transport Cost Matrix for calculating optimal holds filling
+between branches.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use</li>
+<li>Use</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">If the system is configured to use the <a class="reference internal" href="administration.html#transport-cost-matrix-label"><span class="std std-ref">Transport cost
+matrix</span></a> for filling holds, then when
+attempting to fill a hold, the system will search for the lowest cost
+branch, and attempt to fill the hold with an item from that branch
+first. Branches of equal cost will be selected from randomly. The
+branch or branches of the next highest cost shall be selected from
+only if all the branches in the previous group are unable to fill the
+hold.</p>
+<p>The system will use the item’s current holding branch when
+determining whether the item can fulfill a hold using the Transport
+Cost Matrix.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="course-reserves">
+<span id="course-reserves-system-preferences-label"></span><h2>Course Reserves<a class="headerlink" href="#course-reserves" title="永久链接至标题"></a></h2>
+<div class="section" id="usecoursereserves">
+<span id="usecoursereserves-label"></span><h3>UseCourseReserves<a class="headerlink" href="#usecoursereserves" title="永久链接至标题"></a></h3>
+<p>Default: Don’t use</p>
+<p>Asks: ___ course reserves</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use</li>
+<li>Use</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>The <a class="reference external" href="#coursereserves">Course Reserves</a> module in Koha allows you
+to temporarily move items to ‘reserve’ and assign different
+circulation rules to these items while they are being used for a
+specific course.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="fines-policy">
+<span id="fines-policy-label"></span><h2>Fines Policy<a class="headerlink" href="#fines-policy" title="永久链接至标题"></a></h2>
+<div class="section" id="finescalendar">
+<span id="finescalendar-label"></span><h3>finesCalendar<a class="headerlink" href="#finescalendar" title="永久链接至标题"></a></h3>
+<p>Asks: ___ when calculating the period for fines.</p>
+<p>Default: Use the calendar</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Ignore the calendar</li>
+<li>Use the calendar</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference will determine whether or not fines will be accrued
+on days where the library is closed. Examples include holidays, library
+in-service days, etc.</li>
+<li>If set to ‘Use the calendar’, Koha will skip closed days when calculating
+the overdue fines.</li>
+<li>If set to ‘Ignore the calendar’, fines will be calculated directly, with
+no consideration of closed days.</li>
+</ul>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>To make use of this setting your system administrator must first access
+Koha’s :ref:calendar&lt;calendar-label&gt;` and mark closed days as ‘holidays’
+ahead of time.</p>
+</div></blockquote>
+<p>The calendar is defined on a branch by branch basis. To learn more about
+the calendar, check out the <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">calendar</span></a>
+section of this manual.</p>
+</div>
+<div class="section" id="finesincludegraceperiod">
+<span id="finesincludegraceperiod-label"></span><h3>FinesIncludeGracePeriod<a class="headerlink" href="#finesincludegraceperiod" title="永久链接至标题"></a></h3>
+<p>Default: Include</p>
+<p>Asks: ___ the grace period when calculating the fine for an overdue
+item.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t include</li>
+<li>Include</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you control how Koha calculates fines when there
+is a grace period. If you choose to include the grace period when
+calculating fines then Koha will charge for the days in the grace
+period should the item be overdue more than those days. If you choose
+not to include the grace period then Koha will only charge for the
+days overdue after the grace period.</li>
+</ul>
+</div>
+<div class="section" id="finesmode">
+<span id="finesmode-label"></span><h3>finesMode<a class="headerlink" href="#finesmode" title="永久链接至标题"></a></h3>
+<p>Asks: ___ fines</p>
+<p>Default: Don’t calculate</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t calculate</p>
+</li>
+<li><p class="first">Calculate and charge</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>If this system preference is set to ‘Calculate and charge’, you must either
+add the <a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">fines cron job</span></a> to your crontab, or enable
+<a class="reference internal" href="#calculatefinesonreturn"><span class="std std-ref">CalculateFinesOnReturn</span></a></p>
+<p>If the cronjobs/fines.pl cronjob is being run, accruing and final fines will
+be calculated when the cron runs and accruing fines will be finalized when
+an item is returned. If CalculateFinesOnReturn is enabled, final fines will
+be calculated when an item is returned.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="holdfeemode">
+<span id="holdfeemode-label"></span><h3>HoldFeeMode<a class="headerlink" href="#holdfeemode" title="永久链接至标题"></a></h3>
+<p>Default: only if all items are checked out and the record has at least one hold already.</p>
+<p>Asks: Charge a hold fee ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>any time a hold is collected.</li>
+<li>any time a hold is placed.</li>
+<li>only if all items are checked out and the record has at least one hold already.</li>
+</ul>
+</div>
+<div class="section" id="norefundonlostreturneditemsage">
+<span id="norefundonlostreturneditemsage-label"></span><h3>NoRefundOnLostReturnedItemsAge<a class="headerlink" href="#norefundonlostreturneditemsage" title="永久链接至标题"></a></h3>
+<p>Asks: Don’t refund lost fees if a lost item is checked in more than ___ days
+after it was marked lost.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Enter a number of days after which lost items are not refunded.</li>
+</ul>
+<p><strong>Note</strong></p>
+<p>Set the refund policy in the <a class="reference internal" href="administration.html#item-fee-refund-on-return-label"><span class="std std-ref">default lost item fee refund on return policy</span></a>
+rule in the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a>.</p>
+</div>
+<div class="section" id="processingfeenote">
+<span id="processingfeenote-label"></span><h3>ProcessingFeeNote<a class="headerlink" href="#processingfeenote" title="永久链接至标题"></a></h3>
+<p>Asks: Set the text to be recorded in the column ‘note’, table ‘accountlines’ when the processing fee (defined in item type) is applied.</p>
+</div>
+<div class="section" id="refundlostonreturncontrol">
+<span id="refundlostonreturncontrol-label"></span><h3>RefundLostOnReturnControl<a class="headerlink" href="#refundlostonreturncontrol" title="永久链接至标题"></a></h3>
+<p>Asks: If a lost item is returned, apply the refunding rules defined
+in the ___</p>
+<p>Default: check-in library.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>check-in library.</li>
+<li>item holding branch.</li>
+<li>item home branch.</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This refers to the <a class="reference internal" href="administration.html#item-fee-refund-on-return-label"><span class="std std-ref">default lost item fee refund on return policy</span></a>
+rule in the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a>.</li>
+</ul>
+<p><strong>Note</strong></p>
+<p>You can limit the number of days after which a lost item is not refunded using
+the <a class="reference internal" href="#norefundonlostreturneditemsage"><span class="std std-ref">NoRefundOnLostReturnedItemsAge</span></a> system preference.</p>
+</div>
+<div class="section" id="suspensionscalendar">
+<span id="suspensionscalendar-label"></span><h3>SuspensionsCalendar<a class="headerlink" href="#suspensionscalendar" title="永久链接至标题"></a></h3>
+<p>Default: not including the days the library is closed</p>
+<p>Asks: Calculate suspension expiration based on days overdue ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Ignore the calendar</li>
+<li>Use the calendar</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference determines whether the <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">calendar</span></a> is taken into
+account when making suspension calculations.  Suspension rules can be
+configured within the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation rules</span></a>.
+If set to ‘directly’ the suspension period will ignore any closed days
+that have been added to the calendar.  If set to ‘not including the
+days the library is closed’ any days marked as closed within the calendar
+will be skipped when calculating the end date for the suspension.</li>
+</ul>
+</div>
+<div class="section" id="usedefaultreplacementcost">
+<span id="usedefaultreplacementcost-label"></span><h3>useDefaultReplacementCost<a class="headerlink" href="#usedefaultreplacementcost" title="永久链接至标题"></a></h3>
+<p>Default: Don’t use</p>
+<p>Asks: ___ the default replacement cost defined in item type.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use</li>
+<li>Use</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference enables the use of the replacement cost set on the item type level</li>
+</ul>
+</div>
+<div class="section" id="whenlostchargereplacementfee">
+<span id="whenlostchargereplacementfee-label"></span><h3>WhenLostChargeReplacementFee<a class="headerlink" href="#whenlostchargereplacementfee" title="永久链接至标题"></a></h3>
+<p>Default: Charge</p>
+<p>Asks: ___ the replacement price when a patron loses an item.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Charge</li>
+<li>Don’t charge</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you tell Koha what to do with an item is marked
+lost. If you want Koha can ‘Charge’ the patron the replacement fee
+listed on the item they lost or it can do nothing in reference to the
+patron and just mark the item lost in the catalog.</li>
+</ul>
+</div>
+<div class="section" id="whenlostforgivefine">
+<span id="whenlostforgivefine-label"></span><h3>WhenLostForgiveFine<a class="headerlink" href="#whenlostforgivefine" title="永久链接至标题"></a></h3>
+<p>Default: Don’t forgive</p>
+<p>Asks: ___ the fines on an item when it is lost.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t forgive</li>
+<li>Forgive</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows the library to decide if fines are charged in
+addition to the replacement fee when an item is marked as lost. If
+this preference is set to ‘Forgive’ then the patron won’t be charged
+fines in addition to the replacement fee.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="holds-policy">
+<span id="holds-policy-label"></span><h2>Holds Policy<a class="headerlink" href="#holds-policy" title="永久链接至标题"></a></h2>
+<div class="section" id="allowholddateinfuture">
+<span id="allowholddateinfuture-label"></span><h3>AllowHoldDateInFuture<a class="headerlink" href="#allowholddateinfuture" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ hold requests to be placed that do not enter the waiting
+list until a certain future date.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+</div>
+<div class="section" id="allowholditemtypeselection">
+<span id="allowholditemtypeselection-label"></span><h3>AllowHoldItemTypeSelection<a class="headerlink" href="#allowholditemtypeselection" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ hold fulfillment to be limited by itemtype.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+</div>
+<div class="section" id="allowholdpolicyoverride">
+<span id="allowholdpolicyoverride-label"></span><h3>AllowHoldPolicyOverride<a class="headerlink" href="#allowholdpolicyoverride" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ staff to override hold policies when placing holds.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference is a binary setting which controls whether or not the
+library staff can override the circulation and fines rules as they
+pertain to the placement of holds. Setting this value to “Don’t
+allow” will prevent anyone from overriding, setting it to “Allow”
+will allow it. This setting is important because it determines how
+strict the libraries rules for placing holds are. If this is set to
+“Allow”, exceptions can be made for patrons who are otherwise
+normally in good standing with the library, but there is opportunity
+for the staff to abuse this function. If it is set to “Don’t allow”,
+no abuse of the system is possible, but it makes the system entirely
+inflexible in respect to holds.</li>
+</ul>
+</div>
+<div class="section" id="allowholdsondamageditems">
+<span id="allowholdsondamageditems-label"></span><h3>AllowHoldsOnDamagedItems<a class="headerlink" href="#allowholdsondamageditems" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ hold requests to be placed on damaged items.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This parameter is a binary setting which controls whether or not hold
+requests can be placed on items that are marked as “damaged” (items
+are marked as damaged by editing subfield 4 on the item record).
+Setting this value to “Don’t allow” will prevent anyone from placing
+a hold on such items, setting it to “Allow” will allow it. This
+preference is important because it determines whether or not a patron
+can place a request for an item that might be in the process of being
+repaired or not in good condition. The library may wish to set this
+to “Don’t allow” if they were concerned about their patrons not
+receiving the item in a timely manner or at all (if it is determined
+that the item is beyond repair). Setting it to “Allow” would allow a
+patron to place a hold on an item and therefore receive it as soon as
+it becomes available.</li>
+</ul>
+</div>
+<div class="section" id="allowholdsonpatronspossessions">
+<span id="allowholdsonpatronspossessions-label"></span><h3>AllowHoldsOnPatronsPossessions<a class="headerlink" href="#allowholdsonpatronspossessions" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ____ a patron to place a hold on a record where the patron
+already has one or more items attached to that record checked out.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>By setting to “Don’t allow,” you can prevent patrons from placing
+holds on items they already have out, thus preventing them from
+blocking anyone else from getting an item.</li>
+</ul>
+</div>
+<div class="section" id="allowrenewalifotheritemsavailable">
+<span id="allowrenewalifotheritemsavailable-label"></span><h3>AllowRenewalIfOtherItemsAvailable<a class="headerlink" href="#allowrenewalifotheritemsavailable" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ a patron to renew an item with unfilled holds if other
+available items can fill that hold.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+</div>
+<div class="section" id="autoresumesuspendedholds">
+<span id="autoresumesuspendedholds-label"></span><h3>AutoResumeSuspendedHolds<a class="headerlink" href="#autoresumesuspendedholds" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ suspended holds to be automatically resumed by a set date.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">If this preference is set to ‘Allow’ then all suspended holds will be
+able to have a date at after which they automatically become
+unsuspended. If you have this preference set to ‘Allow’ you will also
+need the <a class="reference internal" href="cron_jobs.html#unsuspend-holds"><span class="std std-ref">Unsuspend holds</span></a> cron job running.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>The holds will become unsuspended the date after that entered by the
+patron.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="canmarkholdstopullaslost">
+<span id="canmarkholdstopullaslost-label"></span><h3>CanMarkHoldsToPullAsLost<a class="headerlink" href="#canmarkholdstopullaslost" title="永久链接至标题"></a></h3>
+<p>Asks: ___ from the ‘Holds to pull’ screen</p>
+<p>Default: Do not allow to mark items as lost</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow to mark items as lost</li>
+<li>Allow to mark items as lost and notify the patron</li>
+<li>Do not allow to mark items as lot</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you choose whether the staff can mark items
+as lost directly from the ‘Holds to pull’ list if they can’t
+find the item on the shelf.</li>
+<li>The actual lost value that will be assigned to the item is defined in the
+<a class="reference internal" href="#updateitemwhenlostfromholdlist"><span class="std std-ref">UpdateItemWhenLostFromHoldList</span></a> system preference.</li>
+</ul>
+</div>
+<div class="section" id="canreservefromotherbranches">
+<span id="canreservefromotherbranches-label"></span><h3>canreservefromotherbranches<a class="headerlink" href="#canreservefromotherbranches" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ a user from one library to place a hold on an item from
+another library</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference is a binary setting which determines whether patrons
+can place holds on items from other branches. If the preference is
+set to “Allow” patrons can place such holds, if it is set to “Don’t
+allow” they cannot. This is an important setting because it
+determines if users can use Koha to request items from another
+branch. If the library is sharing an installation of Koha with other
+independent libraries which do not wish to allow interlibrary
+borrowing it is recommended that this parameter be set to “Don’t
+allow”.</li>
+</ul>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow (with <a class="reference internal" href="administrationpreferences.html#independentbranches"><span class="std std-ref">IndependentBranches</span></a>)</li>
+</ul>
+</div>
+<div class="section" id="confirmfutureholds">
+<span id="confirmfutureholds-label"></span><h3>ConfirmFutureHolds<a class="headerlink" href="#confirmfutureholds" title="永久链接至标题"></a></h3>
+<p>Default: 0</p>
+<p>Asks: Confirm future hold requests (starting no later than ___ days
+from now) at checkin time.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">When confirming a hold at checkin time, the number of days in this
+preference is taken into account when deciding which holds to show
+alerts for. This preference does not interfere with renewing,
+checking out or transferring a book.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This number of days will be used too in calculating the default end
+date for the Holds to pull-report. But it does not interfere with
+issuing, renewing or transferring books.</p>
+<p><strong>Important</strong></p>
+<p>This preference is only looked at if you’re allowing hold dates in
+the future with <a class="reference internal" href="#allowholddateinfuture"><span class="std std-ref">AllowHoldDateInFuture</span></a>
+or <a class="reference internal" href="#opacallowholddateinfuture"><span class="std std-ref">OPACAllowHoldDateInFuture</span></a></p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="decreaseloanhighholds-decreaseloanhighholdsduration-decreaseloanhighholdsvalue-decreaseloanhighholdscontrol-and-decreaseloanhighholdsignorestatuses">
+<span id="decreaseloanhighholds-preferences-label"></span><h3>decreaseLoanHighHolds, decreaseLoanHighHoldsDuration, decreaseLoanHighHoldsValue, decreaseLoanHighHoldsControl, and decreaseLoanHighHoldsIgnoreStatuses<a class="headerlink" href="#decreaseloanhighholds-decreaseloanhighholdsduration-decreaseloanhighholdsvalue-decreaseloanhighholdscontrol-and-decreaseloanhighholdsignorestatuses" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the reduction of loan period ___ to days for items with
+more than ___ holds ___ . Ignore items with the following statuses
+when counting items ___</p>
+<p>decreaseLoanHighHolds default: Don’t enable</p>
+<p>decreaseLoanHighHoldsControl default: on the record</p>
+<p>decreaseLoanHighHolds values:</p>
+<ul class="simple">
+<li>Enable</li>
+</ul>
+<p>decreaseLoanHighHoldsControl values:</p>
+<ul class="simple">
+<li>over the number of holdable items on the records</li>
+<li>on the record</li>
+</ul>
+<p>decreaseLoanHighHoldsIgnoreStatuses values:</p>
+<ul class="simple">
+<li>[Select All]</li>
+<li>Damages</li>
+<li>Lost</li>
+<li>Not for loan</li>
+<li>Withdrawn</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">These preferences let you change the loan length for items that have
+many holds on them. This will not effect items that are already
+checked out, but items that are checked out after the
+decreaseLoanHighHoldsValue is met will only be checked out for the
+number of days entered in the decreaseLoanHighHoldsDuration
+preference.</p>
+<p><img alt="image32" src="_images/decreaseLoanHighHoldsDuration1.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="displaymultiplacehold">
+<span id="displaymultiplacehold-label"></span><h3>DisplayMultiPlaceHold<a class="headerlink" href="#displaymultiplacehold" title="永久链接至标题"></a></h3>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ the ability to place holds on multiple biblio from the
+search results</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t enable</li>
+<li>Enable</li>
+</ul>
+</div>
+<div class="section" id="emaillibrarianwhenholdisplaced">
+<span id="emaillibrarianwhenholdisplaced-label"></span><h3>emailLibrarianWhenHoldIsPlaced<a class="headerlink" href="#emaillibrarianwhenholdisplaced" title="永久链接至标题"></a></h3>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ sending an email to the Koha administrator email address
+whenever a hold request is placed.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t enable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference enables Koha to email the library staff whenever a
+patron requests an item to be held. While this function will
+immediately alert the librarian to the patron’s need, it is extremely
+impractical in most library settings. In most libraries the hold
+lists are monitored and maintained from a separate interface. That
+said, many libraries that allow on shelf holds prefer to have this
+preference turned on so that they are alerted to pull an item from
+the shelf.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>In order for this email to send you must have a
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">notice</span></a> template with the code of HOLDPLACED</p>
+<p><strong>Important</strong></p>
+<p>This notice will only be sent if the <a class="reference internal" href="cron_jobs.html#cron-message-queue-label"><span class="std std-ref">process_message_queue.pl
+cron job</span></a> is being run periodically to send the
+messages.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="excludeholidaysfrommaxpickupdelay">
+<span id="excludeholidaysfrommaxpickupdelay-label"></span><h3>ExcludeHolidaysFromMaxPickUpDelay<a class="headerlink" href="#excludeholidaysfrommaxpickupdelay" title="永久链接至标题"></a></h3>
+<p>Asks: ___ when calculating the period for reserves max pickup delay.</p>
+<p>Default: Ignore the calendar</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Ignore the calendar</li>
+<li>Use the calendar</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference determines whether or not closed days in the
+<a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">calendar</span></a> are taken into account when calculating the
+time period for patrons to pick up their holds (see
+<a class="reference internal" href="#reservesmaxpickupdelay"><span class="std std-ref">ReservesMaxPickUpDelay</span></a>).</li>
+<li>If set to ‘Ignore the calendar’, the pickup delay will be calculated
+directly.</li>
+<li>If set to ‘Use the calendar’, holidays will be excluded from the pickup
+delay.</li>
+</ul>
+</div>
+<div class="section" id="expirereservesmaxpickupdelay">
+<span id="expirereservesmaxpickupdelay-label"></span><h3>ExpireReservesMaxPickUpDelay<a class="headerlink" href="#expirereservesmaxpickupdelay" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ holds to expire automatically if they have not been picked
+by within the time period specified in
+<a class="reference internal" href="#reservesmaxpickupdelay"><span class="std std-ref">ReservesMaxPickUpDelay</span></a></p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If set to ‘allow’ this will cancel holds that have been waiting for
+longer than the number of days specified in the
+<a class="reference internal" href="#reservesmaxpickupdelay"><span class="std std-ref">ReservesMaxPickUpDelay</span></a> system
+preference. Holds will only be cancelled if the <a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">Expire Holds cron
+job</span></a> is runnning.</li>
+</ul>
+</div>
+<div class="section" id="expirereservesmaxpickupdelaycharge">
+<span id="expirereservesmaxpickupdelaycharge-label"></span><h3>ExpireReservesMaxPickUpDelayCharge<a class="headerlink" href="#expirereservesmaxpickupdelaycharge" title="永久链接至标题"></a></h3>
+<p>Default: 0</p>
+<p>Asks: If using
+<a class="reference internal" href="#expirereservesmaxpickupdelay"><span class="std std-ref">ExpireReservesMaxPickUpDelay</span></a>, charge
+a borrower who allows his or her waiting hold to expire a fee of ___
+USD</p>
+<p>Description:</p>
+<ul class="simple">
+<li>If you are expiring holds that have been waiting too long you can use
+this preference to charge the patron for not picking up their hold.
+If you don’t charge patrons for items that aren’t picked up you can
+leave this set to the default which is 0. Holds will only be
+cancelled and charged if the <a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">Expire Holds cron
+job</span></a> is running.</li>
+</ul>
+</div>
+<div class="section" id="expirereservesonholidays">
+<span id="expirereservesonholidays-label"></span><h3>ExpireReservesOnHolidays<a class="headerlink" href="#expirereservesonholidays" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ expired holds to be cancelled on days the library is
+closed.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+</div>
+<div class="section" id="holdssplitqueue">
+<span id="holdssplitqueue-label"></span><h3>HoldsSplitQueue<a class="headerlink" href="#holdssplitqueue" title="永久链接至标题"></a></h3>
+<p>Default: nothing</p>
+<p>Asks: In the staff client, split the holds queue into separate tables by ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>pickup library</li>
+<li>pickup library and itemtype</li>
+<li>hold itemtype</li>
+<li>nothing</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This feature allows you to separate holds by pickup library or itemtype in the
+holds page of a record (not in the global holds queue found on the circulation
+page).</li>
+<li>When using the up and down arrows the priorities will be changed only
+in the group the holds belongs to.</li>
+</ul>
+</div>
+<div class="section" id="holdssplitqueuenumbering">
+<span id="holdssplitqueuenumbering-label"></span><h3>HoldsSplitQueueNumbering<a class="headerlink" href="#holdssplitqueuenumbering" title="永久链接至标题"></a></h3>
+<p>Default: the actual priority, which may be out of order</p>
+<p>Asks: If the holds queue is split, show librarians ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>the actual priority, which may be out of order</li>
+<li>‘virtual’ priorities, where each group is numbered separately</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference is only effective if <a class="reference internal" href="#holdssplitqueue"><span class="std std-ref">HoldsSplitQueue</span></a> is set to
+any value except ‘nothing’.</li>
+<li>This system preference controls the priority numbering on the holds page
+of a record (not in the global holds queue found on the circulation page).</li>
+</ul>
+</div>
+<div class="section" id="localholdspriority-localholdsprioritypatroncontrol-localholdspriorityitemcontrol">
+<span id="localholdspriority-preferences-label"></span><h3>LocalHoldsPriority, LocalHoldsPriorityPatronControl, LocalHoldsPriorityItemControl<a class="headerlink" href="#localholdspriority-localholdsprioritypatroncontrol-localholdspriorityitemcontrol" title="永久链接至标题"></a></h3>
+<p>Asks: ___ priority for filling holds to patrons whose ___ matches
+the item’s ___</p>
+<p>LocalHoldsPriority Values:</p>
+<ul class="simple">
+<li>Don’t give</li>
+<li>Give</li>
+</ul>
+<p>LocalHoldsPriorityPatronControl Values:</p>
+<ul class="simple">
+<li>home library</li>
+<li>pickup library</li>
+</ul>
+<p>LocalHoldsPriorityItemControl Values:</p>
+<ul class="simple">
+<li>holding library</li>
+<li>home library</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This feature will allow libraries to specify that, when an item is
+returned, a local hold may be given priority for fulfillment even
+though it is of lower priority in the list of unfilled holds.</li>
+</ul>
+</div>
+<div class="section" id="maxreserves">
+<span id="maxreserves-label"></span><h3>maxreserves<a class="headerlink" href="#maxreserves" title="永久链接至标题"></a></h3>
+<p>Default: 50</p>
+<p>Asks: Patrons can only have ___ holds at once.</p>
+</div>
+<div class="section" id="opacallowholddateinfuture">
+<span id="opacallowholddateinfuture-label"></span><h3>OPACAllowHoldDateInFuture<a class="headerlink" href="#opacallowholddateinfuture" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ patrons to place holds that don’t enter the waiting list
+until a certain future date.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow<ul>
+<li><a class="reference internal" href="#allowholddateinfuture"><span class="std std-ref">AllowHoldDateInFuture</span></a> must also be
+enabled for this to work</li>
+</ul>
+</li>
+<li>Don’t allow</li>
+</ul>
+</div>
+<div class="section" id="opacallowusertochoosebranch">
+<span id="opacallowusertochoosebranch-label"></span><h3>OPACAllowUserToChooseBranch<a class="headerlink" href="#opacallowusertochoosebranch" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ a user to choose the library to pick up a hold from.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Changing this preference will not prevent staff from being able to
+transfer titles from one library to another to fill a hold, it will
+only prevent patrons from saying they plan on picking a book up at a
+library other than their home library.</li>
+<li>The list of available pickup locations will include all libraries that
+have ‘Pickup location’ set to ‘Yes’ on the library configuration page.</li>
+</ul>
+</div>
+<div class="section" id="opacholdsifavailableatpickup">
+<span id="opacholdsifavailableatpickup-label"></span><h3>OPACHoldsIfAvailableAtPickup<a class="headerlink" href="#opacholdsifavailableatpickup" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ to pickup holds at libraries where the item is available.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t allow</li>
+<li>Allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Prevents borrowers from requesting items that are on the shelf
+at the same branch at which they wish to pick up those items.</li>
+</ul>
+</div>
+<div class="section" id="opacholdsifavailableatpickupexceptions">
+<span id="opacholdsifavailableatpickupexceptions-label"></span><h3>OPACHoldsIfAvailableAtPickupExceptions<a class="headerlink" href="#opacholdsifavailableatpickupexceptions" title="永久链接至标题"></a></h3>
+<p>Default: blank</p>
+<p>Asks: Patron categories not affected by <a class="reference internal" href="#opacholdsifavailableatpickup"><span class="std std-ref">OPACHoldsIfAvailableAtPickup</span></a>
+___ (list of patron categories separated with a pipe ^|^)</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Patron category codes listed here separated by a pipe ^|^ are unaffected by
+<a class="reference internal" href="#opacholdsifavailableatpickup"><span class="std std-ref">OPACHoldsIfAvailableAtPickup</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="reservescontrolbranch">
+<span id="reservescontrolbranch-label"></span><h3>ReservesControlBranch<a class="headerlink" href="#reservescontrolbranch" title="永久链接至标题"></a></h3>
+<p>Default: item’s home library</p>
+<p>Asks: Check the ___ to see if the patron can place a hold on the
+item.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>item’s home library.</li>
+<li>patron’s home library.</li>
+</ul>
+</div>
+<div class="section" id="reservesmaxpickupdelay">
+<span id="reservesmaxpickupdelay-label"></span><h3>ReservesMaxPickUpDelay<a class="headerlink" href="#reservesmaxpickupdelay" title="永久链接至标题"></a></h3>
+<p>Default: 7</p>
+<p>Asks: Mark a hold as problematic if it has been waiting for more than
+___ days.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference (based on calendar days, not the
+<a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">Koha holiday calendar</span></a>) puts an expiration date on an item a
+patron has on hold. After this expiration date the staff will have
+the option to release the unclaimed hold which then may be returned
+to the library shelf or issued to the next patron on the item’s hold
+list. Items that are ‘expired’ by this preference are moved to the
+‘Holds Over’ tab on the <a class="reference internal" href="circulation.html#holds-awaiting-pickup-label"><span class="std std-ref">Holds Awaiting Pickup</span></a>
+report.</li>
+</ul>
+</div>
+<div class="section" id="reservesneedreturns">
+<span id="reservesneedreturns-label"></span><h3>ReservesNeedReturns<a class="headerlink" href="#reservesneedreturns" title="永久链接至标题"></a></h3>
+<p>Default: Don’t automatically</p>
+<p>Asks: ___ mark holds as found and waiting when a hold is placed
+specifically on them and they are already checked in.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Automatically</li>
+<li>Don’t automatically</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference refers to ‘item specific’ holds where the item is
+currently on the library shelf. This preference allows a library to
+decide whether an ‘item specific’ hold is marked as “Waiting” at the
+time the hold is placed or if the item will be marked as “Waiting”
+after the item is checked in. This preference will tell the patron
+that their item is ‘Waiting’ for them at their library and ready for
+check out.</li>
+</ul>
+</div>
+<div class="section" id="staticholdsqueueweight-holdsqueueskipclosed-and-randomizeholdsqueueweight">
+<span id="holds-queue-system-preferences-label"></span><h3>StaticHoldsQueueWeight, HoldsQueueSkipClosed and RandomizeHoldsQueueWeight<a class="headerlink" href="#staticholdsqueueweight-holdsqueueskipclosed-and-randomizeholdsqueueweight" title="永久链接至标题"></a></h3>
+<p>StaticHoldsQueueWeight Default: 0</p>
+<p>HoldsQueueSkipClosed Default: open or closed</p>
+<p>RandomizeHoldsQueueWeight Default: in that order</p>
+<p>Asks: Satisfy holds using items from the libraries ___ (as
+branchcodes, separated by commas; if empty, uses all libraries) when
+they are ___ ___.</p>
+<p>HoldsQueueSkipClosed Values:</p>
+<ul class="simple">
+<li>open or closed</li>
+<li>open</li>
+</ul>
+<p>RandomizeHoldsQueueWeight Values:</p>
+<ul class="simple">
+<li>in random order<ul>
+<li>If StaticHoldsQueueWeight is left at the default Koha will
+randomize all libraries, otherwise it will randomize the libraries
+listed.</li>
+</ul>
+</li>
+<li>in that order<ul>
+<li>If StaticHoldsQueueWeight is left at the default then this will
+use all of your branches in alphabetical order, otherwise it will
+use the branches in the order that you entered them in the
+StaticHoldsQueueWeight preference.</li>
+</ul>
+</li>
+</ul>
+<p>Descriptions:</p>
+<ul>
+<li><p class="first">These preferences control how the <a class="reference internal" href="circulation.html#holds-queue-label"><span class="std std-ref">Holds Queue
+report</span></a> is generated using <a class="reference internal" href="cron_jobs.html#cron-holds-queue-report-label"><span class="std std-ref">a cron
+job</span></a>.</p>
+<p>If you do not want all of your libraries to participate in the
+on-shelf holds fulfillment process, you should list the the libraries
+that *do* participate in the process here by inputting all the
+participating library’s branchcodes, separated by commas ( e.g.
+“MPL,CPL,SPL,BML” etc. ).</p>
+<p>By default, the holds queue will be generated such that the system
+will first attempt to hold fulfillment using items already at the
+pickup library if possible. If there are no items available at the
+pickup library to fill a hold, build_holds_queue.pl will then use
+the list of libraries defined in StaticHoldsQueueWeight. If
+RandomizeHoldsQueueWeight is disabled ( which it is by default ), the
+script will assign fulfillment requests in the order the branches are
+placed in the StaticHoldsQueueWeight system preference.</p>
+<p>For example, if your system has three libraries, of varying sizes (
+small, medium and large ) and you want the burden of holds
+fulfillment to be on larger libraries before smaller libraries, you
+would want StaticHoldsQueueWeight to look something like
+“LRG,MED,SML”.</p>
+<p>If you want the burden of holds fulfillment to be spread out equally
+throughout your library system, simply enable
+RandomizeHoldsQueueWeight. When this system preference is enabled,
+the order in which libraries will be requested to fulfill an on-shelf
+hold will be randomized each time the list is regenerated.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>The <a class="reference internal" href="administration.html#transport-cost-matrix-label"><span class="std std-ref">Transport Cost Matrix</span></a> takes
+precedence in controlling where holds are filled from, if the matrix
+is not used then Koha checks the StaticHoldsQueueWeight. To use the
+Transport Cost Matrix simply set your
+<a class="reference internal" href="#usetransportcostmatrix"><span class="std std-ref">UseTransportCostMatrix</span></a> preference to
+‘Use’</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="suspendholdsintranet">
+<span id="suspendholdsintranet-label"></span><h3>SuspendHoldsIntranet<a class="headerlink" href="#suspendholdsintranet" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ holds to be suspended from the intranet.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>The holds suspension feature can be turned on and off in the staff
+client by altering this system preference. If this is set to ‘allow’
+you will want to set the
+<a class="reference internal" href="#autoresumesuspendedholds"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> system
+preference.</li>
+</ul>
+</div>
+<div class="section" id="suspendholdsopac">
+<span id="suspendholdsopac-label"></span><h3>SuspendHoldsOpac<a class="headerlink" href="#suspendholdsopac" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ holds to be suspended from the OPAC.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>The holds suspension feature can be turned on and off in the OPAC by
+altering this system preference. If this is set to ‘allow’ you will
+want to set the
+<a class="reference internal" href="#autoresumesuspendedholds"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> system
+preference.</li>
+</ul>
+</div>
+<div class="section" id="transferwhencancelallwaitingholds">
+<span id="transferwhencancelallwaitingholds-label"></span><h3>TransferWhenCancelAllWaitingHolds<a class="headerlink" href="#transferwhencancelallwaitingholds" title="永久链接至标题"></a></h3>
+<p>Default: Don’t transfer</p>
+<p>Asks: ___ items when cancelling all waiting holds.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t transfer</li>
+<li>Transfer</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When TransferWhenCancelAllWaitingHolds is set to “Don’t transfer”, no
+branch transfer records are created. Koha will not allow the holds to
+be transferred, because that would orphan the items at the library
+where the holds were awaiting pickup, without any further instruction
+to staff as to what items are at the library or where they need to
+go. When that system preference set to “Transfer”, branch transfers
+are created, so the holds may be cancelled.</li>
+</ul>
+</div>
+<div class="section" id="updateitemwhenlostfromholdlist">
+<span id="updateitemwhenlostfromholdlist-label"></span><h3>UpdateItemWhenLostFromHoldList<a class="headerlink" href="#updateitemwhenlostfromholdlist" title="永久链接至标题"></a></h3>
+<p>Asks: Update item’s values when marked as lost from the hold to pull screen.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This is a list of values to update an item when it is marked as lost from
+the holds to pull screen. For example, write “itemlost: 1” to set the items.
+itemlost value to 1 when the item is marked as lost. This will use the authorized
+value 1 from the <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOST authorized value list</span></a>.</li>
+<li>Examples of keywords:<ul>
+<li>itemlost: lost status, uses the
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOST authorized values list</span></a></li>
+<li>notforloan: not for loan status, uses the
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">NOT_LOAN authorized values list</span></a></li>
+<li>withdrawn: withdrawn status, uses the
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">WITHDRAWN authorized values list</span></a></li>
+<li>damaged: damaged status, uses the
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">DAMAGED authorized values list</span></a></li>
+<li>location: location code, uses the
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOC authorized values list</span></a></li>
+<li>ccode: collection code, uses the
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">CCODE authorized values list</span></a></li>
+</ul>
+</li>
+<li>This preference requires that the <a class="reference internal" href="#canmarkholdstopullaslost"><span class="std std-ref">CanMarkHoldsToPullAsLost</span></a> system
+preference be set to either ‘Allow’ option</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>Requires YAML syntax to work</p>
+<p>This means</p>
+<ul class="last simple">
+<li>Make sure there is NO space between the field name and the colon</li>
+<li>Make sure there IS a space between the colon and the value</li>
+<li>Make sure each pair is on its own line</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="housebound-module">
+<span id="housebound-module-label"></span><h2>Housebound module<a class="headerlink" href="#housebound-module" title="永久链接至标题"></a></h2>
+<div class="section" id="houseboundmodule">
+<span id="houseboundmodule-label"></span><h3>HouseboundModule<a class="headerlink" href="#houseboundmodule" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ housebound module</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference enables or disables the Housebound module which
+handles management of circulation to Housebound readers.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="interface">
+<span id="housebound-interface-label"></span><h2>Interface<a class="headerlink" href="#interface" title="永久链接至标题"></a></h2>
+<div class="section" id="allowallmessagedeletion">
+<span id="allowallmessagedeletion-label"></span><h3>AllowAllMessageDeletion<a class="headerlink" href="#allowallmessagedeletion" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ staff to delete messages added from other libraries.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+</div>
+<div class="section" id="allowcheckoutnotes">
+<span id="allowcheckoutnotes-label"></span><h3>AllowCheckoutNotes<a class="headerlink" href="#allowcheckoutnotes" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ patrons to submit notes about checked out items.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t allow</li>
+<li>Allow</li>
+</ul>
+<p>This preference if set to allow will give your patrons the option to add
+a note to an item they have checked out on the OPAC side.  This note will be
+seen on the staff side when the item is checked in.</p>
+</div>
+<div class="section" id="allowofflinecirculation">
+<span id="allowofflinecirculation-label"></span><h3>AllowOfflineCirculation<a class="headerlink" href="#allowofflinecirculation" title="永久链接至标题"></a></h3>
+<p>Default: Do not enable</p>
+<p>Asks: ___ offline circulation on regular circulation computers.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do not enable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Setting this preference to ‘Enable’ allows you to use the Koha
+interface for <a class="reference internal" href="circulation.html#offline-circulation-utilities-label"><span class="std std-ref">offline circulation</span></a>. This system
+preference does not affect the <a class="reference internal" href="circulation.html#firefox-plugin-label"><span class="std std-ref">Firefox
+plugin</span></a> or the <a class="reference internal" href="circulation.html#offline-circ-tool-for-windows-label"><span class="std std-ref">desktop
+application</span></a>, any of these three options can
+be used for offline circulation without effecting the other.</li>
+</ul>
+</div>
+<div class="section" id="autoswitchpatron">
+<span id="autoswitchpatron-label"></span><h3>AutoSwitchPatron<a class="headerlink" href="#autoswitchpatron" title="永久链接至标题"></a></h3>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ the automatic redirection to another patron when a patron
+barcode is scanned instead of a book. This should not be enabled if you
+have overlapping patron and book barcodes.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t enable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Enabling this system preference allows staff to scan a patron barcode instead
+of an item barcode in the checkout box to switch patron records.</li>
+</ul>
+</div>
+<div class="section" id="circautoprintquickslip">
+<span id="circautoprintquickslip-label"></span><h3>CircAutoPrintQuickSlip<a class="headerlink" href="#circautoprintquickslip" title="永久链接至标题"></a></h3>
+<p>Default: open a print quick slip window</p>
+<p>Asks: When an empty barcode field is submitted in circulation ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>clear the screen</li>
+<li>open a print quick slip window</li>
+<li>open a print slip window</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If this preference is set to open a quick slip
+(<a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">ISSUEQSLIP</span></a>) or open a slip
+(<a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">ISSUESLIP</span></a>) for printing it will eliminate the
+need for the librarian to click the print button to generate a
+checkout receipt for the patron they’re checking out to. If the
+preference is set to clear the screen then “checking out” an empty
+barcode will clear the screen of the patron you were last working
+with.</li>
+</ul>
+</div>
+<div class="section" id="circsidebar">
+<span id="circsidebar-label"></span><h3>CircSidebar<a class="headerlink" href="#circsidebar" title="永久链接至标题"></a></h3>
+<p>Default: Deactivate</p>
+<p>Asks: ___ the navigation sidebar on all Circulation pages.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Deactivate</li>
+<li>Activate</li>
+</ul>
+</div>
+<div class="section" id="displayclearscreenbutton">
+<span id="displayclearscreenbutton-label"></span><h3>DisplayClearScreenButton<a class="headerlink" href="#displayclearscreenbutton" title="永久链接至标题"></a></h3>
+<p>Default: Show</p>
+<p>Asks: ___ a button to clear the current patron from the screen on the
+circulation screen.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t show</p>
+<p><img alt="image36" src="_images/DisplayClearScreenButtonOff.png" /></p>
+</li>
+<li><p class="first">Show</p>
+<p><img alt="image37" src="_images/DisplayClearScreenButton.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="exportcirchistory">
+<span id="exportcirchistory-label"></span><h3>ExportCircHistory<a class="headerlink" href="#exportcirchistory" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ the export patron checkout history options.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+</div>
+<div class="section" id="exportremovefields">
+<span id="exportremovefields-label"></span><h3>ExportRemoveFields<a class="headerlink" href="#exportremovefields" title="永久链接至标题"></a></h3>
+<p>Asks: The following fields should be excluded from the patron checkout
+history CSV or iso2709 export ___</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This space separated list of fields (e.g. 100a 245b) will
+automatically be excluded when exporting the patron’s current
+checkout history.</p>
+<p><img alt="image38" src="_images/ExportRemoveFields.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="filterbeforeoverduereport">
+<span id="filterbeforeoverduereport-label"></span><h3>FilterBeforeOverdueReport<a class="headerlink" href="#filterbeforeoverduereport" title="永久链接至标题"></a></h3>
+<p>Default: Don’t require</p>
+<p>Asks: ___ staff to choose which checkouts to show before running the
+overdues report.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">Koha’s overdue report shows you all of the overdue items in your
+library system. If you have a large library system you’ll want to set
+this preference to ‘Require’ to force those running the report to
+first limit the data generated to a branch, date range, patron
+category or other such filter. Requiring that the report be filtered
+before it’s run prevents your staff from running a system heavy
+report and slowing down other operations in the system.</p>
+<p><img alt="image34" src="_images/FilterBeforeOverdueReport.png" /></p>
+</li>
+</ul>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t require</li>
+<li>Require</li>
+</ul>
+</div>
+<div class="section" id="finenotifyatcheckin">
+<span id="finenotifyatcheckin-label"></span><h3>FineNotifyAtCheckin<a class="headerlink" href="#finenotifyatcheckin" title="永久链接至标题"></a></h3>
+<p>Default: Don’t notify</p>
+<p>Asks: ___ librarians of overdue fines on the items they are checking
+in.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t notify</li>
+<li>Notify</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">With this preference set to ‘Notify’ all books that have overdue
+fines owed on them will pop up a warning when checking them in. This
+warning will need to acknowledged before you can continue checking
+items in. With this preference set to ‘Don’t notify,^ you will still
+see fines owed on the patron record, you just won’t have an
+additional notification at check in.</p>
+<p><img alt="image35" src="_images/FineNotifyAtCheckin.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="holdstopullstartdate">
+<span id="holdstopullstartdate-label"></span><h3>HoldsToPullStartDate<a class="headerlink" href="#holdstopullstartdate" title="永久链接至标题"></a></h3>
+<p>Default: 2</p>
+<p>Asks: Set the default start date for the Holds to pull list to ___
+day(s) ago.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The <a class="reference internal" href="circulation.html#holds-to-pull-label"><span class="std std-ref">Holds to Pull</span></a> report in circulation defaults to
+filtering holds placed 2 days ago. This preference allows you to set
+this default filter to any number of days.</li>
+</ul>
+</div>
+<div class="section" id="itembarcodefallbacksearch">
+<span id="itembarcodefallbacksearch-label"></span><h3>itemBarcodeFallbackSearch<a class="headerlink" href="#itembarcodefallbacksearch" title="永久链接至标题"></a></h3>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ the automatic use of a keyword catalog search if the phrase
+entered as a barcode on the checkout page does not turn up any results
+during an item barcode search.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t enable</p>
+</li>
+<li><p class="first">Enable</p>
+<p><img alt="image40" src="_images/itemBarcodeFallbackSearch.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">Sometimes libraries want to checkout using something other than the
+barcode. Enabling this preference will do a keyword search of Koha to
+find the item you’re trying to check out. You can use the call
+number, barcode, part of the title or anything you’d enter in the
+keyword search when this preference is enabled and Koha will ask you
+which item you’re trying to check out.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>While you’re not searching by barcode a barcode is required on every
+title you check out. Only titles with barcodes will appear in the
+search results.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="itembarcodeinputfilter">
+<span id="itembarcodeinputfilter-label"></span><h3>itemBarcodeInputFilter<a class="headerlink" href="#itembarcodeinputfilter" title="永久链接至标题"></a></h3>
+<p>Default: Don’t filter</p>
+<p>Asks: ___ scanned item barcodes.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Convert from CueCat format</li>
+<li>Convert from Libsuite8 form</li>
+<li>Don’t filter</li>
+<li>EAN-13 or zero-padded UPC-A from</li>
+<li>Remove spaces from</li>
+<li>Remove the first number from T-prefix style<ul>
+<li>This format is common among those libraries migrating from Follett
+systems</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="noticecss">
+<span id="noticecss-label"></span><h3>NoticeCSS<a class="headerlink" href="#noticecss" title="永久链接至标题"></a></h3>
+<p>Asks: Include the stylesheet at ___ on Notices.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This should be a complete URL, starting with <a class="reference external" href="http://">http://</a></p>
+</div></blockquote>
+<p>Description:</p>
+<ul class="simple">
+<li>If you would like to style your notices with a consistent set of
+fonts and colors you can use this preference to point Koha to a
+stylesheet specifically for your notices.</li>
+</ul>
+</div>
+<div class="section" id="numreturneditemstoshow">
+<span id="numreturneditemstoshow-label"></span><h3>numReturnedItemsToShow<a class="headerlink" href="#numreturneditemstoshow" title="永久链接至标题"></a></h3>
+<p>Default: 20</p>
+<p>Asks : Show the ___ last returned items on the checkin screen.</p>
+</div>
+<div class="section" id="patronautocomplete">
+<span id="patronautocomplete-label"></span><h3>PatronAutoComplete<a class="headerlink" href="#patronautocomplete" title="永久链接至标题"></a></h3>
+<p>Asks: ___ to guess the patron being entered while typing a patron search
+for circulation or patron search. Only returns the first 10 results at a time.</p>
+<p>Default: Try</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Try</li>
+<li>Don’t try</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">This system preference enables the auto-complete feature in the
+<a class="reference internal" href="patrons.html#patron-search-label"><span class="std std-ref">patron search</span></a> in the Patrons and Circulation
+modules.</p>
+</li>
+<li><p class="first">Setting it to “Try” would enable a staff member to begin typing a name or
+other value into the field and have a menu pop up with suggestions for
+completing it. Setting it to “Don’t try” would disable this feature.</p>
+</li>
+<li><p class="first">This preference can make staff members’ jobs easier or it could potentially
+slow down the page loading process.</p>
+<p><img alt="image33" src="_images/CircAutocompl.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="previousissuesdefaultsortorder">
+<span id="previousissuesdefaultsortorder-label"></span><h3>previousIssuesDefaultSortOrder<a class="headerlink" href="#previousissuesdefaultsortorder" title="永久链接至标题"></a></h3>
+<p>Asks: Sort previous checkouts on the circulation page from ___ due
+date.</p>
+<p>Default: earliest to latest</p>
+<p>Values:</p>
+<ul class="simple">
+<li>earliest to latest</li>
+<li>latest to earliest</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference controls how you want the previous checkouts to appear
+in the patron’s <a class="reference internal" href="circulation.html#checking-items-out-label"><span class="std std-ref">Checkout tab.</span></a></li>
+<li>If you choose ‘earliest to latest’, the oldest checkout will be at the top.</li>
+<li>If you choose ‘latest to earliest’, the most recent checkout will be at the
+top.</li>
+</ul>
+</div>
+<div class="section" id="recordlocaluseonreturn">
+<span id="recordlocaluseonreturn-label"></span><h3>RecordLocalUseOnReturn<a class="headerlink" href="#recordlocaluseonreturn" title="永久链接至标题"></a></h3>
+<p>Default: Don’t record</p>
+<p>Asks: ___ local use when an unissued item is checked in.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t record</li>
+<li>Record</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When this preference is set to “Don’t record” you can record local
+use of items by checking items out to the statistical patron. With
+this preference set to “Record” you can record local use by checking
+out to the statistical patron and/or by checking in a book that is
+not currently checked out.</li>
+</ul>
+</div>
+<div class="section" id="showallcheckins">
+<span id="showallcheckins-label"></span><h3>ShowAllCheckins<a class="headerlink" href="#showallcheckins" title="永久链接至标题"></a></h3>
+<p>Default: Do not show</p>
+<p>Asks: ___ all items in the “Checked-in items” list, even items that
+were not checked out.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Do not show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When items that are not currently checked out are checked in they
+don’t show on the list of checked in items. This preference allows
+you to choose how you’d like the log of checked in items displays.</li>
+</ul>
+</div>
+<div class="section" id="specifyduedate">
+<span id="specifyduedate-label"></span><h3>SpecifyDueDate<a class="headerlink" href="#specifyduedate" title="永久链接至标题"></a></h3>
+<p>Default: Allow</p>
+<p>Asks: ___ staff to specify a due date for a checkout.</p>
+<p>Due dates are calculated using your circulation and fines rules, but
+staff can override that if you allow them to specify a due date at
+checkout.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows for circulation staff to change a due date
+from the automatic due date to another calendar date. This option
+would be used for circumstances in which the due date may need to be
+decreased or extended in a specific circumstance. The “Allow” setting
+would allow for this option to be utilized by staff, the “Don’t
+allow” setting would bar staff from changing the due date on
+materials.</li>
+</ul>
+<p>Values:</p>
+<ul>
+<li><p class="first">Allow</p>
+<p><img alt="image41" src="_images/SpecifyDueDate.png" /></p>
+</li>
+<li><p class="first">Don’t allow</p>
+<p><img alt="image42" src="_images/SpecifyDueDate-no.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="specifyreturndate">
+<span id="specifyreturndate-label"></span><h3>SpecifyReturnDate<a class="headerlink" href="#specifyreturndate" title="永久链接至标题"></a></h3>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ staff to specify a return date for a check in.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+</ul>
+<blockquote>
+<div><img alt="image1185" src="_images/SpecifyReturnDate1.png" /></div></blockquote>
+<ul class="simple">
+<li>Don’t allow</li>
+</ul>
+<blockquote>
+<div><img alt="image1186" src="_images/SpecifyReturnDate-no.png" /></div></blockquote>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you decide if staff can specify an arbitrary
+return date when checking in items. If an arbitrary return date is
+specified then fines are recalculated accordingly.</li>
+</ul>
+</div>
+<div class="section" id="todaysissuesdefaultsortorder">
+<span id="todaysissuesdefaultsortorder-label"></span><h3>todaysIssuesDefaultSortOrder<a class="headerlink" href="#todaysissuesdefaultsortorder" title="永久链接至标题"></a></h3>
+<p>Asks: Sort today’s checkouts on the circulation page from ___ due
+date.</p>
+<p>Default: latest to earliest</p>
+<p>Values:</p>
+<ul class="simple">
+<li>earliest to latest</li>
+<li>latest to earliest</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference controls how you want today’s checkouts to appear
+in the patron’s <a class="reference internal" href="circulation.html#checking-items-out-label"><span class="std std-ref">Checkout tab.</span></a></li>
+<li>If you choose ‘earliest to latest’, the oldest checkout will be at the top.</li>
+<li>If you choose ‘latest to earliest’, the most recent checkout will be at the
+top.</li>
+</ul>
+</div>
+<div class="section" id="updatetotalissuesoncirc">
+<span id="updatetotalissuesoncirc-label"></span><h3>UpdateTotalIssuesOnCirc<a class="headerlink" href="#updatetotalissuesoncirc" title="永久链接至标题"></a></h3>
+<p>Default: Do not</p>
+<p>Asks: ___ update a bibliographic record’s total issues count whenever
+an item is issued</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Do</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This increases server load significantly; if performance is a
+concern, use the <a class="reference internal" href="cron_jobs.html#cron-track-total-checkouts-label"><span class="std std-ref">cron job</span></a> to update the total issues count instead.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Do not</p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Koha can track the number of times and item is checked out and store
+that on the item record in the database. This information is not
+stored by default. Setting this preference to ‘Do’ will tell Koha to
+track that info everytime the item is checked out in real time.
+Otherwise you could use the <a class="reference internal" href="cron_jobs.html#cron-track-total-checkouts-label"><span class="std std-ref">cron job</span></a> to have
+Koha update that field nightly.</li>
+</ul>
+</div>
+<div class="section" id="usecirculationdesks">
+<span id="usecirculationdesks-label"></span><h3>UseCirculationDesks<a class="headerlink" href="#usecirculationdesks" title="永久链接至标题"></a></h3>
+<p>Asks: ___ circulation desks with circulation</p>
+<p>Default: Don’t use</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use</li>
+<li>Use</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference enables the ability to manage various circulation desks
+within a single library.</li>
+</ul>
+</div>
+<div class="section" id="waitingnotifyatcheckin">
+<span id="waitingnotifyatcheckin-label"></span><h3>WaitingNotifyAtCheckin<a class="headerlink" href="#waitingnotifyatcheckin" title="永久链接至标题"></a></h3>
+<p>Default: Don’t notify</p>
+<p>Asks: ___ librarians of waiting holds for the patron whose items they
+are checking in.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t notify</p>
+</li>
+<li><p class="first">Notify</p>
+<p><img alt="image43" src="_images/WaitingNotifyAtCheckin.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When checking in books you can choose whether or not to have a notice
+pop up if the patron who returned the book has a hold waiting for
+pick up. If you choose ‘Notify’ for WaitingNotifyAtCheckin then every
+time a hold is found for the patron who had the book out last a
+message will appear on your check in screen.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="interlibrary-loans">
+<span id="interlibrary-loans-label"></span><h2>Interlibrary Loans<a class="headerlink" href="#interlibrary-loans" title="永久链接至标题"></a></h2>
+<div class="section" id="circulateill">
+<span id="circulateill-label"></span><h3>CirculateILL<a class="headerlink" href="#circulateill" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ the circulation of ILL requested items.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls whether you have the option to checkout ILL items directly
+from an ILL request.  More details can be found in the <a class="reference internal" href="ILL_requests.html#circulating-ill-material-label"><span class="std std-ref">Circulating ILL materials</span></a> section.</li>
+</ul>
+</div>
+<div class="section" id="illcheckavailability">
+<span id="illcheckavailability-label"></span><h3>ILLCheckAvailability<a class="headerlink" href="#illcheckavailability" title="永久链接至标题"></a></h3>
+<p>Default: Don’t check</p>
+<p>Asks: ___ external sources for availability during the request process.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Dont’ check</li>
+<li>Check</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls whether specific external resources will be searched prior
+to a request being placed.  The resources available are installed using plugins.  These can
+be located on the Koha plugins wiki page at <a class="reference external" href="https://wiki.koha-community.org/wiki/Koha_plugins">https://wiki.koha-community.org/wiki/Koha_plugins</a>.
+Currently there are plugins for EDS (Ebsco Discovery Service), Z39.50 and Unpaywall.
+When a patron submits an ILL request the item metadata in the form is used to search the external resource.
+The patron can then click on the title links in the displayed results. If they find the item they were requesting
+the request can be abandoned. If not, the patron can continue with the request in the normal way.</li>
+</ul>
+</div>
+<div class="section" id="illdefaultstaffemail">
+<span id="illdefaultstaffemail-label"></span><h3>ILLDefaultStaffEmail<a class="headerlink" href="#illdefaultstaffemail" title="永久链接至标题"></a></h3>
+<p>Asks:
+Fallback email address for staff ILL notices to be sent to in the absence of a library address: ___ .</p>
+<p>Description:</p>
+<ul class="simple">
+<li>By default replies to ILL request emails will go to the library email address, if you would like to specify
+a different email address you can do that here.</li>
+</ul>
+</div>
+<div class="section" id="illhiddenrequeststatuses">
+<span id="illhiddenrequeststatuses-label"></span><h3>ILLHiddenRequestStatuses<a class="headerlink" href="#illhiddenrequeststatuses" title="永久链接至标题"></a></h3>
+<p>Asks: ILL statuses that are considered finished and should not be displayed in the ILL
+module: ___ (separated with |). If left empty, all ILL requests will be displayed.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows libraries to hide requests from the View ILL requests list based on the status
+of the request.  Available ILL statuses are configured in the ILLSTATUS
+<a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized value</span></a> category.</li>
+</ul>
+</div>
+<div class="section" id="illmodule">
+<span id="illmodule-label"></span><h3>ILLModule<a class="headerlink" href="#illmodule" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ the interlibrary loans module (master switch).</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference is used to enable Koha’s ILL module which is used to manage ILL requests.</li>
+</ul>
+</div>
+<div class="section" id="illmodulecopyrightclearance">
+<span id="illmodulecopyrightclearance-label"></span><h3>ILLModuleCopyrightClearance<a class="headerlink" href="#illmodulecopyrightclearance" title="永久链接至标题"></a></h3>
+<p>Asks: Adding text will enable the copyright clearance stage in request creation.
+The text you enter will be the text displayed.</p>
+</div>
+<div class="section" id="illmoduleunmediated">
+<span id="illmoduleunmediated-label"></span><h3>ILLModuleUnmediated<a class="headerlink" href="#illmoduleunmediated" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ unmediated interlibrary loan requests. If enabled and the ILL backend
+supports it, the newly created requests are immediately requested by backend.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows ILL requests placed by patrons on the OPAC to be directly sent to ILL suppliers
+without mediation by library staff.  Not all ILL backends can support this feature.</li>
+</ul>
+</div>
+<div class="section" id="illopacbackends">
+<span id="illbpacbackends-label"></span><h3>ILLOpacbackends<a class="headerlink" href="#illopacbackends" title="永久链接至标题"></a></h3>
+<p>Asks: Enabled ILL backends for OPAC initiated requests: ___ (separated with |). If left empty, all
+installed backends will be enabled.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls which ILL backend request forms are available for OPAC requests.  You will need to
+refer to the backend configuration guidance for the correct terminology to enter here, for example, FreeForm, BLDSS.</li>
+</ul>
+</div>
+<div class="section" id="illsendstaffnotices">
+<span id="illsendstaffnotices-label"></span><h3>ILLSendStaffNotices<a class="headerlink" href="#illsendstaffnotices" title="永久链接至标题"></a></h3>
+<p>Asks: Send these ILL notices to staff when appropriate: ___ (separated with |).
+e.g. ILL_REQUEST_CANCEL|ILL_REQUEST_MODIFIED If left empty, no staff ILL notices will be sent.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>You can configure which ILL notices should be sent to staff.  More details can be found
+in the <a class="reference internal" href="ILL_requests.html#ill-email-notification-label"><span class="std std-ref">ILL email notifications</span></a> section.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="return-claims">
+<span id="returnclaims-label"></span><h2>Return claims<a class="headerlink" href="#return-claims" title="永久链接至标题"></a></h2>
+<p>The return claims feature tracks items that patrons claim to have returned.</p>
+<p>To use this feature:</p>
+<ol class="arabic simple">
+<li>Add a new authorized value to the LOST category to represent items claimed as returned.</li>
+<li>Enter the authorized value in the ClaimReturnedLostValue system preference - this enables the return claims feature.</li>
+<li>Set a value for the ClaimReturnedChargeFee system preference - the default is ask if a lost fee should be charged.</li>
+<li>Optional: Set a value for ClaimReturnedWarningThreshold system preference to alert librarians when a patron exceeds a set number of return claims.</li>
+</ol>
+<p>Returning a claimed item will notify the librarian that the item has a claim on it. The librarian can then mark checked out items as return claims from the checkout and patron details pages, and modify them from the new claims tab on these pages.</p>
+<div class="section" id="claimreturnedchargefee">
+<h3>ClaimReturnedChargeFee<a class="headerlink" href="#claimreturnedchargefee" title="永久链接至标题"></a></h3>
+<p>Asks: When marking a checkout as “claims returned”,</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Ask if a lost fee should be charged (default)</li>
+<li>Charge a lost fee</li>
+<li>Don’t charge a lost fee</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows a library to choose if a lost fee is charged at the time an item being claimed is returned. If set to ask, there is a checkbox to either charge or don’t charge per transaction. If set to charge, Koha will charge the patron the replacement price of the item. If set to don’t charge, Koha will not charge the patron.</li>
+</ul>
+</div>
+<div class="section" id="claimreturnedlostvalue">
+<h3>ClaimReturnedLostValue<a class="headerlink" href="#claimreturnedlostvalue" title="永久链接至标题"></a></h3>
+<p>Asks: Use the LOST authorised value  ___ to represent returns claims.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Add a LOST authorized value - this enables the return claims feature. Add a new authorized value to the LOST category to represent the library’s return claims.</li>
+</ul>
+</div>
+<div class="section" id="claimreturnedwarningthreshold">
+<h3>ClaimReturnedWarningThreshold<a class="headerlink" href="#claimreturnedwarningthreshold" title="永久链接至标题"></a></h3>
+<p>Asks: Warn librarians that a patron has excessive return claims if the patron has claimed the return of more than ___ items.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Enter a number if a library would like to set a limit to the number of returns claims that the patron can have before showing a warning on the patron’s screen.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="self-check-in-module-sci-main-pl">
+<h2>Self check-in module (sci-main.pl)<a class="headerlink" href="#self-check-in-module-sci-main-pl" title="永久链接至标题"></a></h2>
+<div class="section" id="selfcheckinmainuserblock">
+<span id="selfcheckinmainuserblock-label"></span><h3>SelfCheckInMainUserBlock<a class="headerlink" href="#selfcheckinmainuserblock" title="永久链接至标题"></a></h3>
+<p>Asks: Include the following HTML on the self check-in screen</p>
+<p>Description:</p>
+<ul class="simple">
+<li>HTML entered in this field will appear in the center of the main page
+of your self checkin screen</li>
+</ul>
+</div>
+<div class="section" id="selfcheckinmodule">
+<span id="selfscheckinmodule-label"></span><h3>SelfCheckInModule<a class="headerlink" href="#selfcheckinmodule" title="永久链接至标题"></a></h3>
+<p>Default: Don’t enable</p>
+<p>Asks: ___ the standalone self check-in module (available at:
+/cgi-bin/koha/sci/sci-main.pl</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t enable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference will activate (or deactivate) the self check-
+in module</li>
+</ul>
+</div>
+<div class="section" id="selfcheckintimeout">
+<span id="selfcheckintimeout-label"></span><h3>SelfCheckInTimeout<a class="headerlink" href="#selfcheckintimeout" title="永久链接至标题"></a></h3>
+<p>Default: 120</p>
+<p>Asks: Reset the current self check-in screen after ___ seconds</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Enter the number of seconds after which you want the self check-in
+screen to refresh and go back to the main page (for example, if a
+patron forgot to log out).</li>
+</ul>
+</div>
+<div class="section" id="selfcheckinusercss">
+<span id="selfcheckinusercss-label"></span><h3>SelfCheckInUserCSS<a class="headerlink" href="#selfcheckinusercss" title="永久链接至标题"></a></h3>
+<p>Asks: Include the following CSS on all the self check-in screens</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The CSS code entered here will override any CSS on the self check-in
+screens</li>
+</ul>
+</div>
+<div class="section" id="selfcheckinuserjs">
+<span id="selfcheckinuserjs-label"></span><h3>SelfCheckInUserJS<a class="headerlink" href="#selfcheckinuserjs" title="永久链接至标题"></a></h3>
+<p>Asks: Include the following JavaScript on all the self check-in screens</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The JavaScript entered here will override any other JavaScript on
+the self check-in screens</li>
+</ul>
+</div>
+</div>
+<div class="section" id="self-check-out-module-sco-main-pl">
+<span id="self-checkout-system-preferences-label"></span><h2>Self check-out module (sco-main.pl)<a class="headerlink" href="#self-check-out-module-sco-main-pl" title="永久链接至标题"></a></h2>
+<div class="section" id="scouserjs">
+<span id="scouserjs-label"></span><h3>SCOUserJS<a class="headerlink" href="#scouserjs" title="永久链接至标题"></a></h3>
+<p>Asks: Include the following JavaScript on all pages in the web-based self
+checkout:</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The JavaScript entered in this preference will affect all of your
+Koha self check-out screens.</li>
+</ul>
+</div>
+<div class="section" id="scomainuserblock">
+<span id="scomainuserblock-label"></span><h3>SCOMainUserBlock<a class="headerlink" href="#scomainuserblock" title="永久链接至标题"></a></h3>
+<p>Asks: Include the following HTML on the web-based self checkout screen:</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The HTML entered in this preference will be used on the main self check-out
+screen.</li>
+</ul>
+</div>
+<div class="section" id="scousercss">
+<span id="scousercss-label"></span><h3>SCOUserCSS<a class="headerlink" href="#scousercss" title="永久链接至标题"></a></h3>
+<p>Asks: Include the following CSS on all pages in the web-based self checkout:</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The CSS entered in this preference will be used on all of your Koha self
+check-out screens.</li>
+</ul>
+</div>
+<div class="section" id="showpatronimageinwebbasedselfcheck">
+<span id="showpatronimageinwebbasedselfcheck-label"></span><h3>ShowPatronImageInWebBasedSelfCheck<a class="headerlink" href="#showpatronimageinwebbasedselfcheck" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the patron’s picture (if one has been added) when they use the
+web-based self check-out.</p>
+<p>Default: Don’t show</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If this system preference is set to ‘Show’, the patron will see their own
+picture when logging into the web-based self check-out module.</li>
+</ul>
+</div>
+<div class="section" id="webbasedselfcheck">
+<span id="webbasedselfcheck-label"></span><h3>WebBasedSelfCheck<a class="headerlink" href="#webbasedselfcheck" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the web-based self checkout system.</p>
+<p>Default: Don’t enable</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t enable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Enabling this preference will allow access to the <a class="reference internal" href="circulation.html#self-checkout-label"><span class="std std-ref">self check-out</span></a> module in Koha.</li>
+<li>Your self check-out module is available at: <a class="reference external" href="https://YOUR.OPAC.URL/cgi-bin/koha/">https://YOUR.OPAC.URL/cgi-bin/koha/</a>
+sco/sco-main.pl</li>
+</ul>
+</div>
+<div class="section" id="selfcheckoutbylogin">
+<span id="selfcheckoutbylogin-label"></span><h3>SelfCheckoutByLogin<a class="headerlink" href="#selfcheckoutbylogin" title="永久链接至标题"></a></h3>
+<p>Asks: Have patrons login into the web-based self checkout system with
+their ___</p>
+<p>Default: Cardnumber</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Cardnumber</p>
+<p><img alt="image44" src="_images/selfcheckout.png" /></p>
+</li>
+<li><p class="first">Username and password</p>
+<p><img alt="image45" src="_images/SelfCheckoutByLogin.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you decide how your patrons will log in to the
+self checkout machine. Either the patron’s card number (barcode) or their
+username and password set using the opac/staff username and
+password fields on the <a class="reference internal" href="patrons.html#add-a-new-patron-label"><span class="std std-ref">patron record</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="selfchecktimeout">
+<span id="selfchecktimeout-label"></span><h3>SelfCheckTimeout<a class="headerlink" href="#selfchecktimeout" title="永久链接至标题"></a></h3>
+<p>Asks: Time out the current patron’s web-based self checkout system login
+after ___ seconds.</p>
+<p>Default: 120</p>
+<p>Description:</p>
+<ul class="simple">
+<li>After the machine is idle for the time entered in this preference the
+self check out system will log out the current patron and return to
+the starting screen.</li>
+</ul>
+</div>
+<div class="section" id="scoallowcheckin">
+<span id="scoallowcheckin-label"></span><h3>SCOAllowCheckin<a class="headerlink" href="#scoallowcheckin" title="永久链接至标题"></a></h3>
+<p>Asks: ___ patrons to return items through web-based self checkout
+system.</p>
+<p>Default: Don’t allow</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference is used to determine if you want patrons to be
+allowed to return items through your self check machines. By default
+Koha’s self check-out interface is simply for checking items out.</li>
+</ul>
+</div>
+<div class="section" id="selfcheckhelpmessage">
+<span id="selfcheckhelpmessage-label"></span><h3>SelfCheckHelpMessage<a class="headerlink" href="#selfcheckhelpmessage" title="永久链接至标题"></a></h3>
+<p>Asks: Include the following HTML in the Help page of the web-based self
+checkout system:</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Clicking the ‘Help’ link in the top right of the self check-out
+interface opens up a three step process for using the self check-out
+module. Adding HTML to this system preference will show that
+additional help text above what’s already included.</li>
+</ul>
+</div>
+<div class="section" id="autoselfcheckallowed-autoselfcheckid-and-autoselfcheckpass">
+<span id="autoselfcheck-preferences-label"></span><h3>AutoSelfCheckAllowed, AutoSelfCheckID and AutoSelfCheckPass<a class="headerlink" href="#autoselfcheckallowed-autoselfcheckid-and-autoselfcheckpass" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Most libraries will want to leave this set to ‘Don’t allow’. This
+preference turns off the requirement to log into the self checkout
+machine with a staff username and password by storing the username
+and password for automatic login.</p>
+</div></blockquote>
+<p>Asks: ___ the web-based self checkout system to automatically login
+with this staff login ___ and this password ___ .</p>
+<p>AutoSelfCheckAllowed default: Don’t allow</p>
+<p>AutoSelfCheckAllowed values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>AutoSelfCheckID value:</p>
+<ul class="simple">
+<li>The username of a staff patron with the ‘self_checkout_module’
+<a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">permission</span></a>.</li>
+</ul>
+<p>AutoSelfCheckPass value:</p>
+<ul class="simple">
+<li>The password of a staff patron with the ‘self_checkout_module’
+<a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">permission</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="selfcheckreceiptprompt">
+<span id="selfcheckreceiptprompt-label"></span><h3>SelfCheckReceiptPrompt<a class="headerlink" href="#selfcheckreceiptprompt" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the print receipt popup dialog when self checkout is finished.</p>
+<p>Default: Show</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls whether a prompt shows up on the web based
+self check-out when the patron clicks the ‘Finish’ button.</li>
+</ul>
+</div>
+<div class="section" id="selfcheckallowbyipranges">
+<span id="selfcheckallowbyipranges-label"></span><h3>SelfCheckAllowByIPRanges<a class="headerlink" href="#selfcheckallowbyipranges" title="永久链接至标题"></a></h3>
+<p>Asks: ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference is used to limit access to the self check-out module
+by IP ranges.</li>
+<li>Use ranges or simple IP addresses separated by spaces, like
+‘192.168.1.1 192.168.0.0/24’.</li>
+<li>If you do not want to limit access by IP range, leave this system preference
+blank.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="stock-rotation">
+<span id="stock-rotation-system-preferences-label"></span><h2>Stock rotation<a class="headerlink" href="#stock-rotation" title="永久链接至标题"></a></h2>
+<div class="section" id="stockrotation">
+<span id="stockrotation-module-label"></span><h3>StockRotation<a class="headerlink" href="#stockrotation" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ the stock rotation module</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If set to ‘Enable’ then the stock rotation module will appear under Tools.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="catalogingpreferences.html" class="btn btn-neutral float-left" title="Cataloging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="enhancedcontentpreferences.html" class="btn btn-neutral float-right" title="Enhanced content" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

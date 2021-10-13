@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course reserves &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Serials" href="serials.html" />
+    <link rel="prev" title="Cataloging" href="cataloging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Course reserves</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#course-reserves-setup">Course reserves setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-courses">Adding courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-reserve-materials">Adding reserve materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#course-reserves-in-the-opac">Course reserves in the OPAC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Course reserves</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/course_reserves.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="cataloging.html" class="btn btn-neutral float-left" title="Cataloging" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="serials.html" class="btn btn-neutral float-right" title="Serials" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="course-reserves">
+<span id="course-reserves-label"></span><h1>Course reserves<a class="headerlink" href="#course-reserves" title="永久链接至标题"></a></h1>
+<p>The course reserves module in Koha allows you to temporarily move items
+to ‘reserve’ and assign different circulation rules to these items while
+they are being used for a specific course.</p>
+<div class="section" id="course-reserves-setup">
+<span id="course-reserves-setup-label"></span><h2>Course reserves setup<a class="headerlink" href="#course-reserves-setup" title="永久链接至标题"></a></h2>
+<p>Before using course reserves you will need to do some set up.</p>
+<p>First you will need to enable course reserves by setting the
+<a class="reference internal" href="circulationpreferences.html#usecoursereserves"><span class="std std-ref">UseCourseReserves</span></a> preference to ‘Use’.</p>
+<p>Next you will need to have all of your course instructors <a class="reference internal" href="patrons.html#add-a-new-patron-label"><span class="std std-ref">added as
+patrons</span></a>.</p>
+<p>Next you will want to add a couple of new <a class="reference internal" href="administration.html#add-new-authorized-value-label"><span class="std std-ref">authorized
+values</span></a> for Departments and Terms.</p>
+<p>You may also want to create new <a class="reference internal" href="administration.html#adding-item-types-label"><span class="std std-ref">item types</span></a>,
+<a class="reference external" href="#ccode">collection codes</a> and/or <a class="reference external" href="#shelvelocvals">shelving locations</a>
+to make it clear that the items are on reserve to your patrons. You will also
+want to be sure to confirm that your
+<a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a> are right
+for your new item types (whether they be hourly or daily loans).</p>
+</div>
+<div class="section" id="adding-courses">
+<span id="adding-courses-label"></span><h2>Adding courses<a class="headerlink" href="#adding-courses" title="永久链接至标题"></a></h2>
+<p>Once you have completed your set up for course reserves you can start
+creating courses and adding titles to the reserve list.</p>
+<p><img alt="image726" src="_images/coursesblank.png" /></p>
+<p>From the main course reserves page you can add a new course by clicking
+the ‘New course’ button at the top left.</p>
+<p><img alt="image727" src="_images/newcourse.png" /></p>
+<p>Your new course will need a department, number and name at the bare
+minimum. You can also add in additional details like course section
+number and term. To link an instructor to this course simply start
+typing their name and Koha will search your patron database to find you
+the right person.</p>
+<p><img alt="image728" src="_images/instructorsearch.png" /></p>
+<p>Once the instructor you want appears just click their name and they will
+be added. You can repeat this for all instructors on this course. Each
+instructor will appear above the search box and can be removed by
+clicking the ‘Remove’ link to the right of their name.</p>
+<p><img alt="image729" src="_images/instructorremove.png" /></p>
+<p>If you would like your course to show publicly you’ll want to be sure to
+check the ‘Enabled?’ box before saving your new course.</p>
+<p>Once your course is saved it will show on the main course reserves page
+and be searchable by any field in the course.</p>
+<p><img alt="image730" src="_images/courses.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: courses page, course_reserves_table).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="adding-reserve-materials">
+<span id="adding-reserve-materials-label"></span><h2>Adding reserve materials<a class="headerlink" href="#adding-reserve-materials" title="永久链接至标题"></a></h2>
+<p>Before adding reserve materials you will need at least one course to add
+them to. To add materials visit the Course Reserves module.</p>
+<p><img alt="image730" src="_images/courses.png" /></p>
+<p>Click on the title of the course you would like to add materials to.</p>
+<p><img alt="image732" src="_images/courseadmin.png" /></p>
+<p>At the top of the course description click the ‘Add reserves’ button to
+add titles to this reserve list. You will be asked to enter the barcode
+for the reserve item.</p>
+<p><img alt="image733" src="_images/addbarcode.png" /></p>
+<p>For each item, you can change the item type, collection code, shelving location
+or holding library. These changes will only apply while the course is
+active. When you deactivate the course, the items will go back to their original
+settings.</p>
+<p><img alt="image1357" src="_images/additem1.png" /></p>
+<p>After you are done scanning the barcodes to add to the course you can
+see them on the course page</p>
+<p><img alt="image734" src="_images/coursewithreserves.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: reserves page, course_reserves_table).</li>
+</ul>
+</div></blockquote>
+<p>You also have the possibility of adding several items at the same time.
+Click on ‘Batch add reserves’.</p>
+<p><img alt="image1358" src="_images/batchadditems.png" /></p>
+<p>Scan the barcodes of the items you want to add to the reserve and change the
+item type, collection code, shelving location or holding library, if needed.</p>
+</div>
+<div class="section" id="course-reserves-in-the-opac">
+<span id="course-reserves-in-the-opac-label"></span><h2>Course reserves in the OPAC<a class="headerlink" href="#course-reserves-in-the-opac" title="永久链接至标题"></a></h2>
+<p>Once you have enabled course reserves and added courses you will see a
+link to course reserves below your search box in the OPAC.</p>
+<p><img alt="image735" src="_images/courselinkopac.png" /></p>
+<p>Clicking that link will show you your list of enabled courses (if you
+have only one course you will just see the contents of that one course).</p>
+<p><img alt="image736" src="_images/coursesopac.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: course_reserves_table).</li>
+</ul>
+</div></blockquote>
+<p>You can search course reserves by any field (course number, course name,
+instructor name, department) that is visible in the list of courses.
+Clicking a course name will show you the details and reserve items.</p>
+<p><img alt="image737" src="_images/courseopac.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: course-items-table).</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cataloging.html" class="btn btn-neutral float-left" title="Cataloging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="serials.html" class="btn btn-neutral float-right" title="Serials" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

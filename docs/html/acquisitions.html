@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acquisitions &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Lists and cart" href="lists.html" />
+    <link rel="prev" title="Serials" href="serials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Acquisitions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vendors">Vendors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-vendor">Add a vendor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view-edit-a-vendor">View/edit a vendor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vendor-contracts">Vendor contracts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#add-a-contract">Add a contract</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-purchase-suggestions">Managing purchase suggestions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#placing-orders">Placing orders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-basket">Create a basket</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-materials-to-the-basket">Adding materials to the basket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-patron-notifications">Setting patron notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-items-to-materials">Adding items to materials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-accounting-details-to-materials">Adding accounting details to materials</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-the-basket">Editing the basket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ordering-closing-the-basket">Ordering/Closing the basket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-basket-group">Create a basket group</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#receiving-orders">Receiving orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transferring-orders">Transferring orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cancelling-orders">Cancelling orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invoices">Invoices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attaching-files-to-invoices">Attaching files to invoices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merging-two-invoices">Merging two invoices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#claims-and-late-orders">Claims and late orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acquisition-searches">Acquisition searches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#budget-fund-tracking">Budget/fund tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edi-process">EDI process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#edi-questions-for-vendors">EDI questions for vendors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edi-setup">EDI setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edi-ordering">EDI ordering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-the-edifact-order">Sending the EDIFACT order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edi-ordering-with-quote-files">EDI ordering with Quote files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edi-invoicing">EDI invoicing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#edifact-messages">EDIFACT messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Acquisitions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/acquisitions.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="serials.html" class="btn btn-neutral float-left" title="Serials" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="lists.html" class="btn btn-neutral float-right" title="Lists and cart" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="acquisitions">
+<span id="acquisitions-label"></span><h1>Acquisitions<a class="headerlink" href="#acquisitions" title="永久链接至标题"></a></h1>
+<p>The Koha Acquisitions module provides a way for the library to record
+orders placed with vendors and manage purchase budgets.</p>
+<ul class="simple">
+<li><em>Get there:</em> More &gt; Acquisitions</li>
+</ul>
+<div class="section" id="setup">
+<span id="setup-acquisitions-label"></span><h2>Setup<a class="headerlink" href="#setup" title="永久链接至标题"></a></h2>
+<p>Before using the Acquisitions module you will want to make sure that you
+have completed all of the set up.</p>
+<p>First, set your <a class="reference internal" href="acquisitionspreferences.html#acquisitions-system-preferences-label"><span class="std std-ref">acquisitions system preferences</span></a> and
+<a class="reference internal" href="administration.html#acquisitions-module-label"><span class="std std-ref">acquisitions administration</span></a> to match your library’s workflow. Before setting your <a class="reference internal" href="administration.html#edi-accounts"><span class="std std-ref">EDI accounts</span></a> and
+<a class="reference internal" href="administration.html#library-eans"><span class="std std-ref">Library EANs</span></a> you will need to have <a class="reference internal" href="#add-a-vendor-label"><span class="std std-ref">entered your
+vendors</span></a>.</p>
+<p>On the main acquisitions page you will see your library’s funds listed.</p>
+<p><img alt="image781" src="_images/acqfunds.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If the total line is confusing for the funds you have set up you can
+hide it by adding</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#funds_total {display:none;}</span>
+</pre></div>
+</div>
+<p>to the <a class="reference internal" href="staffclientpreferences.html#intranetusercss"><span class="std std-ref">IntranetUserCSS</span></a> preference.</p>
+</div></blockquote>
+<p>To see all active funds you can click the checkbox next to ‘Show active
+and inactive’ above the funds table.</p>
+<p>To see a history of all orders in a fund you can click on the linked
+amount and it will run a search for you.</p>
+<p><img alt="image782" src="_images/fundbreakdown.png" /></p>
+<p>Learn more in the <a class="reference internal" href="#budget-fund-tracking"><span class="std std-ref">Budget/fund tracking</span></a> section of
+this manual.</p>
+</div>
+<div class="section" id="vendors">
+<span id="vendors-label"></span><h2>Vendors<a class="headerlink" href="#vendors" title="永久链接至标题"></a></h2>
+<p>Before any orders can be placed you must first enter at least one
+vendor.</p>
+<div class="section" id="add-a-vendor">
+<span id="add-a-vendor-label"></span><h3>Add a vendor<a class="headerlink" href="#add-a-vendor" title="永久链接至标题"></a></h3>
+<p>To add a vendor click the ‘New vendor’ button on the Acquisitions page</p>
+<p><img alt="image783" src="_images/newvendbutton.png" /></p>
+<p>The vendor add form is broken into three pieces</p>
+<ul>
+<li><p class="first">The first section is for basic information about the vendor</p>
+<p><img alt="image784" src="_images/newvendor1.png" /></p>
+<ul class="simple">
+<li>Of these fields, only the vendor name is required, the rest of the
+information should be added to help with generating claim letters
+and invoices</li>
+</ul>
+</li>
+<li><p class="first">The second section is for information regarding your contact at the
+vendor’s office</p>
+<p><img alt="image785" src="_images/newvendor2.png" /></p>
+<ul>
+<li><p class="first">None of these fields are required, they should only be entered if
+you want to keep track of your contact’s information within Koha</p>
+<blockquote>
+<div><ul class="simple">
+<li>Primary acquisitions contact: check this box if this person is your primary contact regarding acquisitions from this vendor</li>
+<li>Primary serials contact: check this box if this person is your primary contact regarding serial acquisitions from this vendor</li>
+<li>Contact when ordering? check this box if you want to be able to send your orders by email directly to this person</li>
+<li>Contact about late orders? check this box if you want to be able to send your acquisitions claims by email directly to this person</li>
+<li>Contact about late issues? check this box if you want to be able to send your serials claims by email directly to this person</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">You can add more than one contact per vendor by clicking on the ‘Add another contact’ button</p>
+</li>
+</ul>
+</li>
+<li><p class="first">The final section is for billing information</p>
+<p><img alt="image786" src="_images/newvendor3.png" /></p>
+<ul class="simple">
+<li>To be able to order from a vendor you must make them ‘Active’</li>
+<li>For list prices and invoice prices choose the currency<ul>
+<li>Currencies are assigned in the <a class="reference internal" href="administration.html#currencies-and-exchange-rates-label"><span class="std std-ref">Currencies and exchange rates</span></a> admin area</li>
+</ul>
+</li>
+<li>If your library is charged tax mark your tax number as registered</li>
+<li>Note if you list prices and/or invoice prices include tax</li>
+<li>If the vendor offers a consistent blank discount, enter that in
+the ‘Discount’ field<ul>
+<li>You can enter item specific discounts when placing an order</li>
+</ul>
+</li>
+<li>Enter your tax rate if your library is charged taxes on orders</li>
+<li>If you know about how long it usually takes orders to arrive from
+this vendor you can enter a delivery time. This will allow Koha to
+estimate when orders will arrive at your library on the late
+orders report.</li>
+<li>Notes are for internal use</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="view-edit-a-vendor">
+<span id="view-edit-a-vendor-label"></span><h3>View/edit a vendor<a class="headerlink" href="#view-edit-a-vendor" title="永久链接至标题"></a></h3>
+<p>To view a vendor’s information page you must search for the vendor from
+the Acquisitions home page. Your search can be for any part of the
+vendor’s name:</p>
+<p><img alt="image787" src="_images/vendorsearch.png" /></p>
+<p>From the results, click on the name of the vendor you want to view or
+edit</p>
+<p><img alt="image788" src="_images/vendorpage.png" /></p>
+<p>To make changes to the vendor, simply click the ‘Edit vendor’ button.</p>
+<p>If the vendor has no baskets attached to it then a ‘Delete vendor’
+button will also be visible and the vendor can be deleted. Otherwise you
+will see a ‘Receive shipment’ button.</p>
+<p><img alt="image789" src="_images/receivebutton.png" /></p>
+</div>
+<div class="section" id="vendor-contracts">
+<span id="vendor-contracts-label"></span><h3>Vendor contracts<a class="headerlink" href="#vendor-contracts" title="永久链接至标题"></a></h3>
+<p>You can define contracts (with a start and end date) and attach them to
+a vendor. This is used so that at the end of the year you can see how
+much you spent on a specific contract with a vendor. In some places,
+contracts are set up with a minimum and maximum yearly amount.</p>
+<div class="section" id="add-a-contract">
+<span id="add-a-contract-label"></span><h4>Add a contract<a class="headerlink" href="#add-a-contract" title="永久链接至标题"></a></h4>
+<p>At the top of a vendor information Page, you will see a ‘New contract’
+button.</p>
+<p><img alt="image790" src="_images/newcontract.png" /></p>
+<p>The contract form will ask for some very basic information about the
+contract</p>
+<p><img alt="image791" src="_images/newcontractform.png" /></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>You cannot enter a contract retrospectively. The end date must not
+be before today’s date.</p>
+</div></blockquote>
+<p>Once the contract is saved it will appear below the vendor information.</p>
+<p><img alt="image792" src="_images/contractdisplay.png" /></p>
+<p>It will also be an option when creating a basket</p>
+<p><img alt="image793" src="_images/contractonbasket.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="managing-purchase-suggestions">
+<span id="managing-purchase-suggestions-label"></span><h2>Managing purchase suggestions<a class="headerlink" href="#managing-purchase-suggestions" title="永久链接至标题"></a></h2>
+<p>Purchase suggestions can be generated in one of two ways. You can create
+suggestions via the staff client either for the library or <a class="reference internal" href="patrons.html#purchase-suggestions-label"><span class="std std-ref">on the
+patron’s behalf</span></a> from their record. Depending on
+your settings in the <a class="reference internal" href="opacpreferences.html#suggestion"><span class="std std-ref">suggestion</span></a> system
+preference, patrons may also be able to make purchase suggestions via
+the OPAC.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>You need to be logged in as a staff member with the
+suggestions_manage <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">acquisitions permission</span></a>
+in order to view and work with purchase suggestions.</p>
+<p>If you have the suggestions_manage permission but not Acquisitions permissions
+you can access the suggestion management tool from Suggestions under the More menu in the header bar.</p>
+</div></blockquote>
+<p>When a suggestion is waiting for library review, it will
+appear on the Acquisitions home page next to the vendor search.  Clicking ‘Manage suggestions’
+will take you to the suggestion management tool.</p>
+<p><img alt="image794" src="_images/suggestonacq.png" /></p>
+<p>It will also appear on the main staff dashboard under the module labels:</p>
+<p><img alt="image795" src="_images/pendingsuggestions.png" /></p>
+<p>If there are no pending suggestions you can access the suggestion
+management tool by clicking the ‘Manage suggestions’ link on the menu on
+the left of the Acquisitions page.</p>
+<p><img alt="image796" src="_images/suggestmanage.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: suggestions).</li>
+</ul>
+</div></blockquote>
+<p>Your suggestions will be sorted into several tabs: Accepted, Pending,
+Checked, Ordered and/or Rejected. Each accepted or rejected suggestion
+will show the name of the librarian who managed the suggestion and the
+reason they gave for accepting or rejecting it (found under ‘Status’).</p>
+<p>An ‘Accepted’ suggestion is one that you have marked as ‘Accepted’ using
+the form below the suggestions. A ‘Pending’ suggestion is one that is
+awaiting action from the library. A ‘Checked’ suggestion is one that has
+been marked as ‘Checked’ using the form before the suggestions. An
+‘Ordered’ suggestion is on that has been ordered using the ‘<a class="reference external" href="#orderfromsuggestion">From a
+purchase suggestion</a>’ link in your basket. A
+‘Rejected’ suggestion is one that you have marked at ‘Rejected’ using
+the form below the list of suggestions.</p>
+<p>For libraries with lots of suggestions, there are filters on the left
+hand side of the Manage Suggestions page to assist in limiting the
+number of titles displayed on the screen.</p>
+<p><img alt="image797" src="_images/suggestionsfilters.png" /></p>
+<p>Clicking on the blue headings will expand the filtering options and
+clicking ‘[clear]’ will clear all filters and show all suggestions.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The suggestions page will automatically be limited to suggestions
+for your library. To see information for all (or any other)
+libraries click on the ‘Acquisition information’ filter and change
+the library.</p>
+<p><img alt="image798" src="_images/suggestbranchfilter.png" /></p>
+</div></blockquote>
+<p>When reviewing ‘Pending’ suggestions you can choose to check the box
+next to the item(s) you want to approve/reject and then choose the
+status and reason for your selection.</p>
+<p><img alt="image799" src="_images/suggestpending.png" /></p>
+<p>Reasons for accepting and rejecting suggestions are defined by the
+<a class="reference external" href="#suggestauthorized">SUGGEST</a> authorized value.</p>
+<p><img alt="image802" src="_images/suggestreasons.png" /></p>
+<p>If you choose ‘Others…’ as your reason you will be prompted to enter
+your reason in a text box. Clicking ‘Cancel’ to the right of the box
+will bring back the pull down menu with authorized reasons.</p>
+<p><img alt="image803" src="_images/suggestothers.png" /></p>
+<p>You can also change the item type of the suggestions by selecting them
+and choosing the new item type in the ‘Update item types with’ drop down menu.</p>
+<p><img alt="image1473" src="_images/suggestchangeitype.png" /></p>
+<p>You can also change the manager of the selected suggestions by clicking the
+‘Select manager’ link and searching your user database. Note that only users
+who have the ‘superlibrarian’ or the ‘suggestions_manage’ permission will show
+in the results. The new manager will receive the <a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">NOTIFY_MANAGER notice</span></a>.</p>
+<p>You can also choose to completely delete the selected suggestions by clicking
+the ‘Delete’ button in the the ‘Delete selected’ box.</p>
+<p>Another option for libraries with long lists of suggestions is to
+approve or reject suggestions one by one by clicking on the title of the
+suggestion to open a summary of the suggestion, including information if
+the item was purchased.</p>
+<p><img alt="image800" src="_images/suggestiondetails.png" /></p>
+<p>Clicking ‘edit’ to the right of the suggested title or at the top of the
+suggestion detail page will open a suggestion editing page.</p>
+<p><img alt="image801" src="_images/editsuggestion.png" /></p>
+<p>From this form you can make edits to the suggestion (adding more details
+or updating incorrect information provided by the patron). You can also
+choose to accept or reject the suggestion on an individual basis.</p>
+<ul class="simple">
+<li>Choosing to mark a request as ‘Pending’ will move the request back to
+the ‘Pending’ tab.</li>
+</ul>
+<p>You can also assign this suggestion to a fund.</p>
+<p><img alt="image1280" src="_images/suggestfund.png" /></p>
+<p>This edit can trigger a notice (defined in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp;
+slips</span></a> tool with the <a class="reference external" href="#toprocessnotice">TO_PROCESS</a>
+notice) to the fund owner that there is a suggestion ready for them to
+manage if you have turned on the <a class="reference internal" href="cron_jobs.html#cron-email-suggestions-to-process-label"><span class="std std-ref">cron job to generate these
+notices</span></a>.</p>
+<p>Once you have clicked ‘Submit’ the suggestion will be moved to the
+matching tab. The status will also be updated on the patron’s account in
+the OPAC and an <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">email notice</span></a> will be sent to the patron
+using the template that matches the status you have chosen.</p>
+<p><img alt="image804" src="_images/mysuggestions.png" /></p>
+<p>Once the suggestion has completed the acquisitions process, it is possible to
+archive it by clicking the small arrow next to the ‘Edit’ button and choosing
+‘Archive’. This will remove it from the search results. If you have a lot of
+suggestions, and the page takes a long time to load, archiving old suggestions
+will improve the performance.</p>
+<p><img alt="image474" src="_images/generatedischarge.png" /></p>
+</div>
+<div class="section" id="placing-orders">
+<span id="placing-orders-label"></span><h2>Placing orders<a class="headerlink" href="#placing-orders" title="永久链接至标题"></a></h2>
+<p>To place an order you must first search for the vendor or bookseller you
+want to send the order to.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>If you are planning on using EDIFACT to submit your order you will
+need to first set up your library’s <a class="reference internal" href="administration.html#edi-accounts"><span class="std std-ref">EDI accounts</span></a>
+and <a class="reference internal" href="administration.html#library-eans-label"><span class="std std-ref">EANs</span></a>.</p>
+</div></blockquote>
+<div class="section" id="create-a-basket">
+<span id="create-a-basket-label"></span><h3>Create a basket<a class="headerlink" href="#create-a-basket" title="永久链接至标题"></a></h3>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you’re using EDI for ordering you will want to download your
+order record from your vendor before starting the process in Koha.</p>
+</div></blockquote>
+<p>To create a basket you must first search for the vendor you’re ordering
+from:</p>
+<p><img alt="image805" src="_images/addbasketbutton.png" /></p>
+<p>And click the ‘New basket’ button to the right of the vendor name.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>You can also add to an existing basket by clicking the arrow next to
+the ‘View’ button at the far right of each basket’s information in
+the results table, and choosing ‘Add to basket’.</p>
+<p><img alt="image1406" src="_images/addtobasket.png" /></p>
+</div></blockquote>
+<p>After clicking ‘New basket’ you will be asked to enter some information
+about the order:</p>
+<p><img alt="image806" src="_images/addbasket.png" /></p>
+<ul class="simple">
+<li>When adding a basket you want to give it a name that will help you
+identify it later</li>
+<li>Enter in the billing place and delivery place (this will default the
+library you’re logged in at)</li>
+<li>If you would like to change the vendor you’re ordering from you can
+use the Vendor pull down menu</li>
+<li>The notes fields are optional and can contain any type of information</li>
+<li>If you’re ordering standing items (items which arrive regularly) then
+you will want to check the ‘Orders are standing’ box for this basket.<ul>
+<li>Note that any one basket cannot contain both firm and standing orders.</li>
+</ul>
+</li>
+<li>You can choose to create items either upon placing the order, upon
+receiving the order, or upon cataloging the item. If you choose an
+option other than the default, it will apply only to this basket.
+The default is set by the <a class="reference internal" href="acquisitionspreferences.html#acqcreateitem-label"><span class="std std-ref">AcqCreateItem</span></a>
+system preference.</li>
+</ul>
+<p>If you have <a class="reference internal" href="#add-a-contract-label"><span class="std std-ref">added contracts</span></a> to the vendor
+you’re ordering from, you will also have an option to choose which
+contract you’re ordering these items under.</p>
+<p><img alt="image807" src="_images/basketwithcontracts.png" /></p>
+<p>When finished, click ‘Save’.</p>
+<p><img alt="image808" src="_images/basket.png" /></p>
+<p>Once your basket is created, click on ‘Add to basket’ you are presented
+with several options for adding items to the order.</p>
+<p><img alt="image1407" src="_images/addtobasketoptions.png" /></p>
+<div class="section" id="adding-materials-to-the-basket">
+<h4>Adding materials to the basket<a class="headerlink" href="#adding-materials-to-the-basket" title="永久链接至标题"></a></h4>
+<div class="section" id="order-from-an-existing-record">
+<h5>Order from an existing record<a class="headerlink" href="#order-from-an-existing-record" title="永久链接至标题"></a></h5>
+<ul>
+<li><p class="first">If you are ordering another copy of an existing item, you can simply
+search for the record in your system.</p>
+<ul>
+<li><p class="first">From the results, you can click ‘Add order’ to be brought to the order
+form.</p>
+<p><img alt="image809" src="_images/orderfromexistingresults.png" /></p>
+</li>
+<li><p class="first">From the record’s detailed view, you can click on the ‘Add order’ button.</p>
+<p><img alt="image1451" src="_images/orderfromexistingrecord.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">You will be brought to the order form</p>
+<blockquote>
+<div><p><img alt="image810" src="_images/existingitemorder.png" /></p>
+<ul class="simple">
+<li>All of the details associated with the item will already be
+listed under ‘Catalog details.’</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="order-from-a-purchase-suggestion">
+<h5>Order from a purchase suggestion<a class="headerlink" href="#order-from-a-purchase-suggestion" title="永久链接至标题"></a></h5>
+<ul>
+<li><p class="first">If you allow patrons to make purchase suggestions (learn more in the
+<a class="reference internal" href="#managing-purchase-suggestions-label"><span class="std std-ref">managing purchase suggestions</span></a> section of this manual),
+then you can place orders from those suggestions. In order to keep
+track of suggestions that have been ordered and received you must
+place the order using this link.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Suggestions must be accepted before you can order them.</p>
+</div></blockquote>
+<p><img alt="image811" src="_images/orderfromsuggest.png" /></p>
+<ul>
+<li><p class="first">From the results, click ‘Order’ next to the item you want to order
+and you will be presented with the order form including a link to
+the suggestion</p>
+<p><img alt="image812" src="_images/orderfromsuggestform.png" /></p>
+<ul>
+<li><p class="first">From this form you can make changes to the catalog details if
+necessary.</p>
+</li>
+<li><p class="first">When the item appears in your basket it will include a link to
+the suggestion.</p>
+<p><img alt="image813" src="_images/ordersuggestlink.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Orders added to the basket in this way will notify the patron via
+email that their suggestion has been ordered (with the ‘ORDERED’ notice
+in Tools &gt; <a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">Notices &amp; slips</span></a>) and will
+update the patron’s
+‘<a class="reference internal" href="opac.html#your-purchase-suggestions-label"><span class="std std-ref">your purchase suggestions</span></a>’
+page in the OPAC.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="order-from-a-serial-subscription">
+<span id="order-from-a-serial-subscription-label"></span><h5>Order from a serial subscription<a class="headerlink" href="#order-from-a-serial-subscription" title="永久链接至标题"></a></h5>
+<ul>
+<li><p class="first">If you’re using the <a class="reference external" href="#serials">Serials</a> module you can link your
+subscription order information to acquisitions by choosing to order
+‘From a subscription’</p>
+<ul>
+<li><p class="first">After clicking the order link you will be brought to a search page
+that will help you find your subscription</p>
+<p><img alt="image814" src="_images/subordersearch.png" /></p>
+</li>
+<li><p class="first">Your results will appear to the right of the form and each
+subscription will have an ‘Order’ link to the right</p>
+<p><img alt="image815" src="_images/suborderresults.png" /></p>
+</li>
+<li><p class="first">Clicking ‘Order’ will bring the subscription info in to the order
+form without an ‘Add item’ section since you are just ordering a
+subscription and an item isn’t needed</p>
+<p><img alt="image816" src="_images/suborder.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="order-from-a-new-empty-record">
+<span id="order-from-a-new-empty-record-label"></span><h5>Order from a new (empty) record<a class="headerlink" href="#order-from-a-new-empty-record" title="永久链接至标题"></a></h5>
+<ul>
+<li><p class="first">To order from a record that can’t be found anywhere else, choose the
+‘From a new (empty) record’ option.</p>
+<p><img alt="image817" src="_images/fromnewemptyrecord.png" /></p>
+<ul>
+<li><p class="first">You will be presented with an empty form to fill in all of the
+necessary details about the item you are ordering.</p>
+<p><strong>Note</strong></p>
+<p>If the default form does not have catalog details fields necessary to
+place an order, enable the <a class="reference internal" href="acquisitionspreferences.html#useacqframeworkforbibliorecords"><span class="std std-ref">UseACQFrameworkForBiblioRecords</span></a> preference
+which will allow the ACQ <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC framework</span></a>
+to customize the display of fields when ordering.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="duplicate-orders-order-from-existing-orders">
+<span id="duplicate-orders-label"></span><h5>Duplicate orders (order from existing orders)<a class="headerlink" href="#duplicate-orders-order-from-existing-orders" title="永久链接至标题"></a></h5>
+<ul>
+<li><p class="first">You can duplicate an existing order line by choosing the ‘From existing
+orders (copy)’ option.</p>
+<ul>
+<li><p class="first">You will be presented with a search form to search your existing orders.</p>
+<p><img alt="image1408" src="_images/duplicateorder.png" /></p>
+</li>
+<li><p class="first">Check the boxes next to the order(s) you want to duplicate.</p>
+<p><img alt="image1409" src="_images/duplicateorder2.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="order-from-an-external-source">
+<span id="order-from-an-external-source-label"></span><h5>Order from an external source<a class="headerlink" href="#order-from-an-external-source" title="永久链接至标题"></a></h5>
+<ul>
+<li><p class="first">If you want to search other libraries for an item to purchase, you
+can use the ‘From an external source’ option that will allow you to
+order from a MARC record found via a Z39.50 search.</p>
+<p><img alt="image818" src="_images/orderz39.png" /></p>
+<ul>
+<li><p class="first">From the results, click the ‘Order’ button next to the item you want
+to purchase.</p>
+<p><img alt="image819" src="_images/orderz39results.png" /></p>
+</li>
+<li><p class="first">If the item you’re ordering from an external source looks like it
+might be a duplicate, Koha will warn you and give you options on
+how to proceed.</p>
+<p><img alt="image820" src="_images/dupwarning.png" /></p>
+<ul class="simple">
+<li>From the warning, you can choose to order another copy on the
+existing bibliographic record, create a new bibliographic
+record, or cancel your order of this item.</li>
+</ul>
+</li>
+<li><p class="first">In the order form that pops up, you will not be able to edit the
+catalog details.</p>
+<p><img alt="image821" src="_images/orderz39form.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="order-from-a-new-file">
+<span id="order-from-a-new-file-label"></span><h5>Order from a new file<a class="headerlink" href="#order-from-a-new-file" title="永久链接至标题"></a></h5>
+<ul>
+<li><p class="first">If your vendor sent you a record file (a .mrc file for example), you can
+add orders using the records in that file. Choose the ‘From a new file’
+option.</p>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Note</strong></p>
+<p>Note that you need the stage_marc_import <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">tool permission</span></a>
+in order to be able order from a new file.</p>
+</div></blockquote>
+<ul>
+<li><p class="first">You will be taken to the
+<a class="reference internal" href="tools.html#stage-marc-records-for-import-label"><span class="std std-ref">Stage MARC records for import</span></a>
+tool. Stage your file as described in that section.</p>
+</li>
+<li><p class="first">Once the files are staged, you can click on the ‘Add staged files to basket’
+button.</p>
+<p><img alt="image1410" src="_images/stagedfilestobasket.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first">Next to each title is a checkbox, check the items you would like
+to order, or choose ‘Select all’ at the top. Depending on your
+settings in the <a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder"><span class="std std-ref">MarcFieldsToOrder</span></a>
+preference, Koha will populate the next screen with with the
+relevant Quantity, Price, Fund, Statistic 1, and Statistic 2 found
+within the staged file.</p>
+<p><img alt="image1282" src="_images/selecttoimport.png" /></p>
+</li>
+<li><p class="first">In the ‘Item information’ tab you can enter information that will
+be added to every ordered item such as item type, collection code
+and not for loan status.</p>
+<p><img alt="image1283" src="_images/itemfromstaged.png" /></p>
+</li>
+<li><p class="first">If no information is imported in the fund information from the MARC
+with the <a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder"><span class="std std-ref">MarcFieldsToOrder</span></a> preference,
+the ‘Default accounting details’ tab can be used to
+apply values related to the accounting.</p>
+<p><img alt="image1284" src="_images/stagedaccounting.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="order-from-a-staged-file">
+<span id="order-from-a-staged-file-label"></span><h5>Order from a staged file<a class="headerlink" href="#order-from-a-staged-file" title="永久链接至标题"></a></h5>
+<ul>
+<li><p class="first">This option is the same as the previous one, but in this case, your file has already
+been <a class="reference internal" href="tools.html#stage-marc-records-for-import-label"><span class="std std-ref">staged</span></a>. Whether you choose to ‘order
+from a new file’ or ‘order from a staged file’ will depend on your acquisitions
+workflow or your <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">permissions</span></a>.</p>
+<ul>
+<li><p class="first">Once you click on ‘From a staged file’, you will get a list of all the
+staged files in your system.</p>
+<p><img alt="image822" src="_images/stagedfiles.png" /></p>
+</li>
+<li><p class="first">From the list of files you are presented with, click on the ‘Add
+orders’ button to add the records in the staged file to your order.</p>
+<p><img alt="image1281" src="_images/importallstaged.png" /></p>
+</li>
+<li><p class="first">Next to each title is a checkbox, check the items you would like
+to order, or choose ‘Select all’ at the top. Depending on your
+settings in the <a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder"><span class="std std-ref">MarcFieldsToOrder</span></a>
+preference, Koha will populate the next screen with with the
+relevant Quantity, Price, Fund, Statistic 1, and Statistic 2 found
+within the staged file.</p>
+<p><img alt="image1282" src="_images/selecttoimport.png" /></p>
+</li>
+<li><p class="first">In the ‘Item information’ tab you can enter information that will
+be added to every ordered item such as item type, collection code
+and not for loan status.</p>
+<p><img alt="image1283" src="_images/itemfromstaged.png" /></p>
+</li>
+<li><p class="first">If no information is imported in the fund information from the MARC
+with the <a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder"><span class="std std-ref">MarcFieldsToOrder</span></a> preference,
+the ‘Default accounting details’ tab can be used to
+apply values related to the accounting.</p>
+<p><img alt="image1284" src="_images/stagedaccounting.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="order-from-titles-with-highest-hold-ratios">
+<span id="order-from-titles-with-highest-holds-ratio-label"></span><h5>Order from titles with highest hold ratios<a class="headerlink" href="#order-from-titles-with-highest-hold-ratios" title="永久链接至标题"></a></h5>
+<ul>
+<li><p class="first">The final option for ordering is to order from a list of titles with
+the highest hold ratios</p>
+<ul>
+<li><p class="first">This option will take you to the holds ratio report where you can
+find items with a high hold ratio and order additional copies.
+Next to each title will be a button with the number of items to
+order, click that and it will add the item to your basket.</p>
+<p><img alt="image1285" src="_images/highestholdratio.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="setting-patron-notifications">
+<h4>Setting patron notifications<a class="headerlink" href="#setting-patron-notifications" title="永久链接至标题"></a></h4>
+<p>With any of the above ordering options you’re presented with an option
+to notify patrons of the new item when it’s received. The contents of
+that notification can be edited in the <a class="reference internal" href="tools.html#notices-slips"><span class="std std-ref">Notices &amp; slips</span></a>
+tool and will have the code of ACQ_NOTIF_ON_RECEIV. In the ‘Patrons’
+section you will see an option to ‘Add user’. Click that button to add
+patrons who will be notified of the new issue.</p>
+<p>Patron notification search</p>
+<ul>
+<li><p class="first">In the window that pops up search for the patrons you’d like to
+notify and click ‘Add’</p>
+<p><img alt="image1411" src="_images/patronsearch.png" /></p>
+</li>
+<li><p class="first">Once you’re done you can close the window and you’ll see the list of
+patrons under the ‘Patrons’ section</p>
+<p><img alt="image1286" src="_images/patronslist.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="adding-items-to-materials">
+<h4>Adding items to materials<a class="headerlink" href="#adding-items-to-materials" title="永久链接至标题"></a></h4>
+<p>After bringing in the record information (for all order methods except for
+the staged files), if your <a class="reference internal" href="acquisitionspreferences.html#acqcreateitem"><span class="std std-ref">AcqCreateItem</span></a> system
+preference is set to add an item when ordering you will enter the item
+information next. You need to fill out at least one item record and then click
+the ‘Add item’ button at the bottom left of the item form.</p>
+<p><img alt="image823" src="_images/itemonorder.png" /></p>
+<p>After clicking the ‘Add item’ button below the item record the item will
+appear above the form and then you can enter your next item the same way
+(if ordering more than one item).</p>
+<p><img alt="image824" src="_images/itemonorderadded.png" /></p>
+<p>If you are ordering several items, you can click on the ‘Add multiple items’
+instead of adding them one by one. This will ask you how many items you want to add.
+Simply enter that number in the box and click on ‘Add’.</p>
+<p><img alt="image1412" src="_images/addmultipleitems.png" /></p>
+</div>
+<div class="section" id="adding-accounting-details-to-materials">
+<h4>Adding accounting details to materials<a class="headerlink" href="#adding-accounting-details-to-materials" title="永久链接至标题"></a></h4>
+<p>Once you have entered the info about the item, you need to enter the
+Accounting information.</p>
+<p><img alt="image825" src="_images/accounting.png" /></p>
+<ul>
+<li><p class="first">Quantity is populated by the number of items you’ve added to the
+order above.</p>
+<ul>
+<li><p class="first"><strong>Important</strong></p>
+<blockquote>
+<div><p>If the item is created upon ordering, you will not be able to
+edit the quantity manually, you must click ‘Add item’ below
+the item form to add as many items as you’re ordering.</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">The list of funds is populated by the <a class="reference internal" href="administration.html#funds-label"><span class="std std-ref">funds</span></a> you have
+assigned in the <a class="reference internal" href="administration.html#acquisitions-module-label"><span class="std std-ref">Acquisitions administration</span></a> area.</p>
+</li>
+<li><p class="first">The currency pull down will have the
+<a class="reference internal" href="administration.html#currencies-and-exchange-rates-label"><span class="std std-ref">currencies</span></a> you set
+up in the <a class="reference internal" href="administration.html#acquisitions-module-label"><span class="std std-ref">Acquisitions administration</span></a> area.</p>
+</li>
+<li><p class="first">The vendor price is the price before any taxes or discounts are
+applied.</p>
+</li>
+<li><p class="first">If the price is uncertain, check the uncertain price box.</p>
+<p><strong>Note</strong></p>
+<p>A basket with at least one uncertain price can’t be closed.</p>
+</li>
+<li><p class="first">If you are charged sales tax, choose that from the ‘Tax rate’ field.
+This field is populated by the <a class="reference internal" href="acquisitionspreferences.html#taxrates"><span class="std std-ref">TaxRates</span></a> system preference.</p>
+</li>
+<li><p class="first">Enter the percentage discount you’re receiving on this order, once
+you enter this, hit tab and Koha will populate the rest of the cost
+fields below.</p>
+</li>
+<li><p class="first">Retail price is the recommended retail price (RRP), the price set
+by the publisher or the manufacturer as a recommendation to booksellers.</p>
+</li>
+<li><p class="first">Replacement cost is the price it will cost to replace the item. This is the
+price charged to the user when an item is declared lost (if the <a class="reference internal" href="circulationpreferences.html#whenlostchargereplacementfee"><span class="std std-ref">WhenLostChargeReplacementFee</span></a>
+system preference is set to ‘Charge’).</p>
+</li>
+<li><p class="first">Budgeted cost is the amount that will be removed from the ‘spent’ budget.
+Whether this number includes or excludes taxes will depend on the ‘List price’
+setting for your <a class="reference internal" href="#vendors-label"><span class="std std-ref">vendor</span></a>.</p>
+</li>
+<li><p class="first">Total is the budgeted cost multiplied by the quantity of items ordered.</p>
+</li>
+<li><p class="first">You can add an internal note. This will only appear in the acquisitions module
+and in the staff interface catalog, under the ‘Acquisitions details’ tab
+in the detailed record.</p>
+</li>
+<li><p class="first">You can also add a vendor note. This will appear in the acquisitions module
+as well as on the order when exported as CSV.</p>
+</li>
+<li><p class="first">If you added statistical categories when <a class="reference internal" href="administration.html#add-a-fund-label"><span class="std std-ref">creating the
+Fund</span></a>, those values will appear in the two
+statistics fields.</p>
+</li>
+</ul>
+<p>Once you have filled in all of the fields click ‘Save’ to add the item
+to your basket. If your price goes over the amount available in the fund
+you will be presented with a confirmation.</p>
+<p><img alt="image826" src="_images/fundconfirmation.png" /></p>
+<p>The confirmation warning will allow you order past your fund amount if
+you so choose.</p>
+</div>
+</div>
+<div class="section" id="editing-the-basket">
+<h3>Editing the basket<a class="headerlink" href="#editing-the-basket" title="永久链接至标题"></a></h3>
+<p>After an item is added to the basket you will be presented with a basket
+summary.</p>
+<p><img alt="image827" src="_images/finalbasket.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: orders).</li>
+</ul>
+</div></blockquote>
+<p>From here, you can edit or remove the items that you have added.</p>
+<ul>
+<li><p class="first">Choosing to ‘Cancel the order’ will delete the order line but leave
+the record in the catalog.</p>
+</li>
+<li><p class="first">Choosing to ‘Cancel order and delete catalog record’ removes both the order
+line and the record in the catalog.</p>
+<ul>
+<li><p class="first">The catalog record cannot always be deleted. You might see notes
+explaining why.</p>
+<p><img alt="image829" src="_images/cantdeleteorderline.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>On the summary page, you also have the several option through the buttons
+at the top of the basket header.</p>
+<p><img alt="image830" src="_images/basketbuttons.png" /></p>
+<blockquote>
+<div><ul>
+<li><p class="first">Edit basket: edit the basket information, such as the name or the billing
+place.</p>
+</li>
+<li><p class="first">Delete this basket: if the basket is empty, you will get a simple
+confirmation message before deleting the basket. If the basket contains orders,
+you will get a confirmation message with several options.</p>
+<p><img alt="image1413" src="_images/deletebasketconfirmation.png" /></p>
+<ul class="simple">
+<li>Delete basket and orders: this will delete the basket, cancel the orders,
+refund the used funds, and delete the items (ordered or received).</li>
+<li>Delete basket, orders, and records: this will delete all of the above
+plus the bibliographic records associated with the orders (except the
+ones which can’t be deleted because they have remaining items, orders
+or subscriptions attached).</li>
+</ul>
+</li>
+<li><p class="first">Close this basket: closing the basket will enable you to add it to a basket
+group (this is optional) and receive its items.</p>
+</li>
+<li><p class="first">Export as CSV: this will create a CSV file with all your orders from this basket.
+You can add several CSV profiles options by going to the <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV profiles
+tool</span></a>.</p>
+</li>
+<li><p class="first">E-mail order: this will send the order information to your contact for this
+vendor. Make sure your contact has a email address in the <a class="reference internal" href="#vendors-label"><span class="std std-ref">vendor
+profile</span></a>.</p>
+</li>
+</ul>
+</div></blockquote>
+<p>If you’re using EDI for your order you can click the ‘Create EDIFACT
+order’ button when you’re done to send the file to the vendor and close
+the basket.</p>
+<p><img alt="image1287" src="_images/edifactorder.png" /></p>
+</div>
+<div class="section" id="ordering-closing-the-basket">
+<h3>Ordering/Closing the basket<a class="headerlink" href="#ordering-closing-the-basket" title="永久链接至标题"></a></h3>
+<p>Once you’re sure your basket is complete, you can click ‘Close this
+basket’ button to indicate that this basket is complete and has been
+sent to the vendor.</p>
+<p><img alt="image835" src="_images/closebasket.png" /></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>You must close the basket to be able to <a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receive
+items</span></a> when they arrive. Only items in closed
+baskets will show as ready to receive.</p>
+</div></blockquote>
+<p>If you have your <a class="reference internal" href="acquisitionspreferences.html#basketconfirmations"><span class="std std-ref">BasketConfirmations</span></a>
+preference set to show a confirmation, you will be asked if you are sure
+about closing the basket.</p>
+<p><img alt="image836" src="_images/createpurchaseorder.png" /></p>
+<p>When closing the basket you can choose to add the basket to a group for
+easy printing and retrieval. If you check the box to ‘Attach this basket
+to a new basket group’ you will be brought to the group list where you
+can export a PDF of the order.</p>
+<p><img alt="image832" src="_images/basketgroup.png" /></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>A basket with at least one item marked as ‘uncertain price’ will not
+be allowed to be closed.</p>
+<p><img alt="image833" src="_images/basketuncertain.png" /></p>
+</div></blockquote>
+<p>Clicking the ‘Uncertain prices’ button will call up a list of items with
+uncertain prices to quick editing. From that list, you can quickly edit
+the items by entering new prices and quantities.</p>
+<p><img alt="image834" src="_images/uncertainprices.png" /></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>The Uncertain prices page is independent of the basket. It is linked
+to the vendor so you will see all items on order with uncertain
+prices for that vendor.</p>
+</div></blockquote>
+<p>Once your order is entered you can search for it through acquisitions or
+view the information on the biblio detail page in the staff client (if
+the <a class="reference internal" href="catalogingpreferences.html#acquisitiondetails"><span class="std std-ref">AcquisitionDetails</span></a> preference is set to
+‘Display).</p>
+<p><img alt="image1288" src="_images/AcquisitionDetails.png" /></p>
+</div>
+<div class="section" id="create-a-basket-group">
+<span id="create-a-basket-group-label"></span><h3>Create a basket group<a class="headerlink" href="#create-a-basket-group" title="永久链接至标题"></a></h3>
+<p>A basket group is simply a group of baskets. In some libraries, you have
+several staff members that create baskets, and, at the end of a period
+of time, someone then groups them together to send to the vendor in
+bulk. That said, it is possible to have one basket in a basket group,
+or no basket groups at all if that’s the workflow used in your library.</p>
+<p>To create a basket group, go to the vendor detail page and click on the
+‘Basket groups’ tab on the left side.</p>
+<p><img alt="image788" src="_images/vendorpage.png" /></p>
+<p><img alt="image1414" src="_images/basketgroupopen.png" /></p>
+<p>Click on the ‘New basket group’ button.</p>
+<p><img alt="image1415" src="_images/newbasketgroup.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li>Basket group name: this is the name the basket group will go by in Koha</li>
+<li>Billing place: this is the billing address that will appear on the
+basket group order</li>
+<li>Delivery place: pick a library where these orders should be sent, this
+will appear on the basket group order under delivery address
+You can also enter a different address</li>
+<li>Delivery comment: this comment will appear on the basket group order</li>
+<li>Close basket group: if you know that once you’re done with this basket
+group, you will not be modifying it anymore, you can close it right away</li>
+</ul>
+</div></blockquote>
+<p>Drag the ungrouped baskets to the ‘Baskets in this group’ box to add baskets
+to the basket group.</p>
+<p><img alt="image1416" src="_images/addbaskettobasketgroup.png" /></p>
+<p>Click on ‘Save’ to finish creating your basket.</p>
+<p>From there, you can export your order as a PDF file to send to your vendor.</p>
+<p><img alt="image838" src="_images/pdforder.png" /></p>
+</div>
+</div>
+<div class="section" id="receiving-orders">
+<span id="receiving-orders-label"></span><h2>Receiving orders<a class="headerlink" href="#receiving-orders" title="永久链接至标题"></a></h2>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>You must close the basket to be able to <a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receive
+items</span></a> when they arrive. Only items in closed
+baskets will show as ready to receive.</p>
+</div></blockquote>
+<p>Orders can be received from the vendor information page</p>
+<p><img alt="image839" src="_images/receivebutton.png" /></p>
+<p>or the vendor search results page</p>
+<p><img alt="image840" src="_images/receivefromsearch.png" /></p>
+<p>After clicking ‘Receive shipment’ you will be asked to enter a vendor
+invoice number, a shipment received date, a shipping cost and a fund
+to subtract that shipping amount from.</p>
+<p><img alt="image841" src="_images/receive.png" /></p>
+<p>The receive page will list all items still on order with the vendor
+regardless of the basket the item is from.</p>
+<p><img alt="image842" src="_images/receiptsummary.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you have a lot of orders, you can filter the orders using the ‘Filter’
+box on the left, the ‘Search’ box just above the table, of the filter
+boxes at the top of each table column.</p>
+<p><img alt="image1417" src="_images/filterorders.png" /></p>
+<p><img alt="image1418" src="_images/filterorders2.png" /></p>
+<p>You could, for example, scan the ISBN of the book you are receiving in the
+filter box and the table will only show the corresponding orders.</p>
+<p>Just make sure to clear the filter boxes when you’re done, otherwise,
+the other items won’t appear.</p>
+</div></blockquote>
+<p>To receive a specific item, click the ‘Receive’ link to the right of the
+item.</p>
+<p><img alt="image843" src="_images/receiveitem.png" /></p>
+<p>Depending on when you chose to create the item (either in the
+<a class="reference internal" href="acquisitionspreferences.html#acqcreateitem-label"><span class="std std-ref">AcqCreateItem</span></a> system preference, or upon
+<a class="reference internal" href="#create-a-basket-label"><span class="std std-ref">creating your basket</span></a>), the form will look
+slightly different.</p>
+<p>If you chose to create your item when placing the order, you will have your
+item information on the left side and financial information on the right side.</p>
+<p><img alt="image1419" src="_images/receiveitem1.png" /></p>
+<p>You can check the box next to the item to receive it, or fill out the
+‘Quantity received’ field on the left side.</p>
+<blockquote>
+<div><strong>Note</strong>
+You can choose to mark only part of the order as received if he vendor
+didn’t send your entire order by checking only the boxes next to the
+items on the left that you want to receive or by entering the right
+amount in the ‘Quantity received’ field.</div></blockquote>
+<p>You can edit the item if needed by clicking on the ‘Edit’ link. This will
+allow you to enter in accurate call numbers and barcodes if you’d like to
+do that at the point of receipt.</p>
+<p>You can also alter the cost information (replacement cost and actual cost).
+The values you enter there will automatically populate the item record by
+filling in subfield v (Cost, replacement price) and subfield g (Cost,
+normal purchase price) on the item record after saving.</p>
+<p>If you chose to create your item when receiving the order, you will see
+the item creation form on the left side and the financial information on
+the right side.</p>
+<p><img alt="image1420" src="_images/receiveitem2.png" /></p>
+<blockquote>
+<div><strong>Important</strong>
+You must fill out the item form and click on ‘Add item’ or ‘Add multiple items’
+in order to receive the order. You will not be able to simply change the
+‘Quantity received’ amount.</div></blockquote>
+<p>You can alter the cost information (replacement cost and actual cost).
+The values you enter there will automatically populate the item record by
+filling in subfield v (Cost, replacement price) and subfield g (Cost,
+normal purchase price) on the item record after saving.</p>
+<p>Finally, if you chose to create your item when cataloging the record, you
+will only see the financial information on the right.</p>
+<p><img alt="image843" src="_images/receiveitem.png" /></p>
+<p>You can alter the cost information (replacement cost and actual cost).</p>
+<blockquote>
+<div><strong>Note</strong>
+The financial information will not be transferred to the item if the
+item is created when cataloging.</div></blockquote>
+<p>Once you have made any changes necessary (to the order and/or items, click
+‘Save’ to mark the item(s) as received.</p>
+<p><img alt="image845" src="_images/received.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you have your
+<a class="reference external" href="#AcqItemSetSubfieldsWhenReceived">AcqItemSetSubfieldsWhenReceived</a>
+preference set to add or change values on received items those
+changes will take place after you hit ‘Save’.</p>
+</div></blockquote>
+<p>When you’re finished receiving items you can navigate away from this
+page or click the ‘Finish receiving’ button at the bottom of the screen.</p>
+<p>Received orders will have ‘(received)’ before the title in the basket view.</p>
+<p><img alt="image850" src="_images/basketwithreceived.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong>
+When all the orders in a basket have been received, the basket will be removed
+from the list of baskets for that vendor. You can click ‘Show all baskets’
+to view the inactive baskets.</p>
+<p><img alt="image1421" src="_images/showactivebaskets.png" /></p>
+<p><img alt="image1422" src="_images/showallbaskets.png" /></p>
+</div></blockquote>
+</div>
+<div class="section" id="transferring-orders">
+<span id="transferring-orders-label"></span><h2>Transferring orders<a class="headerlink" href="#transferring-orders" title="永久链接至标题"></a></h2>
+<p>If the item is no longer available from this vendor you can transfer the
+order to another vendor’s basket by clicking the ‘Transfer’ link to the
+right of the title. This will pop up a vendor search box.</p>
+<p><img alt="image846" src="_images/transfersearch.png" /></p>
+<p>From the results you can click ‘Choose’ to the right of the vendor you
+would like to reorder this item from.</p>
+<p><img alt="image847" src="_images/transfervendor.png" /></p>
+<p>You will then be presented with the open baskets for that vendor to
+choose from. To move the item simply click ‘Choose’ to the right of the
+basket you would like to add the item to.</p>
+<p><img alt="image848" src="_images/transferbasket.png" /></p>
+<p>Once you have chosen you will be presented with a confirmation message.</p>
+<p><img alt="image849" src="_images/transferconfirm.png" /></p>
+<p>You will see transferred orders when viewing the basket.</p>
+<p><img alt="image850" src="_images/basketwithreceived.png" /></p>
+</div>
+<div class="section" id="cancelling-orders">
+<span id="cancelling-an-order-label"></span><h2>Cancelling orders<a class="headerlink" href="#cancelling-orders" title="永久链接至标题"></a></h2>
+<p>If the item cannot be found anywhere you can cancel the order by
+clicking ‘Delete order’ to the far right. This will prompt you to enter
+your reason and confirm cancellation.</p>
+<p><img alt="image1289" src="_images/cancelorder.png" /></p>
+<p>You will also see that the item is cancelled if you view the basket.</p>
+<p><img alt="image850" src="_images/basketwithreceived.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Whilst it is possible to re-open your basket, cancel one or more orders
+and re-close the basket, this is not recommended. This procedure will
+update the ‘basket closed’ date, which in turn will cause your ‘late
+order’ calculations to be incorrect.</p>
+<p><strong>Note</strong></p>
+<p>You cannot re-open a basket that is attached to a basket group.  The
+re-open basket button will be greyed out.</p>
+</div></blockquote>
+</div>
+<div class="section" id="invoices">
+<span id="invoices-label"></span><h2>Invoices<a class="headerlink" href="#invoices" title="永久链接至标题"></a></h2>
+<p>When orders are received invoices are generated. Invoices can be
+searched by clicking on ‘Invoices’ in the left of the Acquisitions page.</p>
+<p><img alt="image851" src="_images/invoicesearch.png" /></p>
+<p>After searching, your results will appear to the right of the search
+options.</p>
+<p><img alt="image852" src="_images/invoices.png" /></p>
+<p>From the ‘Actions’ button, you can click the ‘Details’ link to see the full
+invoice or ‘Close’ to note that the invoice is closed/paid for.</p>
+<p><img alt="image853" src="_images/invoice.png" /></p>
+<p>In the Adjustments section, you can add adjustments to your invoices.
+These adjustments can be for adjusting the price that is offset by rounding
+or adding a credit to the invoice, for example.</p>
+<p><img alt="image1371" src="_images/adjustments.png" /></p>
+<ul>
+<li><p class="first">Click on ‘Add an adjustment’</p>
+</li>
+<li><p class="first">Enter the amount of the adjustment</p>
+</li>
+<li><p class="first">Choose a reason, if needed</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The reasons are <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized values</span></a>.
+Use the category ADJ_REASON to add custom reasons for adjustments.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Enter a note, if needed</p>
+</li>
+<li><p class="first">Choose the fund from which the adjustment amount should be taken</p>
+</li>
+<li><p class="first">If ‘Encumber while invoice open’ is checked, the amount of the adjustment
+will be taken out of the fund immediately. If it isn’t checked, the amount
+will be subtracted only when the invoice is closed.</p>
+</li>
+<li><p class="first">Click on ‘Update adjustments’ to save your adjustments</p>
+</li>
+</ul>
+<p>If you need to change the adjustment afterwards, you can do so in the table
+and click on ‘Update adjustments’.</p>
+<p><img alt="image1372" src="_images/adjustments2.png" /></p>
+<div class="section" id="attaching-files-to-invoices">
+<span id="attaching-files-to-invoices-label"></span><h3>Attaching files to invoices<a class="headerlink" href="#attaching-files-to-invoices" title="永久链接至标题"></a></h3>
+<p>If you’re allowing the uploading of acquisitions files with the
+<a class="reference internal" href="acquisitionspreferences.html#acqenablefiles"><span class="std std-ref">AcqEnableFiles</span></a> preference you will see the option
+to manage invoice files next to the link to ‘Go to receipt
+page’</p>
+<p><img alt="image1290" src="_images/AcqEnableFiles.png" /></p>
+<p>To see or attach new files click the ‘Manage invoice files’ link</p>
+<p><img alt="image854" src="_images/noinvoicefiles.png" /></p>
+<p>From here you can find a file to upload and/or see the files you have
+already attached.</p>
+<p><img alt="image855" src="_images/invoicefiles.png" /></p>
+</div>
+<div class="section" id="merging-two-invoices">
+<h3>Merging two invoices<a class="headerlink" href="#merging-two-invoices" title="永久链接至标题"></a></h3>
+<p>From the invoice search results you can also merge together two invoices
+should you need to. Simply click the checkbox to the left of the
+invoices you would like to merge and click the ‘Merge selected invoices’
+button at the bottom of the page. You will be presented with a
+confirmation screen:</p>
+<p><img alt="image856" src="_images/mergeinvoices.png" /></p>
+<p>Click on the row of the invoice number you would like to keep and it
+will be highlighted in yellow. Enter any different billing information
+in the fields provided and click ‘Merge’. The two invoices will become
+one.</p>
+</div>
+</div>
+<div class="section" id="claims-and-late-orders">
+<span id="claims-and-late-orders-label"></span><h2>Claims and late orders<a class="headerlink" href="#claims-and-late-orders" title="永久链接至标题"></a></h2>
+<p>If you have entered in an email address for the vendors in your system
+you can send them claim emails when an order is late. Before you can
+send claims you will need to set up an <a class="reference external" href="#ACQCLAIM">acquisitions claim
+notice</a>.</p>
+<p>Upon clicking on the link to ‘Late orders’ from the Acquisitions page
+you will be presented with a series of filter options on the left hand
+side. These filters will be applied only closed baskets.</p>
+<p><img alt="image857" src="_images/acqclaimfilter.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The vendor pull down only shows vendors with closed baskets that are
+late.</p>
+</div></blockquote>
+<p>Once you filter your orders to show you the things you consider to be
+late you will be presented with a list of these items.</p>
+<p><img alt="image858" src="_images/lateorders.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: late_orders).</li>
+</ul>
+</div></blockquote>
+<p>To the right of each late title you will be see a checkbox. Check off
+the ones you want a claim letter sent to and click ‘Claim order’ at the
+bottom right of the list. This will automatically send an email to the
+vendor at the email address you have on file.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The estimated delivery date is based on the delivery time value
+entered on the vendor record.</p>
+</div></blockquote>
+<p>If you would rather use a different acquisition claim letter (other than
+the default) you can <a class="reference internal" href="tools.html#adding-notices-and-slips-label"><span class="std std-ref">create that in the notices module</span></a>
+and choose it from the menu above the list of late items.</p>
+<p><img alt="image859" src="_images/claimletter.png" /></p>
+</div>
+<div class="section" id="acquisition-searches">
+<span id="acquisition-searches-label"></span><h2>Acquisition searches<a class="headerlink" href="#acquisition-searches" title="永久链接至标题"></a></h2>
+<p>At the top of the various Acquisition pages there is a quick search box
+where you can perform either a Vendor search or an Order search.</p>
+<p><img alt="image860" src="_images/acqsearches.png" /></p>
+<p>In the Vendor search you can enter any part of the vendor name to get
+results.</p>
+<p><img alt="image861" src="_images/vendorquicksearch.png" /></p>
+<p>Using the Orders search you can search for items that have been ordered
+with or without the vendor.</p>
+<p><img alt="image862" src="_images/ordersearch.png" /></p>
+<p>You can enter info in one or both fields and you can enter any part of
+the title and/or vendor name.</p>
+<p><img alt="image863" src="_images/ordersearchresults.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: histsearcht).</li>
+</ul>
+</div></blockquote>
+<p>Clicking the plus sign to the right of the Vendor search box will expand
+the search and allow you to search for additional fields.</p>
+<p><img alt="image864" src="_images/ordersearchexpand.png" /></p>
+<p>Clicking Advanced search to the right of the search button will give you
+all of the order search options available.</p>
+<p><img alt="image865" src="_images/ordersearchfull.png" /></p>
+</div>
+<div class="section" id="budget-fund-tracking">
+<span id="budget-fund-tracking-label"></span><h2>Budget/fund tracking<a class="headerlink" href="#budget-fund-tracking" title="永久链接至标题"></a></h2>
+<p>On the main acquisitions page there will be a table showing you all of
+your active funds and a breakdown of what has been ordered or spent
+against them.</p>
+<p><img alt="image866" src="_images/acqfunds.png" /></p>
+<p>Clicking on the linked amounts under spent or ordered will show you a
+summary of the titles ordered/received on that budget.</p>
+<p><img alt="image867" src="_images/spent.png" /></p>
+</div>
+<div class="section" id="edi-process">
+<span id="edi-process-label"></span><h2>EDI process<a class="headerlink" href="#edi-process" title="永久链接至标题"></a></h2>
+<p>Previous sections explain all ordering options, this section pulls out
+the parts related to EDI or EDIFACT ordering to help those who are only
+using EDI for ordering.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Koha uses the EDIFACT standard not the X12 standard for electronic
+ordering.</p>
+</div></blockquote>
+<div class="section" id="edi-questions-for-vendors">
+<span id="edi-questions-for-vendors-label"></span><h3>EDI questions for vendors<a class="headerlink" href="#edi-questions-for-vendors" title="永久链接至标题"></a></h3>
+<p>You will want to gather the following information from your vendors
+before beginning the set up process in Koha.</p>
+<p><strong>EDI accounts:</strong> <em>This is the basic connection information for your
+vendor. This will be used to fill in the :ref:`EDI accounts`
+section.</em></p>
+<ul>
+<li><p class="first"><strong>Vendor:</strong> The name of the vendor</p>
+</li>
+<li><p class="first"><strong>Description:</strong> A short description if additional explanation is
+needed ( especially if you have multiple accounts for one vendor ).</p>
+</li>
+<li><p class="first"><strong>Transport:</strong> Does the vendor transmit EDI files via FTP, SFTP, or
+something else the requires special processing?</p>
+</li>
+<li><p class="first"><strong>Remote host:</strong> The URL or IP address of the FTP/SFTP server</p>
+</li>
+<li><p class="first"><strong>Username:</strong> The username for the above server</p>
+</li>
+<li><p class="first"><strong>Password:</strong> The password for the above server</p>
+</li>
+<li><p class="first"><strong>Download directory:</strong> The path on the server that contains files
+for Koha to download and process</p>
+</li>
+<li><p class="first"><strong>Upload directory:</strong> The path on the server that Koha will upload
+files to for your vendor to process</p>
+</li>
+<li><p class="first"><strong>Qualifier:</strong> Who assigned the SAN below?</p>
+<ul>
+<li><p class="first">Choose one of the following:</p>
+<ol class="arabic simple" start="14">
+<li>EAN International</li>
+</ol>
+<p>(31B) US SAN Agency</p>
+<ol class="arabic simple" start="91">
+<li>Assigned by supplier</li>
+<li>Assigned by buyer</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>SAN:</strong> The identifier for the vendor</p>
+<p><em>Buyer qualifier and SAN are optional. Some vendors require a second
+buyer identifier in addition to the account EAN</em>.</p>
+</li>
+<li><p class="first"><strong>Buyer qualifier:</strong> Who assigned the SAN below?</p>
+<ul>
+<li><p class="first">Choose one of the following:</p>
+<ol class="arabic simple" start="14">
+<li>EAN International</li>
+</ol>
+<p>(31B) US SAN Agency</p>
+<ol class="arabic simple" start="91">
+<li>Assigned by supplier</li>
+<li>Assigned by buyer</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Buyer SAN:</strong> The identifier for the library</p>
+</li>
+<li><p class="first"><strong>Quotes enabled:</strong> [y/n] Does this vendor support sending and
+receiving quotes via EDIFACT and do you want to send and receive
+quotes via EDIFACT?</p>
+</li>
+<li><p class="first"><strong>Orders enabled:</strong> [y/n] Does this vendor support sending and
+receiving orders via EDIFACT and do you want to send and receive
+orders via EDIFACT?</p>
+</li>
+<li><p class="first"><strong>Invoices enabled:</strong>[y/n] Does this vendor support sending and
+receiving invoices via EDIFACT and do you want to send and receive
+invoices via EDIFACT?</p>
+</li>
+<li><p class="first"><strong>Order file suffix:</strong> The file suffix for order files</p>
+</li>
+<li><p class="first"><strong>Quote file suffix:</strong> The file suffix for quote files</p>
+</li>
+<li><p class="first"><strong>Invoice file suffix:</strong> The file suffix for invoice files</p>
+</li>
+<li><p class="first"><strong>Account number(s):</strong> (list them all)</p>
+</li>
+<li><p class="first"><strong>Account description(s):</strong> (the summary of what this number is for)</p>
+</li>
+</ul>
+<p><strong>EANs:</strong> <em>Each library using EDIFACT needs to specify a buyer
+identifier know as a SAN or EAN. This will fill in the :ref:`Library
+EANs &lt;library-eans-label&gt;` setting.</em></p>
+<ul>
+<li><p class="first"><strong>Library</strong></p>
+</li>
+<li><p class="first"><strong>EAN</strong></p>
+<ul>
+<li><p class="first">Choose one of the following:</p>
+<ol class="arabic simple" start="14">
+<li>EAN International</li>
+</ol>
+<p>(31B) US SAN Agency</p>
+<ol class="arabic simple" start="91">
+<li>Assigned by supplier</li>
+<li>Assigned by buyer</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>MARC order fields or grid ordering:</strong> <em>These values will fill in the
+:ref:`MarcFieldsToOrder` preference.</em></p>
+<ul class="simple">
+<li><strong>price:</strong> MARC21 field that contains the item price</li>
+<li><strong>quantity:</strong> MARC21 field that contains the number of items for the
+given record</li>
+<li><strong>budget_code:</strong> MARC21 field that contains the Koha budget code to
+be debited</li>
+<li><strong>discount:</strong> MARC21 field the contains the discount as a percentage
+the the price will be discounted by</li>
+<li><strong>sort1:</strong> MARC21 field that will populate custom field sort1</li>
+<li><strong>sort2:</strong> MARC21 field that will populate custom field sort2</li>
+</ul>
+</div>
+<div class="section" id="edi-setup">
+<span id="edi-setup-label"></span><h3>EDI setup<a class="headerlink" href="#edi-setup" title="永久链接至标题"></a></h3>
+<p>Before you begin ordering using EDI you will want to take the following
+steps:</p>
+<ul class="simple">
+<li>Ask your vendor/bookseller/jobber for <a class="reference internal" href="#edi-questions-for-vendors-label"><span class="std std-ref">connection
+information</span></a><ul>
+<li>It might also be beneficial to ask for a few sample EDIFACT files
+from the vendor</li>
+</ul>
+</li>
+<li>Share with your vendor/bookseller/jobber your <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library
+codes</span></a>, <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item type codes</span></a>, <a class="reference internal" href="administration.html#funds-label"><span class="std std-ref">fund
+codes</span></a>, and any other codes or <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized
+values</span></a> they might need for creating your MARC
+order records</li>
+<li>Communicate with your support provider or the community about whether
+you will need a plugin based on your vendor’s answers<ul>
+<li>For example ByWater Solutions has published plugins for specific
+vendors here:
+<a class="reference external" href="https://github.com/bywatersolutions/koha-plugin-edifact-enhanced">https://github.com/bywatersolutions/koha-plugin-edifact-enhanced</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-a-vendor-label"><span class="std std-ref">Enter the vendor/bookseller/jobber</span></a> in
+Acquisitions</li>
+<li>Review your <a class="reference internal" href="acquisitionspreferences.html#acquisitions-system-preferences-label"><span class="std std-ref">Acquisitions system preferences</span></a><ul>
+<li>Be sure to fill in the <a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder"><span class="std std-ref">MarcFieldsToOrder</span></a>
+preference with values for order files</li>
+</ul>
+</li>
+<li>Enter your <a class="reference internal" href="administration.html#edi-accounts"><span class="std std-ref">EDI accounts</span></a></li>
+<li>Enter your <a class="reference internal" href="administration.html#library-eans"><span class="std std-ref">Library EANs</span></a></li>
+<li>Turn on the <a class="reference internal" href="cron_jobs.html#cron-edi-message-processing-label"><span class="std std-ref">EDI Cron</span></a> so that it can process files</li>
+</ul>
+</div>
+<div class="section" id="edi-ordering">
+<span id="edi-ordering-label"></span><h3>EDI ordering<a class="headerlink" href="#edi-ordering" title="永久链接至标题"></a></h3>
+<p>The first step in ordering using EDI happens on the book vendor’s
+website. Each seller will use different language, but you will need to
+place your order on their site and then download the MARC order file.
+Some language that you might see included “basket”, “order”, “cart”,
+and/or “MARC order.” Once you have this MARC file downloaded to your
+computer you will want to log in to Koha and continue the process there.</p>
+<p>Visit the <a class="reference internal" href="tools.html#stage-marc-records-for-import"><span class="std std-ref">Stage MARC records for import</span></a> tool and upload
+your file. Once presented with the confirmation screen proceed to
+Acquisitions.</p>
+<p>In Acquisitions <a class="reference internal" href="#create-a-basket-label"><span class="std std-ref">create a basket</span></a> for the vendor
+you ordered from. From the basket, choose to <a class="reference external" href="#orderfromstagedfile">order from a staged
+file</a> and click ‘Order’ next to the file you
+downloaded from your vendor and staged in Koha.</p>
+<p>From the confirmation screen you will see all of the data in the MARC
+file related to your order. If you are not seeing fields such as fund
+and quantity filled in then be sure to confirm that your
+<a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder"><span class="std std-ref">MarcFieldsToOrder</span></a> preference is set right.</p>
+<p>Once you have added all of the items to the basket you can click the
+‘Create EDIFACT order’ button.</p>
+</div>
+<div class="section" id="sending-the-edifact-order">
+<span id="sending-the-edifact-order-label"></span><h3>Sending the EDIFACT order<a class="headerlink" href="#sending-the-edifact-order" title="永久链接至标题"></a></h3>
+<p>This will generate a pending file in the <a class="reference internal" href="#edifact-messages-label"><span class="std std-ref">EDIFACT
+messages</span></a> in Koha. The pending files will be processed
+by the <a class="reference internal" href="cron_jobs.html#cron-edi-message-processing-label"><span class="std std-ref">EDI cron job</span></a> and sent to your vendor.</p>
+</div>
+<div class="section" id="edi-ordering-with-quote-files">
+<span id="edi-ordering-with-quote-files-label"></span><h3>EDI ordering with Quote files<a class="headerlink" href="#edi-ordering-with-quote-files" title="永久链接至标题"></a></h3>
+<p>If you have Quote files enabled you can place the order on the bookseller’s website and
+a Quote file will be automatically generated and made available to be collected and loaded
+to Koha.  You will see the file listed in the <a class="reference internal" href="#edifact-messages-label"><span class="std std-ref">EDIFACT
+messages</span></a> in Koha with a status of ‘Received’.  The basket will have
+been created and records and items added to the basket.  Once you have checked that the basket is
+correct you can click the ‘Create EDIFACT order’ button.  The process then completes as
+for <a class="reference internal" href="#sending-the-edifact-order-label"><span class="std std-ref">Sending the EDIFACT order</span></a> above.</p>
+</div>
+<div class="section" id="edi-invoicing">
+<span id="edi-invoicing-label"></span><h3>EDI invoicing<a class="headerlink" href="#edi-invoicing" title="永久链接至标题"></a></h3>
+<p>When the book vendor is done processing your files they will send an
+invoice via EDI as well. The <a class="reference internal" href="cron_jobs.html#cron-edi-message-processing-label"><span class="std std-ref">EDI cron job</span></a> will grab
+invoices and mark items found in the invoice as received and update your
+funds without any need for manual intervention.</p>
+<p>If you set the <a class="reference internal" href="acquisitionspreferences.html#edifactinvoiceimport"><span class="std std-ref">EdifactInvoiceImport</span></a> preference to ‘Don’t’ you can load invoice files manually.</p>
+</div>
+</div>
+<div class="section" id="edifact-messages">
+<span id="edifact-messages-label"></span><h2>EDIFACT messages<a class="headerlink" href="#edifact-messages" title="永久链接至标题"></a></h2>
+<p>A log of all messages sent and received via EDIFACT can be found under
+EDIFACT messages.</p>
+<p><img alt="image1291" src="_images/edifactmsg.png" /></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="serials.html" class="btn btn-neutral float-left" title="Serials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="lists.html" class="btn btn-neutral float-right" title="Lists and cart" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

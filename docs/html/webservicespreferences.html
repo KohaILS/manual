@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web services &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Administration" href="administration.html" />
+    <link rel="prev" title="Tools" href="toolspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Web services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general">General</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#accesscontrolalloworigin">AccessControlAllowOrigin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ils-di">ILS-DI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ils-di-system-preference-label">ILS-DI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ils-di-authorizedips">ILS-DI:AuthorizedIPs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#idref-pref-label">IdRef</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#idref-label">IdRef</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mana-kb">Mana KB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autosharewithmana">AutoShareWithMana</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mana">Mana</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manatoken">ManaToken</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#oai-pmh">OAI-PMH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-pref-label">OAI-PMH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-archiveid">OAI-PMH:archiveID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-autoupdatesets">OAI-PMH:AutoUpdateSets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-autoupdatesetsembeditemdata">OAI-PMH:AutoUpdateSetsEmbedItemData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-conffile">OAI-PMH:ConfFile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-deletedrecord">OAI-PMH:DeletedRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-maxcount">OAI-PMH:MaxCount</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rest-api">REST API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#restbasicauth">RESTBasicAuth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restdefaultpagesize">RESTdefaultPageSize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restoauth2clientcredentials">RESTOAuth2ClientCredentials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restpublicanonymousrequests">RESTPublicAnonymousRequests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restpublicapi">RESTPublicAPI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting">Reporting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#svcmaxreportrows">SvcMaxReportRows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Web services</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/webservicespreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="toolspreferences.html" class="btn btn-neutral float-left" title="Tools" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administration.html" class="btn btn-neutral float-right" title="Administration" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="web-services">
+<span id="web-services-system-preferences-label"></span><h1>Web services<a class="headerlink" href="#web-services" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt; Web
+services</p>
+<div class="section" id="general">
+<span id="webservices-general-system-preferences-label"></span><h2>General<a class="headerlink" href="#general" title="永久链接至标题"></a></h2>
+<div class="section" id="accesscontrolalloworigin">
+<span id="accesscontrolalloworigin-label"></span><h3>AccessControlAllowOrigin<a class="headerlink" href="#accesscontrolalloworigin" title="永久链接至标题"></a></h3>
+<p>Asks: Set the Access-Control-Allow-Origin header to ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This is the header used for OPAC reports SVC routes.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="ils-di">
+<span id="webservices-ils-di-system-preferences-label"></span><h2>ILS-DI<a class="headerlink" href="#ils-di" title="永久链接至标题"></a></h2>
+<div class="section" id="ils-di-system-preference-label">
+<span id="id1"></span><h3>ILS-DI<a class="headerlink" href="#ils-di-system-preference-label" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ ILS-DI services for OPAC users</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+</div>
+<div class="section" id="ils-di-authorizedips">
+<span id="ils-di-authorizedips-label"></span><h3>ILS-DI:AuthorizedIPs<a class="headerlink" href="#ils-di-authorizedips" title="永久链接至标题"></a></h3>
+<p>Asks: Allow IP addresses ___ to use the ILS-DI services (when enabled).</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Separate the IP addresses with commas and without spaces.
+For example: 15.78.193.62,197.85.10.1</p>
+<p><strong>Important</strong></p>
+<p>Leave the field blank to allow any IP address.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="idref-pref-label">
+<span id="idref"></span><h2>IdRef<a class="headerlink" href="#idref-pref-label" title="永久链接至标题"></a></h2>
+<div class="section" id="idref-label">
+<span id="id2"></span><h3>IdRef<a class="headerlink" href="#idref-label" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ the IdRef webservice from the opac detail page. IdRef
+allows to request authorities from the Sudoc database.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">IdRef is a French service for Sudoc autorities. Using the <a class="reference external" href="http://www.sudoc.abes.fr/">Sudoc
+database</a>, it allows to request /
+modify / add authorities. If a record comes from the Sudoc (so 009 is
+filled with an integer), at the OPAC you will see “Author: Idref” if
+a 7..$3 (unimarc author) if filled with a ppn. On clicking on the
+Idref link, a popup will display.</p>
+<blockquote>
+<div><p><img alt="image1201" src="_images/idref1.png" /></p>
+</div></blockquote>
+<p>The Idref webservice is requested and all records (by roles) for this
+author will be displayed</p>
+<p><img alt="image1202" src="_images/idref2.png" /></p>
+<p>There is 1 line / record and 2 links at the end. 1 will request Koha
+(cgi-bin/koha/opac-search.pl?q=ident:003381862), the other one will
+redirect to the sudoc page (<a class="reference external" href="http://www.sudoc.fr/003381862">http://www.sudoc.fr/003381862</a>).</p>
+</li>
+<li><p class="first"><strong>Important</strong></p>
+<blockquote>
+<div><p>Please note that this feature is available only for libraries
+using UNIMARC.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Note</strong></p>
+<blockquote>
+<div><p>The French Sudoc database should not be confused with the US
+Superintendent of Documents (SuDocs) Classification Scheme.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mana-kb">
+<span id="mana-prefs-label"></span><h2>Mana KB<a class="headerlink" href="#mana-kb" title="永久链接至标题"></a></h2>
+<div class="section" id="autosharewithmana">
+<span id="autosharewithmana-label"></span><h3>AutoShareWithMana<a class="headerlink" href="#autosharewithmana" title="永久链接至标题"></a></h3>
+<p>Asks: Fields automatically shared with Mana KB ___</p>
+<p>Default: none</p>
+<p>Values:</p>
+<ul class="simple">
+<li>[Select all]</li>
+<li>Subscriptions</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference reflects the choice made in the <a class="reference internal" href="administration.html#share-with-mana-kb-label"><span class="std std-ref">Mana KB configuration</span></a> in the administration module.</li>
+<li>Choosing to automatically share content with Mana KB means that every time you
+create that type of content, it will be automatically copied in the Mana KB
+repository, and it will be instantly available for other libraries to copy.</li>
+<li>All content shared with Mana KB is shared under the CC0 license, meaning
+that there is no (zero) copyright. Anyone using Mana KB can copy, reuse
+and change (their copy of) your content. Read more on CC0 on the <a class="reference external" href="https://creativecommons.org/choose/zero/">Creative
+Commons Website</a>. This will in
+no way change your data in your Koha installation.</li>
+</ul>
+</div>
+<div class="section" id="mana">
+<span id="mana-pref-label"></span><h3>Mana<a class="headerlink" href="#mana" title="永久链接至标题"></a></h3>
+<p>Asks: ___ submissions to Mana KB.</p>
+<p>Default: No, let me think about it</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+<li>No, let me think about it</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference reflects the choice made in the <a class="reference internal" href="administration.html#share-with-mana-kb-label"><span class="std std-ref">Mana KB configuration</span></a> in the administration module.</li>
+</ul>
+</div>
+<div class="section" id="manatoken">
+<span id="mana-token-label"></span><h3>ManaToken<a class="headerlink" href="#manatoken" title="永久链接至标题"></a></h3>
+<p>Asks: Security token used to authenticate on Mana KB: ___</p>
+<p>Default: empty</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference will be automatically populated with your unique Mana Token when
+you register for one on the <a class="reference internal" href="administration.html#share-with-mana-kb-label"><span class="std std-ref">Mana KB configuration</span></a>
+in the administration module.</li>
+<li>The Mana Token is unique and associated with your Koha installation. It is used
+by Koha to log onto the Mana KB server and prevents intrusions on said server.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="oai-pmh">
+<span id="oai-pmh-system-preferences-label"></span><h2>OAI-PMH<a class="headerlink" href="#oai-pmh" title="永久链接至标题"></a></h2>
+<div class="section" id="oai-pmh-pref-label">
+<span id="id3"></span><h3>OAI-PMH<a class="headerlink" href="#oai-pmh-pref-label" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ Koha’s OAI-PMH server.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Once enabled you can visit <a class="reference external" href="http://YOURKOHACATALOG/cgi-bin/koha/oai.pl">http://YOURKOHACATALOG/cgi-bin/koha/oai.pl</a>
+to see your file. For the Open Archives Initiative-Protocol for
+Metadata Harvesting (OAI-PMH) there are two groups of ‘participants’:
+Data Providers and Service Providers. Data Providers (open archives,
+repositories) provide free access to metadata, and may, but do not
+necessarily, offer free access to full texts or other resources.
+OAI-PMH provides an easy to implement, low barrier solution for Data
+Providers. Service Providers use the OAI interfaces of the Data
+Providers to harvest and store metadata. Note that this means that
+there are no live search requests to the Data Providers; rather,
+services are based on the harvested data via OAI-PMH. Koha at present
+can only act as a Data Provider. It can not harvest from other
+repositories. The biggest stumbling block to having Koha harvest from
+other repositories is that MARC is the only metadata format that Koha
+indexes natively. Visit
+<a class="reference external" href="http://www.oaforum.org/tutorial/english/page3.htm">http://www.oaforum.org/tutorial/english/page3.htm</a> for diagrams of how
+OAI-PMH works.</li>
+</ul>
+<p>Learn more about OAI-PMH at: <a class="reference external" href="http://www.openarchives.org/pmh/">http://www.openarchives.org/pmh/</a></p>
+</div>
+<div class="section" id="oai-pmh-archiveid">
+<span id="oai-pmh-archiveid-label"></span><h3>OAI-PMH:archiveID<a class="headerlink" href="#oai-pmh-archiveid" title="永久链接至标题"></a></h3>
+<p>Default: KOHA-OAI-TEST</p>
+<p>Asks: Identify records at this site with the prefix ___ :</p>
+</div>
+<div class="section" id="oai-pmh-autoupdatesets">
+<span id="oai-pmh-autoupdatesets-label"></span><h3>OAI-PMH:AutoUpdateSets<a class="headerlink" href="#oai-pmh-autoupdatesets" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ automatic update of OAI-PMH sets when a bibliographic
+record is created or updated.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+</div>
+<div class="section" id="oai-pmh-autoupdatesetsembeditemdata">
+<span id="oai-pmh-autoupdatesetsembeditemdata-label"></span><h3>OAI-PMH:AutoUpdateSetsEmbedItemData<a class="headerlink" href="#oai-pmh-autoupdatesetsembeditemdata" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ embedding of item data when automatically updating OAI-PMH sets.
+NOTE: This needs <a class="reference internal" href="#oai-pmh-autoupdatesets"><span class="std std-ref">OAI-PMH:AutoUpdateSets</span></a> syspref to be enabled.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+</div>
+<div class="section" id="oai-pmh-conffile">
+<span id="oai-pmh-conffile-label"></span><h3>OAI-PMH:ConfFile<a class="headerlink" href="#oai-pmh-conffile" title="永久链接至标题"></a></h3>
+<p>If this preference is left empty, Koha’s OAI Server operates in normal
+mode, otherwise it operates in extended mode. In extended mode, it’s
+possible to parameter other formats than marcxml or Dublin Core.
+OAI-PMH:ConfFile specify a YAML configuration file which list available
+metadata formats and XSL file used to create them from marcxml records.</p>
+<p>For more information, see the <a class="reference internal" href="webservices.html#sample-oai-conf-file-label"><span class="std std-ref">sample conf file</span></a>
+section.</p>
+</div>
+<div class="section" id="oai-pmh-deletedrecord">
+<span id="oai-pmh-deletedrecord-label"></span><h3>OAI-PMH:DeletedRecord<a class="headerlink" href="#oai-pmh-deletedrecord" title="永久链接至标题"></a></h3>
+<p>Default: will never be emptied or truncated (persistent)</p>
+<p>Asks: Koha’s deletedbiblio table ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>will never have any data in it (no)</li>
+<li>will never be emptied or truncated (persistent)</li>
+<li>might be emptied or truncated at some point (transient)</li>
+</ul>
+</div>
+<div class="section" id="oai-pmh-maxcount">
+<span id="oai-pmh-maxcount-label"></span><h3>OAI-PMH:MaxCount<a class="headerlink" href="#oai-pmh-maxcount" title="永久链接至标题"></a></h3>
+<p>Default: 50</p>
+<p>Asks: Only return ___ records at a time in response to a ListRecords
+or ListIdentifiers query.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This is the maximum number of records that would be returned based on
+ListRecord or ListIdentifier queries from harvesters. ListRecords
+harvest the entire records while the ListIdentifier is an abbreviated
+form of ListRecords, retrieving only headers rather than records.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="rest-api">
+<span id="rest-api-prefs-label"></span><h2>REST API<a class="headerlink" href="#rest-api" title="永久链接至标题"></a></h2>
+<div class="section" id="restbasicauth">
+<span id="restbasicauth-label"></span><h3>RESTBasicAuth<a class="headerlink" href="#restbasicauth" title="永久链接至标题"></a></h3>
+<p>Asks: ___ Basic authentication for the REST API.</p>
+<p>Default: Disable</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If enabled, Basic authentication is enabled for the REST API.</li>
+</ul>
+</div>
+<div class="section" id="restdefaultpagesize">
+<span id="restdefaultpagesize-label"></span><h3>RESTdefaultPageSize<a class="headerlink" href="#restdefaultpagesize" title="永久链接至标题"></a></h3>
+<p>Asks: Set the default number of results returned by the REST API endpoints
+to ___ per page.</p>
+<p>Default: 20</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you choose the number of endpoint results per page</li>
+</ul>
+</div>
+<div class="section" id="restoauth2clientcredentials">
+<span id="restoauth2clientcredentials-label"></span><h3>RESTOAuth2ClientCredentials<a class="headerlink" href="#restoauth2clientcredentials" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the OAuth2 client credentials grant for the REST API.</p>
+<p>Default: Disable</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">If enabled, the OAuth2 client credentials flow is enabled for the REST API.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Requires Net::OAuth2::AuthorizationServer installed.</p>
+<p><strong>Important</strong></p>
+<p>This system preference is experimental.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="restpublicanonymousrequests">
+<span id="restpublicanonymousrequests-label"></span><h3>RESTPublicAnonymousRequests<a class="headerlink" href="#restpublicanonymousrequests" title="永久链接至标题"></a></h3>
+<p>Asks: ___ anonymous access to public routes (that don’t require
+authenticated access)</p>
+<p>Default: Enable</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If enabled, the API will allow anonymous access to public routes that don’t
+require authenticated access.</li>
+</ul>
+</div>
+<div class="section" id="restpublicapi">
+<span id="restpublicapi-label"></span><h3>RESTPublicAPI<a class="headerlink" href="#restpublicapi" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the /public namespace of the API.</p>
+<p>Default: Enable</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If enabled, the REST API will expose the /public endpoints.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="reporting">
+<span id="reporting-label"></span><h2>Reporting<a class="headerlink" href="#reporting" title="永久链接至标题"></a></h2>
+<div class="section" id="svcmaxreportrows">
+<span id="svcmaxreportrows-label"></span><h3>SvcMaxReportRows<a class="headerlink" href="#svcmaxreportrows" title="永久链接至标题"></a></h3>
+<p>Default: 10</p>
+<p>Asks: Only return ___ rows of a report requested via the reports web
+service.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This value will be used to limit the number of results returned by
+<a class="reference external" href="#publicreport">public reports</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="toolspreferences.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administration.html" class="btn btn-neutral float-right" title="Administration" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

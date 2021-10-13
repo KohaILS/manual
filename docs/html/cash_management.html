@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash management &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Circulation" href="circulation.html" />
+    <link rel="prev" title="Patrons" href="patrons.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cash management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cash-registers">Cash registers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#library-details">Library details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#register-details">Register details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cashup">Cashup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#point-of-sale">Point of sale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-point-of-sale-label">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-a-sale">Making a sale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Cash management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cash_management.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="patrons.html" class="btn btn-neutral float-left" title="Patrons" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulation.html" class="btn btn-neutral float-right" title="Circulation" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="cash-management">
+<span id="cash-management-label"></span><h1>Cash management<a class="headerlink" href="#cash-management" title="永久链接至标题"></a></h1>
+<p>Koha includes a number of options for dealing with monetary transactions and
+actions to allow for fine grained tracking of these processes for audit and
+analytic processes.</p>
+<div class="section" id="cash-registers">
+<span id="cash-management-registers-label"></span><h2>Cash registers<a class="headerlink" href="#cash-registers" title="永久链接至标题"></a></h2>
+<p>Cash registers can be used to track transactions to a specific location in your
+library. This can be especially helpful for detailing where cash has been taken
+for payments and then when this cash is subsequently removed and taken to the
+bank.</p>
+<div class="section" id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="永久链接至标题"></a></h3>
+<p>To enable the use of cash registers, you must turn on the <a class="reference internal" href="accountspreferences.html#usecashregisters"><span class="std std-ref">UseCashRegisters</span></a>
+system preference.</p>
+<p>You can then configure cash registers for your library from the
+<a class="reference internal" href="administration.html#cashregisters-label"><span class="std std-ref">cash registers</span></a> page in the administration module.</p>
+</div>
+<div class="section" id="library-details">
+<span id="cash-management-library-details-label"></span><h3>Library details<a class="headerlink" href="#library-details" title="永久链接至标题"></a></h3>
+<ul class="simple">
+<li><em>Get there:</em> Home &gt; Tools &gt; Cashup registers</li>
+</ul>
+<p>A summary of transaction amounts associated to a libraries cash registers can
+be found under the ‘Cashup registers’ tool. The summary will list registers
+associated with your logged in branch alongside information about how much
+money should be found in each register, what is available to take to the bank
+and a breakdown of income vs outgoings.</p>
+<p><em>Note:</em> You can also access this page from the left hand menu available on the
+<a class="reference internal" href="#point-of-sale-label"><span class="std std-ref">Point of sale</span></a> page when that module is enabled.</p>
+</div>
+<div class="section" id="register-details">
+<span id="cash-management-register-details-label"></span><h3>Register details<a class="headerlink" href="#register-details" title="永久链接至标题"></a></h3>
+<ul class="simple">
+<li><em>Get there:</em> Home &gt; Tools &gt; Cashup registers &gt; Register name</li>
+</ul>
+<p>A list of all transactions to have taken place at a register is available by
+clicking on the cash register name from the
+<a class="reference internal" href="#cash-management-library-details-label"><span class="std std-ref">library details</span></a> page.</p>
+<p>If you have the correct permissions, you can re-print receipts, issue refunds
+and record <a class="reference internal" href="#cash-management-register-cashup-label"><span class="std std-ref">cashups</span></a> from this page.</p>
+</div>
+<div class="section" id="cashup">
+<span id="cash-management-register-cashup-label"></span><h3>Cashup<a class="headerlink" href="#cashup" title="永久链接至标题"></a></h3>
+<p>The action of ‘cashing up’ can be recorded against a cash register from both
+the <a class="reference internal" href="#cash-management-library-details-label"><span class="std std-ref">library details</span></a> and
+<a class="reference internal" href="#cash-management-register-details-label"><span class="std std-ref">register details</span></a> pages.</p>
+<p>Clicking the <cite>Record cashup</cite> button will simply record the date and time that
+the action has taken place and is intended to allow the regular record of when
+money is collected from the cash register and taken to the bank.</p>
+<p>Both of the above pages utilize the cashup record to limit the display of
+transactions/summaries to only pertinent information, since the last cashup.</p>
+<p>Once a cashup has taken place, a summary of the transactions taken during that
+cashup period is available for display, and printing, via the <cite>Summary</cite> link
+found next to the last cashup date on the register details page.</p>
+<p><img alt="A cashup summary view modal" src="_images/cashup_summary.png" /></p>
+</div>
+</div>
+<div class="section" id="point-of-sale">
+<span id="point-of-sale-label"></span><h2>Point of sale<a class="headerlink" href="#point-of-sale" title="永久链接至标题"></a></h2>
+<p>Point of sale is a module designed for selling items to people who are not
+registered at the library or to make sales that do not need to be linked to a
+patron account.</p>
+<p>For example, you can sell used books or promotional items. These items can be
+sold to anyone and you don’t need to link the sale to a particular patron.</p>
+<p>For invoices that need to be linked to a patron’s account (like a lost item or
+new card fee), use <a class="reference internal" href="patrons.html#creating-manual-invoices-label"><span class="std std-ref">manual invoicing</span></a>.</p>
+<ul class="simple">
+<li><em>Get there:</em> More &gt; Point of sale</li>
+</ul>
+<div class="section" id="setup-point-of-sale-label">
+<span id="id1"></span><h3>Setup<a class="headerlink" href="#setup-point-of-sale-label" title="永久链接至标题"></a></h3>
+<p>To enable the point of sale module, you must turn on the <a class="reference internal" href="accountspreferences.html#enablepointofsale"><span class="std std-ref">EnablePointOfSale</span></a>
+system preference.</p>
+<p>If it’s not already done, you must also enable the <a class="reference internal" href="accountspreferences.html#usecashregisters"><span class="std std-ref">UseCashRegisters</span></a>
+system preference.</p>
+<p>Make sure you <a class="reference internal" href="administration.html#cashregisters-label"><span class="std std-ref">configure your cash registers</span></a> in the
+administration module.</p>
+<p>Finally, you must add items that you will be selling in the <a class="reference internal" href="administration.html#debit-types-label"><span class="std std-ref">debit types</span></a> section of the administration module.</p>
+</div>
+<div class="section" id="making-a-sale">
+<span id="making-a-sale-label"></span><h3>Making a sale<a class="headerlink" href="#making-a-sale" title="永久链接至标题"></a></h3>
+<p>When you first go in the point of sale module, the left side will show all the
+items for sale. These are <a class="reference internal" href="administration.html#debit-types-label"><span class="std std-ref">debit types</span></a> that were
+marked as ‘Can be sold’.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: invoices).</li>
+</ul>
+</div></blockquote>
+<p>On the right side is the current sale.</p>
+<p><img alt="image1497" src="_images/pointofsale.png" /></p>
+<p>Click on the ‘Add’ button next to the items to add to the current sale.</p>
+<p>If you need to change the cost or the quantity, click on the amount on the
+right side and it will become an input box where you can enter the correct
+amount.</p>
+<p><img alt="image1459" src="_images/changeamount.gif" /></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="patrons.html" class="btn btn-neutral float-left" title="Patrons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulation.html" class="btn btn-neutral float-right" title="Circulation" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

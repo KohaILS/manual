@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I18N/L10N &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Local Use" href="localusepreferences.html" />
+    <link rel="prev" title="Enhanced content" href="enhancedcontentpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">I18N/L10N</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#addressformat">AddressFormat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alphabet">alphabet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calendarfirstdayofweek">CalendarFirstDayOfWeek</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dateformat">dateformat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#language">language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opaclanguages">OPACLanguages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opaclanguagesdisplay">opaclanguagesdisplay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeformat">TimeFormat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translatenotices">TranslateNotices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>I18N/L10N</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/i18npreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="enhancedcontentpreferences.html" class="btn btn-neutral float-left" title="Enhanced content" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="localusepreferences.html" class="btn btn-neutral float-right" title="Local Use" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="i18n-l10n">
+<span id="i18n-l10n-label"></span><h1>I18N/L10N<a class="headerlink" href="#i18n-l10n" title="永久链接至标题"></a></h1>
+<p>These preferences control your Internationalization and Localization
+settings.</p>
+<p><em>Get there:</em> More &gt; Administration &gt; Global System Preferences &gt;
+I18N/L10N</p>
+<div class="section" id="addressformat">
+<span id="addressformat-label"></span><h2>AddressFormat<a class="headerlink" href="#addressformat" title="永久链接至标题"></a></h2>
+<p>Default: US style ([Street number], [Address] - [City], [Zip/Postal
+Code], [Country])</p>
+<p>Asks: Format postal addresses using ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>German style ([Address] [Street number] - [Zip/Postal Code] [City] -
+[Country])</li>
+<li>French style ([Street number] [Address] - [ZIP/Postal Code] [City] -
+[Country])</li>
+<li>US style ([Street number], [Address] - [City], [Zip/Postal Code],
+[Country])</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference will let you control how Koha displays patron
+addresses given the information entered in the various fields on
+their record.</li>
+</ul>
+</div>
+<div class="section" id="alphabet">
+<span id="alphabet-label"></span><h2>alphabet<a class="headerlink" href="#alphabet" title="永久链接至标题"></a></h2>
+<p>Default: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+<p>Asks: Use the alphabet ___ for lists of browsable letters. This
+should be a space separated list of uppercase letters.</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference allows you define your own alphabet for browsing
+patrons in Koha.</p>
+<p><img alt="image60" src="_images/alphabet.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="calendarfirstdayofweek">
+<span id="calendarfirstdayofweek-label"></span><h2>CalendarFirstDayOfWeek<a class="headerlink" href="#calendarfirstdayofweek" title="永久链接至标题"></a></h2>
+<p>Default: Sunday</p>
+<p>Asks: Use ___ as the first day of week in the calendar.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Sunday</li>
+<li>Monday</li>
+<li>Tuesday</li>
+<li>Wednesday</li>
+<li>Thursday</li>
+<li>Friday</li>
+<li>Saturday</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Using this preference you can control what day shows as the first day
+of the week in the calendar pop ups throughout Koha and on the
+Calendar tool. If you change this preference and don’t see a change
+in your browser try clearing your cache since it makes changes to the
+Javascript on these pages.</li>
+</ul>
+</div>
+<div class="section" id="dateformat">
+<span id="dateformat-label"></span><h2>dateformat<a class="headerlink" href="#dateformat" title="永久链接至标题"></a></h2>
+<p>Default: mm/dd/yyyy</p>
+<p>Asks: Format dates like ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>dd.mm.yyyy</li>
+<li>dd/mm/yyyy</li>
+<li>mm/dd/yyyy</li>
+<li>yyyy/mm/dd</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls how the date is displayed. The options are
+the United States method, mm/dd/yyyy (04/24/2010), the metric method,
+dd/mm/yyyy (24/04/2010) or ISO, which is the International Standard
+of Organization, yyyy/mm/dd (2010/04/24). The International Standard
+of Organization would primarily be used by libraries with locations
+in multiple nations that may use different date formats, to have a
+single display type, or if the library would be in a region that does
+not use the United States or metric method. More information
+regarding the ISO date format can be found at
+<a class="reference external" href="http://www.iso.org/iso/iso_catalogue.htm">http://www.iso.org/iso/iso_catalogue.htm</a>.</li>
+</ul>
+</div>
+<div class="section" id="language">
+<span id="language-label"></span><h2>language<a class="headerlink" href="#language" title="永久链接至标题"></a></h2>
+<p>Default: English</p>
+<p>Asks: Enable the following languages on the staff interface</p>
+<p>Values:</p>
+<ul class="simple">
+<li>English</li>
+</ul>
+<p>To install additional languages please refer to
+<a class="reference external" href="http://wiki.koha-community.org/wiki/Installation_of_additional_languages_for_OPAC_and_INTRANET_staff_client">http://wiki.koha-community.org/wiki/Installation_of_additional_languages_for_OPAC_and_INTRANET_staff_client</a></p>
+</div>
+<div class="section" id="opaclanguages">
+<span id="opaclanguages-label"></span><h2>OPACLanguages<a class="headerlink" href="#opaclanguages" title="永久链接至标题"></a></h2>
+<p>Asks: Enable the following languages on the OPAC</p>
+<p>Default: English</p>
+<p>Values:</p>
+<ul class="simple">
+<li>English</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>To install additional languages you need to run
+misc/translator/translate install. For example, to install French you
+would run the following command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./misc/translator/translate install fr-FR
+</pre></div>
+</div>
+<p class="last">to make the templates. Once they exist and are in the right place,
+they will show up as an option in this preference.</p>
+</div>
+</div>
+<div class="section" id="opaclanguagesdisplay">
+<span id="opaclanguagesdisplay-label"></span><h2>opaclanguagesdisplay<a class="headerlink" href="#opaclanguagesdisplay" title="永久链接至标题"></a></h2>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ patrons to change the language they see on the OPAC.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Allow</p>
+<ul>
+<li><p class="first">Patrons can choose their language from a list at the bottom of the
+public catalog</p>
+<p><img alt="image61" src="_images/opaclanguagesdisplay.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Don’t allow</p>
+<ul class="simple">
+<li>The public catalog will not give an option to choose a language</li>
+</ul>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Using the <a class="reference internal" href="opacpreferences.html#opaclangselectormode"><span class="std std-ref">OpacLangSelectorMode</span></a> preference
+you can decide where these language options will appear in the public
+catalog.</li>
+</ul>
+</div>
+<div class="section" id="timeformat">
+<span id="timeformat-label"></span><h2>TimeFormat<a class="headerlink" href="#timeformat" title="永久链接至标题"></a></h2>
+<p>Default: 24 hour format</p>
+<p>Asks: Format times in ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>12 hour format (eg 02:18PM)</li>
+<li>24 hour format (eg 14:18)</li>
+</ul>
+</div>
+<div class="section" id="translatenotices">
+<span id="translatenotices-label"></span><h2>TranslateNotices<a class="headerlink" href="#translatenotices" title="永久链接至标题"></a></h2>
+<p>Default: Don’t allow</p>
+<p>Asks: ___ notices to be translated. If set, notices will be translatable from
+the “Notices and Slips” interface. The language used to send a notice to a patron
+will be the one defined for the patron.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t allow</li>
+<li>Allow</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If set to ‘Allow’ it is possible to choose a ‘Preferred language for notices’
+when creating a new patron account in the staff interface or for the patron to
+do this themselves from their messaging options when logged into their account on the opac.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="enhancedcontentpreferences.html" class="btn btn-neutral float-left" title="Enhanced content" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="localusepreferences.html" class="btn btn-neutral float-right" title="Local Use" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

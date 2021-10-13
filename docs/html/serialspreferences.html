@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serials &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Staff interface" href="staffclientpreferences.html" />
+    <link rel="prev" title="Searching" href="searchingpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Serials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#makepreviousserialavailable">makePreviousSerialAvailable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opacserialdefaulttab">opacSerialDefaultTab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opacserialissuedisplaycount">OPACSerialIssueDisplayCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preserveserialnotes">PreserveSerialNotes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renewserialaddssuggestion">RenewSerialAddsSuggestion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routinglistaddreserves">RoutingListAddReserves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routinglistnote">RoutingListNote</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routingserials">RoutingSerials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#staffserialissuedisplaycount">StaffSerialIssueDisplayCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subscriptionduplicatedroppedinput">SubscriptionDuplicateDroppedInput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subscriptionhistory">SubscriptionHistory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Serials</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/serialspreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="searchingpreferences.html" class="btn btn-neutral float-left" title="Searching" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="staffclientpreferences.html" class="btn btn-neutral float-right" title="Staff interface" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="serials">
+<span id="serials-system-preferences-label"></span><h1>Serials<a class="headerlink" href="#serials" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt; Serials</p>
+<div class="section" id="makepreviousserialavailable">
+<span id="makepreviousserialavailable-label"></span><h2>makePreviousSerialAvailable<a class="headerlink" href="#makepreviousserialavailable" title="永久链接至标题"></a></h2>
+<p>Asks: ___ previous serial automatically available when receiving a new
+serial issue. The previous issue can also be set to another item type when
+receiving a new one. Please note that the
+<a class="reference internal" href="catalogingpreferences.html#item-level-itypes-label"><span class="std std-ref">item-level_itypes</span></a> system preference must be
+set to specific item.</p>
+<p>Default: Don’t make</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t make</li>
+<li>Make</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If this preference is enabled, the not for loan status and the item type
+of the previous issue will be automatically changed when
+<a class="reference internal" href="serials.html#receive-issues-label"><span class="std std-ref">receiving a new issue</span></a>.</li>
+<li>The item type of new issues and item type for previous issues are set when
+<a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">creating the serial subscription</span></a>.</li>
+<li>This is useful for libraries that don’t circulate the latest issue of a
+serial, but circulate previous issues.</li>
+</ul>
+</div>
+<div class="section" id="opacserialdefaulttab">
+<span id="opacserialdefaulttab-label"></span><h2>opacSerialDefaultTab<a class="headerlink" href="#opacserialdefaulttab" title="永久链接至标题"></a></h2>
+<p>Asks: Show ___ as default tab for serials in OPAC.</p>
+<p>Default: subscriptions tab</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">holdings tab</p>
+<ul class="simple">
+<li>The holdings tab is the one that shows items attached to the bibliographic
+record. It is the one shown for records with no subscriptions attached.</li>
+</ul>
+</li>
+<li><p class="first">serial collection tab</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Please note that the serial collection tab is currently available
+only for systems using the UNIMARC standard.</p>
+</div>
+<p><img alt="Example of a Serial collection tab in the OPAC" src="_images/opacSerialDefaultTab-colltab.png" /></p>
+</li>
+<li><p class="first">subscriptions tab</p>
+<p><img alt="Example of a Subscription tab in the OPAC" src="_images/opacSerialDefaultTab-subtab.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to choose which tab user will see first
+when viewing a bibliographic record with a subscription attached in the OPAC.</li>
+<li>When using the subscription tab, you can choose how many issues to show with
+the <a class="reference internal" href="#opacserialissuedisplaycount"><span class="std std-ref">OPACSerialIssueDisplayCount</span></a> system preference.</li>
+</ul>
+</div>
+<div class="section" id="opacserialissuedisplaycount">
+<span id="opacserialissuedisplaycount-label"></span><h2>OPACSerialIssueDisplayCount<a class="headerlink" href="#opacserialissuedisplaycount" title="永久链接至标题"></a></h2>
+<p>Asks: Show the ___ previous issues of a serial on the OPAC.</p>
+<p>Default: 3</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows the administrator to select the number of
+recent issues for each serial which appear in the OPAC when the
+serial is accessed. This is just the default value, patrons can
+always click to see a full list of serials.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This does not affect the number of items shown in the ‘Holdings’ tab if
+you create items for issues. It only affects the number of issues
+displayed in the ‘Subscriptions’ tab.</p>
+</div>
+<ul class="simple">
+<li>You can choose which tab users see first with the <a class="reference internal" href="#opacserialdefaulttab"><span class="std std-ref">opacSerialDefaultTab</span></a>
+system preference.</li>
+<li>The number of issues shown can also be set for individual subscriptions when
+<a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">creating or editing serial subscriptions</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="preserveserialnotes">
+<span id="preserveserialnotes-label"></span><h2>PreserveSerialNotes<a class="headerlink" href="#preserveserialnotes" title="永久链接至标题"></a></h2>
+<p>Asks: ___ prefill the notes from the last ‘Arrived’ serial when generating
+the next ‘Expected’ issue.</p>
+<p>Default: Do</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t</li>
+<li>Do</li>
+</ul>
+<p>Description</p>
+<ul class="simple">
+<li>This system preference allows you to choose whether or not you want to copy
+notes from the previous issue of a serial to a new issue, when
+<a class="reference internal" href="serials.html#receive-issues-label"><span class="std std-ref">receiving a new issue</span></a>, saving time for staff.</li>
+</ul>
+</div>
+<div class="section" id="renewserialaddssuggestion">
+<span id="renewserialaddssuggestion-label"></span><h2>RenewSerialAddsSuggestion<a class="headerlink" href="#renewserialaddssuggestion" title="永久链接至标题"></a></h2>
+<p>Asks: ___ a suggestion for a biblio when its attached serial is renewed.</p>
+<p>Default: Don’t add</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t add</li>
+<li>Add</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If set to ‘Add’, this preference will automatically add a serial to
+the <a class="reference internal" href="acquisitions.html#managing-purchase-suggestions-label"><span class="std std-ref">purchase suggestions page in the acquisitions module</span></a>
+when <a class="reference internal" href="serials.html#renewing-serials-label"><span class="std std-ref">clicking the ‘renew’ option on a serial subscription</span></a>.
+If you don’t use the <a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">acquisitions module</span></a> to
+manage serials purchases it’s best to leave this set as ‘Don’t add’.</li>
+</ul>
+</div>
+<div class="section" id="routinglistaddreserves">
+<span id="routinglistaddreserves-label"></span><h2>RoutingListAddReserves<a class="headerlink" href="#routinglistaddreserves" title="永久链接至标题"></a></h2>
+<p>Asks: ___ received serials on hold if they are on a routing list.</p>
+<p>Default: Don’t place</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Place</li>
+<li>Don’t place</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When using the <a class="reference internal" href="#routingserials-label"><span class="std std-ref">routing list feature</span></a>, items for
+issues to be routed can be placed on hold for each user on the routing list.</li>
+</ul>
+</div>
+<div class="section" id="routinglistnote">
+<span id="routinglistnote-label"></span><h2>RoutingListNote<a class="headerlink" href="#routinglistnote" title="永久链接至标题"></a></h2>
+<p>Asks: Include following note on all routing lists</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Text entered in this box will appear below the
+<a class="reference internal" href="#routingserials-label"><span class="std std-ref">routing list information</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="routingserials">
+<span id="routingserials-label"></span><h2>RoutingSerials<a class="headerlink" href="#routingserials" title="永久链接至标题"></a></h2>
+<p>Asks: ___ the routing list feature in the serials module.</p>
+<p>Default: Use</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use</li>
+<li>Use</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference determines if serials routing lists are enabled or
+disabled for the library. When set to ‘Use’, serials routing is
+enabled and a serial can be directed through a list of people by
+identifying who should receive it next. The list of people can be
+established for each serial to be passed using the Serials module.
+This preference can be used to ensure each person who needs to see a
+serial when it arrives at the library will get it. Learn more in the
+<a class="reference internal" href="serials.html#create-a-routing-list-label"><span class="std std-ref">routing list</span></a> section of this manual.</li>
+</ul>
+</div>
+<div class="section" id="staffserialissuedisplaycount">
+<span id="staffserialissuedisplaycount-label"></span><h2>StaffSerialIssueDisplayCount<a class="headerlink" href="#staffserialissuedisplaycount" title="永久链接至标题"></a></h2>
+<p>Asks: Show the ___ previous issues of a serial on the staff interface.</p>
+<p>Default: 3</p>
+<p>Description:</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows the administrator to select the number of
+recent issues for each serial which appear in the staff interface when the
+serial is accessed. This is just the default value, staff members can
+always click to see a full list of serials.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This does not affect the number of items shown in the ‘Holdings’ tab if
+you create items for issues. It only affects the number of issues
+displayed in the ‘Subscriptions’ tab.</p>
+</div>
+<ul class="simple">
+<li>The number of issues shown can also be set for individual subscriptions when
+<a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">creating or editing serial subscriptions</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="subscriptionduplicatedroppedinput">
+<span id="subscriptionduplicatedroppedinput-label"></span><h2>SubscriptionDuplicateDroppedInput<a class="headerlink" href="#subscriptionduplicatedroppedinput" title="永久链接至标题"></a></h2>
+<p>Asks: List of fields which must not be rewritten when a subscription is
+duplicated (Separated by pipe |) ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>When duplicating a subscription (new as duplicate) sometimes you don’t want
+all of the fields duplicated. Using this preference you can list the fields
+thatyou don’t want to be duplicated. These field names come from the
+subscription table in the Koha database. Learn what fields are in
+that table on the <a class="reference external" href="http://schema.koha-community.org/master/tables/subscription.html">Koha DB
+Schema</a>
+site.</li>
+</ul>
+</div>
+<div class="section" id="subscriptionhistory">
+<span id="subscriptionhistory-label"></span><h2>SubscriptionHistory<a class="headerlink" href="#subscriptionhistory" title="永久链接至标题"></a></h2>
+<p>Asks: When showing the subscription information for a bibliographic
+record, preselect ___ view of serial issues.</p>
+<p>Default: brief history</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">brief history</p>
+<p><img alt="Brief history of a subscription in the OPAC" src="_images/SubscriptionHistory-brief.png" /></p>
+</li>
+<li><p class="first">full history</p>
+<p><img alt="Full history of a subscription in the OPAC" src="_images/SubscriptionHistory-full.png" /></p>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference determines what information appears in the OPAC when
+the user clicks the ‘more details’ option. The ‘brief’ option displays
+a one-line summary of the volume and issue numbers of all issues of
+that serial held by the library. The ‘full’ option displays a more
+detailed breakdown of issues per year, including information such as
+the issue date and the status of each issue.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="searchingpreferences.html" class="btn btn-neutral float-left" title="Searching" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="staffclientpreferences.html" class="btn btn-neutral float-right" title="Staff interface" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

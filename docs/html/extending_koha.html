@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extending Koha &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Using third party software with Koha" href="third_party_software.html" />
+    <link rel="prev" title="Other APIs and protocols" href="apis_protocols.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extending Koha</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#amazon-lookup-script-for-koha-libraries">Amazon lookup script for Koha libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keyword-clouds">Keyword clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#newest-titles-pulldown">Newest titles pulldown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-titles-slider-for-opac">New titles slider for OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cataloging-and-searching-by-color">Cataloging and searching by color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-koha-as-a-content-management-system-cms">Using Koha as a Content Management System (CMS)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#editing-the-pages-template">Editing the pages template</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bonus-points">Bonus points</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-pages">Adding pages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewing-your-page">Viewing your page</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#koha-search-on-your-site">Koha search on your site</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Extending Koha</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/extending_koha.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="apis_protocols.html" class="btn btn-neutral float-left" title="Other APIs and protocols" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="third_party_software.html" class="btn btn-neutral float-right" title="Using third party software with Koha" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="extending-koha">
+<span id="extending-koha-label"></span><h1>Extending Koha<a class="headerlink" href="#extending-koha" title="永久链接至标题"></a></h1>
+<p>This chapter shows how you can add various enhancements and customizations
+in and around Koha by using mostly the existing configuration options.</p>
+<div class="section" id="amazon-lookup-script-for-koha-libraries">
+<span id="amazon-lookup-script-for-koha-libraries-label"></span><h2>Amazon lookup script for Koha libraries<a class="headerlink" href="#amazon-lookup-script-for-koha-libraries" title="永久链接至标题"></a></h2>
+<p>We order most of our materials from Amazon, so I’ve been looking for a
+convenient way to tell if a book under consideration is in our catalog
+already.</p>
+<p>Greasemonkey &amp; a custom user script fit the bill nicely:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://addons.mozilla.org/en-US/firefox/addon/748">https://addons.mozilla.org/en-US/firefox/addon/748</a></li>
+<li><a class="reference external" href="http://userscripts.org/scripts/show/56847">http://userscripts.org/scripts/show/56847</a></li>
+</ul>
+<p>A few caveats:</p>
+<ul class="simple">
+<li>Like most scripts, this one was designed to work with Firefox; I
+haven’t explored getting it to work with other browsers.</li>
+<li>I’m not a JavaScript programmer – this was adapted from others’
+work. Just a few lines would have to be changed to get the script to
+work with your catalog.</li>
+<li>It depends on the existence of ISBN for the item in question, so
+movies, older books, etc. would not work.</li>
+</ul>
+<p>Others have added all sorts of bells &amp; whistles: custom messages based on the status of items (on
+order, on hold, etc.), … just search the UserScripts site for Amazon +
+library. For a later date!</p>
+</div>
+<div class="section" id="keyword-clouds">
+<span id="keyword-clouds-label"></span><h2>Keyword clouds<a class="headerlink" href="#keyword-clouds" title="永久链接至标题"></a></h2>
+<p>In addition to the traditional tag cloud available in Koha, there is a
+way to generate clouds for popular subjects within Koha.</p>
+<p>The <a class="reference internal" href="cron_jobs.html#cron-subject-author-clouds-label"><span class="std std-ref">Author/Subject Cloud cron job</span></a> is used to help with this process. This cron job sends its output to files.</p>
+<ul class="simple">
+<li>/home/koha/mylibrary/koharoot/koha-tmpl/cloud-author.html</li>
+<li>/home/koha/yourlibrary/koharoot/koha-tmpl/cloud-subject.html</li>
+</ul>
+<p>This means that you can produce clouds for authors, collective author,
+all kind of subjects, classifications, etc. And since it works on zebra
+indexes, it is quick, even on large DBs. Tags clouds are sent to files.
+It’s up to library webmaster to deal with those files in order to
+include them in <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">OPACMainUserBlock</span></a>, or include
+them into their library CMS.</p>
+<p>Some libraries even send the file into a Samba shared folder where
+webmaster take them, eventually clean them a little bit before
+integrating them into navigation widgets or pages.</p>
+</div>
+<div class="section" id="newest-titles-pulldown">
+<span id="newest-titles-pulldown-label"></span><h2>Newest titles pulldown<a class="headerlink" href="#newest-titles-pulldown" title="永久链接至标题"></a></h2>
+<p>Often we want to add a way for our patrons to do searches for the newest
+items. In this example I’ll show you how to create a pull down menu of
+the newest items by item type. These tips will work (with a couple
+changes) for collection codes or shelving locations as well.</p>
+<p>First, it’s important to note that every link in Koha is a permanent
+link. This means if I do a search for everything of a specific item type
+sorted by the acquisitions date and bookmark that URL, whenever I click
+it I’ll see the newest items of that type on the first few pages of the
+results.</p>
+<p>I took this knowledge and wrote a form takes this functionality in to
+consideration. It basically just does a search of your Koha catalog for
+a specific item type and sorts the results by acquisitions date.</p>
+<p>The first thing I did was write a MySQL statement to generate a list of
+item types for me - why copy and paste when you can use the power of
+MySQL?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">concat</span><span class="p">(</span><span class="s1">&#39;&lt;option value=</span><span class="se">\&quot;</span><span class="s1">mc-itype:&#39;</span><span class="p">,</span> <span class="n">itemtype</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&gt;&#39;</span><span class="p">,</span><span class="n">description</span><span class="p">,</span><span class="s1">&#39;&lt;/option&gt;&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">itemtypes</span>
+</pre></div>
+</div>
+<p>The above looks at the itemtypes table and slaps the necessary HTML
+around each item type for me. I then exported that to CSV and opened it
+in my text editor and added the other parts of the form.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="n">New</span> <span class="n">Items</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">form</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;searchform&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;get&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/cgi-bin/koha/opac-search.pl&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;idx&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;kw&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sort_by&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;acqdate_dsc&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;do&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;OK&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">select</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;limit&quot;</span> <span class="n">onchange</span><span class="o">=</span><span class="s2">&quot;this.form.submit()&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span><span class="o">&gt;--</span> <span class="n">Please</span> <span class="n">choose</span> <span class="o">--&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:BOOK&quot;</span><span class="o">&gt;</span><span class="n">Book</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:BOOKCD&quot;</span><span class="o">&gt;</span><span class="n">Book</span> <span class="n">on</span> <span class="n">CD</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:DVD&quot;</span><span class="o">&gt;</span><span class="n">DVD</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:LRG_PRINT&quot;</span><span class="o">&gt;</span><span class="n">Large</span> <span class="nb">print</span> <span class="n">book</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:MAGAZINE&quot;</span><span class="o">&gt;</span><span class="n">Magazine</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:NEWSPAPER&quot;</span><span class="o">&gt;</span><span class="n">Newspaper</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:VIDEO&quot;</span><span class="o">&gt;</span><span class="n">Videocassette</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Now, what does all of that mean? The important bits are these:</p>
+<p>First the starting of the form.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">form</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;searchform&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;get&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/cgi-bin/koha/opac-search.pl&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>This tells the browser to take any value selected and put it at the end
+of this <a class="reference external" href="http://YOURSITE/cgi-bin/koha/opac-search.pl">http://YOURSITE/cgi-bin/koha/opac-search.pl</a>. If you want to
+embed this form on your library website (and not on your OPAC) you can
+put the full OPAC URL in there.</p>
+<p>Next, there is a hidden value that is telling the search to sort by
+acquisitions date descending (newest items at the top):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sort_by&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;acqdate_dsc&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>And finally you have an option for each item type you want people to
+search.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:BOOK&quot;</span><span class="o">&gt;</span><span class="n">Book</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>These options each include the string “mc-itype:” which tells Koha to do
+an item type search.</p>
+<p>Once you have all of that in place you can copy and paste the form to
+somewhere on your OPAC. The <a class="reference external" href="http://catalog.farmingtonlibraries.org">Farmington Public Libraries
+OPAC</a> has a few examples of
+this on the left.</p>
+</div>
+<div class="section" id="new-titles-slider-for-opac">
+<span id="new-titles-slider-for-opac-label"></span><h2>New titles slider for OPAC<a class="headerlink" href="#new-titles-slider-for-opac" title="永久链接至标题"></a></h2>
+<p>Often times libraries will want to add a flowing widget with new
+materials at the library to their main public catalog page. To do this
+you can use a widget from any number of services (usually for a cost) or
+you can <a class="reference external" href="#pluginsystem">enable plugins</a> in Koha and use the <a class="reference external" href="http://git.bywatersolutions.com/koha-plugins.git/shortlog/refs/heads/cover_flow">Cover
+Flow
+plugin</a>
+which is based on the
+<a class="reference external" href="https://github.com/drien/jquery-flipster">Flipster</a>, a responsive
+jQuery coverflow plugin.</p>
+<p>Once the plugin is installed, the steps to get your coverflow to show up
+are as follows:</p>
+<p>First, you need to create one or more public reports for your coverflow
+widget or widgets to be based on. This is how the plugin knows what the
+content of your widget should contain. Each report needs only three
+columns; title, biblionumber, and isbn. It is important that you have a
+good and valid isbn, as that is the datum used to actually fetch the
+cover. In the iteration of the plugin, we are using Amazon cover images,
+but I believe in the end I will make the cover image fetcher
+configurable so we can use any data source for cover image fetching.</p>
+<p>Second, we need to configure the plugin. The plugin configuration is a
+single text area that uses YAML ( actually, it’s JSON, which is a subset
+of YAML ) to store the configuration options. In this example it looks
+like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">42</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="c1">#coverflow</span>
+  <span class="n">options</span><span class="p">:</span>
+  <span class="n">style</span><span class="p">:</span> <span class="n">coverflow</span>
+</pre></div>
+</div>
+<p>In this example, we are telling the plugin to use the report with id 42,
+and use it to create a coverflow widget to replace the HTML element with
+the id “coverflow”. The options list is passed directly to Flipster, so
+any options supported by Flipster can be set from the plugin
+configuration! In fact, in addition to the traditional coverflow,
+Flipster has a “carousel” mode which is a much more compact version of
+the coverflow. You can also configure which cover the widget will start
+on, among other options.</p>
+<p>At the time the plugins options are saved or updated, the plugin will
+then generate some minified JavaScript code that is automatically stored
+in the Koha system preference OPACUserJS. Here is an example of the
+output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/* JS for Koha coverflow plugin
+ This JS was added automatically by installing the coverflow plugin
+ Please do not modify */$(document).ready(function(){$.getScript(&quot;/plugin/Koha/Plugin/Com/ByWaterSolutions/CoverFlow/jquery-flipster/src/js/jquery.flipster.min.js&quot;,function(data,textStatus,jqxhr){$(&quot;head&quot;).append(&quot;&lt;link id=&#39;flipster-css&#39; href=&#39;/plugin/Koha/Plugin/Com/ByWaterSolutions/CoverFlow/jquery-flipster/src/css/jquery.flipster.min.css&#39; type=&#39;text/css&#39; rel=&#39;stylesheet&#39; /&gt;&quot;);$(&#39;#coverflow&#39;).load(&quot;/coverflow.pl?id=42&quot;,function(){var opt={&#39;items&#39;:&#39;.item&#39;,&#39;minfactor&#39;:15,&#39;distribution&#39;:1.5,&#39;scalethreshold&#39;:0,&#39;staticbelowthreshold&#39;:false,&#39;titleclass&#39;:&#39;itemTitle&#39;,&#39;selectedclass&#39;:&#39;selectedItem&#39;,&#39;scrollactive&#39;:true,&#39;step&#39;:{&#39;limit&#39;:4,&#39;width&#39;:10,&#39;scale&#39;:true}};$(&#39;#coverflow&#39;).flipster({style:&#39;coverflow&#39;,});});});});
+/* End of JS for Koha coverflow plugin */
+</pre></div>
+</div>
+<p>Why do this? For speed! Rather than regenerating this code each and
+every time the page loads, we can generate it once, and use it over and
+over again.</p>
+<p>If you inspect the code closely, you’ll notice it references a script
+“coverflow.pl”. This is a script that is included with the coverflow
+plugin. Since we need to access this from the OPAC ( and we don’t want
+to set off any XSS attack alarms ), we need to modify the web server
+configuration for the public catalog and add the followup to it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScriptAlias</span> <span class="o">/</span><span class="n">coverflow</span><span class="o">.</span><span class="n">pl</span> <span class="s2">&quot;/var/lib/koha/mykoha/plugins/Koha/Plugin/Com/ByWaterSolutions/CoverFlow/coverflow.pl&quot;</span>
+</pre></div>
+</div>
+<p>This line gives us access to the coverflow.pl script from the OPAC. This
+script retrieves the report data and passes it back to the public
+catalog for creating the coverflow widget. Koha::Cache is supported in
+order to make the widget load as quickly as possible!</p>
+<p>The final step is to put your selector element somewhere in your public
+catalog. In this example, I put the following in the display location
+OpacMainUserBlock (see <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">the news tool</span></a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">span</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;coverflow&quot;</span><span class="o">&gt;</span><span class="n">Loading</span><span class="o">...&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Once that is in place, you need only refresh your OPAC page, and there
+you have it, your very own catalog coverflow widget! Not only do these
+coverflows look great on a computer screen, but they look great on
+mobile platforms as well, and are even touch responsive!</p>
+<p><img alt="image1316" src="_images/coverflow_2-300x170.png" /></p>
+</div>
+<div class="section" id="cataloging-and-searching-by-color">
+<span id="cataloging-and-searching-by-color-label"></span><h2>Cataloging and searching by color<a class="headerlink" href="#cataloging-and-searching-by-color" title="永久链接至标题"></a></h2>
+<p>One of the icon sets installed in Koha includes a series of colors. This
+set can be used to catalog and search by color if you’d like. This guide
+will walk you use changing collection code to color in Koha so that you
+can do this.</p>
+<p>The following SQL could be used to add these colors to the CCODE
+authorized value category in a batch. If you wanted to use these colors
+for another authorized value you’d have to edit this to use that
+category:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;000000&#39;</span><span class="p">,</span><span class="s1">&#39;Black&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/000000.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;66cc66&#39;</span><span class="p">,</span><span class="s1">&#39;Bright Green&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/66cc66.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;99cc33&#39;</span><span class="p">,</span><span class="s1">&#39;Olive&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/99cc33.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;3333cc&#39;</span><span class="p">,</span><span class="s1">&#39;Dark Blue&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/3333cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;006600&#39;</span> <span class="p">,</span><span class="s1">&#39;Dark Green&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/006600.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;6600cc&#39;</span><span class="p">,</span><span class="s1">&#39;Plum&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/6600cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;6666cc&#39;</span><span class="p">,</span><span class="s1">&#39;Purple&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/6666cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;9999cc&#39;</span><span class="p">,</span><span class="s1">&#39;Light Purple&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/9999cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;660000&#39;</span> <span class="p">,</span><span class="s1">&#39;Burgundy&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/660000.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;663333&#39;</span> <span class="p">,</span><span class="s1">&#39;Brown&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/663333.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;990000&#39;</span> <span class="p">,</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/990000.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;996633&#39;</span> <span class="p">,</span><span class="s1">&#39;Tan&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/996633.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;999999&#39;</span> <span class="p">,</span><span class="s1">&#39;Gray&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/999999.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc66cc&#39;</span><span class="p">,</span><span class="s1">&#39;Pink&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc66cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc99cc&#39;</span><span class="p">,</span><span class="s1">&#39;Bubble Gum&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc99cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc3333&#39;</span> <span class="p">,</span><span class="s1">&#39;Orange&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc3333.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc6666&#39;</span> <span class="p">,</span><span class="s1">&#39;Peach&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc6666.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc9999&#39;</span> <span class="p">,</span><span class="s1">&#39;Rose&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc9999.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cccc00&#39;</span> <span class="p">,</span><span class="s1">&#39;Gold&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cccc00.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;ffff33&#39;</span> <span class="p">,</span><span class="s1">&#39;Yellow&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/ffff33.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;ffffcc&#39;</span><span class="p">,</span><span class="s1">&#39;Cream&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/ffffcc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;ffffff&#39;</span><span class="p">,</span><span class="s1">&#39;White&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/ffffff.png&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you would like to choose the colors manually you can do that via the
+<a class="reference internal" href="administration.html#authorized-values"><span class="std std-ref">Authorized values</span></a> administration area.</p>
+<p><img alt="image1118" src="_images/colorccode.png" /></p>
+<p>Next you’ll want to <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">update the frameworks</span></a> so
+that the 952$8 (if you’re using collection code) label says ‘Color’.</p>
+<p>Once you have that in place you can start to catalog items by color.</p>
+<p>Finally you’ll want to add the following JQuery to your preferences so
+that it will relabel ‘Collection’ to ‘Color’</p>
+<p><a class="reference internal" href="staffclientpreferences.html#intranetuserjs"><span class="std std-ref">IntranetUserJS</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$(document).ready(function(){
+    $(&quot;#advsearch-tab-ccode a:contains(&#39;Collection&#39;)&quot;).text(&quot;Color&quot;);
+    $(&quot;#holdings th:contains(&#39;Collection&#39;)&quot;).text(&quot;Color&quot;);
+    });
+</pre></div>
+</div>
+<p><a class="reference internal" href="opacpreferences.html#opacuserjs"><span class="std std-ref">OPACUserJS</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$(document).ready(function(){
+    $(&quot;#advsearch-tab-ccode a:contains(&#39;Collection&#39;)&quot;).text(&quot;Color&quot;);
+    $(&#39;#item_ccode&#39;).text(&quot;Color&quot;);
+    });
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-koha-as-a-content-management-system-cms">
+<span id="koha-search-on-your-site-label"></span><h2>Using Koha as a Content Management System (CMS)<a class="headerlink" href="#using-koha-as-a-content-management-system-cms" title="永久链接至标题"></a></h2>
+<div class="section" id="setup">
+<span id="setup-cms-label"></span><h3>Setup<a class="headerlink" href="#setup" title="永久链接至标题"></a></h3>
+<p>These are instructions for taking a default install of Koha and allowing
+it to function as a little content management system. This will allow a
+library to publish an arbitrary number of pages based on a template.
+This example uses the template for the main opac page, but you could
+just as well use any template you wish with a bit more editing. This may
+be appropriate if you have a small library, want to allow librarians to
+easily add pages, and do not want to support a complete CMS.</p>
+<ul>
+<li><p class="first">Copy /usr/share/koha/opac/cgi-bin/opac/opac-main.pl to
+/usr/share/koha/opac/cgi-bin/opac/pages.pl (in the same directory)</p>
+</li>
+<li><p class="first">Edit pages.pl in an editor</p>
+</li>
+<li><p class="first">At approximately line 33 change this code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template_name</span>  <span class="o">=&gt;</span> <span class="s2">&quot;opac-main.tt&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To this code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template_name</span>  <span class="o">=&gt;</span> <span class="s2">&quot;pages.tt&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">At approximately line 62 after this code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$template-&gt;param(
+           koha_news       =&gt; $all_koha_news,
+           koha_news_count =&gt; $koha_news_count,
+           display_daily_quote =&gt; C4::Context-&gt;preference(&#39;QuoteOfTheDay&#39;),
+           daily_quote         =&gt; $quote,
+           );
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add these lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my $page = &quot;page_&quot; . $input-&gt;param(&#39;p&#39;);          # go for &quot;p&quot; value in URL and do the concatenation
+my $preference = C4::Context-&gt;preference($page);  # Go for preference
+$template-&gt;{VARS}-&gt;{&#39;page_test&#39;} = $preference;   # pass variable to template pages.tt
+</pre></div>
+</div>
+</li>
+<li><p class="first">Note pages.pl file must have Webserver user execution permissions,
+you can use <a class="reference external" href="http://en.wikipedia.org/wiki/Chmod">chmod</a> command if
+you are actually logged in as such user:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$chmod 755 pages.pl
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the browser go to Home &gt; Administration &gt; System Preferences &gt;
+Local Use and add a New Preference called “page_test”</p>
+</li>
+<li><p class="first">Fill it out as so</p>
+<ul class="simple">
+<li>Explanation: test page for pages tiny cms</li>
+<li>Variable: page_test</li>
+<li>Value: Lorem ipsum</li>
+<li>Click the TextArea link (or enter “TextArea” into the input field
+below it)</li>
+<li>variable options (last field): 80|50</li>
+</ul>
+</li>
+<li><p class="first">In a browser go to <a class="reference external" href="http://youraddress/cgi-bin/koha/pages.pl?p=test">http://youraddress/cgi-bin/koha/pages.pl?p=test</a>
+The page should come up with the words “Lorem ipsum” in the main
+content area of the page. (replace “youraddress” with localhost,
+127.0.0.1, or your domain name depending on how you have Apache set
+up.)</p>
+</li>
+<li><p class="first">To add more pages simply create a system preference where the title
+begins with “page_” followed by any arbitrary letters. You can add
+any markup you want as the value of the field. Reference the new page
+by changing the value of the “p” parameter in the URL.</p>
+</li>
+</ul>
+<p>To learn more visit the Koha wiki page on this topic:
+<a class="reference external" href="http://wiki.koha-community.org/wiki/Koha_as_a_CMS">http://wiki.koha-community.org/wiki/Koha_as_a_CMS</a></p>
+<div class="section" id="editing-the-pages-template">
+<span id="editing-the-pages-template-label"></span><h4>Editing the pages template<a class="headerlink" href="#editing-the-pages-template" title="永久链接至标题"></a></h4>
+<ul>
+<li><p class="first">Copy
+/usr/share/koha/opac/htdocs/opac-tmpl/bootstrap/en/modules/opac-main.tt
+to
+/usr/share/koha/opac/htdocs/opac-tmpl/bootstrap/en/modules/pages.tt</p>
+</li>
+<li><p class="first">Edit
+/usr/share/koha/opac/htdocs/opac-tmpl/bootstrap/en/modules/pages.tt</p>
+</li>
+<li><p class="first">At approximately line 61, change this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">%</span> <span class="n">IF</span> <span class="p">(</span> <span class="n">OpacMainUserBlock</span> <span class="p">)</span> <span class="o">%</span><span class="p">]</span><span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;opacmainuserblock&quot;</span><span class="o">&gt;</span><span class="p">[</span><span class="o">%</span> <span class="n">OpacMainUserBlock</span> <span class="o">%</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="p">[</span><span class="o">%</span> <span class="n">END</span> <span class="o">%</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">%</span> <span class="n">IF</span> <span class="p">(</span> <span class="n">page_test</span> <span class="p">)</span> <span class="o">%</span><span class="p">]</span><span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;opacmainuserblock&quot;</span><span class="o">&gt;</span><span class="p">[</span><span class="o">%</span> <span class="n">page_test</span> <span class="o">%</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="p">[</span><span class="o">%</span> <span class="n">END</span> <span class="o">%</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Remark: You may wish to disable your news block of these CMS style pages
+e.g. when you do not want it displayed on the CMS style pages or where
+the news block is long enough that it actually makes the ‘page_test’
+include scroll outside the default viewport dimensions. In that case,
+remove the following code from your pages.tt template.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">%</span> <span class="n">IF</span> <span class="p">(</span> <span class="n">koha_news_count</span> <span class="p">)</span> <span class="o">%</span><span class="p">]</span>
+    <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;news&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">table</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;table table-bordered&quot;</span><span class="o">&gt;</span>
+    <span class="p">[</span><span class="o">%</span> <span class="n">FOREACH</span> <span class="n">koha_new</span> <span class="n">IN</span> <span class="n">koha_news</span> <span class="o">%</span><span class="p">]</span>
+      <span class="o">&lt;</span><span class="n">thead</span><span class="o">&gt;&lt;</span><span class="n">tr</span><span class="o">&gt;&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="p">[</span><span class="o">%</span> <span class="n">koha_new</span><span class="o">.</span><span class="n">title</span> <span class="o">%</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;&lt;/</span><span class="n">tr</span><span class="o">&gt;&lt;/</span><span class="n">thead</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">tbody</span><span class="o">&gt;&lt;</span><span class="n">tr</span><span class="o">&gt;&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">[</span><span class="o">%</span> <span class="n">koha_new</span><span class="o">.</span><span class="n">new</span> <span class="o">%</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">p</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;newsfooter&quot;</span><span class="o">&gt;&lt;</span><span class="n">i</span><span class="o">&gt;</span><span class="p">(</span><span class="n">published</span> <span class="n">on</span> <span class="p">[</span><span class="o">%</span> <span class="n">koha_new</span><span class="o">.</span><span class="n">newdate</span> <span class="o">%</span><span class="p">])</span><span class="o">&lt;/</span><span class="n">i</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;&lt;/</span><span class="n">tr</span><span class="o">&gt;&lt;/</span><span class="n">tbody</span><span class="o">&gt;</span>
+    <span class="p">[</span><span class="o">%</span> <span class="n">END</span> <span class="o">%</span><span class="p">]</span>
+    <span class="o">&lt;/</span><span class="n">table</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+   <span class="p">[</span><span class="o">%</span> <span class="n">END</span> <span class="o">%</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<span id="cms-troubleshooting-label"></span><h4>Troubleshooting<a class="headerlink" href="#troubleshooting" title="永久链接至标题"></a></h4>
+<p>If you have problems check file permissions on pages.pl and pages.tt.
+They should have the same user and group as other Koha files like
+opac-main.pl.</p>
+</div>
+<div class="section" id="bonus-points">
+<span id="bonus-points-label"></span><h4>Bonus points<a class="headerlink" href="#bonus-points" title="永久链接至标题"></a></h4>
+<p>Instead of using the address
+<a class="reference external" href="http://youraddress/cgi-bin/koha/pages.pl?p=test">http://youraddress/cgi-bin/koha/pages.pl?p=test</a> you can shorten it to
+<a class="reference external" href="http://youraddress/pages.pl?p=test">http://youraddress/pages.pl?p=test</a> Just open up
+/etc/koha/koha-httpd.conf and add the follow at about line 13:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScriptAlias</span> <span class="o">/</span><span class="n">pages</span><span class="o">.</span><span class="n">pl</span> <span class="s2">&quot;/usr/share/koha/opac/cgi-bin/opac/pages.pl&quot;</span>
+</pre></div>
+</div>
+<p>Then restart Apache.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<span id="usage-label"></span><h3>Usage<a class="headerlink" href="#usage" title="永久链接至标题"></a></h3>
+<p>After setting up Koha as a CMS you can create new pages following these
+instructions:</p>
+<div class="section" id="adding-pages">
+<span id="adding-pages-label"></span><h4>Adding pages<a class="headerlink" href="#adding-pages" title="永久链接至标题"></a></h4>
+<p>To add a new page you need to add a system preference under Local Use.</p>
+<ul>
+<li><p class="first">Get there: More &gt; Administration &gt; Global system preferences &gt; Local
+use</p>
+</li>
+<li><p class="first">Click ‘New preference’</p>
+</li>
+<li><p class="first">Enter in a description in the Explanation field</p>
+</li>
+<li><p class="first">Enter a value that starts with ‘page_’ in the Variable field</p>
+</li>
+<li><p class="first">Enter starting HTML in the Value field</p>
+<p><img alt="image1076" src="_images/newpreference.png" /></p>
+</li>
+<li><p class="first">Set the Variable type to Textarea</p>
+</li>
+<li><p class="first">Set the Variable options to something like 20|20 for 20 rows and 20
+columns</p>
+<p><img alt="image1077" src="_images/newpref-settings.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="viewing-your-page">
+<span id="viewing-your-page-label"></span><h4>Viewing your page<a class="headerlink" href="#viewing-your-page" title="永久链接至标题"></a></h4>
+<p>You can view your new page at
+<a class="reference external" href="http://YOUR-OPAC/cgi-bin/koha/pages.pl?p=PAGENAME">http://YOUR-OPAC/cgi-bin/koha/pages.pl?p=PAGENAME</a> where PAGENAME is the
+part you entered after ‘page_’ in the Variable field.</p>
+<p id="example-label"><strong>Example</strong></p>
+<p>This process can be used to create recommended reading lists within
+Koha. So once the code changes have been made per the instructions on
+‘Koha as a CMS’ you go through the ‘Adding a new page’ instructions
+above to great a page for ‘Recommended reading lists’</p>
+<p><img alt="image1078" src="_images/recommendedreading.png" /></p>
+<p>Next we need to create pages for our various classes (or categories). To
+do this, return to the ‘Adding a new page’ section and create a
+preference for the first class.</p>
+<p><img alt="image1079" src="_images/class101-pref.png" /></p>
+<p>Next you’ll want to link your first page to your new second page, go to
+the page_recommend preference and click ‘Edit.’ Now you want to edit
+the HTML to include a link to your newest page:</p>
+<p><img alt="image1080" src="_images/editrecommendpref.png" /></p>
+<p id="live-examples-label"><strong>Live examples</strong></p>
+<ul class="simple">
+<li>The Crawford Library at Dallas Christian College is using this method
+for their recommended reading lists: <a class="reference external" href="http://opac.dallas.edu/">http://opac.dallas.edu/</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="koha-search-on-your-site">
+<h2>Koha search on your site<a class="headerlink" href="#koha-search-on-your-site" title="永久链接至标题"></a></h2>
+<p>Often you’ll want to add a Koha search box to your library website. To
+do so, just copy and paste the following code in to your library website
+and update the YOURCATALOG bit with your catalog’s URL and you’re set to
+go.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;searchform&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;get&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;http://YOURCATLOG/cgi-bin/koha/opac-search.pl&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;searchform&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;transl1&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;q&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="o">&gt;&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">select</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;idx&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;masthead_search&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;kw&quot;</span><span class="o">&gt;</span><span class="n">Keyword</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;ti&quot;</span><span class="o">&gt;</span><span class="n">Title</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;au&quot;</span><span class="o">&gt;</span><span class="n">Author</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;su&quot;</span><span class="o">&gt;</span><span class="n">Subject</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;nb&quot;</span><span class="o">&gt;</span><span class="n">ISBN</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;se&quot;</span><span class="o">&gt;</span><span class="n">Series</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;callnum&quot;</span><span class="o">&gt;</span><span class="n">Call</span> <span class="n">Number</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Search&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;searchsubmit&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="apis_protocols.html" class="btn btn-neutral float-left" title="Other APIs and protocols" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="third_party_software.html" class="btn btn-neutral float-right" title="Using third party software with Koha" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

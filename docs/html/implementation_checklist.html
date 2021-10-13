@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementation checklist &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Cron jobs and daemons" href="cron_jobs.html" />
+    <link rel="prev" title="ILL requests / Interlibrary loans" href="ILL_requests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implementation checklist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-migration">Data migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-configuration">Admin configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#localization-configuration">Localization configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#circulation-configuration">Circulation configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#patron-configuration">Patron configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cataloging-configuration">Cataloging configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authorities-configuration">Authorities configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#searching-configuration">Searching configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opac-configuration">OPAC configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#editable-opac-regions">Editable OPAC regions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#enhanced-content-configuration">Enhanced content configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acquisitions-configuration">Acquisitions configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serials-configuration">Serials configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#planning-for-go-live">Planning for go-live</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Implementation checklist</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/implementation_checklist.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="ILL_requests.html" class="btn btn-neutral float-left" title="ILL requests / Interlibrary loans" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cron_jobs.html" class="btn btn-neutral float-right" title="Cron jobs and daemons" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="implementation-checklist">
+<span id="implementation-checklist-label"></span><h1>Implementation checklist<a class="headerlink" href="#implementation-checklist" title="永久链接至标题"></a></h1>
+<p>The following guide will walk you through the areas of Koha you need to
+look at in order to prepare to start using the system.</p>
+<p>It is not an exhaustive list of everything you need to do. Please consider your
+own library practices and what other checks are necessary for your own libary
+and context.</p>
+<div class="section" id="data-migration">
+<span id="data-migration-label"></span><h2>Data migration<a class="headerlink" href="#data-migration" title="永久链接至标题"></a></h2>
+<p>Before you can start using Koha you’ll need to have some data. This can
+be done by entering it all by hand, but most people already have their
+data in electronic format of some sort and just need to reformat it a
+bit for importing into Koha.</p>
+<ul class="simple">
+<li>Create a list of libraries and enter their info and codes into
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">libraries</span></a></li>
+<li>Define your list of <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item types</span></a></li>
+<li>Define your patron categories and enter the categories and their
+codes into <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron categories</span></a></li>
+<li>Enter any additional patron information fields you use in your
+library in the <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">patron attributes</span></a><ul>
+<li>This requires that you first enable the <a class="reference internal" href="patronspreferences.html#extendedpatronattributes"><span class="std std-ref">ExtendedPatronAttributes</span></a>
+system preference if you have custom fields</li>
+</ul>
+</li>
+<li>Define all of your <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized values</span></a><ul>
+<li>Collection codes (<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">CCODE</span></a>)</li>
+<li>Shelving locations (<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOC</span></a>)</li>
+<li>Item statuses<ul>
+<li>Lost status (<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOST</span></a>)</li>
+<li>Not for loan status (<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">NOT_LOAN</span></a>)</li>
+<li>Damaged status (<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">DAMAGED</span></a>)</li>
+<li>Withdrawn status (<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">WITHDRAWN</span></a>)</li>
+</ul>
+</li>
+<li>Plus any others that are needed in your library</li>
+</ul>
+</li>
+<li>Optionally define <a class="reference internal" href="administration.html#cities-and-towns-label"><span class="std std-ref">cities and towns</span></a></li>
+<li><a class="reference internal" href="administration.html#koha-to-marc-mapping-label"><span class="std std-ref">Map your bibliographic data</span></a> from your legacy
+system to Koha fields and migrate (remembering to use the collection,
+shelving, item type and library codes you entered in the above
+setting areas)</li>
+<li><a class="reference internal" href="tools.html#patron-import-label"><span class="std std-ref">Map your patron data</span></a> from your legacy system to
+the Koha fields and migrate (remembering to use the patron and
+library codes you defined above)</li>
+<li>Test your migrated data to be sure that everything is as you expect
+it to be, some things to test include:<ul>
+<li>Check some of your titles with diacritics and make sure that they
+migrated properly.</li>
+<li>Check titles in a series and make sure that series information
+migrated properly.</li>
+<li>Make sure that your patrons have their contact information in the
+right fields.</li>
+<li>If your serials data was migrated search for these records in the
+catalog and confirm that they look right.</li>
+<li>If your serials data was migrated search for these records in the
+serials module and confirm that they look right.</li>
+<li>Check marc records to verify a variety of items are cataloged
+correctly</li>
+<li>Check cataloging process to see if all necessary fields are
+available</li>
+<li>If fines are migrated, check to see that they are applied
+correctly</li>
+<li>If holds are migrated, check to see they are accurate in catalog
+and patron record</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="admin-configuration">
+<span id="admin-configuration-label"></span><h2>Admin configuration<a class="headerlink" href="#admin-configuration" title="永久链接至标题"></a></h2>
+<p>Most of these preferences won’t need to be changed to use your Koha
+system, but there are a few that you might want to customize.</p>
+<ul class="simple">
+<li>If your library uses CAS authentication, you’ll want to set the
+various <a class="reference internal" href="administrationpreferences.html#cas-authentication-label"><span class="std std-ref">CAS system preferences</span></a></li>
+<li>Administration system preferences<ul>
+<li><a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress"><span class="std std-ref">KohaAdminEmailAddress</span></a> : This is the
+email address that will be used by the system in ‘from’ lines and
+to send errors to if there is no email set for the branch</li>
+<li><a class="reference internal" href="administrationpreferences.html#noitemtypeimages"><span class="std std-ref">noItemTypeImages</span></a> : Decide if you want to
+show item type icons in the staff client and opac</li>
+<li><a class="reference internal" href="administrationpreferences.html#csvdelimiter"><span class="std std-ref">CSVDelimiter</span></a> : This value will be put in between
+fields when exporting data from Koha</li>
+<li><a class="reference internal" href="administrationpreferences.html#virtualshelves"><span class="std std-ref">virtualshelves</span></a> : Decide if you want the
+staff and/or patrons to use lists in Koha</li>
+<li><a class="reference internal" href="administrationpreferences.html#autolocation"><span class="std std-ref">AutoLocation</span></a> : Require staff to log in to the
+staff client from a specific IP range</li>
+<li><a class="reference internal" href="administrationpreferences.html#independentbranches"><span class="std std-ref">IndependentBranches</span></a> : Prevent
+librarians from editing content that belongs to other branches</li>
+</ul>
+</li>
+<li>Go through the <a class="reference internal" href="logspreferences.html#logs-label"><span class="std std-ref">log system preferences</span></a> and decide which
+actions you want to keep track of in the <a class="reference internal" href="tools.html#log-viewer-label"><span class="std std-ref">logs</span></a></li>
+<li>Decide if you’d like to share your library’s information with the
+Koha community by setting the <a class="reference internal" href="administrationpreferences.html#share-anonymous-usage-statistics-label"><span class="std std-ref">sharing system
+preferences</span></a>.</li>
+<li>Decide what <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">cron jobs</span></a> you need to run and when.<ul>
+<li>If you’re using the <a class="reference internal" href="cron_jobs.html#cron-long-overdues-label"><span class="std std-ref">long overdue cron job</span></a>
+be sure to set your <a class="reference internal" href="circulationpreferences.html#defaultlongoverduechargevalue"><span class="std std-ref">DefaultLongOverdueChargeValue</span></a>,
+<a class="reference internal" href="circulationpreferences.html#defaultlongoverduelostvalue-and-defaultlongoverduedays-label"><span class="std std-ref">DefaultLongOverdueLostValue</span></a> and
+<a class="reference internal" href="circulationpreferences.html#defaultlongoverduelostvalue-and-defaultlongoverduedays-label"><span class="std std-ref">DefaultLongOverdueDays</span></a>
+preferences.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="localization-configuration">
+<span id="localization-configuration-label"></span><h2>Localization configuration<a class="headerlink" href="#localization-configuration" title="永久链接至标题"></a></h2>
+<p>Koha is used worldwide and so you need to make sure you set your
+localization preferences so that options throughout Koha appear properly
+for your location/language.</p>
+<ul class="simple">
+<li>Localization/internationalization system preferences<ul>
+<li><a class="reference internal" href="i18npreferences.html#dateformat"><span class="std std-ref">dateformat</span></a> : Decide how dates are displayed throughout Koha</li>
+<li><a class="reference internal" href="i18npreferences.html#opaclanguagesdisplay"><span class="std std-ref">opaclanguagesdisplay</span></a> : Decide if patrons can choose what language
+the OPAC appears in<ul>
+<li><a class="reference internal" href="i18npreferences.html#opaclanguages"><span class="std std-ref">OPACLanguages</span></a> : Decide which languages the patrons can choose
+from</li>
+</ul>
+</li>
+<li><a class="reference internal" href="i18npreferences.html#language"><span class="std std-ref">language</span></a> : Decide which languages appear in the staff interface</li>
+<li><a class="reference internal" href="i18npreferences.html#calendarfirstdayofweek"><span class="std std-ref">CalendarFirstDayOfWeek</span></a> : Define your first day of the week</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="circulation-configuration">
+<span id="circulation-configuration-label"></span><h2>Circulation configuration<a class="headerlink" href="#circulation-configuration" title="永久链接至标题"></a></h2>
+<p>Before you start circulating your collection you’ll need to set up your
+rules and preferences for circulation.</p>
+<ul class="simple">
+<li>Define your <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a></li>
+<li>Enter the <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">days your library is closed</span></a> for fines
+and due date calculations</li>
+<li>Circulation system preferences<ul>
+<li><a class="reference internal" href="circulationpreferences.html#circcontrol"><span class="std std-ref">CircControl</span></a> : Define whether circ rules are based on item’s
+location, patron’s location or transaction location</li>
+<li><a class="reference internal" href="circulationpreferences.html#usedaysmode"><span class="std std-ref">useDaysMode</span></a> : Define how due dates are calculated</li>
+<li><a class="reference internal" href="circulationpreferences.html#finescalendar"><span class="std std-ref">finesCalendar</span></a> : Define how fines are calculated (for every late
+date or only for days the library is open)</li>
+<li><a class="reference internal" href="circulationpreferences.html#specifyduedate"><span class="std std-ref">SpecifyDueDate</span></a> : Decide if staff are allowed to override due dates
+on checkout</li>
+<li><a class="reference internal" href="circulationpreferences.html#specifyreturndate"><span class="std std-ref">SpecifyReturnDate</span></a> : Decide if you want to let the staff specify
+an arbitrary return date on checkin</li>
+<li><a class="reference internal" href="circulationpreferences.html#itembarcodefallbacksearch"><span class="std std-ref">itemBarcodeFallbackSearch</span></a> :
+Decide if you want staff to be able to checkout using a keyword
+search (title, call number, etc)</li>
+<li><a class="reference internal" href="circulationpreferences.html#automaticitemreturn"><span class="std std-ref">AutomaticItemReturn</span></a> : Decide if items are sent back to the owning
+branch when checked in</li>
+<li><a class="reference internal" href="circulationpreferences.html#todaysissuesdefaultsortorder"><span class="std std-ref">todaysIssuesDefaultSortOrder</span></a> :
+Decide how items checked out today display on the patron record</li>
+<li><a class="reference internal" href="circulationpreferences.html#previousissuesdefaultsortorder"><span class="std std-ref">previousIssuesDefaultSortOrder</span></a> : Decide how items checked out
+prior to today display on the patron record</li>
+<li><a class="reference internal" href="circulationpreferences.html#noissuescharge"><span class="std std-ref">noissuescharge</span></a> : Define the maximum amount a patron can owe
+before checkouts are blocked</li>
+<li><a class="reference internal" href="circulationpreferences.html#returnbeforeexpiry"><span class="std std-ref">ReturnBeforeExpiry</span></a> : Decide if patrons need to return items
+before their accounts expire</li>
+<li><a class="reference internal" href="circulationpreferences.html#allowholdsondamageditems"><span class="std std-ref">AllowHoldsOnDamagedItems</span></a> : Decide
+if patrons can place holds on items that are marked as damaged<ul>
+<li><a class="reference internal" href="circulationpreferences.html#allowholdpolicyoverride"><span class="std std-ref">AllowHoldPolicyOverride</span></a> : Decide if you want the staff to be
+able to override this setting</li>
+</ul>
+</li>
+<li><a class="reference internal" href="circulationpreferences.html#maxreserves"><span class="std std-ref">maxreserves</span></a> : Decide how many items a patron
+can have on hold at once<ul>
+<li><a class="reference internal" href="circulationpreferences.html#allowholdpolicyoverride"><span class="std std-ref">AllowHoldPolicyOverride</span></a> : Decide if you want the staff to be
+able to override this setting</li>
+</ul>
+</li>
+<li><a class="reference internal" href="circulationpreferences.html#maxoutstanding"><span class="std std-ref">maxoutstanding</span></a> : Define the maximum amount a
+patron can owe before holds are blocked<ul>
+<li><a class="reference internal" href="circulationpreferences.html#allowholdpolicyoverride"><span class="std std-ref">AllowHoldPolicyOverride</span></a> : Decide if you want the staff to be
+able to override this setting</li>
+</ul>
+</li>
+<li><a class="reference internal" href="circulationpreferences.html#reservesmaxpickupdelay"><span class="std std-ref">ReservesMaxPickUpDelay</span></a> : Define the number of days before a hold
+expires</li>
+<li><a class="reference internal" href="circulationpreferences.html#webbasedselfcheck"><span class="std std-ref">WebBasedSelfCheck</span></a> : Decide if you want to use the built in
+web-based self-checkout system<ul>
+<li><a class="reference internal" href="circulationpreferences.html#autoselfcheck-preferences-label"><span class="std std-ref">AutoSelfCheckAllowed</span></a> : Decide
+if the self-checkout system requires login</li>
+<li><a class="reference internal" href="circulationpreferences.html#showpatronimageinwebbasedselfcheck"><span class="std std-ref">ShowPatronImageInWebBasedSelfCheck</span></a>: Decide if you want patron
+images to show on the self checkout screen</li>
+</ul>
+</li>
+<li><a class="reference internal" href="circulationpreferences.html#allownotforloanoverride"><span class="std std-ref">AllowNotForLoanOverride</span></a> : Decide if you want the staff to be able
+to checkout items marked as ‘not for loan’</li>
+<li><a class="reference internal" href="circulationpreferences.html#allowrenewallimitoverride"><span class="std std-ref">AllowRenewalLimitOverride</span></a> : Decide if you want staff to override
+the limit put on renewals</li>
+<li><a class="reference internal" href="circulationpreferences.html#allowfineoverride"><span class="std std-ref">AllowFineOverride</span></a> : Decide if you want staff to be able to
+override fine limits</li>
+<li><a class="reference internal" href="circulationpreferences.html#allowtoomanyoverride"><span class="std std-ref">AllowTooManyOverride</span></a> : Descide if you want staff to be able to
+check out more than the limit to a patron</li>
+<li><a class="reference internal" href="circulationpreferences.html#renewalperiodbase"><span class="std std-ref">RenewalPeriodBase</span></a> : Decide what date renewals are based on</li>
+<li><a class="reference internal" href="circulationpreferences.html#finesmode"><span class="std std-ref">finesMode</span></a> : Switch to ‘Calculate and Charge’ before you go live if
+you charge fines</li>
+<li><a class="reference internal" href="circulationpreferences.html#noticebcc"><span class="std std-ref">NoticeBcc</span></a>: If you want to receive a copy of every notice, enter your
+email address</li>
+<li><a class="reference internal" href="circulationpreferences.html#emaillibrarianwhenholdisplaced"><span class="std std-ref">emailLibrarianWhenHoldIsPlaced</span></a>: Decide if you want an email every
+time a hold is placed</li>
+<li><a class="reference internal" href="circulationpreferences.html#reservescontrolbranch"><span class="std std-ref">ReservesControlBranch</span></a> : Decide which branch’s hold rules are
+considered first</li>
+<li><a class="reference internal" href="staffclientpreferences.html#audioalerts"><span class="std std-ref">AudioAlerts</span></a>: Decide if you want to have sounds for circulation
+actions<ul>
+<li>Set the sounds and actions in the <a class="reference internal" href="administration.html#audio-alerts-label"><span class="std std-ref">audio alerts</span></a>
+section of the administration module</li>
+</ul>
+</li>
+<li><a class="reference internal" href="circulationpreferences.html#filterbeforeoverduereport"><span class="std std-ref">FilterBeforeOverdueReport</span></a> : If you have a large amount of
+overdues, you might want to turn this preference on so as to allow you to
+filter before results appear</li>
+<li><a class="reference internal" href="circulationpreferences.html#displayclearscreenbutton"><span class="std std-ref">DisplayClearScreenButton</span></a> : If you have a lot of staff members
+sharing one circulation computer you might want to enable this so that
+staff can clear the screen in between checkouts to protect patrons’
+privacy</li>
+<li><a class="reference internal" href="circulationpreferences.html#circautoprintquickslip"><span class="std std-ref">CircAutoPrintQuickSlip</span></a> : Decide how you want Koha to react if you
+scan in a blank barcode on the checkout screen</li>
+<li><a class="reference internal" href="circulationpreferences.html#suspendholdsintranet"><span class="std std-ref">SuspendHoldsIntranet</span></a> and/or <a class="reference internal" href="circulationpreferences.html#suspendholdsopac"><span class="std std-ref">SuspendHoldsOpac</span></a> : Decide if
+you want patrons and/or staff to be able to suspend holds<ul>
+<li><a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> : If you allow holds to be suspended
+decide if you want them to automatically resume on the date entered
+by the staff and/or patron</li>
+</ul>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="circulationpreferences.html#onsitecheckouts"><span class="std std-ref">OnSiteCheckouts</span></a> <span class="classifier-delimiter">:</span> <span class="classifier">Decide if you want to allow items to be checked</span></dt>
+<dd>out for use within the library</dd>
+</dl>
+</li>
+<li><a class="reference internal" href="circulationpreferences.html#recordlocaluseonreturn"><span class="std std-ref">RecordLocalUseOnReturn</span></a> : Set this to record local use of items
+when you check them in</li>
+</ul>
+</li>
+<li>Customize your <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips</span></a></li>
+<li>Define your <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">overdue notice triggers</span></a></li>
+<li>Set up your <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">cron jobs</span></a><ul>
+<li>Populate <a class="reference internal" href="circulation.html#holds-queue-label"><span class="std std-ref">your holds queue</span></a> (every 1-4 hours)</li>
+<li>Decide <a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">when holds expire</span></a> (daily)</li>
+<li><a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">Calculate fines due</span></a> (daily)<ul>
+<li>Fines on hourly loans will calculate when you check the items
+in</li>
+</ul>
+</li>
+<li><a class="reference internal" href="cron_jobs.html#cron-long-overdues-label"><span class="std std-ref">Mark long overdue items as lost</span></a> (daily)</li>
+<li>Decide when the system <a class="reference internal" href="cron_jobs.html#cron-message-queue-label"><span class="std std-ref">sends out messages</span></a> (1-4
+hours)</li>
+<li>Decide when the system <a class="reference internal" href="cron_jobs.html#cron-overdue-notice-label"><span class="std std-ref">queues overdue notices</span></a>
+(daily)</li>
+<li>Set up <a class="reference internal" href="cron_jobs.html#cron-print-hold-notices-label"><span class="std std-ref">hold notices that didn’t send for printing</span></a>
+(daily after overdues and message queue)</li>
+<li>Decide when the system <a class="reference internal" href="cron_jobs.html#cron-advanced-notice-label"><span class="std std-ref">queues the advanced notice of items due</span></a>
+(daily)</li>
+<li>Find holds that need to be <a class="reference internal" href="cron_jobs.html#cron-unsuspend-holds-label"><span class="std std-ref">resumed and remove suspension</span></a>
+(daily)</li>
+<li>If you’re allowing automatic renewal of items <a class="reference internal" href="cron_jobs.html#cron-automatic-renewal-label"><span class="std std-ref">set them to renew</span></a>
+(nightly)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="patron-configuration">
+<span id="patron-configuration-label"></span><h2>Patron configuration<a class="headerlink" href="#patron-configuration" title="永久链接至标题"></a></h2>
+<p>You have already imported patron data from your old system, but there
+are plenty of options available to you regarding patrons and their
+accounts.</p>
+<ul class="simple">
+<li>Enter your <a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">staff members as patrons</span></a><ul>
+<li>Define <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">staff members access permissions</span></a></li>
+</ul>
+</li>
+<li>Patron system preferences<ul>
+<li><a class="reference internal" href="patronspreferences.html#automembernum"><span class="std std-ref">autoMemberNum</span></a> : Decide if the patron barcodes are auto-generated
+or if you enter them yourself</li>
+<li><a class="reference internal" href="patronspreferences.html#maxfine"><span class="std std-ref">MaxFine</span></a> : Determine the maximum amount that people can owe in fines</li>
+<li><a class="reference internal" href="patronspreferences.html#notifyborrowerdeparture"><span class="std std-ref">NotifyBorrowerDeparture</span></a> : Decide when to warn staff that the
+patron account is about to expire</li>
+<li><a class="reference internal" href="patronspreferences.html#intranetreadinghistory"><span class="std std-ref">intranetreadinghistory</span></a> : Decide if the staff can see the patron’s
+reading/checkout history</li>
+<li><a class="reference internal" href="patronspreferences.html#borrowermandatoryfield"><span class="std std-ref">BorrowerMandatoryField</span></a> : List fields that you want to appear as
+mandatory on the patron add/edit form</li>
+<li><a class="reference internal" href="patronspreferences.html#borrowerstitles"><span class="std std-ref">BorrowersTitles</span></a> : Add or change the titles for your patrons</li>
+<li><a class="reference internal" href="patronspreferences.html#borrowerrelationship"><span class="std std-ref">borrowerRelationship</span></a> : Add or change borrower relationships
+(child to adult and professional to organization)</li>
+<li><a class="reference internal" href="patronspreferences.html#autoemailprimaryaddress"><span class="std std-ref">AutoEmailPrimaryAddress</span></a> : Determine if the patrons get an email
+confirming the creation of their account</li>
+<li><a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences"><span class="std std-ref">EnhancedMessagingPreferences</span></a> : Decide if staff can choose from a
+series of notices (other than overdues) for patrons</li>
+<li><a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>: Decide if patrons can choose
+from a series of notices (other than ovedues) for themselves</li>
+<li><a class="reference internal" href="patronspreferences.html#patronimages"><span class="std std-ref">patronimages</span></a> : Decide if you want to save patron pictures in your
+system</li>
+<li><a class="reference internal" href="patronspreferences.html#extendedpatronattributes"><span class="std std-ref">ExtendedPatronAttributes</span></a> : Decide if you want to enable custom
+patron fields</li>
+<li><a class="reference internal" href="patronspreferences.html#minpasswordlength"><span class="std std-ref">minPasswordLength</span></a> : Enter the minimum number of characters you
+want passwords to have</li>
+<li><a class="reference internal" href="patronspreferences.html#borrowerunwantedfield"><span class="std std-ref">BorrowerUnwantedField</span></a> : Decide what fields your library doesn’t
+need to see on the patron entry form</li>
+</ul>
+</li>
+<li>Set up your <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">cron jobs</span></a><ul>
+<li>Decide if you would like children to automatically become adults by setting up the
+<a class="reference internal" href="cron_jobs.html#cron-update-patron-categories-label"><span class="std std-ref">Update patron categories</span></a> cron job.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="cataloging-configuration">
+<span id="cataloging-configuration-label"></span><h2>Cataloging configuration<a class="headerlink" href="#cataloging-configuration" title="永久链接至标题"></a></h2>
+<p>Before you start cataloging in Koha you’ll want to set up your
+preferences and other rules.</p>
+<ul class="simple">
+<li>Define your cataloging templates, or
+<a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC bibliographic frameworks</span></a><ul>
+<li>Run the <a class="reference internal" href="administration.html#marc-bibliographic-framework-test-label"><span class="std std-ref">MARC bibliographic framework test</span></a>
+to be sure your changes are valid</li>
+</ul>
+</li>
+<li>Define any <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized values</span></a> you might want
+to use in cataloging</li>
+<li>Set up <a class="reference internal" href="administration.html#classification-sources-label"><span class="std std-ref">custom classification sources</span></a> (if
+you use something other than the defaults)</li>
+<li>Set up <a class="reference internal" href="administration.html#record-matching-rules-label"><span class="std std-ref">MARC matching rules</span></a> for importing
+records from .mrc files</li>
+<li>Set up the <a class="reference internal" href="administration.html#z39-50-sru-servers-label"><span class="std std-ref">Z39.50 targets</span></a> you want to
+search for cataloging (and acquisitions)</li>
+<li>Cataloging system preferences<ul>
+<li><a class="reference internal" href="catalogingpreferences.html#urllinktext"><span class="std std-ref">URLLinkText</span></a> : Enter text to display when 856 fields do not have
+pre-defined labels</li>
+<li><a class="reference internal" href="catalogingpreferences.html#hide-marc-label"><span class="std std-ref">hide_marc</span></a> : If you are unfamiliar with MARC you
+can have the MARC fields number hidden</li>
+<li><a class="reference internal" href="catalogingpreferences.html#labelmarcview"><span class="std std-ref">LabelMARCView</span></a> : Choose how you want duplicate fields to appear on
+the editor</li>
+<li><a class="reference internal" href="catalogingpreferences.html#defaultclassificationsource"><span class="std std-ref">DefaultClassificationSource</span></a> : Choose which classification source
+is the default in your library</li>
+<li><a class="reference internal" href="catalogingpreferences.html#advancedmarceditor"><span class="std std-ref">advancedMARCeditor</span></a> : Decide if you want to use the advanced MARC
+editor</li>
+<li><a class="reference internal" href="catalogingpreferences.html#marcflavour"><span class="std std-ref">marcflavour</span></a> : Choose your MARC format</li>
+<li><a class="reference internal" href="catalogingpreferences.html#itemcallnumber"><span class="std std-ref">itemcallnumber</span></a> : Enter which field and subfields to look into for
+the call number</li>
+<li><a class="reference internal" href="catalogingpreferences.html#marcorgcode"><span class="std std-ref">MARCOrgCode</span></a> : Enter your MARC organizational code (not the same as
+your OCLC number)</li>
+<li><a class="reference internal" href="catalogingpreferences.html#autobarcode"><span class="std std-ref">autoBarcode</span></a> : Decide if Koha generates item barcodes for you</li>
+<li><a class="reference internal" href="catalogingpreferences.html#opacsuppression-preferences-label"><span class="std std-ref">OpacSuppression</span></a> : Decide if
+you want to hide records marked as suppressed from the OPAC search results</li>
+</ul>
+</li>
+<li>Set up your <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">cron jobs</span></a><ul>
+<li>Decide when the system <a class="reference internal" href="cron_jobs.html#cron-check-url-quick-label"><span class="std std-ref">checks URLs in catalog records</span></a>
+to see if they are still valid</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="authorities-configuration">
+<span id="authorities-configuration-label"></span><h2>Authorities configuration<a class="headerlink" href="#authorities-configuration" title="永久链接至标题"></a></h2>
+<p>Koha has the ability to keep track of your authority records and how
+they’re linked to your bibliographic records. Before using authorities
+you should configure several preferences.</p>
+<ul class="simple">
+<li>Set <a class="reference internal" href="administration.html#authority-types-label"><span class="std std-ref">authority frameworks</span></a>, or templates</li>
+<li>Authority system preferences<ul>
+<li><a class="reference internal" href="authoritiespreferences.html#biblioaddsauthorities"><span class="std std-ref">BiblioAddsAuthorities</span></a> : Decide if Koha creates authorities when
+cataloging</li>
+<li><a class="reference internal" href="authoritiespreferences.html#authoritymergelimit"><span class="std std-ref">AuthorityMergeLimit</span></a>: Decide if updates to authorities trigger
+updates to the bibliographic records that link to them</li>
+<li><a class="reference internal" href="authoritiespreferences.html#autocreateauthorities"><span class="std std-ref">AutoCreateAuthorities</span></a> : Decide when authorities are created</li>
+<li><a class="reference internal" href="authoritiespreferences.html#linkermodule"><span class="std std-ref">LinkerModule</span></a> : Decide which match the authority linker should use</li>
+<li><a class="reference internal" href="authoritiespreferences.html#linkeroptions"><span class="std std-ref">LinkerOptions</span></a> : Decide if you want authority linking to be broader
+or more specific</li>
+<li><a class="reference internal" href="authoritiespreferences.html#catalogmodulerelink"><span class="std std-ref">CatalogModuleRelink</span></a> : Decide if you want to enable authority
+linking while cataloging</li>
+</ul>
+</li>
+<li>Set up your <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">cron jobs</span></a><ul>
+<li>Choose when the system looks for authorities updates to
+<a class="reference internal" href="cron_jobs.html#cron-update-authorities-label"><span class="std std-ref">merge changes into bibliographic records</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="searching-configuration">
+<span id="searching-configuration-label"></span><h2>Searching configuration<a class="headerlink" href="#searching-configuration" title="永久链接至标题"></a></h2>
+<p>There are several system preferences related to searching, it is not
+always recommended to make too many changes to these preferences since
+they are set to get you the most relevant results. If you would like to
+change the default way that Koha handles searching, view the
+<a class="reference internal" href="searchingpreferences.html#searchingsystem-preferences-label"><span class="std std-ref">searching system preferences</span></a> tab.</p>
+<ul class="simple">
+<li>Set up your <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">cron jobs</span></a></li>
+<li>Searching system preferences<ul>
+<li><a class="reference internal" href="searchingpreferences.html#advancedsearchtypes"><span class="std std-ref">AdvancedSearchTypes</span></a> : Decide which authorized value fields you
+want patrons and staff to be able to limit their advanced searches by</li>
+<li><a class="reference internal" href="searchingpreferences.html#advancedsearchlanguages"><span class="std std-ref">AdvancedSearchLanguages</span></a> : Decide which languages you want people
+to be able to limit to via the search engine</li>
+<li><a class="reference internal" href="authoritiespreferences.html#useauthoritiesfortracings"><span class="std std-ref">UseAuthoritiesForTracings</span></a> : Decide how you want Koha to handle
+subject searches in the OPAC<ul>
+<li><a class="reference internal" href="searchingpreferences.html#tracecompletesubfields"><span class="std std-ref">TraceCompleteSubfields</span></a> : Decide how you want Koha to handle
+subject searches in the OPAC</li>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="searchingpreferences.html#tracesubjectsubdivisions"><span class="std std-ref">TraceSubjectSubdivisions</span></a> <span class="classifier-delimiter">:</span> <span class="classifier">Decide how you want Koha to handle</span></dt>
+<dd>subject searches in the OPAC</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="searchingpreferences.html#displayfacetcount"><span class="std std-ref">displayFacetCount</span></a> : Decide whether to show facet counts on search
+results</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="opac-configuration">
+<span id="opac-configuration-label"></span><h2>OPAC configuration<a class="headerlink" href="#opac-configuration" title="永久链接至标题"></a></h2>
+<p>There are a lot of ways you can customize your OPAC in Koha.</p>
+<ul>
+<li><p class="first">Decide how you want your OPAC to look &amp; what content you want on the
+main page</p>
+</li>
+<li><p class="first">Create a library branded stylesheet using CSS</p>
+<p><strong>Important</strong></p>
+<p>Do not edit the default CSS files, instead create a new one,
+that way the system can always fall back on the original CSS.</p>
+</li>
+<li><p class="first">Create a custom XSLT stylesheet to change the way search results and
+bib records appear in the OPAC</p>
+</li>
+<li><p class="first">OPAC system preferences</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacbaseurl"><span class="std std-ref">OPACBaseURL</span></a> : Enter your library’s URL</li>
+<li><a class="reference internal" href="opacpreferences.html#opacuserlogin"><span class="std std-ref">opacuserlogin</span></a> : Decide if you want to allow patrons to login to
+the OPAC to access customized functionality (searching will be allowed
+without logging in)<ul>
+<li><a class="reference internal" href="opacpreferences.html#requestonopac"><span class="std std-ref">RequestOnOpac</span></a> : Decide if patrons can place holds via the OPAC</li>
+<li><a class="reference internal" href="opacpreferences.html#opacpasswordchange"><span class="std std-ref">OpacPasswordChange</span></a> : Decide if patrons can change their
+password (don’t allow this if you’re using LDAP)</li>
+<li><a class="reference internal" href="opacpreferences.html#opacrenewalallowed"><span class="std std-ref">OpacRenewalAllowed</span></a> : Decide if patrons can renew their checked
+out items via the OPAC</li>
+<li><a class="reference internal" href="opacpreferences.html#opacreadinghistory"><span class="std std-ref">opacreadinghistory</span></a> : Decide if patrons can view their reading/
+checkout history via the OPAC</li>
+<li><a class="reference internal" href="opacpreferences.html#opaccomments"><span class="std std-ref">OPACComments</span></a> : Decide if you want to allow patrons to comment on
+bibliographic records via the OPAC</li>
+<li><a class="reference internal" href="opacpreferences.html#opacstarratings"><span class="std std-ref">OpacStarRatings</span></a> : Decide if patrons can leave star ratings</li>
+<li><a class="reference internal" href="administrationpreferences.html#virtualshelves"><span class="std std-ref">virtualshelves</span></a> : Decide if you want patrons to be able to
+create lists</li>
+<li><a class="reference internal" href="opacpreferences.html#opacallowpubliclistcreation"><span class="std std-ref">OpacAllowPublicListCreation</span></a>: If patrons can create lists then
+decide if they are allowed to create public lists</li>
+<li><a class="reference internal" href="opacpreferences.html#suggestion"><span class="std std-ref">suggestion</span></a> : Decide if you want patrons to be able to submit
+purchase suggestions</li>
+<li><a class="reference internal" href="opacpreferences.html#opacviewotherssuggestions"><span class="std std-ref">OPACViewOthersSuggestions</span></a> : Decide if you want patrons to be
+able to see purchase suggestions made by other patrons</li>
+</ul>
+</li>
+<li><a class="reference internal" href="opacpreferences.html#opacbookbag"><span class="std std-ref">opacbookbag</span></a> : Decide if patrons can save items into their cart</li>
+<li><a class="reference internal" href="opacpreferences.html#anonsuggestions"><span class="std std-ref">AnonSuggestions</span></a> : Decide if you want non logged in users to be
+able to make purchase suggestions</li>
+<li><a class="reference internal" href="opacpreferences.html#libraryname"><span class="std std-ref">LibraryName</span></a> : Enter your library name for display in the &lt;title&gt;
+tag and on the top of the OPAC</li>
+<li><a class="reference internal" href="opacpreferences.html#opacnav"><span class="std std-ref">OpacNav</span></a> : Enter HTML that will appear to the left on the main OPAC
+page</li>
+<li><a class="reference internal" href="opacpreferences.html#opacnavbottom"><span class="std std-ref">OpacNavBottom</span></a> : Enter HTML that will appear below OpacNav</li>
+<li><a class="reference internal" href="opacpreferences.html#opacnoresultsfound"><span class="std std-ref">OPACNoResultsFound</span></a> : Enter the HTML that will appear when no
+results are found</li>
+<li><a class="reference internal" href="opacpreferences.html#opacresultssidebar"><span class="std std-ref">OPACResultsSidebar</span></a> : Enter the HTML that will appear below the
+facets on your search results</li>
+<li><a class="reference internal" href="opacpreferences.html#opacmysummaryhtml"><span class="std std-ref">OPACMySummaryHTML</span></a> : Enter the HTML that will appear in the far
+right of the circulation summary in the OPAC</li>
+<li>Customize your stylesheets:<ul>
+<li><a class="reference internal" href="opacpreferences.html#opacusercss"><span class="std std-ref">OPACUserCSS</span></a> : Enter any additional fields you want to define
+styles for</li>
+<li><a class="reference internal" href="opacpreferences.html#opaclayoutstylesheet"><span class="std std-ref">opaclayoutstylesheet</span></a> : Point to a CSS file on your Koha server</li>
+</ul>
+</li>
+<li><a class="reference internal" href="opacpreferences.html#opachighlightedwords-and-nothighlightedwords-label"><span class="std std-ref">OpacHighlightedWords</span></a> :
+Decide if you want search terms to be highlighted on the search results</li>
+<li><a class="reference internal" href="opacpreferences.html#hidelostitems"><span class="std std-ref">hidelostitems</span></a> : Decide if you want to show patrons items you have
+marked as lost</li>
+<li><a class="reference internal" href="opacpreferences.html#bibliodefaultview"><span class="std std-ref">BiblioDefaultView</span></a> : Decide what view is the default for
+bibliographic records on the OPAC</li>
+<li><a class="reference internal" href="opacpreferences.html#opacshelfbrowser"><span class="std std-ref">OPACShelfBrowser</span></a> : Decide if you want to enable the shelf browse
+functionality</li>
+<li><a class="reference internal" href="opacpreferences.html#opacurlopeninnewwindow"><span class="std std-ref">OPACURLOpenInNewWindow</span></a> : Decide if URLs clicked in the OPAC are
+opened in a new window</li>
+<li><a class="reference internal" href="opacpreferences.html#searchmylibraryfirst"><span class="std std-ref">SearchMyLibraryFirst</span></a> : If you have a multi-branch system decide if
+you want patrons to search their library first</li>
+<li><a class="reference internal" href="opacpreferences.html#opacauthorities"><span class="std std-ref">OpacAuthorities</span></a> : Decide if you want patrons to be able to search
+your authority file</li>
+<li><a class="reference internal" href="opacpreferences.html#opacbrowser"><span class="std std-ref">OpacBrowser</span></a> : Decide if you want patrons to browse your authority
+file (French libraries only)</li>
+<li><a class="reference internal" href="opacpreferences.html#opacsearchfortitlein"><span class="std std-ref">OPACSearchForTitleIn</span></a> : Choose which libraries you want patrons to
+be able to re-run their search in</li>
+<li><a class="reference internal" href="opacpreferences.html#opacaddmastheadlibrarypulldown"><span class="std std-ref">OpacAddMastheadLibraryPulldown</span></a> : If you’re a multi-branch system
+you can add a pull down to the search bar for patrons to search which
+library to search</li>
+<li><a class="reference internal" href="opacpreferences.html#enableopacsearchhistory"><span class="std std-ref">EnableOpacSearchHistory</span></a> : Decide if you want the system to keep a
+search history</li>
+</ul>
+</li>
+<li><p class="first">Set up your <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">cron jobs</span></a></p>
+<ul class="simple">
+<li>If you have the <a class="reference internal" href="opacpreferences.html#opacbrowser"><span class="std std-ref">OpacBrowser</span></a> preference set decide
+<a class="reference internal" href="cron_jobs.html#cron-authorities-browser-label"><span class="std std-ref">when you want the contents to rebuild</span></a>
+(French libraries only)</li>
+<li>If you have <a class="reference internal" href="opac.html#custom-rss-feeds-label"><span class="std std-ref">custom RSS feeds</span></a>, decide
+when you want the <a class="reference internal" href="cron_jobs.html#cron-rss-feeds-label"><span class="std std-ref">feed to be populated</span></a></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="editable-opac-regions">
+<span id="editable-opac-regions-label"></span><h3>Editable OPAC regions<a class="headerlink" href="#editable-opac-regions" title="永久链接至标题"></a></h3>
+<p>Using the <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">news tool</span></a> you can customize various blocks of the
+OPAC. The following graphic shows what each display location updates in the
+Bootstrap theme.</p>
+<p><img alt="View of the main page of the OPAC with each customizable section highlighted" src="_images/opacregionsbootstrap.png" /></p>
+<p><img alt="View of the main page of the OPAC, customized, and with each section highlighted and labeled" src="_images/opacregionsbootstrap-customized.png" /></p>
+<p>Some of the regions are system preferences:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacnav"><span class="std std-ref">OpacNav</span></a></li>
+<li><a class="reference internal" href="opacpreferences.html#opacnavbottom"><span class="std std-ref">OpacNavBottom</span></a></li>
+</ul>
+<p>And ‘quotes of the day’ are managed in the
+<a class="reference internal" href="tools.html#quote-of-the-day-qotd-editor-label"><span class="std std-ref">Quote of the day editor</span></a></p>
+</div>
+</div>
+<div class="section" id="enhanced-content-configuration">
+<span id="enhanced-content-configuration-label"></span><h2>Enhanced content configuration<a class="headerlink" href="#enhanced-content-configuration" title="永久链接至标题"></a></h2>
+<p>Koha allows you to pull in content from outside sources to enhance your
+bibliographic records. All of this content can be toggled on and off using the
+<a class="reference internal" href="enhancedcontentpreferences.html#enhanced-content-system-preferences-label"><span class="std std-ref">enhanced content system preferences</span></a>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="enhancedcontentpreferences.html#frbrizeeditions-label"><span class="std std-ref">FRBR/Editions</span></a><ul>
+<li>If you would like to have your OPAC and/or staff interdace show an
+‘Editions’ tab on the bibliographic record, you want to enable one or the
+other FRBR preferences and then the ISBN service <a class="reference internal" href="enhancedcontentpreferences.html#thingisbn"><span class="std std-ref">ThingISBN</span></a>.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#amazon-system-preferences-label"><span class="std std-ref">Amazon</span></a> : This service is free and
+just requires that you visit <a class="reference external" href="http://aws.amazon.com">http://aws.amazon.com</a> to sign up<ul>
+<li>Using the Amazon preferences you can choose to show cover images
+from Amazon.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#babeltheque-system-preferences-label"><span class="std std-ref">Babelthèque</span></a><ul>
+<li>This is a paid service. Contact Babelthèque to learn how to enable
+this content in the OPAC.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#baker-and-taylor-label"><span class="std std-ref">Baker and Taylor</span></a><ul>
+<li>This is a paid service from Baker &amp; Taylor. Contact Baker &amp; Taylor
+for the information to enter into these preferences.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#html5-media-label"><span class="std std-ref">HTML5 media</span></a><ul>
+<li>This allows libraries to embed streaming media in their catalog</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#googlejackets-label"><span class="std std-ref">Google</span></a><ul>
+<li>This service is free and does not require registration, simply
+enable <a class="reference internal" href="enhancedcontentpreferences.html#googlejackets"><span class="std std-ref">GoogleJackets</span></a> and you’re set to go.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#librarything-label"><span class="std std-ref">LibraryThing</span></a><ul>
+<li>With the exception of <a class="reference internal" href="enhancedcontentpreferences.html#thingisbn"><span class="std std-ref">ThingISBN</span></a>, you will need to contact
+LibraryThing for the information to enter into these preferences</li>
+<li>Enabling <a class="reference internal" href="enhancedcontentpreferences.html#thingisbn"><span class="std std-ref">ThingISBN</span></a> will help to populate the editions tab on the
+bibliographic record display if you have enabled FRBR.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#novelist-select-label"><span class="std std-ref">Novelist Select</span></a><ul>
+<li>This is a paid service from Ebsco. Contact Ebsco for the
+information to enter into these preferences</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#open-library-label"><span class="std std-ref">Open Library</span></a><ul>
+<li>Open Library project is an open system that you can pull cover
+images (and in the future additional content) from</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#overdrive-label"><span class="std std-ref">Overdrive</span></a><ul>
+<li>This is a paid service that libraries can subscribe to for ebook
+content. If the library subscribes to Overdrive they can integrate
+that content in to Koha for free.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#syndetics-label"><span class="std std-ref">Syndetics</span></a><ul>
+<li>This is a paid service from Syndetics to add content for your
+bibliographic records. Contact Syndetics for the information to enter
+into these preferences.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="enhancedcontentpreferences.html#tagging-label"><span class="std std-ref">Tagging</span></a><ul>
+<li>Choose whether or not you want to allow patrons to add tags to
+records in Koha.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="acquisitions-configuration">
+<span id="acquisitions-configuration-label"></span><h2>Acquisitions configuration<a class="headerlink" href="#acquisitions-configuration" title="永久链接至标题"></a></h2>
+<p>When using acquisitions in Koha you first need to define some defaults.</p>
+<ul class="simple">
+<li>Set up your <a class="reference internal" href="administration.html#budgets-label"><span class="std std-ref">funds and budgets</span></a></li>
+<li>Choose your <a class="reference internal" href="administration.html#currencies-and-exchange-rates-label"><span class="std std-ref">default currency</span></a>
+and enter others if you order from multiple countries</li>
+<li>Enter in your <a class="reference internal" href="acquisitions.html#vendors-label"><span class="std std-ref">vendor information</span></a></li>
+<li>Create an <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">framework with the code ACQ</span></a>
+(if you’re going to enter item records at the time of ordering or receiving)</li>
+<li>Acquisitions system preferences<ul>
+<li><a class="reference internal" href="acquisitionspreferences.html#acqcreateitem"><span class="std std-ref">AcqCreateItem</span></a> : Decide if an item record is created during
+acquisition</li>
+<li><a class="reference internal" href="acquisitionspreferences.html#currencyformat"><span class="std std-ref">CurrencyFormat</span></a> : Decide how you want monetary amounts to display</li>
+<li><a class="reference internal" href="acquisitionspreferences.html#taxrates"><span class="std std-ref">TaxRates</span></a> : Enter your sales tax (if you are billed for tax)</li>
+<li><a class="reference internal" href="acquisitionspreferences.html#orderpdfformat"><span class="std std-ref">OrderPdfFormat</span></a> : Decide what format you want your print orders to
+use</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="serials-configuration">
+<span id="serials-configuration-label"></span><h2>Serials configuration<a class="headerlink" href="#serials-configuration" title="永久链接至标题"></a></h2>
+<p>When you use serials there are a few options you can set before hand.</p>
+<ul class="simple">
+<li>Serials system preferences<ul>
+<li><a class="reference internal" href="serialspreferences.html#renewserialaddssuggestion"><span class="std std-ref">RenewSerialAddsSuggestion</span></a> : Decide if you want renewing serials
+to add a suggestion for easy purchasing</li>
+<li><a class="reference internal" href="serialspreferences.html#routingserials"><span class="std std-ref">RoutingSerials</span></a> : Decide if you want to route serials around your
+library</li>
+<li><a class="reference internal" href="serialspreferences.html#routinglistaddreserves"><span class="std std-ref">RoutingListAddReserves</span></a> : Decide if holds are placed on serials
+when there is a routing list in place</li>
+</ul>
+</li>
+<li>Cataloging system references<ul>
+<li><a class="reference internal" href="serialspreferences.html#staffserialissuedisplaycount"><span class="std std-ref">StaffSerialIssueDisplayCount</span></a> : Decide how many of the most recent
+issues to display in the staff interface</li>
+<li><a class="reference internal" href="serialspreferences.html#opacserialissuedisplaycount"><span class="std std-ref">OPACSerialIssueDisplayCount</span></a> : Decide how many of the most recent
+issues to display in the OPAC</li>
+<li><a class="reference internal" href="serialspreferences.html#subscriptionhistory"><span class="std std-ref">SubscriptionHistory</span></a> : Decide how you want the subscription
+information to display in the OPAC</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="planning-for-go-live">
+<span id="planning-for-go-live-label"></span><h2>Planning for go-live<a class="headerlink" href="#planning-for-go-live" title="永久链接至标题"></a></h2>
+<p>Once you have all of your settings ready, you need to prepare for making
+your system live:</p>
+<ul class="simple">
+<li>Decide if you need training by an outside service provider or if your staff
+can do the training themselves.</li>
+<li>Make sure that there is time for your staff to play with your test
+system and get comfortable with it</li>
+<li>If this is a migration, work with your previous company to extract
+data right before you go-live</li>
+<li>Decide on URLs for your new Koha OPAC and staff interface and arrange for
+these to be cut-over if using existing system URLs, or created if they are
+new URLs</li>
+<li>Make sure that if you’re hosting your own system you have a process in place
+to back-up your system data.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ILL_requests.html" class="btn btn-neutral float-left" title="ILL requests / Interlibrary loans" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cron_jobs.html" class="btn btn-neutral float-right" title="Cron jobs and daemons" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ILL requests / Interlibrary loans &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Implementation checklist" href="implementation_checklist.html" />
+    <link rel="prev" title="About Koha" href="about.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ILL requests / Interlibrary loans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#set-up">Set up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ill-email-notifications">ILL email notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-ill-requests">Create ILL requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-ill-requests">Viewing ILL requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-ill-requests">Managing ILL requests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#request-statuses">Request statuses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#place-request-with-partners">Place request with partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#circulating-ill-materials">Circulating ILL materials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>ILL requests / Interlibrary loans</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ILL_requests.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="about.html" class="btn btn-neutral float-left" title="About Koha" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="implementation_checklist.html" class="btn btn-neutral float-right" title="Implementation checklist" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="ill-requests-interlibrary-loans">
+<span id="ill-requests-label"></span><h1>ILL requests / Interlibrary loans<a class="headerlink" href="#ill-requests-interlibrary-loans" title="永久链接至标题"></a></h1>
+<p>The ILL (Interlibrary loans) requests module adds the ability to request and manage loans or copies of material from external sources. Patrons can submit a request via the OPAC from the <a class="reference internal" href="opac.html#your-interlibrary-loan-requests-label"><span class="std std-ref">your interlibrary loan requests</span></a> tab of their account.  Library staff can then review and process those requests.  Alternatively staff can place requests themselves from the staff client.</p>
+<div class="section" id="set-up">
+<span id="setup-ill-requests-label"></span><h2>Set up<a class="headerlink" href="#set-up" title="永久链接至标题"></a></h2>
+<p>Before using the ILL requests module you will want to make sure that you have completed all of the set up.</p>
+<p>The ILL requests module can be configured for different types of requests and workflows known as backends. Currently available backends are documented on the Koha community wiki at <a class="reference external" href="https://wiki.koha-community.org/wiki/ILL_backends">https://wiki.koha-community.org/wiki/ILL_backends</a>. You will need to configure at least one backend.</p>
+<p>Next, set your <a class="reference internal" href="circulationpreferences.html#interlibrary-loans-label"><span class="std std-ref">system preferences for interlibrary loans</span></a>.</p>
+<p>Library staff responsible for ILL requests need the following permission set on their account: <em>ill: Create and modify Interlibrary loan requests</em>.</p>
+<p>The ILL requests module uses system defined statuses. You can add custom statuses to match your ILL workflow as ILLSTATUS <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized values</span></a>.</p>
+</div>
+<div class="section" id="ill-email-notifications">
+<span id="ill-email-notification-label"></span><h2>ILL email notifications<a class="headerlink" href="#ill-email-notifications" title="永久链接至标题"></a></h2>
+<p>Email notifications can be sent to ILL staff when a patron makes a request to modify or cancel an existing request.  The notice templates are
+ILL_REQUEST_CANCEL and ILL_REQUEST_MODIFIED.  The ILL staff email address can be configured per library.  If this is not set the <a class="reference internal" href="circulationpreferences.html#illdefaultstaffemail"><span class="std std-ref">ILLDefaultStaffEmail</span></a> system preference will be used.</p>
+<p>Notifications can also be sent to patrons for requests that are either available for pick-up or are unavailable and have been cancelled.  The notice templates are ILL_PICKUP_READY and ILL_REQUEST_UNAVAIL.  The notifications are enabled from the <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron categories</span></a> default patron messaging preferences.  You can customise the notice text for these notices in <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips</span></a> in the Tools module.</p>
+</div>
+<div class="section" id="create-ill-requests">
+<span id="create-ill-requests-label"></span><h2>Create ILL requests<a class="headerlink" href="#create-ill-requests" title="永久链接至标题"></a></h2>
+<p><em>Get there:</em> More &gt; ILL requests</p>
+<p><img alt="image1386" src="_images/ILLformpickerstaff.png" /></p>
+<ul class="simple">
+<li>Choose ‘New ILL request’ and then Freeform.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The images shown here are for the FreeFrom backend only.</p>
+</div>
+<p><img alt="image1387" src="_images/CreateILLstaff1.png" /></p>
+<ul class="simple">
+<li>Enter a Type: Book, Article, Journal, Other.</li>
+<li>In the next two sections enter as much as information as you can including chapter/article/part if applicable.</li>
+</ul>
+<p><img alt="image1388" src="_images/createILLstaff2.png" /></p>
+<ul class="simple">
+<li>Add custom fields, for example if you wished to add a note.</li>
+<li>Under the borrower options enter the library branch you would like the request to be sent to.</li>
+</ul>
+<p>Click on ‘Create’ and you will be shown a Request details summary page.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If you have enabled the <a class="reference internal" href="circulationpreferences.html#illcheckavailability"><span class="std std-ref">ILLCheckAvailability</span></a> system preference and installed plugins for the staff interface you will be presented
+with search results.  The user can click on a link to a relevant resource if found or proceed with the ILL request.  If no results are found
+the ILL is completed in the usual way.</p>
+</div>
+<p>You can now process your request as explained in Managing ILL requests section or return to the list of ILL requests.</p>
+</div>
+<div class="section" id="viewing-ill-requests">
+<span id="viewing-ill-requests-label"></span><h2>Viewing ILL requests<a class="headerlink" href="#viewing-ill-requests" title="永久链接至标题"></a></h2>
+<p>From the main ILL requests screen you can view, filter and sort your ILL requests.  You can use the <a class="reference internal" href="circulationpreferences.html#illhiddenrequeststatuses"><span class="std std-ref">ILLHiddenRequestStatuses</span></a>
+preference to hide completed statuses by default.  You can also click on the ‘List requests’ button at any time to return to this list.</p>
+<p><img alt="image1435" src="_images/viewillrequests1.png" /></p>
+<p>There is a large amount of data available in the Requests table so it is
+advisable to make use of <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">Table settings</span></a> section of the
+Administration module (table id: ill-requests) to view only the information you need.
+The first half of the table displays data related to the ILL item itself
+such as title, volume, page numbers.</p>
+<p><img alt="image1436" src="_images/viewillrequests2.png" /></p>
+<p>The second half of the table displays data related to the request such as notes
+and comments.</p>
+</div>
+<div class="section" id="managing-ill-requests">
+<span id="managing-ill-requests-label"></span><h2>Managing ILL requests<a class="headerlink" href="#managing-ill-requests" title="永久链接至标题"></a></h2>
+<p>Click on the ‘Manage request’ button in the final column. Depending on the current
+status of the request you may see some or all of the following options:</p>
+<ul class="simple">
+<li>Edit request<ul>
+<li>you can edit the borrowernumber, biblionumber, branch and can add notes.  If you have added custom
+ILL statuses you can also edit these.</li>
+</ul>
+</li>
+<li>Confirm request<ul>
+<li>place the request with a document supply service using a backend such as BLDSS.</li>
+</ul>
+</li>
+<li>Place request with partners<ul>
+<li>place the request via email with a <a class="reference internal" href="#place-request-with-partners-label"><span class="std std-ref">partner library</span></a></li>
+</ul>
+</li>
+<li>Switch provider<ul>
+<li>this allows you to move the request to a different provider (backend).</li>
+</ul>
+</li>
+<li>Delete<ul>
+<li>fully delete the request. Details of deleted requests are not retained in Koha.</li>
+</ul>
+</li>
+<li>Revert request<ul>
+<li>following a status of ‘Requested’ or ‘Requested from partners’ library
+staff can cancel the request from the external source. The status reverts to ‘New’</li>
+</ul>
+</li>
+<li>Mark completed<ul>
+<li>used when the ILL request has been fulfilled.</li>
+</ul>
+</li>
+<li>Edit item metadata<ul>
+<li>Dependent on the backend used for the request you may be able to edit,
+add or delete some or all of the request metadata.  For example, if the
+metdata has originated from a requestor using the FreeForm backend this
+may need to be edited, whereas metadata from an external recognised source
+such as BLDSS should not.</li>
+</ul>
+</li>
+<li>Display supplier metadata<ul>
+<li>Displays any extra metadata that might have been provided by your ILL
+supplier that has not been included in the standard request fields.</li>
+</ul>
+</li>
+<li>ILL request log<ul>
+<li>Displays a history of changes made to the request.</li>
+</ul>
+</li>
+<li>Comments<ul>
+<li>It is possible to add comments to an ILL request and these can be used
+by ILL staff to keep track of work undertaken. Comments are read only and are
+stored in chronological order. They display the borrower details and date of the
+comment. If present, the number of comments is displayed in the List
+requests view.</li>
+</ul>
+</li>
+<li>Checkout<ul>
+<li>This option is only available if you have the <a class="reference internal" href="circulationpreferences.html#circulateill"><span class="std std-ref">CirculateILL</span></a> preference enabled.  See the
+<a class="reference internal" href="#circulating-ill-material-label"><span class="std std-ref">Circulating ILL materials</span></a> section.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="request-statuses">
+<h3>Request statuses<a class="headerlink" href="#request-statuses" title="永久链接至标题"></a></h3>
+<p>The full list of installed ILL statuses are:</p>
+<ul class="simple">
+<li>New request</li>
+<li>Requested</li>
+<li>Requested from partners</li>
+<li>Request reverted</li>
+<li>Cancellation requested – a patron has requested cancellation from the OPAC.</li>
+<li>Completed</li>
+<li>Checked out</li>
+<li>Returned to Library</li>
+</ul>
+</div>
+</div>
+<div class="section" id="place-request-with-partners">
+<span id="place-request-with-partners-label"></span><h2>Place request with partners<a class="headerlink" href="#place-request-with-partners" title="永久链接至标题"></a></h2>
+<p>If you have a network of partner libraries which permit ILL requests you can manage this through Koha. First you need to create your partner library accounts:</p>
+<ul class="simple">
+<li>You will need to set up a <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category</span></a> with the code ILLLIBS.</li>
+<li>You will need to create a patron account with this category for each partner library.</li>
+<li>Each library must have an email address as this will be the mechanism for sending the inter-library loan request.  The notice
+template is ILL_PARTNER_REQ and the text can be customised from <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips</span></a> in the Tools module.</li>
+</ul>
+<p>You can now use the ‘Place request with partners’ option when processing requests.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If you have enabled the <a class="reference internal" href="circulationpreferences.html#illcheckavailability"><span class="std std-ref">ILLCheckAvailability</span></a> preference enabled you can use plugins to search the catalogues of your partner libraries using Z39.50 prior to confirming the request with a partner.</p>
+</div>
+</div>
+<div class="section" id="circulating-ill-materials">
+<span id="circulating-ill-material-label"></span><h2>Circulating ILL materials<a class="headerlink" href="#circulating-ill-materials" title="永久链接至标题"></a></h2>
+<p>If you have enabled the <a class="reference internal" href="circulationpreferences.html#circulateill"><span class="std std-ref">CirculateILL</span></a> preference you can checkout ILL items directly from the ILL request.</p>
+<p>When you create a <em>Book</em> type request a brief catalogue record is created automatically based on the Fast Add MARC framework.
+Once a request has a suitable status, a Checkout button is displayed on the Manage request toolbar. Clicking this will enable the user to check out the item either to the user who made the request or an in-house statistical patron.</p>
+<p>To checkout an item:</p>
+<ul class="simple">
+<li>Click on the Checkout button.</li>
+<li>Select an item type when prompted.  An item is created automatically which is attached to the biblio record that was created for the
+request.  The barcode of the item is in the format ILL-requestid.</li>
+<li>Next, at the patron checkout screen select a due date.  If you do not select a due date the relevant circulation rule will be used to calculate
+the due date.</li>
+<li>Once the item is checked out the status of the request is changed to ‘Checked out’ and after it has been checked in the status updates
+to ‘Returned to library’.</li>
+<li>Bibliographic records created as part of an ILL request will have an extra tab in the holdings table for that allows you to
+link back to the request in the ILL module.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="About Koha" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="implementation_checklist.html" class="btn btn-neutral float-right" title="Implementation checklist" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

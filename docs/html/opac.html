@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPAC &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Searching" href="searching.html" />
+    <link rel="prev" title="Reports" href="reports.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OPAC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#search-results">Search results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#results-overview">Results overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filters">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-rss-feeds">Search RSS feeds</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bibliographic-record">Bibliographic record</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lists-and-the-cart">Lists and the cart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lists">Lists</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-lists">Creating lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-titles-to-lists">Adding titles to lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewing-lists-contents">Viewing lists contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-lists">Managing lists</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cart">Cart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-titles-to-the-cart">Adding titles to the cart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-the-cart">Managing the cart</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#placing-holds">Placing holds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enhanced-content">Enhanced content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tagging">Tagging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comments">Comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zotero">Zotero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-rss-feeds">Custom RSS feeds</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opac-self-registration">OPAC self registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#your-account">Your account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resetting-your-password">Resetting your password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-summary">Your summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-flags">Patron flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-fines">Your fines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-personal-details">Your personal details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-tags">Your tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-your-password">Change your password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-search-history">Your search history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-checkout-history">Your checkout history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-privacy">Your privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-holds-history">Your holds history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-purchase-suggestions">Your purchase suggestions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-messaging">Your messaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-lists">Your lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ask-for-a-discharge">Ask for a discharge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-routing-lists">Your routing lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-interlibrary-loan-requests">Your interlibrary loan requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#purchase-suggestions">Purchase suggestions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>OPAC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/opac.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="reports.html" class="btn btn-neutral float-left" title="Reports" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="searching.html" class="btn btn-neutral float-right" title="Searching" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="opac">
+<span id="opac-label"></span><h1>OPAC<a class="headerlink" href="#opac" title="永久链接至标题"></a></h1>
+<div class="section" id="search-results">
+<span id="search-results-opac-label"></span><h2>Search results<a class="headerlink" href="#search-results" title="永久链接至标题"></a></h2>
+<p>To search the OPAC you can either choose to enter your search words in
+the box at the top of the OPAC or click on the ‘Advanced search’ link to
+perform a more detailed search.</p>
+<p><img alt="image937" src="_images/searchbox.png" /></p>
+<p>For more on searching check the ‘<a class="reference external" href="#searching">Searching</a>’ chapter in
+this manual.</p>
+<div class="section" id="results-overview">
+<span id="results-overview-label"></span><h3>Results overview<a class="headerlink" href="#results-overview" title="永久链接至标题"></a></h3>
+<p>After performing a search the number of results found for your search
+will appear above the results</p>
+<p><img alt="image938" src="_images/totalresults-rss.png" /></p>
+<p>By default your search results will be sorted based on your
+<a class="reference internal" href="searchingpreferences.html#opacdefaultsortfield-and-opacdefaultsortorder-label"><span class="std std-ref">OPACdefaultSortField and OPACdefaultSortOrder</span></a>
+system preference values. To change this you can choose another sorting
+method from the pull down on the right.</p>
+<p><img alt="image939" src="_images/sortingresults.png" /></p>
+<p>Under each title on your results list a series of values from your
+leader will appear. It is important to note that this has nothing to do
+with the item types or collection codes you have applied to your
+records, this data is all pulled from your fixed fields. This can be
+turned on or off with the
+<a class="reference internal" href="opacpreferences.html#displayopaciconsxslt"><span class="std std-ref">DisplayOPACiconsXSLT</span></a> system preference.</p>
+<p><img alt="image940" src="_images/leader.png" /></p>
+<p>Below each title you will see the availability for the items attached to
+the record.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Even if you filtered on one library location all locations that hold
+the item will appear on the search results.</p>
+<p><strong>Important</strong></p>
+<p>An item’s hold status doesn’t not affect whether or not the item is
+‘available’ until the item is in ‘waiting’ status. Items with
+on-shelf holds will show as available until a librarian has pulled
+them from the shelf and checked the item in make it show ‘waiting’.</p>
+</div></blockquote>
+<p><img alt="image941" src="_images/holdings-results.png" /></p>
+<p>If you have turned on <a class="reference internal" href="enhancedcontentpreferences.html#enhanced-content-system-preferences-label"><span class="std std-ref">Enhanced content system preferences</span></a>
+preferences you may have book jackets on your search results.</p>
+<p><img alt="image942" src="_images/coverresults.png" /></p>
+<p>If you have set your <a class="reference internal" href="administration.html#did-you-mean-label"><span class="std std-ref">Did you mean?</span></a> options you will
+see a yellow bar across the top of your results will other related
+searches.</p>
+<p><img alt="image943" src="_images/didyoumeanopac.png" /></p>
+<p>If you performed an advanced search you see an option to go back and
+edit your advanced search blow the list of results pages.</p>
+<p><img alt="image1295" src="_images/editadvanced.png" /></p>
+</div>
+<div class="section" id="filters">
+<span id="filters-label"></span><h3>Filters<a class="headerlink" href="#filters" title="永久链接至标题"></a></h3>
+<p>To filter your results click on the links below the ‘Refine your search’
+menu on the left of your screen</p>
+<p><img alt="image944" src="_images/refineresults.png" /></p>
+<p>Depending on your setting for the
+<a class="reference internal" href="searchingpreferences.html#displaylibraryfacets"><span class="std std-ref">DisplayLibraryFacets</span></a> system preference you
+will see filters for your home, holding or both libraries.</p>
+<p><img alt="image1296" src="_images/locationfacet.png" /></p>
+<p>After clicking a facet you can remove that filter from your results by
+clicking the small ‘x’ that appears to the right of the facet.</p>
+<p><img alt="image1297" src="_images/removefilter.png" /></p>
+</div>
+<div class="section" id="search-rss-feeds">
+<span id="search-rss-feeds-label"></span><h3>Search RSS feeds<a class="headerlink" href="#search-rss-feeds" title="永久链接至标题"></a></h3>
+<p>You will be able to subscribe to your search results as an RSS feed by
+clicking the RSS icon in your address bar or next to the number of
+results. To learn more about what RSS feeds are check out <a class="reference external" href="http://www.youtube.com/watch?v=0klgLsSxGsU">this tutorial
+video</a>.</p>
+<p><img alt="image945" src="_images/totalresults-rss.png" /></p>
+<p>Subscribing to search results as RSS feeds will allow you to see when a
+new item is added to the catalog in your area of interest.</p>
+</div>
+</div>
+<div class="section" id="bibliographic-record">
+<span id="bibliographic-record-label"></span><h2>Bibliographic record<a class="headerlink" href="#bibliographic-record" title="永久链接至标题"></a></h2>
+<p>When you click on a title from the search results, you’re brought to the
+bibliographic detail of the record. This page is broken down in several
+different areas.</p>
+<p>At the top of your screen will be the title and the GMD:</p>
+<p><img alt="image946" src="_images/bibtitle.png" /></p>
+<p>Below the title the authors will be listed. These come from your 1xx and
+7xx fields. Clicking the author will run a search for other titles with
+that author.</p>
+<p><img alt="image947" src="_images/bibauthor.png" /></p>
+<p>If you have an authority file you will see a magnifying glass to the
+right of author (and other) authorities. Clicking that magnifying glass
+will take you directly to the authority record.</p>
+<p><img alt="image948" src="_images/authoritylink.png" /></p>
+<p>If you have your <a class="reference internal" href="opacpreferences.html#displayopaciconsxslt"><span class="std std-ref">DisplayOPACiconsXSLT</span></a>
+preference set to ‘show’ you will see a material type that is determined
+by values in your fixed fields (learn more in the <a class="reference internal" href="cataloging.html#material-type-cataloging-guide-label"><span class="std std-ref">XSLT material
+type icons</span></a> cataloging guide.</p>
+<p><img alt="image949" src="_images/bibleader.png" /></p>
+<p>Next you’ll see the description of the record you’re viewing:</p>
+<p><img alt="image950" src="_images/bibdetails.png" /></p>
+<p>Following that information you’ll find the subject headings which can be
+clicked to search for other titles on similar topics</p>
+<p><img alt="image951" src="_images/bibsubjects.png" /></p>
+<p>If your record has a table of contents or summary it will appear next to
+the ‘Summary’ or ‘Table of contents’ label</p>
+<p><img alt="image952" src="_images/bibsummary.png" /></p>
+<p>If your record has data in the 856 fields you’ll see the links to the
+right of the ‘Online resources’ label</p>
+<p><img alt="image953" src="_images/biblinks.png" /></p>
+<p>If the title you’re viewing is in a public list then you’ll see a list
+of those to the right of the ‘List(s) this item appears in’ label and if
+it has tags they will appear below the ‘Tags from this library’ label</p>
+<p><img alt="image954" src="_images/bibtags.png" /></p>
+<p>In the tabs below the details you will find your holdings data</p>
+<p><img alt="image955" src="_images/bibholdings.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holdingst).</li>
+</ul>
+</div></blockquote>
+<p>Any notes (5xx fields) that have been cataloged will appear under ‘Title
+notes’</p>
+<p><img alt="image956" src="_images/bibtitlenotes.png" /></p>
+<p>If the bibliographic record is linked to a subscription in the
+<a class="reference internal" href="serials.html#serials-label"><span class="std std-ref">Serials module</span></a>, there will be a ‘Subscriptions’ tab
+with the subscription and issues information.</p>
+<p><img alt="image1498" src="_images/subscriptiontab.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<ul class="simple">
+<li>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: subscriptionst).</li>
+</ul>
+</div></blockquote>
+<p>If you’re allowing comments they will appear in the next tab</p>
+<p><img alt="image957" src="_images/bibcomments.png" /></p>
+<p>And finally if you have enabled FRBR and you have other editions of the
+title in your collection you will see the ‘Editions’ tab.</p>
+<p><img alt="image958" src="_images/bibeditions.png" /></p>
+<p>To the right of the details you’ll find a series of boxes. The first box
+is a list of buttons to help navigate the search results. From there you
+can see the next or previous result from your search or return to the
+results.</p>
+<p><img alt="image959" src="_images/bibsearch.png" /></p>
+<p>Clicking ‘Browse results’ at the top of the right column will open up your
+search results on the detail page</p>
+<p><img alt="image960" src="_images/bibbrowseresults.png" /></p>
+<p>Below the search buttons you’ll find the links to place a hold, print
+the record, save the record to your lists, add it to your cart or send to a
+device (using a QR code).</p>
+<p>Another option that will appear on this right hand side bar (if a library is allowing purchase suggestions) is the ability to ‘Suggest for Purchase’.  Clicking this link will bring the user to the Purchase Suggestion form to fill out.</p>
+<p><img alt="image961" src="_images/biboptions.png" /></p>
+<p>Clicking ‘More searches’ will show the list of libraries you entered in
+your <a class="reference internal" href="opacpreferences.html#opacsearchfortitlein"><span class="std std-ref">OPACSearchForTitleIn</span></a> preference</p>
+<p><img alt="image962" src="_images/bibmoresearch.png" /></p>
+<p>Under the ‘Save record’ label you will find a series of file formats you
+can save the record as. This list can be customized by altering the
+<a class="reference internal" href="opacpreferences.html#opacexportoptions"><span class="std std-ref">OpacExportOptions</span></a> system preference.</p>
+<p><img alt="image963" src="_images/bibsave.png" /></p>
+<p>If at any time you want to change the view from the ‘Normal’ view to see
+the Marc or the ISBD you can click the tabs across the top of the record</p>
+<p><img alt="image964" src="_images/bibviews.png" /></p>
+</div>
+<div class="section" id="lists-and-the-cart">
+<span id="lists-and-cart-opac-label"></span><h2>Lists and the cart<a class="headerlink" href="#lists-and-the-cart" title="永久链接至标题"></a></h2>
+<p>A cart is a temporary holding place for records you’re interested in
+finding during this session. That means that once you log out of the
+OPAC or close the browser you lose the items in your cart. A list is a
+more permanent location for saving items. To learn more about lists,
+check the <a class="reference external" href="#stafflists">Lists in the staff client</a> chapter of this
+manual.</p>
+<div class="section" id="lists">
+<span id="lists-opac-label"></span><h3>Lists<a class="headerlink" href="#lists" title="永久链接至标题"></a></h3>
+<p>Patrons can manage their own private lists by visiting the ‘your lists’
+section of their account.</p>
+<p><img alt="image965" src="_images/nolists.png" /></p>
+<div class="section" id="creating-lists">
+<span id="creating-lists-label"></span><h4>Creating lists<a class="headerlink" href="#creating-lists" title="永久链接至标题"></a></h4>
+<p>Lists can also be created by choosing the ‘New list’ option in the ‘Add
+to’ menu on the search results</p>
+<p><img alt="image966" src="_images/addtonewlist.png" /></p>
+<p>To create a list the patron simply needs to click the ‘New list’ link
+and populate the form that appears</p>
+<p><img alt="image967" src="_images/publiclistpermissions.png" /></p>
+<p>The only field required is the ‘List name,’ but the patron can also
+choose how they want the list sorted and if the list is public or
+private.</p>
+<ul>
+<li><p class="first">A private list is managed by you and can be seen only by you
+(depending on your permissions settings below)</p>
+</li>
+<li><p class="first">A public list can be seen by everybody, but managed only by you
+(depending on your permissions settings below)</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>If you aren’t allowing patrons to create public lists with the
+<a class="reference internal" href="opacpreferences.html#opacallowpubliclistcreation"><span class="std std-ref">OpacAllowPublicListCreation</span></a>
+preference then patrons will only be able to create private lists.</p>
+<p><img alt="image968" src="_images/newlist.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Finally decide what your permissions will be on the list. You can all
+or disallow:</p>
+<ul>
+<li><p class="first">anyone else to add entries</p>
+</li>
+<li><p class="first">anyone to remove his own contributed entries</p>
+<ul>
+<li><p class="first"><strong>Note</strong></p>
+<blockquote>
+<div><p>The owner of a list is always allowed to add entries, but
+needs permission to remove.</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">anyone to remove other contributed entries</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="adding-titles-to-lists">
+<span id="adding-titles-to-lists-label"></span><h4>Adding titles to lists<a class="headerlink" href="#adding-titles-to-lists" title="永久链接至标题"></a></h4>
+<p>Titles can be added to lists from the search results and/or from the
+bibliographic record. On the search results options to add items to the
+list appear below each result and across the top of the results page</p>
+<p><img alt="image969" src="_images/addtolistcart.png" /></p>
+<p>To add a single title to a list, click the ‘Save to lists’ option and
+then choose the list you’d like to add the title to. To add multiple
+titles to a list check the boxes on the left of the titles you want to
+add and then choose the list you want to add the titles to from the ‘Add
+too’ pull down at the top of the screen.</p>
+</div>
+<div class="section" id="viewing-lists-contents">
+<span id="viewing-lists-contents-label"></span><h4>Viewing lists contents<a class="headerlink" href="#viewing-lists-contents" title="永久链接至标题"></a></h4>
+<p>To view the contents of a list, click on the list name under the ‘Lists’
+button.</p>
+<p><img alt="image970" src="_images/chooselist.png" /></p>
+<p>The contents of the list will look similar to your search results pages
+except that there will be different menu options across the top of the
+list.</p>
+<p><img alt="image971" src="_images/listview.png" /></p>
+<p>To the right of the list title there is an RSS icon that will allow you
+to subscribe to updates to the list.</p>
+<p>Using the menu options above the list you can place multiple items on
+hold, download the list contents, email the list or print the list out.</p>
+<ul>
+<li><p class="first">To place a hold on one or more list items check the box to the left
+of the item and click the ‘Place hold’ link at the top</p>
+</li>
+<li><p class="first">To download the list contents click the ‘Download list’ link and
+choose the format you’d like to download the list in</p>
+</li>
+<li><p class="first">To email the list contents to someone, click the ‘Send list’ link and
+enter in your email details in the form that pops up</p>
+<p><img alt="image972" src="_images/emailist.png" /></p>
+</li>
+<li><p class="first">To print the contents of your list out click the ‘Print list’ link</p>
+</li>
+</ul>
+</div>
+<div class="section" id="managing-lists">
+<span id="managing-lists-label"></span><h4>Managing lists<a class="headerlink" href="#managing-lists" title="永久链接至标题"></a></h4>
+<p>Once the list is saved patrons can begin adding items to it. From the
+‘your lists’ tab on the patron record the patron can edit and delete the
+lists they have created by clicking the appropriate link to the right of
+the list name.</p>
+<p><img alt="image973" src="_images/mylists.png" /></p>
+<p>To edit the list’s title or sorting patrons click the ‘Edit’ link to the
+right of the list description.</p>
+<p><img alt="image974" src="_images/editlist.png" /></p>
+<p>When clicking ‘Delete’ next to a list you will be asked to confirm that
+you want to delete the list.</p>
+<p><img alt="image975" src="_images/deletelist.png" /></p>
+<p>The list will not be deleted until the ‘Confirm’ button is clicked to
+the right of the list you’d like to delete.</p>
+<p>If the library is allowing you to share private lists with the
+<a class="reference internal" href="opacpreferences.html#opacallowsharingprivatelists"><span class="std std-ref">OpacAllowSharingPrivateLists</span></a>
+preference then you will see the ‘Share’ link on your list of lists and
+the ‘Share list’ link at the top of each individual list. Clicking this
+will ask you to enter the email address of a patron.</p>
+<p><img alt="image1298" src="_images/sharelist.png" /></p>
+<p>Once the email address is entered Koha will present you with a
+confirmation message</p>
+<p><img alt="image976" src="_images/shareconfirmation.png" /></p>
+<p>and will send a message to that patron.</p>
+</div>
+</div>
+<div class="section" id="cart">
+<span id="cart-opac-label"></span><h3>Cart<a class="headerlink" href="#cart" title="永久链接至标题"></a></h3>
+<div class="section" id="adding-titles-to-the-cart">
+<span id="adding-titles-to-the-cart-label"></span><h4>Adding titles to the cart<a class="headerlink" href="#adding-titles-to-the-cart" title="永久链接至标题"></a></h4>
+<p>Titles can be added to the cart from the search results and/or from the
+bibliographic record. On the search results options to add items to the
+cart appear below each result and across the top of the results page</p>
+<p><img alt="image977" src="_images/addtolistcart.png" /></p>
+<p>Clicking the ‘Add to cart’ button will add the one title to your cart.
+To add multiple titles at once, check the box to the left of each result
+and then choose ‘Cart’ from the ‘Add to’ pull down at the top of the
+screen. Once titles are added to the cart you will be presented with a
+confirmation</p>
+<p><img alt="image978" src="_images/addedtocart.png" /></p>
+<p>From the results you will see which items are in your cart and will be
+able to remove those items by clicking ‘(remove)’.</p>
+<p><img alt="image1299" src="_images/iteminyourcart.png" /></p>
+</div>
+<div class="section" id="managing-the-cart">
+<span id="managing-the-cart-label"></span><h4>Managing the cart<a class="headerlink" href="#managing-the-cart" title="永久链接至标题"></a></h4>
+<p>Once you have titles in your cart you can manage the contents by
+clicking on the ‘Cart’ button usually found at the top of the screen.
+Your cart will open in a new window.</p>
+<p><img alt="image979" src="_images/cartcontents.png" /></p>
+<p>From this window you are presented with several options. Across the top
+of the cart are several buttons.</p>
+<p>First is the ‘More details’ button. Clicking this will show you
+additional information about the titles in your cart (ISBNs, subjects,
+publisher info, notes and more).</p>
+<p><img alt="image1300" src="_images/cartmoredetails.png" /></p>
+<p>Next is the option to send the contents of your cart to an email
+address. This is handy if you want to send the resources you found at
+the library to your home email account to refer to later or to send to a
+patron researching a specific topic. Clicking this link will open up a
+new window that asks for the email address and message to send.</p>
+<p><img alt="image980" src="_images/emailcart.png" /></p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>The cart can only be emailed by logged in users. This will prevent
+your cart email function from being used for spamming.</p>
+</div></blockquote>
+<p>In addition to sending your cart you can download the contents of your
+cart in several pre-defined formats or using a <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV
+profile</span></a> that you defined in the tools module.</p>
+<p><img alt="image981" src="_images/downloadcart.png" /></p>
+<p>Finally you can print out the contents of your cart by choosing the
+‘Print’ link.</p>
+<p>In addition to the various different ways to save the contents of your
+cart, there are ways to add value to the data in your cart. By selecting
+one or more titles from the cart you can add them to a list (click ‘Add
+to a list’), place hold(s) (click ‘Place hold’), or tag them (click
+‘Tag’). All of these operations follow the same procedure as they do
+when performing them in the OPAC.</p>
+</div>
+</div>
+</div>
+<div class="section" id="placing-holds">
+<span id="placing-holds-label"></span><h2>Placing holds<a class="headerlink" href="#placing-holds" title="永久链接至标题"></a></h2>
+<p>Patrons can place holds on items via the OPAC if they’re logged in and
+you have the <a class="reference internal" href="opacpreferences.html#requestonopac"><span class="std std-ref">RequestOnOpac</span></a> preference set to
+‘Allow’. If the item can be placed on hold the option to place it on
+hold will appear in several different places.</p>
+<ul>
+<li><p class="first">When viewing a list or search results page you’ll see the option to
+place hold on multiple items by checking the boxes to the left of the
+results and clicking ‘Place hold’ at the top</p>
+<p><img alt="image982" src="_images/opacplaceholdresults.png" /></p>
+</li>
+<li><p class="first">When viewing a list or search results page you’ll see the option to
+place the item on hold below the basic information about the title</p>
+<p><img alt="image983" src="_images/opacplaceholdsindiv.png" /></p>
+</li>
+<li><p class="first">When viewing an individual title you’ll see the option to place a
+hold in the box on the right side of the screen</p>
+<p><img alt="image984" src="_images/opacplaceholdsdetail.png" /></p>
+</li>
+</ul>
+<p>No matter which of the above links you click to place your hold you’ll
+be brought to the same hold screen.</p>
+<p><img alt="image985" src="_images/opacplacehold.png" /></p>
+<ul>
+<li><p class="first">Check the box to the left of the items you’d like to place on hold</p>
+</li>
+<li><p class="first">The title includes a link back to the detail page for the record</p>
+</li>
+<li><p class="first">The priority shows where in the holds queue this hold will fall</p>
+</li>
+<li><p class="first">If allowed by your
+<a class="reference internal" href="circulationpreferences.html#opacallowusertochoosebranch"><span class="std std-ref">OPACAllowUserToChooseBranch</span></a>
+preference the patron can choose where they’d like to pick up their
+hold. The list of available pickup locations will include all libraries that
+have ‘Pickup location’ set to ‘Yes’ on the library configuration page.</p>
+</li>
+<li><p class="first">If you would like to see more options you can click ‘Show more
+options’</p>
+<p>Place hold form with more options</p>
+<ul>
+<li><p class="first">If you have the
+<a class="reference internal" href="circulationpreferences.html#allowholditemtypeselection"><span class="std std-ref">AllowHoldItemTypeSelection</span></a>
+preference set to ‘Allow’ and the record had more than one item
+type attached you will see an option to choose to limit the hold
+to a specific item type</p>
+<p><img alt="image1301" src="_images/AllowHoldItemTypeSelection1.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">If allowed by your
+<a class="reference internal" href="circulationpreferences.html#opacallowholddateinfuture"><span class="std std-ref">OPACAllowHoldDateInFuture</span></a>
+preference, the ‘Hold starts on date’ column will show. This field
+allows the patron to have their hold start on a future date.</p>
+</li>
+<li><p class="first">By default holds placed in the system remain until canceled, but if
+the patron fills in a ‘Hold not needed after’ date then the hold has
+an expiration date.</p>
+<ul>
+<li><p class="first"><strong>Important</strong></p>
+<blockquote>
+<div><p>Expired holds are removed by the <a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">expired holds cron
+job</span></a>, this is not an automatic process
+and must be set up by your system administrator</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">If allowed by the <a class="reference internal" href="opacpreferences.html#opacholdnotes"><span class="std std-ref">OpacHoldNotes</span></a> preference then
+patrons can leave notes about their holds for the library by clicking
+the ‘Edit notes’ button</p>
+<p><img alt="image986" src="_images/holdnote.png" /></p>
+</li>
+<li><p class="first">Depending on the rules you set regarding item specific holds in your
+<a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a> the patron will be
+allowed to choose whether to place the hold on the next available
+copy and/or a specific copy.</p>
+<p><img alt="image987" src="_images/opacplaceholdspecific.png" /></p>
+</li>
+</ul>
+<p>After clicking the ‘Place hold’ button the patron will be brought to their
+account page where they’ll see all of the items they have on hold.</p>
+</div>
+<div class="section" id="enhanced-content">
+<span id="enhanced-content-opac-label"></span><h2>Enhanced content<a class="headerlink" href="#enhanced-content" title="永久链接至标题"></a></h2>
+<div class="section" id="tagging">
+<span id="opac-tagging-label"></span><h3>Tagging<a class="headerlink" href="#tagging" title="永久链接至标题"></a></h3>
+<p>Depending on your settings for the <a class="reference internal" href="enhancedcontentpreferences.html#tagsenabled"><span class="std std-ref">TagsEnabled</span></a>,
+<a class="reference internal" href="enhancedcontentpreferences.html#tagsinputonlist"><span class="std std-ref">TagsInputOnList</span></a> and
+<a class="reference internal" href="enhancedcontentpreferences.html#tagsinputondetail"><span class="std std-ref">TagsInputOnDetail</span></a> preferences you may be able
+to add tags to bibliographic records from the search results and/or
+bibliographic records. If you are allowing patrons to add tags from the
+search results screen you will see an input box below each result and a
+‘Tag’ option at the top of the screen.</p>
+<p><img alt="image988" src="_images/tags-results.png" /></p>
+<p>To add a tag to one item, type the tabs (separated by commas) in the
+‘New tag’ box and click ‘Add’. You will be presented with a confirmation
+of your tags being added.</p>
+<p><img alt="image989" src="_images/tagsadded-results.png" /></p>
+<p>From the results you can also tag items in bulk by clicking the
+checkboxes on the left and then clicking the ‘Tag’ button at the top.
+After clicking the button it will change into an input box for you to
+add tags to all of the items you have selected.</p>
+<p><img alt="image990" src="_images/tagaddmultiple-results.png" /></p>
+<p>Emojis can also be included using the emoji picker when adding tags</p>
+<p><img alt="image1341" src="_images/emojipicker.png" /></p>
+</div>
+<div class="section" id="comments">
+<span id="opac-comments-label"></span><h3>Comments<a class="headerlink" href="#comments" title="永久链接至标题"></a></h3>
+<p>Patrons can leave comments in the OPAC if you have the
+<a class="reference internal" href="opacpreferences.html#opaccomments"><span class="std std-ref">OPACComments</span></a> preference set to allow this. Each
+bibliographic record has a comments tab below the bibliographic
+information.</p>
+<p><img alt="image991" src="_images/commentstab.png" /></p>
+<p>If the patron is logged in they will see a link to add a comment to the
+item. Clicking this link will open a pop up window with a box for their
+comments.</p>
+<p><img alt="image992" src="_images/addcomment.png" /></p>
+<p>Once the comment has been typed and the ‘Submit’ button clicked, the
+patron will see their comment as pending and other patrons will simply
+see that there are no comments on the item.</p>
+<p><img alt="image993" src="_images/commentpending.png" /></p>
+<p>Once the comment is approved the patron will see the number of comments
+on the ‘Comments’ tab and their comment labeled amongst the other
+comments. If you have set your
+<a class="reference internal" href="opacpreferences.html#showreviewerphoto"><span class="std std-ref">ShowReviewerPhoto</span></a> preference to ‘Show’ then
+you’ll see the patron’s photo pulled from the
+<a class="reference external" href="https://www.libravatar.org">Libravatar</a> library.</p>
+<p><img alt="image994" src="_images/yourcomment.png" /></p>
+<p>Other patrons will see the comment with the name of the patron who left
+the comment (unless you have set the <a class="reference internal" href="opacpreferences.html#showreviewer"><span class="std std-ref">ShowReviewer</span></a>
+preference to not show patron names).</p>
+<p><img alt="image995" src="_images/commentby.png" /></p>
+<p>If you have your <a class="reference internal" href="opacpreferences.html#opacshowrecentcomments"><span class="std std-ref">OpacShowRecentComments</span></a>
+set to show then you’ll see the approved comments on that page.</p>
+<p><img alt="image996" src="_images/recentcomments.png" /></p>
+<p>From this page patrons can subscribe to the recent comments using RSS if
+they would like.</p>
+</div>
+<div class="section" id="zotero">
+<span id="zotero-label"></span><h3>Zotero<a class="headerlink" href="#zotero" title="永久链接至标题"></a></h3>
+<p>Zotero is a Firefox add on that allows for the saving and generating of
+a bibliography. Learn more about and download Zotero at
+<a class="reference external" href="http://zotero.org">http://zotero.org</a>.</p>
+<p>When on the search results in the Koha OPAC, if you have Zotero
+installed, you will see a folder icon in the address bar to the right of
+the URL. Clicking that folder will open up a list of titles on the page
+for you to pick from to add to Zotero.</p>
+<p><img alt="image997" src="_images/zoteroaddressbar.png" /></p>
+<p>Select the titles you want to add to Zotero and then click the ‘OK’
+button. This will add the title to Zotero. You can see the title by
+opening your Zotero library.</p>
+<p><img alt="image998" src="_images/zoterotitle.png" /></p>
+</div>
+<div class="section" id="custom-rss-feeds">
+<span id="custom-rss-feeds-label"></span><h3>Custom RSS feeds<a class="headerlink" href="#custom-rss-feeds" title="永久链接至标题"></a></h3>
+<p>Using the <a class="reference internal" href="cron_jobs.html#cron-rss-feeds-label"><span class="std std-ref">RSS feeds cron job</span></a> you can generate an RSS feed for any SQL
+query (for example a new acquisitions RSS feed). The cron job is run on the
+command line to produce an RSS XML document.</p>
+<p>The output should be placed in a directory accessible to the OPAC (or
+staff) web interface so that users can download the RSS feed.</p>
+<p>An example of usage can be found at: misc/cronjobs/rss.pl
+lastAcquired.conf</p>
+<p>Normally the RSS cron job should be run periodically (e.g., daily) to keep the
+feed up-to-date.</p>
+<p>The configuration file (e.g., lastAcquired.conf) lists</p>
+<ul class="simple">
+<li>name of the template file to use</li>
+<li>path of output file</li>
+<li>SQL query</li>
+</ul>
+<p>The RSS cron job runs the SQL query, then feeds the output of the query through
+the template to produce the output file.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>To use custom RSS feeds you need to turn on the <a class="reference internal" href="cron_jobs.html#cron-rss-feeds-label"><span class="std std-ref">RSS cron job</span></a>.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="opac-self-registration">
+<span id="opac-self-registration-label"></span><h2>OPAC self registration<a class="headerlink" href="#opac-self-registration" title="永久链接至标题"></a></h2>
+<p>If you allow it, patrons can register for their own accounts via the
+OPAC. If you have the
+<a class="reference internal" href="opacpreferences.html#patronselfregistration"><span class="std std-ref">PatronSelfRegistration</span></a> preference set to
+‘Allow’ then patrons will see a link to register below the log in box on
+the right of the main OPAC page.</p>
+<p><img alt="image999" src="_images/PatronSelfRegistration.png" /></p>
+<p>When the patron clicks the ‘Register here’ link they will be brough to a
+registration page. The options on the registration page can be conrolled
+by editing the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationborrowermandatoryfield"><span class="std std-ref">PatronSelfRegistrationBorrowerMandatoryField</span></a>
+and the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationborrowerunwantedfield"><span class="std std-ref">PatronSelfRegistrationBorrowerUnwantedField</span></a>
+preferences.</p>
+<p><img alt="image1000" src="_images/patronregistration.png" /></p>
+<p>Once the patron has confirmed submitted their registration they will
+either be sent an email to confirm their account (if you have the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationverifybyemail"><span class="std std-ref">PatronSelfRegistrationVerifyByEmail</span></a>
+preference to require this) or presented with their new username and
+password.</p>
+<p><img alt="image1001" src="_images/patronregistrationcomplete.png" /></p>
+<p>Patrons registered in this way will not have a cardnumber until assigned
+one by the library, but will have access to all OPAC functionality
+immediately. For this reason it is recommended that you:</p>
+<ul class="simple">
+<li>set up a provisional <a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">patron category</span></a> for self
+registered patrons (such as ‘Self Registered) instead of using an
+existing patron category and set that value in the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationdefaultcategory"><span class="std std-ref">PatronSelfRegistrationDefaultCategory</span></a>
+preference</li>
+<li>give this patron category minimal circulation privileges in the
+<a class="reference internal" href="administration.html#circulation-and-fines-rules"><span class="std std-ref">Circulation and fines rules</span></a> (such as allowing a
+couple holds, but no check outs)</li>
+</ul>
+<p>That way patrons will either have to come in to the library to verify
+their identity before given a cardnumber and the ability to check items
+out or the library will have to come up with internal policy on
+generating cardnumbers before providing them to self registered patrons.
+Once this is done the library can change the category to one that is
+more appropriate (be it an adult, resident, non resident, student, etc)
+and add a cardnumber/barcode.</p>
+</div>
+<div class="section" id="your-account">
+<span id="your-account-label"></span><h2>Your account<a class="headerlink" href="#your-account" title="永久链接至标题"></a></h2>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacuserlogin"><span class="std std-ref">opacuserlogin</span></a> system preferenceis set to ‘Allow’, patrons can
+log in and access their account.</p>
+<p>Once logged in patrons are brought to their
+<a class="reference internal" href="#your-summary-label"><span class="std std-ref">account summary</span></a>.</p>
+<p>If patrons access the home page while logged in, and <a class="reference internal" href="opacpreferences.html#opacusersummary"><span class="std std-ref">OPACUserSummary</span></a> is
+set to ‘Show’, they will see a small summary of their account instead of the
+login fields.</p>
+<p><img alt="A small box with the number of checkouts, overdues, holds and pending charges has replaced the login fields" src="_images/OPACUserSummary.png" /></p>
+<p>From any page on the OPAC, clicking on their name at the top right of the page
+will bring a patron back to their account.</p>
+<div class="section" id="resetting-your-password">
+<span id="resetting-your-password-label"></span><h3>Resetting your password<a class="headerlink" href="#resetting-your-password" title="永久链接至标题"></a></h3>
+<p>If you have the <a class="reference internal" href="opacpreferences.html#opacresetpassword"><span class="std std-ref">OpacResetPassword</span></a> system preference set to ‘Allow’,
+patrons can reset their password by clicking the ‘Forgot your password?’
+link found under the login box.</p>
+<p><img alt="Under the login fields, there is a 'Forgot your password' link" src="_images/forgotpwlink.png" /></p>
+<p>Once clicked, they will be presented with a form asking for their
+username and their email address.</p>
+<p><img alt="The reset password form" src="_images/resetpw.png" /></p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>Patrons <strong>must</strong> have an email address on file to reset their password.
+If they don’t have an email address already in their file, they will get
+an error message</p>
+<p class="last"><img alt="An error message says No account was found with the provided information. Please contact the library if you need further assistance." src="_images/reseterror.png" /></p>
+</div>
+<p>The system will then email the patron instructions for resetting their
+password.</p>
+<p><img alt="Confirmation message says You will receive an email shortly. Please click the link in this email to finish the process of resetting your password. This link is valid for 2 days starting now. Return to the main page" src="_images/resetconfirm.png" /></p>
+<p>The content of the email can be cutomized with the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. The code of the letter
+is PASSWORD_RESET.</p>
+</div>
+<div class="section" id="your-summary">
+<span id="your-summary-label"></span><h3>Your summary<a class="headerlink" href="#your-summary" title="永久链接至标题"></a></h3>
+<p>From the ‘your summary’ tab, patrons will see all of the items they have
+checked out with the overdue items highlighted in red.</p>
+<p><img alt="View of the account summary on the OPAC" src="_images/yoursummary.png" /></p>
+<p>If <a class="reference internal" href="opacpreferences.html#opacrenewalallowed"><span class="std std-ref">OpacRenewalAllowed</span></a> set to ‘Allow’, patrons will be able to renew
+their checkouts from the OPAC.</p>
+<p>If the patron has pending charges exceeding the value set in
+<a class="reference internal" href="opacpreferences.html#opacfinenorenewals"><span class="std std-ref">OPACFineNoRenewals</span></a>, a note will display explaining that renewals cannot
+be made.</p>
+<p><img alt="Warning message saying Please note You cannot renew your books online. Reason: Your fines exceed 1.00." src="_images/OPACFineNoRenewals.png" /></p>
+<p>A note will display if the patron cannot place holds due to their charges
+exceeding the value set in the <a class="reference internal" href="circulationpreferences.html#maxoutstanding"><span class="std std-ref">maxoutstanding</span></a> system preference.</p>
+<p><img alt="Warning message saying Please note Your account has outstanding fees &amp; charges of 2.00. Holds are blocked because your fine balance is over the limit." src="images/opac/maxoutstanding.png" /></p>
+<p>If <a class="reference internal" href="patronspreferences.html#allowpatrontocontrolautorenewal"><span class="std std-ref">AllowPatronToControlAutoRenewal</span></a> is set to ‘Allow patrons’, patrons
+will be able to choose whether or not they want their checkouts to be
+renewed automatically.</p>
+<p><img alt="An option to update auto-renewal preferences" src="_images/allowautorenewal.png" /></p>
+<p>If you have HTML entered in the <a class="reference internal" href="opacpreferences.html#opacmysummaryhtml"><span class="std std-ref">OPACMySummaryHTML</span></a>
+preference then you will see that to the right of the ‘Fines’ column.</p>
+<p>If your patrons would like to see the items barcodes on their list of
+checked out items you can set up a <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">patron
+attribute</span></a> with the value of SHOW_BCODE and
+<a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized value</span></a> of YES_NO.</p>
+<p><img alt="image1005" src="_images/SHOW_BCODEadd.png" /></p>
+<p>Then on the <a class="reference internal" href="patrons.html#editing-patrons-label"><span class="std std-ref">patron’s record set the value</span></a> for
+SHOW_BCODE to yes.</p>
+<p><img alt="image1006" src="_images/SHOW_BCODEattribute.png" /></p>
+<p>This will add a column to the check out summary in the OPAC that shows
+the patrons the barcodes of the items they have checked out.</p>
+<p><img alt="image1007" src="_images/barcodeoncheckouts.png" /></p>
+<p>If you would like your patrons to leave a note on an item they have checked out
+<a class="reference internal" href="circulationpreferences.html#allowcheckoutnotes"><span class="std std-ref">AllowCheckoutNotes</span></a> preference must be set to allow.</p>
+<p>In the patron’s summary of checkouts, there will be an added column
+to allow the patron to leave a note (for example:  missing first page, or DVD is
+scratched).  This note once confirmed by the patron will appear to the staff
+at the bottom of the staff interface’s home page, and also when the item is checked in.</p>
+<p><img alt="image1391" src="_images/checkoutnote.png" /></p>
+<p>If their guarantee has allowed it via <a class="reference internal" href="#your-privacy-label"><span class="std std-ref">their
+privacy</span></a>, when the guarantor logs in they will see a
+tab labeled “Relatives’ checkouts” on their summary tab.</p>
+<p><img alt="image1304" src="_images/relativecheckouts.png" /></p>
+<p>Clicking on the ‘Overdue’ tab will show only the items that are overdue.</p>
+<p><img alt="image1008" src="_images/myoverdues.png" /></p>
+<p>The ‘Fines’ tab will show just a total of what the patron owes. Clicking
+on the total will take them to the ‘your fines’ tab where they will see a
+complete breakdown of their fines and bills. If you don’t charge fines
+at your library you can turn the display of these tabs off by setting
+the <a class="reference internal" href="opacpreferences.html#opacfinestab"><span class="std std-ref">OPACFinesTab</span></a> preference to ‘Don’t allow.’</p>
+<p><img alt="image1009" src="_images/myfines.png" /></p>
+<p>Finally, clicking on the ‘Holds’ tab will show the patron the status of
+all of the items they have on hold.</p>
+<p><img alt="image1010" src="_images/myholds.png" /></p>
+<p>Patrons can cancel or suspend (depending on the value of your
+<a class="reference internal" href="circulationpreferences.html#suspendholdsopac"><span class="std std-ref">SuspendHoldsOpac</span></a> system preference) their own
+holds if they are not in transit or already waiting for them. When they
+click ‘Suspend’ they will be presented with the option to choose a date
+for their hold to resume.</p>
+<p><img alt="image1305" src="_images/suspenduntil.png" /></p>
+<p>They can also suspend all of their holds indefinitely or until a
+specific date if they choose by filling in the suspend options at the
+bottom of the page.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>If you have your
+<a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> preference
+set to “Don’t allow” then you will not have the option to put an end
+date on the hold suspension</p>
+</div></blockquote>
+</div>
+<div class="section" id="patron-flags">
+<span id="patron-flags-label"></span><h3>Patron flags<a class="headerlink" href="#patron-flags" title="永久链接至标题"></a></h3>
+<p>If you have <a class="reference external" href="#patronflags">flagged your patron’s account</a> they may
+see one of the following error messages at the top of their account.</p>
+<ul>
+<li><p class="first">Card marked as lost</p>
+<p><img alt="image1011" src="_images/nocard.png" /></p>
+</li>
+<li><p class="first">Patron address in question</p>
+<p><img alt="image1012" src="_images/noaddress.png" /></p>
+<ul>
+<li><p class="first"><strong>Note</strong></p>
+<blockquote>
+<div><p>this error message will not include a link to the update form
+if you have <a class="reference internal" href="opacpreferences.html#opacpatrondetails"><span class="std std-ref">OPACPatronDetails</span></a> set to
+‘Don’t allow’</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">Patron marked restricted</p>
+<p><img alt="image1013" src="_images/debarred.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="your-fines">
+<span id="your-fines-label"></span><h3>Your fines<a class="headerlink" href="#your-fines" title="永久链接至标题"></a></h3>
+<p>If your library charges fines the next tab on the left is ‘your fines’.
+Opening this tab will show the patron an entire history of their
+accounting at the library.</p>
+<p><img alt="image1014" src="_images/mybilling.png" /></p>
+<p>If you are allowing patrons to pay their fines using PayPal with the
+<a class="reference internal" href="opacpreferences.html#enablepaypalopacpayments-and-paypalsandboxmode-label"><span class="std std-ref">EnablePayPalOpacPayments</span></a> preference
+there will be checkboxes to the left of each fine with an outstanding
+amount.</p>
+<p><img alt="image1306" src="_images/finescheckboxes.png" /></p>
+<p>At the bottom the patron will see the option to pay with PayPal for the
+items they have checked.</p>
+<p><img alt="image1015" src="_images/paypaypal.png" /></p>
+<p>After paying they will be presented with a confirmation</p>
+<p><img alt="image1307" src="_images/paypalconfirm.png" /></p>
+<p>And you will see that the fine was paid using PayPal on the staff
+side.</p>
+<p><img alt="image1308" src="_images/staffpaypal.png" /></p>
+</div>
+<div class="section" id="your-personal-details">
+<span id="your-details-label"></span><h3>Your personal details<a class="headerlink" href="#your-personal-details" title="永久链接至标题"></a></h3>
+<p>If you have your <a class="reference internal" href="opacpreferences.html#opacpatrondetails"><span class="std std-ref">OPACPatronDetails</span></a> preference
+set to ‘Allow’, your patrons will see a form filled in with their
+contacting information by clicking on the ‘Your personal details’ tab. You
+can control what fields patrons see and can modify via the OPAC by
+setting the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationborrowermandatoryfield"><span class="std std-ref">PatronSelfRegistrationBorrowerMandatoryField</span></a>
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationborrowerunwantedfield"><span class="std std-ref">PatronSelfRegistrationBorrowerUnwantedField</span></a>
+preferences.</p>
+<p><img alt="image1016" src="_images/myprofile.png" /></p>
+<p>Patrons can edit their details in this form and click ‘Submit changes’
+to have their edits sent to the library for review before their record
+is updated. Staff will see all patrons requesting modification to their
+record listed below the modules on the main dashboard along with
+anything else awaiting library attention.</p>
+<p><img alt="image1017" src="_images/patronrequestwaiting.png" /></p>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacpatrondetails"><span class="std std-ref">OPACPatronDetails</span></a> preference is set to
+‘Don’t allow’ then patrons will simply see their details and a message
+stating that they should contact the library for changes.</p>
+<p><img alt="image1018" src="_images/myprofile-noedit.png" /></p>
+</div>
+<div class="section" id="your-tags">
+<span id="your-tags-label"></span><h3>Your tags<a class="headerlink" href="#your-tags" title="永久链接至标题"></a></h3>
+<p>If your library has <a class="reference internal" href="enhancedcontentpreferences.html#tagsenabled"><span class="std std-ref">TagsEnabled</span></a> set to ‘Allowed’ then
+the next tab on the left will be ‘your tags’. This tab will show patrons
+all of the tags in the system as a cloud and then all of the tags they
+have applied in a list format. From here patrons have the ability to
+remove tags that they have added if they want.</p>
+<p><img alt="image1019" src="_images/mytags.png" /></p>
+</div>
+<div class="section" id="change-your-password">
+<span id="change-your-password-label"></span><h3>Change your password<a class="headerlink" href="#change-your-password" title="永久链接至标题"></a></h3>
+<p>Next, if you have <a class="reference internal" href="opacpreferences.html#opacpasswordchange"><span class="std std-ref">OpacPasswordChange</span></a> set to
+‘Allow’ the next tab will be ‘change your password,’ where patrons can
+change their password for logging into the OPAC. Patrons will be
+presented with a standard form asking them to enter their old password
+and then their new password twice.</p>
+<p><img alt="image1020" src="_images/mypassword.png" /></p>
+</div>
+<div class="section" id="your-search-history">
+<span id="your-search-history-label"></span><h3>Your search history<a class="headerlink" href="#your-search-history" title="永久链接至标题"></a></h3>
+<p>If you have your <a class="reference internal" href="opacpreferences.html#enableopacsearchhistory"><span class="std std-ref">EnableOpacSearchHistory</span></a>
+preference set to ‘Allow’ then your patrons can access their search
+history via the ‘your search history’ tab.</p>
+<p><img alt="image1021" src="_images/mysearchhistory.png" /></p>
+<p>The search history is a record of all searches run by the patron.
+Clicking on any of the search phrases will re-run the search for the
+patron. The search history can be deleted by the patron at any time by
+clicking the ‘Delete your search history’ link found at the top of this
+tab or by clicking the little red ‘x’ next to the ‘Search history’ link
+at the top right of the OPAC.</p>
+<p><img alt="image1022" src="_images/searchistory.png" /></p>
+</div>
+<div class="section" id="your-checkout-history">
+<span id="your-checkout-history-label"></span><h3>Your checkout history<a class="headerlink" href="#your-checkout-history" title="永久链接至标题"></a></h3>
+<p>Depending on your library’s setting for
+<a class="reference internal" href="opacpreferences.html#opacreadinghistory"><span class="std std-ref">opacreadinghistory</span></a> your patrons may see the
+‘your checkout history’ tab next. This will show the patron their entire
+borrowing history unless they have asked the library to not keep that
+information via the ‘your privacy’ tab which will appear if you have the
+<a class="reference internal" href="opacpreferences.html#opacprivacy"><span class="std std-ref">OPACPrivacy</span></a> preference set to ‘Allow.’</p>
+<p><img alt="image1023" src="_images/myhistory.png" /></p>
+</div>
+<div class="section" id="your-privacy">
+<span id="your-privacy-label"></span><h3>Your privacy<a class="headerlink" href="#your-privacy" title="永久链接至标题"></a></h3>
+<p>The ‘your privacy’ tab will appear if you have both the
+<a class="reference internal" href="opacpreferences.html#opacreadinghistory"><span class="std std-ref">opacreadinghistory</span></a> and the
+<a class="reference internal" href="opacpreferences.html#opacprivacy"><span class="std std-ref">OPACPrivacy</span></a> preferences set to ‘Allow.’ This tab will
+allow the patrons to decide how the library keeps their circulation
+history data.</p>
+<p><img alt="image1024" src="_images/myprivacy.png" /></p>
+<p>The patron can choose from three options:</p>
+<ul class="simple">
+<li>Forever: keep my reading history without limit. This is the option
+for users who want to keep track of what they are reading.</li>
+<li>Default: keep my reading history according to local laws. This is the
+default option : the library will keep your reading history for the
+duration permitted by local laws.</li>
+<li>Never: Delete my reading history immediately. This will delete all
+record of the item that was checked-out upon check-in.</li>
+</ul>
+<p>Depending on the patron’s suggestions the contents of the ‘<a class="reference internal" href="#your-checkout-history-label"><span class="std std-ref">Your reading
+history</span></a>’ tab and the ‘<a class="reference internal" href="patrons.html#circulation-history-label"><span class="std std-ref">Circulation
+History</span></a>’ tab in the staff client may change.</p>
+<p>Regardless of the patron’s choice they can delete their reading history
+in bulk at any time by clicking the ‘Immediate deletion’ button.</p>
+<p><img alt="image1025" src="_images/deletecirchistory.png" /></p>
+<p>Clicking this button will not delete items that are currently checked
+out, but will clear the patron’s past reading history.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>In order for the patron to be able to delete their reading history
+you must have the <a class="reference internal" href="opacpreferences.html#anonymouspatron"><span class="std std-ref">AnonymousPatron</span></a> preference
+set.</p>
+</div></blockquote>
+<p>If you’re allowing guarantees to grand permission to their guarantors to
+view their current checkouts with the
+<a class="reference internal" href="opacpreferences.html#allowpatrontosetcheckoutsvisibilityforguarantor"><span class="std std-ref">AllowPatronToSetCheckoutsVisibilityForGuarantor</span></a>
+preference they will see that option on this
+screen.</p>
+<p><img alt="image1309" src="_images/AllowPatronToSetCheckoutsVisibilityForGuarantor.png" /></p>
+<p>When the guarantor logs in they will see a tab labeled “Relatives’
+checkouts” on their summary tab.</p>
+<p><img alt="image1310" src="_images/relativecheckouts.png" /></p>
+</div>
+<div class="section" id="your-holds-history">
+<span id="your-holds-history-label"></span><h3>Your holds history<a class="headerlink" href="#your-holds-history" title="永久链接至标题"></a></h3>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacholdshistory"><span class="std std-ref">OPACHoldsHistory</span></a> system preference is set to ‘Allow’, patrons
+will be able to see all their current and past holds.</p>
+<p><img alt="Screenshot of the holds history table in the patron's account on the OPAC." src="_images/opacholdshistory.png" /></p>
+</div>
+<div class="section" id="your-purchase-suggestions">
+<span id="your-purchase-suggestions-label"></span><h3>Your purchase suggestions<a class="headerlink" href="#your-purchase-suggestions" title="永久链接至标题"></a></h3>
+<p>If your library allows patrons to make purchase suggestions the next tab
+will show all suggestions that the patron made to the library and their
+statuses. To disable this tab and the suggestion functionality set the
+<a class="reference internal" href="opacpreferences.html#suggestion"><span class="std std-ref">suggestion</span></a> preference to ‘Don’t allow.’</p>
+<p><img alt="image1026" src="_images/mysuggestions1.png" /></p>
+<p>If you have <a class="reference internal" href="opacpreferences.html#opacviewotherssuggestions"><span class="std std-ref">OPACViewOthersSuggestions</span></a>
+set to ‘Show’ then patrons will be able to search suggestions from the
+top of this list.</p>
+</div>
+<div class="section" id="your-messaging">
+<span id="your-messaging-label"></span><h3>Your messaging<a class="headerlink" href="#your-messaging" title="永久链接至标题"></a></h3>
+<p>If your library has the
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences"><span class="std std-ref">EnhancedMessagingPreferences</span></a> and the
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+preferences set to ‘Allow’ then your patrons will be able to choose
+which messages they receive from the library (with the exception of
+overdue notices which the library controls).</p>
+<p><img alt="image1027" src="_images/mymessages.png" /></p>
+<p>If you use an outside driver for sending text messages set with the
+<a class="reference internal" href="patronspreferences.html#smssenddriver"><span class="std std-ref">SMSSendDriver</span></a> preference, you will see an
+additional column to receive these messages as SMS (or text messages)
+and a field for a cell (or SMS) number.</p>
+<p><img alt="image1028" src="_images/OPACSMSSendDriver.png" /></p>
+<p>If you are using the Email protocol for sending text messages set with
+the <a class="reference internal" href="patronspreferences.html#smssenddriver"><span class="std std-ref">SMSSendDriver</span></a> preference, you will see an
+additional column to receive these messages as SMS (or text messages), a
+field for a cell (or SMS) number, and a pull down listing <a class="reference internal" href="administration.html#sms-cellular-providers-label"><span class="std std-ref">cellular
+providers entered in administration</span></a>.</p>
+<p><img alt="image1029" src="_images/smsopac.png" /></p>
+<p>If you are using the <a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification-label"><span class="std std-ref">Itiva Talking
+Tech</span></a> service you will see an
+additional column to receive these messages via Phone.</p>
+<p><img alt="image1311" src="_images/opacphonemsg.png" /></p>
+<ul class="simple">
+<li>These notices are:<ul>
+<li>Advanced notice: A notice in advance of the patron’s items being
+due (The patron can choose the number of days in advance)</li>
+<li>Item checkout: A notice that lists all the of the items the
+patron has just checked out and/or renewed, this is an electronic
+form of the checkout receipt</li>
+<li>Hold filled: A notice when you have confirmed the hold is waiting
+for the patron</li>
+<li>Item due: A notice on the day and item is due back at the library</li>
+<li>Item check-in: A notice that lists all the of the items the
+patron has just checked in</li>
+</ul>
+</li>
+</ul>
+<p>Patrons can choose to receive their notices as a digest by checking the
+‘Digest only?’ box along with the delivery method. A digest is a
+combination of all the messages of that type (so all items due in 3 days
+in one email) in to one email instead of multiple emails for each alert.</p>
+<p>If the <a class="reference internal" href="i18npreferences.html#translatenotices"><span class="std std-ref">TranslateNotices</span></a> preference is set to Allow the patron will also see
+an option to choose ‘Preferred language for notices’ with a dropdown list of available languages.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>You must choose a delivery method (SMS or email or phone) along with
+‘Digest only?’ if you would like to receive a digest of the
+messages.</p>
+</div></blockquote>
+</div>
+<div class="section" id="your-lists">
+<span id="your-lists-label"></span><h3>Your lists<a class="headerlink" href="#your-lists" title="永久链接至标题"></a></h3>
+<p>If your library has the <a class="reference internal" href="administrationpreferences.html#virtualshelves"><span class="std std-ref">virtualshelves</span></a>
+set to ‘Allow’ they will see the ‘your lists’ tab. From here your
+patrons can review public lists and create or edit their own private
+lists.</p>
+<p><img alt="image1030" src="_images/mylists.png" /></p>
+</div>
+<div class="section" id="ask-for-a-discharge">
+<span id="ask-for-a-discharge-label"></span><h3>Ask for a discharge<a class="headerlink" href="#ask-for-a-discharge" title="永久链接至标题"></a></h3>
+<p>If you have enabled the <a class="reference internal" href="patronspreferences.html#usedischarge"><span class="std std-ref">useDischarge</span></a> preference then
+patrons will be able to request a discharge via the OPAC.</p>
+<p><img alt="image1312" src="_images/dischargetab.png" /></p>
+<p>From here patrons can request a discharge</p>
+<p><img alt="image1031" src="_images/dischargeopac.png" /></p>
+<p>And will receive confirmation of their request.</p>
+<p><img alt="image1032" src="_images/dischargeopac-confirm.png" /></p>
+</div>
+<div class="section" id="your-routing-lists">
+<span id="your-routing-lists-label"></span><h3>Your routing lists<a class="headerlink" href="#your-routing-lists" title="永久链接至标题"></a></h3>
+<p>If you are named as a recipient on
+any <a class="reference internal" href="serials.html#create-a-routing-list-label"><span class="std std-ref">serial routing lists</span></a> you will see them
+listed here. The following note is displayed “You are subscribed to the
+routing lists for following serial titles. If you wish to make changes,
+please contact the library”.</p>
+</div>
+<div class="section" id="your-interlibrary-loan-requests">
+<span id="your-interlibrary-loan-requests-label"></span><h3>Your interlibrary loan requests<a class="headerlink" href="#your-interlibrary-loan-requests" title="永久链接至标题"></a></h3>
+<p>If your library has the <a class="reference internal" href="circulationpreferences.html#illmodule"><span class="std std-ref">ILLModule</span></a> preference set to ‘Enable’ patrons
+will have the option to make ILL requests when logged in to their OPAC
+account.  From here they can view their existing requests and place new ones.</p>
+<p><img alt="image1373" src="_images/MyILLrequests.png" /></p>
+<p>To place a new interlibrary loan request click on ‘Create a new request’ and
+choose a request form.</p>
+<p><img alt="image1374" src="_images/ILLformpicker.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The options displayed are dependent on your ILL configuration.  See the
+ILL backends wiki page at <a class="reference external" href="https://wiki.koha-community.org/wiki/ILL_backends">https://wiki.koha-community.org/wiki/ILL_backends</a>
+further explanation.</p>
+<p><strong>Note</strong></p>
+<p>If you have entered copyright text in the <a class="reference internal" href="circulationpreferences.html#illmodulecopyrightclearance"><span class="std std-ref">ILLModuleCopyrightClearance</span></a>
+preference the text displays here and you need to click ‘Yes’ to accept
+before continuing.</p>
+</div></blockquote>
+<p>Complete the publication details as fully as possible. Depending on the
+form in use you may see the option to add Custom fields for additional
+information such as notes.  Destination branch is a required field, this
+is the branch you would like the request to be sent to.</p>
+<p><img alt="image1375" src="_images/ILLform.png" /></p>
+<p>Click on ‘Create’ to submit your request to the library for processing.</p>
+<p>Your submitted request will be listed with a status of ‘New request’.  Once
+processed the status will be updated to ‘Requested’.</p>
+<p>Click on ‘View’ to make changes or cancel your request.</p>
+<p>You cannot edit the form details but you can add a note to request a
+modification and then click on ‘Submit modifications’ at the bottom of
+the screen.  Your modification will be sent to the library for processing.</p>
+<p>For new requests you will also have the option to ‘Request cancellation’.
+Your request will be updated with the status ‘Cancellation requested’ and
+can then be removed by library staff.</p>
+</div>
+</div>
+<div class="section" id="purchase-suggestions">
+<span id="purchase-suggestions-opac-label"></span><h2>Purchase suggestions<a class="headerlink" href="#purchase-suggestions" title="永久链接至标题"></a></h2>
+<p>If your library has the <a class="reference internal" href="opacpreferences.html#suggestion"><span class="std std-ref">suggestion</span></a> preference set
+to ‘Allow’ then patrons will have the option to make purchase
+suggestions in several areas in the OPAC.</p>
+<p>If you are allowing everyone to see the purchase suggestions made by
+others with the
+<a class="reference internal" href="opacpreferences.html#opacviewotherssuggestions"><span class="std std-ref">OPACViewOthersSuggestions</span></a> preference,
+then there will be a link at the top of your OPAC under the search box.</p>
+<p><img alt="image1033" src="_images/suggestfromsearch.png" /></p>
+<p>There will be a link when the patron finds nothing for their search.</p>
+<p><img alt="image1034" src="_images/suggestfromnoresults.png" /></p>
+<p>And there will be a link on the patron’s <a class="reference internal" href="#your-purchase-suggestions-label"><span class="std std-ref">Your purchase
+suggestions</span></a> tab.</p>
+<p><img alt="image1035" src="_images/suggestfrommyaccount.png" /></p>
+<p>Clicking any one of these links will open the purchase suggestion form.</p>
+<p><img alt="image1036" src="_images/newsuggestion.png" /></p>
+<ul class="simple">
+<li>From the form only the ‘Title’ is required by the library.</li>
+<li>The item type list can be edited by editing the SUGGEST_FORMAT
+<a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized value</span></a>.</li>
+<li>If you would like the ‘Reason for suggestion’ menu shown in the
+screenshot above to appear on your suggestions list you need to add
+an <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized value</span></a> category titled
+‘OPAC_SUG’ and include reasons as values in that list.</li>
+</ul>
+<p>Once the form is submitted the data will be saved to the
+<a class="reference internal" href="acquisitions.html#managing-purchase-suggestions-label"><span class="std std-ref">Acquisitions</span></a> module for the librarians to manage.</p>
+<p>If a purchase suggestion has been ordered through the Acquisitions Module, the patron’s purchase suggestion title will be clickable and bring the patron directly to the ordered record in the OPAC.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reports.html" class="btn btn-neutral float-left" title="Reports" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="searching.html" class="btn btn-neutral float-right" title="Searching" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:24:31.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

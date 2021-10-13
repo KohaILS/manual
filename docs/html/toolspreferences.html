@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Web services" href="webservicespreferences.html" />
+    <link rel="prev" title="Staff interface" href="staffclientpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#barcodes">Barcodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#barcodeseparators">BarcodeSeparators</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-item">Batch item</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#maxitemstodisplayforbatchdel">MaxItemsToDisplayForBatchDel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxitemstodisplayforbatchmod">MaxItemsToDisplayForBatchMod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxitemstoprocessforbatchmod">MaxItemsToProcessForBatchMod</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#news">News</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#additionalcontentseditor">AdditionalContentsEditor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#newsauthordisplay">NewsAuthorDisplay</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-cards">Patron Cards</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#imagelimit">ImageLimit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reports">Reports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#numsavedreports">NumSavedReports</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#upload">Upload</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uploadpurgetemporaryfilesdays">UploadPurgeTemporaryFilesDays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/toolspreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="staffclientpreferences.html" class="btn btn-neutral float-left" title="Staff interface" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="webservicespreferences.html" class="btn btn-neutral float-right" title="Web services" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="tools">
+<span id="tools-system-preferences-label"></span><h1>Tools<a class="headerlink" href="#tools" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global System Preferences &gt; Tools</p>
+<div class="section" id="barcodes">
+<span id="barcodes-label"></span><h2>Barcodes<a class="headerlink" href="#barcodes" title="永久链接至标题"></a></h2>
+<div class="section" id="barcodeseparators">
+<span id="barcodeseparators-label"></span><h3>BarcodeSeparators<a class="headerlink" href="#barcodeseparators" title="永久链接至标题"></a></h3>
+<p>Asks: Split barcodes on the following separator chars ___ in batch item
+modification and inventory.</p>
+<p>Default: \s\r\n</p>
+<p>Description:</p>
+<ul class="simple">
+<li>When importing barcode files in the <a class="reference internal" href="tools.html#inventory-tool-label"><span class="std std-ref">inventory tool</span></a>
+or the <a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">batch item modification tool</span></a>
+you can decide which character separates each barcode.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>You must use the regular expression codes for the characters.</p>
+<ul class="simple">
+<li>\s is used for a whitespace</li>
+<li>\r is used for a carriage return</li>
+<li>\n is used for a new line</li>
+<li>\t is used for a tab</li>
+</ul>
+<p>Make sure you escape the other characters you put in there by preceding
+them with a backslash</p>
+<ul class="last simple">
+<li>. instead of a dot</li>
+<li>\ instead of a backslash</li>
+<li>- instead of a hyphen</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="batch-item">
+<span id="batch-item-label"></span><h2>Batch item<a class="headerlink" href="#batch-item" title="永久链接至标题"></a></h2>
+<p>These preferences are in reference to the
+<a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">Batch item modification</span></a> and
+<a class="reference internal" href="tools.html#batch-item-deletion-label"><span class="std std-ref">Batch item deletion</span></a> tools.</p>
+<div class="section" id="maxitemstodisplayforbatchdel">
+<span id="maxitemstodisplayforbatchdel-label"></span><h3>MaxItemsToDisplayForBatchDel<a class="headerlink" href="#maxitemstodisplayforbatchdel" title="永久链接至标题"></a></h3>
+<p>Asks: Display up to ___ items in a single item deletion batch.</p>
+<p>Default: 1000</p>
+<p>Description:</p>
+<ul class="simple">
+<li>In the <a class="reference internal" href="tools.html#batch-item-deletion-label"><span class="std std-ref">batch item delete tool</span></a> this will
+prevent the display of more than the items you entered in this
+preference, but you will be able to delete more than the number you
+enter here.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Displaying a large number of items may slow down the display.</p>
+</div>
+</div>
+<div class="section" id="maxitemstodisplayforbatchmod">
+<span id="maxitemstodisplayforbatchmod-label"></span><h3>MaxItemsToDisplayForBatchMod<a class="headerlink" href="#maxitemstodisplayforbatchmod" title="永久链接至标题"></a></h3>
+<p>Asks: Display up to ___ items in a single item modification batch.</p>
+<p>Default: 1000</p>
+<p>Description:</p>
+<ul class="simple">
+<li>In the <a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">batch item modification tool</span></a>
+this will prevent the display of more than the items you entered in this
+preference, but you will be able to modify more than the number you
+enter here (see <a class="reference internal" href="#maxitemstoprocessforbatchmod"><span class="std std-ref">MaxItemsToProcessForBatchMod</span></a>).</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Displaying a large number of items may slow down the display.</p>
+</div>
+</div>
+<div class="section" id="maxitemstoprocessforbatchmod">
+<span id="maxitemsforbatchmod-label"></span><h3>MaxItemsToProcessForBatchMod<a class="headerlink" href="#maxitemstoprocessforbatchmod" title="永久链接至标题"></a></h3>
+<p>Asks: Process up to ___ items in a single modification batch.</p>
+<p>Default: 1000</p>
+<p>Description:</p>
+<ul class="simple">
+<li>In the <a class="reference internal" href="tools.html#batch-item-modification-label"><span class="std std-ref">batch item modification tool</span></a>
+this preference will prevent the editing of more than the number entered
+here.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Processing a large number of items may slow down the process and it may
+even time out.</p>
+</div>
+</div>
+</div>
+<div class="section" id="news">
+<span id="news-system-preferences-label"></span><h2>News<a class="headerlink" href="#news" title="永久链接至标题"></a></h2>
+<div class="section" id="additionalcontentseditor">
+<span id="additionalcontentseditor-label"></span><h3>AdditionalContentsEditor<a class="headerlink" href="#additionalcontentseditor" title="永久链接至标题"></a></h3>
+<p>Asks: By default edit additional contents and news items with</p>
+<p>Default: a WYSIWYG editor (TinyMCE)</p>
+<p>Values:</p>
+<ul class="simple">
+<li>a text editor (CodeMirror)</li>
+<li>a WYSIWYG editor (TinyMCE)</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to choose which editor to use in the
+<a class="reference internal" href="tools.html#news-label"><span class="std std-ref">news tool</span></a> and the
+<span class="xref std std-ref">additional contents tool</span>.</li>
+<li>A text editor will let you write HTML directly. Use this if you want more
+control over how your content will be displayed.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">You can use CSS id’s and classes in your HTML and format them with the
+<a class="reference internal" href="opacpreferences.html#opacusercss"><span class="std std-ref">OPACUserCSS</span></a> or <a class="reference internal" href="staffclientpreferences.html#intranetusercss"><span class="std std-ref">IntranetUserCSS</span></a> system preferences.</p>
+</div>
+<ul class="simple">
+<li>A WYSIWYG (what you see is what you get) editor is a user-friendly editor
+with functions similar to word processing software. Use this if you are
+unfamiliar with HTML.</li>
+</ul>
+</div>
+<div class="section" id="newsauthordisplay">
+<span id="newsauthordisplay-label"></span><h3>NewsAuthorDisplay<a class="headerlink" href="#newsauthordisplay" title="永久链接至标题"></a></h3>
+<p>Asks: Show the author for news items: ___</p>
+<p>Default: not at all</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Both OPAC and staff interface</li>
+<li>Not at all</li>
+<li>OPAC only</li>
+<li>Staff interface only</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference lets you choose whether or not the name of the author
+of the news item is displayed and where.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="patron-cards">
+<span id="patron-cards-label"></span><h2>Patron Cards<a class="headerlink" href="#patron-cards" title="永久链接至标题"></a></h2>
+<p>These preferences are in reference to the
+<a class="reference internal" href="tools.html#patron-card-creator-label"><span class="std std-ref">Patron card creator</span></a> tool.</p>
+<div class="section" id="imagelimit">
+<span id="imagelimit-label"></span><h3>ImageLimit<a class="headerlink" href="#imagelimit" title="永久链接至标题"></a></h3>
+<p>Asks: Limit the number of creator images stored in the database to
+___ images.</p>
+<p>Default: 5</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference determines the number of images that can be used in
+the <a class="reference internal" href="tools.html#patron-card-creator-label"><span class="std std-ref">patron card creator tool</span></a>.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">A large number of images may take a lot of storage space.</p>
+</div>
+</div>
+</div>
+<div class="section" id="reports">
+<span id="reports-system-preferences-label"></span><h2>Reports<a class="headerlink" href="#reports" title="永久链接至标题"></a></h2>
+<p>These preferences are in reference to the <a class="reference internal" href="reports.html#reports-label"><span class="std std-ref">reports module</span></a>.</p>
+<div class="section" id="numsavedreports">
+<span id="numsavedreports-label"></span><h3>NumSavedReports<a class="headerlink" href="#numsavedreports" title="永久链接至标题"></a></h3>
+<p>Asks: By default, show ___ reports on the saved reports page.</p>
+<p>Default: 20</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference lets you determine the number of reports that should
+de displayed per page in the saved reports page.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Displaying a large number of reports may slow down the display.</p>
+</div>
+</div>
+</div>
+<div class="section" id="upload">
+<span id="upload-system-preferences-label"></span><h2>Upload<a class="headerlink" href="#upload" title="永久链接至标题"></a></h2>
+<div class="section" id="uploadpurgetemporaryfilesdays">
+<span id="uploadpurgetemporaryfilesdays-label"></span><h3>UploadPurgeTemporaryFilesDays<a class="headerlink" href="#uploadpurgetemporaryfilesdays" title="永久链接至标题"></a></h3>
+<p>Asks: Automatically delete temporary uploads older than ___ days in
+cleanup_database cron job.</p>
+<p>Default: blank</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference lets you determine how long temporary uploaded files
+(files uploaded through the <a class="reference internal" href="tools.html#upload-label"><span class="std std-ref">upload tool</span></a> without any
+category) are kept</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>If you leave this field empty, the cron job will not delete any files.</p>
+<p class="last">On the other hand, a value of 0 means ‘delete all temporary files’.</p>
+</div>
+<ul class="simple">
+<li>This value can be overridden with the –temp-uploads-days option of the
+cleanup_database script.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="staffclientpreferences.html" class="btn btn-neutral float-left" title="Staff interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="webservicespreferences.html" class="btn btn-neutral float-right" title="Web services" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

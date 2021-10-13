@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logs &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="OPAC" href="opacpreferences.html" />
+    <link rel="prev" title="Local Use" href="localusepreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#debugging">Debugging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dumpsearchquerytemplate">DumpSearchQueryTemplate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dumptemplatevarsintranet">DumpTemplateVarsIntranet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dumptemplatevarsopac">DumpTemplateVarsOpac</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#authfailurelog">AuthFailureLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authoritieslog">AuthoritiesLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authsuccesslog">AuthSuccessLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#borrowerslog">BorrowersLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cataloguinglog">CataloguingLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cronjoblog">CronjobLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fineslog">FinesLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdslog">HoldsLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issuelog">IssueLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#letterlog">LetterLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renewallog">RenewalLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reportslog">ReportsLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#returnlog">ReturnLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscriptionlog">SubscriptionLog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Logs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/logspreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="localusepreferences.html" class="btn btn-neutral float-left" title="Local Use" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="opacpreferences.html" class="btn btn-neutral float-right" title="OPAC" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="logs">
+<span id="logs-label"></span><h1>Logs<a class="headerlink" href="#logs" title="永久链接至标题"></a></h1>
+<p>Logs keep track of transaction on the system. You can decide which
+actions you want to log and which you don’t using these preferences.
+Logs can then be viewed in the <a class="reference internal" href="tools.html#log-viewer"><span class="std std-ref">Log viewer</span></a> under Tools.</p>
+<p><em>Get there:</em> More &gt; Administration &gt; Global System Preferences &gt; Logs</p>
+<div class="section" id="debugging">
+<span id="debugging-label"></span><h2>Debugging<a class="headerlink" href="#debugging" title="永久链接至标题"></a></h2>
+<div class="section" id="dumpsearchquerytemplate">
+<span id="dumpsearchquerytemplate-label"></span><h3>DumpSearchQueryTemplate<a class="headerlink" href="#dumpsearchquerytemplate" title="永久链接至标题"></a></h3>
+<p>Asks: ___ dump search query as a template parameter.</p>
+<p>Default: Don’t</p>
+<p>Value:</p>
+<ul class="simple">
+<li>Don’t</li>
+<li>Do</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This enhancement allows you to view the search query used by Zebra or
+Elasticsearch, to help with troubleshooting.</li>
+<li>Make sure to enable <a class="reference internal" href="#dumptemplatevarsintranet"><span class="std std-ref">DumpTemplateVarsIntranet</span></a> and/or
+<a class="reference internal" href="#dumptemplatevarsopac"><span class="std std-ref">DumpTemplateVarsOpac</span></a> otherwise this system preference will have no
+effect.</li>
+<li>The dumped query will be in the page source under ‘search_query’.</li>
+</ul>
+</div>
+<div class="section" id="dumptemplatevarsintranet">
+<span id="dumptemplatevarsintranet-label"></span><h3>DumpTemplateVarsIntranet<a class="headerlink" href="#dumptemplatevarsintranet" title="永久链接至标题"></a></h3>
+<p>Default: Don’t</p>
+<p>Asks: ___ dump all Template Toolkit variable to a comment in the HTML
+source for the staff intranet.</p>
+<p>Value:</p>
+<ul class="simple">
+<li>Don’t</li>
+<li>Do</li>
+</ul>
+</div>
+<div class="section" id="dumptemplatevarsopac">
+<span id="dumptemplatevarsopac-label"></span><h3>DumpTemplateVarsOpac<a class="headerlink" href="#dumptemplatevarsopac" title="永久链接至标题"></a></h3>
+<p>Default: Don’t</p>
+<p>Asks: ___ dump all Template Toolkit variable to a comment in the HTML
+source for the OPAC.</p>
+<p>Value:</p>
+<ul class="simple">
+<li>Don’t</li>
+<li>Do</li>
+</ul>
+</div>
+</div>
+<div class="section" id="logging">
+<span id="logging-label"></span><h2>Logging<a class="headerlink" href="#logging" title="永久链接至标题"></a></h2>
+<div class="section" id="authfailurelog">
+<span id="authfailurelog-label"></span><h3>AuthFailureLog<a class="headerlink" href="#authfailurelog" title="永久链接至标题"></a></h3>
+<p>Asks: ___ authentication failures</p>
+<p>Default: Don’t log</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference controls whether or not Koha should log when a patron
+fails to successfully authenticate on the OPAC (or a staff member in the
+staff interface).</li>
+</ul>
+</div>
+<div class="section" id="authoritieslog">
+<span id="authoritieslog-label"></span><h3>AuthoritiesLog<a class="headerlink" href="#authoritieslog" title="永久链接至标题"></a></h3>
+<p>Default: Don’t log</p>
+<p>Asks: ___ changes to authority records.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+</div>
+<div class="section" id="authsuccesslog">
+<span id="authsuccesslog-label"></span><h3>AuthSuccessLog<a class="headerlink" href="#authsuccesslog" title="永久链接至标题"></a></h3>
+<p>Asks: ___ successful authentications</p>
+<p>Default: Don’t log</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference controls whether or not Koha should log when a patron
+successfully authenticates on the OPAC (or a staff member in the staff
+interface)</li>
+</ul>
+</div>
+<div class="section" id="borrowerslog">
+<span id="borrowerslog-label"></span><h3>BorrowersLog<a class="headerlink" href="#borrowerslog" title="永久链接至标题"></a></h3>
+<p>Default: Log</p>
+<p>Asks: ___ changes to patron records.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t log</p>
+</li>
+<li><p class="first">Log</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Enabling this preference allows the tracking of cardnumber changes for patrons</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="cataloguinglog">
+<span id="cataloguinglog-label"></span><h3>CataloguingLog<a class="headerlink" href="#cataloguinglog" title="永久链接至标题"></a></h3>
+<p>Default: Don’t log</p>
+<p>Asks: ___ any changes to bibliographic or item records.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t log</p>
+</li>
+<li><p class="first">Log</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>Since this occurs whenever a book is cataloged, edited, or checked
+in or out it can be very resource intensive - slowing down your
+system.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="cronjoblog">
+<span id="cronjoblog-label"></span><h3>CronjobLog<a class="headerlink" href="#cronjoblog" title="永久链接至标题"></a></h3>
+<p>Default: Don’t log</p>
+<p>Asks: ___ information from cron jobs.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+</div>
+<div class="section" id="fineslog">
+<span id="fineslog-label"></span><h3>FinesLog<a class="headerlink" href="#fineslog" title="永久链接至标题"></a></h3>
+<p>Default: Log</p>
+<p>Asks: ___ when overdue fines are charged or automatically forgiven.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+</div>
+<div class="section" id="holdslog">
+<span id="holdslog-label"></span><h3>HoldsLog<a class="headerlink" href="#holdslog" title="永久链接至标题"></a></h3>
+<p>Default: Don’t log</p>
+<p>Asks: ___ any actions on holds (create, cancel, suspend, resume, etc.).</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+</div>
+<div class="section" id="issuelog">
+<span id="issuelog-label"></span><h3>IssueLog<a class="headerlink" href="#issuelog" title="永久链接至标题"></a></h3>
+<p>Default: Log</p>
+<p>Asks: ___ when items are checked out.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+</div>
+<div class="section" id="letterlog">
+<span id="letterlog-label"></span><h3>LetterLog<a class="headerlink" href="#letterlog" title="永久链接至标题"></a></h3>
+<p>Default: Log</p>
+<p>Asks: ___ when an automatic claim notice is sent.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t log</p>
+</li>
+<li><p class="first">Log</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This log tracks all notices that go to patrons including the overdue
+notices.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="renewallog">
+<span id="renewallog-label"></span><h3>RenewalLog<a class="headerlink" href="#renewallog" title="永久链接至标题"></a></h3>
+<p>Default:  Don’t log</p>
+<p>Asks: ___ when items are renewed.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+</div>
+<div class="section" id="reportslog">
+<span id="reportslog-label"></span><h3>ReportsLog<a class="headerlink" href="#reportslog" title="永久链接至标题"></a></h3>
+<p>Default: Don’t log</p>
+<p>Asks: ___ when reports are added, deleted or changed.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+</div>
+<div class="section" id="returnlog">
+<span id="returnlog-label"></span><h3>ReturnLog<a class="headerlink" href="#returnlog" title="永久链接至标题"></a></h3>
+<p>Default: Log</p>
+<p>Asks: ___ when items are returned.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+</div>
+<div class="section" id="subscriptionlog">
+<span id="subscriptionlog-label"></span><h3>SubscriptionLog<a class="headerlink" href="#subscriptionlog" title="永久链接至标题"></a></h3>
+<p>Default: Log</p>
+<p>Asks: ___ when serials are added, deleted or changed.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t log</li>
+<li>Log</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="localusepreferences.html" class="btn btn-neutral float-left" title="Local Use" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="opacpreferences.html" class="btn btn-neutral float-right" title="OPAC" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

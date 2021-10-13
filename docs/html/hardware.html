@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuring Receipt Printers &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Important Links" href="links.html" />
+    <link rel="prev" title="Using third party software with Koha" href="third_party_software.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring Receipt Printers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#for-epson-tm-t88iii-3-and-tm-t88iv-4-printers">For Epson TM-T88III (3) and TM-T88IV (4) Printers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-the-print-driver">In the Print Driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#in-firefox">In Firefox</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#for-epson-tm-t88ii-2-printers">For Epson TM-T88II (2) Printers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-firefox-2-label">In Firefox</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#for-star-sp542-printers">For Star SP542 Printers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-the-printer">Installing the Printer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-firefox-to-print-to-receipt-printer">Configuring Firefox to Print to Receipt Printer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Configuring Receipt Printers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hardware.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="third_party_software.html" class="btn btn-neutral float-left" title="Using third party software with Koha" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="links.html" class="btn btn-neutral float-right" title="Important Links" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="configuring-receipt-printers">
+<span id="configuring-receipt-printers-label"></span><h1>Configuring Receipt Printers<a class="headerlink" href="#configuring-receipt-printers" title="永久链接至标题"></a></h1>
+<p>The following instructions are for specific receipt printers, but can
+probably be used to help with setup of other brands as well.</p>
+<div class="section" id="for-epson-tm-t88iii-3-and-tm-t88iv-4-printers">
+<span id="for-epson-tm-t88iii-3-and-tm-t88iv-4-printers-label"></span><h2>For Epson TM-T88III (3) and TM-T88IV (4) Printers<a class="headerlink" href="#for-epson-tm-t88iii-3-and-tm-t88iv-4-printers" title="永久链接至标题"></a></h2>
+<div class="section" id="in-the-print-driver">
+<span id="in-the-print-driver-label"></span><h3>In the Print Driver<a class="headerlink" href="#in-the-print-driver" title="永久链接至标题"></a></h3>
+<p>For these instructions, we are using version 5,0,3,0 of the Epson
+TM-T88III print driver; the EPSON TM-T88IV version is ReceiptE4.
+Register at the <a class="reference external" href="https://www.epsonexpert.com/login">EpsonExpert Technical Resource Center
+website</a> to gain access to the
+drivers; go to Technical Resources, then choose the printer model from
+the Printers drop-down list.</p>
+<p>Click Start &gt; Printers and Faxes &gt; Right click the receipt printer &gt;
+Properties:</p>
+<ul class="simple">
+<li>Advanced Tab, click Printing Defaults button</li>
+<li>Layout Tab: Paper size: Roll Paper 80 x 297mm</li>
+<li>TM-T88III: Layout Tab: Check Reduce Printing and Fit to Printable
+Width</li>
+<li>TM-T88IV: Check Reduced Size Print; Click OK on the popup window that
+appears. Fit to Printable Width should be automatically selected.</li>
+<li>OK your way out of there.</li>
+</ul>
+</div>
+<div class="section" id="in-firefox">
+<span id="in-firefox-1-label"></span><h3>In Firefox<a class="headerlink" href="#in-firefox" title="永久链接至标题"></a></h3>
+<p>Under File &gt; Page Setup:</p>
+<ul class="simple">
+<li>Shrink to fit page on Format &amp; Options tab</li>
+<li>0,0,0,0 for Margins on Margins &amp; Header/Footer Tab. This makes the
+receipts use all available space on the paper roll.</li>
+<li>Set all Headers/Footers to -blank-. This removes all of the gunk you
+might normally find on a print from Firefox, such as the URL, number
+of pages, etc.</li>
+<li>Click OK</li>
+</ul>
+<p>Set the default printer settings in Firefox so you don’t see a “Print”
+dialog:</p>
+<ul>
+<li><p class="first">Go to File &gt; Print</p>
+</li>
+<li><p class="first">Set the Printer to the receipt printer.</p>
+</li>
+<li><p class="first">Click the Advanced (or Properties) button</p>
+</li>
+<li><p class="first">Layout Tab: Paper size: Roll Paper 80 x 297mm</p>
+</li>
+<li><p class="first">TM-T88III: Layout Tab: Check Reduce Printing and Fit to Printable
+Width</p>
+</li>
+<li><p class="first">TM-T88IV: Check Reduced Size Print; click OK on the popup window that
+appears. Fit to Printable Width should be automatically selected.</p>
+</li>
+<li><p class="first">OK your way out, go ahead and print whatever page you are on.</p>
+</li>
+<li><p class="first">Type <a class="reference external" href="about:config">about:config</a>, in the address bar. Click “I’ll be careful, I
+promise!” on the warning message.</p>
+</li>
+<li><p class="first">Type, print.always in Filter.</p>
+</li>
+<li><p class="first">Look for print.always_print_silent.</p>
+<ul class="simple">
+<li>If the preference is there then set the value to true.</li>
+</ul>
+</li>
+<li><p class="first">If the preference is not there (and it shouldn’t be in most browsers)
+you have to add the preference.</p>
+<ul class="simple">
+<li>Right click the preference area and select New &gt; Boolean</li>
+<li>Type print.always_print_silent in the dialog box and set the
+value to True. This sets the print settings in Firefox to always
+use the same settings and print without showing a dialog box.</li>
+</ul>
+<blockquote>
+<div><p><strong>Warning</strong></p>
+<p>Setting the print.always_print_silent setting in <a class="reference external" href="about:config">about:config</a>
+DISABLES the ability to choose a printer in Firefox.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="for-epson-tm-t88ii-2-printers">
+<span id="for-epson-tm-t88ii-2-printers-label"></span><h2>For Epson TM-T88II (2) Printers<a class="headerlink" href="#for-epson-tm-t88ii-2-printers" title="永久链接至标题"></a></h2>
+<p>Register at the <a class="reference external" href="https://www.epsonexpert.com/login">EpsonExpert Technical Resource Center
+website</a> to gain access to the
+drivers; go to Technical Resources, then choose the printer model from
+the Printers drop-down list.</p>
+<div class="section" id="in-firefox-2-label">
+<span id="id1"></span><h3>In Firefox<a class="headerlink" href="#in-firefox-2-label" title="永久链接至标题"></a></h3>
+<p>Under File &gt; Page Setup:</p>
+<ul class="simple">
+<li>Shrink to fit page on Format &amp; Options tab</li>
+<li>0,0,0,0 for Margins on Margins &amp; Header/Footer Tab. This makes the
+receipts use all available space on the paper roll.</li>
+<li>Set all Headers/Footers to -blank-. This removes all of the gunk you
+might normally find on a print from Firefox, such as the URL, number
+of pages, etc.</li>
+<li>Click OK</li>
+</ul>
+<p>Set the default printer settings in Firefox so you don’t see a “Print”
+dialog:</p>
+<ul>
+<li><p class="first">Go to File &gt; Print</p>
+</li>
+<li><p class="first">Set the Printer to the receipt printer.</p>
+</li>
+<li><p class="first">Print whatever page you are on.</p>
+</li>
+<li><p class="first">Type <a class="reference external" href="about:config">about:config</a>, in the address bar. Click “I’ll be careful, I
+promise!” on the warning message.</p>
+</li>
+<li><p class="first">Type, print.always in Filter.</p>
+</li>
+<li><p class="first">Look for, print.always_print_silent.</p>
+<ul class="simple">
+<li>If the preference is there then set the value to true.</li>
+</ul>
+</li>
+<li><p class="first">If the preference is not there (and it shouldn’t be in most browsers)
+you have to add the preference.</p>
+<ul class="simple">
+<li>Right click the preference area and select New &gt; Boolean</li>
+<li>Type, print.always_print_silent in the dialog box and set the
+value to True. This sets the print settings in Firefox to always
+use the same settings and print without showing a dialog box.</li>
+</ul>
+<blockquote>
+<div><p><strong>Warning</strong></p>
+<p>Setting the print.always_print_silent setting in <a class="reference external" href="about:config">about:config</a>
+DISABLES the ability to choose a printer in Firefox.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="for-star-sp542-printers">
+<span id="for-star-sp542-printers-label"></span><h2>For Star SP542 Printers<a class="headerlink" href="#for-star-sp542-printers" title="永久链接至标题"></a></h2>
+<div class="section" id="installing-the-printer">
+<span id="installing-the-printer-label"></span><h3>Installing the Printer<a class="headerlink" href="#installing-the-printer" title="永久链接至标题"></a></h3>
+<p>While the following comments are based on the Star SP542 receipt
+printer, they probably apply to all printers in the SP5xx series.</p>
+<p>The Star SP542 receipt printer works well with Koha and <strong>Firefox on
+Windows XP SP3</strong>. This printer, with either the parallel or USB
+interface, is fairly easy to install and configure. You will need the
+following executable file which is available from numerous places on the
+Internet:</p>
+<p>linemode_2k-xp_20030205.exe</p>
+<p>This executable actually does all of the installation; you will not need
+to use the Microsoft Windows “Add Printer” program. We recommend that
+when installing, the option for the software monitor not be selected; we
+have experienced significant pauses and delays in printing with it.
+Instead, simply choose to install the receipt printer without the
+monitor.</p>
+<p>Additionally, the install program may not put the printer on the correct
+port, especially if using the USB interface. This is easily corrected by
+going to “Start -&gt; Printers and Faxes -&gt; Properties for the SP542
+printer -&gt; Ports”, then check the appropriate port.</p>
+<p>A reboot may be required, even if not indicated by the installation
+software or the operating system.</p>
+<p><strong>Windows 7</strong> users should refer to this page:
+<a class="reference external" href="http://www.starmicronics.com/supports/win7.aspx">http://www.starmicronics.com/supports/win7.aspx</a>.</p>
+</div>
+</div>
+<div class="section" id="configuring-firefox-to-print-to-receipt-printer">
+<span id="configuring-firefox-to-print-to-receipt-printer-label"></span><h2>Configuring Firefox to Print to Receipt Printer<a class="headerlink" href="#configuring-firefox-to-print-to-receipt-printer" title="永久链接至标题"></a></h2>
+<ul class="simple">
+<li>Open File &gt; Page Setup</li>
+<li>Make all the headers and footers blank</li>
+<li>Set the margins to 0 (zero)</li>
+<li>In the address bar of Firefox, type <a class="reference external" href="about:config">about:config</a></li>
+<li>Search for print.always_print_silent and double click it</li>
+<li>Change it from false to true<ul>
+<li>This lets you skip the Print pop up box that comes up, as well as
+skipping the step where you have to click OK, automatically
+printing the right sized slip.</li>
+</ul>
+</li>
+<li>If print.always_print_silent does not come up<ul>
+<li>Right click on a blank area of the preference window</li>
+<li>Select new &gt; Boolean</li>
+<li>Enter “print.always_print_silent” as the name (without quotes)</li>
+<li>Click OK</li>
+<li>Select true for the value</li>
+</ul>
+</li>
+<li>You may also want to check what is listed for print.print_printer<ul>
+<li>You may have to choose Generic/Text Only (or whatever your receipt
+printer might be named)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="third_party_software.html" class="btn btn-neutral float-left" title="Using third party software with Koha" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="links.html" class="btn btn-neutral float-right" title="Important Links" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

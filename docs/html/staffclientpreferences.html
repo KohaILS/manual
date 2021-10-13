@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff interface &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Tools" href="toolspreferences.html" />
+    <link rel="prev" title="Serials" href="serialspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Staff interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#appearance">Appearance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#display856uasimage">Display856uAsImage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displayiconsxslt">DisplayIconsXSLT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranet-includes">intranet_includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetcirculationhomehtml">IntranetCirculationHomeHTML</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetcolorstylesheet">intranetcolorstylesheet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetfavicon">IntranetFavicon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetmainuserblock">IntranetmainUserblock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetnav">IntranetNav</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetreportshomehtml">IntranetReportsHomeHTML</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetslipprinterjs">IntranetSlipPrinterJS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetstylesheet">intranetstylesheet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetusercss">IntranetUserCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetuserjs">IntranetUserJS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slipcss">SlipCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staffclientbaseurl">staffClientBaseURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stafflangselectormode">StaffLangSelectorMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stafflogininstructions">StaffLoginInstructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template">template</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xsltdetailsdisplay">XSLTDetailsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xsltlistsdisplay">XSLTListsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xsltresultsdisplay">XSLTResultsDisplay</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#staffshibonly">staffShibOnly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#audioalerts">AudioAlerts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hidepatronname">HidePatronName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetbookbag">intranetbookbag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetcatalogsearchpulldown">IntranetCatalogSearchPulldown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showlastpatron">showLastPatron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staffdetailitemselection">StaffDetailItemSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usewysiwyginsystempreferences">UseWYSIWYGinSystemPreferences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewisbd">viewISBD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewlabeledmarc">viewLabeledMARC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewmarc">viewMARC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Staff interface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/staffclientpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="serialspreferences.html" class="btn btn-neutral float-left" title="Serials" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="toolspreferences.html" class="btn btn-neutral float-right" title="Tools" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="staff-interface">
+<span id="staff-client-preferences-label"></span><h1>Staff interface<a class="headerlink" href="#staff-interface" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt; Staff
+interface</p>
+<div class="section" id="appearance">
+<span id="staff-appearance-preferences-label"></span><h2>Appearance<a class="headerlink" href="#appearance" title="永久链接至标题"></a></h2>
+<div class="section" id="display856uasimage">
+<span id="display856uasimage-label"></span><h3>Display856uAsImage<a class="headerlink" href="#display856uasimage" title="永久链接至标题"></a></h3>
+<p>Asks: Display the URI in the 856u field as an image on: ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Both results and details pages</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Both <a class="reference internal" href="#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a> and <a class="reference internal" href="#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a> need to have
+values in order for this option to work.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">This option is only implemented for MARC21.</p>
+</div>
+<ul class="simple">
+<li>Detail page only</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last"><a class="reference internal" href="#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a> needs to have a value in it for this option to
+work.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">This is only implemented for MARC21 and UNIMARC.</p>
+</div>
+<p><img alt="image113" src="_images/Display856uAsImage.png" /></p>
+<ul class="simple">
+<li>Neither details or results page</li>
+<li>Results page only</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last"><a class="reference internal" href="#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a> needs to have a value in it for this option to
+work.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">This is only implemented for MARC21 and NORMARC.</p>
+</div>
+<p>Default: Neither details or results page</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">In addition to this option being set, the corresponding XSLT option
+must be turned on.</p>
+<p>See</p>
+<ul class="simple">
+<li><a class="reference internal" href="#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a></li>
+<li><a class="reference internal" href="#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a></li>
+</ul>
+</li>
+<li><p class="first">Also, the corresponding 856q field must have a valid MIME image extension
+(e.g., “jpg”) or MIME image type (i.e. starting with “image/”), or the
+generic indicator “img” entered in the field.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p><strong>Common image MIME types</strong></p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="51%" />
+<col width="25%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">File type</th>
+<th class="head">Image MIME type</th>
+<th class="head">File extension</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Bitmap</td>
+<td>image/bmp</td>
+<td>bmp</td>
+</tr>
+<tr class="row-odd"><td>Graphic interchange format (gif)</td>
+<td>image/gif</td>
+<td>gif</td>
+</tr>
+<tr class="row-even"><td>JPEG image</td>
+<td>image/jpeg</td>
+<td>jpg</td>
+</tr>
+<tr class="row-odd"><td>JPEG image</td>
+<td>image/jpeg</td>
+<td>jpeg</td>
+</tr>
+<tr class="row-even"><td>Scalable vector graphic</td>
+<td>image/svg+xml</td>
+<td>svg</td>
+</tr>
+<tr class="row-odd"><td>TIF image</td>
+<td>image/tiff</td>
+<td>tiff</td>
+</tr>
+<tr class="row-even"><td>TIF image</td>
+<td>image/tiff</td>
+<td>tif</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p class="first">When all of the requirements are met, an image file will
+be displayed instead of the standard link text. Clicking on the image
+will open it in the same way as clicking on the link text. When you
+click on the image it should open to full size, in the current window.</p>
+<p><img alt="856 field in the cataloging form; 856q contains img and 856u contains a link to an image" src="_images/856imagemarc.png" /></p>
+</li>
+</ul>
+<p>See also</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacdisplay856uasimage"><span class="std std-ref">OPACDisplay856uAsImage</span></a></li>
+<li><a class="reference internal" href="#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a></li>
+<li><a class="reference internal" href="#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a></li>
+</ul>
+</div>
+<div class="section" id="displayiconsxslt">
+<span id="displayiconsxslt-label"></span><h3>DisplayIconsXSLT<a class="headerlink" href="#displayiconsxslt" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the format, audience, and material type icons and descriptions in
+XSLT MARC21 results and detail pages in the staff interface.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Default: Show</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference enables or disables the display of icons based on coded
+values in the leader of bibliographic records.</p>
+<p><img alt="Screenshot of the XSLT icons" src="_images/DisplayIconsXSLT.png" /></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">See the <a class="reference internal" href="cataloging.html#material-type-cataloging-guide-label"><span class="std std-ref">XSLT material type icons</span></a>
+for more information on these icons.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">This is only used in XSLT displays, so <a class="reference internal" href="#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a> and/or
+<a class="reference internal" href="#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a> must be set to use an XSLT stylesheet for
+this to show (default or custom)</p>
+</div>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#displayopaciconsxslt"><span class="std std-ref">DisplayOPACiconsXSLT</span></a></li>
+<li><a class="reference internal" href="#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a></li>
+<li><a class="reference internal" href="#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranet-includes">
+<span id="intranet-includes-label"></span><h3>intranet_includes<a class="headerlink" href="#intranet-includes" title="永久链接至标题"></a></h3>
+<p>Asks: Use include files from the ___ directory in the template
+directory, instead of includes/. (Leave blank to disable)</p>
+<p>Default: includes</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference lets you modify the directory for include files,
+should you want to use files that are not the standard ones.</li>
+</ul>
+</div>
+<div class="section" id="intranetcirculationhomehtml">
+<span id="intranetcirculationhomehtml-label"></span><h3>IntranetCirculationHomeHTML<a class="headerlink" href="#intranetcirculationhomehtml" title="永久链接至标题"></a></h3>
+<p>Asks: Show the following HTML in its own div on the bottom of the home
+page of the circulation module</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This system preference lets you add content to the
+<a class="reference internal" href="circulation.html#circulation-label"><span class="std std-ref">circulation home page</span></a>. You can add links, memos
+or any other content.</p>
+<p><img alt="The HTML code entered in IntranetCirculationHomeHTML" src="_images/IntranetCirculationHomeHTML-html.png" /></p>
+<p><img alt="Screenshot that shows where the content of IntranetCirculationHomeHTML appears on the circulation home page, under the circulation action buttons and above the offline circulation links" src="_images/IntranetCirculationHomeHTML.png" /></p>
+</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetmainuserblock"><span class="std std-ref">IntranetmainUserblock</span></a></li>
+<li><a class="reference internal" href="#intranetnav"><span class="std std-ref">IntranetNav</span></a></li>
+<li><a class="reference internal" href="#intranetreportshomehtml"><span class="std std-ref">IntranetReportsHomeHTML</span></a></li>
+<li><a class="reference internal" href="#stafflogininstructions"><span class="std std-ref">StaffLoginInstructions</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetcolorstylesheet">
+<span id="intranetcolorstylesheet-label"></span><h3>intranetcolorstylesheet<a class="headerlink" href="#intranetcolorstylesheet" title="永久链接至标题"></a></h3>
+<p>Asks: Include the additional CSS stylesheet ___ to override specified
+settings from the default stylesheet</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference is used to set custom CSS settings to the staff interface.</li>
+<li>The value is a .css file. If you only need to add some directives, not
+necessarily a whole file, use <a class="reference internal" href="#intranetusercss"><span class="std std-ref">IntranetUserCSS</span></a></li>
+<li>Enter just a filename, a full local path or a complete URL starting with
+<a class="reference external" href="http://">http://</a> (if the file lives on a remote server). Please note that if you
+just enter a filename, the file should be in the css subdirectory for each
+active theme and language within the Koha templates directory. A full local
+path is expected to start from your HTTP document root.</li>
+<li>Leave this field blank to disable.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The stylesheet entered here will be used <strong>in addition to</strong> the default
+staff interface CSS stylesheet.</p>
+</div>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetstylesheet"><span class="std std-ref">intranetstylesheet</span></a></li>
+<li><a class="reference internal" href="#intranetusercss"><span class="std std-ref">IntranetUserCSS</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetfavicon">
+<span id="intranetfavicon-label"></span><h3>IntranetFavicon<a class="headerlink" href="#intranetfavicon" title="永久链接至标题"></a></h3>
+<p>Asks: Use the image at ___ for the staff interface’s favicon.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This should be a complete URL, starting with <a class="reference external" href="http://">http://</a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Turn your logo into a favicon with the
+<a class="reference external" href="http://antifavicon.com/">Favicon Generator</a>.</p>
+</div>
+<p>Description:</p>
+<ul>
+<li><p class="first">The favicon is the little icon that appears next to the page name on the
+browser tab in most browsers. The default value for this field (if
+left blank) is the small ‘K’ in the Koha logo.</p>
+<p><img alt="The small green 'k' on the browser tab is the default favicon" src="_images/stafffavicon.png" /></p>
+</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacfavicon"><span class="std std-ref">OpacFavicon</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetmainuserblock">
+<span id="intranetmainuserblock-label"></span><h3>IntranetmainUserblock<a class="headerlink" href="#intranetmainuserblock" title="永久链接至标题"></a></h3>
+<p>Asks: Show the following HTML in its own column on the main page of the staff
+interface</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference lets you add content to the main staff interface
+page. You can add links, memos or any other content.</li>
+</ul>
+<p><img alt="Screenshot that shows where the content of IntranetmainUserBlock appears on the staff interface's main page, under the module buttons" src="_images/IntranetmainUserblock.png" /></p>
+<p><img alt="The HTML code entered in IntranetmainUserBlock" src="_images/IntranetmainUserblock-html.png" /></p>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetcirculationhomehtml"><span class="std std-ref">IntranetCirculationHomeHTML</span></a></li>
+<li><a class="reference internal" href="#intranetnav"><span class="std std-ref">IntranetNav</span></a></li>
+<li><a class="reference internal" href="#intranetreportshomehtml"><span class="std std-ref">IntranetReportsHomeHTML</span></a></li>
+<li><a class="reference internal" href="#stafflogininstructions"><span class="std std-ref">StaffLoginInstructions</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetnav">
+<span id="intranetnav-label"></span><h3>IntranetNav<a class="headerlink" href="#intranetnav" title="永久链接至标题"></a></h3>
+<p>Asks: Show the following HTML in the More menu at the top of each page
+on the staff interface (should be a list of links or blank)</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference lets you add links at the top of the staff interface
+pages.</li>
+</ul>
+<p><img alt="Screenshot that shows where the content of IntranetNav is displayed at the top of the staff interface pages, to the right of the More menu" src="_images/IntranetNav.png" /></p>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetcirculationhomehtml"><span class="std std-ref">IntranetCirculationHomeHTML</span></a></li>
+<li><a class="reference internal" href="#intranetmainuserblock"><span class="std std-ref">IntranetmainUserblock</span></a></li>
+<li><a class="reference internal" href="#intranetreportshomehtml"><span class="std std-ref">IntranetReportsHomeHTML</span></a></li>
+<li><a class="reference internal" href="#stafflogininstructions"><span class="std std-ref">StaffLoginInstructions</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetreportshomehtml">
+<span id="intranetreportshomehtml-label"></span><h3>IntranetReportsHomeHTML<a class="headerlink" href="#intranetreportshomehtml" title="永久链接至标题"></a></h3>
+<p>Asks: Show the following HTML in its own div on the bottom of the home
+page of the reports module</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This system preference lets you add content to the
+<a class="reference internal" href="reports.html#reports-label"><span class="std std-ref">reports home page</span></a>. You can add links, memos
+or any other content.</p>
+<blockquote>
+<div><p><img alt="Screenshot that shows where the content of IntranetReportsHomeHTML appears on the reports module main page, under the report links" src="_images/IntranetReportsHomeHTML.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetcirculationhomehtml"><span class="std std-ref">IntranetCirculationHomeHTML</span></a></li>
+<li><a class="reference internal" href="#intranetmainuserblock"><span class="std std-ref">IntranetmainUserblock</span></a></li>
+<li><a class="reference internal" href="#intranetnav"><span class="std std-ref">IntranetNav</span></a></li>
+<li><a class="reference internal" href="#stafflogininstructions"><span class="std std-ref">StaffLoginInstructions</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetslipprinterjs">
+<span id="intranetslipprinterjs-label"></span><h3>IntranetSlipPrinterJS<a class="headerlink" href="#intranetslipprinterjs" title="永久链接至标题"></a></h3>
+<p>Asks: Use the following JavaScript for printing slips.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>The most logical use of this preference is in conjunction with the
+<a class="reference external" href="http://jsprintsetup.mozdev.org/">jsPrintSetup</a> Firefox add-on.</li>
+<li>Learn more about this preference and the add-on setup on the Koha
+wiki at
+<a class="reference external" href="http://wiki.koha-community.org/wiki/Setting_up_slip_printer_to_print_silently">http://wiki.koha-community.org/wiki/Setting_up_slip_printer_to_print_silently</a>.</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#slipcss"><span class="std std-ref">SlipCSS</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetstylesheet">
+<span id="intranetstylesheet-label"></span><h3>intranetstylesheet<a class="headerlink" href="#intranetstylesheet" title="永久链接至标题"></a></h3>
+<p>Asks: Use the CSS stylesheet ___ on all pages in the staff interface,
+instead of the default css (used when leaving this field blank).</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows a library to customize the appearance of the staff
+interface.</li>
+<li>The value is a .css file. This new file will override the default stylesheet.</li>
+<li>Enter just a filename, a full local path or a complete URL starting with
+<a class="reference external" href="http://">http://</a> (if the file lives on a remote server). Please note that if you
+just enter a filename, the file should be in the css subdirectory for each
+active theme and language within the Koha templates directory. A full local
+path is expected to start from your HTTP document root.</li>
+<li>Leave this field blank to disable.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>The stylesheet entered here will be used <strong>instead of</strong> the default staff
+interface CSS stylesheet.</p>
+<p class="last">If you’d rather use the default staff interface CSS, but add your own
+personal touch, see <a class="reference internal" href="#intranetcolorstylesheet"><span class="std std-ref">intranetcolorstylesheet</span></a>.</p>
+</div>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetcolorstylesheet"><span class="std std-ref">intranetcolorstylesheet</span></a></li>
+<li><a class="reference internal" href="#intranetusercss"><span class="std std-ref">IntranetUserCSS</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetusercss">
+<span id="intranetusercss-label"></span><h3>IntranetUserCSS<a class="headerlink" href="#intranetusercss" title="永久链接至标题"></a></h3>
+<p>Asks: Include the following CSS on all pages in the staff interface</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference lets you add some CSS directives to customize the
+appearance of the staff interface.</li>
+<li>The value is CSS code. If you have a .css file ready, use
+<a class="reference internal" href="#intranetcolorstylesheet"><span class="std std-ref">intranetcolorstylesheet</span></a> or <a class="reference internal" href="#intranetstylesheet"><span class="std std-ref">intranetstylesheet</span></a> instead.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The CSS code entered here will be used <strong>in addition to</strong> the default staff
+interface CSS stylesheet.</p>
+</div>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetcolorstylesheet"><span class="std std-ref">intranetcolorstylesheet</span></a></li>
+<li><a class="reference internal" href="#intranetstylesheet"><span class="std std-ref">intranetstylesheet</span></a></li>
+<li><a class="reference internal" href="#intranetuserjs"><span class="std std-ref">IntranetUserJS</span></a></li>
+<li><a class="reference internal" href="opacpreferences.html#opacusercss"><span class="std std-ref">OPACUserCSS</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetuserjs">
+<span id="intranetuserjs-label"></span><h3>IntranetUserJS<a class="headerlink" href="#intranetuserjs" title="永久链接至标题"></a></h3>
+<p>Asks: Include the following JavaScript on all pages in the staff
+interface</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows the administrator to enter JavaScript or
+JQuery that will be embedded across all pages of the staff interface.</li>
+<li>Administrators may use this preference to customize some of the
+interactive sections of Koha, customizing the text for the login
+prompts, for example.</li>
+<li>Sample JQuery scripts used by Koha libraries can be found on the wiki:
+<a class="reference external" href="http://wiki.koha-community.org/wiki/JQuery_Library">http://wiki.koha-community.org/wiki/JQuery_Library</a>.</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetusercss"><span class="std std-ref">IntranetUserCSS</span></a></li>
+<li><a class="reference internal" href="opacpreferences.html#opacuserjs"><span class="std std-ref">OPACUserJS</span></a></li>
+</ul>
+</div>
+<div class="section" id="slipcss">
+<span id="slipcss-label"></span><h3>SlipCSS<a class="headerlink" href="#slipcss" title="永久链接至标题"></a></h3>
+<p>Asks: Include the stylesheet at ___ on issue and hold slips.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>If you would like to style your receipts or slips with a consistent
+set of fonts and colors you can use this preference to point Koha to
+a stylesheet specifically for your slips.</li>
+<li>This should be a complete URL, starting with <a class="reference external" href="http://">http://</a></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetslipprinterjs"><span class="std std-ref">IntranetSlipPrinterJS</span></a></li>
+</ul>
+</div>
+<div class="section" id="staffclientbaseurl">
+<span id="staffclientbaseurl-label"></span><h3>staffClientBaseURL<a class="headerlink" href="#staffclientbaseurl" title="永久链接至标题"></a></h3>
+<p>Asks: The staff interface is located at ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Enter the staff interface URL</li>
+<li>This should be a complete URL, starting with <a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a>.
+Do not include a trailing slash in the URL.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">This must be filled in correctly for CAS, svc, and load_testing to work.</p>
+</div>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacbaseurl"><span class="std std-ref">OPACBaseURL</span></a></li>
+</ul>
+</div>
+<div class="section" id="stafflangselectormode">
+<span id="stafflangselectormode-label"></span><h3>StaffLangSelectorMode<a class="headerlink" href="#stafflangselectormode" title="永久链接至标题"></a></h3>
+<p>Asks: Display language selector on ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>both top and footer</li>
+<li>only footer</li>
+<li>top</li>
+</ul>
+<p>Default: only footer</p>
+<p>Description:</p>
+<ul class="simple">
+<li>If your staff interface is available in more than one language, you can
+choose where the laguage switch is located</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="i18npreferences.html#language"><span class="std std-ref">language</span></a></li>
+</ul>
+</div>
+<div class="section" id="stafflogininstructions">
+<span id="stafflogininstructions-label"></span><h3>StaffLoginInstructions<a class="headerlink" href="#stafflogininstructions" title="永久链接至标题"></a></h3>
+<p>Asks: Show the following HTML on the staff interface login page</p>
+<p>Description:</p>
+<ul class="simple">
+<li>HTML entered in this field will appear above the login form
+of your staff client</li>
+</ul>
+<blockquote>
+<div><img alt="Screenshot that shows where the content of StaffLoginInstructions appears on the staff login page, above the login fields" src="_images/stafflogininstructions.png" /></div></blockquote>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#intranetcirculationhomehtml"><span class="std std-ref">IntranetCirculationHomeHTML</span></a></li>
+<li><a class="reference internal" href="#intranetmainuserblock"><span class="std std-ref">IntranetmainUserblock</span></a></li>
+<li><a class="reference internal" href="#intranetnav"><span class="std std-ref">IntranetNav</span></a></li>
+<li><a class="reference internal" href="#intranetreportshomehtml"><span class="std std-ref">IntranetReportsHomeHTML</span></a></li>
+</ul>
+</div>
+<div class="section" id="template">
+<span id="template-label"></span><h3>template<a class="headerlink" href="#template" title="永久链接至标题"></a></h3>
+<p>Asks: Use the ___ theme on the staff interface.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>prog</li>
+</ul>
+<p>Default: prog</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference is used to choose the theme for the staff interface.</li>
+<li>There is currently only one theme that comes with Koha, prog.</li>
+</ul>
+</div>
+<div class="section" id="xsltdetailsdisplay">
+<span id="xsltdetailsdisplay-label"></span><h3>XSLTDetailsDisplay<a class="headerlink" href="#xsltdetailsdisplay" title="永久链接至标题"></a></h3>
+<p>Asks: Display details in the staff client using XSLT stylesheet at
+___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>enter “default” for the default one</li>
+<li>put a path to define a XSLT file<ul>
+<li>ex: /path/to/koha/and/your/stylesheet.xsl</li>
+<li>If in a multi-language system you can enter {langcode} in the path
+to tell Koha to look in the right language folder<ul>
+<li>ex:
+/home/koha/src/koha-tmpl/intranet-tmpl/prog/{langcode}/xslt/intranetDetail.xsl</li>
+<li>ex. <a class="reference external" href="http://mykoha.org">http://mykoha.org</a>/{langcode}/stylesheet.xsl</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>put an URL for an external specific stylesheet<ul>
+<li>ex: <a class="reference external" href="http://mykoha.org/stylesheet.xsl">http://mykoha.org/stylesheet.xsl</a></li>
+</ul>
+</li>
+</ul>
+<p>Default: default</p>
+<p>Description:</p>
+<ul class="simple">
+<li>XSLT stylesheets allow for the customization of the details shown on
+the screen when viewing a bibliographic record. This preference will allow
+you either use the default look that comes with Koha or design your own
+stylesheet.</li>
+<li>This system preference controls the display of the detailed bibliographic
+record</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></li>
+<li><a class="reference internal" href="#xsltlistsdisplay"><span class="std std-ref">XSLTListsDisplay</span></a></li>
+<li><a class="reference internal" href="#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a></li>
+<li><a class="reference internal" href="#displayiconsxslt"><span class="std std-ref">DisplayIconsXSLT</span></a></li>
+</ul>
+</div>
+<div class="section" id="xsltlistsdisplay">
+<span id="xsltlistsdisplay-label"></span><h3>XSLTListsDisplay<a class="headerlink" href="#xsltlistsdisplay" title="永久链接至标题"></a></h3>
+<p>Asks: Display lists in the staff interface using XSLT stylesheet at ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>leave empty to not use the XSLT stylesheet</li>
+<li>enter “default” for the default one</li>
+<li>put a path to define a XSLT file<ul>
+<li>ex: /path/to/koha/and/your/stylesheet.xsl</li>
+<li>If in a multi-language system you can enter {langcode} in the path
+to tell Koha to look in the right language folder<ul>
+<li>ex:
+/home/koha/src/koha-tmpl/intranet-tmpl/prog/{langcode}/xslt/intranetDetail.xsl</li>
+<li>ex. <a class="reference external" href="http://mykoha.org">http://mykoha.org</a>/{langcode}/stylesheet.xsl</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>put an URL for an external specific stylesheet<ul>
+<li>ex: <a class="reference external" href="http://mykoha.org/stylesheet.xsl">http://mykoha.org/stylesheet.xsl</a></li>
+</ul>
+</li>
+</ul>
+<p>Default: default</p>
+<p>Description:</p>
+<ul class="simple">
+<li>XSLT stylesheets allow for the customization of the details shown on
+the screen when viewing a list. This preference will allow you
+either use the default look that comes with Koha or design your own
+stylesheet.</li>
+<li>This system preference controls the display of the records in a
+<a class="reference internal" href="lists.html#lists-label"><span class="std std-ref">list</span></a></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacxsltlistsdisplay"><span class="std std-ref">OPACXSLTListsDisplay</span></a></li>
+<li><a class="reference internal" href="#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a></li>
+<li><a class="reference internal" href="#xsltresultsdisplay"><span class="std std-ref">XSLTResultsDisplay</span></a></li>
+</ul>
+</div>
+<div class="section" id="xsltresultsdisplay">
+<span id="xsltresultsdisplay-label"></span><h3>XSLTResultsDisplay<a class="headerlink" href="#xsltresultsdisplay" title="永久链接至标题"></a></h3>
+<p>Asks: Display results in the staff interface using XSLT stylesheet at ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>enter “default” for the default one</li>
+<li>put a path to define a XSLT file<ul>
+<li>ex: /path/to/koha/and/your/stylesheet.xsl</li>
+<li>If in a multi-language system you can enter {langcode} in the path
+to tell Koha to look in the right language folder<ul>
+<li>ex:
+/home/koha/src/koha-tmpl/intranet-tmpl/prog/{langcode}/xslt/intranetDetail.xsl</li>
+<li>ex. <a class="reference external" href="http://mykoha.org">http://mykoha.org</a>/{langcode}/stylesheet.xsl</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>put an URL for an external specific stylesheet<ul>
+<li>ex: <a class="reference external" href="http://mykoha.org/stylesheet.xsl">http://mykoha.org/stylesheet.xsl</a></li>
+</ul>
+</li>
+</ul>
+<p>Default: default</p>
+<p>Description:</p>
+<ul class="simple">
+<li>XSLT stylesheets allow for the customization of the details shown on
+the screen when viewing the search results. This preference will
+allow you either use the default look that comes with Koha or design
+your own stylesheet.</li>
+<li>This system preference controls the display of the records in the
+<a class="reference internal" href="searching.html#search-results-label"><span class="std std-ref">search results</span></a></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacxsltresultsdisplay"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></li>
+<li><a class="reference internal" href="#xsltdetailsdisplay"><span class="std std-ref">XSLTDetailsDisplay</span></a></li>
+<li><a class="reference internal" href="#xsltlistsdisplay"><span class="std std-ref">XSLTListsDisplay</span></a></li>
+<li><a class="reference internal" href="#displayiconsxslt"><span class="std std-ref">DisplayIconsXSLT</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="authentication">
+<span id="staff-client-authentication-preferences-label"></span><h2>Authentication<a class="headerlink" href="#authentication" title="永久链接至标题"></a></h2>
+<div class="section" id="staffshibonly">
+<span id="staffshibonly-label"></span><h3>staffShibOnly<a class="headerlink" href="#staffshibonly" title="永久链接至标题"></a></h3>
+<p>Asks: ___ staff to login by means other than shibboleth.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Default: Allow</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to limit the login to the staff interface
+to login through shibboleth.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="options">
+<span id="staff-client-options-preferences-label"></span><h2>Options<a class="headerlink" href="#options" title="永久链接至标题"></a></h2>
+<div class="section" id="audioalerts">
+<span id="audioalerts-label"></span><h3>AudioAlerts<a class="headerlink" href="#audioalerts" title="永久链接至标题"></a></h3>
+<p>Asks: ___ audio alerts for events defined in the
+<a class="reference internal" href="administration.html#audio-alerts-label"><span class="std std-ref">audio alerts section of administration</span></a>.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t enable</li>
+<li>Enable</li>
+</ul>
+<p>Default: Don’t enable</p>
+<p>Description :</p>
+<ul class="simple">
+<li>This system preference enables the <a class="reference internal" href="administration.html#audio-alerts-label"><span class="std std-ref">audio alerts</span></a>
+feature.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">This feature is not supported by all browsers. Requires an HTML5 compliant
+browser.</p>
+</div>
+</div>
+<div class="section" id="hidepatronname">
+<span id="hidepatronname-label"></span><h3>HidePatronName<a class="headerlink" href="#hidepatronname" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the names of patrons that have items checked out or on hold
+on detail pages or the “Place Hold” screen.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Default: Show</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to hide the name of the patron who
+currently has an item checked out.</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacshowcheckoutname"><span class="std std-ref">OPACShowCheckoutName</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetbookbag">
+<span id="intranetbookbag-label"></span><h3>intranetbookbag<a class="headerlink" href="#intranetbookbag" title="永久链接至标题"></a></h3>
+<p>Asks: ___ the cart option in the staff interface.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Default: Show</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to enable or disable the
+<a class="reference internal" href="lists.html#cart-label"><span class="std std-ref">cart feature</span></a> in the staff interface</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="opacpreferences.html#opacbookbag"><span class="std std-ref">opacbookbag</span></a></li>
+</ul>
+</div>
+<div class="section" id="intranetcatalogsearchpulldown">
+<span id="intranetcatalogsearchpulldown-label"></span><h3>IntranetCatalogSearchPulldown<a class="headerlink" href="#intranetcatalogsearchpulldown" title="永久链接至标题"></a></h3>
+<p>Asks: ___ a search field pulldown for ‘Search the catalog’ boxes.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t show</p>
+<p><img alt="The default look of the Search the catalog tab, without the index drop-down list" src="_images/IntranetCatalogSearchPulldown-hide.png" /></p>
+</li>
+<li><p class="first">Show</p>
+<p><img alt="When IntranetCatalogSearchPulldown is set to Show, a drop-down list of indexes appears next to the search box" src="_images/IntranetCatalogSearchPulldown-show.png" /></p>
+</li>
+</ul>
+<p>Default: Don’t show</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to show a drop-down list of indexes for
+the ‘Search the catalog’ tab at the top of the staff interface pages</li>
+</ul>
+</div>
+<div class="section" id="showlastpatron">
+<span id="showlastpatron-label"></span><h3>showLastPatron<a class="headerlink" href="#showlastpatron" title="永久链接至标题"></a></h3>
+<p>Asks: ___ a link to the last searched patron in the staff interface.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Default: Don’t Show</p>
+<p>Description</p>
+<ul>
+<li><p class="first">If this preference is set to ‘Show’, then a link to the last patron account
+you consulted will appear in the right hand corner of the Koha staff interface.
+This link will be cleared when you log out.</p>
+<p><img alt="A small 'Last patron' button appears on the right side of the screen" src="_images/lastpatron.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="staffdetailitemselection">
+<span id="staffdetailitemselection-label"></span><h3>StaffDetailItemSelection<a class="headerlink" href="#staffdetailitemselection" title="永久链接至标题"></a></h3>
+<p>Asks: ___ item selection in record detail page.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Default: Enable</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This preference lets you choose to show (or not show) checkboxes to
+the left of every item in the holdings tab on the detail display of a
+record in the staff interface. Showing these checkboxes allows staff
+members to select multiple items to edit or delete at once.</p>
+<p><img alt="Checkboxes are displayed next to every item in the holdings tab of a detailed bibliographic record" src="_images/StaffDetailItemSelection.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="usewysiwyginsystempreferences">
+<span id="usewysiwyginsystempreferences-label"></span><h3>UseWYSIWYGinSystemPreferences<a class="headerlink" href="#usewysiwyginsystempreferences" title="永久链接至标题"></a></h3>
+<p>Asks: ___ WYSIWYG editor when editing certain HTML system
+preferences.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t show</p>
+</li>
+<li><p class="first">Show</p>
+<blockquote>
+<div><p><img alt="Example of a system preference using a WYSIWYG editor (TinyMCE) instead of a plain text editor" src="_images/UseWYSIWYGinSystemPreferences.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+<p>Default: Don’t show</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows you to change system preferences with HTML in
+them to WYSIWYG editors instead of plain text boxes.</li>
+</ul>
+</div>
+<div class="section" id="viewisbd">
+<span id="viewisbd-label"></span><h3>viewISBD<a class="headerlink" href="#viewisbd" title="永久链接至标题"></a></h3>
+<p>Asks: ___ staff to view records in ISBD form on the staff interface.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Default: Allow</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This system preference shows or hides the ISBD tab in the detailed record
+view</p>
+<p><img alt="The ISDB tab and record view" src="_images/viewISBD.png" /></p>
+</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#viewlabeledmarc"><span class="std std-ref">viewLabeledMARC</span></a></li>
+<li><a class="reference internal" href="#viewmarc"><span class="std std-ref">viewMARC</span></a></li>
+</ul>
+</div>
+<div class="section" id="viewlabeledmarc">
+<span id="viewlabeledmarc-label"></span><h3>viewLabeledMARC<a class="headerlink" href="#viewlabeledmarc" title="永久链接至标题"></a></h3>
+<p>Asks: ___ staff to view records in labeled MARC form on the staff interface.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Default: Allow</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This system preference shows or hides the Labeled MARC tab in the detailed
+record view</p>
+<p><img alt="The Labeled MARC tab and record view" src="_images/viewLabeledMARC.png" /></p>
+</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#viewisbd"><span class="std std-ref">viewISBD</span></a></li>
+<li><a class="reference internal" href="#viewmarc"><span class="std std-ref">viewMARC</span></a></li>
+</ul>
+</div>
+<div class="section" id="viewmarc">
+<span id="viewmarc-label"></span><h3>viewMARC<a class="headerlink" href="#viewmarc" title="永久链接至标题"></a></h3>
+<p>Asks: ___ staff to view records in plain MARC form on the staff interface.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Allow</li>
+<li>Don’t allow</li>
+</ul>
+<p>Default: Allow</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">This system preference shows or hides the MARC tab in the detailed record
+view</p>
+<p><img alt="The MARC tab and record view" src="_images/viewMARC.png" /></p>
+</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#viewisbd"><span class="std std-ref">viewISBD</span></a></li>
+<li><a class="reference internal" href="#viewlabeledmarc"><span class="std std-ref">viewLabeledMARC</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="serialspreferences.html" class="btn btn-neutral float-left" title="Serials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="toolspreferences.html" class="btn btn-neutral float-right" title="Tools" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

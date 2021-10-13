@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lists and cart &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Reports" href="reports.html" />
+    <link rel="prev" title="Acquisitions" href="acquisitions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lists and cart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lists">Lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-list">Create a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-to-a-list">Add to a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-lists">Viewing lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merging-bibliographic-records-via-lists">Merging bibliographic records via lists</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cart">Cart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-bibliographic-records-via-the-cart">Modifying bibliographic records via the cart</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Lists and cart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lists.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="acquisitions.html" class="btn btn-neutral float-left" title="Acquisitions" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="reports.html" class="btn btn-neutral float-right" title="Reports" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="lists-and-cart">
+<span id="lists-and-cart-label"></span><h1>Lists and cart<a class="headerlink" href="#lists-and-cart" title="永久链接至标题"></a></h1>
+<p>Lists are a way to save a collection of content on a specific topic or
+for a specific purpose. The cart is a session specific storage space.</p>
+<ul class="simple">
+<li><em>Get there:</em> More &gt; Lists</li>
+</ul>
+<div class="section" id="lists">
+<span id="lists-label"></span><h2>Lists<a class="headerlink" href="#lists" title="永久链接至标题"></a></h2>
+<div class="section" id="create-a-list">
+<span id="create-a-list-label"></span><h3>Create a list<a class="headerlink" href="#create-a-list" title="永久链接至标题"></a></h3>
+<p>A list can be created by visiting the Lists page and clicking ‘New list’</p>
+<p><img alt="image868" src="_images/newlistbutton.png" /></p>
+<p>The new list form offers several options for creating your list:</p>
+<p><img alt="image869" src="_images/newlistform.png" /></p>
+<ul class="simple">
+<li>The name is what will appear on the list of lists</li>
+<li>You can also choose how to sort the list</li>
+<li>Next, decide if your list is going to be private or public<ul>
+<li>A private list can be seen only by you</li>
+<li>A public list can be seen by everybody</li>
+</ul>
+</li>
+<li>Finally decide what your permissions will be on the list. You can allow
+changes to the list from:<ul>
+<li>Nobody: this will close the list to contributions</li>
+<li>Owner only: only you will be able to add or remove items from the list</li>
+<li>Anyone seeing this list: other users will be able to add or remove
+items from the list</li>
+</ul>
+</li>
+</ul>
+<p>A list can also be created from the catalog search results</p>
+<p><img alt="image870" src="_images/newlistsearch.png" /></p>
+<ul>
+<li><p class="first">Check the box to the left of the titles you want to add to the new
+list</p>
+</li>
+<li><p class="first">Choose ‘New list’ from the ‘Add to:’ pull down menu</p>
+<p><img alt="image871" src="_images/newlistfromsearch.png" /></p>
+<ul class="simple">
+<li>Name the list and choose what type of list this is<ul>
+<li>A private list can be seen only by you</li>
+<li>A public list can be seen by everybody</li>
+</ul>
+</li>
+<li>The list will have the default sort (title) and the default modification
+permissions (owner only).</li>
+</ul>
+</li>
+</ul>
+<p>Once the list is saved it will accessible from the Lists page and from
+the ‘Add to’ menu at the top of the search results.</p>
+</div>
+<div class="section" id="add-to-a-list">
+<span id="add-to-a-list-label"></span><h3>Add to a list<a class="headerlink" href="#add-to-a-list" title="永久链接至标题"></a></h3>
+<p>To add titles to an existing list click on the list name from the page
+of lists</p>
+<p><img alt="image872" src="_images/listslist.png" /></p>
+<p>To open a list you can click the list name.</p>
+<p>From that page you can add titles by scanning barcodes into the box at
+the bottom of the page</p>
+<p><img alt="image873" src="_images/listcontents.png" /></p>
+<p>A title can also be added to a list by selecting titles on the search
+results page and choosing the list from the ‘Add to’ menu</p>
+<p><img alt="image874" src="_images/addtolist.png" /></p>
+</div>
+<div class="section" id="viewing-lists">
+<span id="viewing-lists-label"></span><h3>Viewing lists<a class="headerlink" href="#viewing-lists" title="永久链接至标题"></a></h3>
+<p>To see the contents of a list, visit the Lists page on the staff client</p>
+<p><img alt="image875" src="_images/listslist.png" /></p>
+<p>Clicking on the ‘List name’ will show the contents of the list</p>
+<p><img alt="image876" src="_images/listcontents.png" /></p>
+<p>From this list of items you can perform several actions</p>
+<ul class="simple">
+<li>‘New list’ will allow you to create another list</li>
+<li>‘Edit’ will allow you to edit the description and permissions for
+this list, or delete this list</li>
+<li>‘Download list’ will allow you to download the cart using one of 3
+default formats or your <a class="reference internal" href="tools.html#csv-profiles"><span class="std std-ref">CSV profiles</span></a></li>
+<li>‘Send list’ will send the list to the email address you enter</li>
+<li>‘Print list’ will present you with a printable version of the list</li>
+</ul>
+<p>You can sort the columns by clicking on the column header.</p>
+</div>
+<div class="section" id="merging-bibliographic-records-via-lists">
+<span id="merging-bibliographic-records-via-lists-label"></span><h3>Merging bibliographic records via lists<a class="headerlink" href="#merging-bibliographic-records-via-lists" title="永久链接至标题"></a></h3>
+<p>One way to merge together duplicate bibliographic records is to add them
+to a list and use the merge tool from there.</p>
+<p><img alt="image877" src="_images/listofdups.png" /></p>
+<p>Once you have selected the records to merge together the process is the
+same as if you had chosen to <a class="reference internal" href="cataloging.html#merging-records-label"><span class="std std-ref">merge via cataloging</span></a>.</p>
+</div>
+</div>
+<div class="section" id="cart">
+<span id="cart-label"></span><h2>Cart<a class="headerlink" href="#cart" title="永久链接至标题"></a></h2>
+<p>The cart is a temporary holding place for items in the OPAC and/or staff
+client. The cart will be emptied once the session is ended (by closing
+the browser or logging out). The cart is best used for performing batch
+operations (holds, printing, emailing) or for getting a list of items to
+be printed or emailed to yourself or a patron.</p>
+<p>If you would like to enable the cart in the staff client, you need to
+set the <a class="reference internal" href="staffclientpreferences.html#intranetbookbag"><span class="std std-ref">intranetbookbag</span></a> system preference to
+‘Show.’ To add things to the cart, search the catalog and select the
+items you would like added to your cart and click on the ‘Add to cart’
+button.</p>
+<p><img alt="image878" src="_images/addtocart.png" /></p>
+<p>A confirmation will appear below the cart button at the top of the staff
+client</p>
+<p><img alt="image879" src="_images/itemsaddedcart.png" /></p>
+<p>Clicking on the cart icon will provide you with the contents of the cart</p>
+<p><img alt="image880" src="_images/cart.png" /></p>
+<p>From this list of items you can perform several actions</p>
+<ul class="simple">
+<li>‘More details’ will show more information about the items in the cart</li>
+<li>‘Send’ will send the list to the email address you enter</li>
+<li>‘Download’ will allow you to download the cart using one of 3 default
+formats or your <a class="reference internal" href="tools.html#csv-profiles"><span class="std std-ref">CSV profiles</span></a></li>
+<li>‘Print’ will present you with a printable version of the cart</li>
+<li>‘Empty and close’ will empty the list and close the window</li>
+<li>‘Hide window’ will close the window</li>
+</ul>
+<div class="section" id="modifying-bibliographic-records-via-the-cart">
+<h3>Modifying bibliographic records via the cart<a class="headerlink" href="#modifying-bibliographic-records-via-the-cart" title="永久链接至标题"></a></h3>
+<p>Bibliographic records can be modified in batch from the records added to a cart.
+Select the records in the cart you wish to modify and click ‘Batch modify’.</p>
+<p>You will be taken to the ‘Batch record modification tool’ and from there the
+process to modify the bibliographic records is the same as if you had chosen to
+<a class="reference internal" href="tools.html#batch-record-modification-label"><span class="std std-ref">modify via Tools</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="acquisitions.html" class="btn btn-neutral float-left" title="Acquisitions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="reports.html" class="btn btn-neutral float-right" title="Reports" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

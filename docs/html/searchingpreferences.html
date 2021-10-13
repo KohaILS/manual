@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Searching &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Serials" href="serialspreferences.html" />
+    <link rel="prev" title="Patrons" href="patronspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">Patrons</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Searching</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#did-you-mean-spell-checking">Did you mean / Spell checking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#libriskey">LibrisKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#librisurl">LibrisURL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#browseresultselection">BrowseResultSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enablesearchhistory">EnableSearchHistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#includeseefrominsearches">IncludeSeeFromInSearches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queryautotruncate">QueryAutoTruncate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queryfuzzy">QueryFuzzy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queryregexescapeoptions">QueryRegexEscapeOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#querystemming">QueryStemming</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queryweightfields">QueryWeightFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracecompletesubfields">TraceCompleteSubfields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracesubjectsubdivisions">TraceSubjectSubdivisions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useicustylequotes">UseICUStyleQuotes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#results-display">Results Display</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#biblioitemtypeinfo">BiblioItemtypeInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultsortfield-and-defaultsortorder">defaultSortField and defaultSortOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displayfacetcount">displayFacetCount</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displaylibraryfacets">DisplayLibraryFacets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#facetlabeltruncationlength">FacetLabelTruncationLength</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#facetmaxcount">FacetMaxCount</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxitemsinsearchresults">maxItemsInSearchResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxrecordsforfacets">maxRecordsForFacets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxsearchresultsitemsperrecordstatuscheck">MaxSearchResultsItemsPerRecordStatusCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numsearchresults">numSearchResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numsearchresultsdropdown">numSearchResultsDropdown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacdefaultsortfield-and-opacdefaultsortorder">OPACdefaultSortField and OPACdefaultSortOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacitemsresultsdisplay">OPACItemsResultsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacnumsearchresults">OPACnumSearchResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacnumsearchresultsdropdown">OPACnumSearchResultsDropdown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#searchwithisbnvariations">SearchWithISBNVariations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unimarcauthorsfacetsseparator">UNIMARCAuthorsFacetsSeparator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#search-form">Search Form</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advancedsearchlanguages">AdvancedSearchLanguages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advancedsearchtypes">AdvancedSearchTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expandedsearchoption">expandedSearchOption</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetnumberspreferphrase">IntranetNumbersPreferPhrase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loadsearchhistorytothefirstloggeduser">LoadSearchHistoryToTheFirstLoggedUser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacnumberspreferphrase">OPACNumbersPreferPhrase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">Staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
+      <li>Searching</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/searchingpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="patronspreferences.html" class="btn btn-neutral float-left" title="Patrons" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="serialspreferences.html" class="btn btn-neutral float-right" title="Serials" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="searching">
+<span id="searchingsystem-preferences-label"></span><h1>Searching<a class="headerlink" href="#searching" title="永久链接至标题"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global System Preferences &gt;
+Searching</p>
+<div class="section" id="did-you-mean-spell-checking">
+<span id="didyoumean-spellchecking-prefs-label"></span><h2>Did you mean / Spell checking<a class="headerlink" href="#did-you-mean-spell-checking" title="永久链接至标题"></a></h2>
+<div class="section" id="libriskey">
+<span id="libriskey-label"></span><h3>LibrisKey<a class="headerlink" href="#libriskey" title="永久链接至标题"></a></h3>
+<p>Asks: Swedish service for spellchecking. LIBRIS spellchecking API key ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Use this system preference to enable the LIBRIS spellchecking service.</li>
+<li>You can obtain you API key at <a class="reference external" href="http://api.libris.kb.se/bibspell">http://api.libris.kb.se/bibspell</a></li>
+</ul>
+</div>
+<div class="section" id="librisurl">
+<span id="librisurl-label"></span><h3>LibrisURL<a class="headerlink" href="#librisurl" title="永久链接至标题"></a></h3>
+<p>Asks: LIBRIS base URL ___</p>
+<p>Default: <a class="reference external" href="http://api.libris.kb.se/bibspell/">http://api.libris.kb.se/bibspell/</a></p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference is used to set the base URL for the LIBRIS
+spellchecking service API</li>
+<li>The default value should be the right one. Make sure you only change it if
+you are sure it needs to be changed</li>
+</ul>
+</div>
+</div>
+<div class="section" id="features">
+<span id="searchingfeatures-label"></span><h2>Features<a class="headerlink" href="#features" title="永久链接至标题"></a></h2>
+<div class="section" id="browseresultselection">
+<span id="browseresultselection-label"></span><h3>BrowseResultSelection<a class="headerlink" href="#browseresultselection" title="永久链接至标题"></a></h3>
+<p>Default: Disable</p>
+<p>Asks: ___ browsing search results fromt the bibliographic record detail page in staff client.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>Enabling this system preference makes a button appear in the intranet search
+results page to browse the selected records.</li>
+</ul>
+</div>
+<div class="section" id="enablesearchhistory">
+<span id="enablesearchhistory-label"></span><h3>EnableSearchHistory<a class="headerlink" href="#enablesearchhistory" title="永久链接至标题"></a></h3>
+<p>Default: Don’t keep</p>
+<p>Asks: ___ patron search history in the staff client.</p>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t keep</p>
+</li>
+<li><p class="first">Keep</p>
+<blockquote>
+<div><p><img alt="image1197" src="_images/EnableSearchHistory.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference controls whether the staff client keeps search
+history for logged in users. Search history will be accessible under
+the link to your account in the top right of the staff client.</li>
+</ul>
+</div>
+<div class="section" id="includeseefrominsearches">
+<span id="includeseefrominsearches-label"></span><h3>IncludeSeeFromInSearches<a class="headerlink" href="#includeseefrominsearches" title="永久链接至标题"></a></h3>
+<p>Default: Don’t include</p>
+<p>Asks: ___ <em>see from</em> (non-preferred form) headings in bibliographic
+searches.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t include</li>
+<li>Include</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">When this preference is set to include the search engine indexer will
+insert <em>see from</em> headings from authority records into bibliographic
+records when indexing, so that a search on an obsolete term will turn
+up relevant records. For example when you search for cookery (the old
+term) you get titles with the heading of cooking (the new term).</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>You will need to reindex your bibliographic database when changing
+this preference.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="queryautotruncate">
+<span id="queryautotruncate-label"></span><h3>QueryAutoTruncate<a class="headerlink" href="#queryautotruncate" title="永久链接至标题"></a></h3>
+<p>Default: automatically</p>
+<p>Asks: Perform wildcard searching (where, for example, Har would match
+Harry and harp) ___ (The * character would be used like so: Har* or
+*logging.)</p>
+<p>Values:</p>
+<ul class="simple">
+<li>automatically</li>
+<li>only if * is added</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This setting allows for searches to be automatically truncated or for
+additional characters to be added to the end of a search string. When
+set to “automatically” the search string automatically ends with a
+wildcard function. For example, a search for the word “invent” with
+auto truncation enabled will also retrieve results for inventor,
+invention, inventory, etc. If you don’t want this to happen
+automatically you can still be perform wildcard searches manually by
+adding an asterisk (*). Typing “invent*” even with auto truncation
+disabled will retrieve the same inventor, invention, inventory
+results. Auto truncation bypasses the necessity to type long search
+strings in their entirety.</li>
+</ul>
+</div>
+<div class="section" id="queryfuzzy">
+<span id="queryfuzzy-label"></span><h3>QueryFuzzy<a class="headerlink" href="#queryfuzzy" title="永久链接至标题"></a></h3>
+<p>Default: Try</p>
+<p>Asks: ___ to match similarly spelled words in a search (for example,
+a search for flang would also match flange and fang)</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t try</li>
+<li>Try</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference enables “fuzzy” searching, in which the search engine
+returns results that are similar to, but not exactly matching, the
+word or words entered by the user. This preference enables the search
+function to compensate for slightly misspelled names or phrases.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">This does not work if ICU is enabled in your system.</p>
+</div>
+</div>
+<div class="section" id="queryregexescapeoptions">
+<span id="queryregexescapeoptions-label"></span><h3>QueryRegexEscapeOptions<a class="headerlink" href="#queryregexescapeoptions" title="永久链接至标题"></a></h3>
+<p>Asks: ___ regular expressions within strings.</p>
+<p>Default: Escape</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t escape</li>
+<li>Escape</li>
+<li>Unescaped escaped</li>
+</ul>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This system preference is used with Elasticsearch only. If you use Zebra as
+your <a class="reference internal" href="administrationpreferences.html#searchengine"><span class="std std-ref">SearchEngine</span></a>, it will not change anything.</p>
+</div></blockquote>
+<p>Description:</p>
+<ul class="simple">
+<li>If ‘Escape’ is selected occurences of ‘/’’ in search terms will be
+automatically escaped, and regular expressions interpreted as regular
+strings. In other words, regular expressions are disabled and search
+terms are search as-is (for example, ‘an essential grammar / William Z.
+Shetter’).</li>
+<li>If ‘Unescape escaped’ is selected this will allow writing regular
+expressions ‘/like this/’’ while ‘/this/’, ‘or/this’ will be escaped
+and interpreted as regular strings. In other words, use this option if you
+want to be able to use regular expressions in your search queries.</li>
+<li>If ‘Don’t escape’ is selected, the default behavior of the Elasticsearch
+search engine will be left unaltered. Several characters will be interpreted
+as being part of a regular expression, such as the forward slash (/).</li>
+</ul>
+</div>
+<div class="section" id="querystemming">
+<span id="querystemming-label"></span><h3>QueryStemming<a class="headerlink" href="#querystemming" title="永久链接至标题"></a></h3>
+<p>Default: Try</p>
+<p>Asks: ___ to match words of the same base in a search</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t try</li>
+<li>Try<ul>
+<li>A search for enabling would also match enable and enabled</li>
+</ul>
+</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference enables word stemming. Stemming allows the search
+function to return multiple versions of the same word, as well as
+related terms (i.e., both fish and fishing would be returned).</li>
+</ul>
+</div>
+<div class="section" id="queryweightfields">
+<span id="queryweightfields-label"></span><h3>QueryWeightFields<a class="headerlink" href="#queryweightfields" title="永久链接至标题"></a></h3>
+<p>Default: Enable</p>
+<p>Asks: ___ ranking of search results by relevance</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Disable</li>
+<li>Enable</li>
+</ul>
+</div>
+<div class="section" id="tracecompletesubfields">
+<span id="tracecompletesubfields-label"></span><h3>TraceCompleteSubfields<a class="headerlink" href="#tracecompletesubfields" title="永久链接至标题"></a></h3>
+<p>Default: Force</p>
+<p>Asks: ___ subject tracings in the OPAC and Staff Client to search
+only for complete-subfield matches.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t force<ul>
+<li>Searches for subject keywords (example:
+opac-search.pl?q=su:World%20Wide%20Web)</li>
+</ul>
+</li>
+<li>Force<ul>
+<li>Searches for complete subject fields (example:
+opac-search.pl?q=su,complete-subfield:World%20Wide%20Web)</li>
+</ul>
+</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">When TraceCompleteSubfields is set to “force,” clicking on links in
+non-authority controlled subject tracings will only find other
+records where the entire subfields match. Leaving it at “don’t force”
+does a keyword search of the subject indexes.</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This preference assumes that you’re using XSLT stylesheets as set in
+the <a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a> preference.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="tracesubjectsubdivisions">
+<span id="tracesubjectsubdivisions-label"></span><h3>TraceSubjectSubdivisions<a class="headerlink" href="#tracesubjectsubdivisions" title="永久链接至标题"></a></h3>
+<p>Default: Include</p>
+<p>Asks: ___ subdivisions for searches generated by clicking on subject
+tracings.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t include<ul>
+<li>Searches for subject keywords (example:
+opac-search.pl?q=su,complete-subfield:%22Web%20sites%22)</li>
+</ul>
+</li>
+<li>Include<ul>
+<li>Searches for complete subject fields (example:
+opac-search.pl?q=(su,complete-subfield:%22Web%20sites%22)%20and%20(su,complete-subfield:%22Design.%22))</li>
+</ul>
+</li>
+</ul>
+<p>Description:</p>
+<ul>
+<li><p class="first">When TraceSubjectSubdivisions is set to “Include,” if you click on a
+subject with subdivisions (subfields other than ‘a’) they will be
+searched along with the subject heading (subfield ‘a’). To have only
+the subject heading (subfield ‘a’) searched, set this preference to
+“Don’t include.”</p>
+<blockquote>
+<div><p><strong>Important</strong></p>
+<p>This preference assumes that you’re using XSLT stylesheets as set in
+the <a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a> preference.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="useicustylequotes">
+<span id="useicustylequotes-label"></span><h3>UseICUStyleQuotes<a class="headerlink" href="#useicustylequotes" title="永久链接至标题"></a></h3>
+<p>Asks: ___ ICU style quotes ({}) when tracing subjects.</p>
+<p>Default: Don’t use</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t use</li>
+<li>Use</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This sytem preference lets you decide which style of quotes to use when
+tracing subjects.</li>
+<li>If set to “Don’t use”, the regular double quotes (“”) will be used</li>
+<li>If set to “Use”, the quotes will be replaced by curly brackets ({})</li>
+</ul>
+</div>
+</div>
+<div class="section" id="results-display">
+<span id="results-display-label"></span><h2>Results Display<a class="headerlink" href="#results-display" title="永久链接至标题"></a></h2>
+<div class="section" id="biblioitemtypeinfo">
+<span id="biblioitemtypeinfo-label"></span><h3>BiblioItemtypeInfo<a class="headerlink" href="#biblioitemtypeinfo" title="永久链接至标题"></a></h3>
+<p>Default: Don’t display</p>
+<p>Asks: ___ Koha record level itemtype info on detail and result pages in the
+OPAC and staff interface. This info also displays if the
+<a class="reference internal" href="catalogingpreferences.html#item-level-itypes-label"><span class="std std-ref">item-level_itypes</span></a> system preference is set
+to bibliographic record.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>If enabled the icons for the record itemtype (942c) will be displayed on the record detail and
+search result pages in both the OPAC and staff interface.</li>
+</ul>
+</div>
+<div class="section" id="defaultsortfield-and-defaultsortorder">
+<span id="defaultsortfield-and-defaultsortorder-label"></span><h3>defaultSortField and defaultSortOrder<a class="headerlink" href="#defaultsortfield-and-defaultsortorder" title="永久链接至标题"></a></h3>
+<p>defaultSortField Default: author</p>
+<p>defaultSortOrder Default: ascending</p>
+<p>Asks: By default, sort search results in the staff client by ___,
+___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>These preferences set the default sort field and sort order for
+searches on the staff side. Regardless of your choice, the other sort
+options are still available in the drop down list on the advanced
+search page.</li>
+</ul>
+<p>defaultSortField Values:</p>
+<ul class="simple">
+<li>author</li>
+<li>call number</li>
+<li>date added</li>
+<li>date of publication</li>
+<li>relevance</li>
+<li>title</li>
+<li>total number of checkouts</li>
+</ul>
+<p>defaultSortOrder Values:</p>
+<ul class="simple">
+<li>ascending</li>
+<li>descending</li>
+<li>from A to Z</li>
+<li>from Z to A</li>
+</ul>
+</div>
+<div class="section" id="displayfacetcount">
+<span id="displayfacetcount-label"></span><h3>displayFacetCount<a class="headerlink" href="#displayfacetcount" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ facet counts.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference lets you decide if you show how many times a facet is
+used in your search results in the OPAC and the staff client. The
+relevance of these numbers highly depends on the value of the
+<a class="reference internal" href="#maxrecordsforfacets"><span class="std std-ref">maxRecordsForFacets</span></a> preference. Showing
+these numbers can potentially effect the performance of your
+searching, so test your system with different values for this
+preference to see what works best.</li>
+</ul>
+<p>Values:</p>
+<ul>
+<li><p class="first">Don’t show</p>
+</li>
+<li><p class="first">Show</p>
+<p><img alt="image107" src="_images/displayFacetCount.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="displaylibraryfacets">
+<span id="displaylibraryfacets-label"></span><h3>DisplayLibraryFacets<a class="headerlink" href="#displaylibraryfacets" title="永久链接至标题"></a></h3>
+<p>Default: holding library</p>
+<p>Asks: Show facets for ___</p>
+<p>Values:</p>
+<ul class="simple">
+<li>both home and holding library</li>
+<li>holding library</li>
+<li>home library</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This preferenc controls the libraries facet that displays on search
+results in the staff and opac. The value selected here will determine
+which library(s) show in the facets when a search is run.</li>
+</ul>
+</div>
+<div class="section" id="facetlabeltruncationlength">
+<span id="facetlabeltruncationlength-label"></span><h3>FacetLabelTruncationLength<a class="headerlink" href="#facetlabeltruncationlength" title="永久链接至标题"></a></h3>
+<p>Default: 20</p>
+<p>Asks: Truncate facets length to ___ characters, in OPAC/staff
+interface.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>In the OPAC and the staff client your facets are cut off at 20
+characters by default. Depending on your layout this may be too many
+or two few letters, this preference lets you decide what number is
+best for your library’s design.</li>
+</ul>
+</div>
+<div class="section" id="facetmaxcount">
+<span id="facetmaxcount-label"></span><h3>FacetMaxCount<a class="headerlink" href="#facetmaxcount" title="永久链接至标题"></a></h3>
+<p>Default: 20</p>
+<p>Asks: Show up ___ to facets for each category.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference allows you to control how many possible limits show
+under each heading (Author, Series, Topics, etc) on the facets in the
+OPAC.</li>
+</ul>
+</div>
+<div class="section" id="maxitemsinsearchresults">
+<span id="maxitemsinsearchresults-label"></span><h3>maxItemsInSearchResults<a class="headerlink" href="#maxitemsinsearchresults" title="永久链接至标题"></a></h3>
+<p>Default: 20</p>
+<p>Asks: Show up to ___ items per biblio in the search results</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference will let you set how many results display by default
+when a search is run on the Staff Client.</li>
+</ul>
+</div>
+<div class="section" id="maxrecordsforfacets">
+<span id="maxrecordsforfacets-label"></span><h3>maxRecordsForFacets<a class="headerlink" href="#maxrecordsforfacets" title="永久链接至标题"></a></h3>
+<p>Default: 20</p>
+<p>Asks: Build facets based on ___ records from the search results.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>By default Koha only bases facets on the first page of results
+(usually 20 results). This preference lets you tell Koha to based the
+facet descriptions and numbers on any number of search results
+returned. The higher this number the longer it will take for your
+search results to return, so test with various different values to
+find the best balance for your library.</li>
+</ul>
+</div>
+<div class="section" id="maxsearchresultsitemsperrecordstatuscheck">
+<span id="maxsearchresultsitemsperrecordstatuscheck-label"></span><h3>MaxSearchResultsItemsPerRecordStatusCheck<a class="headerlink" href="#maxsearchresultsitemsperrecordstatuscheck" title="永久链接至标题"></a></h3>
+<p>Default: 20</p>
+<p>Asks: For records with many items, only check the availability status
+for the first ___ items.</p>
+<p>Description:</p>
+<ul class="simple">
+<li>Availability statuses may show incorrectly in search results if a
+record has more items than the limit set. Statuses will display
+correctly in the record details. Leave empty for no limit.</li>
+</ul>
+</div>
+<div class="section" id="numsearchresults">
+<span id="numsearchresults-label"></span><h3>numSearchResults<a class="headerlink" href="#numsearchresults" title="永久链接至标题"></a></h3>
+<p>Asks: By default, show ___ results per page in the staff client.</p>
+<p>Default: 20</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to choose the default number of results
+per page in search results in the staff interface.</li>
+<li>If you want users to be able to change that number, enable the
+<a class="reference internal" href="#numsearchresultsdropdown"><span class="std std-ref">numSearchResultsDropdown</span></a> system preference.</li>
+<li>Use <a class="reference internal" href="#opacnumsearchresults"><span class="std std-ref">OPACnumSearchResults</span></a> to define the default number of results per
+page in the OPAC.</li>
+</ul>
+</div>
+<div class="section" id="numsearchresultsdropdown">
+<span id="numsearchresultsdropdown-label"></span><h3>numSearchResultsDropdown<a class="headerlink" href="#numsearchresultsdropdown" title="永久链接至标题"></a></h3>
+<p>Asks: ___ results per page dropdown on staff client search results.</p>
+<p>Default: Don’t show</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If set to ‘Show’ this system preference will make a drop down menu appear in
+the search results allowing the user to choose how many results they want to
+see per page.</li>
+<li>Use <a class="reference internal" href="#numsearchresults"><span class="std std-ref">numSearchResults</span></a> to determine what is the default value.</li>
+<li>Use <a class="reference internal" href="#opacnumsearchresultsdropdown"><span class="std std-ref">OPACnumSearchResultsDropdown</span></a> to define if the dropdown appears in
+the OPAC.</li>
+</ul>
+</div>
+<div class="section" id="opacdefaultsortfield-and-opacdefaultsortorder">
+<span id="opacdefaultsortfield-and-opacdefaultsortorder-label"></span><h3>OPACdefaultSortField and OPACdefaultSortOrder<a class="headerlink" href="#opacdefaultsortfield-and-opacdefaultsortorder" title="永久链接至标题"></a></h3>
+<p>OPACdefaultSortField Default: relevance</p>
+<p>OPACdefaultSortOrder Default: ascending</p>
+<p>Asks: By default, sort search results in the OPAC by ___, ___</p>
+<p>Description:</p>
+<ul class="simple">
+<li>These preferences set the default sort field and sort order for
+searches on the OPAC. Regardless of your choice, the other sort
+options are still available in the drop down list on the advanced
+search page.</li>
+</ul>
+<p>OPACdefaultSortField Values:</p>
+<ul class="simple">
+<li>author</li>
+<li>call number</li>
+<li>date added</li>
+<li>date of publication</li>
+<li>relevance</li>
+<li>title</li>
+<li>total number of checkouts</li>
+</ul>
+<p>OPACdefaultSortOrder Values:</p>
+<ul class="simple">
+<li>ascending</li>
+<li>descending</li>
+<li>from A to Z</li>
+<li>from Z to A</li>
+</ul>
+</div>
+<div class="section" id="opacitemsresultsdisplay">
+<span id="opacitemsresultsdisplay-label"></span><h3>OPACItemsResultsDisplay<a class="headerlink" href="#opacitemsresultsdisplay" title="永久链接至标题"></a></h3>
+<p>Default: Don’t show</p>
+<p>Asks: ___ an item’s library, location and call number in OPAC search results.
+results.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>This setting selects the information about an item that will display
+in the search results page of the OPAC. The results can display the
+status of an item and/or full details including branch, location, and
+call number. While the ‘Show’ option allows for more information to
+be displayed on the search results page, the information can be
+overwhelming for large collections with multiple branches.</li>
+</ul>
+</div>
+<div class="section" id="opacnumsearchresults">
+<span id="opacnumsearchresults-label"></span><h3>OPACnumSearchResults<a class="headerlink" href="#opacnumsearchresults" title="永久链接至标题"></a></h3>
+<p>Asks: By default, show ___ results per page in the OPAC.</p>
+<p>Default: 20</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This system preference allows you to choose the default number of results
+per page in search results in the OPAC.</li>
+<li>If you want users to be able to change that number, enable the
+<a class="reference internal" href="#opacnumsearchresultsdropdown"><span class="std std-ref">OPACnumSearchResultsDropdown</span></a> system preference.</li>
+<li>Use <a class="reference internal" href="#numsearchresults"><span class="std std-ref">numSearchResults</span></a> to define the default number of results per
+page in the staff interface.</li>
+</ul>
+</div>
+<div class="section" id="opacnumsearchresultsdropdown">
+<span id="opacnumsearchresultsdropdown-label"></span><h3>OPACnumSearchResultsDropdown<a class="headerlink" href="#opacnumsearchresultsdropdown" title="永久链接至标题"></a></h3>
+<p>Asks: ___ results per page dropdown on OPAC search results.</p>
+<p>Default: Don’t show</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t show</li>
+<li>Show</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>If set to ‘Show’ this system preference will make a drop down menu appear in
+the search results allowing the user to choose how many results they want to
+see per page.</li>
+<li>Use <a class="reference internal" href="#opacnumsearchresults"><span class="std std-ref">OPACnumSearchResults</span></a> to determine what is the default value.</li>
+<li>Use <a class="reference internal" href="#numsearchresultsdropdown"><span class="std std-ref">numSearchResultsDropdown</span></a> to define if the dropdown appears in
+the staff interface.</li>
+</ul>
+</div>
+<div class="section" id="searchwithisbnvariations">
+<span id="searchwithisbnvariations-label"></span><h3>SearchWithISBNVariations<a class="headerlink" href="#searchwithisbnvariations" title="永久链接至标题"></a></h3>
+<p>Default: don’t search</p>
+<p>Asks: When searching on the ISBN index, ___ on all variations of the
+ISBN.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>don’t search</li>
+<li>search</li>
+</ul>
+<p>Descriptions:</p>
+<ul class="simple">
+<li>With this preference set to search you’ll be able to search for ISBNs
+even if there are dashes or spaces in the field. So if you search for
+9781843345855 but the ISBN was cataloged as 978-1843345855 you’ll
+still be able to find it if this preference is set to ‘search’.</li>
+</ul>
+</div>
+<div class="section" id="unimarcauthorsfacetsseparator">
+<span id="unimarcauthorsfacetsseparator-label"></span><h3>UNIMARCAuthorsFacetsSeparator<a class="headerlink" href="#unimarcauthorsfacetsseparator" title="永久链接至标题"></a></h3>
+<p>Default: , (comma)</p>
+<p>Asks: Use the following text as separator for UNIMARC authors facets ___</p>
+</div>
+</div>
+<div class="section" id="search-form">
+<span id="search-form-label"></span><h2>Search Form<a class="headerlink" href="#search-form" title="永久链接至标题"></a></h2>
+<div class="section" id="advancedsearchlanguages">
+<span id="advancedsearchlanguages-label"></span><h3>AdvancedSearchLanguages<a class="headerlink" href="#advancedsearchlanguages" title="永久链接至标题"></a></h3>
+<p>Asks: Limit the languages listed in the advanced search drop-down to the
+___ ISO 639-2 language codes (separate values with | or ,).</p>
+<p>Description:</p>
+<ul class="simple">
+<li>This preference will allow you to decide what languages show in the
+pull down menu on the advanced search page in the OPAC and the staff
+client. If this preference is left blank, all languages will show. To
+limit the languages that are shown enter their <a class="reference external" href="http://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-2 language
+codes</a>
+separated by comma ( , ) or bar ( | ). For example to limit listing
+to French and Italian, enter ita|fre.</li>
+</ul>
+</div>
+<div class="section" id="advancedsearchtypes">
+<span id="advancedsearchtypes-label"></span><h3>AdvancedSearchTypes<a class="headerlink" href="#advancedsearchtypes" title="永久链接至标题"></a></h3>
+<p>Default: itemtype</p>
+<p>Asks: Show tabs in OPAC and staff-side advanced search for limiting
+searches on the ___ fields (separate values with |).</p>
+<p>Description:</p>
+<ul>
+<li><p class="first">On the advanced search page you can choose to allow filters on one or
+all of the following: Item types (itemtypes), Collection Codes
+(ccode) and Shelving Location (loc). If you would like to be able to
+limit searches on item type and shelving location for example you
+would enter itemtypes|loc in the preference input box. The order of
+these fields will determine the order of the tabs in the OPAC and
+staff client advanced search screens. Values within the search type
+are OR’ed together, while each different search type is AND’ed
+together in the query limits. The current stored values are supported
+without any required modification.Each set of advanced search fields
+are displayed in tabs in both the OPAC and staff client. The first
+value in the AdvancedSearchTypes syspref is the selected tab; if no
+values are present, “itemtypes” is used. For non-itemtype values, the
+value in AdvancedSearchTypes must match the Authorised Value name,
+and must be indexed with ‘mc-^ prefixing that name.</p>
+<p><img alt="image108" src="_images/AdvancedSearchTypes.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="expandedsearchoption">
+<span id="expandedsearchoption-label"></span><h3>expandedSearchOption<a class="headerlink" href="#expandedsearchoption" title="永久链接至标题"></a></h3>
+<p>Default: don’t show</p>
+<p>Asks: By default, ___ “More options” on the OPAC and staff advanced
+search pages.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>don’t show</li>
+<li>show</li>
+</ul>
+</div>
+<div class="section" id="intranetnumberspreferphrase">
+<span id="intranetnumberspreferphrase-label"></span><h3>IntranetNumbersPreferPhrase<a class="headerlink" href="#intranetnumberspreferphrase" title="永久链接至标题"></a></h3>
+<p>Default: don’t use</p>
+<p>Asks: By default, ___ the operator “phr” in the callnumber and
+standard number staff client searches</p>
+<p>Values:</p>
+<ul class="simple">
+<li>don’t use</li>
+<li>use</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When searching by call number and standard number (biblionumber) in
+Koha Staff Client you can choose to force the search to be a phrase
+search by setting this preference to ‘use.^ This will allow for more
+accurate results over doing a general keyword field search.</li>
+</ul>
+</div>
+<div class="section" id="loadsearchhistorytothefirstloggeduser">
+<span id="loadsearchhistorytothefirstloggeduser-label"></span><h3>LoadSearchHistoryToTheFirstLoggedUser<a class="headerlink" href="#loadsearchhistorytothefirstloggeduser" title="永久链接至标题"></a></h3>
+<p>Default: Load</p>
+<p>Asks: Load the unlogged history to the next user. ___ history to the next client.</p>
+<p>Values:</p>
+<ul class="simple">
+<li>Don’t load</li>
+<li>Load</li>
+</ul>
+</div>
+<div class="section" id="opacnumberspreferphrase">
+<span id="opacnumberspreferphrase-label"></span><h3>OPACNumbersPreferPhrase<a class="headerlink" href="#opacnumberspreferphrase" title="永久链接至标题"></a></h3>
+<p>Default: don’t use</p>
+<p>Asks: By default, ___ the operator “phr” in the callnumber and
+standard number OPAC searches</p>
+<p>Values:</p>
+<ul class="simple">
+<li>don’t use</li>
+<li>use</li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li>When searching by call number and standard number (biblionumber) in
+the Koha OPAC you can choose to force the search to be a phrase
+search by setting this preference to ‘use.^ This will allow for more
+accurate results over doing a general keyword field search.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="patronspreferences.html" class="btn btn-neutral float-left" title="Patrons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="serialspreferences.html" class="btn btn-neutral float-right" title="Serials" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

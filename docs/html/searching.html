@@ -1,0 +1,3376 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Searching &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Plugin System" href="plugins.html" />
+    <link rel="prev" title="OPAC" href="opac.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="index.html" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Searching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#search-history">Search history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-search-prefixes">Advanced Search Prefixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guide-to-searching">Guide to Searching</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#indexing-and-searching-description">Indexing and Searching Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indexing-configuration">Indexing Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-searching">Basic Searching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-searching">Advanced Searching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-results">Search results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#item-search">Item search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-command-language-searching">Common Command Language Searching</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#indexes">Indexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-syntax">Search Syntax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#koha-search-indexes">Koha Search Indexes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zebra">Zebra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elasticsearch-indexes">Elasticsearch indexes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bibliographic-record-indexes">Bibliographic record indexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authority-record-indexes">Authority record indexes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Searching</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/searching.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="opac.html" class="btn btn-neutral float-left" title="OPAC" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugin System" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="searching">
+<span id="searching-label"></span><h1>Searching<a class="headerlink" href="#searching" title="永久链接至标题"></a></h1>
+<div class="section" id="search-history">
+<span id="search-history-label"></span><h2>Search history<a class="headerlink" href="#search-history" title="永久链接至标题"></a></h2>
+<p>If you have your <a class="reference internal" href="searchingpreferences.html#enablesearchhistory"><span class="std std-ref">EnableSearchHistory</span></a>
+preference set to keep your search history then you can access this
+information by clicking on your username in the top right of the staff
+client and choosing ‘Search history’.</p>
+<p><img alt="image1062" src="_images/searchhistory.png" /></p>
+<p>From this page you will see your bibliographic search history</p>
+<p><img alt="image1063" src="_images/bibsearch1.png" /></p>
+<p>And your authority search history.</p>
+<p><img alt="image1064" src="_images/authsearch.png" /></p>
+</div>
+<div class="section" id="advanced-search-prefixes">
+<span id="advanced-search-prefixes-label"></span><h2>Advanced Search Prefixes<a class="headerlink" href="#advanced-search-prefixes" title="永久链接至标题"></a></h2>
+<p>The following prefixes can be added to search terms in the keyword
+search box to limit items returned</p>
+<ul class="simple">
+<li>ti: title search<ul>
+<li>ex. ti:hamlet</li>
+</ul>
+</li>
+<li>su: subject search<ul>
+<li>ex. su:cooking</li>
+</ul>
+</li>
+<li>pb: publisher search<ul>
+<li>ex. pb:penguin</li>
+</ul>
+</li>
+<li>au: author search<ul>
+<li>ex. au:rowling</li>
+</ul>
+</li>
+<li>su-geo: geographic subjects<ul>
+<li>ex. su-geo:wales and kw:description and kw:travel</li>
+</ul>
+</li>
+<li>bc: barcode<ul>
+<li>ex. bc:502326000912</li>
+</ul>
+</li>
+<li>lex: lexile<ul>
+<li>levels lex:510</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="guide-to-searching">
+<span id="guide-to-searching-label"></span><h2>Guide to Searching<a class="headerlink" href="#guide-to-searching" title="永久链接至标题"></a></h2>
+<p>This brief guide will explain a chart that shows a sample of how a
+MARC21 database can be configured, as well as a brief introductory
+searching guide. The indexing fields described in this document relate
+to the bibliographic data and does not address authority database
+indexing.</p>
+<div class="section" id="indexing-and-searching-description">
+<span id="indexing-and-searching-description-label"></span><h3>Indexing and Searching Description<a class="headerlink" href="#indexing-and-searching-description" title="永久链接至标题"></a></h3>
+<p>Koha’s databases are indexed by the Zebra open-source software. The
+overview to the documentation describes Zebra as:</p>
+<blockquote>
+<div><p>“…Zebra is a high-performance, general-purpose structured text
+indexing and retrieval engine. It reads records in a variety of
+input formats (eg. email, XML, MARC) and provides access to them
+through a powerful combination of Boolean search expressions and
+relevance-ranked free-text queries.</p>
+<p>Zebra supports large databases (tens of millions of records, tens of
+gigabytes of data). It allows safe, incremental database updates on
+live systems. Because Zebra supports the industry-standard
+information retrieval protocol, Z39.50, you can search Zebra
+databases using an enormous variety of programs and toolkits, both
+commercial and free, which understands this protocol…” Zebra -
+User’s Guide and Reference, p. 1,
+<a class="reference external" href="https://software.indexdata.com/zebra/doc/idzebra.pdf">https://software.indexdata.com/zebra/doc/idzebra.pdf</a></p>
+</div></blockquote>
+<p>This brief guide will explain a chart that shows a sample of how a
+MARC21 database can be configured, as well as a brief introductory
+searching guide. The indexing fields described in this document relate
+to the bibliographic data and does not address authority database
+indexing.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The indexing described in this document is the set used by
+SouthEastern University. Your local indexing may vary.</p>
+</div></blockquote>
+</div>
+<div class="section" id="indexing-configuration">
+<span id="indexing-configuration-label"></span><h3>Indexing Configuration<a class="headerlink" href="#indexing-configuration" title="永久链接至标题"></a></h3>
+<p>There are three configuration files that Koha uses while indexing.</p>
+<p>The first configuration file (etc/zebradb/biblios/etc/bib1.att) contains
+the Z39.50 bib-1 attribute list, plus the Koha local use attributes for
+Biblio Indexes, Items Index, and Fixed Fields and other special indexes.
+The Z39.50 Bib-1 profile is made up of several different types of
+attributes: Use, Relation, Position, Structure, Truncation, and
+Completeness. The bib-1 ‘Use’ attribute is represented on the chart; the
+other attributes are used primarily when doing searches. While there are
+over 150+ use attributes that could be used to define your indexing set,
+it’s unlikely that you will choose to use them all. The attributes you
+elect to use are those that become the indexing rules for your database.
+The other five attribute sets define the various ways that a search can
+be further defined, and will not specifically be addressed in this
+document. For a complete list of the standard Bib-1 attributes, go to
+<a class="reference external" href="http://www.loc.gov/z3950/agency/defns/bib1.html">http://www.loc.gov/z3950/agency/defns/bib1.html</a>.</p>
+<p>The second file is
+etc/zebradb/marc_defs/[marc21|unimarc]/biblios/record.abs if you use
+grs1 indexing [the default until 3.16] or
+etc/zebradb/marc_defs/[marc21|unimarc]/biblios/biblio-koha-indexdefs.xml
+if you use dom indexing [the default from 3.18]. Either files contains
+the abstract syntax which maps the MARC21 tags to the set of Use
+Attributes you choose to use. To be more precise the xml file to be
+activate needs to be transform into biblio-zebra-indexdefs.xsl, read the
+head of biblio-zebra-indexdefs.xsl to know more about this topic. The
+rules established in this file provides a passable Bath level 0 and 1
+service, which includes author, title, subject, keyword and exact
+services such as standard identifiers (LCCN, ISBN, ISSN, etc.)</p>
+<p>The third file (etc/zebradb/ccl.properties) is the Common Command
+Language (CCL) field mappings. This file combines the bib-1 attribute
+set file and the abstract file and adds the qualifiers, usually known as
+index names. The qualifiers, or indexes, for this database are: pn, cpn,
+cfn, ti, se, ut, nb, ns, sn, lcn, callnum, su, su-to, su-geo, su-ut,
+yr,pubdate, acqdate, ln, pl, ab, nt, rtype, mc-rtype, mus, au, su-na,
+kw, pb, ctype, and an.</p>
+<p>The <a class="reference internal" href="#koha-search-indexes-label"><span class="std std-ref">Koha Indexing Chart</span></a> summarizes the contents
+of all three of these files in a more readable format. The first two
+columns labeled Z39.50 attribute and Z39.50 name matches the Z39.50
+bib-1 attributes file. The third column labeled MARC tags indexed is
+where you find which MARC tags are mapped to an attribute. The fourth
+column labeled Qualifiers identifies the search abbreviations used in
+the internal CCL query. The following description provides a definition
+for the word ‘qualifiers’.</p>
+<p><em>Qualifiers are used to direct the search to a particular searchable
+index, such as title (ti) and author indexes (au). The CCL standard
+itself doesn’t specify a particular set of qualifiers, but it does
+suggest a few shorthand notations. You can customize the CCL parser to
+support a particular set of qualifiers to reflect the current target
+profile. Traditionally, a qualifier would map to a particular
+use-attribute within the BIB-1attribute set. It is also possible to set
+other attributes, such as the structure attribute.</em></p>
+<p>In the MARC tags indexed column, there are some conventions used that
+have specific meanings. They are:</p>
+<ul class="simple">
+<li>A three digit tag (100) means that all subfields in the tag can be
+used in a search query. So, if you enter a search for ‘Jackson’ as an
+author, you will retrieve records where Jackson could be the last
+name or the first name.</li>
+<li>A three digit tag that has a ‘$’ followed by a letter (600$a) means
+that a search query will only search the ‘a’ subfield.</li>
+<li>A three digit tag that is followed by a ‘:’ and a letter (240:w)
+means that a search query can be further qualified. The letter
+following the ‘:’ identifies how to conduct the search. The most
+common values you’ll see are ‘w’ (word), ‘p’ (phrase), ‘s’ (sort),
+and ‘n’ (numeric).</li>
+</ul>
+<p>The contents of the MARC tags, subfields, and/or fixed field elements
+that are listed in this chart are all indexed. You’ll see that every
+attribute line is not mapped to a specific qualifier (index)-LC card
+number, line 9 is one example. However, every indexed word (a string of
+characters preceded and succeeded by a space) can be searched using a
+keyword (kw) search. So, although an LC card number specific index
+doesn’t exist, you can still search by the LCCN since tag 010 is
+assigned to the LC-card-number attribute. To verify this, enter 72180055
+in the persistent search box. You should retrieve The gods themselves,
+by Isaac Asimov.</p>
+<p>Examples of fixed field elements indexing can be seen on the chart
+between Attribute 8822 and Attribute 8703. These attributes are most
+commonly used for limiting. The fixed field attributes currently
+represent the BK codes. Other format codes, if needed, could be defined.</p>
+</div>
+<div class="section" id="basic-searching">
+<span id="basic-searching-label"></span><h3>Basic Searching<a class="headerlink" href="#basic-searching" title="永久链接至标题"></a></h3>
+<p>The search box that library staff and library patrons will see most
+often is the persistent search box at the top of the page. Koha
+interprets the searches as keyword searches.</p>
+<p><img alt="image1037" src="_images/searchbox1.png" /></p>
+<p>To start a search, you enter a word or multiple words in the search box.
+When a single word is entered, a keyword search is performed. You can
+check this out by typing one word into the form and note the number of
+results located. Then, repeat the search with a minor change. In front
+of the search word, type ‘kw=’ followed by the same search term. The
+results will be identical.</p>
+<p>When you have more than one word in the search box, Koha will still do a
+keyword search, but a bit differently. Each word will be searched on its
+own, then the Boolean connector ‘and’ will narrow your search to those
+items with all words contained in matching records.</p>
+<p>Suppose you want to find material about how libraries are using mashups.
+You’ll select the major words and enter them into the persistent search
+box.</p>
+<p><img alt="image1038" src="_images/searchterms.png" /></p>
+<p>The response to this search is:</p>
+<p><img alt="image1039" src="_images/resultssummary.png" /></p>
+<p>The order of the words does not affect the retrieval results, so you
+could also enter the search as “mashups library”. The response to this
+search is results</p>
+<p><img alt="image1040" src="_images/resultssummary2.png" /></p>
+<p>Too many words in the search box will find very few matches, as the
+following example illustrates:</p>
+<p><img alt="image1041" src="_images/noresults.png" /></p>
+</div>
+<div class="section" id="advanced-searching">
+<span id="advanced-searching-label"></span><h3>Advanced Searching<a class="headerlink" href="#advanced-searching" title="永久链接至标题"></a></h3>
+<p>When you can’t find the most appropriate material with a general search,
+you can move to the Advanced Search page by clicking on the Search
+option on the persistent toolbar.</p>
+<p><img alt="image1042" src="_images/menubar.png" /></p>
+<p>The Advanced Search page offers many ways to limit the results of your
+search. You can search using the Boolean operators AND, OR, and NOT;
+limit by item type; limit by year and language; limit by subtypes
+audience, content, format, or additional content types; by location and
+by availability.</p>
+<p>The first limiting section on the Advanced Search page provides a quick
+and simple way to use the Boolean operators in your search. Note that
+this display depends on a system preference setting. This option can be
+found on the Administration &gt; System Preferences &gt; Searching page. The
+option called <a class="reference internal" href="searchingpreferences.html#expandedsearchoption"><span class="std std-ref">expandedSearchOption</span></a> must be
+set to ‘show’ to see the following display.</p>
+<p><img alt="image1043" src="_images/searchoptions.png" /></p>
+<p>In this section you can choose among the many indexes by clicking on the
+arrow in the first box. The blank box that follows is where you enter
+your first search term or terms. On the second line, you can choose the
+Boolean operator you want to use in your search. The options are ‘and’,
+‘or’, and ‘not’. Then, you would again choose the index to search,
+followed by the second term or terms. If you have more concepts you want
+to include in your search, you can click the [+] to add another line for
+your search.</p>
+<p>A sample search is shown next, followed by its results:</p>
+<p><img alt="image1044" src="_images/advsearch.png" /></p>
+<p><img alt="image1045" src="_images/numresults.png" /></p>
+<p>When you use the Boolean operators to broaden or narrow a search,
+remember the action of each operator. The ‘and’ operator narrows the
+results you’ll retrieve because the search will retrieve the records
+that include all your search terms. The ‘or’ operator expands the
+results because the search will look for occurrences of all of your
+search terms. The ‘not’ operator excludes records with the term that
+follows the operator.</p>
+<p>Note: If you leave this <a class="reference internal" href="searchingpreferences.html#expandedsearchoption"><span class="std std-ref">expandedSearchOption</span></a>
+set to ‘don’t show’, this is the display you will see:</p>
+<p><img alt="image1046" src="_images/feweropts.png" /></p>
+<p>The Advanced Search page then shows the multiple kinds of limits that
+can be applied to your search results. Either check a box or select from
+the drop down menus to narrow your search. You will type the year, year
+range, or a ‘greater than (&gt;)’ or ‘less than (&lt;)’ year.</p>
+<p><img alt="image1047" src="_images/advoptions.png" /></p>
+<p>Finally, you can choose how the results will be sorted. The pre-defined
+sort options are in the final area of the Advanced Search screen.</p>
+<p><img alt="image1048" src="_images/advsortby.png" /></p>
+<p>The default sort is by relevance, although you can choose to sort by
+author, by title, by call number, by dates, or by popularity (which uses
+the information on total issues found in the items table). If you would
+prefer a different default sort, you can set
+<a class="reference internal" href="searchingpreferences.html#defaultsortfield-and-defaultsortorder-label"><span class="std std-ref">defaultSortField</span></a> to one of the other choices in
+Administration &gt; System Preferences &gt; Searching.</p>
+</div>
+<div class="section" id="search-results">
+<span id="search-results-label"></span><h3>Search results<a class="headerlink" href="#search-results" title="永久链接至标题"></a></h3>
+<p>After performing a search the number of results found for your search will
+appear above the results.</p>
+<p><img alt="image1329" src="_images/searchresults.png" /></p>
+<p>To the left, you will find filters, or facets, to refine your search. Currently
+available facets include:</p>
+<ul>
+<li><p class="first">Availability</p>
+</li>
+<li><p class="first">Authors</p>
+</li>
+<li><p class="first">Collections</p>
+</li>
+<li><p class="first">Home library, holding library or both</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>This depends on your setting for the <a class="reference internal" href="searchingpreferences.html#displaylibraryfacets"><span class="std std-ref">DisplayLibraryFacets</span></a> system preference.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Item types</p>
+</li>
+<li><p class="first">Locations</p>
+</li>
+<li><p class="first">Series</p>
+</li>
+<li><p class="first">Places (geographic name headings)</p>
+</li>
+<li><p class="first">Topics (subject headings)</p>
+</li>
+<li><p class="first">Titles (uniform title headings)</p>
+</li>
+</ul>
+<p>When there are more than five facets in a category, a ‘Show more’ link
+will appear. You can control the display of the facets using the following
+systempreferences: <a class="reference internal" href="searchingpreferences.html#displayfacetcount"><span class="std std-ref">displayFacetCount</span></a>,
+<a class="reference internal" href="searchingpreferences.html#displaylibraryfacets"><span class="std std-ref">DisplayLibraryFacets</span></a>,
+<a class="reference internal" href="searchingpreferences.html#facetlabeltruncationlength"><span class="std std-ref">FacetLabelTruncationLength</span></a>,
+<a class="reference internal" href="searchingpreferences.html#facetmaxcount"><span class="std std-ref">FacetMaxCount</span></a>,
+<a class="reference internal" href="searchingpreferences.html#maxrecordsforfacets"><span class="std std-ref">maxRecordsForFacets</span></a>,
+and <a class="reference internal" href="searchingpreferences.html#unimarcauthorsfacetsseparator"><span class="std std-ref">UNIMARCAuthorsFacetsSeparator</span></a>.</p>
+<p>Along the top, under the number of results, there are buttons to do different actions
+on selected records.</p>
+<ul>
+<li><p class="first">‘Select all’: selects all the records on the page.</p>
+</li>
+<li><p class="first">‘Clear all’: unselects all the records that were selected.</p>
+</li>
+<li><p class="first">‘Unhighlight’: removes the red/yellow highlighting of the search term(s).</p>
+</li>
+<li><p class="first">‘Add to cart’: adds selected record(s) to the <a class="reference internal" href="lists.html#cart-label"><span class="std std-ref">cart</span></a>.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The <a class="reference internal" href="staffclientpreferences.html#intranetbookbag"><span class="std std-ref">intranetbookbag</span></a> system preference needs to be
+set to ‘Show’ in order for that button to appear.</p>
+</div></blockquote>
+</li>
+<li><p class="first">‘Add to list’: adds selected record(s) to the chosen <a class="reference internal" href="lists.html#lists-label"><span class="std std-ref">list</span></a>.</p>
+</li>
+<li><p class="first">‘Place hold’: places a hold on the selected record(s).</p>
+</li>
+<li><p class="first">‘Browse selected records’: goes to the detailed record page of the selected record(s).
+Clicking on ‘Next’ or ‘Previous’ from the detailed record will bring you to the next
+selected record.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>The <a class="reference internal" href="searchingpreferences.html#browseresultselection"><span class="std std-ref">BrowseResultSelection</span></a> system preference
+needs to be enabled in order for that button to appear.</p>
+</div></blockquote>
+</li>
+<li><p class="first">‘Z39.50/SRU search’: opens the Z39.50/SRU search popup window with the fields
+pre-filled with the search terms.</p>
+</li>
+<li><p class="first">‘Sort’: lets you choose a sorting field and order.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>By default your search results will be sorted based on your <a class="reference internal" href="searchingpreferences.html#defaultsortfield-and-defaultsortorder-label"><span class="std std-ref">defaultSortField and defaultSortOrder</span></a> system preferences values.</p>
+</div></blockquote>
+</li>
+</ul>
+<p><img alt="image1330" src="_images/searchresultssort.png" /></p>
+<p>Under each title on your results list a series of values from your leader
+will appear. It is important to note that this has nothing to do with the
+item types or collection codes you have applied to your records, this data
+is all pulled from your fixed fields. This can be turned on or off with the
+<a class="reference internal" href="staffclientpreferences.html#displayiconsxslt"><span class="std std-ref">DisplayIconsXSLT</span></a> system preference.</p>
+<p>At the bottom, under each record, there are more action links:</p>
+<ul>
+<li><p class="first">‘Holds’: brings you to that record’s <a class="reference internal" href="circulation.html#placing-holds-in-staff-client-label"><span class="std std-ref">‘Holds’ tab</span></a>.</p>
+</li>
+<li><p class="first">‘Request article’: brings you to that record’s <a class="reference internal" href="patrons.html#article-requests-label"><span class="std std-ref">‘Article requests’ tab</span></a>.</p>
+</li>
+<li><p class="first">‘Edit record’: brings you to that record’s MARC framework for editing.</p>
+</li>
+<li><p class="first">‘Edit items’: brings you to that record’s item list for editing.</p>
+</li>
+<li><p class="first">‘OPAC view’: brings you to that record’s detail page in the OPAC.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>‘OPAC view’ needs the <a class="reference internal" href="opacpreferences.html#opacbaseurl"><span class="std std-ref">OPACBaseURL</span></a> system preference to
+be properly set.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>To the right of each record are the holdings information and availability.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>Even if you filtered on one library location all locations that hold the item
+will appear on the search results.</p>
+<p><strong>Important</strong></p>
+<p>An item’s hold status doesn’t not affect whether or not the item is ‘available’
+until the item is in ‘waiting’ status. Items with on-shelf holds will show as
+available until a librarian has pulled them from the shelf and checked the item
+in make it show ‘waiting’.</p>
+</div></blockquote>
+</div>
+<div class="section" id="item-search">
+<span id="item-searching-label"></span><h3>Item search<a class="headerlink" href="#item-search" title="永久链接至标题"></a></h3>
+<p>If you are looking for specific items you can use the item search engine
+in the staff client to find them.</p>
+<ul class="simple">
+<li><em>Get there:</em> Search &gt; Item search</li>
+</ul>
+<p><img alt="image1447" src="_images/itemsearchinmenu.png" /></p>
+<p>You can also access the item search from the link ‘Go to item search’ at the
+top of the advanced search page in the staff client.</p>
+<p><img alt="image1313" src="_images/itemsearchlink.png" /></p>
+<p>Either of those links will open up a item specific search engine.</p>
+<p><img alt="image1314" src="_images/itemsearch.png" /></p>
+<p>Using the search form that is presented you can find a list of specific
+items that can be output to the screen, to a CSV file or to a barcode file.</p>
+<p>You can add more search fields to this form by going to the <a class="reference internal" href="administration.html#item-search-fields-label"><span class="std std-ref">item search
+fields</span></a> section in the Administration module.</p>
+<p>If your results are printed to the screen you will have the option to narrow
+your search further using filters at the top.</p>
+<p><img alt="image1315" src="_images/itemsearchresults.png" /></p>
+</div>
+<div class="section" id="common-command-language-searching">
+<span id="common-command-language-searching-label"></span><h3>Common Command Language Searching<a class="headerlink" href="#common-command-language-searching" title="永久链接至标题"></a></h3>
+<p>Koha uses the Common Command Language (CCL) (ISO 8777) as its internal
+search protocol. Searches initiated in the graphical interface use this
+protocol as well, although the searcher doesn’t know which indexes,
+operators and limiters are available and being used to conduct their
+search. The searcher can use the Advanced Search when more precise
+results set are desired and where the search indexes are somewhat known.
+However, some library users and many library staff prefer using a
+command based structure. This part of the document will present and
+explain the use of the Koha command based structure. The indexes,
+operators, and limiters used are identical to those used in the
+graphical interface.</p>
+<div class="section" id="indexes">
+<span id="indexes-label"></span><h4>Indexes<a class="headerlink" href="#indexes" title="永久链接至标题"></a></h4>
+<p>The CCL standard itself doesn’t specify a particular set of qualifiers
+(indexes), but it does suggest a few short-hand notations such as ‘ti’,
+‘au’, and ‘su’. Koha has a default set of indexes; it’s possible to
+customize that set by adding needed indexes based on local requirements.
+A qualifier (index) maps to a particular use-attribute within the Z39.50
+BIB-1 attribute set. The complete Z39.50 Bib-1 Attribute can be viewed
+at <a class="reference external" href="http://www.loc.gov/z3950/agency/defns/bib1.html">http://www.loc.gov/z3950/agency/defns/bib1.html</a>.</p>
+<p>The standard Koha set of indexes is a fairly common example of MARC21
+indexing rules. The indexes that are defined in Koha are indexes
+typically used by other integrated library systems. The defined Z39.50
+Bib-1 Attribute mapped to the indexes include:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="53%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bib-1 Attribute</th>
+<th class="head">Qualifier (index)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Personal-name</td>
+<td>pn</td>
+</tr>
+<tr class="row-odd"><td>Corporate-name</td>
+<td>cpn</td>
+</tr>
+<tr class="row-even"><td>Conference-name</td>
+<td>cfn</td>
+</tr>
+<tr class="row-odd"><td>Title</td>
+<td>ti</td>
+</tr>
+<tr class="row-even"><td>Title-series</td>
+<td>se</td>
+</tr>
+<tr class="row-odd"><td>Title-uniform</td>
+<td>ut</td>
+</tr>
+<tr class="row-even"><td>ISBN</td>
+<td>nb</td>
+</tr>
+<tr class="row-odd"><td>ISSN</td>
+<td>ns</td>
+</tr>
+<tr class="row-even"><td>Local number</td>
+<td>sn</td>
+</tr>
+<tr class="row-odd"><td>Local-classification</td>
+<td>lcn and callnum</td>
+</tr>
+<tr class="row-even"><td>Subject</td>
+<td>su, su-to, su-geo, su-ut</td>
+</tr>
+<tr class="row-odd"><td>Pubdate</td>
+<td>yr,pubdate</td>
+</tr>
+<tr class="row-even"><td>Date-of-Acquisition</td>
+<td>acqdate</td>
+</tr>
+<tr class="row-odd"><td>Language</td>
+<td>ln</td>
+</tr>
+<tr class="row-even"><td>Place-of-publication</td>
+<td>pl</td>
+</tr>
+<tr class="row-odd"><td>Abstract</td>
+<td>ab</td>
+</tr>
+<tr class="row-even"><td>Notes</td>
+<td>nt</td>
+</tr>
+<tr class="row-odd"><td>Record-type</td>
+<td>rtype, mc-rtype, mus</td>
+</tr>
+<tr class="row-even"><td>Author</td>
+<td>au, aut</td>
+</tr>
+<tr class="row-odd"><td>Subject-person-name</td>
+<td>su-na</td>
+</tr>
+<tr class="row-even"><td>Any (keyword)</td>
+<td>kw</td>
+</tr>
+<tr class="row-odd"><td>Publisher</td>
+<td>pb</td>
+</tr>
+<tr class="row-even"><td>Content-type</td>
+<td>ctype</td>
+</tr>
+<tr class="row-odd"><td>Koha-Auth-Number</td>
+<td>an</td>
+</tr>
+<tr class="row-even"><td>Author-personal-bibliography</td>
+<td>aub</td>
+</tr>
+<tr class="row-odd"><td>Author-in-order</td>
+<td>auo</td>
+</tr>
+</tbody>
+</table>
+<p>Table: Attributes</p>
+<p>Refer to the <a class="reference internal" href="#koha-search-indexes-label"><span class="std std-ref">Koha Indexing Chart</span></a> for the MARC21
+tags mapped to each Bib-1 Attribute and index combination.</p>
+<div class="section" id="audience-examples">
+<span id="audience-examples-label"></span><h5>Audience Examples<a class="headerlink" href="#audience-examples" title="永久链接至标题"></a></h5>
+<ul class="simple">
+<li>aud:a Preschool</li>
+<li>aud:b Primary</li>
+<li>aud:c Pre-Adolescent</li>
+<li>aud:d Adolescent</li>
+<li>aud:e Adult</li>
+<li>aud:f Specialized</li>
+<li>aud:g General</li>
+<li>aud:j Juvenile</li>
+</ul>
+</div>
+<div class="section" id="contents-examples">
+<span id="contents-examples-label"></span><h5>Contents Examples<a class="headerlink" href="#contents-examples" title="永久链接至标题"></a></h5>
+<ul class="simple">
+<li>fic:1 Fiction</li>
+<li>fic:0 Non Fiction</li>
+<li>bio:b Biography</li>
+<li>mus:j Musical recording</li>
+<li>mus:I Non musical record</li>
+</ul>
+</div>
+</div>
+<div class="section" id="search-syntax">
+<span id="search-syntax-label"></span><h4>Search Syntax<a class="headerlink" href="#search-syntax" title="永久链接至标题"></a></h4>
+<p>In the persistent search box, single words generally retrieve large
+sets. To narrow a search, you can use multiple words. Koha automatically
+uses the ‘and’ Boolean operator to create a set of records matching your
+input. When you want to narrow the search to an author or a title or a
+subject or some other specific field or use a Boolean operator, there
+isn’t an obvious way to accomplish that specificity. The library user
+can, of course, go to the Advanced Search page; however, if you know how
+to construct a CCL search, you can achieve more specificity while using
+the persistent search box on any page.</p>
+<p>There is a specific order to the CCL search syntax. Although it can be
+used for simple searches, it is an especially effective way to perform
+complex searches, as it affords you a great deal of control over your
+search results. To construct a CCL search, first enter a desired index
+code, then an equal sign, followed by your search word(s). Following are
+examples of simple CCL searches.</p>
+<ul class="simple">
+<li>ti=principles of accounting</li>
+<li>au=brown joseph</li>
+<li>su=poetry</li>
+<li>su-na=Shakespeare</li>
+<li>kw=marlin</li>
+</ul>
+<p>You can refine your search by combining search terms with Boolean
+operators ‘and’, ‘or’, or ‘not’. Following are examples of searches
+using Boolean operators.</p>
+<ul class="simple">
+<li>ti=principles of accounting and au=brown joseph</li>
+<li>su=poetry not su-na=Shakespeare</li>
+<li>kw=communication and su=debate</li>
+</ul>
+<p>You can also choose to search for things that start with a character or
+series of characters</p>
+<ul class="simple">
+<li>ti,first-in-subfield=C (will show you all titles that start with the
+letter ‘C’)</li>
+</ul>
+<p>Other string location searches can be performed with the following
+keywords:</p>
+<ul class="simple">
+<li>rtrn : right truncation</li>
+<li>ltrn : left truncation</li>
+<li>lrtrn : left and right truncation</li>
+<li>st-date : type date</li>
+<li>st-numeric : type number (integer)</li>
+<li>ext : exact search on whole subfield (does not work with icu)</li>
+<li>phr : search on phrase anywhere in the subfield</li>
+<li>startswithnt : subfield starts with</li>
+</ul>
+<p>Using specific indexes and Boolean operators are not the only way a
+search can be refined. You can also refine your search as a phrase when
+looking for a title, author, or subject. The syntax for this search is
+<em>index,phr=search words</em>.</p>
+<p>To illustrate the results of various search types, a search was done for
+the words ‘supreme court’. The results illustrate that the search index
+and the word order make a difference in search results. Only the results
+count and the search itself is in these examples. The search executed
+will always be between the single quotes.</p>
+<p><img alt="image1049" src="_images/ex1.png" /></p>
+<p><img alt="image1050" src="_images/ex2.png" /></p>
+<p><img alt="image1051" src="_images/ex3.png" /></p>
+<p><img alt="image1052" src="_images/ex4.png" /></p>
+<p><img alt="image1053" src="_images/ex5.png" /></p>
+<p><img alt="image1054" src="_images/ex6.png" /></p>
+<p><img alt="image1055" src="_images/ex7.png" /></p>
+<p><img alt="image1056" src="_images/ex8.png" /></p>
+<p><img alt="image1057" src="_images/ex9.png" /></p>
+<p>You can also choose to use limiters in your search query. Some common
+limiters include dates, languages, record types, and item types. In the
+Advance Search, you can either click a box or key in data to limit your
+search. You can also apply the same limits with CCL by using the syntax
+in the following examples. In all</p>
+<p><em>By Date: su=supreme court and yr,st-numeric=&gt;2000</em></p>
+<p><img alt="image1058" src="_images/ex10.png" /></p>
+<p>When you limit by date, you can use the ‘&gt;’ (greater than), ‘&lt;’ (less
+than), ‘=’ (equal), or ‘yyyy-yyyy’ (range) symbols.</p>
+<p><em>By Item Type: su=nursing and itype:BK</em></p>
+<p><img alt="image1059" src="_images/ex11.png" /></p>
+<p>Each library will have a different set of item types defined in their
+circulation configuration. When you set up item types, you define a code
+and a name for each one. The name will appear on the Advance Search
+page. The code you assigned is used as a CCL search limit, formatted as
+‘itype:x’, where ‘x’ is the assigned code. The initial set of item types
+in Koha will usually be edited to reflect your collections, so your item
+type limiters may be different than the initial ones. The initial item
+type limiters follow.</p>
+<ul class="simple">
+<li>itype:BKS Books, Booklets, Workbooks</li>
+<li>itype:SR Audio Cassettes, CDs</li>
+<li>itype:IR Binders</li>
+<li>itype:CF CD-ROMs, DVD-ROMs, General Online Resources</li>
+<li>itype:VR DVDs, VHS</li>
+<li>itype:KT Kit</li>
+<li>itype:AR Models</li>
+<li>itype:SER Serials</li>
+</ul>
+<p><em>By format: su=supreme court not l-format:sr</em></p>
+<p><img alt="image1060" src="_images/ex12.png" /></p>
+<p>The format limiters are derived from a combination of LDR, 006 and 007
+positions. The formats that are currently defined are the following.</p>
+<ul class="simple">
+<li>l-format:ta Regular print</li>
+<li>l-format:tb Large print</li>
+<li>l-format:fk Braille</li>
+<li>l-format:sd CD audio</li>
+<li>l-format:ss Cassette recording</li>
+<li>l-format:vf VHS tape</li>
+<li>l-format:vd DVD video</li>
+<li>l-format:co CD software</li>
+<li>l-format:cr Website</li>
+</ul>
+<p><em>By content type: su=supreme court not ctype:l</em></p>
+<p><img alt="image1061" src="_images/ex13.png" /></p>
+<p>The content types are taken from the 008 MARC tag, positions 24-27.</p>
+<p>There are two other limiter types that are not described in this
+document. They are: Audience and Content. The only difference in the
+syntax of the CCL is the actual limiter. They are reproduced here just
+in case you would like to use these limiters.</p>
+</div>
+</div>
+</div>
+<div class="section" id="koha-search-indexes">
+<span id="koha-search-indexes-label"></span><h2>Koha Search Indexes<a class="headerlink" href="#koha-search-indexes" title="永久链接至标题"></a></h2>
+<div class="section" id="zebra">
+<h3>Zebra<a class="headerlink" href="#zebra" title="永久链接至标题"></a></h3>
+<p>By default, not all fields are indexed in the Zebra search engine, but
+many are. Below are the MARC21 fields that are indexed in Zebra.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="96%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Leader/06</td>
+<td>Record-type, rtype</td>
+</tr>
+<tr class="row-odd"><td>Leader/07</td>
+<td>Bib-level</td>
+</tr>
+<tr class="row-even"><td>Leader/06-07</td>
+<td>Material-type</td>
+</tr>
+<tr class="row-odd"><td>001</td>
+<td>Control-number</td>
+</tr>
+<tr class="row-even"><td>005</td>
+<td>Date/time-last-modified, dtlm, date-time-last-modified</td>
+</tr>
+<tr class="row-odd"><td>007</td>
+<td>Microform-generation:n:range(data,11,1), Material-type,ff7-00:w:range(data,0,1), ff7-01:w:range(data,1,1), ff7-02:w:range(data,2,1), ff7-01-02:w:range(data,0,2)</td>
+</tr>
+<tr class="row-even"><td>008</td>
+<td>date-entered-on-file:n:range(data,0,5), date-entered-on-file:s:range(data,0,5), pubdate:w:range(data,7,4), pubdate:n:range(data,7,4), pubdate:y:range(data,7,4), pubdate:s:range(data,7,4), pl:w:range(data,15,3), ta:w:range(data,22,1), ff8-23:w:range(data,23,1), ff8-29:w:range(data,29,1), lf:w:range(data,33,1), bio:w:range(data,34,1), ln:n:range(data,35,3), ctype:w:range(data,24,4), Record-source:w:range(data,39,0)</td>
+</tr>
+<tr class="row-odd"><td>010</td>
+<td>LC-card-number, Identifier-standard</td>
+</tr>
+<tr class="row-even"><td>011</td>
+<td>LC-card-number, Identifier-standard</td>
+</tr>
+<tr class="row-odd"><td>015</td>
+<td>BNB-card-number, BGF-number, Number-db, Number-natl-biblio, Identifier-standard</td>
+</tr>
+<tr class="row-even"><td>017</td>
+<td>Number-legal-deposit, Identifier-standard</td>
+</tr>
+<tr class="row-odd"><td>018</td>
+<td>Identifier-standard</td>
+</tr>
+<tr class="row-even"><td>020$a</td>
+<td>ISBN:w, Identifier-standard:w</td>
+</tr>
+<tr class="row-odd"><td>020</td>
+<td>Identifier-standard</td>
+</tr>
+<tr class="row-even"><td>022$a</td>
+<td>ISSN:w, Identifier-standard:w</td>
+</tr>
+<tr class="row-odd"><td>022</td>
+<td>Identifier-standard</td>
+</tr>
+<tr class="row-even"><td>023</td>
+<td>Identifier-standard</td>
+</tr>
+<tr class="row-odd"><td>024$a</td>
+<td>Identifier-other</td>
+</tr>
+<tr class="row-even"><td>024</td>
+<td>Identifier-standard</td>
+</tr>
+<tr class="row-odd"><td>025</td>
+<td>Identifier-standard</td>
+</tr>
+<tr class="row-even"><td>027</td>
+<td>Report-number, Identifier-standard</td>
+</tr>
+<tr class="row-odd"><td>028</td>
+<td>Number-music-publisher, Identifier-standard</td>
+</tr>
+<tr class="row-even"><td>030</td>
+<td>CODEN, Identifier-standard</td>
+</tr>
+<tr class="row-odd"><td>034</td>
+<td>Map-scale</td>
+</tr>
+<tr class="row-even"><td>035</td>
+<td>Other-control-number</td>
+</tr>
+<tr class="row-odd"><td>037</td>
+<td>Identifier-standard, Stock-number</td>
+</tr>
+<tr class="row-even"><td>040</td>
+<td>Code-institution, Record-source</td>
+</tr>
+<tr class="row-odd"><td>041$a</td>
+<td>ln-audio</td>
+</tr>
+<tr class="row-even"><td>041$h</td>
+<td>language-original</td>
+</tr>
+<tr class="row-odd"><td>041$j</td>
+<td>ln-subtitle</td>
+</tr>
+<tr class="row-even"><td>041</td>
+<td>ln</td>
+</tr>
+<tr class="row-odd"><td>043</td>
+<td>Code-geographic</td>
+</tr>
+<tr class="row-even"><td>050$b</td>
+<td>LC-call-number:w, LC-call-number:p, LC-call-number:s</td>
+</tr>
+<tr class="row-odd"><td>050</td>
+<td>LC-call-number:w, LC-call-number:p, LC-call-number:s</td>
+</tr>
+<tr class="row-even"><td>052</td>
+<td>Geographic-class</td>
+</tr>
+<tr class="row-odd"><td>060</td>
+<td>NLM-call-number</td>
+</tr>
+<tr class="row-even"><td>070</td>
+<td>NAL-call-number</td>
+</tr>
+<tr class="row-odd"><td>080</td>
+<td>UDC-classification</td>
+</tr>
+<tr class="row-even"><td>082</td>
+<td>Dewey-classification:w, Dewey-classification:s</td>
+</tr>
+<tr class="row-odd"><td>086</td>
+<td>Number-govt-pub</td>
+</tr>
+<tr class="row-even"><td>100$9</td>
+<td>Cross-Reference:w, Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>100$a</td>
+<td>Author,Author:p, Author:s, Editor, Author-personal-bibliography, Author-personal-bibliography:p, Author-personal-bibliography:s</td>
+</tr>
+<tr class="row-even"><td>100</td>
+<td>Author, Author-title, Author-name-personal, Name, Name-and-title, Personal-name</td>
+</tr>
+<tr class="row-odd"><td>110$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>110</td>
+<td>Author, Author-title, Author-name-corporate, Name, Name-and-title, Corporate-name</td>
+</tr>
+<tr class="row-odd"><td>111$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>111</td>
+<td>Author, Author-title, Author-name-corporate, Name, Name-and-title, Conference-name</td>
+</tr>
+<tr class="row-odd"><td>130$n</td>
+<td>Thematic-number</td>
+</tr>
+<tr class="row-even"><td>130$r</td>
+<td>Music-key</td>
+</tr>
+<tr class="row-odd"><td>130$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>130</td>
+<td>Title, Title-uniform</td>
+</tr>
+<tr class="row-odd"><td>210</td>
+<td>Title, Title-abbreviated</td>
+</tr>
+<tr class="row-even"><td>211</td>
+<td>Title, Title-abbreviated</td>
+</tr>
+<tr class="row-odd"><td>212</td>
+<td>Title, Title-other-variant</td>
+</tr>
+<tr class="row-even"><td>214</td>
+<td>Title, Title-expanded</td>
+</tr>
+<tr class="row-odd"><td>222</td>
+<td>Title, Title-key</td>
+</tr>
+<tr class="row-even"><td>240$r</td>
+<td>Music-key</td>
+</tr>
+<tr class="row-odd"><td>240$n</td>
+<td>Thematic-number</td>
+</tr>
+<tr class="row-even"><td>240</td>
+<td>Title:w, Title:p, Title-uniform</td>
+</tr>
+<tr class="row-odd"><td>243$n</td>
+<td>Thematic-number</td>
+</tr>
+<tr class="row-even"><td>243$r</td>
+<td>Music-key</td>
+</tr>
+<tr class="row-odd"><td>243</td>
+<td>Title:w, Title:p, Title-collective</td>
+</tr>
+<tr class="row-even"><td>245$a</td>
+<td>Title-cover:w, Title-cover:p, Title-cover:s, Title:w, Title:p, Title:s</td>
+</tr>
+<tr class="row-odd"><td>245$c</td>
+<td>Author, Author-in-order:w, Author-in-order:p, Author-in-order:s</td>
+</tr>
+<tr class="row-even"><td>245$9</td>
+<td>Cross-Reference:w, Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>245</td>
+<td>Title:w, Title:p</td>
+</tr>
+<tr class="row-even"><td>246</td>
+<td>Title, Title:p, Title-abbreviated, Title-expanded, Title-former</td>
+</tr>
+<tr class="row-odd"><td>247</td>
+<td>Title, Title:p, Title-former, Title-other-variant, Related-periodical</td>
+</tr>
+<tr class="row-even"><td>260$a</td>
+<td>pl:w, pl:p</td>
+</tr>
+<tr class="row-odd"><td>260$b</td>
+<td>Publisher:w, Publisher:p</td>
+</tr>
+<tr class="row-even"><td>260$c</td>
+<td>copydate, copydate:s</td>
+</tr>
+<tr class="row-odd"><td>260</td>
+<td>Provider, pl</td>
+</tr>
+<tr class="row-even"><td>264</td>
+<td>Provider</td>
+</tr>
+<tr class="row-odd"><td>300</td>
+<td>Extent:w, Extent:p</td>
+</tr>
+<tr class="row-even"><td>400$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-odd"><td>400$t</td>
+<td>Author-title, Name-and-title, Title, Title-series</td>
+</tr>
+<tr class="row-even"><td>400$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>400</td>
+<td>Author, Author-name-personal, Name, Personal-name</td>
+</tr>
+<tr class="row-even"><td>410</td>
+<td>Author, Corporate-name</td>
+</tr>
+<tr class="row-odd"><td>410$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-even"><td>410$t</td>
+<td>Author-title, Title, Title-series</td>
+</tr>
+<tr class="row-odd"><td>410$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>410</td>
+<td>Author-name-corporate, Name</td>
+</tr>
+<tr class="row-odd"><td>411</td>
+<td>Author, Conference-name</td>
+</tr>
+<tr class="row-even"><td>411$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-odd"><td>411$t</td>
+<td>Author-title, Title-series</td>
+</tr>
+<tr class="row-even"><td>411</td>
+<td>Author-name-corporate, Name</td>
+</tr>
+<tr class="row-odd"><td>440$a</td>
+<td>Title-series:w, Title-series:p</td>
+</tr>
+<tr class="row-even"><td>440$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>440</td>
+<td>Title-series:w, Title-series:p, Title, Title-series</td>
+</tr>
+<tr class="row-even"><td>490$a</td>
+<td>Title-series:w, Title-series:p</td>
+</tr>
+<tr class="row-odd"><td>490</td>
+<td>Title, Title-series</td>
+</tr>
+<tr class="row-even"><td>490$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>500</td>
+<td>Note:w, Note:p</td>
+</tr>
+<tr class="row-even"><td>502</td>
+<td>Material-type</td>
+</tr>
+<tr class="row-odd"><td>505$r</td>
+<td>Author</td>
+</tr>
+<tr class="row-even"><td>505$t</td>
+<td>Title</td>
+</tr>
+<tr class="row-odd"><td>505</td>
+<td>Note:w, Note:p</td>
+</tr>
+<tr class="row-even"><td>510</td>
+<td>Indexed-by</td>
+</tr>
+<tr class="row-odd"><td>520</td>
+<td>Abstract:w, Abstract:p</td>
+</tr>
+<tr class="row-even"><td>521$a</td>
+<td>lex:n</td>
+</tr>
+<tr class="row-odd"><td>526$c</td>
+<td>arl, arl:n</td>
+</tr>
+<tr class="row-even"><td>526$d</td>
+<td>arp, arp:n</td>
+</tr>
+<tr class="row-odd"><td>590</td>
+<td>Note:w, Note:p</td>
+</tr>
+<tr class="row-even"><td>600$a</td>
+<td>Name-and-title, Name, Personal-name, Subject-name-personal, Subject</td>
+</tr>
+<tr class="row-odd"><td>600$t</td>
+<td>Name-and-title, Title, Subject</td>
+</tr>
+<tr class="row-even"><td>600$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>600</td>
+<td>Name, Personal-name, Subject-name-personal, Subject</td>
+</tr>
+<tr class="row-even"><td>610$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-odd"><td>610$t</td>
+<td>Name-and-title, Title</td>
+</tr>
+<tr class="row-even"><td>610$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>610</td>
+<td>Name, Subject, Corporate-name</td>
+</tr>
+<tr class="row-even"><td>611</td>
+<td>Conference-name</td>
+</tr>
+<tr class="row-odd"><td>611$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-even"><td>611$t</td>
+<td>Name-and-title, Title</td>
+</tr>
+<tr class="row-odd"><td>611$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>611</td>
+<td>Name, Subject</td>
+</tr>
+<tr class="row-odd"><td>630$n</td>
+<td>Thematic-number</td>
+</tr>
+<tr class="row-even"><td>630$r</td>
+<td>Music-key</td>
+</tr>
+<tr class="row-odd"><td>630$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>630</td>
+<td>Subject</td>
+</tr>
+<tr class="row-odd"><td>650$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>650</td>
+<td>Subject, Subject:p</td>
+</tr>
+<tr class="row-odd"><td>651$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>651</td>
+<td>Name-geographic, Subject,Subject:p</td>
+</tr>
+<tr class="row-odd"><td>652$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>653$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>653</td>
+<td>Subject, Subject:p</td>
+</tr>
+<tr class="row-even"><td>654$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>654</td>
+<td>Subject</td>
+</tr>
+<tr class="row-even"><td>655$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>655</td>
+<td>Subject</td>
+</tr>
+<tr class="row-even"><td>656$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>656</td>
+<td>Subject</td>
+</tr>
+<tr class="row-even"><td>657$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>657</td>
+<td>Subject</td>
+</tr>
+<tr class="row-even"><td>690$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>690</td>
+<td>Subject, Subject:p</td>
+</tr>
+<tr class="row-even"><td>700$9</td>
+<td>Cross-Reference, Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>700$a</td>
+<td>Author, Author:p</td>
+</tr>
+<tr class="row-even"><td>700$n</td>
+<td>Thematic-number</td>
+</tr>
+<tr class="row-odd"><td>700$r</td>
+<td>Music-key</td>
+</tr>
+<tr class="row-even"><td>700$t</td>
+<td>Author-title, Name-and-title, Title, Title-uniform</td>
+</tr>
+<tr class="row-odd"><td>700</td>
+<td>Author, Author-name-corporate, Author-name-personal, Name, Editor, Personal-name</td>
+</tr>
+<tr class="row-even"><td>710</td>
+<td>Author, Corporate-name</td>
+</tr>
+<tr class="row-odd"><td>710$t</td>
+<td>Author-title, Name-and-title, Title, Title-uniform</td>
+</tr>
+<tr class="row-even"><td>710$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-odd"><td>710$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>710</td>
+<td>Author, Name</td>
+</tr>
+<tr class="row-odd"><td>711$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-even"><td>711$t</td>
+<td>Author-title, Title, Title-uniform</td>
+</tr>
+<tr class="row-odd"><td>711$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>711</td>
+<td>Author-name-corporate, Name, Conference-name</td>
+</tr>
+<tr class="row-odd"><td>730$n</td>
+<td>Thematic-number</td>
+</tr>
+<tr class="row-even"><td>730$r</td>
+<td>Music-key</td>
+</tr>
+<tr class="row-odd"><td>730$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>730</td>
+<td>Title, Title-uniform</td>
+</tr>
+<tr class="row-odd"><td>740</td>
+<td>Title, Title-other-variant</td>
+</tr>
+<tr class="row-even"><td>773$t</td>
+<td>Host-item</td>
+</tr>
+<tr class="row-odd"><td>780$t</td>
+<td>Title</td>
+</tr>
+<tr class="row-even"><td>780$w</td>
+<td>Record-control-number</td>
+</tr>
+<tr class="row-odd"><td>780</td>
+<td>Title, Title-former, Related-periodical</td>
+</tr>
+<tr class="row-even"><td>785$w</td>
+<td>Record-control-number</td>
+</tr>
+<tr class="row-odd"><td>785</td>
+<td>Related-periodical</td>
+</tr>
+<tr class="row-even"><td>787$w</td>
+<td>Record-control-number</td>
+</tr>
+<tr class="row-odd"><td>800$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-even"><td>800$t</td>
+<td>Author-title, Name-and-title, Title, Title-series</td>
+</tr>
+<tr class="row-odd"><td>800$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>800</td>
+<td>Author, Author-name-personal, Name, Personal-name</td>
+</tr>
+<tr class="row-odd"><td>810$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-even"><td>810$t</td>
+<td>Author-title, Name-and-title, Title, Title-series</td>
+</tr>
+<tr class="row-odd"><td>810$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>810</td>
+<td>Author, Corporate-name, Author-name-corporate, Name</td>
+</tr>
+<tr class="row-odd"><td>811$a</td>
+<td>Name-and-title</td>
+</tr>
+<tr class="row-even"><td>811$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-odd"><td>811$t</td>
+<td>Author-title, Name-and-title, Title, Title-series</td>
+</tr>
+<tr class="row-even"><td>811</td>
+<td>Author, Author-name-corporate, Name, Conference-name</td>
+</tr>
+<tr class="row-odd"><td>830$9</td>
+<td>Koha-Auth-Number</td>
+</tr>
+<tr class="row-even"><td>830</td>
+<td>Title, Title-series</td>
+</tr>
+<tr class="row-odd"><td>840</td>
+<td>Title, Title-series</td>
+</tr>
+<tr class="row-even"><td>942$0</td>
+<td>totalissues:n, totalissues:s</td>
+</tr>
+<tr class="row-odd"><td>942$2</td>
+<td>cn-bib-source</td>
+</tr>
+<tr class="row-even"><td>942$6</td>
+<td>cn-bib-sort:n, cn-bib-sort:s</td>
+</tr>
+<tr class="row-odd"><td>942$c</td>
+<td>itemtype:w</td>
+</tr>
+<tr class="row-even"><td>942$n</td>
+<td>Suppress:w, Suppress:n</td>
+</tr>
+<tr class="row-odd"><td>942$h</td>
+<td>cn-class</td>
+</tr>
+<tr class="row-even"><td>942$i</td>
+<td>cn-item</td>
+</tr>
+<tr class="row-odd"><td>942$k</td>
+<td>cn-prefix</td>
+</tr>
+<tr class="row-even"><td>942$m</td>
+<td>cn-suffix</td>
+</tr>
+<tr class="row-odd"><td>952$0</td>
+<td>withdrawn:n, withdrawn:w</td>
+</tr>
+<tr class="row-even"><td>952$1</td>
+<td>lost, lost:n</td>
+</tr>
+<tr class="row-odd"><td>952$2</td>
+<td>classification-source</td>
+</tr>
+<tr class="row-even"><td>952$3</td>
+<td>materials-specified</td>
+</tr>
+<tr class="row-odd"><td>952$4</td>
+<td>damaged:n, damaged:w</td>
+</tr>
+<tr class="row-even"><td>952$5</td>
+<td>restricted:n, restricted:w</td>
+</tr>
+<tr class="row-odd"><td>952$6</td>
+<td>cn-sort:n, cn-sort:s</td>
+</tr>
+<tr class="row-even"><td>952$7</td>
+<td>notforloan:n, notforloan:w</td>
+</tr>
+<tr class="row-odd"><td>952$8</td>
+<td>ccode</td>
+</tr>
+<tr class="row-even"><td>952$9</td>
+<td>itemnumber:n, itemnumber:s</td>
+</tr>
+<tr class="row-odd"><td>952$a</td>
+<td>homebranch</td>
+</tr>
+<tr class="row-even"><td>952$b</td>
+<td>holdingbranch</td>
+</tr>
+<tr class="row-odd"><td>952$c</td>
+<td>location</td>
+</tr>
+<tr class="row-even"><td>952$d</td>
+<td>Date-of-acquisition, Date-of-acquisition:d, Date-of-acquisition:s</td>
+</tr>
+<tr class="row-odd"><td>952$e</td>
+<td>acqsource</td>
+</tr>
+<tr class="row-even"><td>952$f</td>
+<td>coded-location-qualifier</td>
+</tr>
+<tr class="row-odd"><td>952$g</td>
+<td>price</td>
+</tr>
+<tr class="row-even"><td>952$j</td>
+<td>stack:n, stack:w</td>
+</tr>
+<tr class="row-odd"><td>952$l</td>
+<td>issues:n, issues:w, issues:s</td>
+</tr>
+<tr class="row-even"><td>952$m</td>
+<td>renewals:n, renewals:w</td>
+</tr>
+<tr class="row-odd"><td>952$n</td>
+<td>reserves:n, reserves:w</td>
+</tr>
+<tr class="row-even"><td>952$o</td>
+<td>Local-classification:w, Local-classification:p, Local-classification:s</td>
+</tr>
+<tr class="row-odd"><td>952$p</td>
+<td>barcode, barcode:n</td>
+</tr>
+<tr class="row-even"><td>952$q</td>
+<td>onloan:n, onloan:w</td>
+</tr>
+<tr class="row-odd"><td>952$r</td>
+<td>datelastseen</td>
+</tr>
+<tr class="row-even"><td>952$s</td>
+<td>datelastborrowed</td>
+</tr>
+<tr class="row-odd"><td>952$t</td>
+<td>copynumber</td>
+</tr>
+<tr class="row-even"><td>952$u</td>
+<td>uri:u</td>
+</tr>
+<tr class="row-odd"><td>952$v</td>
+<td>replacementprice</td>
+</tr>
+<tr class="row-even"><td>952$w</td>
+<td>replacementpricedate</td>
+</tr>
+<tr class="row-odd"><td>952$y</td>
+<td>itype:w</td>
+</tr>
+<tr class="row-even"><td>952$z</td>
+<td>Note:w, Note:p</td>
+</tr>
+<tr class="row-odd"><td>999$c</td>
+<td>Local-Number:n, Local-Number:w, Local-Number:s</td>
+</tr>
+<tr class="row-even"><td>999$d</td>
+<td>biblioitemnumber:n, biblioitemnumber:w, biblioitemnumber:s</td>
+</tr>
+</tbody>
+</table>
+<p>Table: Indexes</p>
+</div>
+<div class="section" id="elasticsearch-indexes">
+<span id="elasticsearch-indexes-label"></span><h3>Elasticsearch indexes<a class="headerlink" href="#elasticsearch-indexes" title="永久链接至标题"></a></h3>
+<p>The indexes for elasticsearch are available in the mappings.yaml file in
+:: admin/searchengine/elasticsearch.</p>
+<p>They are copied here for easier reference.</p>
+<div class="section" id="bibliographic-record-indexes">
+<span id="elasticsearch-bibliographic-indexes-label"></span><h4>Bibliographic record indexes<a class="headerlink" href="#bibliographic-record-indexes" title="永久链接至标题"></a></h4>
+<div class="section" id="marc21-bibliographic-indexes">
+<span id="elasticsearch-bibliographic-marc21-indexes-label"></span><h5>MARC21 bibliographic indexes<a class="headerlink" href="#marc21-bibliographic-indexes" title="永久链接至标题"></a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="64%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Index name</th>
+<th class="head">MARC fields</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>abstract</td>
+<td>520</td>
+</tr>
+<tr class="row-odd"><td>acqsource</td>
+<td>952$e</td>
+</tr>
+<tr class="row-even"><td>arl</td>
+<td>526$c</td>
+</tr>
+<tr class="row-odd"><td>arp</td>
+<td>526$d</td>
+</tr>
+<tr class="row-even"><td rowspan="5">author</td>
+<td>100$a</td>
+</tr>
+<tr class="row-odd"><td>110$a</td>
+</tr>
+<tr class="row-even"><td>111$a</td>
+</tr>
+<tr class="row-odd"><td>245$c</td>
+</tr>
+<tr class="row-even"><td>700$a</td>
+</tr>
+<tr class="row-odd"><td>author-in-order</td>
+<td>245$c</td>
+</tr>
+<tr class="row-even"><td rowspan="5">author-name-corporate</td>
+<td>110</td>
+</tr>
+<tr class="row-odd"><td>111</td>
+</tr>
+<tr class="row-even"><td>711</td>
+</tr>
+<tr class="row-odd"><td>810</td>
+</tr>
+<tr class="row-even"><td>811</td>
+</tr>
+<tr class="row-odd"><td rowspan="4">author-name-personal</td>
+<td>100</td>
+</tr>
+<tr class="row-even"><td>400</td>
+</tr>
+<tr class="row-odd"><td>700</td>
+</tr>
+<tr class="row-even"><td>800</td>
+</tr>
+<tr class="row-odd"><td>author-personal-bibliography</td>
+<td>100$a</td>
+</tr>
+<tr class="row-even"><td rowspan="12">author-title</td>
+<td>100</td>
+</tr>
+<tr class="row-odd"><td>110</td>
+</tr>
+<tr class="row-even"><td>111</td>
+</tr>
+<tr class="row-odd"><td>400$t</td>
+</tr>
+<tr class="row-even"><td>410$t</td>
+</tr>
+<tr class="row-odd"><td>411$t</td>
+</tr>
+<tr class="row-even"><td>700$t</td>
+</tr>
+<tr class="row-odd"><td>710$t</td>
+</tr>
+<tr class="row-even"><td>711$t</td>
+</tr>
+<tr class="row-odd"><td>800$t</td>
+</tr>
+<tr class="row-even"><td>810$t</td>
+</tr>
+<tr class="row-odd"><td>811$t</td>
+</tr>
+<tr class="row-even"><td>barcode</td>
+<td>952$p</td>
+</tr>
+<tr class="row-odd"><td>bgf-number</td>
+<td>015</td>
+</tr>
+<tr class="row-even"><td>bib-level</td>
+<td>leader/7</td>
+</tr>
+<tr class="row-odd"><td>biblioitemnumber</td>
+<td>999$d</td>
+</tr>
+<tr class="row-even"><td>bio</td>
+<td>008/34</td>
+</tr>
+<tr class="row-odd"><td>bnb-card-number</td>
+<td>015</td>
+</tr>
+<tr class="row-even"><td>ccode</td>
+<td>952$8</td>
+</tr>
+<tr class="row-odd"><td>classification-source</td>
+<td>952$2</td>
+</tr>
+<tr class="row-even"><td>cn-bib-sort</td>
+<td>942$6</td>
+</tr>
+<tr class="row-odd"><td>cn-bib-source</td>
+<td>942$2</td>
+</tr>
+<tr class="row-even"><td>cn-class</td>
+<td>942$h</td>
+</tr>
+<tr class="row-odd"><td>cn-item</td>
+<td>942$i</td>
+</tr>
+<tr class="row-even"><td>cn-prefix</td>
+<td>942$k</td>
+</tr>
+<tr class="row-odd"><td>cn-sort</td>
+<td>952$6</td>
+</tr>
+<tr class="row-even"><td>cn-suffix</td>
+<td>942$m</td>
+</tr>
+<tr class="row-odd"><td>code-geographic</td>
+<td>043</td>
+</tr>
+<tr class="row-even"><td>code-institution</td>
+<td>040</td>
+</tr>
+<tr class="row-odd"><td>coded-location-qualifier</td>
+<td>952$f</td>
+</tr>
+<tr class="row-even"><td>coden</td>
+<td>030</td>
+</tr>
+<tr class="row-odd"><td rowspan="5">conference-name</td>
+<td>111</td>
+</tr>
+<tr class="row-even"><td>411</td>
+</tr>
+<tr class="row-odd"><td>611</td>
+</tr>
+<tr class="row-even"><td>711</td>
+</tr>
+<tr class="row-odd"><td>811</td>
+</tr>
+<tr class="row-even"><td>control-number</td>
+<td>001</td>
+</tr>
+<tr class="row-odd"><td>copydate</td>
+<td>260$c</td>
+</tr>
+<tr class="row-even"><td>copynumber</td>
+<td>952$t</td>
+</tr>
+<tr class="row-odd"><td rowspan="5">corporate-name</td>
+<td>110</td>
+</tr>
+<tr class="row-even"><td>410</td>
+</tr>
+<tr class="row-odd"><td>610</td>
+</tr>
+<tr class="row-even"><td>710</td>
+</tr>
+<tr class="row-odd"><td>810</td>
+</tr>
+<tr class="row-even"><td rowspan="3">cross-reference</td>
+<td>100$9</td>
+</tr>
+<tr class="row-odd"><td>245$9</td>
+</tr>
+<tr class="row-even"><td>700$9</td>
+</tr>
+<tr class="row-odd"><td>ctype</td>
+<td>008/24-27</td>
+</tr>
+<tr class="row-even"><td>curriculum</td>
+<td>658$a $b $c</td>
+</tr>
+<tr class="row-odd"><td>damaged</td>
+<td>952$4</td>
+</tr>
+<tr class="row-even"><td>date-entered-on-file</td>
+<td>008/00-05</td>
+</tr>
+<tr class="row-odd"><td>date-of-acquisition</td>
+<td>952$d</td>
+</tr>
+<tr class="row-even"><td>date-of-publication</td>
+<td>008/07-10</td>
+</tr>
+<tr class="row-odd"><td>date-time-last-modified</td>
+<td>005</td>
+</tr>
+<tr class="row-even"><td>datelastborrowed</td>
+<td>952$s</td>
+</tr>
+<tr class="row-odd"><td>datelastseen</td>
+<td>952$r</td>
+</tr>
+<tr class="row-even"><td>dewey-classification</td>
+<td>082</td>
+</tr>
+<tr class="row-odd"><td>dissertation-information</td>
+<td>502</td>
+</tr>
+<tr class="row-even"><td rowspan="2">editor</td>
+<td>100$a</td>
+</tr>
+<tr class="row-odd"><td>700</td>
+</tr>
+<tr class="row-even"><td>extent</td>
+<td>300</td>
+</tr>
+<tr class="row-odd"><td>ff7-00</td>
+<td>007/00</td>
+</tr>
+<tr class="row-even"><td>ff7-01</td>
+<td>007/01</td>
+</tr>
+<tr class="row-odd"><td>ff7-01-02</td>
+<td>007/00-01</td>
+</tr>
+<tr class="row-even"><td>ff7-02</td>
+<td>007/02</td>
+</tr>
+<tr class="row-odd"><td>ff8-23</td>
+<td>008/23</td>
+</tr>
+<tr class="row-even"><td>ff8-29</td>
+<td>008/29</td>
+</tr>
+<tr class="row-odd"><td>geographic-class</td>
+<td>052</td>
+</tr>
+<tr class="row-even"><td>holdingbranch</td>
+<td>952$b</td>
+</tr>
+<tr class="row-odd"><td>homebranch</td>
+<td>952$a</td>
+</tr>
+<tr class="row-even"><td>host-item</td>
+<td>773$a $t</td>
+</tr>
+<tr class="row-odd"><td>host-item-number</td>
+<td>773$9</td>
+</tr>
+<tr class="row-even"><td>identifier-other</td>
+<td>024$a</td>
+</tr>
+<tr class="row-odd"><td>identifier-publisher-for-music</td>
+<td>028</td>
+</tr>
+<tr class="row-even"><td rowspan="7">identifier-standard</td>
+<td>010</td>
+</tr>
+<tr class="row-odd"><td>011</td>
+</tr>
+<tr class="row-even"><td>015</td>
+</tr>
+<tr class="row-odd"><td>017</td>
+</tr>
+<tr class="row-even"><td>018</td>
+</tr>
+<tr class="row-odd"><td>020$a</td>
+</tr>
+<tr class="row-even"><td>022$a</td>
+</tr>
+<tr class="row-odd"><td>index-term-genre</td>
+<td>655$a</td>
+</tr>
+<tr class="row-even"><td>index-term-uncontrolled</td>
+<td>653$a</td>
+</tr>
+<tr class="row-odd"><td>indexed-by</td>
+<td>510</td>
+</tr>
+<tr class="row-even"><td>interest-age-level</td>
+<td>521$a</td>
+</tr>
+<tr class="row-odd"><td>interest-grade-level</td>
+<td>521$a</td>
+</tr>
+<tr class="row-even"><td>isbn</td>
+<td>020$a</td>
+</tr>
+<tr class="row-odd"><td>issn</td>
+<td>022$a</td>
+</tr>
+<tr class="row-even"><td>issues</td>
+<td>952$l</td>
+</tr>
+<tr class="row-odd"><td>itemnumber</td>
+<td>952$9</td>
+</tr>
+<tr class="row-even"><td rowspan="2">itemtype</td>
+<td>942$c</td>
+</tr>
+<tr class="row-odd"><td>952$y</td>
+</tr>
+<tr class="row-even"><td rowspan="47">koha-auth-number</td>
+<td>100$9</td>
+</tr>
+<tr class="row-odd"><td>110$9</td>
+</tr>
+<tr class="row-even"><td>111$9</td>
+</tr>
+<tr class="row-odd"><td>130$9</td>
+</tr>
+<tr class="row-even"><td>245$9</td>
+</tr>
+<tr class="row-odd"><td>400$9</td>
+</tr>
+<tr class="row-even"><td>410$9</td>
+</tr>
+<tr class="row-odd"><td>440$9</td>
+</tr>
+<tr class="row-even"><td>490$9</td>
+</tr>
+<tr class="row-odd"><td>600$9</td>
+</tr>
+<tr class="row-even"><td>610$9</td>
+</tr>
+<tr class="row-odd"><td>611$9</td>
+</tr>
+<tr class="row-even"><td>630$9</td>
+</tr>
+<tr class="row-odd"><td>648$9</td>
+</tr>
+<tr class="row-even"><td>650$9</td>
+</tr>
+<tr class="row-odd"><td>651$9</td>
+</tr>
+<tr class="row-even"><td>652$9</td>
+</tr>
+<tr class="row-odd"><td>653$9</td>
+</tr>
+<tr class="row-even"><td>654$9</td>
+</tr>
+<tr class="row-odd"><td>655$9</td>
+</tr>
+<tr class="row-even"><td>656$9</td>
+</tr>
+<tr class="row-odd"><td>657$9</td>
+</tr>
+<tr class="row-even"><td>662$9</td>
+</tr>
+<tr class="row-odd"><td>690$9</td>
+</tr>
+<tr class="row-even"><td>691$9</td>
+</tr>
+<tr class="row-odd"><td>696$9</td>
+</tr>
+<tr class="row-even"><td>697$9</td>
+</tr>
+<tr class="row-odd"><td>698$9</td>
+</tr>
+<tr class="row-even"><td>699$9</td>
+</tr>
+<tr class="row-odd"><td>700$9</td>
+</tr>
+<tr class="row-even"><td>710$9</td>
+</tr>
+<tr class="row-odd"><td>711$9</td>
+</tr>
+<tr class="row-even"><td>730$9</td>
+</tr>
+<tr class="row-odd"><td>751$9</td>
+</tr>
+<tr class="row-even"><td>796$9</td>
+</tr>
+<tr class="row-odd"><td>797$9</td>
+</tr>
+<tr class="row-even"><td>797$9</td>
+</tr>
+<tr class="row-odd"><td>798$9</td>
+</tr>
+<tr class="row-even"><td>799$9</td>
+</tr>
+<tr class="row-odd"><td>800$9</td>
+</tr>
+<tr class="row-even"><td>810$9</td>
+</tr>
+<tr class="row-odd"><td>811$9</td>
+</tr>
+<tr class="row-even"><td>830$9</td>
+</tr>
+<tr class="row-odd"><td>896$9</td>
+</tr>
+<tr class="row-even"><td>897$9</td>
+</tr>
+<tr class="row-odd"><td>898$9</td>
+</tr>
+<tr class="row-even"><td>899$9</td>
+</tr>
+<tr class="row-odd"><td>language-original</td>
+<td>041$h</td>
+</tr>
+<tr class="row-even"><td>lc-call-number</td>
+<td>050$b</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">lc-card-number</td>
+<td>010</td>
+</tr>
+<tr class="row-even"><td>011</td>
+</tr>
+<tr class="row-odd"><td>lexile-number</td>
+<td>521$a</td>
+</tr>
+<tr class="row-even"><td>lf</td>
+<td>008/33</td>
+</tr>
+<tr class="row-odd"><td>llength</td>
+<td>leader/00-04</td>
+</tr>
+<tr class="row-even"><td>ln</td>
+<td>008/35-37</td>
+</tr>
+<tr class="row-odd"><td>ln-audio</td>
+<td>041$a</td>
+</tr>
+<tr class="row-even"><td>ln-subtitle</td>
+<td>041$j</td>
+</tr>
+<tr class="row-odd"><td>local-classification</td>
+<td>952$o</td>
+</tr>
+<tr class="row-even"><td>local-number</td>
+<td>999$c</td>
+</tr>
+<tr class="row-odd"><td>location</td>
+<td>952$c</td>
+</tr>
+<tr class="row-even"><td>lost</td>
+<td>952$1</td>
+</tr>
+<tr class="row-odd"><td>map-scale</td>
+<td>034</td>
+</tr>
+<tr class="row-even"><td>material-type</td>
+<td>007</td>
+</tr>
+<tr class="row-odd"><td>materials-specified</td>
+<td>952$3</td>
+</tr>
+<tr class="row-even"><td>microform-generation</td>
+<td>007/11</td>
+</tr>
+<tr class="row-odd"><td rowspan="6">music-key</td>
+<td>130$r</td>
+</tr>
+<tr class="row-even"><td>240$r</td>
+</tr>
+<tr class="row-odd"><td>243$r</td>
+</tr>
+<tr class="row-even"><td>630$r</td>
+</tr>
+<tr class="row-odd"><td>700$r</td>
+</tr>
+<tr class="row-even"><td>730$r</td>
+</tr>
+<tr class="row-odd"><td>nal-call-number</td>
+<td>070</td>
+</tr>
+<tr class="row-even"><td rowspan="13">name</td>
+<td>100</td>
+</tr>
+<tr class="row-odd"><td>110</td>
+</tr>
+<tr class="row-even"><td>111</td>
+</tr>
+<tr class="row-odd"><td>400</td>
+</tr>
+<tr class="row-even"><td>600$a</td>
+</tr>
+<tr class="row-odd"><td>610</td>
+</tr>
+<tr class="row-even"><td>611</td>
+</tr>
+<tr class="row-odd"><td>700</td>
+</tr>
+<tr class="row-even"><td>710</td>
+</tr>
+<tr class="row-odd"><td>711</td>
+</tr>
+<tr class="row-even"><td>800</td>
+</tr>
+<tr class="row-odd"><td>810</td>
+</tr>
+<tr class="row-even"><td>811</td>
+</tr>
+<tr class="row-odd"><td rowspan="15">name-and-title</td>
+<td>100</td>
+</tr>
+<tr class="row-even"><td>110</td>
+</tr>
+<tr class="row-odd"><td>111</td>
+</tr>
+<tr class="row-even"><td>400$a $t</td>
+</tr>
+<tr class="row-odd"><td>410$a</td>
+</tr>
+<tr class="row-even"><td>411$a</td>
+</tr>
+<tr class="row-odd"><td>600$a $t</td>
+</tr>
+<tr class="row-even"><td>610$a $t</td>
+</tr>
+<tr class="row-odd"><td>611$a $t</td>
+</tr>
+<tr class="row-even"><td>700$t</td>
+</tr>
+<tr class="row-odd"><td>710$a $t</td>
+</tr>
+<tr class="row-even"><td>711$a</td>
+</tr>
+<tr class="row-odd"><td>800$a $t</td>
+</tr>
+<tr class="row-even"><td>810$a $t</td>
+</tr>
+<tr class="row-odd"><td>811$a $t</td>
+</tr>
+<tr class="row-even"><td rowspan="2">name-geographic</td>
+<td>651</td>
+</tr>
+<tr class="row-odd"><td>751$a</td>
+</tr>
+<tr class="row-even"><td>nlm-call-number</td>
+<td>060</td>
+</tr>
+<tr class="row-odd"><td>not-onloan-count</td>
+<td>999$x</td>
+</tr>
+<tr class="row-even"><td rowspan="4">note</td>
+<td>500</td>
+</tr>
+<tr class="row-odd"><td>505</td>
+</tr>
+<tr class="row-even"><td>590</td>
+</tr>
+<tr class="row-odd"><td>952$z</td>
+</tr>
+<tr class="row-even"><td>notforloan</td>
+<td>952$7</td>
+</tr>
+<tr class="row-odd"><td>number-db</td>
+<td>015</td>
+</tr>
+<tr class="row-even"><td>number-govt-pub</td>
+<td>086</td>
+</tr>
+<tr class="row-odd"><td>number-legal-deposit</td>
+<td>017</td>
+</tr>
+<tr class="row-even"><td>number-local-acquisition</td>
+<td>952$i</td>
+</tr>
+<tr class="row-odd"><td>number-natl-biblio</td>
+<td>015</td>
+</tr>
+<tr class="row-even"><td>onloan</td>
+<td>952$q</td>
+</tr>
+<tr class="row-odd"><td>other-control-number</td>
+<td>035</td>
+</tr>
+<tr class="row-even"><td rowspan="5">personal-name</td>
+<td>100</td>
+</tr>
+<tr class="row-odd"><td>400</td>
+</tr>
+<tr class="row-even"><td>600$a</td>
+</tr>
+<tr class="row-odd"><td>700</td>
+</tr>
+<tr class="row-even"><td>800</td>
+</tr>
+<tr class="row-odd"><td>pl</td>
+<td>008/15-17</td>
+</tr>
+<tr class="row-even"><td>price</td>
+<td>952$g</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">provider</td>
+<td>260</td>
+</tr>
+<tr class="row-even"><td>264</td>
+</tr>
+<tr class="row-odd"><td>publisher</td>
+<td>260$b</td>
+</tr>
+<tr class="row-even"><td>reading-grade-level</td>
+<td>521$a</td>
+</tr>
+<tr class="row-odd"><td rowspan="14">record-control-number</td>
+<td>770$w</td>
+</tr>
+<tr class="row-even"><td>772$w</td>
+</tr>
+<tr class="row-odd"><td>773$w</td>
+</tr>
+<tr class="row-even"><td>774$w</td>
+</tr>
+<tr class="row-odd"><td>775$w</td>
+</tr>
+<tr class="row-even"><td>776$w</td>
+</tr>
+<tr class="row-odd"><td>777$w</td>
+</tr>
+<tr class="row-even"><td>780$w</td>
+</tr>
+<tr class="row-odd"><td>785$w</td>
+</tr>
+<tr class="row-even"><td>787$w</td>
+</tr>
+<tr class="row-odd"><td>800$w</td>
+</tr>
+<tr class="row-even"><td>810$w</td>
+</tr>
+<tr class="row-odd"><td>811$w</td>
+</tr>
+<tr class="row-even"><td>830$w</td>
+</tr>
+<tr class="row-odd"><td>record-source</td>
+<td>008/39</td>
+</tr>
+<tr class="row-even"><td rowspan="3">related-periodical</td>
+<td>247</td>
+</tr>
+<tr class="row-odd"><td>780</td>
+</tr>
+<tr class="row-even"><td>785</td>
+</tr>
+<tr class="row-odd"><td>renewals</td>
+<td>952$m</td>
+</tr>
+<tr class="row-even"><td>replacementprice</td>
+<td>952$v</td>
+</tr>
+<tr class="row-odd"><td>replacementpricedate</td>
+<td>952$w</td>
+</tr>
+<tr class="row-even"><td>report-number</td>
+<td>027</td>
+</tr>
+<tr class="row-odd"><td>reserves</td>
+<td>952$n</td>
+</tr>
+<tr class="row-even"><td>restricted</td>
+<td>952$5</td>
+</tr>
+<tr class="row-odd"><td>rtype</td>
+<td>leader/06</td>
+</tr>
+<tr class="row-even"><td>stack</td>
+<td>952$j</td>
+</tr>
+<tr class="row-odd"><td>stock-number</td>
+<td>037</td>
+</tr>
+<tr class="row-even"><td>su-geo</td>
+<td>651$a</td>
+</tr>
+<tr class="row-odd"><td rowspan="16">subject</td>
+<td>600$a</td>
+</tr>
+<tr class="row-even"><td>600$t</td>
+</tr>
+<tr class="row-odd"><td>610$a</td>
+</tr>
+<tr class="row-even"><td>611</td>
+</tr>
+<tr class="row-odd"><td>630$n</td>
+</tr>
+<tr class="row-even"><td>630$r</td>
+</tr>
+<tr class="row-odd"><td>650$a</td>
+</tr>
+<tr class="row-even"><td>650$b</td>
+</tr>
+<tr class="row-odd"><td>650$c</td>
+</tr>
+<tr class="row-even"><td>650$d</td>
+</tr>
+<tr class="row-odd"><td>650$v</td>
+</tr>
+<tr class="row-even"><td>650$x</td>
+</tr>
+<tr class="row-odd"><td>650$y</td>
+</tr>
+<tr class="row-even"><td>650$z</td>
+</tr>
+<tr class="row-odd"><td>651</td>
+</tr>
+<tr class="row-even"><td>653$a</td>
+</tr>
+<tr class="row-odd"><td>subject-name-personal</td>
+<td>600$a</td>
+</tr>
+<tr class="row-even"><td>suppress</td>
+<td>942$n</td>
+</tr>
+<tr class="row-odd"><td>ta</td>
+<td>008/22</td>
+</tr>
+<tr class="row-even"><td rowspan="6">thematic-number</td>
+<td>130$n</td>
+</tr>
+<tr class="row-odd"><td>240$n</td>
+</tr>
+<tr class="row-even"><td>243$n</td>
+</tr>
+<tr class="row-odd"><td>630$n</td>
+</tr>
+<tr class="row-even"><td>700$n</td>
+</tr>
+<tr class="row-odd"><td>730$n</td>
+</tr>
+<tr class="row-even"><td rowspan="19">title</td>
+<td>130</td>
+</tr>
+<tr class="row-odd"><td>210</td>
+</tr>
+<tr class="row-even"><td>211</td>
+</tr>
+<tr class="row-odd"><td>212</td>
+</tr>
+<tr class="row-even"><td>214</td>
+</tr>
+<tr class="row-odd"><td>222</td>
+</tr>
+<tr class="row-even"><td>240</td>
+</tr>
+<tr class="row-odd"><td>245$a</td>
+</tr>
+<tr class="row-even"><td>246</td>
+</tr>
+<tr class="row-odd"><td>247</td>
+</tr>
+<tr class="row-even"><td>490$a</td>
+</tr>
+<tr class="row-odd"><td>505$t</td>
+</tr>
+<tr class="row-even"><td>700$t</td>
+</tr>
+<tr class="row-odd"><td>710$t</td>
+</tr>
+<tr class="row-even"><td>711$t</td>
+</tr>
+<tr class="row-odd"><td>730</td>
+</tr>
+<tr class="row-even"><td>740</td>
+</tr>
+<tr class="row-odd"><td>780</td>
+</tr>
+<tr class="row-even"><td>785</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">title-abbreviated</td>
+<td>210</td>
+</tr>
+<tr class="row-even"><td>211</td>
+</tr>
+<tr class="row-odd"><td>246</td>
+</tr>
+<tr class="row-even"><td>title-cover</td>
+<td>245$a</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">title-expanded</td>
+<td>214</td>
+</tr>
+<tr class="row-even"><td>246</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">title-former</td>
+<td>246</td>
+</tr>
+<tr class="row-even"><td>247</td>
+</tr>
+<tr class="row-odd"><td>780</td>
+</tr>
+<tr class="row-even"><td>title-key</td>
+<td>222</td>
+</tr>
+<tr class="row-odd"><td>title-later</td>
+<td>785</td>
+</tr>
+<tr class="row-even"><td rowspan="3">title-other-variant</td>
+<td>212</td>
+</tr>
+<tr class="row-odd"><td>247</td>
+</tr>
+<tr class="row-even"><td>740</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">title-series</td>
+<td>440$a</td>
+</tr>
+<tr class="row-even"><td>490$a</td>
+</tr>
+<tr class="row-odd"><td rowspan="6">title-uniform</td>
+<td>130</td>
+</tr>
+<tr class="row-even"><td>240</td>
+</tr>
+<tr class="row-odd"><td>700$t</td>
+</tr>
+<tr class="row-even"><td>710$t</td>
+</tr>
+<tr class="row-odd"><td>711$t</td>
+</tr>
+<tr class="row-even"><td>730</td>
+</tr>
+<tr class="row-odd"><td>totalissues</td>
+<td>942$9</td>
+</tr>
+<tr class="row-even"><td>udc-classification</td>
+<td>080</td>
+</tr>
+<tr class="row-odd"><td>uri</td>
+<td>952$u</td>
+</tr>
+<tr class="row-even"><td>withdrawn</td>
+<td>952$0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="unimarc-bibliographic-indexes">
+<span id="elasticsearch-bibliographic-unimarc-indexes-label"></span><h5>UNIMARC bibliographic indexes<a class="headerlink" href="#unimarc-bibliographic-indexes" title="永久链接至标题"></a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="64%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Index name</th>
+<th class="head">MARC fields</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="5">author</td>
+<td>200$f</td>
+</tr>
+<tr class="row-odd"><td>200$g</td>
+</tr>
+<tr class="row-even"><td>700$a</td>
+</tr>
+<tr class="row-odd"><td>701</td>
+</tr>
+<tr class="row-even"><td>700$a</td>
+</tr>
+<tr class="row-odd"><td>bio</td>
+<td>105$a/12</td>
+</tr>
+<tr class="row-even"><td>ccode</td>
+<td>995$8</td>
+</tr>
+<tr class="row-odd"><td>ctype</td>
+<td>105$a/04-07</td>
+</tr>
+<tr class="row-even"><td>date-entered-on-file</td>
+<td>099$c</td>
+</tr>
+<tr class="row-odd"><td>date-of-acquisition</td>
+<td>995$5</td>
+</tr>
+<tr class="row-even"><td>date-of-publication</td>
+<td>100$a/09-12</td>
+</tr>
+<tr class="row-odd"><td>date-time-last-modified</td>
+<td>099$d</td>
+</tr>
+<tr class="row-even"><td>ff8-29</td>
+<td>105$a/08</td>
+</tr>
+<tr class="row-odd"><td>holdingbranch</td>
+<td>995$c</td>
+</tr>
+<tr class="row-even"><td>homebranch</td>
+<td>995$b</td>
+</tr>
+<tr class="row-odd"><td>host-item-number</td>
+<td>461$9</td>
+</tr>
+<tr class="row-even"><td rowspan="2">identifier-standard</td>
+<td>010$a $z</td>
+</tr>
+<tr class="row-odd"><td>011$a $y $z</td>
+</tr>
+<tr class="row-even"><td>isbn</td>
+<td>010$a $z</td>
+</tr>
+<tr class="row-odd"><td>issn</td>
+<td>011$a $y $z</td>
+</tr>
+<tr class="row-even"><td>itemnumber</td>
+<td>995$9</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">itype</td>
+<td>200$b</td>
+</tr>
+<tr class="row-even"><td>995$r</td>
+</tr>
+<tr class="row-odd"><td>lc-card-number</td>
+<td>995$j</td>
+</tr>
+<tr class="row-even"><td>lf</td>
+<td>105$a/11</td>
+</tr>
+<tr class="row-odd"><td>ln</td>
+<td>101$a</td>
+</tr>
+<tr class="row-even"><td rowspan="2">local-classification</td>
+<td>686</td>
+</tr>
+<tr class="row-odd"><td>995$k</td>
+</tr>
+<tr class="row-even"><td>local-number</td>
+<td>001</td>
+</tr>
+<tr class="row-odd"><td>location</td>
+<td>995$e</td>
+</tr>
+<tr class="row-even"><td>not-onloan-count</td>
+<td>999$x</td>
+</tr>
+<tr class="row-odd"><td>notforloan</td>
+<td>995$o</td>
+</tr>
+<tr class="row-even"><td>onloan</td>
+<td>995$n</td>
+</tr>
+<tr class="row-odd"><td>publisher</td>
+<td>210$c</td>
+</tr>
+<tr class="row-even"><td>su-geo</td>
+<td>607$a</td>
+</tr>
+<tr class="row-odd"><td rowspan="10">subject</td>
+<td>600</td>
+</tr>
+<tr class="row-even"><td>600$a</td>
+</tr>
+<tr class="row-odd"><td>601</td>
+</tr>
+<tr class="row-even"><td>602</td>
+</tr>
+<tr class="row-odd"><td>604</td>
+</tr>
+<tr class="row-even"><td>605</td>
+</tr>
+<tr class="row-odd"><td>606</td>
+</tr>
+<tr class="row-even"><td>607</td>
+</tr>
+<tr class="row-odd"><td>608</td>
+</tr>
+<tr class="row-even"><td>610</td>
+</tr>
+<tr class="row-odd"><td>suppress</td>
+<td>955$n</td>
+</tr>
+<tr class="row-even"><td>ta</td>
+<td>100$a/17</td>
+</tr>
+<tr class="row-odd"><td rowspan="58">title</td>
+<td>200$a</td>
+</tr>
+<tr class="row-even"><td>200$c</td>
+</tr>
+<tr class="row-odd"><td>200$d</td>
+</tr>
+<tr class="row-even"><td>200$e</td>
+</tr>
+<tr class="row-odd"><td>200$h</td>
+</tr>
+<tr class="row-even"><td>200$i</td>
+</tr>
+<tr class="row-odd"><td>205</td>
+</tr>
+<tr class="row-even"><td>304$a</td>
+</tr>
+<tr class="row-odd"><td>327$a</td>
+</tr>
+<tr class="row-even"><td>327$b</td>
+</tr>
+<tr class="row-odd"><td>327$c</td>
+</tr>
+<tr class="row-even"><td>327$d</td>
+</tr>
+<tr class="row-odd"><td>327$e</td>
+</tr>
+<tr class="row-even"><td>327$f</td>
+</tr>
+<tr class="row-odd"><td>327$g</td>
+</tr>
+<tr class="row-even"><td>327$h</td>
+</tr>
+<tr class="row-odd"><td>327$i</td>
+</tr>
+<tr class="row-even"><td>328$t</td>
+</tr>
+<tr class="row-odd"><td>410$t</td>
+</tr>
+<tr class="row-even"><td>411$t</td>
+</tr>
+<tr class="row-odd"><td>412$t</td>
+</tr>
+<tr class="row-even"><td>413$t</td>
+</tr>
+<tr class="row-odd"><td>421$t</td>
+</tr>
+<tr class="row-even"><td>422$t</td>
+</tr>
+<tr class="row-odd"><td>423$t</td>
+</tr>
+<tr class="row-even"><td>424$t</td>
+</tr>
+<tr class="row-odd"><td>425$t</td>
+</tr>
+<tr class="row-even"><td>430$t</td>
+</tr>
+<tr class="row-odd"><td>431$t</td>
+</tr>
+<tr class="row-even"><td>432$t</td>
+</tr>
+<tr class="row-odd"><td>433$t</td>
+</tr>
+<tr class="row-even"><td>434$t</td>
+</tr>
+<tr class="row-odd"><td>435$t</td>
+</tr>
+<tr class="row-even"><td>436$t</td>
+</tr>
+<tr class="row-odd"><td>437$t</td>
+</tr>
+<tr class="row-even"><td>440$t</td>
+</tr>
+<tr class="row-odd"><td>441$t</td>
+</tr>
+<tr class="row-even"><td>442$t</td>
+</tr>
+<tr class="row-odd"><td>443$t</td>
+</tr>
+<tr class="row-even"><td>444$t</td>
+</tr>
+<tr class="row-odd"><td>445$t</td>
+</tr>
+<tr class="row-even"><td>446$t</td>
+</tr>
+<tr class="row-odd"><td>447$t</td>
+</tr>
+<tr class="row-even"><td>448$t</td>
+</tr>
+<tr class="row-odd"><td>451$t</td>
+</tr>
+<tr class="row-even"><td>452$t</td>
+</tr>
+<tr class="row-odd"><td>453$t</td>
+</tr>
+<tr class="row-even"><td>454$t</td>
+</tr>
+<tr class="row-odd"><td>455$t</td>
+</tr>
+<tr class="row-even"><td>456$t</td>
+</tr>
+<tr class="row-odd"><td>461$t</td>
+</tr>
+<tr class="row-even"><td>462$t</td>
+</tr>
+<tr class="row-odd"><td>463$t</td>
+</tr>
+<tr class="row-even"><td>464$t</td>
+</tr>
+<tr class="row-odd"><td>470$t</td>
+</tr>
+<tr class="row-even"><td>481$t</td>
+</tr>
+<tr class="row-odd"><td>482$t</td>
+</tr>
+<tr class="row-even"><td>488$t</td>
+</tr>
+<tr class="row-odd"><td>title-series</td>
+<td>225$a</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="normarc-bibliographic-indexes">
+<span id="elasticsearch-bibliographic-normarc-indexes-label"></span><h5>NORMARC bibliographic indexes<a class="headerlink" href="#normarc-bibliographic-indexes" title="永久链接至标题"></a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="64%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Index name</th>
+<th class="head">MARC fields</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="5">author</td>
+<td>100$a</td>
+</tr>
+<tr class="row-odd"><td>110$a</td>
+</tr>
+<tr class="row-even"><td>111$a</td>
+</tr>
+<tr class="row-odd"><td>245$c</td>
+</tr>
+<tr class="row-even"><td>700$a</td>
+</tr>
+<tr class="row-odd"><td>bgf-number</td>
+<td>015</td>
+</tr>
+<tr class="row-even"><td>bib-level</td>
+<td>leader/7</td>
+</tr>
+<tr class="row-odd"><td>bio</td>
+<td>008/34</td>
+</tr>
+<tr class="row-even"><td>ccode</td>
+<td>952$8</td>
+</tr>
+<tr class="row-odd"><td>control-number</td>
+<td>001</td>
+</tr>
+<tr class="row-even"><td>copydate</td>
+<td>260$c</td>
+</tr>
+<tr class="row-odd"><td>ctype</td>
+<td>008/24-27</td>
+</tr>
+<tr class="row-even"><td>date-entered-on-file</td>
+<td>008/00-05</td>
+</tr>
+<tr class="row-odd"><td>date-of-acquisition</td>
+<td>952$d</td>
+</tr>
+<tr class="row-even"><td>date-of-publication</td>
+<td>008/07-10</td>
+</tr>
+<tr class="row-odd"><td>ff7-00</td>
+<td>007/00</td>
+</tr>
+<tr class="row-even"><td>ff7-01</td>
+<td>007/01</td>
+</tr>
+<tr class="row-odd"><td>ff7-01-02</td>
+<td>007/00-01</td>
+</tr>
+<tr class="row-even"><td>ff7-02</td>
+<td>007/02</td>
+</tr>
+<tr class="row-odd"><td>ff8-23</td>
+<td>008/23</td>
+</tr>
+<tr class="row-even"><td>ff8-29</td>
+<td>008/29</td>
+</tr>
+<tr class="row-odd"><td>holdingbranch</td>
+<td>952$b</td>
+</tr>
+<tr class="row-even"><td>homebranch</td>
+<td>952$a</td>
+</tr>
+<tr class="row-odd"><td>host-item-number</td>
+<td>773$9</td>
+</tr>
+<tr class="row-even"><td rowspan="4">identifier-standard</td>
+<td>010</td>
+</tr>
+<tr class="row-odd"><td>015</td>
+</tr>
+<tr class="row-even"><td>020$a</td>
+</tr>
+<tr class="row-odd"><td>022$a</td>
+</tr>
+<tr class="row-even"><td>isbn</td>
+<td>020$a</td>
+</tr>
+<tr class="row-odd"><td>issn</td>
+<td>022$a</td>
+</tr>
+<tr class="row-even"><td>issues</td>
+<td>952$l</td>
+</tr>
+<tr class="row-odd"><td>itemnumber</td>
+<td>952$9</td>
+</tr>
+<tr class="row-even"><td rowspan="2">itemtype</td>
+<td>942$c</td>
+</tr>
+<tr class="row-odd"><td>952$y</td>
+</tr>
+<tr class="row-even"><td>lc-card-number</td>
+<td>010</td>
+</tr>
+<tr class="row-odd"><td>lf</td>
+<td>008/33</td>
+</tr>
+<tr class="row-even"><td>llength</td>
+<td>leader/00-04</td>
+</tr>
+<tr class="row-odd"><td>ln</td>
+<td>008/35-37</td>
+</tr>
+<tr class="row-even"><td>local-classification</td>
+<td>952$o</td>
+</tr>
+<tr class="row-odd"><td>local-number</td>
+<td>999$c</td>
+</tr>
+<tr class="row-even"><td>location</td>
+<td>952$c</td>
+</tr>
+<tr class="row-odd"><td>material-type</td>
+<td>007</td>
+</tr>
+<tr class="row-even"><td>microform-generation</td>
+<td>007/11</td>
+</tr>
+<tr class="row-odd"><td>not-onloan-count</td>
+<td>999$x</td>
+</tr>
+<tr class="row-even"><td>notforloan</td>
+<td>952$7</td>
+</tr>
+<tr class="row-odd"><td>number-db</td>
+<td>015</td>
+</tr>
+<tr class="row-even"><td>number-natl-biblio</td>
+<td>015</td>
+</tr>
+<tr class="row-odd"><td>onloan</td>
+<td>952$q</td>
+</tr>
+<tr class="row-even"><td>pl</td>
+<td>008/15-17</td>
+</tr>
+<tr class="row-odd"><td>publisher</td>
+<td>260$b</td>
+</tr>
+<tr class="row-even"><td>record-source</td>
+<td>008/39</td>
+</tr>
+<tr class="row-odd"><td>rtype</td>
+<td>leader/06</td>
+</tr>
+<tr class="row-even"><td>su-geo</td>
+<td>651$a</td>
+</tr>
+<tr class="row-odd"><td rowspan="17">subject</td>
+<td>600$a</td>
+</tr>
+<tr class="row-even"><td>600$t</td>
+</tr>
+<tr class="row-odd"><td>610$a</td>
+</tr>
+<tr class="row-even"><td>610$t</td>
+</tr>
+<tr class="row-odd"><td>611</td>
+</tr>
+<tr class="row-even"><td>630$n</td>
+</tr>
+<tr class="row-odd"><td>630$r</td>
+</tr>
+<tr class="row-even"><td>650$a</td>
+</tr>
+<tr class="row-odd"><td>650$b</td>
+</tr>
+<tr class="row-even"><td>650$c</td>
+</tr>
+<tr class="row-odd"><td>650$d</td>
+</tr>
+<tr class="row-even"><td>650$v</td>
+</tr>
+<tr class="row-odd"><td>650$x</td>
+</tr>
+<tr class="row-even"><td>650$y</td>
+</tr>
+<tr class="row-odd"><td>650$z</td>
+</tr>
+<tr class="row-even"><td>651</td>
+</tr>
+<tr class="row-odd"><td>653</td>
+</tr>
+<tr class="row-even"><td>suppress</td>
+<td>942$n</td>
+</tr>
+<tr class="row-odd"><td>ta</td>
+<td>008/22</td>
+</tr>
+<tr class="row-even"><td rowspan="15">title</td>
+<td>130</td>
+</tr>
+<tr class="row-odd"><td>210</td>
+</tr>
+<tr class="row-even"><td>222</td>
+</tr>
+<tr class="row-odd"><td>240</td>
+</tr>
+<tr class="row-even"><td>245$a</td>
+</tr>
+<tr class="row-odd"><td>246</td>
+</tr>
+<tr class="row-even"><td>247</td>
+</tr>
+<tr class="row-odd"><td>490$a</td>
+</tr>
+<tr class="row-even"><td>700$t</td>
+</tr>
+<tr class="row-odd"><td>710$t</td>
+</tr>
+<tr class="row-even"><td>711$t</td>
+</tr>
+<tr class="row-odd"><td>730</td>
+</tr>
+<tr class="row-even"><td>740</td>
+</tr>
+<tr class="row-odd"><td>780</td>
+</tr>
+<tr class="row-even"><td>785</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">title-series</td>
+<td>440$a</td>
+</tr>
+<tr class="row-even"><td>490$a</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="authority-record-indexes">
+<span id="elasticsearch-authority-indexes-label"></span><h4>Authority record indexes<a class="headerlink" href="#authority-record-indexes" title="永久链接至标题"></a></h4>
+<div class="section" id="marc21-authority-indexes">
+<span id="elasticsearch-authority-marc21-indexes-label"></span><h5>MARC21 authority indexes<a class="headerlink" href="#marc21-authority-indexes" title="永久链接至标题"></a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Index name</th>
+<th class="head">MARC fields</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Corporate-name-see-also-from</td>
+<td>510(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Corporate-name-see-from</td>
+<td>410(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Descriptive-cataloging-rules</td>
+<td>008/10</td>
+</tr>
+<tr class="row-odd"><td rowspan="8">Heading</td>
+<td>100(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>110(abcdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>111(acdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>130(adefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>148(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>150(abgvxyz)</td>
+</tr>
+<tr class="row-odd"><td>151(agvxyz)</td>
+</tr>
+<tr class="row-even"><td>155(avxyz)</td>
+</tr>
+<tr class="row-odd"><td rowspan="8">Heading-Main</td>
+<td>100$a</td>
+</tr>
+<tr class="row-even"><td>110$a</td>
+</tr>
+<tr class="row-odd"><td>111$a</td>
+</tr>
+<tr class="row-even"><td>130$a</td>
+</tr>
+<tr class="row-odd"><td>148$a</td>
+</tr>
+<tr class="row-even"><td>150$a</td>
+</tr>
+<tr class="row-odd"><td>151$a</td>
+</tr>
+<tr class="row-even"><td>155$a</td>
+</tr>
+<tr class="row-odd"><td>Heading-use-main-or-added-entry</td>
+<td>008/14</td>
+</tr>
+<tr class="row-even"><td>Heading-use-series-added-entry</td>
+<td>008/16</td>
+</tr>
+<tr class="row-odd"><td>Heading-use-subject-added-entry</td>
+<td>008/15</td>
+</tr>
+<tr class="row-even"><td>Kind-of-record</td>
+<td>008/09</td>
+</tr>
+<tr class="row-odd"><td rowspan="8">Match</td>
+<td>100(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>111(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>400(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>410(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>411(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-even"><td>500(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>510(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-even"><td>511(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">Match-heading-see-from</td>
+<td>400(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>410(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>411(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Meeting-name</td>
+<td>111(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Meeting-name-heading</td>
+<td>111(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Meeting-name-see-also-from</td>
+<td>511(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Meeting-name-see-from</td>
+<td>411(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Personal-name-heading</td>
+<td>100(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Personal-name-see-also-from</td>
+<td>500(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Personal-name-see-from</td>
+<td>400(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-odd"><td rowspan="10">See-also-from</td>
+<td>500(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>510(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>511a(bcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>530(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>547(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>548(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>550(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>551(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>555(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>562(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td rowspan="10">See-from</td>
+<td>400(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>410(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>411(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>430(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>440(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>441(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>444(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>447(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>448(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-even"><td>462(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Subject-heading-thesaurus</td>
+<td>008/11</td>
+</tr>
+<tr class="row-even"><td>authtype</td>
+<td>942$a</td>
+</tr>
+<tr class="row-odd"><td>lc-card-number</td>
+<td>010$a $z</td>
+</tr>
+<tr class="row-even"><td>local-number</td>
+<td>001</td>
+</tr>
+<tr class="row-odd"><td>personal-name</td>
+<td>100(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>record-source</td>
+<td>040(acd)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="unimarc-authority-indexes">
+<span id="elasticsearch-authority-unimarc-indexes-label"></span><h5>UNIMARC authority indexes<a class="headerlink" href="#unimarc-authority-indexes" title="永久链接至标题"></a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Index name</th>
+<th class="head">MARC fields</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="11">Heading</td>
+<td>200(abcdfgjxyz)</td>
+</tr>
+<tr class="row-odd"><td>210(abcdefghjxyz)</td>
+</tr>
+<tr class="row-even"><td>215(ajxyz)</td>
+</tr>
+<tr class="row-odd"><td>216(afcjxyz)</td>
+</tr>
+<tr class="row-even"><td>220(afjxyz)</td>
+</tr>
+<tr class="row-odd"><td>230(abhijklmnqrsuwxyz)</td>
+</tr>
+<tr class="row-even"><td>235(abejkmrsuwxyz)</td>
+</tr>
+<tr class="row-odd"><td>240(atjxyz)</td>
+</tr>
+<tr class="row-even"><td>250(ajxyz)</td>
+</tr>
+<tr class="row-odd"><td>260(abcdjxyz)</td>
+</tr>
+<tr class="row-even"><td>280(ajxyz)</td>
+</tr>
+<tr class="row-odd"><td rowspan="11">Heading-Main</td>
+<td>200$a</td>
+</tr>
+<tr class="row-even"><td>210$a</td>
+</tr>
+<tr class="row-odd"><td>215$a</td>
+</tr>
+<tr class="row-even"><td>216$a</td>
+</tr>
+<tr class="row-odd"><td>220$a</td>
+</tr>
+<tr class="row-even"><td>230$a</td>
+</tr>
+<tr class="row-odd"><td>235$a</td>
+</tr>
+<tr class="row-even"><td>240$a</td>
+</tr>
+<tr class="row-odd"><td>250$a</td>
+</tr>
+<tr class="row-even"><td>260$a</td>
+</tr>
+<tr class="row-odd"><td>280$a</td>
+</tr>
+<tr class="row-even"><td rowspan="46">Match</td>
+<td>200(3478abcdfgjxyz)</td>
+</tr>
+<tr class="row-odd"><td>210(3478abcdefghxyz)</td>
+</tr>
+<tr class="row-even"><td>215(78ajxyz)</td>
+</tr>
+<tr class="row-odd"><td>216(378acfjxyz)</td>
+</tr>
+<tr class="row-even"><td>220(378afjxyz)</td>
+</tr>
+<tr class="row-odd"><td>230(8abhijklmqrsuwxyz)</td>
+</tr>
+<tr class="row-even"><td>235(378abeijkmratsuwxyz)</td>
+</tr>
+<tr class="row-odd"><td>240(8abcfjtxyz)</td>
+</tr>
+<tr class="row-even"><td>250(8abcdjvxyz)</td>
+</tr>
+<tr class="row-odd"><td>260(378abcd)</td>
+</tr>
+<tr class="row-even"><td>280(378ajxyz)</td>
+</tr>
+<tr class="row-odd"><td>400(0234568abcdfgjxyz)</td>
+</tr>
+<tr class="row-even"><td>410(02345678abcdefghjxyz)</td>
+</tr>
+<tr class="row-odd"><td>415(0235678ajxyz)</td>
+</tr>
+<tr class="row-even"><td>416(acfjxyz)</td>
+</tr>
+<tr class="row-odd"><td>420(afjxyz)</td>
+</tr>
+<tr class="row-even"><td>430(0235678abhijklmnqrsuwxyz)</td>
+</tr>
+<tr class="row-odd"><td>435(0235678abejkmrsuwxyz)</td>
+</tr>
+<tr class="row-even"><td>440(0235678abcdfjtxyz)</td>
+</tr>
+<tr class="row-odd"><td>445(ajtxyz)</td>
+</tr>
+<tr class="row-even"><td>450(0235678ajxyz)</td>
+</tr>
+<tr class="row-odd"><td>460(abcd)</td>
+</tr>
+<tr class="row-even"><td>480(ajxyz)</td>
+</tr>
+<tr class="row-odd"><td>500(023456789abcdfgjxyz)</td>
+</tr>
+<tr class="row-even"><td>510(02345678abcdefghjxyz)</td>
+</tr>
+<tr class="row-odd"><td>515(0356789ajxyz)</td>
+</tr>
+<tr class="row-even"><td>516(9acfjxyz)</td>
+</tr>
+<tr class="row-odd"><td>520(9afjxyz)</td>
+</tr>
+<tr class="row-even"><td>530(02356789abhijklmnqrsuwxyz)</td>
+</tr>
+<tr class="row-odd"><td>535(02356789abjkmqrsuwxyz)</td>
+</tr>
+<tr class="row-even"><td>540(0235678ajtxyz)</td>
+</tr>
+<tr class="row-odd"><td>545(9ajtxyz)</td>
+</tr>
+<tr class="row-even"><td>550(02356789abjxyz)</td>
+</tr>
+<tr class="row-odd"><td>560(59abcd)</td>
+</tr>
+<tr class="row-even"><td>580(59ajxyz)</td>
+</tr>
+<tr class="row-odd"><td>700(23478abcdfgjxyz)</td>
+</tr>
+<tr class="row-even"><td>710(23478abcdefghjxyz)</td>
+</tr>
+<tr class="row-odd"><td>715(2378ajxyz)</td>
+</tr>
+<tr class="row-even"><td>716(acfjxyz)</td>
+</tr>
+<tr class="row-odd"><td>720(afjxyz)</td>
+</tr>
+<tr class="row-even"><td>730(2378abhijklmnqrsuwxyz)</td>
+</tr>
+<tr class="row-odd"><td>740(2378ajtxyz)</td>
+</tr>
+<tr class="row-even"><td>745(378ajtxyz)</td>
+</tr>
+<tr class="row-odd"><td>750(23789abjxyz)</td>
+</tr>
+<tr class="row-even"><td>760(abcd)</td>
+</tr>
+<tr class="row-odd"><td>780(ajxyz)</td>
+</tr>
+<tr class="row-even"><td>authtype</td>
+<td>152$b</td>
+</tr>
+<tr class="row-odd"><td>local-number</td>
+<td>001</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="normarc-authority-indexes">
+<span id="elasticsearch-authority-normarc-indexes-label"></span><h5>NORMARC authority indexes<a class="headerlink" href="#normarc-authority-indexes" title="永久链接至标题"></a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Index name</th>
+<th class="head">MARC fields</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Corporate-name-see-also-from</td>
+<td>510(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Corporate-name-see-from</td>
+<td>410(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Descriptive-cataloging-rules</td>
+<td>008/10</td>
+</tr>
+<tr class="row-odd"><td rowspan="8">Heading</td>
+<td>100(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>110(abcdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>111(acdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>130(adefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>148(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>150(abgvxyz)</td>
+</tr>
+<tr class="row-odd"><td>151(agvxyz)</td>
+</tr>
+<tr class="row-even"><td>155(avxyz)</td>
+</tr>
+<tr class="row-odd"><td rowspan="8">Heading-Main</td>
+<td>100$a</td>
+</tr>
+<tr class="row-even"><td>110$a</td>
+</tr>
+<tr class="row-odd"><td>111$a</td>
+</tr>
+<tr class="row-even"><td>130$a</td>
+</tr>
+<tr class="row-odd"><td>148$a</td>
+</tr>
+<tr class="row-even"><td>150$a</td>
+</tr>
+<tr class="row-odd"><td>151$a</td>
+</tr>
+<tr class="row-even"><td>155$a</td>
+</tr>
+<tr class="row-odd"><td>Heading-use-main-or-added-entry</td>
+<td>008/14</td>
+</tr>
+<tr class="row-even"><td>Heading-use-series-added-entry</td>
+<td>008/16</td>
+</tr>
+<tr class="row-odd"><td>Heading-use-subject-added-entry</td>
+<td>008/15</td>
+</tr>
+<tr class="row-even"><td>Kind-of-record</td>
+<td>008/09</td>
+</tr>
+<tr class="row-odd"><td rowspan="8">Match</td>
+<td>100(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>111(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>400(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>410(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>411(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-even"><td>500(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>510(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-even"><td>511(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">Match-heading-see-from</td>
+<td>400(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>410(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>411(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Meeting-name</td>
+<td>111(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Meeting-name-heading</td>
+<td>111(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Meeting-name-see-also-from</td>
+<td>511(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Meeting-name-see-from</td>
+<td>411(acdefghjklnpqstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Personal-name-heading</td>
+<td>100(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Personal-name-see-also-from</td>
+<td>500(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>Personal-name-see-from</td>
+<td>400(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-odd"><td rowspan="10">See-also-from</td>
+<td>500(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>510(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>511a(bcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>530(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>547(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>548(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>550(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>551(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>555(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>562(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td rowspan="10">See-from</td>
+<td>400(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>410(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>411(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>430(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>440(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>441(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>444(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>447(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>448(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-even"><td>462(abcdefghklmnoprstvxyz)</td>
+</tr>
+<tr class="row-odd"><td>Subject-heading-thesaurus</td>
+<td>008/11</td>
+</tr>
+<tr class="row-even"><td>authtype</td>
+<td>942$a</td>
+</tr>
+<tr class="row-odd"><td>lc-card-number</td>
+<td>010$a $z</td>
+</tr>
+<tr class="row-even"><td>local-number</td>
+<td>001</td>
+</tr>
+<tr class="row-odd"><td>personal-name</td>
+<td>100(abcdefghjklmnopqrstvxyz)</td>
+</tr>
+<tr class="row-even"><td>record-source</td>
+<td>040(acd)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="opac.html" class="btn btn-neutral float-left" title="OPAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugin System" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
