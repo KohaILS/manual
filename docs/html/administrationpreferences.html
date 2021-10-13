@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Administration &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>管理 &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,8 +18,8 @@
     <link rel="author" title="关于这些文档" href="about.html" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Authorities" href="authoritiespreferences.html" />
-    <link rel="prev" title="Acquisitions" href="acquisitionspreferences.html" /> 
+    <link rel="next" title="规范" href="authoritiespreferences.html" />
+    <link rel="prev" title="采访" href="acquisitionspreferences.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,15 +41,15 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">Acquisitions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Administration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cas-authentication">CAS Authentication</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概况</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安装过程概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">网页安装器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">初始化工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">系统配置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">出纳</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">采访</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cas-authentication">CAS 认证</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#casauthentication">casAuthentication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#caslogout">casLogout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#casserverurl">casServerUrl</a></li>
@@ -109,10 +109,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">强化内容</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
@@ -125,32 +125,32 @@
 <li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">现金管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">课程预留</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">连续出版物</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">采访</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">书单和书车</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">报表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">公共目录检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">插件系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">馆际互借</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">实用清单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">计划任务和进程守护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">网络服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他 API 和协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">扩展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">配合 Koha 使用第三方软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">配置收据打印机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">重要链接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共协议第三版</a></li>
 </ul>
 
         </div>
@@ -167,14 +167,14 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
-      <li>Administration</li>
+          <li><a href="globalpreferences.html">系统配置</a> &raquo;</li>
+      <li>管理</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/administrationpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="acquisitionspreferences.html" class="btn btn-neutral float-left" title="Acquisitions" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="authoritiespreferences.html" class="btn btn-neutral float-right" title="Authorities" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="acquisitionspreferences.html" class="btn btn-neutral float-left" title="采访" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="authoritiespreferences.html" class="btn btn-neutral float-right" title="规范" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -182,34 +182,31 @@
            <div itemprop="articleBody">
              
   <div class="section" id="administration">
-<span id="administration-system-preferences-label"></span><h1>Administration<a class="headerlink" href="#administration" title="永久链接至标题"></a></h1>
-<p>These preferences are general settings for your system.</p>
-<p><em>Get there:</em> More &gt; Administration &gt; Global System Preferences &gt;
-Administration</p>
-<p>OrderPriceRounding</p>
+<span id="administration-system-preferences-label"></span><h1>管理<a class="headerlink" href="#administration" title="永久链接至标题"></a></h1>
+<p>这些参数属于系统级设置。</p>
+<p><em>在这里：</em> 更多 &gt; 管理 &gt; 系统配置 &gt; 管理</p>
+<p>订单价格四舍五入</p>
 <ul class="simple">
-<li>This system preference allows you to choose between using the precise value or a rounded value when charging fees.</li>
+<li>此选项设置在您收费时使用精确值还是四舍五入值。</li>
 </ul>
 <div class="section" id="cas-authentication">
-<span id="cas-authentication-label"></span><h2>CAS Authentication<a class="headerlink" href="#cas-authentication" title="永久链接至标题"></a></h2>
-<p>The Central Authentication Service (CAS) is a single sign-on protocol
-for the web. If you don’t know what this is, leave these preferences set
-to their defaults.</p>
+<span id="cas-authentication-label"></span><h2>CAS 认证<a class="headerlink" href="#cas-authentication" title="永久链接至标题"></a></h2>
+<p>单点登录（Central Authentication Service ——CAS）是网络的单点登录协议。如果您不清楚，请保持原来的默认值即可。</p>
 <div class="section" id="casauthentication">
 <span id="casauthentication-label"></span><h3>casAuthentication<a class="headerlink" href="#casauthentication" title="永久链接至标题"></a></h3>
-<p>Default: Don’t use</p>
-<p>Asks: ___ CAS for login authentication.</p>
+<p>默认：关闭</p>
+<p>Asks: ___ CAS 登录授权。</p>
 </div>
 <div class="section" id="caslogout">
 <span id="caslogout-label"></span><h3>casLogout<a class="headerlink" href="#caslogout" title="永久链接至标题"></a></h3>
-<p>Asks: Logout of CAS when logging out of Koha: ___</p>
-<p>Default: No</p>
-<p>Values:</p>
+<p>Asks: 注销 CAS 退出 Koha 系统: ___</p>
+<p>默认：否</p>
+<p>值：</p>
 <ul class="simple">
-<li>No</li>
-<li>Yes</li>
+<li>否</li>
+<li>是</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul>
 <li><p class="first">CAS single logout means that a user gets logged out not only from the CAS
 server but also from all visited CAS client applications when logged out
@@ -276,7 +273,7 @@ client secret after saving</p>
 </div>
 <div class="section" id="googleopenidconnect">
 <span id="googleopenidconnect-label"></span><h3>GoogleOpenIDConnect<a class="headerlink" href="#googleopenidconnect" title="永久链接至标题"></a></h3>
-<p>Default: No</p>
+<p>默认：否</p>
 <p>Asks: Use Google OpenID Connect login: ___</p>
 <blockquote>
 <div><p><strong>Important</strong></p>
@@ -286,17 +283,17 @@ redirect url to
 your_opac_url/cgi-bin/koha/svc/auth/googleopenidconnect .</p>
 <p><img alt="image12" src="_images/7creds.png" /></p>
 </div></blockquote>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
-<li>No</li>
-<li>Yes</li>
+<li>否</li>
+<li>是</li>
 </ul>
 </div>
 <div class="section" id="googleopenidconnectautoregister">
 <span id="googleopenidconnectautoregister-label"></span><h3>GoogleOpenIDConnectAutoRegister<a class="headerlink" href="#googleopenidconnectautoregister" title="永久链接至标题"></a></h3>
 <p>Default: Don’t Allow</p>
 <p>Asks: ___ users logging in with Google Open ID to automatically register.</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Don’t Allow</li>
 <li>Allow</li>
@@ -331,7 +328,7 @@ domain) ___.</p>
 <p>Asks: Email address failed overdue notices are sent to: ___ If left empty then it will
 fallback to the first defined address in the following list: Library ReplyTo,
 Library Email, ReplytoDefault and KohaAdminEmailAddress.</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference controls where the summarized overdue email for patrons without
 email addresses is sent to.</li>
@@ -342,13 +339,13 @@ email addresses is sent to.</li>
 <p>Default: lots of</p>
 <p>Asks: Show ___ debugging information in the browser when an internal
 error occurs.</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>lots of - will show as much information as possible</li>
 <li>no - will only show basic error messages</li>
 <li>some - will show only some of the information available</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference determines how much information will be sent to the
 user’s screen when the system encounters an error. The most detail
@@ -364,12 +361,12 @@ error messages makes quick fixes more likely in problem areas.</li>
 <span id="defaulttologgedinlibrarycircrules-label"></span><h3>DefaultToLoggedInLibraryCircRules<a class="headerlink" href="#defaulttologgedinlibrarycircrules" title="永久链接至标题"></a></h3>
 <p>Default: all libraries</p>
 <p>Asks: When editing circulation rules show ___ the rules by default.</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>all libraries</li>
 <li>logged in library’s</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference controls the default value in the branch pull down
 found at the top of the <a class="reference internal" href="administration.html#circulation-and-fines-rules"><span class="std std-ref">Circulation and fines rules</span></a>.</li>
@@ -380,12 +377,12 @@ found at the top of the <a class="reference internal" href="administration.html#
 <p>Default: all libraries</p>
 <p>Asks: When editing notices and slips show the ___ notices and slips
 by default.</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>all libraries</li>
 <li>logged in library’s</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference controls the default value in the branch pull down
 found at the top of the <a class="reference internal" href="tools.html#notices-slips"><span class="std std-ref">Notices &amp; slips</span></a> tool.</li>
@@ -396,12 +393,12 @@ found at the top of the <a class="reference internal" href="tools.html#notices-s
 <p>Default: all libraries</p>
 <p>Asks: When editing overdue notice/status triggers show the ___ rules
 by default.</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>all libraries</li>
 <li>logged in library’s</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference controls the default value in the branch pull down
 found at the top of the <a class="reference internal" href="tools.html#overdue-notice-status-triggers"><span class="std std-ref">Overdue notice/status triggers</span></a>.</li>
@@ -411,7 +408,7 @@ found at the top of the <a class="reference internal" href="tools.html#overdue-n
 <span id="csvdelimiter-label"></span><h3>CSVDelimiter<a class="headerlink" href="#csvdelimiter" title="永久链接至标题"></a></h3>
 <p>Asks: Default separator for columns in an exported CSV file: ___.</p>
 <p>Default: semicolons</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>#’s</li>
 <li>backslashes</li>
@@ -420,7 +417,7 @@ found at the top of the <a class="reference internal" href="tools.html#overdue-n
 <li>slashes</li>
 <li>tabs</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference determines how reports exported from Koha will
 separate data. In many cases you will be able to change this option
@@ -432,7 +429,7 @@ when exporting if you’d like.</li>
 <p>This is the default ‘From’ address for emails unless there is one for
 the particular branch, and is referred to when an internal error occurs.</p>
 <p>Asks: Use ___ as the email address for the administrator of Koha.</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference allows one email address to be used in warning
 messages set to the OPAC. If no email address is set for the branch
@@ -448,12 +445,12 @@ these requests. This email address can be changed when needed.</li>
 <span id="noitemtypeimages-label"></span><h3>noItemTypeImages<a class="headerlink" href="#noitemtypeimages" title="永久链接至标题"></a></h3>
 <p>Asks: Show itemtype icons in the staff interface: ___</p>
 <p>Default: Yes</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
-<li>Yes</li>
-<li>No</li>
+<li>是</li>
+<li>否</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference allows the system administrator to determine if users will
 be able to set and see an item type icon in the catalog in the staff interface.</li>
@@ -467,7 +464,7 @@ itemtype images in the OPAC.</li>
 <span id="replytodefault-label"></span><h3>ReplytoDefault<a class="headerlink" href="#replytodefault" title="永久链接至标题"></a></h3>
 <p>Asks: Use ___ as the email address that will be set as the replyto in
 emails</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>By default replies to notice emails will go to the <a class="reference external" href="#libraries-groups">library email
 address</a>, if you would like to specify a default
@@ -478,7 +475,7 @@ email address for all replies to notices you can do that here.</li>
 <span id="returnpathdefault-label"></span><h3>ReturnpathDefault<a class="headerlink" href="#returnpathdefault" title="永久链接至标题"></a></h3>
 <p>Asks: Use ___ as the email address set as the return path, if you
 leave this empty the KohaAdminEmailAddress will be used.</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>The return path is the email address that bounces will be delivered
 to. By default bounced notices will go to the <a class="reference external" href="#libraries-groups">library email
@@ -490,7 +487,7 @@ email address for bounces to go to then fill in this preference.</li>
 <span id="sendallemailsto-label"></span><h3>SendAllEmailsTo<a class="headerlink" href="#sendallemailsto" title="永久链接至标题"></a></h3>
 <p>Asks: Email to redirect all messages to: ___ (Leave this field empty to
 send messages to their normal recipient)</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This system preference is used to override any patron email address with this one
 when sending notices. This is meant to be used in a testing environment to
@@ -506,12 +503,12 @@ will receive their intended notices.</p>
 <span id="virtualshelves-label"></span><h3>virtualshelves<a class="headerlink" href="#virtualshelves" title="永久链接至标题"></a></h3>
 <p>Default: Allow</p>
 <p>Asks: ___ staff and patrons to create and view saved lists of books.</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Allow</li>
 <li>Don’t Allow</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference controls whether the lists functionality will be
 available in the staff client and OPAC. If this is set to “Don’t
@@ -534,12 +531,12 @@ specified by their library (if any).</p>
 </ul>
 </li>
 </ul>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Don’t require</li>
 <li>Require</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference protects the system by blocking unauthorized users
 from accessing the staff client program and settings. Authorized and
@@ -555,13 +552,13 @@ login will have access no matter which IP address they are using.</li>
 <span id="independentbranches-label"></span><h3>IndependentBranches<a class="headerlink" href="#independentbranches" title="永久链接至标题"></a></h3>
 <p>Asks: Prevent staff (but not superlibrarians) from modifying objects
 (holds, items, patrons, etc.) belonging to other libraries: ___</p>
-<p>Default: No</p>
-<p>Values:</p>
+<p>默认：否</p>
+<p>值：</p>
 <ul class="simple">
-<li>No</li>
-<li>Yes</li>
+<li>否</li>
+<li>是</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul>
 <li><p class="first">This preference should only be used by library systems which are
 sharing a single Koha installation among multiple branches but are
@@ -593,14 +590,14 @@ superlibrarian, the highest level of privileges.</p>
 </div>
 <div class="section" id="independentbranchespatronmodifications">
 <span id="independentbranchespatronmodifications-label"></span><h3>IndependentBranchesPatronModifications<a class="headerlink" href="#independentbranchespatronmodifications" title="永久链接至标题"></a></h3>
-<p>Default: No</p>
+<p>默认：否</p>
 <p>Asks: Prevent staff (but not superlibrarians) from viewing and
 approving/denying patron modification requests for patrons
 belonging to other libraries. ___</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
-<li>No</li>
-<li>Yes</li>
+<li>否</li>
+<li>是</li>
 </ul>
 </div>
 <div class="section" id="sessionrestrictionbyip">
@@ -608,12 +605,12 @@ belonging to other libraries. ___</p>
 <p>Default: Enable</p>
 <p>Asks: ___ check for change in remote IP address for session security.
 Disable only when remote IP address changes frequently.</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Disable</li>
 <li>Enable</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul>
 <li><p class="first">When this preference is set to ‘Enable’ Koha will log you out of the
 staff client if your IP address changes as a security measure. For
@@ -634,7 +631,7 @@ features from your staff client.</p>
 <span id="sessionstorage-label"></span><h3>SessionStorage<a class="headerlink" href="#sessionstorage" title="永久链接至标题"></a></h3>
 <p>Default: in the MySQL database</p>
 <p>Asks: Store login session information ___</p>
-<p>Values:</p>
+<p>值：</p>
 <ul>
 <li><p class="first">as temporary files</p>
 </li>
@@ -650,7 +647,7 @@ features from your staff client.</p>
 </ul>
 </li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference allows administrators to choose what format session
 data is stored in during web sessions.</li>
@@ -660,7 +657,7 @@ data is stored in during web sessions.</li>
 <span id="timeout-label"></span><h3>timeout<a class="headerlink" href="#timeout" title="永久链接至标题"></a></h3>
 <p>Default: 12000000</p>
 <p>Asks: Automatically log out users after ___ seconds of inactivity.</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference sets the length of time the Staff Client or OPAC
 accounts can be left inactive before re-logging in is necessary. The
@@ -676,7 +673,7 @@ Client and the OPAC.</li>
 <span id="allowpkiauth-label"></span><h3>AllowPKIAuth<a class="headerlink" href="#allowpkiauth" title="永久链接至标题"></a></h3>
 <p>Default: no</p>
 <p>Asks: Use ___ field for SSL client certificate authentication</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>no</li>
 <li>the common name</li>
@@ -694,7 +691,7 @@ Client and the OPAC.</li>
 <h3>SearchEngine<a class="headerlink" href="#searchengine" title="永久链接至标题"></a></h3>
 <p>Default: Zebra</p>
 <p>Asks: Use following search engine: ___</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Elasticsearch</li>
 <li>Zebra</li>
@@ -714,12 +711,12 @@ intervals to the community.</p>
 <span id="usagestats-label"></span><h3>UsageStats<a class="headerlink" href="#usagestats" title="永久链接至标题"></a></h3>
 <p>Default: Don’t share</p>
 <p>Asks: ___ anonymous Koha usage data with the Koha community.</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Don’t share</li>
 <li>Share</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This data is stored to help track usage of Koha around the world. If
 you choose to share your information, it will be published on the
@@ -730,7 +727,7 @@ information is sent using the <a class="reference internal" href="cron_jobs.html
 <div class="section" id="usagestatscountry">
 <span id="usagestatscountry-label"></span><h3>UsageStatsCountry<a class="headerlink" href="#usagestatscountry" title="永久链接至标题"></a></h3>
 <p>Asks: The country where your library is located: ___</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul>
 <li><p class="first">This data is stored to help track usage of Koha around the world. If
 you choose to share your information, it will be published on the
@@ -748,7 +745,7 @@ preference. Set that to ‘Share’ to share your information.</p>
 <span id="usagestatsgeolocation-label"></span><h3>UsageStatsGeolocation<a class="headerlink" href="#usagestatsgeolocation" title="永久链接至标题"></a></h3>
 <p>Asks: Geolocation of the main library: ___</p>
 <p>Default: blank</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>Note that this value has no effect if the <a class="reference internal" href="#usagestats"><span class="std std-ref">UsageStats</span></a> system
 preference is set to ‘Don’t share’.</li>
@@ -762,7 +759,7 @@ information on the <a class="reference internal" href="administration.html#share
 <p>Asks: ___ libraries information (name, url, country) Note that this value
 has no effect if the <a class="reference internal" href="#usagestats"><span class="std std-ref">UsageStats</span></a> system preference is set to
 “Don’t share”</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Do not Share</li>
 <li>Share</li>
@@ -772,7 +769,7 @@ has no effect if the <a class="reference internal" href="#usagestats"><span clas
 <span id="usagestatslibraryname-label"></span><h3>UsageStatsLibraryName<a class="headerlink" href="#usagestatslibraryname" title="永久链接至标题"></a></h3>
 <p>Asks: The library name ___ will be shown on the <a class="reference external" href="http://hea.koha-community.org">Hea Koha community
 website</a>.</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul>
 <li><p class="first">This data is stored to help track usage of Koha around the world. If
 you choose to share your information, it will be published on the
@@ -793,7 +790,7 @@ for the <a class="reference external" href="#usagestats">UsageStats</a> preferen
 <p>Default: public</p>
 <p>Asks: The library type ___ will be shown on the <a class="reference external" href="http://hea.koha-community.org">Hea Koha community
 website</a>.</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>academic</li>
 <li>corporate</li>
@@ -806,7 +803,7 @@ website</a>.</p>
 <li>society or association</li>
 <li>subscription</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul>
 <li><p class="first">This data is stored to help track usage of Koha around the world. If
 you choose to share your information, it will be published on the
@@ -824,7 +821,7 @@ preference. Set that to ‘Share’ to share your information.</p>
 <span id="usagestatslibraryurl-label"></span><h3>UsageStatsLibraryUrl<a class="headerlink" href="#usagestatslibraryurl" title="永久链接至标题"></a></h3>
 <p>Asks: The library URL ___ will be shown on the <a class="reference external" href="http://hea.koha-community.org">Hea Koha community
 website</a>.</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul>
 <li><p class="first">This data is stored to help track usage of Koha around the world. If
 you choose to share your information, it will be published on the
@@ -845,15 +842,15 @@ preference. Set that to ‘Share’ to share your information.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="acquisitionspreferences.html" class="btn btn-neutral float-left" title="Acquisitions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="authoritiespreferences.html" class="btn btn-neutral float-right" title="Authorities" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="acquisitionspreferences.html" class="btn btn-neutral float-left" title="采访" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="authoritiespreferences.html" class="btn btn-neutral float-right" title="规范" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; 版权所有 2021, Koha Community.
-      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      <span class="lastupdated">最后更新于 2021-10-13 22:33:05.
       </span></p>
   </div>
 

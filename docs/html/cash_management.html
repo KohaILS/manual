@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cash management &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>现金管理 &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,8 +18,8 @@
     <link rel="author" title="关于这些文档" href="about.html" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Circulation" href="circulation.html" />
-    <link rel="prev" title="Patrons" href="patrons.html" /> 
+    <link rel="next" title="流通" href="circulation.html" />
+    <link rel="prev" title="人员" href="patrons.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,15 +41,15 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cash management</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概况</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安装过程概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">网页安装器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">初始化工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">系统配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">人员</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">现金管理</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cash-registers">Cash registers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#library-details">Library details</a></li>
@@ -64,28 +64,28 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">课程预留</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">连续出版物</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">采访</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">书单和书车</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">报表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">公共目录检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">插件系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">馆际互借</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">实用清单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">计划任务和进程守护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">网络服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他 API 和协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">扩展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">配合 Koha 使用第三方软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">配置收据打印机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">重要链接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共协议第三版</a></li>
 </ul>
 
         </div>
@@ -102,13 +102,13 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Cash management</li>
+      <li>现金管理</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/cash_management.rst.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="patrons.html" class="btn btn-neutral float-left" title="Patrons" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="circulation.html" class="btn btn-neutral float-right" title="Circulation" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="patrons.html" class="btn btn-neutral float-left" title="人员" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulation.html" class="btn btn-neutral float-right" title="流通" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -116,7 +116,7 @@
            <div itemprop="articleBody">
              
   <div class="section" id="cash-management">
-<span id="cash-management-label"></span><h1>Cash management<a class="headerlink" href="#cash-management" title="永久链接至标题"></a></h1>
+<span id="cash-management-label"></span><h1>现金管理<a class="headerlink" href="#cash-management" title="永久链接至标题"></a></h1>
 <p>Koha includes a number of options for dealing with monetary transactions and
 actions to allow for fine grained tracking of these processes for audit and
 analytic processes.</p>
@@ -128,7 +128,7 @@ for payments and then when this cash is subsequently removed and taken to the
 bank.</p>
 <div class="section" id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="永久链接至标题"></a></h3>
-<p>To enable the use of cash registers, you must turn on the <a class="reference internal" href="accountspreferences.html#usecashregisters"><span class="std std-ref">UseCashRegisters</span></a>
+<p>To enable the use of cash registers, you must turn on the <a class="reference internal" href="accountspreferences.html#usecashregisters"><span class="std std-ref">使用收款机</span></a>
 system preference.</p>
 <p>You can then configure cash registers for your library from the
 <a class="reference internal" href="administration.html#cashregisters-label"><span class="std std-ref">cash registers</span></a> page in the administration module.</p>
@@ -187,9 +187,9 @@ new card fee), use <a class="reference internal" href="patrons.html#creating-man
 </ul>
 <div class="section" id="setup-point-of-sale-label">
 <span id="id1"></span><h3>Setup<a class="headerlink" href="#setup-point-of-sale-label" title="永久链接至标题"></a></h3>
-<p>To enable the point of sale module, you must turn on the <a class="reference internal" href="accountspreferences.html#enablepointofsale"><span class="std std-ref">EnablePointOfSale</span></a>
+<p>To enable the point of sale module, you must turn on the <a class="reference internal" href="accountspreferences.html#enablepointofsale"><span class="std std-ref">启用销售点</span></a>
 system preference.</p>
-<p>If it’s not already done, you must also enable the <a class="reference internal" href="accountspreferences.html#usecashregisters"><span class="std std-ref">UseCashRegisters</span></a>
+<p>If it’s not already done, you must also enable the <a class="reference internal" href="accountspreferences.html#usecashregisters"><span class="std std-ref">使用收款机</span></a>
 system preference.</p>
 <p>Make sure you <a class="reference internal" href="administration.html#cashregisters-label"><span class="std std-ref">configure your cash registers</span></a> in the
 administration module.</p>
@@ -223,15 +223,15 @@ amount.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="patrons.html" class="btn btn-neutral float-left" title="Patrons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="circulation.html" class="btn btn-neutral float-right" title="Circulation" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="patrons.html" class="btn btn-neutral float-left" title="人员" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulation.html" class="btn btn-neutral float-right" title="流通" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; 版权所有 2021, Koha Community.
-      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      <span class="lastupdated">最后更新于 2021-10-13 22:33:05.
       </span></p>
   </div>
 

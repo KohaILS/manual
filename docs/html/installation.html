@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction to the Koha installation process &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Koha 安装过程概述 &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,8 +18,8 @@
     <link rel="author" title="关于这些文档" href="about.html" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Global system preferences" href="globalpreferences.html" />
-    <link rel="prev" title="Introduction" href="intro.html" /> 
+    <link rel="next" title="系统配置" href="globalpreferences.html" />
+    <link rel="prev" title="概况" href="intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,13 +41,13 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to the Koha installation process</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#what-is-the-koha-web-installer">What is the Koha web installer?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-is-the-koha-onboarding-tool">What is the Koha onboarding tool?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概况</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Koha 安装过程概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-koha-web-installer">什么是 Koha 网页安装器？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-koha-onboarding-tool">什么是 Koha 初始化工具？</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#web-installer">Web installer</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#web-installer">网页安装器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#web-installer-login">Web installer login</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#language-picker">Language picker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installer-perl-modules-installed">Installer perl modules installed</a></li>
@@ -63,7 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#redirect-to-onboarding-tool">Redirect to onboarding tool</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#onboarding-tool">Onboarding tool</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#onboarding-tool">初始化工具</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#create-a-library">Create a library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create-a-patron-category">Create a patron category</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create-a-patron">Create a patron</a></li>
@@ -74,33 +74,33 @@
 <li class="toctree-l2"><a class="reference internal" href="#staff-interface">Staff interface</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">系统配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">现金管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">课程预留</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">连续出版物</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">采访</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">书单和书车</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">报表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">公共目录检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">插件系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">馆际互借</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">实用清单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">计划任务和进程守护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">网络服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他 API 和协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">扩展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">配合 Koha 使用第三方软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">配置收据打印机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">重要链接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共协议第三版</a></li>
 </ul>
 
         </div>
@@ -117,13 +117,13 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Introduction to the Koha installation process</li>
+      <li>Koha 安装过程概述</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/installation.rst.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="globalpreferences.html" class="btn btn-neutral float-right" title="Global system preferences" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="intro.html" class="btn btn-neutral float-left" title="概况" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="globalpreferences.html" class="btn btn-neutral float-right" title="系统配置" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -131,29 +131,29 @@
            <div itemprop="articleBody">
              
   <div class="section" id="introduction-to-the-koha-installation-process">
-<span id="koha-installation-process-label"></span><h1>Introduction to the Koha installation process<a class="headerlink" href="#introduction-to-the-koha-installation-process" title="永久链接至标题"></a></h1>
-<p>This is the Koha installation manual.</p>
-<p>The Koha installation process uses 2 tools:</p>
+<span id="koha-installation-process-label"></span><h1>Koha 安装过程概述<a class="headerlink" href="#introduction-to-the-koha-installation-process" title="永久链接至标题"></a></h1>
+<p>这是 Koha 安装手册。</p>
+<p>Koha 安装过程使用 2 种工具：</p>
 <ul class="simple">
-<li>Web installer</li>
-<li>Onboarding tool</li>
+<li>网页安装器</li>
+<li>初始化工具</li>
 </ul>
-<p>This documentation will outline both of these tools.</p>
+<p>手册将概述两种安装方式。</p>
 <div class="section" id="what-is-the-koha-web-installer">
-<h2>What is the Koha web installer?<a class="headerlink" href="#what-is-the-koha-web-installer" title="永久链接至标题"></a></h2>
-<p>The web installer sets up the database tables that store the all the data you work with in Koha, for example the library branches, patrons and items.</p>
-<p>The web installer starts with a login screen for you to enter the database administrator account credentials.</p>
-<p>The installer will then create the tables and fill the tables with data. The next step in the process is to set up a few mandatory first use settings, via the onboarding tool.</p>
+<h2>什么是 Koha 网页安装器？<a class="headerlink" href="#what-is-the-koha-web-installer" title="永久链接至标题"></a></h2>
+<p>网页安装器将创建 Koha 运行需要的所有的数据库表，例如图书馆分馆、读者和条目等。</p>
+<p>网页安装器始于您具有数据库管理权限的账号登录界面。</p>
+<p>网页安装器将创建数据表和对应的数据，下一步会使用初始化工具设置一些初始参数设置。</p>
 </div>
 <div class="section" id="what-is-the-koha-onboarding-tool">
-<h2>What is the Koha onboarding tool?<a class="headerlink" href="#what-is-the-koha-onboarding-tool" title="永久链接至标题"></a></h2>
+<h2>什么是 Koha 初始化工具？<a class="headerlink" href="#what-is-the-koha-onboarding-tool" title="永久链接至标题"></a></h2>
 <p>The onboarding tool makes sure you have at least one library, patron category, patron, item type and circulation rule before you start using Koha.</p>
 <p>If you installed sample data for library, patron category, and/or item type then the screens to create these will be skipped.</p>
 <p>You will, however, always have to create a patron (to log into the staff interface at the end of the onboarding tool) and a circulation rule.</p>
 </div>
 </div>
 <div class="section" id="web-installer">
-<h1>Web installer<a class="headerlink" href="#web-installer" title="永久链接至标题"></a></h1>
+<h1>网页安装器<a class="headerlink" href="#web-installer" title="永久链接至标题"></a></h1>
 <div class="section" id="web-installer-login">
 <h2>Web installer login<a class="headerlink" href="#web-installer-login" title="永久链接至标题"></a></h2>
 <p><strong>Web installer login</strong></p>
@@ -359,7 +359,7 @@
 </div>
 </div>
 <div class="section" id="onboarding-tool">
-<h1>Onboarding tool<a class="headerlink" href="#onboarding-tool" title="永久链接至标题"></a></h1>
+<h1>初始化工具<a class="headerlink" href="#onboarding-tool" title="永久链接至标题"></a></h1>
 <div class="section" id="create-a-library">
 <h2>Create a library<a class="headerlink" href="#create-a-library" title="永久链接至标题"></a></h2>
 <p>The installer will prompt to create the first library or branch if the sample libraries were not installed.</p>
@@ -565,15 +565,15 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="globalpreferences.html" class="btn btn-neutral float-right" title="Global system preferences" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="intro.html" class="btn btn-neutral float-left" title="概况" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="globalpreferences.html" class="btn btn-neutral float-right" title="系统配置" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; 版权所有 2021, Koha Community.
-      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      <span class="lastupdated">最后更新于 2021-10-13 22:33:05.
       </span></p>
   </div>
 

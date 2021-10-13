@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acquisitions &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>采访 &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,8 +18,8 @@
     <link rel="author" title="关于这些文档" href="about.html" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Administration" href="administrationpreferences.html" />
-    <link rel="prev" title="Accounting" href="accountspreferences.html" /> 
+    <link rel="next" title="管理" href="administrationpreferences.html" />
+    <link rel="prev" title="出纳" href="accountspreferences.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,15 +41,15 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">Global system preferences</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">Accounting</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Acquisitions</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概况</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安装过程概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">网页安装器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">初始化工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">系统配置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">出纳</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">采访</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#edifact">EDIFACT</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#edifactinvoiceimport">EdifactInvoiceImport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edifactinvoiceimport">Edifact发票导入</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#policy">Policy</a><ul>
@@ -78,11 +78,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">Administration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">Authorities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">Cataloging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">Circulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">强化内容</a></li>
 <li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local Use</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logspreferences.html">Logs</a></li>
@@ -95,32 +95,32 @@
 <li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">Web services</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">现金管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">课程预留</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">连续出版物</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">采访</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">书单和书车</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">报表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">公共目录检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">插件系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">馆际互借</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">实用清单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">计划任务和进程守护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">网络服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他 API 和协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">扩展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">配合 Koha 使用第三方软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">配置收据打印机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">重要链接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共协议第三版</a></li>
 </ul>
 
         </div>
@@ -137,14 +137,14 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="globalpreferences.html">Global system preferences</a> &raquo;</li>
-      <li>Acquisitions</li>
+          <li><a href="globalpreferences.html">系统配置</a> &raquo;</li>
+      <li>采访</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/acquisitionspreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="accountspreferences.html" class="btn btn-neutral float-left" title="Accounting" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="administrationpreferences.html" class="btn btn-neutral float-right" title="Administration" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="accountspreferences.html" class="btn btn-neutral float-left" title="出纳" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administrationpreferences.html" class="btn btn-neutral float-right" title="管理" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -152,21 +152,20 @@
            <div itemprop="articleBody">
              
   <div class="section" id="acquisitions">
-<span id="acquisitions-system-preferences-label"></span><h1>Acquisitions<a class="headerlink" href="#acquisitions" title="永久链接至标题"></a></h1>
-<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt; Acquisitions</p>
+<span id="acquisitions-system-preferences-label"></span><h1>采访<a class="headerlink" href="#acquisitions" title="永久链接至标题"></a></h1>
+<p><em>在这里：</em> 更多 &gt; 管理 &gt; 系统配置 &gt; 采访</p>
 <div class="section" id="edifact">
 <span id="acquisitions-edifact-system-preferences-label"></span><h2>EDIFACT<a class="headerlink" href="#edifact" title="永久链接至标题"></a></h2>
 <div class="section" id="edifactinvoiceimport">
-<span id="edifactinvoiceimport-label"></span><h3>EdifactInvoiceImport<a class="headerlink" href="#edifactinvoiceimport" title="永久链接至标题"></a></h3>
-<p>Asks: ___ automatically import EDIFACT invoice message files when they are
-downloaded.</p>
-<p>Default: Do</p>
-<p>Values:</p>
+<span id="edifactinvoiceimport-label"></span><h3>Edifact发票导入<a class="headerlink" href="#edifactinvoiceimport" title="永久链接至标题"></a></h3>
+<p>Asks: ___ 自动导入下载的 EDIFACT 发票文件。</p>
+<p>默认：启用</p>
+<p>值：</p>
 <ul class="simple">
-<li>Do</li>
-<li>Don’t</li>
+<li>启用</li>
+<li>关闭</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This feature allows libraries to delay the importing of EDI invoices until a
 time of their choosing. If the syspref is set to ‘Don’t’ the invoices are imported
@@ -181,13 +180,13 @@ listed in EDIfact messages with a status of ‘New’ will have an ‘Import’ 
 <span id="acqcreateitem-label"></span><h3>AcqCreateItem<a class="headerlink" href="#acqcreateitem" title="永久链接至标题"></a></h3>
 <p>Asks: Create an item when ___.</p>
 <p>Default: placing an order</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>cataloging a record</li>
 <li>placing an order</li>
 <li>receiving an order</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference lets you decide when you’d like to create an item record in
 Koha.</li>
@@ -209,12 +208,12 @@ will not be created in acquisitions at all. You will need to go to the
 <p>Asks: ___ enable the ability to upload and attach arbitrary files to
 invoices.</p>
 <p>Default: Don’t</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
-<li>Do</li>
-<li>Don’t</li>
+<li>启用</li>
+<li>关闭</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference controls whether or not you allow the
 <a class="reference internal" href="acquisitions.html#attaching-files-to-invoices-label"><span class="std std-ref">uploading of invoice files</span></a> via
@@ -225,7 +224,7 @@ the acquisitions module.</li>
 <span id="acqitemsetsubfieldswhenreceiptiscancelled-label"></span><h3>AcqItemSetSubfieldsWhenReceiptIsCancelled<a class="headerlink" href="#acqitemsetsubfieldswhenreceiptiscancelled" title="永久链接至标题"></a></h3>
 <p>Asks: Upon cancelling a receipt, update the item’s subfields if they
 were created when placing an order (e.g. o=5|a=”bar foo””). ___</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference is used in conjunction with the
 <a class="reference internal" href="#acqitemsetsubfieldswhenreceived"><span class="std std-ref">AcqItemSetSubfieldsWhenReceived</span></a>
@@ -238,7 +237,7 @@ receipt is cancelled. This preference allows you to do that.</li>
 <span id="acqitemsetsubfieldswhenreceived-label"></span><h3>AcqItemSetSubfieldsWhenReceived<a class="headerlink" href="#acqitemsetsubfieldswhenreceived" title="永久链接至标题"></a></h3>
 <p>Asks: Upon receiving items, update their subfields if they were created
 when placing an order (e.g. o=5|a=”foo bar”). ___</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference allows you to set default values for items that you
 receive via acquisitions. Enter the data as subfield=value and split
@@ -252,13 +251,13 @@ status on the item automatically when you receive it just by entering
 <span id="acqviewbaskets-label"></span><h3>AcqViewBaskets<a class="headerlink" href="#acqviewbaskets" title="永久链接至标题"></a></h3>
 <p>Asks: Show baskets ___</p>
 <p>Default: created or managed by staff member</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>in system, regardless of owner</li>
 <li>from staff member’s library</li>
 <li>created or managed by staff member</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>When in acquisitions, this preference allows you to control whose
 baskets you can see when looking at a vendor.</li>
@@ -277,12 +276,12 @@ superlibrarians can see all baskets created in the system.</li>
 <p>Asks: ___ when the librarian tries to create an invoice with a
 duplicate number.</p>
 <p>Default: Do not warn</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Do not warn</li>
 <li>Warn</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>When set to ‘Warn’, Koha will let staff know if an invoice with the same
 number has already been created. The staff member will have a choice to
@@ -295,7 +294,7 @@ number.</li>
 <span id="basketconfirmations-label"></span><h3>BasketConfirmations<a class="headerlink" href="#basketconfirmations" title="永久链接至标题"></a></h3>
 <p>Asks: When closing or reopening a basket, ___.</p>
 <p>Default: always ask for confirmation</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>always ask for confirmation</li>
 <li>do not ask for confirmation</li>
@@ -312,12 +311,12 @@ new basket group.</li>
 <p>Asks: ___ blind copy (BCC) to logged in user when sending serial or
 acquisitions claims notices.</p>
 <p>Default: Don’t send</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Don’t send</li>
 <li>Send</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This system preference allows you to choose whether or not you want to send
 a copy of the claim email to the staff member when
@@ -329,13 +328,13 @@ a copy of the claim email to the staff member when
 <span id="currencyformat-label"></span><h3>CurrencyFormat<a class="headerlink" href="#currencyformat" title="永久链接至标题"></a></h3>
 <p>Asks: Display currencies using the following format ___</p>
 <p>Default: 360,000.00 (US)</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>360’000.00 (CH)</li>
 <li>360 000,00 (FR)</li>
 <li>360,000.00 (US)</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This system preference controls how prices are displayed in Koha.</li>
 </ul>
@@ -346,14 +345,14 @@ a copy of the claim email to the staff member when
 ___. If you choose EmailAddressForSuggestions you have to enter a valid
 email address: ___</p>
 <p>Default: none</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>none</li>
 <li>email address of branch</li>
 <li>EmailAddressForSuggestions</li>
 <li>KohaAdminEmailAddress</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>If you want Koha to send purchase suggestions via email, choose which email
 address it should send them to<ul>
@@ -375,7 +374,7 @@ NEW_SUGGESTION</li>
 <span id="marcfieldstoorder-label"></span><h3>MarcFieldsToOrder<a class="headerlink" href="#marcfieldstoorder" title="永久链接至标题"></a></h3>
 <p>Asks: Set the mapping values for a new order line created from a MARC
 record in a staged file.</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul>
 <li><p class="first">This preference includes MARC fields to check for order information
 to use when you <a class="reference internal" href="acquisitions.html#order-from-a-new-file-label"><span class="std std-ref">order from a new .mrc file</span></a>
@@ -412,7 +411,7 @@ budget_code: 922$a
 <span id="marcitemfieldstoorder-label"></span><h3>MarcItemFieldsToOrder<a class="headerlink" href="#marcitemfieldstoorder" title="永久链接至标题"></a></h3>
 <p>Asks: Set the mapping values for new item records created from a MARC record
 in a staged file.</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference automatically generates items in Koha with populated
 information based on a 9XX field and subfield. You can use the following
@@ -460,12 +459,12 @@ loc: 975$c
 <span id="orderpricerounding-label"></span><h3>OrderPriceRounding<a class="headerlink" href="#orderpricerounding" title="永久链接至标题"></a></h3>
 <p>Asks: ___ to nearest cent.</p>
 <p>Default: Don’t round</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Don’t round</li>
 <li>Round</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This system preference determines whether full precision values or rounded
 values should be used in price calculations.</li>
@@ -482,7 +481,7 @@ days.</p>
 <p class="last">Leave this field empty if you don’t want to activate this automatic
 feature.</p>
 </div>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>Enter the number of days after which you want to automatically
 delete accepted or rejected purchase suggestions.</li>
@@ -499,7 +498,7 @@ active and called without a specific number of days.</p>
 <span id="taxrates-label"></span><h3>TaxRates<a class="headerlink" href="#taxrates" title="永久链接至标题"></a></h3>
 <p>Asks: Tax rates are ___</p>
 <p>Default: 0</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference allows the library to define goods and services tax rates
 for acquisitions.</li>
@@ -523,7 +522,7 @@ rounded.</p>
 <span id="uniqueitemfields-label"></span><h3>UniqueItemFields<a class="headerlink" href="#uniqueitemfields" title="永久链接至标题"></a></h3>
 <p>Asks: The following database columns should be unique in an item: ___</p>
 <p>Default: barcode</p>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>If this preference is left blank when adding items in acquisitions
 there will be no check for uniqueness. This means that a duplicate
@@ -535,12 +534,12 @@ when checking items in and out.</li>
 <span id="useacqframeworkforbibliorecords-label"></span><h3>UseACQFrameworkForBiblioRecords<a class="headerlink" href="#useacqframeworkforbibliorecords" title="永久链接至标题"></a></h3>
 <p>Asks: ___ the framework ‘ACQ’ for bibliographic records fields</p>
 <p>Default: Don’t use</p>
-<p>Values:</p>
+<p>值：</p>
 <ul class="simple">
 <li>Don’t use</li>
 <li>Use</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This system preference allows you to use the
 <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">ACQ bibliographic framework</span></a> to
@@ -557,7 +556,7 @@ are always taken from the ACQ framework regardless of this system preference</li
 <span id="orderpdfformat-label"></span><h3>OrderPdfFormat<a class="headerlink" href="#orderpdfformat" title="永久链接至标题"></a></h3>
 <p>Asks: Use the ___ layout when printing basket groups.</p>
 <p>Default: English 3-page</p>
-<p>Values:</p>
+<p>值：</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">Values will depend on the installed languages in your Koha installation.</p>
@@ -566,7 +565,7 @@ are always taken from the ACQ framework regardless of this system preference</li
 <li>2-page</li>
 <li>3-page</li>
 </ul>
-<p>Description:</p>
+<p>简介：</p>
 <ul class="simple">
 <li>This preference determines how <a class="reference internal" href="acquisitions.html#create-a-basket-group-label"><span class="std std-ref">basket groups</span></a>
 are printed when exported as PDFs.</li>
@@ -582,15 +581,15 @@ titles on the second page</li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="accountspreferences.html" class="btn btn-neutral float-left" title="Accounting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="administrationpreferences.html" class="btn btn-neutral float-right" title="Administration" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="accountspreferences.html" class="btn btn-neutral float-left" title="出纳" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administrationpreferences.html" class="btn btn-neutral float-right" title="管理" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; 版权所有 2021, Koha Community.
-      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      <span class="lastupdated">最后更新于 2021-10-13 22:33:05.
       </span></p>
   </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Extending Koha &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>扩展 Koha &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,8 +18,8 @@
     <link rel="author" title="关于这些文档" href="about.html" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Using third party software with Koha" href="third_party_software.html" />
-    <link rel="prev" title="Other APIs and protocols" href="apis_protocols.html" /> 
+    <link rel="next" title="配合 Koha 使用第三方软件" href="third_party_software.html" />
+    <link rel="prev" title="其他 API 和协议" href="apis_protocols.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,33 +41,33 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Extending Koha</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#amazon-lookup-script-for-koha-libraries">Amazon lookup script for Koha libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概况</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安装过程概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">网页安装器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">初始化工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">系统配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">现金管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">课程预留</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">连续出版物</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">采访</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">书单和书车</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">报表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">公共目录检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">检索</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">插件系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">馆际互借</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">实用清单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">计划任务和进程守护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">网络服务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他 API 和协议</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">扩展 Koha</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#amazon-lookup-script-for-koha-libraries">服务 Koha 图书馆的亚马逊文献搜索脚本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#keyword-clouds">Keyword clouds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#newest-titles-pulldown">Newest titles pulldown</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#new-titles-slider-for-opac">New titles slider for OPAC</a></li>
@@ -89,11 +89,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#koha-search-on-your-site">Koha search on your site</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">配合 Koha 使用第三方软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">配置收据打印机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">重要链接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共协议第三版</a></li>
 </ul>
 
         </div>
@@ -110,13 +110,13 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Extending Koha</li>
+      <li>扩展 Koha</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/extending_koha.rst.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="apis_protocols.html" class="btn btn-neutral float-left" title="Other APIs and protocols" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="third_party_software.html" class="btn btn-neutral float-right" title="Using third party software with Koha" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="apis_protocols.html" class="btn btn-neutral float-left" title="其他 API 和协议" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="third_party_software.html" class="btn btn-neutral float-right" title="配合 Koha 使用第三方软件" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -124,28 +124,21 @@
            <div itemprop="articleBody">
              
   <div class="section" id="extending-koha">
-<span id="extending-koha-label"></span><h1>Extending Koha<a class="headerlink" href="#extending-koha" title="永久链接至标题"></a></h1>
-<p>This chapter shows how you can add various enhancements and customizations
-in and around Koha by using mostly the existing configuration options.</p>
+<span id="extending-koha-label"></span><h1>扩展 Koha<a class="headerlink" href="#extending-koha" title="永久链接至标题"></a></h1>
+<p>这部分内容展示如何通过一些配置选项增强和扩展 Koha。</p>
 <div class="section" id="amazon-lookup-script-for-koha-libraries">
-<span id="amazon-lookup-script-for-koha-libraries-label"></span><h2>Amazon lookup script for Koha libraries<a class="headerlink" href="#amazon-lookup-script-for-koha-libraries" title="永久链接至标题"></a></h2>
-<p>We order most of our materials from Amazon, so I’ve been looking for a
-convenient way to tell if a book under consideration is in our catalog
-already.</p>
-<p>Greasemonkey &amp; a custom user script fit the bill nicely:</p>
+<span id="amazon-lookup-script-for-koha-libraries-label"></span><h2>服务 Koha 图书馆的亚马逊文献搜索脚本<a class="headerlink" href="#amazon-lookup-script-for-koha-libraries" title="永久链接至标题"></a></h2>
+<p>我们通常会从亚马逊采购很多文献，所以我们就想有没有一种方式能够告诉我们那些我们考虑购买的文献已经在亚马逊的书单里了。</p>
+<p>Greasemonkey 加上用户定制脚本正好能实现：</p>
 <ul class="simple">
 <li><a class="reference external" href="https://addons.mozilla.org/en-US/firefox/addon/748">https://addons.mozilla.org/en-US/firefox/addon/748</a></li>
 <li><a class="reference external" href="http://userscripts.org/scripts/show/56847">http://userscripts.org/scripts/show/56847</a></li>
 </ul>
-<p>A few caveats:</p>
+<p>需要注意的是：</p>
 <ul class="simple">
-<li>Like most scripts, this one was designed to work with Firefox; I
-haven’t explored getting it to work with other browsers.</li>
-<li>I’m not a JavaScript programmer – this was adapted from others’
-work. Just a few lines would have to be changed to get the script to
-work with your catalog.</li>
-<li>It depends on the existence of ISBN for the item in question, so
-movies, older books, etc. would not work.</li>
+<li>像很多脚本一样，这个脚本也是针对 Firefox 设计的；我们还没找到面向其他浏览器设计的脚本。</li>
+<li>我不是 JavaScript 程序员——这个脚本也是改编自其他人的程序。改写这个程序只需要几行代码就可以符合您的要求，还好不算太难。</li>
+<li>程序依赖于 ISBN，所以电影、古籍等不能使用。</li>
 </ul>
 <p>Others have added all sorts of bells &amp; whistles: custom messages based on the status of items (on
 order, on hold, etc.), … just search the UserScripts site for Amazon +
@@ -613,15 +606,15 @@ go.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="apis_protocols.html" class="btn btn-neutral float-left" title="Other APIs and protocols" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="third_party_software.html" class="btn btn-neutral float-right" title="Using third party software with Koha" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="apis_protocols.html" class="btn btn-neutral float-left" title="其他 API 和协议" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="third_party_software.html" class="btn btn-neutral float-right" title="配合 Koha 使用第三方软件" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; 版权所有 2021, Koha Community.
-      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      <span class="lastupdated">最后更新于 2021-10-13 22:33:05.
       </span></p>
   </div>
 
