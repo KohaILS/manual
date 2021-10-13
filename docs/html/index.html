@@ -1,1 +1,420 @@
-hello
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koha 21.05 Manual (en) &mdash; Koha Manual 21.05 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+            <a href="#" class="icon icon-home"> Koha Manual
+          </a>
+              <div class="version">
+                21.05
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Koha 21.05 Manual (en)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="koha-release-manual-en">
+<h1>Koha 21.05 Manual (en)<a class="headerlink" href="#koha-release-manual-en" title="永久链接至标题"></a></h1>
+<p>Author: The Koha Community</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#koha-basics">Koha basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#koha-recommendations">Koha recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#using-this-manual">Using this manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#contributing-to-the-manual">Contributing to the manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#contributing-to-koha">Contributing to Koha</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Introduction to the Koha installation process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#what-is-the-koha-web-installer">What is the Koha web installer?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#what-is-the-koha-onboarding-tool">What is the Koha onboarding tool?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">Web installer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#web-installer-login">Web installer login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#language-picker">Language picker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installer-perl-modules-installed">Installer perl modules installed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#database-settings">Database settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#ready-to-fill-tables-with-data">Ready to fill tables with data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#database-tables-created">Database tables created</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#ready-for-basic-configurations">Ready for basic configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#select-marc-flavour">Select MARC flavour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#marc21-and-unimarc-setup">MARC21 and UNIMARC setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#marc21-setup">MARC21 setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#unimarc-setup">UNIMARC setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#selected-data-added">Selected data added</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#redirect-to-onboarding-tool">Redirect to onboarding tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">Onboarding tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-a-library">Create a library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-a-patron-category">Create a patron category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-a-patron">Create a patron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-an-item-type">Create an item type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-a-circulation-rule">Create a circulation rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#onboarding-tool-complete">Onboarding tool complete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#login-to-access-staff-interface">Login to access staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#staff-interface">Staff interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">Global system preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#basic-parameters">Basic parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#patrons-and-circulation">Patrons and circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#accounting">Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#catalog-administration">Catalog administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#search-engine-configuration">Search engine configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#acquisitions">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#additional-parameters">Additional parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#patrons-and-circulation">Patrons and circulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#catalog">Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#additional-tools">Additional Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">Patrons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#add-a-new-patron">Add a new patron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#add-a-staff-patron">Add a staff patron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#add-a-statistical-patron">Add a statistical patron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#duplicate-a-patron">Duplicate a patron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#add-patron-images">Add patron images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#editing-patrons">Editing patrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#renew-patron-account">Renew patron account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#deleting-a-patron-account">Deleting a patron account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#managing-patron-self-edits">Managing patron self edits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#merging-patron-records">Merging patron records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#patron-permissions">Patron permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#patron-information">Patron information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#patron-search">Patron search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#communicating-with-patrons">Communicating with patrons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">Cash management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cash_management.html#cash-registers">Cash registers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cash_management.html#point-of-sale">Point of sale</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">Circulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#check-out-issuing">Check out (issuing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#renewing">Renewing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#check-in-returning">Check in (returning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#circulation-messages">Circulation messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#holds">Holds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#transfers">Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#set-library">Set library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#fast-add-cataloging">Fast add cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#circulation-reports">Circulation reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#tracking-in-house-use">Tracking in-house use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#self-checkout">Self checkout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#self-check-in">Self check-in</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#offline-circulation-utilities">Offline circulation utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">Cataloging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#bibliographic-records">Bibliographic records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#item-records">Item records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#authorities">Authorities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#cataloging-guides">Cataloging guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">Course reserves</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="course_reserves.html#course-reserves-setup">Course reserves setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_reserves.html#adding-courses">Adding courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_reserves.html#adding-reserve-materials">Adding reserve materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_reserves.html#course-reserves-in-the-opac">Course reserves in the OPAC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">Serials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#manage-serial-frequencies">Manage serial frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#manage-serial-numbering-patterns">Manage serial numbering patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#adding-a-numbering-pattern">Adding a numbering pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#adding-a-subscription">Adding a subscription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#editing-a-subscription">Editing a subscription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#receiving-issues">Receiving issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#serial-collection">Serial collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#creating-a-routing-list">Creating a routing list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#subscriptions-in-the-staff-interface">Subscriptions in the staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#subscriptions-in-the-opac">Subscriptions in the OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#claiming-late-issues">Claiming late issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#checking-serial-expiration">Checking serial expiration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#renewing-subscriptions">Renewing subscriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#searching-serials">Searching serials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">Acquisitions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#vendors">Vendors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#managing-purchase-suggestions">Managing purchase suggestions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#placing-orders">Placing orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#receiving-orders">Receiving orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#transferring-orders">Transferring orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#cancelling-orders">Cancelling orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#invoices">Invoices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#claims-and-late-orders">Claims and late orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#acquisition-searches">Acquisition searches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#budget-fund-tracking">Budget/fund tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#edi-process">EDI process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#edifact-messages">EDIFACT messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists and cart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#cart">Cart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">Reports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#custom-reports">Custom reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#statistics-reports">Statistics reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#report-dictionary">Report dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#search-results">Search results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#bibliographic-record">Bibliographic record</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#lists-and-the-cart">Lists and the cart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#placing-holds">Placing holds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#enhanced-content">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#opac-self-registration">OPAC self registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#your-account">Your account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#purchase-suggestions">Purchase suggestions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">Searching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#search-history">Search history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#advanced-search-prefixes">Advanced Search Prefixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#guide-to-searching">Guide to Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#koha-search-indexes">Koha Search Indexes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#set-up">Set up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Koha</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#server-information">Server information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#perl-modules">Perl modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#system-information">System information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL requests / Interlibrary loans</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#set-up">Set up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#ill-email-notifications">ILL email notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#create-ill-requests">Create ILL requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#viewing-ill-requests">Viewing ILL requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#managing-ill-requests">Managing ILL requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#place-request-with-partners">Place request with partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#circulating-ill-materials">Circulating ILL materials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">Implementation checklist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#data-migration">Data migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#admin-configuration">Admin configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#localization-configuration">Localization configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#circulation-configuration">Circulation configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#patron-configuration">Patron configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#cataloging-configuration">Cataloging configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#authorities-configuration">Authorities configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#searching-configuration">Searching configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#opac-configuration">OPAC configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#enhanced-content-configuration">Enhanced content configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#acquisitions-configuration">Acquisitions configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#serials-configuration">Serials configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#planning-for-go-live">Planning for go-live</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">Cron jobs and daemons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cron_jobs.html#crontab-example">Crontab example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron_jobs.html#cron-jobs">Cron jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron_jobs.html#daemons">Daemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron_jobs.html#deprecated-scripts">Deprecated scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#oai-pmh">OAI-PMH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#sru-server">SRU server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#ils-di">ILS-DI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#json-reports-services">JSON reports services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#versioned-restful-api-effort">Versioned RESTful API Effort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#barcode-image-generator">Barcode image generator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">Other APIs and protocols</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis_protocols.html#sip2">SIP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis_protocols.html#ldap">LDAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">Extending Koha</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#amazon-lookup-script-for-koha-libraries">Amazon lookup script for Koha libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#keyword-clouds">Keyword clouds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#newest-titles-pulldown">Newest titles pulldown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#new-titles-slider-for-opac">New titles slider for OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#cataloging-and-searching-by-color">Cataloging and searching by color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#using-koha-as-a-content-management-system-cms">Using Koha as a Content Management System (CMS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#koha-search-on-your-site">Koha search on your site</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">Using third party software with Koha</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="third_party_software.html#marcedit">MarcEdit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="third_party_software.html#oclc-connexion-gateway">OCLC Connexion Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="third_party_software.html#talking-tech">Talking Tech</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring Receipt Printers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#for-epson-tm-t88iii-3-and-tm-t88iv-4-printers">For Epson TM-T88III (3) and TM-T88IV (4) Printers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#for-epson-tm-t88ii-2-printers">For Epson TM-T88II (2) Printers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#for-star-sp542-printers">For Star SP542 Printers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#configuring-firefox-to-print-to-receipt-printer">Configuring Firefox to Print to Receipt Printer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important Links</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="links.html#koha-related">Koha Related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#circulation-related">Circulation Related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#cataloging-related">Cataloging Related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#enhanced-content-related">Enhanced Content Related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#design-related">Design Related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#reports-related">Reports Related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#installation-guides">Installation Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#misc">Misc</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#opac-and-staff-interface">OPAC and staff interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#circulation-notices">Circulation/Notices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#cataloging">Cataloging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#acquisitions">Acquisitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#serials">Serials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#reports">Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#searching">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#enhanced-content">Enhanced content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#server-administration">Server administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#hardware">Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License version 3</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Koha Community.
+      <span class="lastupdated">最后更新于 2021-10-13 22:14:04.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
