@@ -1,0 +1,1619 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Koha Community
+# This file is distributed under the same license as the Koha Manual package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Koha Manual 21.05\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 21:37+0800\n"
+"PO-Revision-Date: 2021-10-10 10:15+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: 黄飞龙 <hfl@huangfeilong.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 2.3\n"
+
+#: ../../source/opac.rst:6
+msgid "OPAC"
+msgstr "公共目录检索"
+
+#: ../../source/opac.rst:11
+msgid "Search results"
+msgstr "检索结果"
+
+#: ../../source/opac.rst:13
+msgid "To search the OPAC you can either choose to enter your search words in the box at the top of the OPAC or click on the 'Advanced search' link to perform a more detailed search."
+msgstr "检索公共目录，需要在检索框输入关键词进行检索，或者点击“组合检索”链接进行更多条件组合的检索。"
+
+#: ../../source/opac.rst:17
+msgid "|image937|"
+msgstr "|image937|"
+
+#: ../../source/opac.rst:19
+msgid "For more on searching check the '`Searching <#searching>`__' chapter in this manual."
+msgstr "关于检索的更多信息可查阅手册的\"`检索 <#检索>`__\"章节。"
+
+#: ../../source/opac.rst:25
+msgid "Results overview"
+msgstr "查看检索结果"
+
+#: ../../source/opac.rst:27
+msgid "After performing a search the number of results found for your search will appear above the results"
+msgstr "在进行一次检索操作之后，检索结果数目会在检索结果上方显示"
+
+#: ../../source/opac.rst:30
+msgid "|image938|"
+msgstr "|image938|"
+
+#: ../../source/opac.rst:32
+msgid "By default your search results will be sorted based on your :ref:`OPACdefaultSortField and OPACdefaultSortOrder <opacdefaultsortfield-and-opacdefaultsortorder-label>` system preference values. To change this you can choose another sorting method from the pull down on the right."
+msgstr "检索结果默认会使用您在 :ref:`OPACdefaultSortField 和 OPACdefaultSortOrder <opacdefaultsortfield-and-opacdefaultsortorder-label>` 里设置的值进行排序，当然您可以单击右侧下拉菜单来改变顺序。"
+
+#: ../../source/opac.rst:37
+msgid "|image939|"
+msgstr "|image939|"
+
+#: ../../source/opac.rst:39
+msgid "Under each title on your results list a series of values from your leader will appear. It is important to note that this has nothing to do with the item types or collection codes you have applied to your records, this data is all pulled from your fixed fields. This can be turned on or off with the :ref:`DisplayOPACiconsXSLT` system preference."
+msgstr ""
+
+#: ../../source/opac.rst:46
+msgid "|image940|"
+msgstr ""
+
+#: ../../source/opac.rst:48
+msgid "Below each title you will see the availability for the items attached to the record."
+msgstr ""
+
+#: ../../source/opac.rst:51 ../../source/opac.rst:178 ../../source/opac.rst:195
+#: ../../source/opac.rst:308 ../../source/opac.rst:912
+#: ../../source/opac.rst:935 ../../source/opac.rst:1272
+#: ../../source/opac.rst:1278
+msgid "**Note**"
+msgstr ""
+
+#: ../../source/opac.rst:53
+msgid "Even if you filtered on one library location all locations that hold the item will appear on the search results."
+msgstr ""
+
+#: ../../source/opac.rst:56 ../../source/opac.rst:293 ../../source/opac.rst:464
+#: ../../source/opac.rst:550 ../../source/opac.rst:707
+#: ../../source/opac.rst:1104 ../../source/opac.rst:1209
+msgid "**Important**"
+msgstr "**重要**"
+
+#: ../../source/opac.rst:58
+msgid "An item's hold status doesn't not affect whether or not the item is 'available' until the item is in 'waiting' status. Items with on-shelf holds will show as available until a librarian has pulled them from the shelf and checked the item in make it show 'waiting'."
+msgstr ""
+
+#: ../../source/opac.rst:63
+msgid "|image941|"
+msgstr ""
+
+#: ../../source/opac.rst:65
+msgid "If you have turned on :ref:`Enhanced content system preferences <enhanced-content-system-preferences-label>` preferences you may have book jackets on your search results."
+msgstr ""
+
+#: ../../source/opac.rst:68
+msgid "|image942|"
+msgstr ""
+
+#: ../../source/opac.rst:70
+msgid "If you have set your :ref:`Did you mean? <did-you-mean?-label>` options you will see a yellow bar across the top of your results will other related searches."
+msgstr ""
+
+#: ../../source/opac.rst:74
+msgid "|image943|"
+msgstr ""
+
+#: ../../source/opac.rst:76
+msgid "If you performed an advanced search you see an option to go back and edit your advanced search blow the list of results pages."
+msgstr ""
+
+#: ../../source/opac.rst:79
+msgid "|image1295|"
+msgstr ""
+
+#: ../../source/opac.rst:84
+msgid "Filters"
+msgstr ""
+
+#: ../../source/opac.rst:86
+msgid "To filter your results click on the links below the 'Refine your search' menu on the left of your screen"
+msgstr ""
+
+#: ../../source/opac.rst:89
+msgid "|image944|"
+msgstr ""
+
+#: ../../source/opac.rst:91
+msgid "Depending on your setting for the :ref:`DisplayLibraryFacets` system preference you will see filters for your home, holding or both libraries."
+msgstr ""
+
+#: ../../source/opac.rst:95
+msgid "|image1296|"
+msgstr ""
+
+#: ../../source/opac.rst:97
+msgid "After clicking a facet you can remove that filter from your results by clicking the small 'x' that appears to the right of the facet."
+msgstr ""
+
+#: ../../source/opac.rst:100
+msgid "|image1297|"
+msgstr ""
+
+#: ../../source/opac.rst:105
+msgid "Search RSS feeds"
+msgstr ""
+
+#: ../../source/opac.rst:107
+msgid "You will be able to subscribe to your search results as an RSS feed by clicking the RSS icon in your address bar or next to the number of results. To learn more about what RSS feeds are check out `this tutorial video <http://www.youtube.com/watch?v=0klgLsSxGsU>`__."
+msgstr ""
+
+#: ../../source/opac.rst:112
+msgid "|image945|"
+msgstr ""
+
+#: ../../source/opac.rst:114
+msgid "Subscribing to search results as RSS feeds will allow you to see when a new item is added to the catalog in your area of interest."
+msgstr ""
+
+#: ../../source/opac.rst:120
+msgid "Bibliographic record"
+msgstr ""
+
+#: ../../source/opac.rst:122
+msgid "When you click on a title from the search results, you're brought to the bibliographic detail of the record. This page is broken down in several different areas."
+msgstr ""
+
+#: ../../source/opac.rst:126
+msgid "At the top of your screen will be the title and the GMD:"
+msgstr ""
+
+#: ../../source/opac.rst:128
+msgid "|image946|"
+msgstr ""
+
+#: ../../source/opac.rst:130
+msgid "Below the title the authors will be listed. These come from your 1xx and 7xx fields. Clicking the author will run a search for other titles with that author."
+msgstr ""
+
+#: ../../source/opac.rst:134
+msgid "|image947|"
+msgstr ""
+
+#: ../../source/opac.rst:136
+msgid "If you have an authority file you will see a magnifying glass to the right of author (and other) authorities. Clicking that magnifying glass will take you directly to the authority record."
+msgstr ""
+
+#: ../../source/opac.rst:140
+msgid "|image948|"
+msgstr ""
+
+#: ../../source/opac.rst:142
+msgid "If you have your :ref:`DisplayOPACiconsXSLT` preference set to 'show' you will see a material type that is determined by values in your fixed fields (learn more in the :ref:`XSLT material type icons <material-type-cataloging-guide-label>` cataloging guide."
+msgstr ""
+
+#: ../../source/opac.rst:147
+msgid "|image949|"
+msgstr ""
+
+#: ../../source/opac.rst:149
+msgid "Next you'll see the description of the record you're viewing:"
+msgstr ""
+
+#: ../../source/opac.rst:151
+msgid "|image950|"
+msgstr ""
+
+#: ../../source/opac.rst:153
+msgid "Following that information you'll find the subject headings which can be clicked to search for other titles on similar topics"
+msgstr ""
+
+#: ../../source/opac.rst:156
+msgid "|image951|"
+msgstr ""
+
+#: ../../source/opac.rst:158
+msgid "If your record has a table of contents or summary it will appear next to the 'Summary' or 'Table of contents' label"
+msgstr ""
+
+#: ../../source/opac.rst:161
+msgid "|image952|"
+msgstr ""
+
+#: ../../source/opac.rst:163
+msgid "If your record has data in the 856 fields you'll see the links to the right of the 'Online resources' label"
+msgstr ""
+
+#: ../../source/opac.rst:166
+msgid "|image953|"
+msgstr ""
+
+#: ../../source/opac.rst:168
+msgid "If the title you're viewing is in a public list then you'll see a list of those to the right of the 'List(s) this item appears in' label and if it has tags they will appear below the 'Tags from this library' label"
+msgstr ""
+
+#: ../../source/opac.rst:172
+msgid "|image954|"
+msgstr ""
+
+#: ../../source/opac.rst:174
+msgid "In the tabs below the details you will find your holdings data"
+msgstr ""
+
+#: ../../source/opac.rst:176
+msgid "|image955|"
+msgstr ""
+
+#: ../../source/opac.rst:180
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: holdingst)."
+msgstr ""
+
+#: ../../source/opac.rst:184
+msgid "Any notes (5xx fields) that have been cataloged will appear under 'Title notes'"
+msgstr ""
+
+#: ../../source/opac.rst:187
+msgid "|image956|"
+msgstr ""
+
+#: ../../source/opac.rst:189
+msgid "If the bibliographic record is linked to a subscription in the :ref:`Serials module<serials-label>`, there will be a 'Subscriptions' tab with the subscription and issues information."
+msgstr ""
+
+#: ../../source/opac.rst:193
+msgid "|image1498|"
+msgstr ""
+
+#: ../../source/opac.rst:197
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: subscriptionst)."
+msgstr ""
+
+#: ../../source/opac.rst:201
+msgid "If you're allowing comments they will appear in the next tab"
+msgstr ""
+
+#: ../../source/opac.rst:203
+msgid "|image957|"
+msgstr ""
+
+#: ../../source/opac.rst:205
+msgid "And finally if you have enabled FRBR and you have other editions of the title in your collection you will see the 'Editions' tab."
+msgstr ""
+
+#: ../../source/opac.rst:208
+msgid "|image958|"
+msgstr ""
+
+#: ../../source/opac.rst:210
+msgid "To the right of the details you'll find a series of boxes. The first box is a list of buttons to help navigate the search results. From there you can see the next or previous result from your search or return to the results."
+msgstr ""
+
+#: ../../source/opac.rst:215
+msgid "|image959|"
+msgstr ""
+
+#: ../../source/opac.rst:217
+msgid "Clicking 'Browse results' at the top of the right column will open up your search results on the detail page"
+msgstr ""
+
+#: ../../source/opac.rst:220
+msgid "|image960|"
+msgstr ""
+
+#: ../../source/opac.rst:222
+msgid "Below the search buttons you'll find the links to place a hold, print the record, save the record to your lists, add it to your cart or send to a device (using a QR code)."
+msgstr ""
+
+#: ../../source/opac.rst:226
+msgid "Another option that will appear on this right hand side bar (if a library is allowing purchase suggestions) is the ability to 'Suggest for Purchase'.  Clicking this link will bring the user to the Purchase Suggestion form to fill out."
+msgstr ""
+
+#: ../../source/opac.rst:228
+msgid "|image961|"
+msgstr ""
+
+#: ../../source/opac.rst:230
+msgid "Clicking 'More searches' will show the list of libraries you entered in your :ref:`OPACSearchForTitleIn` preference"
+msgstr ""
+
+#: ../../source/opac.rst:233
+msgid "|image962|"
+msgstr ""
+
+#: ../../source/opac.rst:235
+msgid "Under the 'Save record' label you will find a series of file formats you can save the record as. This list can be customized by altering the :ref:`OpacExportOptions` system preference."
+msgstr ""
+
+#: ../../source/opac.rst:239
+msgid "|image963|"
+msgstr ""
+
+#: ../../source/opac.rst:241
+msgid "If at any time you want to change the view from the 'Normal' view to see the Marc or the ISBD you can click the tabs across the top of the record"
+msgstr ""
+
+#: ../../source/opac.rst:244
+msgid "|image964|"
+msgstr ""
+
+#: ../../source/opac.rst:249
+msgid "Lists and the cart"
+msgstr ""
+
+#: ../../source/opac.rst:251
+msgid "A cart is a temporary holding place for records you're interested in finding during this session. That means that once you log out of the OPAC or close the browser you lose the items in your cart. A list is a more permanent location for saving items. To learn more about lists, check the `Lists in the staff client <#stafflists>`__ chapter of this manual."
+msgstr ""
+
+#: ../../source/opac.rst:261
+msgid "Lists"
+msgstr ""
+
+#: ../../source/opac.rst:263
+msgid "Patrons can manage their own private lists by visiting the 'your lists' section of their account."
+msgstr ""
+
+#: ../../source/opac.rst:266
+msgid "|image965|"
+msgstr ""
+
+#: ../../source/opac.rst:271
+msgid "Creating lists"
+msgstr ""
+
+#: ../../source/opac.rst:273
+msgid "Lists can also be created by choosing the 'New list' option in the 'Add to' menu on the search results"
+msgstr ""
+
+#: ../../source/opac.rst:276
+msgid "|image966|"
+msgstr ""
+
+#: ../../source/opac.rst:278
+msgid "To create a list the patron simply needs to click the 'New list' link and populate the form that appears"
+msgstr ""
+
+#: ../../source/opac.rst:281
+msgid "|image967|"
+msgstr ""
+
+#: ../../source/opac.rst:283
+msgid "The only field required is the 'List name,' but the patron can also choose how they want the list sorted and if the list is public or private."
+msgstr ""
+
+#: ../../source/opac.rst:287
+msgid "A private list is managed by you and can be seen only by you (depending on your permissions settings below)"
+msgstr ""
+
+#: ../../source/opac.rst:290
+msgid "A public list can be seen by everybody, but managed only by you (depending on your permissions settings below)"
+msgstr ""
+
+#: ../../source/opac.rst:295
+msgid "If you aren't allowing patrons to create public lists with the :ref:`OpacAllowPublicListCreation` preference then patrons will only be able to create private lists."
+msgstr ""
+
+#: ../../source/opac.rst:299
+msgid "|image968|"
+msgstr ""
+
+#: ../../source/opac.rst:301
+msgid "Finally decide what your permissions will be on the list. You can all or disallow:"
+msgstr ""
+
+#: ../../source/opac.rst:304
+msgid "anyone else to add entries"
+msgstr ""
+
+#: ../../source/opac.rst:306
+msgid "anyone to remove his own contributed entries"
+msgstr ""
+
+#: ../../source/opac.rst:310
+msgid "The owner of a list is always allowed to add entries, but needs permission to remove."
+msgstr ""
+
+#: ../../source/opac.rst:313
+msgid "anyone to remove other contributed entries"
+msgstr ""
+
+#: ../../source/opac.rst:318
+msgid "Adding titles to lists"
+msgstr ""
+
+#: ../../source/opac.rst:320
+msgid "Titles can be added to lists from the search results and/or from the bibliographic record. On the search results options to add items to the list appear below each result and across the top of the results page"
+msgstr ""
+
+#: ../../source/opac.rst:324
+msgid "|image969|"
+msgstr ""
+
+#: ../../source/opac.rst:326
+msgid "To add a single title to a list, click the 'Save to lists' option and then choose the list you'd like to add the title to. To add multiple titles to a list check the boxes on the left of the titles you want to add and then choose the list you want to add the titles to from the 'Add too' pull down at the top of the screen."
+msgstr ""
+
+#: ../../source/opac.rst:335
+msgid "Viewing lists contents"
+msgstr ""
+
+#: ../../source/opac.rst:337
+msgid "To view the contents of a list, click on the list name under the 'Lists' button."
+msgstr ""
+
+#: ../../source/opac.rst:340
+msgid "|image970|"
+msgstr ""
+
+#: ../../source/opac.rst:342
+msgid "The contents of the list will look similar to your search results pages except that there will be different menu options across the top of the list."
+msgstr ""
+
+#: ../../source/opac.rst:346
+msgid "|image971|"
+msgstr ""
+
+#: ../../source/opac.rst:348
+msgid "To the right of the list title there is an RSS icon that will allow you to subscribe to updates to the list."
+msgstr ""
+
+#: ../../source/opac.rst:351
+msgid "Using the menu options above the list you can place multiple items on hold, download the list contents, email the list or print the list out."
+msgstr ""
+
+#: ../../source/opac.rst:354
+msgid "To place a hold on one or more list items check the box to the left of the item and click the 'Place hold' link at the top"
+msgstr ""
+
+#: ../../source/opac.rst:357
+msgid "To download the list contents click the 'Download list' link and choose the format you'd like to download the list in"
+msgstr ""
+
+#: ../../source/opac.rst:360
+msgid "To email the list contents to someone, click the 'Send list' link and enter in your email details in the form that pops up"
+msgstr ""
+
+#: ../../source/opac.rst:363
+msgid "|image972|"
+msgstr ""
+
+#: ../../source/opac.rst:365
+msgid "To print the contents of your list out click the 'Print list' link"
+msgstr ""
+
+#: ../../source/opac.rst:370
+msgid "Managing lists"
+msgstr ""
+
+#: ../../source/opac.rst:372
+msgid "Once the list is saved patrons can begin adding items to it. From the 'your lists' tab on the patron record the patron can edit and delete the lists they have created by clicking the appropriate link to the right of the list name."
+msgstr ""
+
+#: ../../source/opac.rst:377
+msgid "|image973|"
+msgstr ""
+
+#: ../../source/opac.rst:379
+msgid "To edit the list's title or sorting patrons click the 'Edit' link to the right of the list description."
+msgstr ""
+
+#: ../../source/opac.rst:382
+msgid "|image974|"
+msgstr ""
+
+#: ../../source/opac.rst:384
+msgid "When clicking 'Delete' next to a list you will be asked to confirm that you want to delete the list."
+msgstr ""
+
+#: ../../source/opac.rst:387
+msgid "|image975|"
+msgstr ""
+
+#: ../../source/opac.rst:389
+msgid "The list will not be deleted until the 'Confirm' button is clicked to the right of the list you'd like to delete."
+msgstr ""
+
+#: ../../source/opac.rst:392
+msgid "If the library is allowing you to share private lists with the :ref:`OpacAllowSharingPrivateLists` preference then you will see the 'Share' link on your list of lists and the 'Share list' link at the top of each individual list. Clicking this will ask you to enter the email address of a patron."
+msgstr ""
+
+#: ../../source/opac.rst:398
+msgid "|image1298|"
+msgstr ""
+
+#: ../../source/opac.rst:400
+msgid "Once the email address is entered Koha will present you with a confirmation message"
+msgstr ""
+
+#: ../../source/opac.rst:403
+msgid "|image976|"
+msgstr ""
+
+#: ../../source/opac.rst:405
+msgid "and will send a message to that patron."
+msgstr ""
+
+#: ../../source/opac.rst:410
+msgid "Cart"
+msgstr ""
+
+#: ../../source/opac.rst:415
+msgid "Adding titles to the cart"
+msgstr ""
+
+#: ../../source/opac.rst:417
+msgid "Titles can be added to the cart from the search results and/or from the bibliographic record. On the search results options to add items to the cart appear below each result and across the top of the results page"
+msgstr ""
+
+#: ../../source/opac.rst:421
+msgid "|image977|"
+msgstr ""
+
+#: ../../source/opac.rst:423
+msgid "Clicking the 'Add to cart' button will add the one title to your cart. To add multiple titles at once, check the box to the left of each result and then choose 'Cart' from the 'Add to' pull down at the top of the screen. Once titles are added to the cart you will be presented with a confirmation"
+msgstr ""
+
+#: ../../source/opac.rst:429
+msgid "|image978|"
+msgstr ""
+
+#: ../../source/opac.rst:431
+msgid "From the results you will see which items are in your cart and will be able to remove those items by clicking '(remove)'."
+msgstr ""
+
+#: ../../source/opac.rst:434
+msgid "|image1299|"
+msgstr ""
+
+#: ../../source/opac.rst:439
+msgid "Managing the cart"
+msgstr ""
+
+#: ../../source/opac.rst:441
+msgid "Once you have titles in your cart you can manage the contents by clicking on the 'Cart' button usually found at the top of the screen. Your cart will open in a new window."
+msgstr ""
+
+#: ../../source/opac.rst:445
+msgid "|image979|"
+msgstr ""
+
+#: ../../source/opac.rst:447
+msgid "From this window you are presented with several options. Across the top of the cart are several buttons."
+msgstr ""
+
+#: ../../source/opac.rst:450
+msgid "First is the 'More details' button. Clicking this will show you additional information about the titles in your cart (ISBNs, subjects, publisher info, notes and more)."
+msgstr ""
+
+#: ../../source/opac.rst:454
+msgid "|image1300|"
+msgstr ""
+
+#: ../../source/opac.rst:456
+msgid "Next is the option to send the contents of your cart to an email address. This is handy if you want to send the resources you found at the library to your home email account to refer to later or to send to a patron researching a specific topic. Clicking this link will open up a new window that asks for the email address and message to send."
+msgstr ""
+
+#: ../../source/opac.rst:462
+msgid "|image980|"
+msgstr ""
+
+#: ../../source/opac.rst:466
+msgid "The cart can only be emailed by logged in users. This will prevent your cart email function from being used for spamming."
+msgstr ""
+
+#: ../../source/opac.rst:469
+msgid "In addition to sending your cart you can download the contents of your cart in several pre-defined formats or using a :ref:`CSV profile <csv-profiles-label>` that you defined in the tools module."
+msgstr ""
+
+#: ../../source/opac.rst:473
+msgid "|image981|"
+msgstr ""
+
+#: ../../source/opac.rst:475
+msgid "Finally you can print out the contents of your cart by choosing the 'Print' link."
+msgstr ""
+
+#: ../../source/opac.rst:478
+msgid "In addition to the various different ways to save the contents of your cart, there are ways to add value to the data in your cart. By selecting one or more titles from the cart you can add them to a list (click 'Add to a list'), place hold(s) (click 'Place hold'), or tag them (click 'Tag'). All of these operations follow the same procedure as they do when performing them in the OPAC."
+msgstr ""
+
+#: ../../source/opac.rst:488
+msgid "Placing holds"
+msgstr ""
+
+#: ../../source/opac.rst:490
+msgid "Patrons can place holds on items via the OPAC if they're logged in and you have the :ref:`RequestOnOpac` preference set to 'Allow'. If the item can be placed on hold the option to place it on hold will appear in several different places."
+msgstr ""
+
+#: ../../source/opac.rst:495
+msgid "When viewing a list or search results page you'll see the option to place hold on multiple items by checking the boxes to the left of the results and clicking 'Place hold' at the top"
+msgstr ""
+
+#: ../../source/opac.rst:499
+msgid "|image982|"
+msgstr ""
+
+#: ../../source/opac.rst:501
+msgid "When viewing a list or search results page you'll see the option to place the item on hold below the basic information about the title"
+msgstr ""
+
+#: ../../source/opac.rst:504
+msgid "|image983|"
+msgstr ""
+
+#: ../../source/opac.rst:506
+msgid "When viewing an individual title you'll see the option to place a hold in the box on the right side of the screen"
+msgstr ""
+
+#: ../../source/opac.rst:509
+msgid "|image984|"
+msgstr ""
+
+#: ../../source/opac.rst:511
+msgid "No matter which of the above links you click to place your hold you'll be brought to the same hold screen."
+msgstr ""
+
+#: ../../source/opac.rst:514
+msgid "|image985|"
+msgstr ""
+
+#: ../../source/opac.rst:516
+msgid "Check the box to the left of the items you'd like to place on hold"
+msgstr ""
+
+#: ../../source/opac.rst:518
+msgid "The title includes a link back to the detail page for the record"
+msgstr ""
+
+#: ../../source/opac.rst:520
+msgid "The priority shows where in the holds queue this hold will fall"
+msgstr ""
+
+#: ../../source/opac.rst:522
+msgid "If allowed by your :ref:`OPACAllowUserToChooseBranch` preference the patron can choose where they'd like to pick up their hold. The list of available pickup locations will include all libraries that have 'Pickup location' set to 'Yes' on the library configuration page."
+msgstr ""
+
+#: ../../source/opac.rst:528
+msgid "If you would like to see more options you can click 'Show more options'"
+msgstr ""
+
+#: ../../source/opac.rst:531
+msgid "Place hold form with more options"
+msgstr ""
+
+#: ../../source/opac.rst:533
+msgid "If you have the :ref:`AllowHoldItemTypeSelection` preference set to 'Allow' and the record had more than one item type attached you will see an option to choose to limit the hold to a specific item type"
+msgstr ""
+
+#: ../../source/opac.rst:539
+msgid "|image1301|"
+msgstr ""
+
+#: ../../source/opac.rst:541
+msgid "If allowed by your :ref:`OPACAllowHoldDateInFuture` preference, the 'Hold starts on date' column will show. This field allows the patron to have their hold start on a future date."
+msgstr ""
+
+#: ../../source/opac.rst:546
+msgid "By default holds placed in the system remain until canceled, but if the patron fills in a 'Hold not needed after' date then the hold has an expiration date."
+msgstr ""
+
+#: ../../source/opac.rst:552
+msgid "Expired holds are removed by the :ref:`expired holds cron job <cron-expired-holds-label>`, this is not an automatic process and must be set up by your system administrator"
+msgstr ""
+
+#: ../../source/opac.rst:556
+msgid "If allowed by the :ref:`OpacHoldNotes` preference then patrons can leave notes about their holds for the library by clicking the 'Edit notes' button"
+msgstr ""
+
+#: ../../source/opac.rst:560
+msgid "|image986|"
+msgstr ""
+
+#: ../../source/opac.rst:562
+msgid "Depending on the rules you set regarding item specific holds in your :ref:`circulation and fines rules <circulation-and-fines-rules-label>` the patron will be allowed to choose whether to place the hold on the next available copy and/or a specific copy."
+msgstr ""
+
+#: ../../source/opac.rst:567
+msgid "|image987|"
+msgstr ""
+
+#: ../../source/opac.rst:569
+msgid "After clicking the 'Place hold' button the patron will be brought to their account page where they'll see all of the items they have on hold."
+msgstr ""
+
+#: ../../source/opac.rst:575
+msgid "Enhanced content"
+msgstr ""
+
+#: ../../source/opac.rst:580
+msgid "Tagging"
+msgstr ""
+
+#: ../../source/opac.rst:582
+msgid "Depending on your settings for the :ref:`TagsEnabled`, :ref:`TagsInputOnList` and :ref:`TagsInputOnDetail` preferences you may be able to add tags to bibliographic records from the search results and/or bibliographic records. If you are allowing patrons to add tags from the search results screen you will see an input box below each result and a 'Tag' option at the top of the screen."
+msgstr ""
+
+#: ../../source/opac.rst:590
+msgid "|image988|"
+msgstr ""
+
+#: ../../source/opac.rst:592
+msgid "To add a tag to one item, type the tabs (separated by commas) in the 'New tag' box and click 'Add'. You will be presented with a confirmation of your tags being added."
+msgstr ""
+
+#: ../../source/opac.rst:596
+msgid "|image989|"
+msgstr ""
+
+#: ../../source/opac.rst:598
+msgid "From the results you can also tag items in bulk by clicking the checkboxes on the left and then clicking the 'Tag' button at the top. After clicking the button it will change into an input box for you to add tags to all of the items you have selected."
+msgstr ""
+
+#: ../../source/opac.rst:603
+msgid "|image990|"
+msgstr ""
+
+#: ../../source/opac.rst:605
+msgid "Emojis can also be included using the emoji picker when adding tags"
+msgstr ""
+
+#: ../../source/opac.rst:607
+msgid "|image1341|"
+msgstr ""
+
+#: ../../source/opac.rst:612
+msgid "Comments"
+msgstr ""
+
+#: ../../source/opac.rst:614
+msgid "Patrons can leave comments in the OPAC if you have the :ref:`OPACComments` preference set to allow this. Each bibliographic record has a comments tab below the bibliographic information."
+msgstr ""
+
+#: ../../source/opac.rst:619
+msgid "|image991|"
+msgstr ""
+
+#: ../../source/opac.rst:621
+msgid "If the patron is logged in they will see a link to add a comment to the item. Clicking this link will open a pop up window with a box for their comments."
+msgstr ""
+
+#: ../../source/opac.rst:625
+msgid "|image992|"
+msgstr ""
+
+#: ../../source/opac.rst:627
+msgid "Once the comment has been typed and the 'Submit' button clicked, the patron will see their comment as pending and other patrons will simply see that there are no comments on the item."
+msgstr ""
+
+#: ../../source/opac.rst:631
+msgid "|image993|"
+msgstr ""
+
+#: ../../source/opac.rst:633
+msgid "Once the comment is approved the patron will see the number of comments on the 'Comments' tab and their comment labeled amongst the other comments. If you have set your :ref:`ShowReviewerPhoto` preference to 'Show' then you'll see the patron's photo pulled from the `Libravatar <https://www.libravatar.org>`__ library."
+msgstr ""
+
+#: ../../source/opac.rst:640
+msgid "|image994|"
+msgstr ""
+
+#: ../../source/opac.rst:642
+msgid "Other patrons will see the comment with the name of the patron who left the comment (unless you have set the :ref:`ShowReviewer` preference to not show patron names)."
+msgstr ""
+
+#: ../../source/opac.rst:646
+msgid "|image995|"
+msgstr ""
+
+#: ../../source/opac.rst:648
+msgid "If you have your :ref:`OpacShowRecentComments` set to show then you'll see the approved comments on that page."
+msgstr ""
+
+#: ../../source/opac.rst:651
+msgid "|image996|"
+msgstr ""
+
+#: ../../source/opac.rst:653
+msgid "From this page patrons can subscribe to the recent comments using RSS if they would like."
+msgstr ""
+
+#: ../../source/opac.rst:659
+msgid "Zotero"
+msgstr ""
+
+#: ../../source/opac.rst:661
+msgid "Zotero is a Firefox add on that allows for the saving and generating of a bibliography. Learn more about and download Zotero at http://zotero.org."
+msgstr ""
+
+#: ../../source/opac.rst:665
+msgid "When on the search results in the Koha OPAC, if you have Zotero installed, you will see a folder icon in the address bar to the right of the URL. Clicking that folder will open up a list of titles on the page for you to pick from to add to Zotero."
+msgstr ""
+
+#: ../../source/opac.rst:670
+msgid "|image997|"
+msgstr ""
+
+#: ../../source/opac.rst:672
+msgid "Select the titles you want to add to Zotero and then click the 'OK' button. This will add the title to Zotero. You can see the title by opening your Zotero library."
+msgstr ""
+
+#: ../../source/opac.rst:676
+msgid "|image998|"
+msgstr ""
+
+#: ../../source/opac.rst:681
+msgid "Custom RSS feeds"
+msgstr ""
+
+#: ../../source/opac.rst:683
+msgid "Using the :ref:`RSS feeds cron job <cron-rss-feeds-label>` you can generate an RSS feed for any SQL query (for example a new acquisitions RSS feed). The cron job is run on the command line to produce an RSS XML document."
+msgstr ""
+
+#: ../../source/opac.rst:687
+msgid "The output should be placed in a directory accessible to the OPAC (or staff) web interface so that users can download the RSS feed."
+msgstr ""
+
+#: ../../source/opac.rst:690
+msgid "An example of usage can be found at: misc/cronjobs/rss.pl lastAcquired.conf"
+msgstr ""
+
+#: ../../source/opac.rst:693
+msgid "Normally the RSS cron job should be run periodically (e.g., daily) to keep the feed up-to-date."
+msgstr ""
+
+#: ../../source/opac.rst:696
+msgid "The configuration file (e.g., lastAcquired.conf) lists"
+msgstr ""
+
+#: ../../source/opac.rst:698
+msgid "name of the template file to use"
+msgstr ""
+
+#: ../../source/opac.rst:700
+msgid "path of output file"
+msgstr ""
+
+#: ../../source/opac.rst:702
+msgid "SQL query"
+msgstr ""
+
+#: ../../source/opac.rst:704
+msgid "The RSS cron job runs the SQL query, then feeds the output of the query through the template to produce the output file."
+msgstr ""
+
+#: ../../source/opac.rst:709
+msgid "To use custom RSS feeds you need to turn on the :ref:`RSS cron job <cron-rss-feeds-label>`."
+msgstr ""
+
+#: ../../source/opac.rst:714
+msgid "OPAC self registration"
+msgstr ""
+
+#: ../../source/opac.rst:716
+msgid "If you allow it, patrons can register for their own accounts via the OPAC. If you have the :ref:`PatronSelfRegistration` preference set to 'Allow' then patrons will see a link to register below the log in box on the right of the main OPAC page."
+msgstr ""
+
+#: ../../source/opac.rst:722
+msgid "|image999|"
+msgstr ""
+
+#: ../../source/opac.rst:724
+msgid "When the patron clicks the 'Register here' link they will be brough to a registration page. The options on the registration page can be conrolled by editing the :ref:`PatronSelfRegistrationBorrowerMandatoryField` and the :ref:`PatronSelfRegistrationBorrowerUnwantedField` preferences."
+msgstr ""
+
+#: ../../source/opac.rst:732
+msgid "|image1000|"
+msgstr ""
+
+#: ../../source/opac.rst:734
+msgid "Once the patron has confirmed submitted their registration they will either be sent an email to confirm their account (if you have the :ref:`PatronSelfRegistrationVerifyByEmail` preference to require this) or presented with their new username and password."
+msgstr ""
+
+#: ../../source/opac.rst:740
+msgid "|image1001|"
+msgstr ""
+
+#: ../../source/opac.rst:742
+msgid "Patrons registered in this way will not have a cardnumber until assigned one by the library, but will have access to all OPAC functionality immediately. For this reason it is recommended that you:"
+msgstr ""
+
+#: ../../source/opac.rst:746
+msgid "set up a provisional :ref:`patron category <adding-a-patron-category-label>` for self registered patrons (such as 'Self Registered) instead of using an existing patron category and set that value in the :ref:`PatronSelfRegistrationDefaultCategory` preference"
+msgstr ""
+
+#: ../../source/opac.rst:752
+msgid "give this patron category minimal circulation privileges in the :ref:`Circulation and fines rules` (such as allowing a couple holds, but no check outs)"
+msgstr ""
+
+#: ../../source/opac.rst:756
+msgid "That way patrons will either have to come in to the library to verify their identity before given a cardnumber and the ability to check items out or the library will have to come up with internal policy on generating cardnumbers before providing them to self registered patrons. Once this is done the library can change the category to one that is more appropriate (be it an adult, resident, non resident, student, etc) and add a cardnumber/barcode."
+msgstr ""
+
+#: ../../source/opac.rst:767
+msgid "Your account"
+msgstr ""
+
+#: ../../source/opac.rst:769
+msgid "If the :ref:`opacuserlogin` system preferenceis set to 'Allow', patrons can log in and access their account."
+msgstr ""
+
+#: ../../source/opac.rst:772
+msgid "Once logged in patrons are brought to their :ref:`account summary <your-summary-label>`."
+msgstr ""
+
+#: ../../source/opac.rst:775
+msgid "If patrons access the home page while logged in, and :ref:`OPACUserSummary` is set to 'Show', they will see a small summary of their account instead of the login fields."
+msgstr ""
+
+#: ../../source/opac.rst:779
+msgid "|OPACUserSummary|"
+msgstr ""
+
+#: ../../source/opac.rst:781
+msgid "From any page on the OPAC, clicking on their name at the top right of the page will bring a patron back to their account."
+msgstr ""
+
+#: ../../source/opac.rst:787
+msgid "Resetting your password"
+msgstr ""
+
+#: ../../source/opac.rst:789
+msgid "If you have the :ref:`OpacResetPassword` system preference set to 'Allow', patrons can reset their password by clicking the 'Forgot your password?' link found under the login box."
+msgstr ""
+
+#: ../../source/opac.rst:793
+msgid "|forgotpwlink|"
+msgstr ""
+
+#: ../../source/opac.rst:795
+msgid "Once clicked, they will be presented with a form asking for their username and their email address."
+msgstr ""
+
+#: ../../source/opac.rst:798
+msgid "|resetpw|"
+msgstr ""
+
+#: ../../source/opac.rst:802
+msgid "Patrons **must** have an email address on file to reset their password. If they don't have an email address already in their file, they will get an error message"
+msgstr ""
+
+#: ../../source/opac.rst:806
+msgid "|reseterror|"
+msgstr ""
+
+#: ../../source/opac.rst:808
+msgid "The system will then email the patron instructions for resetting their password."
+msgstr ""
+
+#: ../../source/opac.rst:811
+msgid "|resetconfirm|"
+msgstr ""
+
+#: ../../source/opac.rst:813
+msgid "The content of the email can be cutomized with the :ref:`Notices and slips tool <notices-and-slips-label>`. The code of the letter is PASSWORD\\_RESET."
+msgstr ""
+
+#: ../../source/opac.rst:820
+msgid "Your summary"
+msgstr ""
+
+#: ../../source/opac.rst:822
+msgid "From the 'your summary' tab, patrons will see all of the items they have checked out with the overdue items highlighted in red."
+msgstr ""
+
+#: ../../source/opac.rst:825
+msgid "|yoursummary|"
+msgstr ""
+
+#: ../../source/opac.rst:827
+msgid "If :ref:`OpacRenewalAllowed` set to 'Allow', patrons will be able to renew their checkouts from the OPAC."
+msgstr ""
+
+#: ../../source/opac.rst:830
+msgid "If the patron has pending charges exceeding the value set in :ref:`OPACFineNoRenewals`, a note will display explaining that renewals cannot be made."
+msgstr ""
+
+#: ../../source/opac.rst:834
+msgid "|OPACFineNoRenewals|"
+msgstr ""
+
+#: ../../source/opac.rst:836
+msgid "A note will display if the patron cannot place holds due to their charges exceeding the value set in the :ref:`maxoutstanding` system preference."
+msgstr ""
+
+#: ../../source/opac.rst:839
+msgid "|maxoutstanding|"
+msgstr ""
+
+#: ../../source/opac.rst:841
+msgid "If :ref:`AllowPatronToControlAutoRenewal` is set to 'Allow patrons', patrons will be able to choose whether or not they want their checkouts to be renewed automatically."
+msgstr ""
+
+#: ../../source/opac.rst:845
+msgid "|allowautorenewal|"
+msgstr ""
+
+#: ../../source/opac.rst:847
+msgid "If you have HTML entered in the :ref:`OPACMySummaryHTML` preference then you will see that to the right of the 'Fines' column."
+msgstr ""
+
+#: ../../source/opac.rst:850
+msgid "If your patrons would like to see the items barcodes on their list of checked out items you can set up a :ref:`patron attribute <patron-attribute-types-label>` with the value of SHOW\\_BCODE and :ref:`authorized value <authorized-values-label>` of YES\\_NO."
+msgstr ""
+
+#: ../../source/opac.rst:855
+msgid "|image1005|"
+msgstr ""
+
+#: ../../source/opac.rst:857
+msgid "Then on the :ref:`patron's record set the value <editing-patrons-label>` for SHOW\\_BCODE to yes."
+msgstr ""
+
+#: ../../source/opac.rst:860
+msgid "|image1006|"
+msgstr ""
+
+#: ../../source/opac.rst:862
+msgid "This will add a column to the check out summary in the OPAC that shows the patrons the barcodes of the items they have checked out."
+msgstr ""
+
+#: ../../source/opac.rst:865
+msgid "|image1007|"
+msgstr ""
+
+#: ../../source/opac.rst:867
+msgid "If you would like your patrons to leave a note on an item they have checked out :ref:`allowcheckoutnotes` preference must be set to allow."
+msgstr ""
+
+#: ../../source/opac.rst:870
+msgid "In the patron's summary of checkouts, there will be an added column to allow the patron to leave a note (for example:  missing first page, or DVD is scratched).  This note once confirmed by the patron will appear to the staff at the bottom of the staff interface's home page, and also when the item is checked in."
+msgstr ""
+
+#: ../../source/opac.rst:875
+msgid "|image1391|"
+msgstr ""
+
+#: ../../source/opac.rst:877
+msgid "If their guarantee has allowed it via :ref:`their privacy <your-privacy-label>`, when the guarantor logs in they will see a tab labeled \"Relatives' checkouts\" on their summary tab."
+msgstr ""
+
+#: ../../source/opac.rst:881
+msgid "|image1304|"
+msgstr ""
+
+#: ../../source/opac.rst:883
+msgid "Clicking on the 'Overdue' tab will show only the items that are overdue."
+msgstr ""
+
+#: ../../source/opac.rst:885
+msgid "|image1008|"
+msgstr ""
+
+#: ../../source/opac.rst:887
+msgid "The 'Fines' tab will show just a total of what the patron owes. Clicking on the total will take them to the 'your fines' tab where they will see a complete breakdown of their fines and bills. If you don't charge fines at your library you can turn the display of these tabs off by setting the :ref:`OPACFinesTab` preference to 'Don't allow.'"
+msgstr ""
+
+#: ../../source/opac.rst:893
+msgid "|image1009|"
+msgstr ""
+
+#: ../../source/opac.rst:895
+msgid "Finally, clicking on the 'Holds' tab will show the patron the status of all of the items they have on hold."
+msgstr ""
+
+#: ../../source/opac.rst:898
+msgid "|image1010|"
+msgstr ""
+
+#: ../../source/opac.rst:900
+msgid "Patrons can cancel or suspend (depending on the value of your :ref:`SuspendHoldsOpac` system preference) their own holds if they are not in transit or already waiting for them. When they click 'Suspend' they will be presented with the option to choose a date for their hold to resume."
+msgstr ""
+
+#: ../../source/opac.rst:906
+msgid "|image1305|"
+msgstr ""
+
+#: ../../source/opac.rst:908
+msgid "They can also suspend all of their holds indefinitely or until a specific date if they choose by filling in the suspend options at the bottom of the page."
+msgstr ""
+
+#: ../../source/opac.rst:914
+msgid "If you have your :ref:`AutoResumeSuspendedHolds` preference set to \"Don't allow\" then you will not have the option to put an end date on the hold suspension"
+msgstr ""
+
+#: ../../source/opac.rst:922
+msgid "Patron flags"
+msgstr ""
+
+#: ../../source/opac.rst:924
+msgid "If you have `flagged your patron's account <#patronflags>`__ they may see one of the following error messages at the top of their account."
+msgstr ""
+
+#: ../../source/opac.rst:927
+msgid "Card marked as lost"
+msgstr ""
+
+#: ../../source/opac.rst:929
+msgid "|image1011|"
+msgstr ""
+
+#: ../../source/opac.rst:931
+msgid "Patron address in question"
+msgstr ""
+
+#: ../../source/opac.rst:933
+msgid "|image1012|"
+msgstr ""
+
+#: ../../source/opac.rst:937
+msgid "this error message will not include a link to the update form if you have :ref:`OPACPatronDetails` set to 'Don't allow'"
+msgstr ""
+
+#: ../../source/opac.rst:941
+msgid "Patron marked restricted"
+msgstr ""
+
+#: ../../source/opac.rst:943
+msgid "|image1013|"
+msgstr ""
+
+#: ../../source/opac.rst:948
+msgid "Your fines"
+msgstr ""
+
+#: ../../source/opac.rst:950
+msgid "If your library charges fines the next tab on the left is 'your fines'. Opening this tab will show the patron an entire history of their accounting at the library."
+msgstr ""
+
+#: ../../source/opac.rst:954
+msgid "|image1014|"
+msgstr ""
+
+#: ../../source/opac.rst:956
+msgid "If you are allowing patrons to pay their fines using PayPal with the :ref:`EnablePayPalOpacPayments <enablepaypalopacpayments-and-paypalsandboxmode-label>` preference there will be checkboxes to the left of each fine with an outstanding amount."
+msgstr ""
+
+#: ../../source/opac.rst:961
+msgid "|image1306|"
+msgstr ""
+
+#: ../../source/opac.rst:963
+msgid "At the bottom the patron will see the option to pay with PayPal for the items they have checked."
+msgstr ""
+
+#: ../../source/opac.rst:966
+msgid "|image1015|"
+msgstr ""
+
+#: ../../source/opac.rst:968
+msgid "After paying they will be presented with a confirmation"
+msgstr ""
+
+#: ../../source/opac.rst:970
+msgid "|image1307|"
+msgstr ""
+
+#: ../../source/opac.rst:972
+msgid "And you will see that the fine was paid using PayPal on the staff side."
+msgstr ""
+
+#: ../../source/opac.rst:975
+msgid "|image1308|"
+msgstr ""
+
+#: ../../source/opac.rst:980
+msgid "Your personal details"
+msgstr ""
+
+#: ../../source/opac.rst:982
+msgid "If you have your :ref:`OPACPatronDetails` preference set to 'Allow', your patrons will see a form filled in with their contacting information by clicking on the 'Your personal details' tab. You can control what fields patrons see and can modify via the OPAC by setting the :ref:`PatronSelfRegistrationBorrowerMandatoryField` :ref:`PatronSelfRegistrationBorrowerUnwantedField` preferences."
+msgstr ""
+
+#: ../../source/opac.rst:991
+msgid "|image1016|"
+msgstr ""
+
+#: ../../source/opac.rst:993
+msgid "Patrons can edit their details in this form and click 'Submit changes' to have their edits sent to the library for review before their record is updated. Staff will see all patrons requesting modification to their record listed below the modules on the main dashboard along with anything else awaiting library attention."
+msgstr ""
+
+#: ../../source/opac.rst:999
+msgid "|image1017|"
+msgstr ""
+
+#: ../../source/opac.rst:1001
+msgid "If the :ref:`OPACPatronDetails` preference is set to 'Don't allow' then patrons will simply see their details and a message stating that they should contact the library for changes."
+msgstr ""
+
+#: ../../source/opac.rst:1005
+msgid "|image1018|"
+msgstr ""
+
+#: ../../source/opac.rst:1010
+msgid "Your tags"
+msgstr ""
+
+#: ../../source/opac.rst:1012
+msgid "If your library has :ref:`TagsEnabled` set to 'Allowed' then the next tab on the left will be 'your tags'. This tab will show patrons all of the tags in the system as a cloud and then all of the tags they have applied in a list format. From here patrons have the ability to remove tags that they have added if they want."
+msgstr ""
+
+#: ../../source/opac.rst:1018
+msgid "|image1019|"
+msgstr ""
+
+#: ../../source/opac.rst:1023
+msgid "Change your password"
+msgstr ""
+
+#: ../../source/opac.rst:1025
+msgid "Next, if you have :ref:`OpacPasswordChange` set to 'Allow' the next tab will be 'change your password,' where patrons can change their password for logging into the OPAC. Patrons will be presented with a standard form asking them to enter their old password and then their new password twice."
+msgstr ""
+
+#: ../../source/opac.rst:1031
+msgid "|image1020|"
+msgstr ""
+
+#: ../../source/opac.rst:1036
+msgid "Your search history"
+msgstr ""
+
+#: ../../source/opac.rst:1038
+msgid "If you have your :ref:`EnableOpacSearchHistory` preference set to 'Allow' then your patrons can access their search history via the 'your search history' tab."
+msgstr ""
+
+#: ../../source/opac.rst:1042
+msgid "|image1021|"
+msgstr ""
+
+#: ../../source/opac.rst:1044
+msgid "The search history is a record of all searches run by the patron. Clicking on any of the search phrases will re-run the search for the patron. The search history can be deleted by the patron at any time by clicking the 'Delete your search history' link found at the top of this tab or by clicking the little red 'x' next to the 'Search history' link at the top right of the OPAC."
+msgstr ""
+
+#: ../../source/opac.rst:1051
+msgid "|image1022|"
+msgstr ""
+
+#: ../../source/opac.rst:1056
+msgid "Your checkout history"
+msgstr ""
+
+#: ../../source/opac.rst:1058
+msgid "Depending on your library's setting for :ref:`opacreadinghistory` your patrons may see the 'your checkout history' tab next. This will show the patron their entire borrowing history unless they have asked the library to not keep that information via the 'your privacy' tab which will appear if you have the :ref:`OPACPrivacy` preference set to 'Allow.'"
+msgstr ""
+
+#: ../../source/opac.rst:1065
+msgid "|image1023|"
+msgstr ""
+
+#: ../../source/opac.rst:1070
+msgid "Your privacy"
+msgstr ""
+
+#: ../../source/opac.rst:1072
+msgid "The 'your privacy' tab will appear if you have both the :ref:`opacreadinghistory` and the :ref:`OPACPrivacy` preferences set to 'Allow.' This tab will allow the patrons to decide how the library keeps their circulation history data."
+msgstr ""
+
+#: ../../source/opac.rst:1078
+msgid "|image1024|"
+msgstr ""
+
+#: ../../source/opac.rst:1080
+msgid "The patron can choose from three options:"
+msgstr ""
+
+#: ../../source/opac.rst:1082
+msgid "Forever: keep my reading history without limit. This is the option for users who want to keep track of what they are reading."
+msgstr ""
+
+#: ../../source/opac.rst:1085
+msgid "Default: keep my reading history according to local laws. This is the default option : the library will keep your reading history for the duration permitted by local laws."
+msgstr ""
+
+#: ../../source/opac.rst:1089
+msgid "Never: Delete my reading history immediately. This will delete all record of the item that was checked-out upon check-in."
+msgstr ""
+
+#: ../../source/opac.rst:1092
+msgid "Depending on the patron's suggestions the contents of the ':ref:`Your reading history <your-checkout-history-label>`' tab and the ':ref:`Circulation History <circulation-history-label>`' tab in the staff client may change."
+msgstr ""
+
+#: ../../source/opac.rst:1096
+msgid "Regardless of the patron's choice they can delete their reading history in bulk at any time by clicking the 'Immediate deletion' button."
+msgstr ""
+
+#: ../../source/opac.rst:1099
+msgid "|image1025|"
+msgstr ""
+
+#: ../../source/opac.rst:1101
+msgid "Clicking this button will not delete items that are currently checked out, but will clear the patron's past reading history."
+msgstr ""
+
+#: ../../source/opac.rst:1106
+msgid "In order for the patron to be able to delete their reading history you must have the :ref:`AnonymousPatron` preference set."
+msgstr ""
+
+#: ../../source/opac.rst:1110
+msgid "If you're allowing guarantees to grand permission to their guarantors to view their current checkouts with the :ref:`AllowPatronToSetCheckoutsVisibilityForGuarantor` preference they will see that option on this screen."
+msgstr ""
+
+#: ../../source/opac.rst:1116
+msgid "|image1309|"
+msgstr ""
+
+#: ../../source/opac.rst:1118
+msgid "When the guarantor logs in they will see a tab labeled \"Relatives' checkouts\" on their summary tab."
+msgstr ""
+
+#: ../../source/opac.rst:1121
+msgid "|image1310|"
+msgstr ""
+
+#: ../../source/opac.rst:1126
+msgid "Your holds history"
+msgstr ""
+
+#: ../../source/opac.rst:1128
+msgid "If the :ref:`OPACHoldsHistory` system preference is set to 'Allow', patrons will be able to see all their current and past holds."
+msgstr ""
+
+#: ../../source/opac.rst:1131
+msgid "|opacholdshistory|"
+msgstr ""
+
+#: ../../source/opac.rst:1136
+msgid "Your purchase suggestions"
+msgstr ""
+
+#: ../../source/opac.rst:1138
+msgid "If your library allows patrons to make purchase suggestions the next tab will show all suggestions that the patron made to the library and their statuses. To disable this tab and the suggestion functionality set the :ref:`suggestion` preference to 'Don't allow.'"
+msgstr ""
+
+#: ../../source/opac.rst:1143
+msgid "|image1026|"
+msgstr ""
+
+#: ../../source/opac.rst:1145
+msgid "If you have :ref:`OPACViewOthersSuggestions` set to 'Show' then patrons will be able to search suggestions from the top of this list."
+msgstr ""
+
+#: ../../source/opac.rst:1152
+msgid "Your messaging"
+msgstr ""
+
+#: ../../source/opac.rst:1154
+msgid "If your library has the :ref:`EnhancedMessagingPreferences` and the :ref:`EnhancedMessagingPreferencesOPAC` preferences set to 'Allow' then your patrons will be able to choose which messages they receive from the library (with the exception of overdue notices which the library controls)."
+msgstr ""
+
+#: ../../source/opac.rst:1161
+msgid "|image1027|"
+msgstr ""
+
+#: ../../source/opac.rst:1163
+msgid "If you use an outside driver for sending text messages set with the :ref:`SMSSendDriver` preference, you will see an additional column to receive these messages as SMS (or text messages) and a field for a cell (or SMS) number."
+msgstr ""
+
+#: ../../source/opac.rst:1168
+msgid "|image1028|"
+msgstr ""
+
+#: ../../source/opac.rst:1170
+msgid "If you are using the Email protocol for sending text messages set with the :ref:`SMSSendDriver` preference, you will see an additional column to receive these messages as SMS (or text messages), a field for a cell (or SMS) number, and a pull down listing :ref:`cellular providers entered in administration <sms-cellular-providers-label>`."
+msgstr ""
+
+#: ../../source/opac.rst:1176
+msgid "|image1029|"
+msgstr ""
+
+#: ../../source/opac.rst:1178
+msgid "If you are using the :ref:`Itiva Talking Tech <talkingtechitivaphonenotification-label>` service you will see an additional column to receive these messages via Phone."
+msgstr ""
+
+#: ../../source/opac.rst:1182
+msgid "|image1311|"
+msgstr ""
+
+#: ../../source/opac.rst:1184
+msgid "These notices are:"
+msgstr ""
+
+#: ../../source/opac.rst:1186
+msgid "Advanced notice: A notice in advance of the patron's items being due (The patron can choose the number of days in advance)"
+msgstr ""
+
+#: ../../source/opac.rst:1189
+msgid "Item checkout: A notice that lists all the of the items the patron has just checked out and/or renewed, this is an electronic form of the checkout receipt"
+msgstr ""
+
+#: ../../source/opac.rst:1193
+msgid "Hold filled: A notice when you have confirmed the hold is waiting for the patron"
+msgstr ""
+
+#: ../../source/opac.rst:1196
+msgid "Item due: A notice on the day and item is due back at the library"
+msgstr ""
+
+#: ../../source/opac.rst:1198
+msgid "Item check-in: A notice that lists all the of the items the patron has just checked in"
+msgstr ""
+
+#: ../../source/opac.rst:1201
+msgid "Patrons can choose to receive their notices as a digest by checking the 'Digest only?' box along with the delivery method. A digest is a combination of all the messages of that type (so all items due in 3 days in one email) in to one email instead of multiple emails for each alert."
+msgstr ""
+
+#: ../../source/opac.rst:1206
+msgid "If the :ref:`TranslateNotices` preference is set to Allow the patron will also see an option to choose 'Preferred language for notices' with a dropdown list of available languages."
+msgstr ""
+
+#: ../../source/opac.rst:1211
+msgid "You must choose a delivery method (SMS or email or phone) along with 'Digest only?' if you would like to receive a digest of the messages."
+msgstr ""
+
+#: ../../source/opac.rst:1218
+msgid "Your lists"
+msgstr ""
+
+#: ../../source/opac.rst:1220
+msgid "If your library has the :ref:`virtualshelves` set to 'Allow' they will see the 'your lists' tab. From here your patrons can review public lists and create or edit their own private lists."
+msgstr ""
+
+#: ../../source/opac.rst:1225
+msgid "|image1030|"
+msgstr ""
+
+#: ../../source/opac.rst:1230
+msgid "Ask for a discharge"
+msgstr ""
+
+#: ../../source/opac.rst:1232
+msgid "If you have enabled the :ref:`useDischarge` preference then patrons will be able to request a discharge via the OPAC."
+msgstr ""
+
+#: ../../source/opac.rst:1235
+msgid "|image1312|"
+msgstr ""
+
+#: ../../source/opac.rst:1237
+msgid "From here patrons can request a discharge"
+msgstr ""
+
+#: ../../source/opac.rst:1239
+msgid "|image1031|"
+msgstr ""
+
+#: ../../source/opac.rst:1241
+msgid "And will receive confirmation of their request."
+msgstr ""
+
+#: ../../source/opac.rst:1243
+msgid "|image1032|"
+msgstr ""
+
+#: ../../source/opac.rst:1248
+msgid "Your routing lists"
+msgstr ""
+
+#: ../../source/opac.rst:1250
+msgid "If you are named as a recipient on any :ref:`serial routing lists <create-a-routing-list-label>` you will see them listed here. The following note is displayed \"You are subscribed to the routing lists for following serial titles. If you wish to make changes, please contact the library\"."
+msgstr ""
+
+#: ../../source/opac.rst:1259
+msgid "Your interlibrary loan requests"
+msgstr ""
+
+#: ../../source/opac.rst:1261
+msgid "If your library has the :ref:`ILLModule` preference set to ‘Enable’ patrons will have the option to make ILL requests when logged in to their OPAC account.  From here they can view their existing requests and place new ones."
+msgstr ""
+
+#: ../../source/opac.rst:1265
+msgid "|image1373|"
+msgstr ""
+
+#: ../../source/opac.rst:1267
+msgid "To place a new interlibrary loan request click on ‘Create a new request’ and choose a request form."
+msgstr ""
+
+#: ../../source/opac.rst:1270
+msgid "|image1374|"
+msgstr ""
+
+#: ../../source/opac.rst:1274
+msgid "The options displayed are dependent on your ILL configuration.  See the ILL backends wiki page at https://wiki.koha-community.org/wiki/ILL_backends further explanation."
+msgstr ""
+
+#: ../../source/opac.rst:1280
+msgid "If you have entered copyright text in the :ref:`ILLModuleCopyrightClearance` preference the text displays here and you need to click ‘Yes’ to accept before continuing."
+msgstr ""
+
+#: ../../source/opac.rst:1284
+msgid "Complete the publication details as fully as possible. Depending on the form in use you may see the option to add Custom fields for additional information such as notes.  Destination branch is a required field, this is the branch you would like the request to be sent to."
+msgstr ""
+
+#: ../../source/opac.rst:1289
+msgid "|image1375|"
+msgstr ""
+
+#: ../../source/opac.rst:1291
+msgid "Click on 'Create' to submit your request to the library for processing."
+msgstr ""
+
+#: ../../source/opac.rst:1293
+msgid "Your submitted request will be listed with a status of ‘New request’.  Once processed the status will be updated to ‘Requested’."
+msgstr ""
+
+#: ../../source/opac.rst:1296
+msgid "Click on ‘View’ to make changes or cancel your request."
+msgstr ""
+
+#: ../../source/opac.rst:1298
+msgid "You cannot edit the form details but you can add a note to request a modification and then click on ‘Submit modifications’ at the bottom of the screen.  Your modification will be sent to the library for processing."
+msgstr ""
+
+#: ../../source/opac.rst:1302
+msgid "For new requests you will also have the option to ‘Request cancellation’. Your request will be updated with the status ‘Cancellation requested’ and can then be removed by library staff."
+msgstr ""
+
+#: ../../source/opac.rst:1309
+msgid "Purchase suggestions"
+msgstr ""
+
+#: ../../source/opac.rst:1311
+msgid "If your library has the :ref:`suggestion` preference set to 'Allow' then patrons will have the option to make purchase suggestions in several areas in the OPAC."
+msgstr ""
+
+#: ../../source/opac.rst:1315
+msgid "If you are allowing everyone to see the purchase suggestions made by others with the :ref:`OPACViewOthersSuggestions` preference, then there will be a link at the top of your OPAC under the search box."
+msgstr ""
+
+#: ../../source/opac.rst:1320
+msgid "|image1033|"
+msgstr ""
+
+#: ../../source/opac.rst:1322
+msgid "There will be a link when the patron finds nothing for their search."
+msgstr ""
+
+#: ../../source/opac.rst:1324
+msgid "|image1034|"
+msgstr ""
+
+#: ../../source/opac.rst:1326
+msgid "And there will be a link on the patron's :ref:`Your purchase suggestions <your-purchase-suggestions-label>` tab."
+msgstr ""
+
+#: ../../source/opac.rst:1329
+msgid "|image1035|"
+msgstr ""
+
+#: ../../source/opac.rst:1331
+msgid "Clicking any one of these links will open the purchase suggestion form."
+msgstr ""
+
+#: ../../source/opac.rst:1333
+msgid "|image1036|"
+msgstr ""
+
+#: ../../source/opac.rst:1335
+msgid "From the form only the 'Title' is required by the library."
+msgstr ""
+
+#: ../../source/opac.rst:1337
+msgid "The item type list can be edited by editing the SUGGEST\\_FORMAT :ref:`authorized value <authorized-values-label>`."
+msgstr ""
+
+#: ../../source/opac.rst:1340
+msgid "If you would like the 'Reason for suggestion' menu shown in the screenshot above to appear on your suggestions list you need to add an :ref:`authorized value <authorized-values-label>` category titled 'OPAC\\_SUG' and include reasons as values in that list."
+msgstr ""
+
+#: ../../source/opac.rst:1345
+msgid "Once the form is submitted the data will be saved to the :ref:`Acquisitions <managing-purchase-suggestions-label>` module for the librarians to manage."
+msgstr ""
+
+#: ../../source/opac.rst:1348
+msgid "If a purchase suggestion has been ordered through the Acquisitions Module, the patron's purchase suggestion title will be clickable and bring the patron directly to the ordered record in the OPAC."
+msgstr ""

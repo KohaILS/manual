@@ -1,0 +1,3511 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Koha Community
+# This file is distributed under the same license as the Koha Manual package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Koha Manual 21.05\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 21:37+0800\n"
+"PO-Revision-Date: 2021-09-30 16:42+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: 黄飞龙 <hfl@huangfeilong.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: ../../source/patrons.rst:6
+msgid "Patrons"
+msgstr "人员"
+
+#: ../../source/patrons.rst:8
+msgid "Before importing or adding patrons be sure to set up your :ref:`patron categories <patron-categories-label>`."
+msgstr ""
+
+#: ../../source/patrons.rst:14
+msgid "Add a new patron"
+msgstr ""
+
+#: ../../source/patrons.rst:16
+msgid "Patrons are added by going to the 'Patrons' module."
+msgstr ""
+
+#: ../../source/patrons.rst:18 ../../source/patrons.rst:265
+msgid "*Get there:* Patrons"
+msgstr ""
+
+#: ../../source/patrons.rst:20
+msgid "Once there you can add a new patron."
+msgstr ""
+
+#: ../../source/patrons.rst:22
+msgid "Click 'New patron'"
+msgstr ""
+
+#: ../../source/patrons.rst:24
+msgid "|image407|"
+msgstr ""
+
+#: ../../source/patrons.rst:26
+msgid "The fields that appear on the patron add form can be controlled by editing the :ref:`BorrowerUnwantedField` system preference."
+msgstr ""
+
+#: ../../source/patrons.rst:29
+msgid "Required fields are defined in the :ref:`BorrowerMandatoryField` system preference"
+msgstr ""
+
+#: ../../source/patrons.rst:32
+msgid "First, enter the identifying information regarding your patron"
+msgstr ""
+
+#: ../../source/patrons.rst:34
+msgid "|image408|"
+msgstr ""
+
+#: ../../source/patrons.rst:36
+msgid "'Salutation' is populated by the :ref:`BorrowersTitles` system preference"
+msgstr ""
+
+#: ../../source/patrons.rst:38 ../../source/patrons.rst:91
+#: ../../source/patrons.rst:103 ../../source/patrons.rst:134
+#: ../../source/patrons.rst:176 ../../source/patrons.rst:233
+#: ../../source/patrons.rst:343 ../../source/patrons.rst:445
+#: ../../source/patrons.rst:541 ../../source/patrons.rst:572
+#: ../../source/patrons.rst:629 ../../source/patrons.rst:890
+#: ../../source/patrons.rst:917 ../../source/patrons.rst:955
+#: ../../source/patrons.rst:1368 ../../source/patrons.rst:1375
+#: ../../source/patrons.rst:1434 ../../source/patrons.rst:1479
+#: ../../source/patrons.rst:1512 ../../source/patrons.rst:1521
+#: ../../source/patrons.rst:1526 ../../source/patrons.rst:1601
+#: ../../source/patrons.rst:1643 ../../source/patrons.rst:1790
+#: ../../source/patrons.rst:1826 ../../source/patrons.rst:2008
+#: ../../source/patrons.rst:2031 ../../source/patrons.rst:2140
+#: ../../source/patrons.rst:2145 ../../source/patrons.rst:2180
+#: ../../source/patrons.rst:2261 ../../source/patrons.rst:2409
+#: ../../source/patrons.rst:2460
+msgid "**Note**"
+msgstr ""
+
+#: ../../source/patrons.rst:40
+msgid "If you'd like to prevent full names from printing on :ref:`slips <notices-and-slips-label>` and you're not using the Initials or Other name fields for anything else, you can use them for shortened versions of the name to then be printed on the slip."
+msgstr ""
+
+#: ../../source/patrons.rst:45
+msgid "For example:"
+msgstr ""
+
+#: ../../source/patrons.rst:53
+msgid "Then on the slip you can have it print the <<borrowers.initials>> instead of the full name (NCE)."
+msgstr ""
+
+#: ../../source/patrons.rst:56
+msgid "Or you could do something like this:"
+msgstr ""
+
+#: ../../source/patrons.rst:64
+msgid "Then on the slip you can have it print the <<borrowers.initials>>, <<borrowers.firstname>> instead of the full name (E, Nicole)."
+msgstr ""
+
+#: ../../source/patrons.rst:68
+msgid "If this patron is a child, you will be asked to attach the child patron to an adult patron (guarantor)"
+msgstr ""
+
+#: ../../source/patrons.rst:71
+msgid "**Note** Guarantors can only be attached to patrons whose :ref:`category <patron-categories-label>` is of the 'Child', 'Professional' or 'Organization' type."
+msgstr ""
+
+#: ../../source/patrons.rst:75
+msgid "|image410|"
+msgstr ""
+
+#: ../../source/patrons.rst:77
+msgid "If the guarantor is a patron of the library, click 'Search to add' to search your system for an existing patron"
+msgstr ""
+
+#: ../../source/patrons.rst:80
+msgid "|image1463|"
+msgstr ""
+
+#: ../../source/patrons.rst:82
+msgid "Click 'Select' to choose the patron"
+msgstr ""
+
+#: ../../source/patrons.rst:84
+msgid "|image1464|"
+msgstr ""
+
+#: ../../source/patrons.rst:86
+msgid "The relationships are set using the :ref:`borrowerRelationship` system preference"
+msgstr ""
+
+#: ../../source/patrons.rst:89
+msgid "|image1465|"
+msgstr ""
+
+#: ../../source/patrons.rst:93
+msgid "It is possible to add more than one guarantor to a patron account (both parents for example)."
+msgstr ""
+
+#: ../../source/patrons.rst:96
+msgid "If the guarantor is not a patron, you can still add their information in the 'Non-patron guarantor' section."
+msgstr ""
+
+#: ../../source/patrons.rst:99
+msgid "Next enter the main address and contact information"
+msgstr ""
+
+#: ../../source/patrons.rst:101
+msgid "|image1466|"
+msgstr ""
+
+#: ../../source/patrons.rst:105
+msgid "The street type is populated by the ROADTYPE :ref:`authorized values <existing-values-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:108
+msgid "|image409|"
+msgstr ""
+
+#: ../../source/patrons.rst:110
+msgid "For contact information, note that the primary phone number and primary email address are the ones that appear on notices and slips printed during circulation (receipts, transfer slips and hold slips). The primary email is also the one that overdue notices and other messages go to."
+msgstr ""
+
+#: ../../source/patrons.rst:116
+msgid "You can also record an alternate address for each patron. This could be used in an academic setting to store the patron's home address for example."
+msgstr ""
+
+#: ../../source/patrons.rst:119
+msgid "|image411|"
+msgstr ""
+
+#: ../../source/patrons.rst:121
+msgid "Each patron can have an alternate contact. An alternate contact could be a parent or guardian, for example."
+msgstr ""
+
+#: ../../source/patrons.rst:124
+msgid "|image412|"
+msgstr ""
+
+#: ../../source/patrons.rst:126
+msgid "The library management section includes values that are used within the library"
+msgstr ""
+
+#: ../../source/patrons.rst:129
+msgid "|image413|"
+msgstr ""
+
+#: ../../source/patrons.rst:131
+msgid "The card number field is automatically calculated if you have the :ref:`autoMemberNum` system preference set that way"
+msgstr ""
+
+#: ../../source/patrons.rst:136
+msgid "For a newly installed system this preference will start at 1 and increment by 1 each time after. To have it start with the starting number of your barcodes, enter the first barcode by hand in the patron record and save the patron. After that the field will increment that number by 1."
+msgstr ""
+
+#: ../../source/patrons.rst:142
+msgid "If you accidentally chose the wrong patron category at the beginning you can fix that here"
+msgstr ""
+
+#: ../../source/patrons.rst:145
+msgid "Sort 1 and 2 are used for statistical purposes within your library"
+msgstr ""
+
+#: ../../source/patrons.rst:147
+msgid "You can create drop-down menus for these fields by adding values in the Bsort1 and Bsort2 :ref:`authorized values categories <existing-values-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:150
+msgid "'Allow auto-renewal of items' is used to control whether this patron wants to automatically renew their checkouts. This requires the :ref:`automatic_renewal cronjob <cron-automatic-renewal-label>` to run daily."
+msgstr ""
+
+#: ../../source/patrons.rst:155
+msgid "'Check for previous checkouts' is used to set the patron's personal preference regarding checking their circulation history to see if they have borrowed This item in the past. This overrides the setting of the :ref:`patron category <adding-a-patron-category-label>` and of the :ref:`CheckPrevCheckout` system preference."
+msgstr ""
+
+#: ../../source/patrons.rst:161
+msgid "Next, the library set-up section includes additional library settings"
+msgstr ""
+
+#: ../../source/patrons.rst:163 ../../source/patrons.rst:2433
+msgid "|image414|"
+msgstr ""
+
+#: ../../source/patrons.rst:165
+msgid "The registration date will automatically be filled in with today's date"
+msgstr ""
+
+#: ../../source/patrons.rst:168
+msgid "The expiry date will automatically be calculated based on your :ref:`patron category settings <patron-categories-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:171
+msgid "The OPAC note is a note for the patron, it will appear in the patron's online account on the OPAC"
+msgstr ""
+
+#: ../../source/patrons.rst:174 ../../source/patrons.rst:2438
+msgid "|image1504|"
+msgstr ""
+
+#: ../../source/patrons.rst:178
+msgid "See also :ref:`OPAC messages <opac-messages-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:180
+msgid "The Circulation note is meant solely for your library staff and will appear when the circulation staff goes to check an item out to the patron"
+msgstr ""
+
+#: ../../source/patrons.rst:184
+msgid "|image415|"
+msgstr ""
+
+#: ../../source/patrons.rst:186
+msgid "The 'OPAC/Staff interface login' section asks for the username and password to be used by the patron (or staff member) to log into their account in the OPAC and for staff to log in to the staff interface."
+msgstr ""
+
+#: ../../source/patrons.rst:190
+msgid "Staff will only be able to use this login information to log in to the staff interface if they have at least the :ref:`catalogue permission <patron-permissions-label>`."
+msgstr ""
+
+#: ../../source/patrons.rst:194
+msgid "If you have enabled the housebound module (with the :ref:`HouseboundModule` system preference), you will be able to choose a :ref:`housebound role <housebound-patrons-label>` for this patron."
+msgstr ""
+
+#: ../../source/patrons.rst:198
+msgid "|image1509|"
+msgstr ""
+
+#: ../../source/patrons.rst:200
+msgid "If you have set :ref:`additional patron attributes <patron-attribute-types-label>` in the administration module, these will appear next"
+msgstr ""
+
+#: ../../source/patrons.rst:203
+msgid "|image416|"
+msgstr ""
+
+#: ../../source/patrons.rst:205
+msgid "Finally, if you have the :ref:`EnhancedMessagingPreferences` system preference set to 'allow,' you can choose the messaging preferences for this patron."
+msgstr ""
+
+#: ../../source/patrons.rst:209 ../../source/patrons.rst:2495
+msgid "|image417|"
+msgstr ""
+
+#: ../../source/patrons.rst:211
+msgid "See the definition of each notice in the :ref:`advance notices and hold notices <advance-notices-and-hold-notices-label>` section"
+msgstr ""
+
+#: ../../source/patrons.rst:215 ../../source/patrons.rst:220
+#: ../../source/patrons.rst:290 ../../source/patrons.rst:373
+#: ../../source/patrons.rst:594 ../../source/patrons.rst:685
+#: ../../source/patrons.rst:702 ../../source/patrons.rst:1332
+#: ../../source/patrons.rst:2202
+msgid "**Important**"
+msgstr ""
+
+#: ../../source/patrons.rst:217
+msgid "These preferences will override any you set via the :ref:`patron categories <adding-a-patron-category-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:222
+msgid "These preference can be altered by the patron via the OPAC if the :ref:`EnhancedMessagingPreferencesOPAC` system preference is set to 'show'"
+msgstr ""
+
+#: ../../source/patrons.rst:226
+msgid "Once finished, click 'Save'"
+msgstr ""
+
+#: ../../source/patrons.rst:228
+msgid "If the system suspects this patron is a duplicate of another it will warn you."
+msgstr ""
+
+#: ../../source/patrons.rst:231
+msgid "|image418|"
+msgstr ""
+
+#: ../../source/patrons.rst:235
+msgid "See the :ref:`PatronDuplicateMatchingAddFIelds` system preference to see or change which fields are used to detect duplicate patrons. The default is the surname, the firstname and the date of birth."
+msgstr ""
+
+#: ../../source/patrons.rst:239
+msgid "If you have set a minimum or upper age limit on the patron category and are requiring that the birth date be filled in, Koha will warn you if the patron you're adding is too old or young for the patron category you have selected:"
+msgstr ""
+
+#: ../../source/patrons.rst:244
+msgid "|patronagelimit|"
+msgstr ""
+
+#: ../../source/patrons.rst:246
+msgid "If the patron's :ref:`category <patron-categories-label>` has an enrollment fee, the fee will be charged to the patron's account when the account is created. You can then manage the charge in the patron's :ref:`accounting tab <fines-label>`."
+msgstr ""
+
+#: ../../source/patrons.rst:253
+msgid "Quick add a patron"
+msgstr ""
+
+#: ../../source/patrons.rst:255
+msgid "If your circulation desk is very busy and you want to register patron quickly, you can use the 'quick add' feature. It's a shortened version of the add patron form with only a couple of necessary fields to fill out."
+msgstr ""
+
+#: ../../source/patrons.rst:259
+msgid "This feature uses two system preferences: :ref:`BorrowerMandatoryField` and :ref:`PatronQuickAddFields`. These are the two system preferences that control which fields are in the quick add form."
+msgstr ""
+
+#: ../../source/patrons.rst:263
+msgid "To quick add a patron, go to the Patrons module"
+msgstr ""
+
+#: ../../source/patrons.rst:267
+msgid "Click on the 'Quick add new patron' button."
+msgstr ""
+
+#: ../../source/patrons.rst:269
+msgid "You will be asked to choose a patron category."
+msgstr ""
+
+#: ../../source/patrons.rst:271
+msgid "Then, you will be presented with a shortened form."
+msgstr ""
+
+#: ../../source/patrons.rst:273
+msgid "|image1346|"
+msgstr ""
+
+#: ../../source/patrons.rst:275
+msgid "Once the form is filled out, click on 'Save'."
+msgstr ""
+
+#: ../../source/patrons.rst:277
+msgid "If you need to access the full form, you can click on 'Show full form' above the 'Save' button."
+msgstr ""
+
+#: ../../source/patrons.rst:283
+msgid "Add a staff patron"
+msgstr ""
+
+#: ../../source/patrons.rst:285
+msgid "All staff members must be entered into Koha as patrons of the 'Staff' type. Follow the steps in :ref:`Add a Patron <add-a-new-patron-label>` to add a staff member. To give the staff member permissions to access the staff client, follow the steps in :ref:`patron permissions <patron-permissions-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:292
+msgid "Remember to assign your staff secure usernames and passwords since these will be used to log into the staff client."
+msgstr ""
+
+#: ../../source/patrons.rst:298
+msgid "Add a statistical patron"
+msgstr ""
+
+#: ../../source/patrons.rst:300
+msgid "One way to track use of in house items is to \"check out\" the materials to a statistical patron. The \"check out\" process doesn’t check the book out, but instead tracks an in house use of the item. To use this method for tracking in house use you first will need a :ref:`patron category <patron-categories-label>` set up for your statistical patron."
+msgstr ""
+
+#: ../../source/patrons.rst:306
+msgid "|image420|"
+msgstr ""
+
+#: ../../source/patrons.rst:308
+msgid "Next, you will need to create a new patron of the statistical type."
+msgstr ""
+
+#: ../../source/patrons.rst:310
+msgid "|image421|"
+msgstr ""
+
+#: ../../source/patrons.rst:312
+msgid "Next, follow the steps put forth in the ':ref:`Add a new patron <add-a-new-patron-label>`' section of this manual. Since this patron is not a real person, simply fill in the required fields, the correct library and nothing else."
+msgstr ""
+
+#: ../../source/patrons.rst:317
+msgid "To learn about other methods of tracking in house use visit the :ref:`tracking inhouse use <tracking-in-house-use-label>` section of this manual."
+msgstr ""
+
+#: ../../source/patrons.rst:323
+msgid "Duplicate a patron"
+msgstr ""
+
+#: ../../source/patrons.rst:325
+msgid "Sometimes when you're adding a new family to your system you don't want to type the contact information over and over. Koha allows for you to duplicate a patron and change only the parts you want to (or need to) change."
+msgstr ""
+
+#: ../../source/patrons.rst:330
+msgid "Open the patron you want to use as your base (the patron you want to duplicate information from)"
+msgstr ""
+
+#: ../../source/patrons.rst:333
+msgid "Click the 'Duplicate' button at the top of their record"
+msgstr ""
+
+#: ../../source/patrons.rst:335
+msgid "|image422|"
+msgstr ""
+
+#: ../../source/patrons.rst:337
+msgid "All of the fields with the exception of first name, card number, username and password have been duplicated. Fill in the missing pieces and click 'Save'"
+msgstr ""
+
+#: ../../source/patrons.rst:341
+msgid "|image423|"
+msgstr ""
+
+#: ../../source/patrons.rst:345
+msgid "Clicking in a field that is already populated with data will clear that field of all information (making it easier for you to type in something different)"
+msgstr ""
+
+#: ../../source/patrons.rst:349
+msgid "You will be brought to your new patron"
+msgstr ""
+
+#: ../../source/patrons.rst:351
+msgid "|image424|"
+msgstr ""
+
+#: ../../source/patrons.rst:356
+msgid "Add patron images"
+msgstr ""
+
+#: ../../source/patrons.rst:358
+msgid "If you would like you can add patron images to help identify patrons. To enable this feature you must first set the :ref:`patronimages` preference to 'Allow'."
+msgstr ""
+
+#: ../../source/patrons.rst:362
+msgid "If the preference is set to 'Allow' you will see a placeholder image under the patron's name and box to upload a patron image below the basic contact information."
+msgstr ""
+
+#: ../../source/patrons.rst:366
+msgid "|image425|"
+msgstr ""
+
+#: ../../source/patrons.rst:368
+msgid "In the 'Upload patron image' box click 'Browse' to find the image on your computer and 'Upload' to load the image on to the patron record."
+msgstr ""
+
+#: ../../source/patrons.rst:371
+msgid "|image426|"
+msgstr ""
+
+#: ../../source/patrons.rst:375
+msgid "There is a limit of 100K on the size of the picture uploaded and it is recommended that the image be 200x300 pixels, but smaller images will work as well."
+msgstr ""
+
+#: ../../source/patrons.rst:382
+msgid "Editing patrons"
+msgstr ""
+
+#: ../../source/patrons.rst:384
+msgid "Patrons in Koha can be edited using one of many edit buttons."
+msgstr ""
+
+#: ../../source/patrons.rst:386
+msgid "To edit the entire patron record simply click the 'Edit' button at the top of the patron record."
+msgstr ""
+
+#: ../../source/patrons.rst:389 ../../source/patrons.rst:2452
+msgid "|image427|"
+msgstr ""
+
+#: ../../source/patrons.rst:391
+msgid "Patron passwords are not recoverable. The stars show on the patron detail next to the password label are always there even if a password isn't set. If a patron forgets their password the only option is to reset their password. To change the patron's password, click the 'Change password' button."
+msgstr ""
+
+#: ../../source/patrons.rst:397
+msgid "|image428|"
+msgstr ""
+
+#: ../../source/patrons.rst:399
+msgid "Koha cannot display existing passwords as they are encrypted in the database. Leave the field blank to leave password unchanged."
+msgstr ""
+
+#: ../../source/patrons.rst:402
+msgid "This form can automatically generate a random password if you click the link labeled \"Click to fill with a randomly generated suggestion. Passwords will be displayed as text.\""
+msgstr ""
+
+#: ../../source/patrons.rst:406
+msgid "To edit a specific section of the patron record (for example the 'Library use' section) click the 'Edit' button beside the section."
+msgstr ""
+
+#: ../../source/patrons.rst:409 ../../source/patrons.rst:2443
+msgid "|image429|"
+msgstr ""
+
+#: ../../source/patrons.rst:411
+msgid "A patron image can be added by browsing for the image on your machine from the 'Manage patron image' section."
+msgstr ""
+
+#: ../../source/patrons.rst:414
+msgid "|image430|"
+msgstr ""
+
+#: ../../source/patrons.rst:416
+msgid "This form will not appear if you have the :ref:`patronimages` system preference to not allow patron images."
+msgstr ""
+
+#: ../../source/patrons.rst:420
+msgid "To add patron images in bulk, use the :ref:`Upload patron images <upload-patron-images-label>` tool."
+msgstr ""
+
+#: ../../source/patrons.rst:423
+msgid "Patrons can also be blocked from checking items out by setting Patron flags"
+msgstr ""
+
+#: ../../source/patrons.rst:426
+msgid "|image431|"
+msgstr ""
+
+#: ../../source/patrons.rst:428
+msgid "If you would like your circulation staff to confirm a patron's address before checking items out to the patron, you can see the 'Gone no address' flag"
+msgstr ""
+
+#: ../../source/patrons.rst:432
+msgid "|image432|"
+msgstr ""
+
+#: ../../source/patrons.rst:434
+msgid "If the patron reports that they have lost their card you can set the 'Lost card' flag to prevent someone else from using that card to check items out"
+msgstr ""
+
+#: ../../source/patrons.rst:438
+msgid "|image433|"
+msgstr ""
+
+#: ../../source/patrons.rst:440
+msgid "If you would like to bar a patron from the library you can add a manual restriction"
+msgstr ""
+
+#: ../../source/patrons.rst:443
+msgid "|image434|"
+msgstr ""
+
+#: ../../source/patrons.rst:447
+msgid "This flag can automatically be set with the :ref:`Overdue/notice status triggers <overdue-notice/status-triggers-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:450
+msgid "If you enter in a date and/or note related to the restriction you will see that in the restricted message as well"
+msgstr ""
+
+#: ../../source/patrons.rst:453
+msgid "|image435|"
+msgstr ""
+
+#: ../../source/patrons.rst:455
+msgid "Children patrons do not become adults automatically in Koha unless you have the :ref:`Update patron categories <cron-update-patron-categories-label>` cron job running. To upgrade a child patron to and adult patron category manually go to the 'More' menu and choose 'Update child to adult patron'"
+msgstr ""
+
+#: ../../source/patrons.rst:460
+msgid "|image436|"
+msgstr ""
+
+#: ../../source/patrons.rst:462
+msgid "You will then be presented with a pop up window asking which one of your adult patron categories this Child should be updated to"
+msgstr ""
+
+#: ../../source/patrons.rst:465
+msgid "|image437|"
+msgstr ""
+
+#: ../../source/patrons.rst:470
+msgid "Renew patron account"
+msgstr ""
+
+#: ../../source/patrons.rst:472
+msgid "When renewing a patron account you can either edit the the expiry date manually in the patron record or use the 'Renew patron' option from the More menu in the toolbar at the top."
+msgstr ""
+
+#: ../../source/patrons.rst:476
+msgid "|image1393|"
+msgstr ""
+
+#: ../../source/patrons.rst:478
+msgid "Using the latter the new expiry date will be calculated using the enrollment period configured for the patron category of the user. The system preference :ref:`BorrowerRenewalPeriodBase` determines if the new expiry date will be calculated from the current date or from the old expiry date."
+msgstr ""
+
+#: ../../source/patrons.rst:484
+msgid "One advantage of using the 'Renew patron' option is that it will be logged as a membership renewal in the action_logs table and be visible as such when using the :ref:`Log viewer <log-viewer-label>` or the :ref:`Modificaton log <modification-log-label>` from the patron account."
+msgstr ""
+
+#: ../../source/patrons.rst:489
+msgid "The renewal date of the patron account will be visible on the details tab."
+msgstr ""
+
+#: ../../source/patrons.rst:491
+msgid "|image1392|"
+msgstr ""
+
+#: ../../source/patrons.rst:493
+msgid "If the patron is in a :ref:`patron category <patron-categories-label>` with a membership fee, the charge will also be added upon renewal. You can then manage the charge in the patron's :ref:`accounting tab <fines-label>`."
+msgstr ""
+
+#: ../../source/patrons.rst:500
+msgid "Deleting a patron account"
+msgstr ""
+
+#: ../../source/patrons.rst:502
+msgid "From the 'More' drop-down, the patron account can be deleted."
+msgstr ""
+
+#: ../../source/patrons.rst:504
+msgid "|image1469|"
+msgstr ""
+
+#: ../../source/patrons.rst:506
+msgid "There will be an alert if the patron has checkouts, holds, fines or credits."
+msgstr ""
+
+#: ../../source/patrons.rst:508
+msgid "If a patron has current checkouts, the deletion will not be possible."
+msgstr ""
+
+#: ../../source/patrons.rst:510
+msgid "|image1470|"
+msgstr ""
+
+#: ../../source/patrons.rst:512
+msgid "If a patron has outstanding fines, the deletion will not be possible."
+msgstr ""
+
+#: ../../source/patrons.rst:514
+msgid "|image1468|"
+msgstr ""
+
+#: ../../source/patrons.rst:516
+msgid "If a patron has unused credits, the option to delete the patron is possible but there will be a warning."
+msgstr ""
+
+#: ../../source/patrons.rst:519
+msgid "|image1471|"
+msgstr ""
+
+#: ../../source/patrons.rst:521
+msgid "If a patron has existing holds on their account, the option to delete the patron is possible. The hold will be cancelled and moved to the old reserves table."
+msgstr ""
+
+#: ../../source/patrons.rst:525
+msgid "|image1462|"
+msgstr ""
+
+#: ../../source/patrons.rst:530
+msgid "Managing patron self edits"
+msgstr ""
+
+#: ../../source/patrons.rst:532
+msgid "If you are allowing patrons to edit their accounts via the OPAC with the :ref:`OPACPatronDetails` preference then you will need to approve all changes via the staff client before they're applied. If there are patron edits awaiting action they will appear on the staff client dashboard below the modules list (along with other items awaiting action)."
+msgstr ""
+
+#: ../../source/patrons.rst:539
+msgid "|image438|"
+msgstr ""
+
+#: ../../source/patrons.rst:543
+msgid "Superlibrarians will see modifications for any branch, other staff will only see modifications for patrons who belong to their logged in branch."
+msgstr ""
+
+#: ../../source/patrons.rst:547
+msgid "When you click the 'Patrons requesting modifications' link you will be brought to a list of patrons with requested changes."
+msgstr ""
+
+#: ../../source/patrons.rst:550
+msgid "|image439|"
+msgstr ""
+
+#: ../../source/patrons.rst:552
+msgid "From here you can 'Approve' and apply the changes to the patron record, 'Delete' and remove the changes or 'Ignore' and keep the changes pending to review later."
+msgstr ""
+
+#: ../../source/patrons.rst:556
+msgid "If you would like to see the entire patron record you can click the 'Patron details' links to the right of the buttons. This will open in a new tab."
+msgstr ""
+
+#: ../../source/patrons.rst:561
+msgid "Merging patron records"
+msgstr ""
+
+#: ../../source/patrons.rst:563
+msgid "If you accidentally end up with one patron with two cards it is possible to merge their records together so that you don't lose their loan history or holds."
+msgstr ""
+
+#: ../../source/patrons.rst:567
+msgid "In the patron list, check the boxes next to the records you want to merge and click on the 'Merge selected patrons' button."
+msgstr ""
+
+#: ../../source/patrons.rst:570
+msgid "|image1326|"
+msgstr ""
+
+#: ../../source/patrons.rst:574
+msgid "It is possible to merge more than two records at a time."
+msgstr ""
+
+#: ../../source/patrons.rst:576
+msgid "Select the patron record you want to keep and click on the 'Merge patrons' button."
+msgstr ""
+
+#: ../../source/patrons.rst:579
+msgid "|image1327|"
+msgstr ""
+
+#: ../../source/patrons.rst:581
+msgid "The checkouts and statistics will be transferred to the right record and the other one will be deleted."
+msgstr ""
+
+#: ../../source/patrons.rst:584
+msgid "|image1328|"
+msgstr ""
+
+#: ../../source/patrons.rst:589
+msgid "Patron permissions"
+msgstr ""
+
+#: ../../source/patrons.rst:591
+msgid "Patron permissions are used to allow staff members access to the staff client."
+msgstr ""
+
+#: ../../source/patrons.rst:596
+msgid "In order for a staff member to log into the staff interface they must have (at the very least) 'catalogue' permissions which allow them to view the staff interface."
+msgstr ""
+
+#: ../../source/patrons.rst:603
+msgid "Setting patron permissions"
+msgstr ""
+
+#: ../../source/patrons.rst:605
+msgid "On the patron record click 'More' and choose 'Set permissions' to alter patron permissions"
+msgstr ""
+
+#: ../../source/patrons.rst:608
+msgid "|image440|"
+msgstr ""
+
+#: ../../source/patrons.rst:610
+msgid "You will be presented with a list of preferences, some of which can be expanded by clicking the 'Show details' link on the right title."
+msgstr ""
+
+#: ../../source/patrons.rst:614
+msgid "|image441|"
+msgstr ""
+
+#: ../../source/patrons.rst:616
+msgid "In all cases, if the parent permission is checked, the user has all the child permissions. If you want to set permissions on a more granular level, expand the section and only check the permissions you want that user to have."
+msgstr ""
+
+#: ../../source/patrons.rst:625
+msgid "Patron permissions defined"
+msgstr ""
+
+#: ../../source/patrons.rst:627
+msgid "Access to all librarian functions (superlibrarian)"
+msgstr ""
+
+#: ../../source/patrons.rst:631
+msgid "With this selected there is no need to choose any other permissions"
+msgstr ""
+
+#: ../../source/patrons.rst:634
+msgid "Check out and check in items (circulate)"
+msgstr ""
+
+#: ../../source/patrons.rst:636
+msgid "Remaining circulation permissions (circulate\\_remaining\\_permissions)"
+msgstr ""
+
+#: ../../source/patrons.rst:638
+msgid "This permission grants all circulation rights except those covered by permissions listed below"
+msgstr ""
+
+#: ../../source/patrons.rst:641
+msgid "Force checkout if a limitation exists (force\\_checkout)"
+msgstr ""
+
+#: ../../source/patrons.rst:643
+msgid "With this permission a staff member will be allowed to override a check out restriction in the following cases:"
+msgstr ""
+
+#: ../../source/patrons.rst:646
+msgid "age restriction"
+msgstr ""
+
+#: ../../source/patrons.rst:648
+msgid "the item is issued to another patron"
+msgstr ""
+
+#: ../../source/patrons.rst:650
+msgid "the item is not for loan"
+msgstr ""
+
+#: ../../source/patrons.rst:652
+msgid "the patron has overdue items"
+msgstr ""
+
+#: ../../source/patrons.rst:654
+msgid "the item is lost"
+msgstr ""
+
+#: ../../source/patrons.rst:656
+msgid "the item is a high demand item"
+msgstr ""
+
+#: ../../source/patrons.rst:658
+msgid "the item is on hold"
+msgstr ""
+
+#: ../../source/patrons.rst:660
+msgid "Mark checkout notes as seen\\/not seen (manage\\_checkout\\_notes)"
+msgstr ""
+
+#: ../../source/patrons.rst:663
+msgid "The permission to manage the checkout notes written by users"
+msgstr ""
+
+#: ../../source/patrons.rst:663
+msgid "through the OPAC"
+msgstr ""
+
+#: ../../source/patrons.rst:665
+msgid "Manage restrictions for accounts (manage\\_restrictions)"
+msgstr ""
+
+#: ../../source/patrons.rst:667
+msgid "Grants permission to the staff member to lift a restriction that might be on the patron's record"
+msgstr ""
+
+#: ../../source/patrons.rst:670
+msgid "Execute overdue items report (overdues\\_report)"
+msgstr ""
+
+#: ../../source/patrons.rst:672
+msgid "The permission to run the overdues reports found under Circulation"
+msgstr ""
+
+#: ../../source/patrons.rst:674
+msgid "Override blocked renewals (override\\_renewals)"
+msgstr ""
+
+#: ../../source/patrons.rst:676
+msgid "With this permission, a staff member can override renewals if there is a restriction"
+msgstr ""
+
+#: ../../source/patrons.rst:679
+msgid "Requires that the staff member also has circulate\\_remaining\\_permissions"
+msgstr ""
+
+#: ../../source/patrons.rst:682
+msgid "Staff access, allows viewing the catalogue in staff client (catalogue) **Required for staff login.**"
+msgstr ""
+
+#: ../../source/patrons.rst:687
+msgid "Must be given to all staff members to allow them to login to the staff interface"
+msgstr ""
+
+#: ../../source/patrons.rst:690
+msgid "Manage Koha system settings (Administration panel) (parameters)"
+msgstr ""
+
+#: ../../source/patrons.rst:692
+msgid "Manage account debit and credit types (manage\\_accounts)"
+msgstr ""
+
+#: ../../source/patrons.rst:694
+msgid "This gives access to the :ref:`debit types section <debit-types-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:696
+msgid "Manage additional fields for baskets or subscriptions (manage\\_additional \\_fields)"
+msgstr ""
+
+#: ../../source/patrons.rst:699
+msgid "This gives access to the :ref:`additional fields section <additional-fields-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:704
+msgid "This permission requires that the staff member also have the 'Edit an existing subscription' permission from the 'Manage serial subscriptions' section and the 'Manage basket and order lines' permission from the 'Acquisition and\\/or suggestion management' section"
+msgstr ""
+
+#: ../../source/patrons.rst:709
+msgid "Manage audio alerts (manage\\_audio\\_alerts)"
+msgstr ""
+
+#: ../../source/patrons.rst:711
+msgid "The ability to access the :ref:`audio alerts <audio-alerts-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:714
+msgid "Manage authorized value categories and authorised values (manage\\_auth\\_ values)"
+msgstr ""
+
+#: ../../source/patrons.rst:717
+msgid "The ability to access the :ref:`auhorized values <authorized-values-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:720
+msgid "Manage circulation rules (manage\\_circ\\_rules)"
+msgstr ""
+
+#: ../../source/patrons.rst:722
+msgid "The ability to access the :ref:`circulation and fines rules <circulation-and-fines-rules-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:726
+msgid "Manage circulation rules form any library (manage\\_circ\\_rules\\_from\\_ any\\_libraries)"
+msgstr ""
+
+#: ../../source/patrons.rst:729
+msgid "If not set the logged in user can only edit circulation rules from their own library"
+msgstr ""
+
+#: ../../source/patrons.rst:732
+msgid "The staff member still has to have the 'Manage circulation rules' permission above."
+msgstr ""
+
+#: ../../source/patrons.rst:735
+msgid "Manage cities and towns (manage\\_cities)"
+msgstr ""
+
+#: ../../source/patrons.rst:737
+msgid "The ability to access the :ref:`cities and towns <cities-and-towns-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:740
+msgid "Manage classification sources and filing rules (manage\\_classifications)"
+msgstr ""
+
+#: ../../source/patrons.rst:742
+msgid "The ability to access the :ref:`classification sources <classification-sources-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:746
+msgid "Manage column configuration (manage\\_column\\_config)"
+msgstr ""
+
+#: ../../source/patrons.rst:748
+msgid "The ability the access the :ref:`configure columns <column-settings-label>` page in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:751
+msgid "Manage Did you mean? configuration (manage\\_didyoumean)"
+msgstr ""
+
+#: ../../source/patrons.rst:753
+msgid "The ability to access the :ref:`Did you mean? <did-you-mean?-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:756
+msgid "Manage item circulation alerts (manage\\_item\\_circ\\_alerts)"
+msgstr ""
+
+#: ../../source/patrons.rst:758
+msgid "The ability to access the :ref:`item circulation alerts <item-circulation-alerts-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:761
+msgid "Manage item search fields (manage\\_item\\_search\\_fields)"
+msgstr ""
+
+#: ../../source/patrons.rst:763
+msgid "The ability to access the :ref:`item search fields <item-search-fields-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:766
+msgid "Manage item types (manage\\_itemtypes)"
+msgstr ""
+
+#: ../../source/patrons.rst:768
+msgid "The ability to access the :ref:`item types <item-types-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:771
+msgid "Manage keyboard shortcuts for the advanced cataloging editor (manage\\_ keyboard\\_shortcuts)"
+msgstr ""
+
+#: ../../source/patrons.rst:774
+msgid "The ability to access the keyboard shortcuts configuration in the administration module"
+msgstr ""
+
+#: ../../source/patrons.rst:777
+msgid "Manage libraries and library groups (manage\\_libraries)"
+msgstr ""
+
+#: ../../source/patrons.rst:779
+msgid "The ability to access the :ref:`libraries <libraries-label>` and :ref:`library groups <library-groups-label>` configuration pages in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:783
+msgid "Manage Mana KB content sharing (manage\\_mana)"
+msgstr ""
+
+#: ../../source/patrons.rst:785
+msgid "The ability to access the :ref:`share content with Mana KB <share-with-mana-kb-label>` in the administration module"
+msgstr ""
+
+#: ../../source/patrons.rst:788
+msgid "Manage MARC bibliographic and authority frameworks and test them (manage\\_marc\\_frameworks)"
+msgstr ""
+
+#: ../../source/patrons.rst:791
+msgid "The ability to access the :ref:`MARC bibliographic framework <marc-bibliographic-frameworks-label>`, :ref:`authority types <authority-types-label>`, :ref:`Koha to MARC mapping <koha-to-marc-mapping-label>`, and :ref:`MARC Bibliographic framework test <marc-bibliographic-framework-test-label>` configuration areas in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:798
+msgid "Manage record matching rules (manage\\_matching\\_rules)"
+msgstr ""
+
+#: ../../source/patrons.rst:800
+msgid "The ability to access the :ref:`record matching rules <record-matching-rules-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:803
+msgid "Manage OAI sets (manage\\_oai\\_sets)"
+msgstr ""
+
+#: ../../source/patrons.rst:805
+msgid "The ability to access the :ref:`OAI sets <oai-sets-configuration-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:808
+msgid "Manage extened patron attributes (manage\\_patron\\_attributes)"
+msgstr ""
+
+#: ../../source/patrons.rst:810
+msgid "The ability to access the :ref:`patron attribute types <patron-attribute-types-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:813
+msgid "Manage patron categories (manage\\_patron\\_categories)"
+msgstr ""
+
+#: ../../source/patrons.rst:815
+msgid "The ability to access the :ref:`Patron categories <patron-categories-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:818
+msgid "Manage search engine configuration (manage\\_search\\_engine\\_config)"
+msgstr ""
+
+#: ../../source/patrons.rst:820
+msgid "The ability to access the Search engine configuraton in the administration module. Note: This area will only be visible when the :ref:`SearchEngine` system preference is set to 'Elasticsearch'."
+msgstr ""
+
+#: ../../source/patrons.rst:824
+msgid "Manage Z39.50 and SRU server configuration (manage\\_search\\_targets)"
+msgstr ""
+
+#: ../../source/patrons.rst:826
+msgid "The ability to access the :ref:`Z39.50/SRU servers <z39.50/sru-servers-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:829
+msgid "Manage SMS cellular providers (manage\\_sms_providers)"
+msgstr ""
+
+#: ../../source/patrons.rst:831
+msgid "The ability to access the :ref:`SMS cellular providers <sms-cellular-providers-label>` configuration in the administration module. Note: This area will only be visible when the :ref:`SMSSendDriver` system preference is set to 'Email'."
+msgstr ""
+
+#: ../../source/patrons.rst:836
+msgid "Manage global system preferences (manage\\_sysprefs)"
+msgstr ""
+
+#: ../../source/patrons.rst:838
+msgid "The ability to access the :ref:`global system preferences <administration-system-preferences-label>` in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:841
+msgid "Manage library transfer limits and transport cost matrix (manage\\_transfers)"
+msgstr ""
+
+#: ../../source/patrons.rst:843
+msgid "The ability to access the :ref:`library transfer limits <library-transfer-limits-label>` and :ref:`transport cost matrix <transport-cost-matrix-label>` configuration pages in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:847
+msgid "Manage usage statistics settings (manage\\_usage\\_stats)"
+msgstr ""
+
+#: ../../source/patrons.rst:849
+msgid "The ability to access the :ref:`share your usage statistics <share-anonymous-usage-statistics-label>` configuration in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:852
+msgid "Remaining system parameters permissions (parameters\\_remaining\\_permissions)"
+msgstr ""
+
+#: ../../source/patrons.rst:854
+msgid "The ability to access all remaining areas in the administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:856
+msgid "Add, modify and view patron information (borrowers)"
+msgstr ""
+
+#: ../../source/patrons.rst:858
+msgid "Add, modify and view patron information (edit\\_borrowers)"
+msgstr ""
+
+#: ../../source/patrons.rst:860
+msgid "The ability to access the Patrons module to view patron files, as well as adding new patrons and editing patron files"
+msgstr ""
+
+#: ../../source/patrons.rst:863
+msgid "View patron infos from any libraries (view\\_borrower\\_infos\\_from\\_any\\_libraries)"
+msgstr ""
+
+#: ../../source/patrons.rst:865
+msgid "If not set the logged in user will only be able to access patron information from their own library or group of libraries."
+msgstr ""
+
+#: ../../source/patrons.rst:868
+msgid "Set user permissions (permissions)"
+msgstr ""
+
+#: ../../source/patrons.rst:870
+msgid "The ability to set permissions for other staff members"
+msgstr ""
+
+#: ../../source/patrons.rst:872
+msgid "Place and modify holds for patrons (reserveforothers)"
+msgstr ""
+
+#: ../../source/patrons.rst:874
+msgid "Modify holds priority (modify\\_holds\\_priority)"
+msgstr ""
+
+#: ../../source/patrons.rst:876
+msgid "Allows staff members to alter the holds priority (moving patrons up and down the queue)"
+msgstr ""
+
+#: ../../source/patrons.rst:879
+msgid "Place holds for patrons (place\\_holds)"
+msgstr ""
+
+#: ../../source/patrons.rst:881
+msgid "Allows staff members to place holds in the staff interface"
+msgstr ""
+
+#: ../../source/patrons.rst:883
+msgid "Edit catalog (Modify bibliographic/holdings data) (editcatalogue)"
+msgstr ""
+
+#: ../../source/patrons.rst:885
+msgid "Use the advanced cataloging editor (advanced\\_editor)"
+msgstr ""
+
+#: ../../source/patrons.rst:887
+msgid "Grants the ability to use the advanced cataloging editor in the cataloging module"
+msgstr ""
+
+#: ../../source/patrons.rst:892
+msgid "Staff members with this permission need to also have the 'Edit catalog (Modify bibliographic/holdings data)' permission"
+msgstr ""
+
+#: ../../source/patrons.rst:895
+msgid "Delete all items at once (delete\\_all\\_items)"
+msgstr ""
+
+#: ../../source/patrons.rst:897
+msgid "Ability to use the 'Delete all items' option found under the 'Edit' menu in cataloging"
+msgstr ""
+
+#: ../../source/patrons.rst:900
+msgid "Edit catalog (Modify bibliographic/holdings data) (edit\\_catalogue)"
+msgstr ""
+
+#: ../../source/patrons.rst:902
+msgid "Ability to access all cataloging functions via the `Cataloging <#cataloging>`__ page"
+msgstr ""
+
+#: ../../source/patrons.rst:905
+msgid "Edit items (edit\\_items)"
+msgstr ""
+
+#: ../../source/patrons.rst:907
+msgid "Ability to make :ref:`edits to item/holdings records <editing-items-label>`, but not bibliographic records"
+msgstr ""
+
+#: ../../source/patrons.rst:910
+msgid "Limit item modification to subfields defined in the :ref:`SubfieldsToAllowForRestrictedEditing` system preference (edit\\_items\\_restricted)"
+msgstr ""
+
+#: ../../source/patrons.rst:914
+msgid "If checked, the staff member will only be able to modify some item subfields"
+msgstr ""
+
+#: ../../source/patrons.rst:919
+msgid "Please note that the 'Edit items' permission is still required"
+msgstr ""
+
+#: ../../source/patrons.rst:921
+msgid "Fast cataloging (fast\\_cataloging)"
+msgstr ""
+
+#: ../../source/patrons.rst:923
+msgid "The ability to catalog using only the :ref:`Fast add framework <fast-add-cataloging-label>` found on the `Circulation <#circulation>`__ page"
+msgstr ""
+
+#: ../../source/patrons.rst:927
+msgid "Manage patrons fines and fees (updatecharges)"
+msgstr ""
+
+#: ../../source/patrons.rst:929
+msgid "Discount debits for patrons (discount)"
+msgstr ""
+
+#: ../../source/patrons.rst:931
+msgid "Grant the ability to apply discounts to charges"
+msgstr ""
+
+#: ../../source/patrons.rst:933
+msgid "Payout credits to patrons (payout)"
+msgstr ""
+
+#: ../../source/patrons.rst:935
+msgid "Grant the ability to reimburse credits to patrons"
+msgstr ""
+
+#: ../../source/patrons.rst:937
+msgid "Refund payments to patrons (refund)"
+msgstr ""
+
+#: ../../source/patrons.rst:939
+msgid "Grant the ability to refund payments that patrons have already made to the library"
+msgstr ""
+
+#: ../../source/patrons.rst:942
+msgid "Remaining permissions for managing fines and fees (remaining\\_permissions)"
+msgstr ""
+
+#: ../../source/patrons.rst:944
+msgid "Grant the ability to manage fines and fees other than the actions described in the other subpermissions (dicounts, payouts, refunds and writeoffs)"
+msgstr ""
+
+#: ../../source/patrons.rst:948
+msgid "Write off fines and fees (writeoff)"
+msgstr ""
+
+#: ../../source/patrons.rst:950
+msgid "Grants the ability to write off patron fees"
+msgstr ""
+
+#: ../../source/patrons.rst:953
+msgid "Acquisition and/or suggestion management (acquisition)"
+msgstr ""
+
+#: ../../source/patrons.rst:957
+msgid "All the acquisitions sub-permissions give access to the acquisitions home page. That means that staff who have one or more of the following permissions will be able to view the budgets, search and view vendor information, and view invoices."
+msgstr ""
+
+#: ../../source/patrons.rst:962
+msgid "Add and delete funds (but can't modify funds) (budget\\_add\\_del)"
+msgstr ""
+
+#: ../../source/patrons.rst:964
+msgid "Grants the ability to add and delete funds within a budget"
+msgstr ""
+
+#: ../../source/patrons.rst:966
+msgid "Note that the budget\\_manage and budget\\_modify permissions are required for this one to work correctly"
+msgstr ""
+
+#: ../../source/patrons.rst:969
+msgid "Manage funds (budget\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:971
+msgid "Grants the ability to acces the :ref:`fund administration page <funds-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:973
+msgid "Note that this only gives viewing access to the page, you will need to give your staff budget\\_add\\_del and budget\\_modify if you want them to be able to make changes to the funds"
+msgstr ""
+
+#: ../../source/patrons.rst:977
+msgid "Manage all funds (budget\\_manage\\_all)"
+msgstr ""
+
+#: ../../source/patrons.rst:979
+msgid "Grants viewing access to all funds regardless of restrictions on them (owner, user or library restrictions)"
+msgstr ""
+
+#: ../../source/patrons.rst:982
+msgid "Note that the budget\\_manage permission is required"
+msgstr ""
+
+#: ../../source/patrons.rst:984
+msgid "Modify funds (can't create lines, but can modify existing ones) (budget\\_modify)"
+msgstr ""
+
+#: ../../source/patrons.rst:986
+msgid "Grants the ability to edit fund information and amounts"
+msgstr ""
+
+#: ../../source/patrons.rst:988
+msgid "Note that the budget\\_add\\_del and budget\\_manage permissions are required for this one to work correctly"
+msgstr ""
+
+#: ../../source/patrons.rst:991
+msgid "Manage contracts (contracts\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:993
+msgid "Grants the ability to add, edit and delete contracts with vendors"
+msgstr ""
+
+#: ../../source/patrons.rst:995
+msgid "Manage currencies and exchange rates (currencies\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:997
+msgid "The ability to access the :ref:`Currencies and exchange rates <currencies-and-exchange-rates-label>` configuration page."
+msgstr ""
+
+#: ../../source/patrons.rst:1000
+msgid "Manage EDIFACT transmissions (edi\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:1002
+msgid "Grants the ability to access the :ref:`EDI account <edi-accounts-label>` administration page, the :ref:`library EANs <library-eans-label>` administration page and access sent :ref:`EDI messages <edifact-messages-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1006
+msgid "In order to be able to send orders via EDI, your staff member also needs the"
+msgstr ""
+
+#: ../../source/patrons.rst:1009
+msgid "Manage basket groups (group\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:1011
+msgid "Grants the ability to :ref:`create, edit, close and delete basket groups <create-a-basket-group-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1014
+msgid "Manage baskets and order lines (order\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:1016
+msgid "Grants the ability to :ref:`place orders <placing-orders-label>`, including creating baskets, adding order lines, closing baskets, etc."
+msgstr ""
+
+#: ../../source/patrons.rst:1019
+msgid "Manage all baskets and order lines, regardless of restrictions on them (order\\_manage\\_all)"
+msgstr ""
+
+#: ../../source/patrons.rst:1022
+msgid "Grants the ability to manage all baskets and orders even if they are restricted to the owner, users or library"
+msgstr ""
+
+#: ../../source/patrons.rst:1025
+msgid "Note that the order\\_manage permission is required"
+msgstr ""
+
+#: ../../source/patrons.rst:1027
+msgid "Receive orders and manage shipments (order\\_receive)"
+msgstr ""
+
+#: ../../source/patrons.rst:1029
+msgid "Grants the ability to create invoices, receive items and claim late orders"
+msgstr ""
+
+#: ../../source/patrons.rst:1032
+msgid "Manage budgets (period\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:1034
+msgid "Grants access to the :ref:`budget administration page <budgets-label>` and the ability to create, edit and delete budgets"
+msgstr ""
+
+#: ../../source/patrons.rst:1037
+msgid "This permission does not give the ability to edit budget funds."
+msgstr ""
+
+#: ../../source/patrons.rst:1039
+msgid "Manage budget plannings (planning\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:1041
+msgid "Grants the ability to view :ref:`budget planning <budget-planning-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1043
+msgid "Note that the budget\\_manage and the period\\_manage permissions are required for this one to work"
+msgstr ""
+
+#: ../../source/patrons.rst:1046
+msgid "Manage purchase suggestions (suggestions\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:1048
+msgid "Grants the ability to :ref:`create and manage purchase suggestions <managing-purchase-suggestions-label>`, including creating new suggestions and changing the suggestions' statuses"
+msgstr ""
+
+#: ../../source/patrons.rst:1052
+msgid "Manage vendors (vendors\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:1054
+msgid "Grants the ability to :ref:`add, edit and delete vendors <vendors-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1056
+msgid "Note that vendors are used in the acquisition and the serials module."
+msgstr ""
+
+#: ../../source/patrons.rst:1058
+msgid "Use all tools (tools)"
+msgstr ""
+
+#: ../../source/patrons.rst:1060
+msgid "Access to the files stored on the server (access\\_files)"
+msgstr ""
+
+#: ../../source/patrons.rst:1062
+msgid "Access to the :ref:`Upload tool <upload-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1064
+msgid "Upload patron images in batch or one at a time (batch\\_upload\\_patron\\_images)"
+msgstr ""
+
+#: ../../source/patrons.rst:1066
+msgid "Access to the :ref:`Image upload tool <upload-patron-images-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1068
+msgid "Delete old borrowers and anonymize circulation/reading history (deletes borrower reading history) (delete\\_anonymize\\_patrons)"
+msgstr ""
+
+#: ../../source/patrons.rst:1071
+msgid "Access to the :ref:`Anonymize patron tool <patrons-anonymize-bulk-delete-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1073
+msgid "Define days when the library is closed (edit\\_calendar)"
+msgstr ""
+
+#: ../../source/patrons.rst:1075
+msgid "Access to the :ref:`Calendar/holidays tool <calendar-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1077
+msgid "Write news for the OPAC and staff interfaces (edit\\_news)"
+msgstr ""
+
+#: ../../source/patrons.rst:1079
+msgid "Access to the :ref:`News tool <news-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1081
+msgid "Set notice/status triggers for overdue items (edit\\_notice\\_status\\_triggers)"
+msgstr ""
+
+#: ../../source/patrons.rst:1083
+msgid "Access to the :ref:`Overdue notice status/triggers tool <overdue-notice/status-triggers-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1086
+msgid "Define notices (edit\\_notices)"
+msgstr ""
+
+#: ../../source/patrons.rst:1088
+msgid "Access to the :ref:`Notices and slips tool <notices-and-slips-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1090
+msgid "Perform batch modification of patrons (edit\\_patrons)"
+msgstr ""
+
+#: ../../source/patrons.rst:1092
+msgid "Access to the :ref:`Batch patron modification tool <batch-patron-modification-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1094
+msgid "Edit quotes for the quote-of-the-day feature (edit\\_quotes)"
+msgstr ""
+
+#: ../../source/patrons.rst:1096
+msgid "Access to the :ref:`Quote of the Day (QOTD) Editor <quote-of-the-day-(qotd)-editor-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1098
+msgid "Export bibliographic and holdings data (export\\_catalog)"
+msgstr ""
+
+#: ../../source/patrons.rst:1100
+msgid "Access to the :ref:`Export data tool <export-data-(marc-and-authorities)-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1102
+msgid "Import patron data (import\\_patrons)"
+msgstr ""
+
+#: ../../source/patrons.rst:1104
+msgid "Access to the :ref:`Import patrons tool <patron-import-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1106
+msgid "Perform inventory of your catalog (inventory)"
+msgstr ""
+
+#: ../../source/patrons.rst:1108
+msgid "Access to the :ref:`Inventory tool <inventory-tool-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1110
+msgid "Perform batch deletion of items (items\\_batchdel)"
+msgstr ""
+
+#: ../../source/patrons.rst:1112
+msgid "Access to the :ref:`Batch item deletion tool <batch-item-deletion-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1114
+msgid "Perform batch modification of items (items\\_batchmod)"
+msgstr ""
+
+#: ../../source/patrons.rst:1116
+msgid "Access to the :ref:`Batch item modification tool <batch-item-modification-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1118
+msgid "Limit batch item modification to subfields defined in the SubfieldsToAllowForRestrictedBatchmod preference (items\\_batchmod\\_restricted)"
+msgstr ""
+
+#: ../../source/patrons.rst:1121
+msgid "Restricts the :ref:`batch item modification <batch-item-modification-label>` tool to modify only the subfields defined in the :ref:`SubfieldsToAllowForRestrictedBatchmod` preference"
+msgstr ""
+
+#: ../../source/patrons.rst:1125
+msgid "Please note that items\\_batchmod permission is still required"
+msgstr ""
+
+#: ../../source/patrons.rst:1127
+msgid "Create printable labels and barcodes from catalog and patron data (label\\_creator)"
+msgstr ""
+
+#: ../../source/patrons.rst:1130
+msgid "Access to the :ref:`Patron card creator <patron-card-creator-label>`, the :ref:`Label creator <label-creator-label>` and the :ref:`Quick label creator <quick-spine-label-creator-label>` tools"
+msgstr ""
+
+#: ../../source/patrons.rst:1134
+msgid "Manage CSV export profiles (manage\\_csv\\_profiles)"
+msgstr ""
+
+#: ../../source/patrons.rst:1136
+msgid "Access to the :ref:`CSV profiles tool <csv-profiles-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1138
+msgid "Add, edit and delete patron lists and their contents (manage\\_patron\\_lists)"
+msgstr ""
+
+#: ../../source/patrons.rst:1140
+msgid "Access to the :ref:`Patron lists tool <patron-lists-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1142
+msgid "Manage staged MARC records, including completing and reversing imports (manage\\_staged\\_marc)"
+msgstr ""
+
+#: ../../source/patrons.rst:1145
+msgid "Access to the :ref:`Manage staged MARC records tool <staged-marc-record-management-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1147
+msgid "Manage MARC modification templates (marc\\_modification\\_templates)"
+msgstr ""
+
+#: ../../source/patrons.rst:1149
+msgid "Access to the :ref:`MARC modification templates tool <marc-modification-templates-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1151
+msgid "Moderate patron comments (moderate\\_comments)"
+msgstr ""
+
+#: ../../source/patrons.rst:1153
+msgid "Access to the :ref:`Comments tool <comments-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1155
+msgid "Moderate patron tags (moderate\\_tags)"
+msgstr ""
+
+#: ../../source/patrons.rst:1157
+msgid "Access to the :ref:`Tags tool <tag-moderation-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1159
+msgid "Perform batch deletion of records (bibliographic or authority) (records\\_batchdel)"
+msgstr ""
+
+#: ../../source/patrons.rst:1162
+msgid "Access to the :ref:`Batch record deletion tool <batch-record-deletion-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1164
+msgid "Perform batch modification of records (bibliographic or authorities) (records\\_batchmod)"
+msgstr ""
+
+#: ../../source/patrons.rst:1167
+msgid "Access to the :ref:`Batch record modification tool <batch-record-modification-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1169
+msgid "Manage rotating collections (rotating\\_collections)"
+msgstr ""
+
+#: ../../source/patrons.rst:1171
+msgid "Access to the :ref:`Rotating collections tool <rotating-collections-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1173
+msgid "Schedule tasks to run (schedule\\_tasks)"
+msgstr ""
+
+#: ../../source/patrons.rst:1175
+msgid "Access to the :ref:`Task scheduler tool <task-scheduler-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1177
+msgid "Stage MARC records into the reservoir (stage\\_marc\\_import)"
+msgstr ""
+
+#: ../../source/patrons.rst:1179
+msgid "Access to the :ref:`Stage MARC records tool <stage-marc-records-for-import-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1181
+msgid "Upload any file (upload\\_general\\_files)"
+msgstr ""
+
+#: ../../source/patrons.rst:1183
+msgid "Access to upload files via the :ref:`Upload tool <upload-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1185
+msgid "Upload local cover images (upload\\_local\\_cover\\_images)"
+msgstr ""
+
+#: ../../source/patrons.rst:1187
+msgid "Access to the :ref:`Upload local cover image tool <upload-local-cover-image-label>` as well as permission to add and delete local cover images from the record detail page"
+msgstr ""
+
+#: ../../source/patrons.rst:1191
+msgid "Manage uploaded files (upload\\_manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:1193
+msgid "Access to uploaded files via the :ref:`Upload tool <upload-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1195
+msgid "Note that the upload\\_general\\_files permission is required for this permission to work"
+msgstr ""
+
+#: ../../source/patrons.rst:1198
+msgid "Browse the system logs (view\\_system\\_logs)"
+msgstr ""
+
+#: ../../source/patrons.rst:1200
+msgid "Access to the :ref:`Log viewer tool <log-viewer-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1202
+msgid "Edit authorities (editauthorities)"
+msgstr ""
+
+#: ../../source/patrons.rst:1204
+msgid "Grants the ability to create, edit and delete authority records"
+msgstr ""
+
+#: ../../source/patrons.rst:1206
+msgid "Note that it is possible to search authority records with only the catalogue permission"
+msgstr ""
+
+#: ../../source/patrons.rst:1209
+msgid "Manage serial subscriptions (serials)"
+msgstr ""
+
+#: ../../source/patrons.rst:1211
+msgid "Check the expiration of a serial (check\\_expiration)"
+msgstr ""
+
+#: ../../source/patrons.rst:1213
+msgid "Gives ability to check the :ref:`expiration date of serials <check-serial-expiration-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1216
+msgid "Claim missing serials (claim\\_serials)"
+msgstr ""
+
+#: ../../source/patrons.rst:1218
+msgid "Gives the ability to :ref:`claim missing issues <claim-late-serials-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1220
+msgid "Create a new subscription (create\\_subscription)"
+msgstr ""
+
+#: ../../source/patrons.rst:1222
+msgid "Gives the ability to :ref:`add new subscriptions <add-a-subscription-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1224
+msgid "Delete an existing subscription (delete\\_subscription)"
+msgstr ""
+
+#: ../../source/patrons.rst:1226
+msgid "Gives the ability to delete serial subscriptions"
+msgstr ""
+
+#: ../../source/patrons.rst:1228
+msgid "Edit an existing subscription (edit\\_subscription)"
+msgstr ""
+
+#: ../../source/patrons.rst:1230
+msgid "Gives the ability to :ref:`edit existing serial subscriptions <edit-subscription-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1233
+msgid "This permission does not include the ability to delete or create a subscription"
+msgstr ""
+
+#: ../../source/patrons.rst:1236
+msgid "Serials receiving (receive\\_serials)"
+msgstr ""
+
+#: ../../source/patrons.rst:1238
+msgid "Gives the ability to :ref:`receive issues <receive-issues-label>` of existing subscriptions"
+msgstr ""
+
+#: ../../source/patrons.rst:1241
+msgid "Renew a subscription (renew\\_subscription)"
+msgstr ""
+
+#: ../../source/patrons.rst:1243
+msgid "Gives the ability to :ref:`renew serial subscriptions <renewing-serials-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1245
+msgid "Routing (routing)"
+msgstr ""
+
+#: ../../source/patrons.rst:1247
+msgid "Gives the ability to manage :ref:`routing lists <create-a-routing-list-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1249
+msgid "Manage subscriptions from any branch (superserials)"
+msgstr ""
+
+#: ../../source/patrons.rst:1251
+msgid "This permission is only useful if the :ref:`IndependentBranches` system preference is used"
+msgstr ""
+
+#: ../../source/patrons.rst:1254
+msgid "Allow access to the reports module (reports)"
+msgstr ""
+
+#: ../../source/patrons.rst:1256
+msgid "Reports found on the :ref:`Circulation page <circulation-reports-label>` are not controlled by this permission; this only controls access to the :ref:Reports module <reports-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1260
+msgid "Reports in the :ref:`Statistics wizard <statistics-reports-label>` section and the other reports on the main reports page can be run with any one of the following permissions. They only affect the SQL reports."
+msgstr ""
+
+#: ../../source/patrons.rst:1264
+msgid "Create SQL reports (create\\_reports)"
+msgstr ""
+
+#: ../../source/patrons.rst:1266
+msgid "The ability to create :ref:`guided reports <guided-report-wizard-label>` or :ref:`SQL reports <report-from-sql-label>`, but not run saved ones"
+msgstr ""
+
+#: ../../source/patrons.rst:1269
+msgid "Delete SQL reports (delete\\_reports)"
+msgstr ""
+
+#: ../../source/patrons.rst:1271
+msgid "The ability to delete saved :ref:`SQL reports <report-from-sql-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1273
+msgid "Note that you need execute\\_reports in order to be able to delete them"
+msgstr ""
+
+#: ../../source/patrons.rst:1275
+msgid "Execute SQL reports (execute\\_reports)"
+msgstr ""
+
+#: ../../source/patrons.rst:1277
+msgid "The ability to :ref:`run custom SQL reports <running-custom-reports-label>`, but not create or edit them"
+msgstr ""
+
+#: ../../source/patrons.rst:1280
+msgid "Allow staff members to modify permissions for other staff members (staffaccess)"
+msgstr ""
+
+#: ../../source/patrons.rst:1282
+msgid "This permission requires the borrowers permission above"
+msgstr ""
+
+#: ../../source/patrons.rst:1284
+msgid "Course reserves (coursereserves)"
+msgstr ""
+
+#: ../../source/patrons.rst:1286
+msgid "Allow access to the :ref:`course reserves module <course-reserves-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1288
+msgid "Note that if the :ref:`UseCourseReserves` system preference is not enabled, these permissions will not have any effect"
+msgstr ""
+
+#: ../../source/patrons.rst:1291
+msgid "Add course reserves (add\\_reserves)"
+msgstr ""
+
+#: ../../source/patrons.rst:1293
+msgid "Grants the ability to :ref:`add items to existing courses <adding-reserve-materials-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1296
+msgid "Remove course reserves (delete\\_reserves)"
+msgstr ""
+
+#: ../../source/patrons.rst:1298
+msgid "Grant the ability to remove items from existing courses"
+msgstr ""
+
+#: ../../source/patrons.rst:1300
+msgid "Add, edit and delete courses (manage\\_courses)"
+msgstr ""
+
+#: ../../source/patrons.rst:1302
+msgid "Grants the ability to :ref:`create, edit and delete courses <adding-courses-label>`, but not manage the items"
+msgstr ""
+
+#: ../../source/patrons.rst:1305
+msgid "Koha plugins (plugins)"
+msgstr ""
+
+#: ../../source/patrons.rst:1307
+msgid "Configure plugins (configure)"
+msgstr ""
+
+#: ../../source/patrons.rst:1309
+msgid "Gives the ability to run the 'configure' section of a plugin if it has one"
+msgstr ""
+
+#: ../../source/patrons.rst:1312 ../../source/patrons.rst:1319
+msgid "Note that the staff member needs either the report permission or the tool permission (below) in order to be able to access the plugins"
+msgstr ""
+
+#: ../../source/patrons.rst:1315
+msgid "Manage plugins (manage)"
+msgstr ""
+
+#: ../../source/patrons.rst:1317
+msgid "The ability to install or uninstall plugins"
+msgstr ""
+
+#: ../../source/patrons.rst:1322
+msgid "Use report plugins (report)"
+msgstr ""
+
+#: ../../source/patrons.rst:1324
+msgid "The ability to use report plugins"
+msgstr ""
+
+#: ../../source/patrons.rst:1326
+msgid "Use tool plugins (tool)"
+msgstr ""
+
+#: ../../source/patrons.rst:1328
+msgid "The ability to use tool plugins"
+msgstr ""
+
+#: ../../source/patrons.rst:1330
+msgid "Lists (lists)"
+msgstr ""
+
+#: ../../source/patrons.rst:1334
+msgid "All staff have permission to create and modify their own lists, this permission is only necessary if you'd like to give a staff member permission to delete public lists that they have not created."
+msgstr ""
+
+#: ../../source/patrons.rst:1339
+msgid "Delete public lists (delete\\_public\\_lists)"
+msgstr ""
+
+#: ../../source/patrons.rst:1341
+msgid "The ability to delete public lists created by someone else"
+msgstr ""
+
+#: ../../source/patrons.rst:1343
+msgid "Patron clubs (clubs)"
+msgstr ""
+
+#: ../../source/patrons.rst:1345
+msgid "Create and edit clubs (edit\\_clubs)"
+msgstr ""
+
+#: ../../source/patrons.rst:1347
+msgid "Create and edit patron clubs using the :ref:`Patron clubs tool <patron-clubs-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1349
+msgid "Create and edit club templates (edit\\_templates)"
+msgstr ""
+
+#: ../../source/patrons.rst:1351
+msgid "Create and edit club templates using the :ref:`Patron clubs tool <patron-clubs-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1353
+msgid "Enroll patrons in clubs (enroll)"
+msgstr ""
+
+#: ../../source/patrons.rst:1355
+msgid "Enroll patrons from the patron file"
+msgstr ""
+
+#: ../../source/patrons.rst:1357
+msgid "The borrowers permissions is required in order to enroll patrons in clubs"
+msgstr ""
+
+#: ../../source/patrons.rst:1360
+msgid "Create and modify interlibrary loan requests (ill)"
+msgstr ""
+
+#: ../../source/patrons.rst:1362
+msgid "Gives access to the :ref:`Interlibrary loan (ILL) module <ill-requests-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1364
+msgid "Self check modules (self\\_check)"
+msgstr ""
+
+#: ../../source/patrons.rst:1366
+msgid "Log into the self check-in module (self\\_checkin\\_module)"
+msgstr ""
+
+#: ../../source/patrons.rst:1370
+msgid "This permission prevents the patron from using any other OPAC functionality"
+msgstr ""
+
+#: ../../source/patrons.rst:1373
+msgid "Perform self checkout at the OPAC (self\\_checkout\\_module)"
+msgstr ""
+
+#: ../../source/patrons.rst:1377
+msgid "This permission should be used for the patron matching the :ref:`AutoSelfCheckID <autoselfcheck-preferences-label>` system preference"
+msgstr ""
+
+#: ../../source/patrons.rst:1381
+msgid "Manage :ref:`stockrotation <stock-rotation-label>` operations (stockrotation)"
+msgstr ""
+
+#: ../../source/patrons.rst:1383
+msgid "Add and remove items from rotas (manage_rota_items)"
+msgstr ""
+
+#: ../../source/patrons.rst:1385
+msgid "Staff with only this permission will be able to manage the items in the rotas, but not the rotas themselves"
+msgstr ""
+
+#: ../../source/patrons.rst:1388
+msgid "Create, edit and delete rotas (manage_rotas)"
+msgstr ""
+
+#: ../../source/patrons.rst:1390
+msgid "Staff with only this permission will be able to manage the rotas, but not the actual items"
+msgstr ""
+
+#: ../../source/patrons.rst:1393
+msgid "Cash management (cash_management)"
+msgstr ""
+
+#: ../../source/patrons.rst:1395
+msgid "Add, edit and archive cash registers (manage_cash_registers)"
+msgstr ""
+
+#: ../../source/patrons.rst:1397
+msgid "Staff with this permissions will be able to manage the :ref:`cash registers in the administration module <cashregisters-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1400
+msgid "Access the point of sale page and take payments (takepayment)"
+msgstr ""
+
+#: ../../source/patrons.rst:1402
+msgid "Grants access to the point of sale module"
+msgstr ""
+
+#: ../../source/patrons.rst:1407
+msgid "Patron information"
+msgstr ""
+
+#: ../../source/patrons.rst:1409
+msgid "When viewing a patron record you have the option to view information from one of many tabs found on the left hand side of the record."
+msgstr ""
+
+#: ../../source/patrons.rst:1412
+msgid "*Get there:* Patrons > Browse or search for patron > Click patron name"
+msgstr ""
+
+#: ../../source/patrons.rst:1418
+msgid "Check out"
+msgstr ""
+
+#: ../../source/patrons.rst:1420
+msgid "For instruction on checking items out, view the :ref:`Checking out <check-out-(issuing)-label>` section of this manual."
+msgstr ""
+
+#: ../../source/patrons.rst:1423
+msgid "Staff members can access their own check out screen by clicking their username in the top right of the staff client and choosing 'My checkouts'"
+msgstr ""
+
+#: ../../source/patrons.rst:1427
+msgid "|image1178|"
+msgstr ""
+
+#: ../../source/patrons.rst:1432
+msgid "Details"
+msgstr ""
+
+#: ../../source/patrons.rst:1436
+msgid "Staff members can access their own account details by clicking their username in the top right of the staff client and choosing 'My account'"
+msgstr ""
+
+#: ../../source/patrons.rst:1439
+msgid "|image442|"
+msgstr ""
+
+#: ../../source/patrons.rst:1441
+msgid "All patron information will appear in the Details tab. This includes all the contact information, notes, custom patron attributes, messaging preferences, etc. entered when adding the patron."
+msgstr ""
+
+#: ../../source/patrons.rst:1445
+msgid "|image1359|"
+msgstr ""
+
+#: ../../source/patrons.rst:1447
+msgid "In the case of patrons who are marked as 'Child' or 'Professional' and their guarantors additional information will appear on their record."
+msgstr ""
+
+#: ../../source/patrons.rst:1450
+msgid "A child patron will list their guarantor"
+msgstr ""
+
+#: ../../source/patrons.rst:1452
+msgid "|image443|"
+msgstr ""
+
+#: ../../source/patrons.rst:1454
+msgid "On the guarantor's record, all children and/or professionals will be listed"
+msgstr ""
+
+#: ../../source/patrons.rst:1457
+msgid "|image444|"
+msgstr ""
+
+#: ../../source/patrons.rst:1461
+msgid "If the age of the patron is outside the age range defined in their patron category a warning will appear on their record."
+msgstr ""
+
+#: ../../source/patrons.rst:1464
+msgid "|image1461|"
+msgstr ""
+
+#: ../../source/patrons.rst:1467
+msgid "Circulation summary"
+msgstr ""
+
+#: ../../source/patrons.rst:1469
+msgid "Below the patron's information on the details screen is a tabbed display of the items they have checked out, overdue, and on hold."
+msgstr ""
+
+#: ../../source/patrons.rst:1473
+msgid "Checkouts"
+msgstr ""
+
+#: ../../source/patrons.rst:1475
+msgid "The first tab shows the items the patron currently has checked out."
+msgstr ""
+
+#: ../../source/patrons.rst:1477
+msgid "|image445|"
+msgstr ""
+
+#: ../../source/patrons.rst:1481
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: issues-table)."
+msgstr ""
+
+#: ../../source/patrons.rst:1486
+msgid "Relatives' checkouts"
+msgstr ""
+
+#: ../../source/patrons.rst:1488
+msgid "If they have family at the library, staff can see what the other family members have checked out."
+msgstr ""
+
+#: ../../source/patrons.rst:1491
+msgid "|image446|"
+msgstr ""
+
+#: ../../source/patrons.rst:1494
+msgid "Charges"
+msgstr ""
+
+#: ../../source/patrons.rst:1496
+msgid "The Charges tab will only show in the patron accounts that have unpaid amounts or unused credits."
+msgstr ""
+
+#: ../../source/patrons.rst:1499
+msgid "The tab will show the total amount, without any details. To see the details, go to the :ref:`accounting tab <fines-label>`."
+msgstr ""
+
+#: ../../source/patrons.rst:1502
+msgid "|image1360|"
+msgstr ""
+
+#: ../../source/patrons.rst:1505
+msgid "Holds"
+msgstr ""
+
+#: ../../source/patrons.rst:1507
+msgid "If the patron has holds, the number of holds will appear on this tab's title and the details will appear in the tab."
+msgstr ""
+
+#: ../../source/patrons.rst:1510
+msgid "|image490|"
+msgstr ""
+
+#: ../../source/patrons.rst:1514
+msgid "The barcode and call number will only appear on item-level holds or holds that have been confirmed. Record-level holds that are not waiting to be picked up will not have barocdes or call numbers."
+msgstr ""
+
+#: ../../source/patrons.rst:1518
+msgid "From here you can manage the patron's holds: change the pickup library, cancel or suspend holds."
+msgstr ""
+
+#: ../../source/patrons.rst:1523
+msgid "You will only be able to suspend holds if the :ref:`SuspendHoldsIntranet` system preference is set to \"Allow\"."
+msgstr ""
+
+#: ../../source/patrons.rst:1528
+msgid "If, when suspending a hold, you want to be able to set a date at which to automatically resume the hold, set the :ref:`AutoResumeSuspendedHolds` system preference to \"Allow\" and make sure the :ref:`unsuspend_holds cron job <cron-unsuspend-holds-label>` is activated."
+msgstr ""
+
+#: ../../source/patrons.rst:1536
+msgid "Article requests"
+msgstr ""
+
+#: ../../source/patrons.rst:1538
+msgid "If the :ref:`ArticleRequests` system preference is enabled, and the circulation rules allow it, the patrons will be able to request articles, either through the OPAC or in the staff interface."
+msgstr ""
+
+#: ../../source/patrons.rst:1542
+msgid "The details of the patron's request, and its status, are visible in this tab."
+msgstr ""
+
+#: ../../source/patrons.rst:1545
+msgid "|image1361|"
+msgstr ""
+
+#: ../../source/patrons.rst:1548
+msgid "Restrictions"
+msgstr ""
+
+#: ../../source/patrons.rst:1550
+msgid "The Restrictions tab will show for all patrons. If the patron has no restrictions you will see that on the tab."
+msgstr ""
+
+#: ../../source/patrons.rst:1553
+msgid "|image447|"
+msgstr ""
+
+#: ../../source/patrons.rst:1555
+msgid "If the patron has restrictions on their account the tab will show the number and the description."
+msgstr ""
+
+#: ../../source/patrons.rst:1562
+msgid "There are four kinds of restrictions:"
+msgstr ""
+
+#: ../../source/patrons.rst:1559
+msgid "Manual"
+msgstr ""
+
+#: ../../source/patrons.rst:1560
+msgid "Overdues"
+msgstr ""
+
+#: ../../source/patrons.rst:1561
+msgid "Suspension"
+msgstr ""
+
+#: ../../source/patrons.rst:1562
+msgid "Discharge"
+msgstr ""
+
+#: ../../source/patrons.rst:1564
+msgid "Using the 'Add manual restriction' button you can add a restriction to the patron record from here. This can be used for any type of restriction you need to put manually on a patron record."
+msgstr ""
+
+#: ../../source/patrons.rst:1568
+msgid "|image449|"
+msgstr ""
+
+#: ../../source/patrons.rst:1570
+msgid "|image448|"
+msgstr ""
+
+#: ../../source/patrons.rst:1572
+msgid "The overdues restrictions are automatically set when overdue notices are sent if you specified you wanted the patron restricted in the :ref:`Overdue notice/status triggers tool <overdue-notice/status-triggers-label>`."
+msgstr ""
+
+#: ../../source/patrons.rst:1576
+msgid "This restriction will not be removed automatically when the overdue items are returned unless the :ref:`AutoRemoveOverduesRestrictions` system preference is set to 'Do'."
+msgstr ""
+
+#: ../../source/patrons.rst:1580
+msgid "In the :ref:`circulation rules <circulation-and-fines-rules-label>`, you can choose to fine users by suspending them instead of (or in addition to) fining them money. In that case, returning an overdue document will trigger a suspension restriction."
+msgstr ""
+
+#: ../../source/patrons.rst:1584
+msgid "Patrons may also be restricted if you have issued a :ref:`discharge <patron-discharges-label>` for them. Once the discharge is validated, the patron is automatically restricted."
+msgstr ""
+
+#: ../../source/patrons.rst:1586
+msgid "Restrictions on a patron record will block checkouts. In fact, a message will appear in red when going to the checkout page."
+msgstr ""
+
+#: ../../source/patrons.rst:1589
+msgid "|image1363|"
+msgstr ""
+
+#: ../../source/patrons.rst:1591
+msgid "Restrictions may also prevent renewing items if the :ref:`RestrictionBlockRenewing` system preference is set to 'block'."
+msgstr ""
+
+#: ../../source/patrons.rst:1594
+msgid "On the OPAC, patrons will get a message saying their account is frozen. They will not be able to place holds from the OPAC."
+msgstr ""
+
+#: ../../source/patrons.rst:1597
+msgid "If you have patrons that have more than one restriction, you can choose to cumulate their restriction periods or not through the :ref:`CumulativeRestrictionPeriods` system preference."
+msgstr ""
+
+#: ../../source/patrons.rst:1603
+msgid "If you want to restrict patrons from doing various actions if their record is not pristine, check the following system preferences:"
+msgstr ""
+
+#: ../../source/patrons.rst:1606
+msgid "Set the :ref:`OverduesBlockCirc` system preference to 'Block' to prevent patrons who have overdue materials from checking out other materials."
+msgstr ""
+
+#: ../../source/patrons.rst:1608
+msgid "Set the :ref:`OverduesBlockRenewing` system preference to 'block renewing for all the patron's items' or 'block renewing only for this item' to prevent patrons who have overdue materials from renewing their loans."
+msgstr ""
+
+#: ../../source/patrons.rst:1611
+msgid "Enter values in the :ref:`noissuescharge` and :ref:`NoIssuesChargeGuarantees` system preferences in order to block checking out to patrons who have more than a certain amount in fines or to patrons whose guarantees owe more than a certain amount."
+msgstr ""
+
+#: ../../source/patrons.rst:1615
+msgid "Enter a value in the :ref:`maxoutstanding` system preference to prevent patron from placing holds on the OPAC if they owe more than a certain amount."
+msgstr ""
+
+#: ../../source/patrons.rst:1617
+msgid "Enter a value in the :ref:`OPACFineNoRenewals` system preference to prevent patron who owe more than a certain amount to renew their loans from the OPAC."
+msgstr ""
+
+#: ../../source/patrons.rst:1619
+msgid "Set the :ref:`BlockExpiredPatronOpacActions` system preference to 'Block' if you want to prevent patron whose membership has expired to place hold or renew their loans from the OPAC."
+msgstr ""
+
+#: ../../source/patrons.rst:1624
+msgid "Clubs"
+msgstr ""
+
+#: ../../source/patrons.rst:1626
+msgid "If you use :ref:`patron clubs <patron-clubs-label>`, patrons will have a tab in their record indicating which club they are enrolled in, if any."
+msgstr ""
+
+#: ../../source/patrons.rst:1629
+msgid "|image1362|"
+msgstr ""
+
+#: ../../source/patrons.rst:1634
+msgid "Accounting"
+msgstr ""
+
+#: ../../source/patrons.rst:1636
+msgid "The patron's complete accounting history will appear on the Accounting tab. The Accounting tab will show all types of charges and credits: overdue fines, membership fees, rental fees, reserve fees and any other charge you may have for patrons."
+msgstr ""
+
+#: ../../source/patrons.rst:1641
+msgid "|image450|"
+msgstr ""
+
+#: ../../source/patrons.rst:1645
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: account-fines)."
+msgstr ""
+
+#: ../../source/patrons.rst:1649
+msgid "The Transactions tab will show you the following columns:"
+msgstr ""
+
+#: ../../source/patrons.rst:1651
+msgid "Date: the date the charge, payment or credit was posted"
+msgstr ""
+
+#: ../../source/patrons.rst:1653
+msgid "In the case of fines this will be the last day that the fine was accrued"
+msgstr ""
+
+#: ../../source/patrons.rst:1656
+msgid "Account type: what type of charge, payment or credit it is"
+msgstr ""
+
+#: ../../source/patrons.rst:1658
+msgid "In cases where an account type may have an accompanying `status` it will be displayed alongside the accounttype in brackets."
+msgstr ""
+
+#: ../../source/patrons.rst:1661
+msgid "Description of charges: a description of the charges including the due date for overdue items and a link to the item record where one is available"
+msgstr ""
+
+#: ../../source/patrons.rst:1664
+msgid "Barcode: if the charge is linked to a particular item, the barcode is displayed"
+msgstr ""
+
+#: ../../source/patrons.rst:1667
+msgid "Due date: if the charge is an overdue fine, the due date is displayed"
+msgstr ""
+
+#: ../../source/patrons.rst:1669
+msgid "Checkin date: if the charge is an overdue fine, the checkin date is displayed"
+msgstr ""
+
+#: ../../source/patrons.rst:1671
+msgid "Checkout date: if the charge is an overdue fine, the check out date is displayed"
+msgstr ""
+
+#: ../../source/patrons.rst:1673
+msgid "Home library: if the charge is linked to a particular item the home library is displayed"
+msgstr ""
+
+#: ../../source/patrons.rst:1676
+msgid "Note: any notes about this charge/payment"
+msgstr ""
+
+#: ../../source/patrons.rst:1678
+msgid "If you're allowing patrons to pay fines via the OPAC with PayPal (:ref:`EnablePayPalOpacPayments <enablepaypalopacpayments-and-paypalsandboxmode-label>`) you will see a Note that says 'PayPal' for items paid this way"
+msgstr ""
+
+#: ../../source/patrons.rst:1682
+msgid "Amount: the total amount of the payment or charge"
+msgstr ""
+
+#: ../../source/patrons.rst:1684
+msgid "Outstanding: the amount still due on charge"
+msgstr ""
+
+#: ../../source/patrons.rst:1686
+msgid "Actions:"
+msgstr ""
+
+#: ../../source/patrons.rst:1688
+msgid "A selection of actions available to take upon the account line as detailed below"
+msgstr ""
+
+#: ../../source/patrons.rst:1690
+msgid "At the top of the table you can click the 'Filter paid transaction' to hide all completed transaction and above that you can use the search box to find a specific charge or payment."
+msgstr ""
+
+#: ../../source/patrons.rst:1697
+msgid "Actions"
+msgstr ""
+
+#: ../../source/patrons.rst:1699
+msgid "Action buttons will be available for the different account lines depending on the users available permissions and the account type and status."
+msgstr ""
+
+#: ../../source/patrons.rst:1702
+msgid "A button to print a receipt for that line item"
+msgstr ""
+
+#: ../../source/patrons.rst:1704
+msgid "A button to show further details about the charge and any payments that have been made"
+msgstr ""
+
+#: ../../source/patrons.rst:1706
+msgid "A button to void (reverse) a payment/credit"
+msgstr ""
+
+#: ../../source/patrons.rst:1708
+msgid "This button will only appear on a payment/credit line. Upon voiding the line it will reverse the payment process restoring the amountoutstanding for any debts/debits which the payment/credit may have previously been used to offset. This action is most commonly used to correct cases where a payment was recorded but never actually recieved. The credit line will be set to a zero amount and updated to `VOID`."
+msgstr ""
+
+#: ../../source/patrons.rst:1715
+msgid "A button to cancel (remove) a charge/debit"
+msgstr ""
+
+#: ../../source/patrons.rst:1717
+msgid "This button will only appear on a charge/debit line that has not already had any payment/credits applied to it. Upon cancelling the line it will be marked as 'Cancelled' and a `CANCELLATION` line will be added and offset against it. This action is most commonly used to correct cases where a charge was made mistakenly."
+msgstr ""
+
+#: ../../source/patrons.rst:1723
+msgid "A button to pay against charges/debits with outstanding amounts"
+msgstr ""
+
+#: ../../source/patrons.rst:1725
+msgid "This button will appear against any charge/debit with an outstanding amount.  The subsequent page can be used to pay or writeoff the line partially or in full with a `PAYMENT` or `WRITEOFF` line will being added."
+msgstr ""
+
+#: ../../source/patrons.rst:1729
+msgid "A button to issue a payout of credit"
+msgstr ""
+
+#: ../../source/patrons.rst:1731
+msgid "This button will appear against any credit line that has an amount outstanding and you have the :ref:`payout permission <patron-permissions-defined-label>`. It allows the librarian to return outstanding credit to the patron and record the action with a `PAYOUT` line."
+msgstr ""
+
+#: ../../source/patrons.rst:1736
+msgid "A button to issue a refund against a charge/debit"
+msgstr ""
+
+#: ../../source/patrons.rst:1738
+msgid "This button will appear against any charge/debit line that has been paid or partially paid and you have the :ref:`refund permission <patron-permissions-defined-label>`. The subsequent modal dialogue will allow you to partially or fully refund the offset debt, either in `CASH` or by means of a credit added to the account."
+msgstr ""
+
+#: ../../source/patrons.rst:1744
+msgid "A button to apply a discount to a charge/debit"
+msgstr ""
+
+#: ../../source/patrons.rst:1746
+msgid "This button will appear against any charge/debit which has not already been offset by a credit/payment and you have the :ref:`discount permission <patron-permissions-defined-label>`. The subsequent modal dialogue will allow you to add a discount upon the charge."
+msgstr ""
+
+#: ../../source/patrons.rst:1755
+msgid "Charging fines/fees"
+msgstr ""
+
+#: ../../source/patrons.rst:1757
+msgid "Most fees and fines will be charged automatically if the :ref:`fines cron job <cron-fines-label>` is running.  Fines will also be charged when an overdue item is checked in if the :ref:`CalculateFinesOnReturn` system preference is enabled."
+msgstr ""
+
+#: ../../source/patrons.rst:1761
+msgid "Fines will be charged based on your :ref:`circulation and fines rules <circulation-and-fines-rules-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:1764
+msgid "Hold fees will be charged based on the rules you set in the :ref:`Patron types and categories <patron-categories-label>` administration area"
+msgstr ""
+
+#: ../../source/patrons.rst:1767
+msgid "Rental fees will be charged based on the settings in your :ref:`Item iypes <item-types-label>` administration area"
+msgstr ""
+
+#: ../../source/patrons.rst:1770
+msgid "Marking an item 'Lost' via the cataloging module will automatically charge the patron the replacement cost for that item"
+msgstr ""
+
+#: ../../source/patrons.rst:1773
+msgid "Creating a patron in a :ref:`category <patron-categories-label>` with an enrollment fee."
+msgstr ""
+
+#: ../../source/patrons.rst:1776
+msgid "Renewing a patron account in a :ref:`category <patron-categories-label>` with an enrollment fee."
+msgstr ""
+
+#: ../../source/patrons.rst:1782
+msgid "Pay and Writeoff fines"
+msgstr ""
+
+#: ../../source/patrons.rst:1784
+msgid "Each line item can be paid in full (or written off) using the 'Pay charges' tab.  You can switch between 'Pay' and 'Write off' mode using the buttons located at the top of this tab if you are part way through a transaction."
+msgstr ""
+
+#: ../../source/patrons.rst:1788
+msgid "|image451|"
+msgstr ""
+
+#: ../../source/patrons.rst:1792
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: pay-fines-table)."
+msgstr ""
+
+#: ../../source/patrons.rst:1796
+msgid "Each line item can be paid in full, partially paid, or written off."
+msgstr ""
+
+#: ../../source/patrons.rst:1798
+msgid "Pay a fine in full"
+msgstr ""
+
+#: ../../source/patrons.rst:1800
+msgid "If you have a note about the payment please type that first then move on"
+msgstr ""
+
+#: ../../source/patrons.rst:1803
+msgid "Click \"Pay\" next to the fine you want to pay in full"
+msgstr ""
+
+#: ../../source/patrons.rst:1805
+msgid "The full amount of the fine will be populated for you in the \"Collect from patron\" box"
+msgstr ""
+
+#: ../../source/patrons.rst:1808
+msgid "There is a change feature included in this payment process. An option to specify how much money was collected when paying a fine, as well as defining how much was paid on the fine. If these numbers are different (i.e. more money was collected) a popup displaying the amount of change to be given will be displayed and require confirmation before proceeding"
+msgstr ""
+
+#: ../../source/patrons.rst:1814
+msgid "If one or more values are defined under the PAYMENT\\_TYPE authorized value category a dropdown selection box will be displayed to specify a custom payment type."
+msgstr ""
+
+#: ../../source/patrons.rst:1818
+msgid "If the :ref:`UseCashRegisters` system preference is enabled, you will have a choice of cash register in which to enter the transaction"
+msgstr ""
+
+#: ../../source/patrons.rst:1821 ../../source/patrons.rst:1845
+#: ../../source/patrons.rst:1860 ../../source/patrons.rst:1876
+msgid "Click \"Confirm\""
+msgstr ""
+
+#: ../../source/patrons.rst:1823
+msgid "The fine will be removed from outstanding fines, and displayed as fully paid."
+msgstr ""
+
+#: ../../source/patrons.rst:1828
+msgid "If the :ref:`FinePaymentAutoPopup` system preference is enabled a print dialogue window will display.  If change was given for this trancaction the details will be included when using this system preference."
+msgstr ""
+
+#: ../../source/patrons.rst:1832
+msgid "In addition to printing receipts you can enable email receipts for payment and writeoff transactions with the :ref:`UseEmailReceipts` system preference."
+msgstr ""
+
+#: ../../source/patrons.rst:1836
+msgid "Pay a partial fine"
+msgstr ""
+
+#: ../../source/patrons.rst:1838
+msgid "Click \"Pay\" next to the fine you want to partially pay"
+msgstr ""
+
+#: ../../source/patrons.rst:1840
+msgid "Enter the amount you are collecting from the patron in the \"Collect from patron\" box"
+msgstr ""
+
+#: ../../source/patrons.rst:1843
+msgid "|image453|"
+msgstr ""
+
+#: ../../source/patrons.rst:1847
+msgid "The fine will be updated to show the original amount, and the current amount outstanding"
+msgstr ""
+
+#: ../../source/patrons.rst:1850
+msgid "Pay an amount towards all fines"
+msgstr ""
+
+#: ../../source/patrons.rst:1852
+msgid "Click the \"Pay amount\" button"
+msgstr ""
+
+#: ../../source/patrons.rst:1854
+msgid "Enter the amount you are collecting from the patron in \"Collect from patron.\" The sum of all fines is shown in \"Total amount outstanding\""
+msgstr ""
+
+#: ../../source/patrons.rst:1858
+msgid "|image454|"
+msgstr ""
+
+#: ../../source/patrons.rst:1862
+msgid "The fine totals will be updated with the payment applied to oldest fines first."
+msgstr ""
+
+#: ../../source/patrons.rst:1865
+msgid "Pay selected fines"
+msgstr ""
+
+#: ../../source/patrons.rst:1867
+msgid "Check the selection boxes next to the fines you wish to pay, click \"Pay selected\""
+msgstr ""
+
+#: ../../source/patrons.rst:1870
+msgid "|image455|"
+msgstr ""
+
+#: ../../source/patrons.rst:1872
+msgid "Enter an amount to pay towards the fines."
+msgstr ""
+
+#: ../../source/patrons.rst:1874
+msgid "|image456|"
+msgstr ""
+
+#: ../../source/patrons.rst:1878
+msgid "The fine totals will be updated with the payment applied to the oldest selected fines first."
+msgstr ""
+
+#: ../../source/patrons.rst:1881
+msgid "Writeoff a single fine"
+msgstr ""
+
+#: ../../source/patrons.rst:1883
+msgid "Click \"Writeoff\" next to the fine you wish to writeoff."
+msgstr ""
+
+#: ../../source/patrons.rst:1885
+msgid "A confirmation box will appear to specify a total amount to writeoff. This box allows a partial writeoff of fines."
+msgstr ""
+
+#: ../../source/patrons.rst:1888 ../../source/patrons.rst:1897
+msgid "The fine will be removed from outstanding fines, and displayed as written off."
+msgstr ""
+
+#: ../../source/patrons.rst:1891
+msgid "Writeoff selected fines"
+msgstr ""
+
+#: ../../source/patrons.rst:1893
+msgid "Check the selection boxes next to the fines you wish to pay, click \"Writeoff selected\"."
+msgstr ""
+
+#: ../../source/patrons.rst:1895
+msgid "Click \"Confirm\"."
+msgstr ""
+
+#: ../../source/patrons.rst:1899
+msgid "Writeoff all fines"
+msgstr ""
+
+#: ../../source/patrons.rst:1901
+msgid "Click the \"Writeoff all\" button"
+msgstr ""
+
+#: ../../source/patrons.rst:1903
+msgid "All fines will be removed from outstanding fines, and displayed as written off."
+msgstr ""
+
+#: ../../source/patrons.rst:1908
+msgid "Void payments"
+msgstr ""
+
+#: ../../source/patrons.rst:1910
+msgid "If you accidentally mark and item as paid, you can reverse that line item by clicking 'Void' to the right of the line"
+msgstr ""
+
+#: ../../source/patrons.rst:1913
+msgid "|image457|"
+msgstr ""
+
+#: ../../source/patrons.rst:1915
+msgid "Once clicked a new line item will be added to the account showing the payment as ‘Voided’.  The payment line is added back to the Pay fines tab as an outstanding charge."
+msgstr ""
+
+#: ../../source/patrons.rst:1919
+msgid "|image458|"
+msgstr ""
+
+#: ../../source/patrons.rst:1924
+msgid "Creating manual invoices"
+msgstr ""
+
+#: ../../source/patrons.rst:1926
+msgid "For fees that are not automatically charged, librarians can create a manual invoice"
+msgstr ""
+
+#: ../../source/patrons.rst:1929
+msgid "|image459|"
+msgstr ""
+
+#: ../../source/patrons.rst:1931
+msgid "First choose the type of invoice you would like to create"
+msgstr ""
+
+#: ../../source/patrons.rst:1933
+msgid "To add additional values to the manual invoice type pull down menu, add them to the :ref:`debit types <add-debit-type-label>` in the Administration module."
+msgstr ""
+
+#: ../../source/patrons.rst:1937
+msgid "If the fee is associated with an item you can enter its barcode so that the line item shows a link to that item"
+msgstr ""
+
+#: ../../source/patrons.rst:1940
+msgid "The description field is where you will enter the description of the charge"
+msgstr ""
+
+#: ../../source/patrons.rst:1943 ../../source/patrons.rst:1964
+msgid "In the amount field, do not enter currency symbols, only numbers and decimals"
+msgstr ""
+
+#: ../../source/patrons.rst:1949
+msgid "Creating manual credits"
+msgstr ""
+
+#: ../../source/patrons.rst:1951
+msgid "Manual credits can be used to pay off parts of fines, or to forgive a fine amount."
+msgstr ""
+
+#: ../../source/patrons.rst:1954
+msgid "|image460|"
+msgstr ""
+
+#: ../../source/patrons.rst:1956
+msgid "First choose the type of credit you'd like to apply"
+msgstr ""
+
+#: ../../source/patrons.rst:1958
+msgid "If this credit is associated with an item you can enter that item's barcode so that the line item links to the right item"
+msgstr ""
+
+#: ../../source/patrons.rst:1961
+msgid "The description field is where you will enter the description of the credit"
+msgstr ""
+
+#: ../../source/patrons.rst:1970
+msgid "Printing invoices"
+msgstr ""
+
+#: ../../source/patrons.rst:1972
+msgid "To the right of each account line there is a print link. Clicking that link will print an invoice for the line item that includes the date and description of the line item along with the total outstanding on the account."
+msgstr ""
+
+#: ../../source/patrons.rst:1977
+msgid "|image461|"
+msgstr ""
+
+#: ../../source/patrons.rst:1982
+msgid "Routing lists"
+msgstr ""
+
+#: ../../source/patrons.rst:1984
+msgid "A list of all of the serial routing lists the patron belongs to will be accessible via the 'Routing lists' tab on the patron record."
+msgstr ""
+
+#: ../../source/patrons.rst:1987
+msgid "|image462|"
+msgstr ""
+
+#: ../../source/patrons.rst:1989
+msgid "On this tab you will be able to see and edit all of the routing lists that this patron is on."
+msgstr ""
+
+#: ../../source/patrons.rst:1992
+msgid "|image463|"
+msgstr ""
+
+#: ../../source/patrons.rst:1997
+msgid "Circulation history"
+msgstr ""
+
+#: ../../source/patrons.rst:1999
+msgid "The circulation history tab will appear if you have set the :ref:`intranetreadinghistory` preference to allow it to appear. If you have the :ref:`OPACPrivacy` system preference set to 'Allow' and the patron has decided that the library cannot keep this information this tab will only show currently checked out items."
+msgstr ""
+
+#: ../../source/patrons.rst:2006
+msgid "|image464|"
+msgstr ""
+
+#: ../../source/patrons.rst:2010
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: checkouthistory-table)."
+msgstr ""
+
+#: ../../source/patrons.rst:2014
+msgid "If you would like to export a list of barcodes for the items checked in today you can find that option under the More menu on the top right of the page."
+msgstr ""
+
+#: ../../source/patrons.rst:2018
+msgid "|image465|"
+msgstr ""
+
+#: ../../source/patrons.rst:2020
+msgid "This will generate a text file with one barcode per line."
+msgstr ""
+
+#: ../../source/patrons.rst:2025
+msgid "Holds history"
+msgstr ""
+
+#: ../../source/patrons.rst:2027
+msgid "The holds history tab shows all the holds the patron has made, with their status."
+msgstr ""
+
+#: ../../source/patrons.rst:2029
+msgid "|image1496|"
+msgstr ""
+
+#: ../../source/patrons.rst:2033
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: holdshistory-table)."
+msgstr ""
+
+#: ../../source/patrons.rst:2040
+msgid "Modification log"
+msgstr ""
+
+#: ../../source/patrons.rst:2042
+msgid "If you have set your :ref:`BorrowersLog` to track changes to patron records, then this tab will appear. The Modification log will show when changes were made to the patron record. If you also have turned on the :ref:`IssueLog` and :ref:`ReturnLog` you will see checkins and outs on this screen as well."
+msgstr ""
+
+#: ../../source/patrons.rst:2048
+msgid "|image466|"
+msgstr ""
+
+#: ../../source/patrons.rst:2050
+msgid "The Librarian field shows the patron number for the librarian who made the changes"
+msgstr ""
+
+#: ../../source/patrons.rst:2053
+msgid "The module lists 'MEMBERS' for the patron module"
+msgstr ""
+
+#: ../../source/patrons.rst:2055
+msgid "The action will tell you what action was being logged"
+msgstr ""
+
+#: ../../source/patrons.rst:2057
+msgid "The Object field lists the borrowernumber that is being modified (in the example above, it was my changing my own record)"
+msgstr ""
+
+#: ../../source/patrons.rst:2063
+msgid "Notices"
+msgstr ""
+
+#: ../../source/patrons.rst:2065
+msgid "The `patron's messaging preferences <#setpatronmessaging>`__ are set when :ref:`adding <add-a-new-patron-label>` or :ref:`editing <editing-patrons-label>` the patron. This tab will show the messages that have been sent and those that are queued to be sent:"
+msgstr ""
+
+#: ../../source/patrons.rst:2070
+msgid "|image467|"
+msgstr ""
+
+#: ../../source/patrons.rst:2072
+msgid "Clicking on the message title will expand the view to show you the full text of the message that was sent."
+msgstr ""
+
+#: ../../source/patrons.rst:2075
+msgid "|image468|"
+msgstr ""
+
+#: ../../source/patrons.rst:2077
+msgid "If the message has a status of sent or failed you will have the option to 'resend' the message to the patron by clicking the 'resend' button found under the status."
+msgstr ""
+
+#: ../../source/patrons.rst:2081
+msgid "|image469|"
+msgstr ""
+
+#: ../../source/patrons.rst:2086
+msgid "Statistics"
+msgstr ""
+
+#: ../../source/patrons.rst:2088
+msgid "Depending on what you set for the values of your :ref:`StatisticsFields` system preference, you can see statistics for one patron's circulation actions."
+msgstr ""
+
+#: ../../source/patrons.rst:2092
+msgid "|image470|"
+msgstr ""
+
+#: ../../source/patrons.rst:2097
+msgid "Files"
+msgstr ""
+
+#: ../../source/patrons.rst:2099
+msgid "If you set the :ref:`EnableBorrowerFiles` preference to 'Do' the Files tab will be visible on the patron information page."
+msgstr ""
+
+#: ../../source/patrons.rst:2102
+msgid "|image471|"
+msgstr ""
+
+#: ../../source/patrons.rst:2104
+msgid "From here you can upload files to attach to the patron record."
+msgstr ""
+
+#: ../../source/patrons.rst:2106
+msgid "|image472|"
+msgstr ""
+
+#: ../../source/patrons.rst:2108
+msgid "All files that are uploaded will appear above a form where additional files can be uploaded from."
+msgstr ""
+
+#: ../../source/patrons.rst:2111
+msgid "|image473|"
+msgstr ""
+
+#: ../../source/patrons.rst:2116
+msgid "Purchase suggestions"
+msgstr ""
+
+#: ../../source/patrons.rst:2118
+msgid "If the patron has made any purchase suggestions you will see a purchase suggestions tab on the patron record."
+msgstr ""
+
+#: ../../source/patrons.rst:2121
+msgid "|image1247|"
+msgstr ""
+
+#: ../../source/patrons.rst:2123
+msgid "From here you can see all suggestions made by the patron and their status, you can also create a purchase suggestion on the patron's behalf by clicking the 'New purchase suggestion' button at the top."
+msgstr ""
+
+#: ../../source/patrons.rst:2127
+msgid "Learn more about :ref:`managing purchase suggestions <managing-purchase-suggestions-label>` in the `Acquisitions <#acqmodule>`__ chapter of this manual."
+msgstr ""
+
+#: ../../source/patrons.rst:2133
+msgid "Patron discharges"
+msgstr ""
+
+#: ../../source/patrons.rst:2135
+msgid "A discharge is a certificate that says the patron has no current checkouts, no holds and owe no money. To enable this opti`on on the patron record you need to set the :ref:`useDischarge` system preference to 'Allow'."
+msgstr ""
+
+#: ../../source/patrons.rst:2142
+msgid "In France a \"quitus\" (\"discharge\") is needed if you want to register for an account in a library or a university."
+msgstr ""
+
+#: ../../source/patrons.rst:2147
+msgid "Academic libraries often require that you have a clear record at the library before you can graduate."
+msgstr ""
+
+#: ../../source/patrons.rst:2150
+msgid "Patrons can :ref:`request discharges via the OPAC <ask-for-a-discharge-label>`. Any pending discharges will be listed below the menu buttons on the main staff client page"
+msgstr ""
+
+#: ../../source/patrons.rst:2154
+msgid "|image1248|"
+msgstr ""
+
+#: ../../source/patrons.rst:2156
+msgid "Clicking the pending requests will open a screen where you can allow those discharges"
+msgstr ""
+
+#: ../../source/patrons.rst:2159
+msgid "|image1249|"
+msgstr ""
+
+#: ../../source/patrons.rst:2161
+msgid "To generate a discharge for a specific patron click the 'Discharge' tab on the left of the patron record"
+msgstr ""
+
+#: ../../source/patrons.rst:2164
+msgid "|image1250|"
+msgstr ""
+
+#: ../../source/patrons.rst:2166
+msgid "If the patron can have a discharge generated then it will have a button that says 'Generate discharge'"
+msgstr ""
+
+#: ../../source/patrons.rst:2169
+msgid "|image474|"
+msgstr ""
+
+#: ../../source/patrons.rst:2171
+msgid "If not then you'll see an error explaining why you can't discharge the patron."
+msgstr ""
+
+#: ../../source/patrons.rst:2174
+msgid "|image475|"
+msgstr ""
+
+#: ../../source/patrons.rst:2176
+msgid "Once the letter is generated you will have a PDF to download"
+msgstr ""
+
+#: ../../source/patrons.rst:2178
+msgid "|image476|"
+msgstr ""
+
+#: ../../source/patrons.rst:2182
+msgid "You can style the PDF using the :ref:`NoticeCSS` preference."
+msgstr ""
+
+#: ../../source/patrons.rst:2185
+msgid "The patron will have a restriction added to their account"
+msgstr ""
+
+#: ../../source/patrons.rst:2187
+msgid "|image1251|"
+msgstr ""
+
+#: ../../source/patrons.rst:2189
+msgid "And a history of discharges will be added to the 'Discharge' tab"
+msgstr ""
+
+#: ../../source/patrons.rst:2192
+msgid "|image1252|"
+msgstr ""
+
+#: ../../source/patrons.rst:2197
+msgid "Housebound patrons"
+msgstr ""
+
+#: ../../source/patrons.rst:2199
+msgid "There are three roles a patron can have in regard to housebound circulation: borrower, chooser or deliverer."
+msgstr ""
+
+#: ../../source/patrons.rst:2204
+msgid "In order to use the housebound module, the :ref:`HouseboundModule` and :ref:`ExtendedPatronAttributes` system preferences must be enabled."
+msgstr ""
+
+#: ../../source/patrons.rst:2211
+msgid "Chooser"
+msgstr ""
+
+#: ../../source/patrons.rst:2213
+msgid "If you have enabled the housebound module, with the :ref:`HouseboundModule` system preference, you will see that patrons now have a new section in their record called 'Housebound roles'."
+msgstr ""
+
+#: ../../source/patrons.rst:2218
+msgid "|image1349|"
+msgstr ""
+
+#: ../../source/patrons.rst:2220
+msgid "Click the 'Add' button to mark this patron as a 'Chooser'."
+msgstr ""
+
+#: ../../source/patrons.rst:2223
+msgid "|image1350|"
+msgstr ""
+
+#: ../../source/patrons.rst:2225
+msgid "The chooser is in charge of choosing the materials for the housebound patron."
+msgstr ""
+
+#: ../../source/patrons.rst:2231
+msgid "Deliverer"
+msgstr ""
+
+#: ../../source/patrons.rst:2233
+msgid "In the 'Housebound roles', click the 'Add' button to mark this patron as a 'Deliverer'."
+msgstr ""
+
+#: ../../source/patrons.rst:2236
+msgid "|image1351|"
+msgstr ""
+
+#: ../../source/patrons.rst:2238
+msgid "The deliverer is in charge of delivering the chosen materials to the housebound patron on a specific day at a specific time."
+msgstr ""
+
+#: ../../source/patrons.rst:2244
+msgid "Housebound borrowers"
+msgstr ""
+
+#: ../../source/patrons.rst:2246
+msgid "To create a housebound profile for an housebound patron, click on the 'Housebound' tab in their record."
+msgstr ""
+
+#: ../../source/patrons.rst:2249
+msgid "|image1347|"
+msgstr ""
+
+#: ../../source/patrons.rst:2251
+msgid "From there, you can edit their housebound profile information."
+msgstr ""
+
+#: ../../source/patrons.rst:2253
+msgid "|image1348|"
+msgstr ""
+
+#: ../../source/patrons.rst:2255
+msgid "Delivery day: choose which day (or 'Any') the patron prefers to receive their delivery."
+msgstr ""
+
+#: ../../source/patrons.rst:2258
+msgid "Frequency: choose the frequency at which they want to receive their deliveries."
+msgstr ""
+
+#: ../../source/patrons.rst:2263
+msgid "The frequencies are managed through the HSBND\\_FREQ list of :ref:`authorized values <existing-values-label>`."
+msgstr ""
+
+#: ../../source/patrons.rst:2266
+msgid "Preferred materials: enter notes that will help the chooser choose appropriate documents for the housebound patron."
+msgstr ""
+
+#: ../../source/patrons.rst:2269
+msgid "For example: books, dvds, magazines, etc."
+msgstr ""
+
+#: ../../source/patrons.rst:2271
+msgid "Subjects: if the housebound patron has a preference for particular subjects, enter it here. This will help the chooser choose interesting documents for the patron."
+msgstr ""
+
+#: ../../source/patrons.rst:2275
+msgid "For example: romance, cookbooks, thrillers, etc."
+msgstr ""
+
+#: ../../source/patrons.rst:2277
+msgid "Authors: if the housebound patron has favorite authors, enter them here."
+msgstr ""
+
+#: ../../source/patrons.rst:2280
+msgid "For example: Danielle Steel, James Patterson, etc."
+msgstr ""
+
+#: ../../source/patrons.rst:2282
+msgid "Referral: if the housebound patron has a referral, enter it here."
+msgstr ""
+
+#: ../../source/patrons.rst:2285
+msgid "Notes: enter any other notes that may help the chooser or the deliverer."
+msgstr ""
+
+#: ../../source/patrons.rst:2288
+msgid "Click the 'Save changes' button to save the housebound profile."
+msgstr ""
+
+#: ../../source/patrons.rst:2293
+msgid "Coordinating deliveries"
+msgstr ""
+
+#: ../../source/patrons.rst:2295
+msgid "To plan visits, go to the housebound patron's record."
+msgstr ""
+
+#: ../../source/patrons.rst:2297
+msgid "In their housebound tab, you will be able to create deliveries."
+msgstr ""
+
+#: ../../source/patrons.rst:2299
+msgid "|image1352|"
+msgstr ""
+
+#: ../../source/patrons.rst:2301
+msgid "Click on 'Add a new delivery'."
+msgstr ""
+
+#: ../../source/patrons.rst:2303
+msgid "|image1353|"
+msgstr ""
+
+#: ../../source/patrons.rst:2305
+msgid "Fill out the information :"
+msgstr ""
+
+#: ../../source/patrons.rst:2307
+msgid "Date: Enter the date of the delivery."
+msgstr ""
+
+#: ../../source/patrons.rst:2309
+msgid "Time: Select a time of day for the delivery. The choices are morning, afternoon, or evening."
+msgstr ""
+
+#: ../../source/patrons.rst:2312
+msgid "Chooser: Select a chooser who will be in charge of selecting the materials for this housebound patron."
+msgstr ""
+
+#: ../../source/patrons.rst:2315
+msgid "Deliverer: Select a deliverer who will be in charge of picking up the materials and bringing them over to the housebound patron."
+msgstr ""
+
+#: ../../source/patrons.rst:2319
+msgid "|image1354|"
+msgstr ""
+
+#: ../../source/patrons.rst:2321
+msgid "Choosers and Deliverers can be notified of planned deliveries via reports.  Example reports be found in the SQL Reports Library at https://wiki.koha-community.org/wiki/SQL_Reports_Patrons#Patron_Characteristics."
+msgstr ""
+
+#: ../../source/patrons.rst:2326
+msgid "Patron search"
+msgstr ""
+
+#: ../../source/patrons.rst:2328
+msgid "Clicking on the link to the Patron module will bring you to a search/browse screen for patrons. From here you can search for a patron by any part of their name or their card number."
+msgstr ""
+
+#: ../../source/patrons.rst:2332
+msgid "|image477|"
+msgstr ""
+
+#: ../../source/patrons.rst:2334
+msgid "Clicking the small plus sign [+] to the right of the search box will open up an advanced patron search with more filters including the ability to limit to a specific category and/or library."
+msgstr ""
+
+#: ../../source/patrons.rst:2338
+msgid "|image478|"
+msgstr ""
+
+#: ../../source/patrons.rst:2340
+msgid "You can also filter your patron results using the search options on the left hand side of the page."
+msgstr ""
+
+#: ../../source/patrons.rst:2343
+msgid "|image1253|"
+msgstr ""
+
+#: ../../source/patrons.rst:2345
+msgid "Depending on what you have chosen for the 'Search fields' you can search for patrons in various different ways."
+msgstr ""
+
+#: ../../source/patrons.rst:2348
+msgid "|image479|"
+msgstr ""
+
+#: ../../source/patrons.rst:2350
+msgid "Standard:"
+msgstr ""
+
+#: ../../source/patrons.rst:2352
+msgid "Enter any part of their name, username, email address or barcode"
+msgstr ""
+
+#: ../../source/patrons.rst:2354
+msgid "Email:"
+msgstr ""
+
+#: ../../source/patrons.rst:2356
+msgid "Enter any part of their email address and choose 'Contains' instead of 'Starts with'"
+msgstr ""
+
+#: ../../source/patrons.rst:2359
+msgid "Borrower number:"
+msgstr ""
+
+#: ../../source/patrons.rst:2361
+msgid "Enter the Koha borrower number"
+msgstr ""
+
+#: ../../source/patrons.rst:2363
+msgid "Phone number:"
+msgstr ""
+
+#: ../../source/patrons.rst:2365
+msgid "Enter the phone number exactly as it is in the system or by using spaces between each batch of numbers."
+msgstr ""
+
+#: ../../source/patrons.rst:2368
+msgid "Example: To find (212) 555-1212 you can search for it exactly as it was entered or by searching for 212 555 1212"
+msgstr ""
+
+#: ../../source/patrons.rst:2371
+msgid "Street address:"
+msgstr ""
+
+#: ../../source/patrons.rst:2373
+msgid "Enter any part of the patron's address (includes all address fields) and choose 'Contains' instead of 'Starts with' to find the string anywhere in the address"
+msgstr ""
+
+#: ../../source/patrons.rst:2377
+msgid "Date of birth"
+msgstr ""
+
+#: ../../source/patrons.rst:2379
+msgid "Birth dates should be entered using the format set forth in the :ref:`dateformat` preference."
+msgstr ""
+
+#: ../../source/patrons.rst:2382
+msgid "Sort field 1"
+msgstr ""
+
+#: ../../source/patrons.rst:2384 ../../source/patrons.rst:2389
+msgid "This is a custom field that libraries can use for any type of data about the patron."
+msgstr ""
+
+#: ../../source/patrons.rst:2387
+msgid "Sort field 2"
+msgstr ""
+
+#: ../../source/patrons.rst:2392
+msgid "You can also choose to either search for fields that start with the string you entered or contain the string. Choosing 'Contains' will work like a wildcard search."
+msgstr ""
+
+#: ../../source/patrons.rst:2396
+msgid "|image480|"
+msgstr ""
+
+#: ../../source/patrons.rst:2398
+msgid "You can also browse through the patron records by clicking on the linked letters across the top."
+msgstr ""
+
+#: ../../source/patrons.rst:2401
+msgid "|image481|"
+msgstr ""
+
+#: ../../source/patrons.rst:2403
+msgid "If your search only returns one result, you will be taken directly to the patron's file. If your search returns more than one result, you will be given a list from which to choose."
+msgstr ""
+
+#: ../../source/patrons.rst:2407
+msgid "|image1495|"
+msgstr ""
+
+#: ../../source/patrons.rst:2411
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: memberresultst)."
+msgstr ""
+
+#: ../../source/patrons.rst:2418
+msgid "Communicating with patrons"
+msgstr ""
+
+#: ../../source/patrons.rst:2420
+msgid "Koha offers several options for communicating with patrons, some of which have already been covered in this chapter."
+msgstr ""
+
+#: ../../source/patrons.rst:2426
+msgid "OPAC notes"
+msgstr ""
+
+#: ../../source/patrons.rst:2428
+msgid "OPAC notes are added to the patron's file through the :ref:`add patron form<add-a-new-patron-label>` or the :ref:`edit patron form <editing-patrons-label>`, in the 'Library set-up' section."
+msgstr ""
+
+#: ../../source/patrons.rst:2435
+msgid "They show up in the :ref:`'Your summary' section <your-summary-label>` of the patron's online account in the OPAC."
+msgstr ""
+
+#: ../../source/patrons.rst:2440
+msgid "In the staff interface, OPAC notes will be in the 'Library use' section of the patron's file."
+msgstr ""
+
+#: ../../source/patrons.rst:2448
+msgid "OPAC messages"
+msgstr ""
+
+#: ../../source/patrons.rst:2450
+msgid "OPAC messages are added to the patron's file using the 'Add message' button."
+msgstr ""
+
+#: ../../source/patrons.rst:2454
+msgid "To leave a message that the patron will be able to see in the OPAC, choose \"OPAC - Patron's name\" in the 'Add a message for' field. Enter your message in the box, or choose a predefined message in the drop-down menu."
+msgstr ""
+
+#: ../../source/patrons.rst:2458
+msgid "|image1505|"
+msgstr ""
+
+#: ../../source/patrons.rst:2462
+msgid "Predefined messages are added in the BOR\\_NOTES :ref:`authorized value category <existing-values-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:2465
+msgid "Once saved, the patron will be able to see the message in the :ref:`'Your summary' section <your-summary-label>` of their online account. The patron will also be able to see the date on which the message was added as well as the name of the branch."
+msgstr ""
+
+#: ../../source/patrons.rst:2470
+msgid "|image1506|"
+msgstr ""
+
+#: ../../source/patrons.rst:2472
+msgid "In the staff interface, OPAC messages are shown on the patron's detail page, at the top of the page just under the row of action buttons."
+msgstr ""
+
+#: ../../source/patrons.rst:2475
+msgid "|image1507|"
+msgstr ""
+
+#: ../../source/patrons.rst:2477
+msgid "It will also appear on the checkout page, to the right of the checkout box."
+msgstr ""
+
+#: ../../source/patrons.rst:2479
+msgid "|image1508|"
+msgstr ""
+
+#: ../../source/patrons.rst:2484
+msgid "Advance notices and hold notices"
+msgstr ""
+
+#: ../../source/patrons.rst:2486
+msgid "If you have enabled the :ref:`EnhancedMessagingPreferences` system preference, you cat set advance notices as well as hold notices when :ref:`adding a new patron <add-a-new-patron-label>` or :ref:`editing a patron <editing-patrons-label>`."
+msgstr ""
+
+#: ../../source/patrons.rst:2491
+msgid "If the :ref:`EnhancedMessagingPreferencesOPAC` system preference is set to 'show', patrons will be able to modify their messaging preferences in their online account."
+msgstr ""
+
+#: ../../source/patrons.rst:2497
+msgid "Item due: A notice on the day and item is due back at the library"
+msgstr ""
+
+#: ../../source/patrons.rst:2499
+msgid "Customize this notice by editing the DUE or DUEDGST notices in the :ref:`Notices & slips tool <notices-and-slips-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:2502
+msgid "Advance notice: A notice in advance of the patron's items being due (the patron can choose the number of days in advance)"
+msgstr ""
+
+#: ../../source/patrons.rst:2505
+msgid "Customize this notice by editing the PREDUE or PREDUEDGST notices in the :ref:`Notices & slips tool <notices-and-slips-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:2508
+msgid "Hold filled: A notice when you have confirmed the hold is waiting for the patron"
+msgstr ""
+
+#: ../../source/patrons.rst:2511
+msgid "Customize this notice by editing the HOLD notice in the :ref:`Notices & slips tool <notices-and-slips-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:2514
+msgid "Item check-in: A notice that lists all the of the items the patron has just checked in"
+msgstr ""
+
+#: ../../source/patrons.rst:2517
+msgid "Customize this notice by editing the CHECKIN notice in the :ref:`Notices & slips tool <notices-and-slips-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:2520
+msgid "Item checkout: A notice that lists all the of the items the patron has just checked out and/or renewed, this is an electronic form of the checkout receipt"
+msgstr ""
+
+#: ../../source/patrons.rst:2524
+msgid "Customize this notice by editing the CHECKOUT notice in the :ref:`Notices & slips tool <notices-and-slips-label>`"
+msgstr ""
+
+#: ../../source/patrons.rst:2527
+msgid "Patrons can choose to receive their notices as a digest by checking the 'Digest only' box along with the delivery method. A digest is a combination of all the messages of that type (so all items due in 3 days in one email) in to one email instead of multiple emails for each alert."
+msgstr ""
+
+#: ../../source/patrons.rst:2532
+msgid "The delivery methods currently supported are:"
+msgstr ""
+
+#: ../../source/patrons.rst:2534
+msgid "Email"
+msgstr ""
+
+#: ../../source/patrons.rst:2535
+msgid "SMS (text messages)"
+msgstr ""
+
+#: ../../source/patrons.rst:2536
+msgid "Automated phone call system"
+msgstr ""
+
+#: ../../source/patrons.rst:2537
+msgid "Print"
+msgstr ""
+
+#: ../../source/patrons.rst:2539
+msgid "To generate the advance notices (advance notice and item due), you need to run the :ref:`advance\\_notices.pl cronjob <cron-advanced-notice-label>`. Then, the :ref:`process\\_message\\_queue.pl cronjob <cron-message-queue-label>` will send the notices or the :ref:`gather\\_print\\_notices.pl cronjob <cron-print-hold-notices-label>` will gather them in a nice file you can print out and send out via regular mail."
+msgstr ""
+
+#: ../../source/patrons.rst:2548
+msgid "Overdue notices"
+msgstr ""
+
+#: ../../source/patrons.rst:2550
+msgid "Overdue notices are managed in :ref:`Notices & slips <notices-and-slips-label>` and when they are sent is managed in :ref:`Overdue notice/status triggers <overdue-notice/status-triggers-label>`."
+msgstr ""
+
+#: ../../source/patrons.rst:2554
+msgid "Patrons cannot opt out of receiving overdue notices like they can other notices (such as :ref:`advance notices or hold notices <advance-notices-and-hold-notices-label>`)"
+msgstr ""
+
+#: ../../source/patrons.rst:2557
+msgid "To generate the overdue notices , you need to run the :ref:`overdue\\_notices.pl cronjob <cron-overdue-notice-label>`. Then, the :ref:`process\\_message\\_queue.pl cronjob <cron-message-queue-label>` will send the notices or the :ref:`gather\\_print\\_notices.pl cronjob <cron-print-hold-notices-label>` will gather them in a nice file you can print out and send out via regular mail."
+msgstr ""
+
+#: ../../source/patrons.rst:2566
+msgid "Custom emails"
+msgstr ""

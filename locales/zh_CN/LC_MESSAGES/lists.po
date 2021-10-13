@@ -1,0 +1,286 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Koha Community
+# This file is distributed under the same license as the Koha Manual package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Koha Manual 21.05\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 21:37+0800\n"
+"PO-Revision-Date: 2021-09-30 16:55+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: 黄飞龙 <hfl@huangfeilong.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: ../../source/lists.rst:6
+msgid "Lists and cart"
+msgstr "书单和书车"
+
+#: ../../source/lists.rst:8
+msgid "Lists are a way to save a collection of content on a specific topic or for a specific purpose. The cart is a session specific storage space."
+msgstr ""
+
+#: ../../source/lists.rst:11
+msgid "*Get there:* More > Lists"
+msgstr ""
+
+#: ../../source/lists.rst:16
+msgid "Lists"
+msgstr "列表"
+
+#: ../../source/lists.rst:21
+msgid "Create a list"
+msgstr ""
+
+#: ../../source/lists.rst:23
+msgid "A list can be created by visiting the Lists page and clicking 'New list'"
+msgstr ""
+
+#: ../../source/lists.rst:25
+msgid "|image868|"
+msgstr ""
+
+#: ../../source/lists.rst:27
+msgid "The new list form offers several options for creating your list:"
+msgstr ""
+
+#: ../../source/lists.rst:29
+msgid "|image869|"
+msgstr ""
+
+#: ../../source/lists.rst:31
+msgid "The name is what will appear on the list of lists"
+msgstr ""
+
+#: ../../source/lists.rst:33
+msgid "You can also choose how to sort the list"
+msgstr ""
+
+#: ../../source/lists.rst:35
+msgid "Next, decide if your list is going to be private or public"
+msgstr ""
+
+#: ../../source/lists.rst:37 ../../source/lists.rst:64
+msgid "A private list can be seen only by you"
+msgstr ""
+
+#: ../../source/lists.rst:39 ../../source/lists.rst:66
+msgid "A public list can be seen by everybody"
+msgstr ""
+
+#: ../../source/lists.rst:41
+msgid "Finally decide what your permissions will be on the list. You can allow changes to the list from:"
+msgstr ""
+
+#: ../../source/lists.rst:44
+msgid "Nobody: this will close the list to contributions"
+msgstr ""
+
+#: ../../source/lists.rst:46
+msgid "Owner only: only you will be able to add or remove items from the list"
+msgstr ""
+
+#: ../../source/lists.rst:48
+msgid "Anyone seeing this list: other users will be able to add or remove items from the list"
+msgstr ""
+
+#: ../../source/lists.rst:51
+msgid "A list can also be created from the catalog search results"
+msgstr ""
+
+#: ../../source/lists.rst:53
+msgid "|image870|"
+msgstr ""
+
+#: ../../source/lists.rst:55
+msgid "Check the box to the left of the titles you want to add to the new list"
+msgstr ""
+
+#: ../../source/lists.rst:58
+msgid "Choose 'New list' from the 'Add to:' pull down menu"
+msgstr ""
+
+#: ../../source/lists.rst:60
+msgid "|image871|"
+msgstr ""
+
+#: ../../source/lists.rst:62
+msgid "Name the list and choose what type of list this is"
+msgstr ""
+
+#: ../../source/lists.rst:68
+msgid "The list will have the default sort (title) and the default modification permissions (owner only)."
+msgstr ""
+
+#: ../../source/lists.rst:71
+msgid "Once the list is saved it will accessible from the Lists page and from the 'Add to' menu at the top of the search results."
+msgstr ""
+
+#: ../../source/lists.rst:77
+msgid "Add to a list"
+msgstr ""
+
+#: ../../source/lists.rst:79
+msgid "To add titles to an existing list click on the list name from the page of lists"
+msgstr ""
+
+#: ../../source/lists.rst:82
+msgid "|image872|"
+msgstr ""
+
+#: ../../source/lists.rst:84
+msgid "To open a list you can click the list name."
+msgstr ""
+
+#: ../../source/lists.rst:86
+msgid "From that page you can add titles by scanning barcodes into the box at the bottom of the page"
+msgstr ""
+
+#: ../../source/lists.rst:89
+msgid "|image873|"
+msgstr ""
+
+#: ../../source/lists.rst:91
+msgid "A title can also be added to a list by selecting titles on the search results page and choosing the list from the 'Add to' menu"
+msgstr ""
+
+#: ../../source/lists.rst:94
+msgid "|image874|"
+msgstr ""
+
+#: ../../source/lists.rst:99
+msgid "Viewing lists"
+msgstr ""
+
+#: ../../source/lists.rst:101
+msgid "To see the contents of a list, visit the Lists page on the staff client"
+msgstr ""
+
+#: ../../source/lists.rst:103
+msgid "|image875|"
+msgstr ""
+
+#: ../../source/lists.rst:105
+msgid "Clicking on the 'List name' will show the contents of the list"
+msgstr ""
+
+#: ../../source/lists.rst:107
+msgid "|image876|"
+msgstr ""
+
+#: ../../source/lists.rst:109 ../../source/lists.rst:166
+msgid "From this list of items you can perform several actions"
+msgstr ""
+
+#: ../../source/lists.rst:111
+msgid "'New list' will allow you to create another list"
+msgstr ""
+
+#: ../../source/lists.rst:113
+msgid "'Edit' will allow you to edit the description and permissions for this list, or delete this list"
+msgstr ""
+
+#: ../../source/lists.rst:116
+msgid "'Download list' will allow you to download the cart using one of 3 default formats or your :ref:`CSV Profiles`"
+msgstr ""
+
+#: ../../source/lists.rst:119
+msgid "'Send list' will send the list to the email address you enter"
+msgstr ""
+
+#: ../../source/lists.rst:121
+msgid "'Print list' will present you with a printable version of the list"
+msgstr ""
+
+#: ../../source/lists.rst:123
+msgid "You can sort the columns by clicking on the column header."
+msgstr ""
+
+#: ../../source/lists.rst:128
+msgid "Merging bibliographic records via lists"
+msgstr ""
+
+#: ../../source/lists.rst:130
+msgid "One way to merge together duplicate bibliographic records is to add them to a list and use the merge tool from there."
+msgstr ""
+
+#: ../../source/lists.rst:133
+msgid "|image877|"
+msgstr ""
+
+#: ../../source/lists.rst:135
+msgid "Once you have selected the records to merge together the process is the same as if you had chosen to :ref:`merge via cataloging <merging-records-label>`."
+msgstr ""
+
+#: ../../source/lists.rst:141
+msgid "Cart"
+msgstr ""
+
+#: ../../source/lists.rst:143
+msgid "The cart is a temporary holding place for items in the OPAC and/or staff client. The cart will be emptied once the session is ended (by closing the browser or logging out). The cart is best used for performing batch operations (holds, printing, emailing) or for getting a list of items to be printed or emailed to yourself or a patron."
+msgstr ""
+
+#: ../../source/lists.rst:149
+msgid "If you would like to enable the cart in the staff client, you need to set the :ref:`intranetbookbag` system preference to 'Show.' To add things to the cart, search the catalog and select the items you would like added to your cart and click on the 'Add to cart' button."
+msgstr ""
+
+#: ../../source/lists.rst:155
+msgid "|image878|"
+msgstr ""
+
+#: ../../source/lists.rst:157
+msgid "A confirmation will appear below the cart button at the top of the staff client"
+msgstr ""
+
+#: ../../source/lists.rst:160
+msgid "|image879|"
+msgstr ""
+
+#: ../../source/lists.rst:162
+msgid "Clicking on the cart icon will provide you with the contents of the cart"
+msgstr ""
+
+#: ../../source/lists.rst:164
+msgid "|image880|"
+msgstr ""
+
+#: ../../source/lists.rst:168
+msgid "'More details' will show more information about the items in the cart"
+msgstr ""
+
+#: ../../source/lists.rst:170
+msgid "'Send' will send the list to the email address you enter"
+msgstr ""
+
+#: ../../source/lists.rst:172
+msgid "'Download' will allow you to download the cart using one of 3 default formats or your :ref:`CSV Profiles`"
+msgstr ""
+
+#: ../../source/lists.rst:175
+msgid "'Print' will present you with a printable version of the cart"
+msgstr ""
+
+#: ../../source/lists.rst:177
+msgid "'Empty and close' will empty the list and close the window"
+msgstr ""
+
+#: ../../source/lists.rst:179
+msgid "'Hide window' will close the window"
+msgstr ""
+
+#: ../../source/lists.rst:182
+msgid "Modifying bibliographic records via the cart"
+msgstr ""
+
+#: ../../source/lists.rst:184
+msgid "Bibliographic records can be modified in batch from the records added to a cart. Select the records in the cart you wish to modify and click 'Batch modify'."
+msgstr ""
+
+#: ../../source/lists.rst:187
+msgid "You will be taken to the 'Batch record modification tool' and from there the process to modify the bibliographic records is the same as if you had chosen to :ref:`modify via Tools <batch-record-modification-label>`."
+msgstr ""
