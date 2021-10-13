@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Koha Community
+# This file is distributed under the same license as the Koha Manual package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Koha Manual 21.05\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 21:37+0800\n"
+"PO-Revision-Date: 2021-10-11 09:50+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: 黄飞龙 <hfl@huangfeilong.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: ../../source/accountspreferences.rst:6
+msgid "Accounting"
+msgstr "出纳"
+
+#: ../../source/accountspreferences.rst:8
+msgid "*Get there:* More > Administration > Global system preferences > Acquisitions"
+msgstr "*在这里：* 更多 > 管理 > 系统配置 > 采访"
+
+#: ../../source/accountspreferences.rst:14
+msgid "Features"
+msgstr "功能"
+
+#: ../../source/accountspreferences.rst:19
+msgid "AutoCreditNumber"
+msgstr "自动生成收费号"
+
+#: ../../source/accountspreferences.rst:21
+msgid "Asks: \\_\\_\\_"
+msgstr "Asks: \\_\\_\\_"
+
+#: ../../source/accountspreferences.rst:23
+msgid "Default: Do not automatically generate credit numbers"
+msgstr "默认：不自动生成收费号"
+
+#: ../../source/accountspreferences.rst:25
+#: ../../source/accountspreferences.rst:56
+#: ../../source/accountspreferences.rst:80
+#: ../../source/accountspreferences.rst:105
+#: ../../source/accountspreferences.rst:126
+#: ../../source/accountspreferences.rst:147
+msgid "Values:"
+msgstr "值："
+
+#: ../../source/accountspreferences.rst:27
+msgid "Do not automatically generate credit numbers"
+msgstr "默认：不自动生成收费号"
+
+#: ../../source/accountspreferences.rst:29
+msgid "Automatically generate credit numbers in the form <year>-0001"
+msgstr "自动生成 <年>-0001 格式收费号"
+
+#: ../../source/accountspreferences.rst:31
+msgid "Automatically generate credit numbers in the form <branchcode>yyyymm0001"
+msgstr "自动生成 <分馆代码>yyyymm0001 格式收费号"
+
+#: ../../source/accountspreferences.rst:33
+msgid "Automatically generate credit numbers in the form 1, 2, 3"
+msgstr "自动生成 1，2，3 格式收费号"
+
+#: ../../source/accountspreferences.rst:35
+#: ../../source/accountspreferences.rst:62
+#: ../../source/accountspreferences.rst:86
+#: ../../source/accountspreferences.rst:111
+#: ../../source/accountspreferences.rst:132
+#: ../../source/accountspreferences.rst:153
+msgid "Description:"
+msgstr "描述："
+
+#: ../../source/accountspreferences.rst:37
+msgid "For auditing purposes, it might be necessary to attach a unique number to each credit (payments, writeoffs, refunds, etc.). This system preference allows you to choose the format of this unique number."
+msgstr "基于审计原因，每笔交易（如支付、注销、退款等）可能都需要一个唯一标识号，系统允许您自己选择唯一标识号的格式。"
+
+#: ../../source/accountspreferences.rst:41
+#: ../../source/accountspreferences.rst:66
+msgid "**Important**"
+msgstr "**重要**"
+
+#: ../../source/accountspreferences.rst:43
+msgid "Automatic generation also has to be enabled for each :ref:`credit type <credit-types-label>`."
+msgstr "需要为每一种 :ref:`收费类型 <credit-types-lable>` 启用自动生成。"
+
+#: ../../source/accountspreferences.rst:49
+msgid "EnablePointOfSale"
+msgstr "启用销售点"
+
+#: ../../source/accountspreferences.rst:51
+msgid "Asks: \\_\\_\\_ the point of sale feature to allow anonymous transactions with the accounting system."
+msgstr "Asks: \\_\\_\\_ 销售点功能可以匿名与收费系统交易。"
+
+#: ../../source/accountspreferences.rst:54
+msgid "Default: Disable"
+msgstr "默认：关闭"
+
+#: ../../source/accountspreferences.rst:58
+msgid "Disable"
+msgstr "关闭"
+
+#: ../../source/accountspreferences.rst:60
+msgid "Enable"
+msgstr "启用"
+
+#: ../../source/accountspreferences.rst:64
+msgid "This system preference controls the :ref:`point of sale module <point-of-sale-label>`."
+msgstr "此参数控制 :ref:`销售点模块<point-of-sale-label>`。"
+
+#: ../../source/accountspreferences.rst:68
+msgid "If you enable this system preference, make sure to enable :ref:`UseCashRegisters` as well."
+msgstr "如果您启用此系统配置，要确保也启用了 :ref:`使用收款机`。"
+
+#: ../../source/accountspreferences.rst:74
+msgid "UseCashRegisters"
+msgstr "使用收款机"
+
+#: ../../source/accountspreferences.rst:76
+msgid "Asks: \\_\\_\\_ cash registers with the accounting system to track payments."
+msgstr "Asks: \\_\\_\\_ 收款机配合款及系统可以追踪支付。"
+
+#: ../../source/accountspreferences.rst:78
+msgid "Default: Don't use"
+msgstr "默认：不使用"
+
+#: ../../source/accountspreferences.rst:82
+msgid "Don't use"
+msgstr "不使用"
+
+#: ../../source/accountspreferences.rst:84
+msgid "Use"
+msgstr "使用"
+
+#: ../../source/accountspreferences.rst:88
+msgid "This preference enables the :ref:`cash registers <cashregisters-label>` feature in the administration module."
+msgstr "此参数启用管理模块的 :ref:`收款机 <cashregisters-label>`。"
+
+#: ../../source/accountspreferences.rst:94
+msgid "Policy"
+msgstr "规则"
+
+#: ../../source/accountspreferences.rst:99
+msgid "AccountAutoReconcile"
+msgstr "自动对账"
+
+#: ../../source/accountspreferences.rst:101
+msgid "Asks: \\_\\_\\_ reconcile patron balances automatically on each transaction adding debits or credits."
+msgstr "Asks: \\_\\_\\_ 每次交易双方交易时自动对余额核对。"
+
+#: ../../source/accountspreferences.rst:103
+msgid "Default: Do not"
+msgstr "默认：关闭"
+
+#: ../../source/accountspreferences.rst:107
+#: ../../source/accountspreferences.rst:128
+#: ../../source/accountspreferences.rst:151
+msgid "Do"
+msgstr "启用"
+
+#: ../../source/accountspreferences.rst:109
+msgid "Do not"
+msgstr "关闭"
+
+#: ../../source/accountspreferences.rst:113
+msgid "This preference controls whether or not credits are automatically used to to reduce the owed amounts in a patron's account."
+msgstr "此参数控制是否启用自动扣款功能。"
+
+#: ../../source/accountspreferences.rst:119
+msgid "FinePaymentAutoPopup"
+msgstr "付款自动弹出窗口"
+
+#: ../../source/accountspreferences.rst:121
+msgid "Asks: \\_\\_\\_ automatically display a print dialog for a payment receipt when making a payment."
+msgstr "Asks: \\_\\_\\_ 付款时自动显示打印票据窗口。"
+
+#: ../../source/accountspreferences.rst:124
+#: ../../source/accountspreferences.rst:145
+msgid "Default: Don't"
+msgstr "默认：不显示"
+
+#: ../../source/accountspreferences.rst:130
+#: ../../source/accountspreferences.rst:149
+msgid "Don't"
+msgstr "不显示"
+
+#: ../../source/accountspreferences.rst:134
+msgid "If activated, when :ref:`making a payment <pay-and-writeoff-fines-label>` in a patron's account, a printing popup will be displayed automatically instead of having to click on the 'print' button."
+msgstr "如果激活该功能，当读者 :ref:`付款<pay-and-writeoff-fines-label>`时，不需要点击“打印”按钮而自动弹出打印窗口。"
+
+#: ../../source/accountspreferences.rst:141
+msgid "RoundFinesAtPayment"
+msgstr "付款凑整"
+
+#: ../../source/accountspreferences.rst:143
+msgid "Asks: \\_\\_\\_ round fines to the nearest cent when collecting payments."
+msgstr "Asks: \\_\\_\\_ 付款时对于金额会四舍五入。"
+
+#: ../../source/accountspreferences.rst:155
+msgid "Enabling this preference allows paying fines of partial cents which may not be visible in the interface."
+msgstr "启用词参数付款时会四舍五入到分。"

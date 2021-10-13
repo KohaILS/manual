@@ -1,0 +1,5103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Koha Community
+# This file is distributed under the same license as the Koha Manual package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Koha Manual 21.05\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 21:37+0800\n"
+"PO-Revision-Date: 2021-09-30 16:32+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: 黄飞龙 <hfl@huangfeilong.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: ../../source/tools.rst:6
+msgid "Tools"
+msgstr "工具"
+
+#: ../../source/tools.rst:8
+msgid "Tools in Koha all perform some sort of action. Often many of the items listed under Tools in Koha are referred to as 'Reports' in other library management systems."
+msgstr ""
+
+#: ../../source/tools.rst:12
+msgid "*Get there:* More > Tools"
+msgstr ""
+
+#: ../../source/tools.rst:17
+msgid "Patrons and circulation"
+msgstr ""
+
+#: ../../source/tools.rst:22
+msgid "Patron lists"
+msgstr ""
+
+#: ../../source/tools.rst:24
+msgid "*Get there:* More > Tools > Patrons and circulation > Patron lists"
+msgstr ""
+
+#: ../../source/tools.rst:26
+msgid "Patron lists are a way to store a group of patrons for easy modification via the :ref:`batch patron modification tool <batch-patron-modification-label>` or reporting."
+msgstr ""
+
+#: ../../source/tools.rst:30
+msgid "|image245|"
+msgstr ""
+
+#: ../../source/tools.rst:32
+msgid "To create a new list of patrons click the 'New patron list' button"
+msgstr ""
+
+#: ../../source/tools.rst:34
+msgid "|image246|"
+msgstr ""
+
+#: ../../source/tools.rst:36
+msgid "Enter a list name."
+msgstr ""
+
+#: ../../source/tools.rst:38
+msgid "Checking the 'Shared' box will make this list visible to all users with the :ref:`manage_patron_lists permission <patron-permissions-defined-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:41
+msgid "Save the list."
+msgstr ""
+
+#: ../../source/tools.rst:43
+msgid "|image247|"
+msgstr ""
+
+#: ../../source/tools.rst:45
+msgid "Each list has an 'Actions' menu with more list options."
+msgstr ""
+
+#: ../../source/tools.rst:47
+msgid "|image1218|"
+msgstr ""
+
+#: ../../source/tools.rst:49
+msgid "To add patrons to the list click the 'Add patrons' link in the 'Actions' menu."
+msgstr ""
+
+#: ../../source/tools.rst:52
+msgid "|image248|"
+msgstr ""
+
+#: ../../source/tools.rst:54
+msgid "Enter the patron's name or cardnumber in the search box and click on the right result to add the patron."
+msgstr ""
+
+#: ../../source/tools.rst:57
+msgid "Alternatively, you can click on the 'Enter multiple card numbers' link and scan (or type in) barcodes in the box."
+msgstr ""
+
+#: ../../source/tools.rst:60
+msgid "|image249|"
+msgstr ""
+
+#: ../../source/tools.rst:62
+msgid "Once you have all of the patrons you would like to add you can click the 'Add patrons' button to save them to the list."
+msgstr ""
+
+#: ../../source/tools.rst:65
+msgid "|image250|"
+msgstr ""
+
+#: ../../source/tools.rst:67 ../../source/tools.rst:291
+#: ../../source/tools.rst:309 ../../source/tools.rst:371
+#: ../../source/tools.rst:416 ../../source/tools.rst:458
+#: ../../source/tools.rst:490 ../../source/tools.rst:494
+#: ../../source/tools.rst:899 ../../source/tools.rst:1070
+#: ../../source/tools.rst:1099 ../../source/tools.rst:1107
+#: ../../source/tools.rst:1119 ../../source/tools.rst:1199
+#: ../../source/tools.rst:1226 ../../source/tools.rst:1277
+#: ../../source/tools.rst:1291 ../../source/tools.rst:1377
+#: ../../source/tools.rst:1419 ../../source/tools.rst:1751
+#: ../../source/tools.rst:1772 ../../source/tools.rst:1875
+#: ../../source/tools.rst:2515 ../../source/tools.rst:2611
+#: ../../source/tools.rst:2637 ../../source/tools.rst:2769
+#: ../../source/tools.rst:2814 ../../source/tools.rst:2915
+#: ../../source/tools.rst:2978 ../../source/tools.rst:3104
+#: ../../source/tools.rst:3158 ../../source/tools.rst:3445
+#: ../../source/tools.rst:3453 ../../source/tools.rst:3579
+#: ../../source/tools.rst:3612 ../../source/tools.rst:3677
+#: ../../source/tools.rst:3981 ../../source/tools.rst:3994
+#: ../../source/tools.rst:4148
+msgid "**Note**"
+msgstr ""
+
+#: ../../source/tools.rst:69
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: patron-list-table)."
+msgstr ""
+
+#: ../../source/tools.rst:76
+msgid "Patron clubs"
+msgstr ""
+
+#: ../../source/tools.rst:78
+msgid "*Get there:* More > Tools > Patrons and circulation > Patron clubs"
+msgstr ""
+
+#: ../../source/tools.rst:80
+msgid "Patron clubs create clubs in which patrons may be enrolled. It is useful for tracking summer reading programs, book clubs and other such clubs."
+msgstr ""
+
+#: ../../source/tools.rst:83 ../../source/tools.rst:264
+#: ../../source/tools.rst:271 ../../source/tools.rst:279
+#: ../../source/tools.rst:285 ../../source/tools.rst:404
+#: ../../source/tools.rst:463 ../../source/tools.rst:484
+#: ../../source/tools.rst:535 ../../source/tools.rst:992
+#: ../../source/tools.rst:998 ../../source/tools.rst:1014
+#: ../../source/tools.rst:1143 ../../source/tools.rst:1220
+#: ../../source/tools.rst:1415 ../../source/tools.rst:1455
+#: ../../source/tools.rst:1462 ../../source/tools.rst:1467
+#: ../../source/tools.rst:1527 ../../source/tools.rst:1668
+#: ../../source/tools.rst:1879 ../../source/tools.rst:1949
+#: ../../source/tools.rst:1961 ../../source/tools.rst:2328
+#: ../../source/tools.rst:2669 ../../source/tools.rst:2725
+#: ../../source/tools.rst:3355 ../../source/tools.rst:3968
+msgid "**Important**"
+msgstr ""
+
+#: ../../source/tools.rst:85
+msgid "Staff will need the :ref:`clubs permissions <patron-permissions-defined-label>` to edit clubs, templates and enroll patrons. To learn how to set patron permissions, go to the :ref:`patron permissions section <setting-patron-permissions-label>` of this manual."
+msgstr ""
+
+#: ../../source/tools.rst:91
+msgid "Creating a new club template"
+msgstr ""
+
+#: ../../source/tools.rst:93
+msgid "Click on the 'New club template' button. Here you can add fields that can be filled out at the time a new club is created based on the template, or a new enrollment is created for a given club based on the template."
+msgstr ""
+
+#: ../../source/tools.rst:97
+msgid "|image1364|"
+msgstr ""
+
+#: ../../source/tools.rst:99
+msgid "The name is required. This could be something like 'Adult book club', 'Children’s book club' or 'Summer reading program'. Remember these templates will be starting point for each club you create."
+msgstr ""
+
+#: ../../source/tools.rst:103 ../../source/tools.rst:149
+msgid "The description can be any additional information."
+msgstr ""
+
+#: ../../source/tools.rst:105
+msgid "Allow public enrollment: if this box is checked it will allow patrons to enroll in a club based on this template from the OPAC."
+msgstr ""
+
+#: ../../source/tools.rst:108
+msgid "Require valid email address: if this box is checked only patrons with a valid email address can enroll. So they will need a email address to enroll."
+msgstr ""
+
+#: ../../source/tools.rst:112
+msgid "The library drop down gives you the flexibility to let staff from specific branches create clubs with this template. If you let it set to blank, staff from any branch will be able to create a new club using this template."
+msgstr ""
+
+#: ../../source/tools.rst:116
+msgid "Club fields: these fields will be used when creating a club based on this template. For example, this can be the name of the club, the name of the animator, the theme, etc."
+msgstr ""
+
+#: ../../source/tools.rst:119
+msgid "|image1365|"
+msgstr ""
+
+#: ../../source/tools.rst:121 ../../source/tools.rst:132
+msgid "'Name' is the label of the field"
+msgstr ""
+
+#: ../../source/tools.rst:123 ../../source/tools.rst:134
+msgid "'Description' is additional information about this field."
+msgstr ""
+
+#: ../../source/tools.rst:125 ../../source/tools.rst:136
+msgid "You can connect authorized values here."
+msgstr ""
+
+#: ../../source/tools.rst:127
+msgid "Enrollment fields: you can add any additional fields you want to have filled out by your patrons when they enroll in a club base on this template."
+msgstr ""
+
+#: ../../source/tools.rst:130
+msgid "|image1366|"
+msgstr ""
+
+#: ../../source/tools.rst:139
+msgid "Creating a new club based on a template"
+msgstr ""
+
+#: ../../source/tools.rst:141
+msgid "Click on the 'New club' dropdown menu and select the template you want to use. Here you can add information about a new club using a template you created."
+msgstr ""
+
+#: ../../source/tools.rst:144
+msgid "|image1367|"
+msgstr ""
+
+#: ../../source/tools.rst:146
+msgid "The name is required, this will be the name of the specific club using the template you created. For example, 'Summer 2018 reading club'."
+msgstr ""
+
+#: ../../source/tools.rst:151
+msgid "Start and End date will depict when this club runs, the entire duration of the club. Once the club expires, enrollment will not be possible."
+msgstr ""
+
+#: ../../source/tools.rst:154
+msgid "The library drop down gives you the flexibility to enroll patrons from specific branches. If you let it set to blank, patrons from any branch will be able to enroll."
+msgstr ""
+
+#: ../../source/tools.rst:158
+msgid "Enrolling a patron in a club from the staff client"
+msgstr ""
+
+#: ../../source/tools.rst:160
+msgid "To enroll a patron in a club from the staff client, go to the patron's account."
+msgstr ""
+
+#: ../../source/tools.rst:162
+msgid "On the 'Details' page or the 'Check out' page, click on the 'Clubs' tab. All ongoing clubs will be displayed in this tab."
+msgstr ""
+
+#: ../../source/tools.rst:165
+msgid "|image1368|"
+msgstr ""
+
+#: ../../source/tools.rst:167
+msgid "Click on the 'Enroll' button and fill in the fields."
+msgstr ""
+
+#: ../../source/tools.rst:169
+msgid "You can also cancel enrollment by clicking on the cancel enrollment."
+msgstr ""
+
+#: ../../source/tools.rst:172
+msgid "Enrolling a patron in a club from the OPAC"
+msgstr ""
+
+#: ../../source/tools.rst:174
+msgid "If you allow public enrollment, the club will be visible on the OPAC."
+msgstr ""
+
+#: ../../source/tools.rst:176
+msgid "Patrons have to sign into their account. In the 'Your summary' section, they will be able to click on the 'Clubs' tab and enroll."
+msgstr ""
+
+#: ../../source/tools.rst:179
+msgid "|image1369|"
+msgstr ""
+
+#: ../../source/tools.rst:182
+msgid "Viewing enrollments"
+msgstr ""
+
+#: ../../source/tools.rst:184
+msgid "You can monitor the enrollments in each club by going to the 'Patron clubs' tool page and choosing 'Enrollment' from the 'Actions' button."
+msgstr ""
+
+#: ../../source/tools.rst:187
+msgid "|image1370|"
+msgstr ""
+
+#: ../../source/tools.rst:190
+msgid "Placing a hold for a patron club"
+msgstr ""
+
+#: ../../source/tools.rst:192
+msgid "You can place holds for a patron club - holds are placed for club members in a random order."
+msgstr ""
+
+#: ../../source/tools.rst:194
+msgid "To place a hold for a patron club:"
+msgstr ""
+
+#: ../../source/tools.rst:196
+msgid "Go to the patron clubs tool ('Home > Tools > Patron clubs')."
+msgstr ""
+
+#: ../../source/tools.rst:197
+msgid "Click the 'Actions' button for the club and select 'Search to hold'."
+msgstr ""
+
+#: ../../source/tools.rst:198
+msgid "Search for a title and select a record."
+msgstr ""
+
+#: ../../source/tools.rst:199
+msgid "Select 'Place hold for [CLUBNAME]' from either the action links for the record, or from the 'Place hold' action in the menu bar."
+msgstr ""
+
+#: ../../source/tools.rst:200
+msgid "The place holds page is displayed and lists the club members."
+msgstr ""
+
+#: ../../source/tools.rst:201
+msgid "Click the 'Place hold' button."
+msgstr ""
+
+#: ../../source/tools.rst:203
+msgid "Result: Holds are placed for all club members."
+msgstr ""
+
+#: ../../source/tools.rst:208
+msgid "Comments"
+msgstr ""
+
+#: ../../source/tools.rst:210
+msgid "*Get there:* More > Tools > Patrons and circulation > Comments"
+msgstr ""
+
+#: ../../source/tools.rst:212
+msgid "All comments added by patrons via the OPAC to bibliographic records require moderation by the librarians. If there are comments awaiting moderation they will be listed on the main page of the staff client below the module list:"
+msgstr ""
+
+#: ../../source/tools.rst:217
+msgid "|image251|"
+msgstr ""
+
+#: ../../source/tools.rst:219
+msgid "and next to the Comments tool on the Tools page"
+msgstr ""
+
+#: ../../source/tools.rst:221
+msgid "|image1219|"
+msgstr ""
+
+#: ../../source/tools.rst:223
+msgid "To moderate comments click on the notification on the main dashboard or go directly to the Comments tool and click 'Approve' or 'Delete' to the right of the comments awaiting moderation."
+msgstr ""
+
+#: ../../source/tools.rst:227
+msgid "|image252|"
+msgstr ""
+
+#: ../../source/tools.rst:229
+msgid "If there are no comments to moderate you will see a message saying just that"
+msgstr ""
+
+#: ../../source/tools.rst:232
+msgid "|image253|"
+msgstr ""
+
+#: ../../source/tools.rst:234
+msgid "You can also review and unapprove comments you have approved in the past by choosing the 'Approved comments' tab"
+msgstr ""
+
+#: ../../source/tools.rst:237
+msgid "|image254|"
+msgstr ""
+
+#: ../../source/tools.rst:242
+msgid "Patron import"
+msgstr ""
+
+#: ../../source/tools.rst:244
+msgid "*Get there:* More > Tools > Patrons and circulation > Import patrons"
+msgstr ""
+
+#: ../../source/tools.rst:246
+msgid "The patron import tool can be used at any time to add patrons in bulk. It is commonly used in universities and schools when a new batch of students registers."
+msgstr ""
+
+#: ../../source/tools.rst:253
+msgid "Creating a patron import file"
+msgstr ""
+
+#: ../../source/tools.rst:255
+msgid "You can download a blank CSV file with a header from the start page of the patron import tool that you can use as a template for your patron import. The header contains all fields that can be used with the patron import tool. You can delete fields and columns you don't need with the exception of a few mandatory ones. When overlaying, if your new .csv includes blank columns, any existing values in patron records will be overwritten with blanks. It is best to remove any blank columns in a .csv to ensure no existing data is removed."
+msgstr ""
+
+#: ../../source/tools.rst:266
+msgid "cardnumber, surname, and all fields you have defined in the :ref:`BorrowerMandatoryField` preference are required and must match valid entries in your database."
+msgstr ""
+
+#: ../../source/tools.rst:273
+msgid "The 'password' should be stored in plaintext, and will be converted to a Bcrypt hash."
+msgstr ""
+
+#: ../../source/tools.rst:276
+msgid "If your passwords are already encrypted, talk to your systems administrator about options"
+msgstr ""
+
+#: ../../source/tools.rst:281
+msgid "Date formats should match your :ref:`system preference <dateformat-label>`, and must be zero-padded, e.g. '01/02/2008'. Alternatively you can supply dates in ISO format (e.g. '2008-12-01')."
+msgstr ""
+
+#: ../../source/tools.rst:287
+msgid "If your data contains special characters or diacritics, make sure your file is encoded in UTF-8. Otherwise, the special characters will not be imported correctly."
+msgstr ""
+
+#: ../../source/tools.rst:293
+msgid "If loading :ref:`patron attributes <patron-attribute-types-label>`, the 'patron\\_attributes' field should contain a comma-separated list of attribute types and values."
+msgstr ""
+
+#: ../../source/tools.rst:297
+msgid "The attribute type code and a colon should precede each value."
+msgstr ""
+
+#: ../../source/tools.rst:299
+msgid "For example: \"INSTID:12345,BASEBALL:Cubs\""
+msgstr ""
+
+#: ../../source/tools.rst:301
+msgid "This field must be wrapped in quotes if multiple values are defined."
+msgstr ""
+
+#: ../../source/tools.rst:304
+msgid "Since values can contain spaces, additional doubled-quotes may be required:"
+msgstr ""
+
+#: ../../source/tools.rst:307
+msgid "\"INSTID:12345,BASEBALL:Cubs,\"\"BASEBALL:White Sox\"\""
+msgstr ""
+
+#: ../../source/tools.rst:311
+msgid "It's possible to set restrictions using the patron import tool. If the expiration date and comment match an existing restriction, the one in the import file will be skipped. So a patron import can be repeated multiple times without creating duplicate restrictions. But if one of the criteria is different, a new restriction will be added."
+msgstr ""
+
+#: ../../source/tools.rst:320
+msgid "Importing patrons"
+msgstr ""
+
+#: ../../source/tools.rst:322
+msgid "Once you have created your file, you can use the patron import tool to bring the data into Koha."
+msgstr ""
+
+#: ../../source/tools.rst:325
+msgid "Choose your CSV file"
+msgstr ""
+
+#: ../../source/tools.rst:327
+msgid "|image255|"
+msgstr ""
+
+#: ../../source/tools.rst:329
+msgid "Choose to match on 'cardnumber' or 'username' to prevent adding of duplicate card numbers to the system. Additional matchpoints can be set up using patron attributes marked as unique."
+msgstr ""
+
+#: ../../source/tools.rst:333
+msgid "|image256|"
+msgstr ""
+
+#: ../../source/tools.rst:335
+msgid "Next you can choose default values to apply to all patrons you are importing"
+msgstr ""
+
+#: ../../source/tools.rst:338
+msgid "For example, if you're importing patrons specific to one branch you can use the field on the import form to apply the branch code to all those you are importing."
+msgstr ""
+
+#: ../../source/tools.rst:342
+msgid "Finally, you need to decide on what data you want to replace if there are duplicates."
+msgstr ""
+
+#: ../../source/tools.rst:345
+msgid "A matching record is found using the field you chose for matching criteria to prevent duplication"
+msgstr ""
+
+#: ../../source/tools.rst:348
+msgid "|image257|"
+msgstr ""
+
+#: ../../source/tools.rst:350
+msgid "When using patron attributes in your installation, you can choose how they are handled on import. You can either decide to always overlay all patron attributes or you choose to only replace patron attributes included in your import file. This will leave other attributes untouched."
+msgstr ""
+
+#: ../../source/tools.rst:356
+msgid "|image1355|"
+msgstr ""
+
+#: ../../source/tools.rst:361
+msgid "Notices & slips"
+msgstr ""
+
+#: ../../source/tools.rst:363
+msgid "*Get there:* More > Tools > Patrons and circulation > Notices & slips"
+msgstr ""
+
+#: ../../source/tools.rst:365
+msgid "All notices and circulation receipts (or slips) generated by Koha can be customized using the Notices & slips tool. The system comes with several predefined templates that will appear when you first visit this tool."
+msgstr ""
+
+#: ../../source/tools.rst:369
+msgid "|image258|"
+msgstr ""
+
+#: ../../source/tools.rst:373
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: lettert)."
+msgstr ""
+
+#: ../../source/tools.rst:377
+msgid "Each notice can be edited, but only a few can be deleted, this is to prevent system errors should a message try to send without a template. Each notice and slip can be edited on a per library basis, by default you will see the notices for all libraries."
+msgstr ""
+
+#: ../../source/tools.rst:382
+msgid "If you have a style you'd like applied to all slips you can point the :ref:`SlipCSS` preference to a stylesheet. The same is true for notices, using the :ref:`NoticeCSS` preference to define a stylesheet."
+msgstr ""
+
+#: ../../source/tools.rst:387
+msgid "You will also want to review the `Customising notices and slips <https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_ wiki page for more information on formatting these notices."
+msgstr ""
+
+#: ../../source/tools.rst:394
+msgid "Adding notices and slips"
+msgstr ""
+
+#: ../../source/tools.rst:396
+msgid "To add a new notice or slip"
+msgstr ""
+
+#: ../../source/tools.rst:398
+msgid "Click 'New notice'"
+msgstr ""
+
+#: ../../source/tools.rst:400
+msgid "|image259|"
+msgstr ""
+
+#: ../../source/tools.rst:402
+msgid "Choose which library this notice or slip is for"
+msgstr ""
+
+#: ../../source/tools.rst:406
+msgid "Not all notices can be branch specific for more information review the `Customising notices and slips <https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_ wiki page."
+msgstr ""
+
+#: ../../source/tools.rst:410
+msgid "Choose the module this notice is related to"
+msgstr ""
+
+#: ../../source/tools.rst:412
+msgid "The Code is limited to 20 characters"
+msgstr ""
+
+#: ../../source/tools.rst:414
+msgid "Use the name field to expand on your Code"
+msgstr ""
+
+#: ../../source/tools.rst:418
+msgid "With overdue notices, be sure to put your branch name in the description as well so that it will be visible when setting up your :ref:`triggers <overdue-notice/status-triggers-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:422
+msgid "Next you can customize the notice for every possible delivery method"
+msgstr ""
+
+#: ../../source/tools.rst:424
+msgid "Every notice should have an Email template set for it"
+msgstr ""
+
+#: ../../source/tools.rst:426
+msgid "|image1220|"
+msgstr ""
+
+#: ../../source/tools.rst:428
+msgid "If you're using the :ref:`TalkingTechItivaPhoneNotification` service you can set up a Phone notification"
+msgstr ""
+
+#: ../../source/tools.rst:432
+msgid "|image1221|"
+msgstr ""
+
+#: ../../source/tools.rst:434
+msgid "If you plan on printing this notice you can set the Print template next"
+msgstr ""
+
+#: ../../source/tools.rst:437
+msgid "|image1222|"
+msgstr ""
+
+#: ../../source/tools.rst:439
+msgid "If you have enabled SMS notices with the :ref:`SMSSendDriver` preference you can set the text for your SMS notices next"
+msgstr ""
+
+#: ../../source/tools.rst:443
+msgid "|image1223|"
+msgstr ""
+
+#: ../../source/tools.rst:445
+msgid "Each notice offers you the same options"
+msgstr ""
+
+#: ../../source/tools.rst:447
+msgid "If you plan on writing the notice or slip in HTML check the 'HTML message' box, otherwise the content will be generated as plain text"
+msgstr ""
+
+#: ../../source/tools.rst:451
+msgid "Message subject is what will appear in the subject line of the email"
+msgstr ""
+
+#: ../../source/tools.rst:454
+msgid "In the message body feel free to type whatever message you feel is best, use the fields on the left hand side to enter individualized data from the from database."
+msgstr ""
+
+#: ../../source/tools.rst:460
+msgid "Review the `Customising notices and slips <https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_ wiki page for more information."
+msgstr ""
+
+#: ../../source/tools.rst:465
+msgid "Overdue notices can use <<items.content>> tags by themselves, or use <item></item> to span all of the tags. Learn more about the :ref:`Overdue notice markup <overdue-notice-markup-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:470
+msgid "On overdue notices make sure to use <<items.content>> tags to print out the data related to all items that are overdue."
+msgstr ""
+
+#: ../../source/tools.rst:474
+msgid "The other option, only for overdue notices, is to use the <item></item> tags to span the line so that it will print out multiple lines. One example for the <item></item> tag option is:"
+msgstr ""
+
+#: ../../source/tools.rst:479
+msgid "<item>\"<<biblio.title>>\" by <<biblio.author>>, <<items.itemcallnumber>>, Barcode: <<items.barcode>> , Checkout date: <<issues.issuedate>>, Due date: <<issues.date\\_due>> Fine: <<items.fine>> </item>"
+msgstr ""
+
+#: ../../source/tools.rst:486
+msgid "Only the overdue notices take advantage of the <item></item> tags, all other notices referencing items need to use <<items.content>>"
+msgstr ""
+
+#: ../../source/tools.rst:492
+msgid "To add today's date you can use the <<today>> syntax"
+msgstr ""
+
+#: ../../source/tools.rst:496
+msgid "If you don't want to print the patron's full name on your slips or notice you can enter data in the Other name or Initials field for each patron and use that value instead."
+msgstr ""
+
+#: ../../source/tools.rst:500
+msgid "The system preference :ref:`TranslateNotices` will add tabs for each installed language to the notices editor. The notice defined in the 'Default' tab will be used if there is no preferred language set for a patron."
+msgstr ""
+
+#: ../../source/tools.rst:505
+msgid "|image1335|"
+msgstr ""
+
+#: ../../source/tools.rst:510
+msgid "Preview notice templates"
+msgstr ""
+
+#: ../../source/tools.rst:512
+msgid "For some notices it is possible to preview the notice template showing how it would look to a specified patron for a particular item or record."
+msgstr ""
+
+#: ../../source/tools.rst:515
+msgid "If a notice template is previewable the notice template header will contain a field to enter preview data"
+msgstr ""
+
+#: ../../source/tools.rst:518
+msgid "|image1342|"
+msgstr ""
+
+#: ../../source/tools.rst:520
+msgid "Fill in the necessary information for the template then click the Preview button below the message body. The preview dialog will indicate if there are any problems generating the notice template preview."
+msgstr ""
+
+#: ../../source/tools.rst:527
+msgid "Overdue notice markup"
+msgstr ""
+
+#: ../../source/tools.rst:529
+msgid "When creating your overdue notices there are two tags in addition to the various database fields that you can use in your notices. You will also want to review the `Customising notices and slips <https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_ wiki page for information on formatting item information in these notices."
+msgstr ""
+
+#: ../../source/tools.rst:537
+msgid "These new tags only work on the overdue notices, not other circulation related notices at this time."
+msgstr ""
+
+#: ../../source/tools.rst:540
+msgid "These tags are <item> and </item> which should enclose all fields from the biblio, biblioitems, and items tables."
+msgstr ""
+
+#: ../../source/tools.rst:543
+msgid "An example of using these tags in a notice template might be like:"
+msgstr ""
+
+#: ../../source/tools.rst:551
+msgid "Which, assuming two items were overdue, would result in a notice like:"
+msgstr ""
+
+#: ../../source/tools.rst:563
+msgid "Existing notices and slips"
+msgstr ""
+
+#: ../../source/tools.rst:565
+msgid "Among the default notices are notices for several common actions within Koha. All of these notices can be customized by altering their text via the Notices & slips tool and their style using the :ref:`NoticeCSS` preference to define a stylesheet. You will also want to review the `Customising notices and slips <https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_ wiki page for information on formatting item information in these notices. Here are some of what those notices do:"
+msgstr ""
+
+#: ../../source/tools.rst:574
+msgid "ACCEPTED"
+msgstr ""
+
+#: ../../source/tools.rst:576
+msgid "This notice is sent when a patron's suggestion is accepted."
+msgstr ""
+
+#: ../../source/tools.rst:578 ../../source/tools.rst:666
+msgid "*Note:* If you don't want to send this notice, just delete it."
+msgstr ""
+
+#: ../../source/tools.rst:580
+msgid "ACCOUNT\\_PAYMENT"
+msgstr ""
+
+#: ../../source/tools.rst:582
+msgid "This notice is sent for each payment transaction in a patron's account if the :ref:`UseEmailReceipts` system preference is set to 'Send'."
+msgstr ""
+
+#: ../../source/tools.rst:586
+msgid "ACCOUNT\\_WRITEOFF"
+msgstr ""
+
+#: ../../source/tools.rst:588
+msgid "This notice is sent for each writeoff transaction in a patron's account if the :ref:`UseEmailReceipts` system preference is set to 'Send'."
+msgstr ""
+
+#: ../../source/tools.rst:592
+msgid "ACCTDETAILS"
+msgstr ""
+
+#: ../../source/tools.rst:594
+msgid "Sent to patrons when their account is set up if the :ref:`AutoEmailOPACUser` preference is set to 'Send'"
+msgstr ""
+
+#: ../../source/tools.rst:598
+msgid "*Important:* The notice will only be sent correctly if a username, password and email address is added to the patron record before saving it for the first time. The notice can't be resend or triggered again after the patron account has been created."
+msgstr ""
+
+#: ../../source/tools.rst:604
+msgid "ACQCLAIM (Acquisition claim)"
+msgstr ""
+
+#: ../../source/tools.rst:606
+msgid "Used for claiming orders in the aquisitions module"
+msgstr ""
+
+#: ../../source/tools.rst:608
+msgid "ACQCLAIM is the code of the sample notice, but it's possible to define several notices choosing any code. Only the module 'Claim aquisition' will be taken into account. All notices with this module will appear in the pull down on the late orders page."
+msgstr ""
+
+#: ../../source/tools.rst:613
+msgid "*Get there:* More > Acquisitions > Late orders"
+msgstr ""
+
+#: ../../source/tools.rst:615 ../../source/tools.rst:629
+msgid "This notice is sent if several criteria are met:"
+msgstr ""
+
+#: ../../source/tools.rst:617 ../../source/tools.rst:631
+msgid "The staff patron triggering the email has a valid email address."
+msgstr ""
+
+#: ../../source/tools.rst:619
+msgid "The vendor contact marked as 'Contact about late orders?' has a valid email address."
+msgstr ""
+
+#: ../../source/tools.rst:622
+msgid "ACQORDER (Acquisition order)"
+msgstr ""
+
+#: ../../source/tools.rst:624
+msgid "Used in the acquisitions module to send order information to the vendor"
+msgstr ""
+
+#: ../../source/tools.rst:626
+msgid "The notice is triggered manually from the basket summary page using the 'Email order' button in the toolbar."
+msgstr ""
+
+#: ../../source/tools.rst:633
+msgid "The vendor contact marked as 'Primary acquisitions contact' and 'Contact when ordering' has a valid email address."
+msgstr ""
+
+#: ../../source/tools.rst:636
+msgid "ACQ_NOTIF_ON_RECEIV"
+msgstr ""
+
+#: ../../source/tools.rst:638
+msgid "Used in the acquisition module to inform patrons on receiving orders they have been added to."
+msgstr ""
+
+#: ../../source/tools.rst:641
+msgid "AR\\_CANCELED"
+msgstr ""
+
+#: ../../source/tools.rst:643
+msgid "This notice is sent to the patron when an article request is cancelled by staff."
+msgstr ""
+
+#: ../../source/tools.rst:646
+msgid "AR\\_COMPLETED"
+msgstr ""
+
+#: ../../source/tools.rst:648
+msgid "This notice is sent to the patron when an article request is marked as completed by staff."
+msgstr ""
+
+#: ../../source/tools.rst:651
+msgid "AR\\_PENDING"
+msgstr ""
+
+#: ../../source/tools.rst:653
+msgid "This notice is sent to the patron when an article request has been made in order to confirm the request."
+msgstr ""
+
+#: ../../source/tools.rst:656
+msgid "AR\\_PROCESSING"
+msgstr ""
+
+#: ../../source/tools.rst:658
+msgid "This notice is sent to the patron when an article request is marked as being processed by staff."
+msgstr ""
+
+#: ../../source/tools.rst:661
+msgid "AVAILABLE"
+msgstr ""
+
+#: ../../source/tools.rst:663
+msgid "This notice is sent to the patron who made a suggestion, when the order created from the suggestion is received."
+msgstr ""
+
+#: ../../source/tools.rst:668
+msgid "CHECKIN"
+msgstr ""
+
+#: ../../source/tools.rst:670
+msgid "This notice is sent as the 'Check in' notice for all items that are checked in"
+msgstr ""
+
+#: ../../source/tools.rst:673 ../../source/tools.rst:691
+#: ../../source/tools.rst:719 ../../source/tools.rst:736
+#: ../../source/tools.rst:751 ../../source/tools.rst:822
+#: ../../source/tools.rst:840
+msgid "This notice is used if two criteria are met:"
+msgstr ""
+
+#: ../../source/tools.rst:675 ../../source/tools.rst:693
+#: ../../source/tools.rst:721 ../../source/tools.rst:738
+#: ../../source/tools.rst:753 ../../source/tools.rst:824
+#: ../../source/tools.rst:842 ../../source/tools.rst:866
+msgid "The :ref:`EnhancedMessagingPreferences` is set to 'Allow'"
+msgstr ""
+
+#: ../../source/tools.rst:679 ../../source/tools.rst:697
+#: ../../source/tools.rst:725 ../../source/tools.rst:757
+#: ../../source/tools.rst:828
+msgid "The patron has requested to receive this notice"
+msgstr ""
+
+#: ../../source/tools.rst:681 ../../source/tools.rst:699
+#: ../../source/tools.rst:727 ../../source/tools.rst:744
+#: ../../source/tools.rst:759 ../../source/tools.rst:830
+#: ../../source/tools.rst:848 ../../source/tools.rst:875
+msgid "*Get there:*\\ OPAC > Login > your messaging"
+msgstr ""
+
+#: ../../source/tools.rst:683 ../../source/tools.rst:701
+#: ../../source/tools.rst:729 ../../source/tools.rst:746
+#: ../../source/tools.rst:761 ../../source/tools.rst:832
+#: ../../source/tools.rst:850 ../../source/tools.rst:877
+msgid "*Get there:*\\ Staff client > Patron record > :ref:`Notices`"
+msgstr ""
+
+#: ../../source/tools.rst:686
+msgid "CHECKOUT"
+msgstr ""
+
+#: ../../source/tools.rst:688
+msgid "This notice is sent as the 'Check out' notice for all items that are checked out"
+msgstr ""
+
+#: ../../source/tools.rst:704
+msgid "DISCHARGE"
+msgstr ""
+
+#: ../../source/tools.rst:706
+msgid "This notice is used to generate a PDF to document a successful discharge request"
+msgstr ""
+
+#: ../../source/tools.rst:709
+msgid "The PDF can either be downloaded by the patron from their patron account or from the staff interface when discharging a patron"
+msgstr ""
+
+#: ../../source/tools.rst:712
+msgid "The discharge feature is controlled by the :ref:`useDischarge` system preference."
+msgstr ""
+
+#: ../../source/tools.rst:715
+msgid "DUE"
+msgstr ""
+
+#: ../../source/tools.rst:717
+msgid "This notice is sent as the 'Item due' for an item is due"
+msgstr ""
+
+#: ../../source/tools.rst:732
+msgid "DUEDGST"
+msgstr ""
+
+#: ../../source/tools.rst:734
+msgid "This notice is sent as the 'Item due' for all items that are due"
+msgstr ""
+
+#: ../../source/tools.rst:742 ../../source/tools.rst:846
+msgid "The patron has requested to receive this notice as a digest"
+msgstr ""
+
+#: ../../source/tools.rst:749
+msgid "HOLD (Hold available for pickup)"
+msgstr ""
+
+#: ../../source/tools.rst:764 ../../source/tools.rst:774
+msgid "When this notice references the branches table it is referring to the pickup branch information."
+msgstr ""
+
+#: ../../source/tools.rst:767
+msgid "HOLDPLACED (a notice to the library staff that a hold has been placed)"
+msgstr ""
+
+#: ../../source/tools.rst:770
+msgid "This notice requires the :ref:`emailLibrarianWhenHoldIsPlaced` system preference to be set to 'Enable'"
+msgstr ""
+
+#: ../../source/tools.rst:777
+msgid "MEMBERSHIP\\_EXPIRY"
+msgstr ""
+
+#: ../../source/tools.rst:779
+msgid "This notice can be sent to patrons to warn them that their cards are expiring soon."
+msgstr ""
+
+#: ../../source/tools.rst:782
+msgid "Requires that you have the :ref:`MembershipExpiryDaysNotice` set and the :ref:`related cron job <cron-notify-patrons-of-expiration-label>` set."
+msgstr ""
+
+#: ../../source/tools.rst:786
+msgid "NOTIFY\\_MANAGER"
+msgstr ""
+
+#: ../../source/tools.rst:788
+msgid "This notice is sent to a staff member when they are :ref:`assigned as manager of a suggestion <managing-purchase-suggestions-label>` in the acquisitions module."
+msgstr ""
+
+#: ../../source/tools.rst:791
+msgid "ODUE (Overdue notice)"
+msgstr ""
+
+#: ../../source/tools.rst:793
+msgid "This notice is used to send overdue notices to patrons"
+msgstr ""
+
+#: ../../source/tools.rst:795
+msgid "ODUE is the code of the sample notice, but it's possible to use any code and define multiple different messages for different patron categories and notice levels"
+msgstr ""
+
+#: ../../source/tools.rst:799
+msgid "Requires that you set :ref:`Overdue notice/status triggers <overdue-notice/status-triggers-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:802
+msgid "ORDERED"
+msgstr ""
+
+#: ../../source/tools.rst:804
+msgid "This notice is sent to the patron who made a suggestion, when the 'from a suggestion' option is used to create an order from it."
+msgstr ""
+
+#: ../../source/tools.rst:807 ../../source/tools.rst:857
+msgid "Note: If you don't want to send this notice, just delete it."
+msgstr ""
+
+#: ../../source/tools.rst:809
+msgid "PASSWORD_RESET"
+msgstr ""
+
+#: ../../source/tools.rst:811
+msgid "This notice is sent when :ref:`a patron requests a new password from the OPAC <resetting-your-password-label>` in order to validate the email address."
+msgstr ""
+
+#: ../../source/tools.rst:815
+msgid "The password reset feature is controlled by the :ref:`OpacResetPassword` system preference."
+msgstr ""
+
+#: ../../source/tools.rst:818
+msgid "PREDUE"
+msgstr ""
+
+#: ../../source/tools.rst:820
+msgid "This notice is sent as the 'Advanced notice' for an item is due"
+msgstr ""
+
+#: ../../source/tools.rst:835
+msgid "PREDUEDGST"
+msgstr ""
+
+#: ../../source/tools.rst:837
+msgid "This notice is sent as the 'Advanced notice' for all items that are due"
+msgstr ""
+
+#: ../../source/tools.rst:853
+msgid "REJECTED"
+msgstr ""
+
+#: ../../source/tools.rst:855
+msgid "This notice is sent when a patron's suggestion is rejected."
+msgstr ""
+
+#: ../../source/tools.rst:859
+msgid "RENEWAL"
+msgstr ""
+
+#: ../../source/tools.rst:861
+msgid "This notice is sent as the 'Check out' notice for all items that are renewed"
+msgstr ""
+
+#: ../../source/tools.rst:864
+msgid "This notice is used if three criteria are met:"
+msgstr ""
+
+#: ../../source/tools.rst:870
+msgid "The :ref:`RenewalSendNotice` preference is set to 'Send'"
+msgstr ""
+
+#: ../../source/tools.rst:873
+msgid "The patron has requested to receive the checkout notice"
+msgstr ""
+
+#: ../../source/tools.rst:880
+msgid "SERIAL_ALERT (New serial issue)"
+msgstr ""
+
+#: ../../source/tools.rst:882
+msgid "Notice used in the serials module to notify patrons/staff of new issues of a serial. SERIAL_ALERT (RLIST in older verisons) is provided as a sample notice, but the notice code can be chosen freely as only the module is taken into account. Multiple notices can also be managed."
+msgstr ""
+
+#: ../../source/tools.rst:888
+msgid "*Get there:* More > Serials > :ref:`New subscription <add-a-subscription-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:891
+msgid "You have the option to select the notice used to inform the patron about a received serial issue for a subscription. Choose from the 'Patron notification' drop down."
+msgstr ""
+
+#: ../../source/tools.rst:895
+msgid "If a notice has been selected for a subscription, patrons can subscribe to the email notification from the subscription tab in the detail view in the OPAC."
+msgstr ""
+
+#: ../../source/tools.rst:901
+msgid "Notice also that if you'd like to notify patrons of new serial issues, you can click on 'define a notice' which will take you to the 'Notices' tool"
+msgstr ""
+
+#: ../../source/tools.rst:905
+msgid "SHARE\\_ACCEPT"
+msgstr ""
+
+#: ../../source/tools.rst:907
+msgid "Used to notify a patron when another patron has accepted their shared list."
+msgstr ""
+
+#: ../../source/tools.rst:910 ../../source/tools.rst:919
+msgid "Requires that you set :ref:`OpacAllowSharingPrivateLists` to 'Allow'"
+msgstr ""
+
+#: ../../source/tools.rst:914
+msgid "SHARE\\_INVITE"
+msgstr ""
+
+#: ../../source/tools.rst:916
+msgid "Used to notify a patron that another patron would like to share a list with them."
+msgstr ""
+
+#: ../../source/tools.rst:923
+msgid "TO\\_PROCESS"
+msgstr ""
+
+#: ../../source/tools.rst:925
+msgid "Used to notify a staff member if a purchase suggestion has been moved to the fund they manage"
+msgstr ""
+
+#: ../../source/tools.rst:928
+msgid "Requires the :ref:`notice\\_unprocessed\\_suggestions <cron-email-suggestions-to-process-label>` cron job"
+msgstr ""
+
+#: ../../source/tools.rst:931
+msgid "There are also a set of predefined slips (or receipts) listed on this page. All of these slips can be customized by altering their text via the Notices & slips tool and their style using the :ref:`SlipCSS` preference to define a stylesheet. Here is what those slips are used for:"
+msgstr ""
+
+#: ../../source/tools.rst:937
+msgid "AR\\_SLIP"
+msgstr ""
+
+#: ../../source/tools.rst:939
+msgid "Used to print a slip for an article request"
+msgstr ""
+
+#: ../../source/tools.rst:941
+msgid "The slip or receipt can be printed manually when managing article requests from the staff interface."
+msgstr ""
+
+#: ../../source/tools.rst:944
+msgid "*Get there:* Circulation > Article requests > Actions > Print slip"
+msgstr ""
+
+#: ../../source/tools.rst:946
+msgid "ISSUEQSLIP"
+msgstr ""
+
+#: ../../source/tools.rst:948
+msgid "Used to print the quick slip in circulation"
+msgstr ""
+
+#: ../../source/tools.rst:950
+msgid "The quick slip only includes items that were checked out today"
+msgstr ""
+
+#: ../../source/tools.rst:952
+msgid "ISSUESLIP"
+msgstr ""
+
+#: ../../source/tools.rst:954
+msgid "Used to print a full slip in circulation"
+msgstr ""
+
+#: ../../source/tools.rst:956
+msgid "The slip or receipt will show items checked out today as well as items that are still checked out"
+msgstr ""
+
+#: ../../source/tools.rst:959
+msgid "HOLD\\_SLIP"
+msgstr ""
+
+#: ../../source/tools.rst:961
+msgid "Used to print a holds slip"
+msgstr ""
+
+#: ../../source/tools.rst:963
+msgid "The holds slip is generated when a hold is confirmed and set to waiting."
+msgstr ""
+
+#: ../../source/tools.rst:966
+msgid "OVERDUE\\_SLIP"
+msgstr ""
+
+#: ../../source/tools.rst:968
+msgid "Used to print an overdues slip"
+msgstr ""
+
+#: ../../source/tools.rst:970
+msgid "The overdues slip can be generated manually using the 'print' menu in the patron account in staff. It will show all items overdue."
+msgstr ""
+
+#: ../../source/tools.rst:973
+msgid "TRANSFERSLIP"
+msgstr ""
+
+#: ../../source/tools.rst:975
+msgid "Used to print a transfer slip"
+msgstr ""
+
+#: ../../source/tools.rst:977
+msgid "The transfer slip is printed when you confirm a transfer from one branch to another in your system"
+msgstr ""
+
+#: ../../source/tools.rst:983
+msgid "Overdue notice/status triggers"
+msgstr ""
+
+#: ../../source/tools.rst:985
+msgid "*Get there:* More > Tools > Patrons and circulation > Overdue notice/status triggers"
+msgstr ""
+
+#: ../../source/tools.rst:988
+msgid "In order to send the overdue notices that you defined using the :ref:`Notices & slips <notices-and-slips-label>` tool, you need to first set the triggers to have these messages."
+msgstr ""
+
+#: ../../source/tools.rst:994
+msgid "In order to have overdue notices sent to your patrons, you need to :ref:`set that patron category <adding-a-patron-category-label>` to require overdue notices."
+msgstr ""
+
+#: ../../source/tools.rst:1000
+msgid "Depending on the value of your :ref:`OverdueNoticeCalendar` preference the delay may or may not include days the library is closed based on the :ref:`holiday calendar <calendar-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:1005
+msgid "The Overdue notice/status triggers tool gives the librarian the power to send up to three notices to each patron type notifying them of overdue items"
+msgstr ""
+
+#: ../../source/tools.rst:1009
+msgid "|image260|"
+msgstr ""
+
+#: ../../source/tools.rst:1011
+msgid "Delay is the number of days after an issue is due before an action is triggered."
+msgstr ""
+
+#: ../../source/tools.rst:1016
+msgid "If you want Koha to trigger an action (send a letter or restrict member), a delay value is required."
+msgstr ""
+
+#: ../../source/tools.rst:1019
+msgid "To send additional notices, click on the tabs for 'Second' and 'Third' notice"
+msgstr ""
+
+#: ../../source/tools.rst:1022
+msgid "If you would like to prevent a patron from checking items out because of their overdue items, check the 'Restrict' box, this will put a notice on the patron's record at checkout informing the librarian that the patron cannot check out due to overdue items."
+msgstr ""
+
+#: ../../source/tools.rst:1027
+msgid "If you choose to restrict a patron in this way you can also have Koha automatically remove that restriction with the :ref:`AutoRemoveOverduesRestrictions` preference."
+msgstr ""
+
+#: ../../source/tools.rst:1032
+msgid "Next you can choose the delivery method for the overdue notice. You can choose from Email, Phone (if you are using the :ref:`iTiva Talking Tech service <talkingtechitivaphonenotification-label>`), Print and SMS (if you have set your :ref:`SMSSendDriver`)."
+msgstr ""
+
+#: ../../source/tools.rst:1040
+msgid "Patron card creator"
+msgstr ""
+
+#: ../../source/tools.rst:1042
+msgid "*Get there:* More > Tools > Patron card creator"
+msgstr ""
+
+#: ../../source/tools.rst:1044
+msgid "The patron card creator allow you to use layouts and templates which you design to print your custom patron cards on your printer. Here are some of the features of the patron card creator module:"
+msgstr ""
+
+#: ../../source/tools.rst:1048
+msgid "Customize patron card layouts with text retrieved from the Koha patron data"
+msgstr ""
+
+#: ../../source/tools.rst:1051
+msgid "Design custom card templates for printed patron cards (to match the label sheets)"
+msgstr ""
+
+#: ../../source/tools.rst:1054
+msgid "Build and manage batches of patron cards to print"
+msgstr ""
+
+#: ../../source/tools.rst:1056
+msgid "Export (as PDF) single or multiple batches to print"
+msgstr ""
+
+#: ../../source/tools.rst:1058
+msgid "Export (as PDF) single or multiple patron cards from within a batch"
+msgstr ""
+
+#: ../../source/tools.rst:1063 ../../source/tools.rst:2435
+msgid "Layouts"
+msgstr ""
+
+#: ../../source/tools.rst:1065
+msgid "*Get there:* More > Tools > Patron card creator > Manage > Layouts"
+msgstr ""
+
+#: ../../source/tools.rst:1067
+msgid "A layout defines the text and images that will be printed on to the card and where it will appear."
+msgstr ""
+
+#: ../../source/tools.rst:1072
+msgid "Up to three lines of text, the patron's number in barcode representation and up to two images can be printed on to the card."
+msgstr ""
+
+#: ../../source/tools.rst:1078 ../../source/tools.rst:2444
+msgid "Add a layout"
+msgstr ""
+
+#: ../../source/tools.rst:1080
+msgid "If you have no layouts defined, you will add a new layout by clicking the 'New' button and choosing 'Layout'."
+msgstr ""
+
+#: ../../source/tools.rst:1083
+msgid "|image1224|"
+msgstr ""
+
+#: ../../source/tools.rst:1085
+msgid "You may also choose to press 'Manage layout' on the left side. Here you are offered a list of available layouts you can select for editing. But at the top of the page there is still the 'New layout' button."
+msgstr ""
+
+#: ../../source/tools.rst:1089
+msgid "|image261|"
+msgstr ""
+
+#: ../../source/tools.rst:1091
+msgid "The name you assign to the layout is for your benefit, name it something that will be easy to identify at a later date"
+msgstr ""
+
+#: ../../source/tools.rst:1094
+msgid "The Units pull down is used to define what measurement scale you're going to be using for your layout."
+msgstr ""
+
+#: ../../source/tools.rst:1097
+msgid "|image262|"
+msgstr ""
+
+#: ../../source/tools.rst:1101 ../../source/tools.rst:1201
+#: ../../source/tools.rst:1293
+msgid "A Postscript Point is 1/72\", an Adobe Agate is 1/64\", an Inch is 25.4 SI Millimeters"
+msgstr ""
+
+#: ../../source/tools.rst:1104
+msgid "Next, note if this layout is for the front or the back of the patron card"
+msgstr ""
+
+#: ../../source/tools.rst:1109
+msgid "You will need a layout for both the front and back of your card if you have 2-sided library cards, this option doesn't allow you to print two sided cards, just lets you track which side of the card you're designing."
+msgstr ""
+
+#: ../../source/tools.rst:1114
+msgid "You have the option of adding up to 3 lines of text to your card. Your text can be static text of your choosing and/or fields from the patron record. If you want to print fields from the patron record you want to put the field names in brackets like so - <firstname>"
+msgstr ""
+
+#: ../../source/tools.rst:1121
+msgid "A full list of field names can be found in the database schema at http://schema.koha-community.org"
+msgstr ""
+
+#: ../../source/tools.rst:1124
+msgid "For each line of text, you can choose your font, font size and the location of the text on the card using the lower X and Y coordinates"
+msgstr ""
+
+#: ../../source/tools.rst:1127
+msgid "In order to show the barcode and the patron card number you will need to check the 'Print card number as barcode' option. This will turn the patron card number into a barcode. If you want the number to print in human readable format you will need to check the 'Print card number as text under barcode' option."
+msgstr ""
+
+#: ../../source/tools.rst:1133
+msgid "Finally you can choose up to two images to print on the card."
+msgstr ""
+
+#: ../../source/tools.rst:1135
+msgid "One can be the :ref:`patron image <upload-patron-images-label>` which you can resize to meet your needs."
+msgstr ""
+
+#: ../../source/tools.rst:1138
+msgid "The other image can be something like a library logo or symbol that you uploaded using the ':ref:`manage images <manage-images-label>`' module of the patron card creator Tool."
+msgstr ""
+
+#: ../../source/tools.rst:1145
+msgid "It is the designers responsibility to define textlines, barcode and images such that overlap is avoided."
+msgstr ""
+
+#: ../../source/tools.rst:1148 ../../source/tools.rst:2523
+msgid "After saving, your layouts will appear on the 'Manage layouts' page."
+msgstr ""
+
+#: ../../source/tools.rst:1150
+msgid "|image263|"
+msgstr ""
+
+#: ../../source/tools.rst:1155 ../../source/tools.rst:2251
+msgid "Templates"
+msgstr ""
+
+#: ../../source/tools.rst:1157
+msgid "*Get there:* More > Tools > Patron card creator > Manage > Card templates"
+msgstr ""
+
+#: ../../source/tools.rst:1160
+msgid "A template describes the arrangement of labels on the label sheet/card stock you are using. This might be Avery 5160 for address labels, Gaylord 47-284 for spine labels or Avery 28371 for your patron cards, just to give a couple of examples. All of the information you will need for setting up a template may be on the packaging, and if not it can usually be found on the vendor's website or can be measured from a sample sheet."
+msgstr ""
+
+#: ../../source/tools.rst:1171 ../../source/tools.rst:2265
+msgid "Add a template"
+msgstr ""
+
+#: ../../source/tools.rst:1173
+msgid "To add a new template click on the 'New template' button at the top of your page which brings you to the Edit template form immediately. You may also choose to press 'Manage templates' on the left side. Here you are offered a list of available templates you can select for editing. But in the top of the page there is still the 'New template' button."
+msgstr ""
+
+#: ../../source/tools.rst:1179
+msgid "|image264|"
+msgstr ""
+
+#: ../../source/tools.rst:1181
+msgid "Using the form that appears after pressing either 'Edit' or 'New template' you can define the template for your sheet of labels or cards."
+msgstr ""
+
+#: ../../source/tools.rst:1184
+msgid "|image265|"
+msgstr ""
+
+#: ../../source/tools.rst:1186
+msgid "Template ID is simply a system generated unique id"
+msgstr ""
+
+#: ../../source/tools.rst:1188
+msgid "Template code should be the name of this template to identify it on a list of templates"
+msgstr ""
+
+#: ../../source/tools.rst:1191
+msgid "You can use the template description to add additional information about the template"
+msgstr ""
+
+#: ../../source/tools.rst:1194
+msgid "The Units pull down is used to define what measurement scale you're going to be using for the template."
+msgstr ""
+
+#: ../../source/tools.rst:1197
+msgid "|image266|"
+msgstr ""
+
+#: ../../source/tools.rst:1204
+msgid "The measurements (page height, page width, card width, card height) may be on the packaging, and if not it can usually be found on the vendor's website or can be measured from a sample sheet."
+msgstr ""
+
+#: ../../source/tools.rst:1208 ../../source/tools.rst:2347
+msgid "A profile is a set of \"adjustments\" applied to a given template just prior to printing which compensates for anomalies unique and peculiar to a given printer (to which the profile is assigned)."
+msgstr ""
+
+#: ../../source/tools.rst:1212
+msgid "Before defining a profile try printing some sample cards so that you can take measurements to define a profile to perform the right adjustments for your printer/template combination."
+msgstr ""
+
+#: ../../source/tools.rst:1216
+msgid "After finding and documenting any anomalies in the printed document, then you can :ref:`create a profile <patron-add-a-profile-label>` and assign it to the template."
+msgstr ""
+
+#: ../../source/tools.rst:1222
+msgid "Do not specify a profile unless needed, i.e. do not click to define a printer profile. It is not possible to remove a profile from a template but you can switch to another profile."
+msgstr ""
+
+#: ../../source/tools.rst:1228
+msgid "If you are using different printers you may be required to define several templates that are identical only different profiles are specified."
+msgstr ""
+
+#: ../../source/tools.rst:1232
+msgid "After saving, your templates will appear on the 'Manage templates' page."
+msgstr ""
+
+#: ../../source/tools.rst:1234
+msgid "|image267|"
+msgstr ""
+
+#: ../../source/tools.rst:1239 ../../source/tools.rst:2366
+msgid "Profiles"
+msgstr ""
+
+#: ../../source/tools.rst:1241
+msgid "*Get there:* More > Tools > Patron card creator > Manage > Profiles"
+msgstr ""
+
+#: ../../source/tools.rst:1243
+msgid "A profile is a set of \"adjustments\" applied to a given :ref:`template <patron-templates-label>` just prior to printing which compensates for anomalies unique and peculiar to a given printer. This means if you set a template up and then print a sample set of data and find that the items are not all aligned the same on each card, you need to set up a profile for each printer (or even different tray selections on the same printer) to make up for the differences in printing styles, such as the shifting of text to the left, right, top or bottom."
+msgstr ""
+
+#: ../../source/tools.rst:1252
+msgid "If your cards are printing just the way you want, you will not need a profile."
+msgstr ""
+
+#: ../../source/tools.rst:1258 ../../source/tools.rst:2385
+msgid "Add a profile"
+msgstr ""
+
+#: ../../source/tools.rst:1260
+msgid "To add a new profile, you want to click on the 'Profiles' button at the top of your page and choose 'New profile'"
+msgstr ""
+
+#: ../../source/tools.rst:1263
+msgid "|image268|"
+msgstr ""
+
+#: ../../source/tools.rst:1265
+msgid "To add a new profile, you want to click on the 'New profile' button at the top of your page. Using the form that appears you can define the values to correct the card misalignments on your label sheet. You may also choose 'Manage profiles' on the left side and select one of the currently available profiles for editing."
+msgstr ""
+
+#: ../../source/tools.rst:1271
+msgid "|image269|"
+msgstr ""
+
+#: ../../source/tools.rst:1273
+msgid "The Printer name and Paper bin do not have to match your printer exactly, they are for your reference so you can remember what printer you have set the profile for."
+msgstr ""
+
+#: ../../source/tools.rst:1279
+msgid "For example: if you want to use the Printer model number in printer name you can, or you can call it 'the printer on my desk'"
+msgstr ""
+
+#: ../../source/tools.rst:1283
+msgid "Template will be filled in once you have chosen which template to apply the profile to on the :ref:`template edit form <patron-add-a-template-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:1286
+msgid "The Units pull down is used to define what measurement scale you're going to be using for your profile."
+msgstr ""
+
+#: ../../source/tools.rst:1289
+msgid "|image270|"
+msgstr ""
+
+#: ../../source/tools.rst:1296
+msgid "Offset should be used when the entire image is off center either vertically or horizontally. Creep describes a condition where the distance between the labels changes across the page or up and down the page"
+msgstr ""
+
+#: ../../source/tools.rst:1301
+msgid "For offset and creep values, negative numbers move the printed information up and to the left on the printed sheet and positive numbers move down and to the right"
+msgstr ""
+
+#: ../../source/tools.rst:1305
+msgid "Example: the text is printed 0 .25\" from the left edge of the first label, 0 .28\" from the left edge of the second label and 0 .31\" from the left edge of the third label. This means the horizontal creep should be set to (minus) -0.03 \" to make up for this difference."
+msgstr ""
+
+#: ../../source/tools.rst:1311
+msgid "After saving, your profiles will appear on the 'Manage printer profiles' page."
+msgstr ""
+
+#: ../../source/tools.rst:1314
+msgid "|image271|"
+msgstr ""
+
+#: ../../source/tools.rst:1316 ../../source/tools.rst:2429
+msgid "Once you have saved your new profile, you can return to the list of templates and choose to edit the template that this profile is for."
+msgstr ""
+
+#: ../../source/tools.rst:1322 ../../source/tools.rst:2530
+msgid "Batches"
+msgstr ""
+
+#: ../../source/tools.rst:1324
+msgid "*Get there:* More > Tools > Patron card creator > Manage > Card batches"
+msgstr ""
+
+#: ../../source/tools.rst:1327
+msgid "A batch is a collection of patrons for whom you want to generate cards."
+msgstr ""
+
+#: ../../source/tools.rst:1332 ../../source/tools.rst:2541
+msgid "Add a batch"
+msgstr ""
+
+#: ../../source/tools.rst:1334
+msgid "To add a new batch, you want to click on the 'New batches' button at the top of your page. Choosing the menu item 'Manage batches' on the left a list of already defined batches is displayed. In this display you can either select a batch for editing or add a new batch."
+msgstr ""
+
+#: ../../source/tools.rst:1339
+msgid "|image272|"
+msgstr ""
+
+#: ../../source/tools.rst:1341
+msgid "For a new batch a message pops up and directs you to select patrons to be processed in this batch."
+msgstr ""
+
+#: ../../source/tools.rst:1344
+msgid "|image1225|"
+msgstr ""
+
+#: ../../source/tools.rst:1346
+msgid "After choosing the 'Add patron(s)' button the Patron Search window pops up."
+msgstr ""
+
+#: ../../source/tools.rst:1349
+msgid "|image1226|"
+msgstr ""
+
+#: ../../source/tools.rst:1351
+msgid "From here you can search for patrons to add to your batch by any part of their name, their category and/or library. Entering \\* in the search box will display all the patrons."
+msgstr ""
+
+#: ../../source/tools.rst:1355
+msgid "|image1227|"
+msgstr ""
+
+#: ../../source/tools.rst:1357
+msgid "From the results you can add patrons to the batch by clicking the 'Add' button. After adding patrons from the results you can start over and perform another search or click 'Close' at the bottom of the screen to indicate that you are done. You will then be presented with your batch."
+msgstr ""
+
+#: ../../source/tools.rst:1363
+msgid "|image1228| If you are satisfied with your batch you can proceed to export. If you want to correct or even delete that batch the buttons to do so can be found at the top of your screen. You can always come back here through the 'Manage > Card batches' button."
+msgstr ""
+
+#: ../../source/tools.rst:1369
+msgid "If you would like to export all patron cards you can click 'Export card batch' otherwise you can choose specific patrons to print cards for by checking the box to the right of their names and then choose 'Export selected card(s)' at the top."
+msgstr ""
+
+#: ../../source/tools.rst:1374
+msgid "The export menu will ask you to choose a template, a layout and starting position (where on the sheet should printing begin)."
+msgstr ""
+
+#: ../../source/tools.rst:1379
+msgid "For the starting position if the first 6 labels have already been used on your sheet you can start printing on label in position 7 on the sheet. The labels are numbered left to right from top to bottom."
+msgstr ""
+
+#: ../../source/tools.rst:1383
+msgid "|image1229|"
+msgstr ""
+
+#: ../../source/tools.rst:1385
+msgid "Once you click 'Export' you will be presented with a PDF of your labels for printing"
+msgstr ""
+
+#: ../../source/tools.rst:1388 ../../source/tools.rst:1595
+msgid "|image1230|"
+msgstr ""
+
+#: ../../source/tools.rst:1390
+msgid "When you open the PDF you will see the cards for printing"
+msgstr ""
+
+#: ../../source/tools.rst:1392
+msgid "|image273|"
+msgstr ""
+
+#: ../../source/tools.rst:1394
+msgid "The above image shows a layout that is made up of two textlines. The first one is just plain text, the second one is composed of the <firstname> <surname> fields. A patron image is printed (if available) and the barcode of patrons number is displayed in code 39. All this is printed on a template with three columns and 8 rows using position 1-3 here. When printing this PDF please take care that your printer doesn't rescale the PDF (e.g do not fit to paper size) otherwise the printer will not be able to print to the right place per your templates."
+msgstr ""
+
+#: ../../source/tools.rst:1406
+msgid "Manage images"
+msgstr ""
+
+#: ../../source/tools.rst:1408
+msgid "*Get there:* More > Tools > Patron card creator > Manage > Images"
+msgstr ""
+
+#: ../../source/tools.rst:1410
+msgid "Images uploaded using this tool will appear on the menu when creating :ref:`patron card layouts <patron-card-layouts-label>`. You are limited in how many images you can upload (not counting patron images) by the :ref:`ImageLimit` system preference."
+msgstr ""
+
+#: ../../source/tools.rst:1417
+msgid "Images must be under 500k in size."
+msgstr ""
+
+#: ../../source/tools.rst:1421
+msgid "Pictures uploaded with this tool should be at least 300dpi which is the minimum quality for a printable image."
+msgstr ""
+
+#: ../../source/tools.rst:1424
+msgid "In the center of the screen is a simple upload form, simply browse for the file on your computer and give it a name you'll recognize later."
+msgstr ""
+
+#: ../../source/tools.rst:1427
+msgid "|image274|"
+msgstr ""
+
+#: ../../source/tools.rst:1429
+msgid "Once the file is uploaded you will be presented with a confirmation message."
+msgstr ""
+
+#: ../../source/tools.rst:1432
+msgid "|image275|"
+msgstr ""
+
+#: ../../source/tools.rst:1434
+msgid "And the image will be listed with all of your others on the right hand side of the page."
+msgstr ""
+
+#: ../../source/tools.rst:1437
+msgid "|image276|"
+msgstr ""
+
+#: ../../source/tools.rst:1439
+msgid "To delete one or multiple of these images, click the checkbox to the right of each image you want to delete and click the 'Delete' button."
+msgstr ""
+
+#: ../../source/tools.rst:1445
+msgid "Batch patron deletion/anonymization"
+msgstr ""
+
+#: ../../source/tools.rst:1447
+msgid "*Get there:* More > Tools > Patrons and circulation > Batch patron deletion/anonymization"
+msgstr ""
+
+#: ../../source/tools.rst:1450
+msgid "This tool allows you to bulk anonymize circulation histories (this means that you keep records of how many times items were checked out - but not the patrons who checked the items out) or bulk delete patrons (remove them from the system completely)."
+msgstr ""
+
+#: ../../source/tools.rst:1457
+msgid "Patrons with outstanding fines or items checked out are not saved. They are not completely removed from the system (they are only moved to the delete\\_borrowers table), but this tool does not provide as many checks as one may desire."
+msgstr ""
+
+#: ../../source/tools.rst:1464
+msgid "Before using this tool it is recommended that you backup your database. Changes made here are permanent."
+msgstr ""
+
+#: ../../source/tools.rst:1469
+msgid "The anonymization will fail quietly if :ref:`AnonymousPatron` preference does not contain a valid value."
+msgstr ""
+
+#: ../../source/tools.rst:1473
+msgid "|image277|"
+msgstr ""
+
+#: ../../source/tools.rst:1475
+msgid "To either delete or anonymize patrons"
+msgstr ""
+
+#: ../../source/tools.rst:1477
+msgid "Check the 'Verify' box on the task you would like to complete (delete or anonymize)"
+msgstr ""
+
+#: ../../source/tools.rst:1480
+msgid "Enter a date before which you want to alter the data"
+msgstr ""
+
+#: ../../source/tools.rst:1482
+msgid "If deleting patrons you can also choose to find patrons who"
+msgstr ""
+
+#: ../../source/tools.rst:1484
+msgid "have not borrowed since a specific date"
+msgstr ""
+
+#: ../../source/tools.rst:1486
+msgid "have accounts that will expire before a specific date"
+msgstr ""
+
+#: ../../source/tools.rst:1488
+msgid "are in a specific :ref:`patron category <patron-categories-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:1490
+msgid "are in a :ref:`patron list <patron-lists-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:1492
+msgid "Click 'Next'"
+msgstr ""
+
+#: ../../source/tools.rst:1494
+msgid "A confirmation will appear asking if you're sure this is what you want to happen"
+msgstr ""
+
+#: ../../source/tools.rst:1497
+msgid "|image278|"
+msgstr ""
+
+#: ../../source/tools.rst:1499
+msgid "Clicking 'Finish' will delete or anonymize your data"
+msgstr ""
+
+#: ../../source/tools.rst:1501
+msgid "|image279|"
+msgstr ""
+
+#: ../../source/tools.rst:1506
+msgid "Batch patron modification"
+msgstr ""
+
+#: ../../source/tools.rst:1508
+msgid "*Get there:* More > Tools > Patrons and circulation > Batch patron modification"
+msgstr ""
+
+#: ../../source/tools.rst:1511
+msgid "With this tool you can make edits to a batch of patron records. Simply load in a file of cardnumbers (one per line), choose from a :ref:`list of patrons <patron-lists-label>` or scan patron card numbers in to the box provided."
+msgstr ""
+
+#: ../../source/tools.rst:1516
+msgid "|image280|"
+msgstr ""
+
+#: ../../source/tools.rst:1518
+msgid "Once you have the file loaded or the barcodes scanned click 'Continue.' You will be presented with a list of the patrons and the changes you can make."
+msgstr ""
+
+#: ../../source/tools.rst:1522
+msgid "|image281|"
+msgstr ""
+
+#: ../../source/tools.rst:1524
+msgid "To the left of each text box there is a checkbox. Clicking that checkbox will clear our the field values."
+msgstr ""
+
+#: ../../source/tools.rst:1529
+msgid "If the field is mandatory you will not be able to clear the value in it."
+msgstr ""
+
+#: ../../source/tools.rst:1532
+msgid "If you have multiple patron attributes you can change them all by using the '+ New' link to the right of the text box. This will allow you to add another attribute value."
+msgstr ""
+
+#: ../../source/tools.rst:1536
+msgid "|image282|"
+msgstr ""
+
+#: ../../source/tools.rst:1538
+msgid "Once you have made the changes you want, you can click 'Save' and Koha will present you with the changed patron records."
+msgstr ""
+
+#: ../../source/tools.rst:1545
+msgid "Batch extend due dates"
+msgstr ""
+
+#: ../../source/tools.rst:1547
+msgid "*Get there:* More > Tools > Patrons and circulation > Batch extend due dates"
+msgstr ""
+
+#: ../../source/tools.rst:1549
+msgid "This tool allows you to update due dates in bulk, this can be useful if a library needs to close unexpectedly and cannot accept returns."
+msgstr ""
+
+#: ../../source/tools.rst:1551
+msgid "|batchextendselection|"
+msgstr ""
+
+#: ../../source/tools.rst:1553
+msgid "You can filter the selection of checkouts based on patron category, library or a combination of both.  You can select multiple options in the dropdown lists if needed."
+msgstr ""
+
+#: ../../source/tools.rst:1555
+msgid "Next, specify a date range for the current due date of the materials on loan.  For example, you may want to extend the due dates for recent checkouts but exclude long overdue loans."
+msgstr ""
+
+#: ../../source/tools.rst:1557
+msgid "Choose to extend the due dates either to a new hard due date or by a number of days.  Using the number of days option can prevent large numbers of loans being due on the same date."
+msgstr ""
+
+#: ../../source/tools.rst:1559
+msgid "You can choose whether to preview the results of your selections."
+msgstr ""
+
+#: ../../source/tools.rst:1561
+msgid "|batchextendpreview|"
+msgstr ""
+
+#: ../../source/tools.rst:1563
+msgid "If you preview the results you will see a table which shows you the current due date and the new due date so that you can check your selections.  You can untick checkouts if they are incorrect or go back and change your selection."
+msgstr ""
+
+#: ../../source/tools.rst:1565
+msgid "Click on the Modify selected checkouts button to see a confirmation screen showing the checkouts that have been modified."
+msgstr ""
+
+#: ../../source/tools.rst:1568
+msgid "Access to this tool requires the Tools permission `batch_extend_due_dates`."
+msgstr ""
+
+#: ../../source/tools.rst:1574
+msgid "Tag moderation"
+msgstr ""
+
+#: ../../source/tools.rst:1576
+msgid "*Get there:* More > Tools > Patrons and circulation > Tags"
+msgstr ""
+
+#: ../../source/tools.rst:1578
+msgid "Depending on your :ref:`tagging system preferences <tagging-label>`, librarians may need to approve tags before they are published on the OPAC. This is done via the tag moderation tool. If there are tags awaiting moderation they will be listed on the main staff dashboard under the module labels:"
+msgstr ""
+
+#: ../../source/tools.rst:1584
+msgid "|image283|"
+msgstr ""
+
+#: ../../source/tools.rst:1586
+msgid "To moderate the tags visit the Tags tool. When first visiting the tool, you will be presented with a list of tags that are pending approval or rejection by a librarian"
+msgstr ""
+
+#: ../../source/tools.rst:1590
+msgid "|image284|"
+msgstr ""
+
+#: ../../source/tools.rst:1592
+msgid "To see all of the titles this tag was added to simply click on the term"
+msgstr ""
+
+#: ../../source/tools.rst:1597
+msgid "From this list of titles you can remove a tag without outright rejecting it from being used in the future by clicking the 'Remove tag' button to the right of the title."
+msgstr ""
+
+#: ../../source/tools.rst:1601
+msgid "To approve a tag, you can either click the 'Approve' button in line with the term, or check all terms you want to approve and click 'Approve' below the table."
+msgstr ""
+
+#: ../../source/tools.rst:1605
+msgid "To reject a tag, you can either click the 'Reject' button in line with the term, or check all terms you want to reject and click 'Reject' below the table."
+msgstr ""
+
+#: ../../source/tools.rst:1609
+msgid "Once a tag has been approved or rejected it will be moved to the appropriate list of tags. A summary of all tags will appear on the right of the screen."
+msgstr ""
+
+#: ../../source/tools.rst:1613
+msgid "|image285|"
+msgstr ""
+
+#: ../../source/tools.rst:1615
+msgid "Even though a tag is approved or rejected, it can still be moved to another list. When viewing approved tags each tag has the option to reject:"
+msgstr ""
+
+#: ../../source/tools.rst:1619
+msgid "|image286|"
+msgstr ""
+
+#: ../../source/tools.rst:1621
+msgid "To check terms against the approved and rejected lists (and possibly against :ref:`the dictionary <tagsexternaldictionary-label>` you have assigned for tag moderation) simply enter the term into the search box on the bottom right of the screen to see the status of the term"
+msgstr ""
+
+#: ../../source/tools.rst:1626
+msgid "|image287|"
+msgstr ""
+
+#: ../../source/tools.rst:1628
+msgid "Finally you can find tags by using the filters on the left."
+msgstr ""
+
+#: ../../source/tools.rst:1630
+msgid "|image288|"
+msgstr ""
+
+#: ../../source/tools.rst:1635
+msgid "Upload patron images"
+msgstr ""
+
+#: ../../source/tools.rst:1637
+msgid "*Get there:* More > Tools > Patrons and circulation > Upload patron images"
+msgstr ""
+
+#: ../../source/tools.rst:1640
+msgid "Patron images can be uploaded in bulk if you are :ref:`allowing patron images <patronimages-label>` to be attached to patron records. These images can also be used when creating :ref:`patron cards <patron-card-creator-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:1644
+msgid "Create a txt file and title it \"DATALINK.TXT\" or \"IDLINK.TXT\""
+msgstr ""
+
+#: ../../source/tools.rst:1646
+msgid "On each line in the text file enter the patron's card number followed by comma (or tab) and then the image file name"
+msgstr ""
+
+#: ../../source/tools.rst:1649
+msgid "|image289|"
+msgstr ""
+
+#: ../../source/tools.rst:1651
+msgid "Make sure that your TXT file is a plain text document, not RTF."
+msgstr ""
+
+#: ../../source/tools.rst:1653
+msgid "Zip up the text file and the image files"
+msgstr ""
+
+#: ../../source/tools.rst:1655
+msgid "Go to the Upload patron images tool"
+msgstr ""
+
+#: ../../source/tools.rst:1657
+msgid "|image290|"
+msgstr ""
+
+#: ../../source/tools.rst:1659
+msgid "For a single image, simply point to the image file and enter the patron card number"
+msgstr ""
+
+#: ../../source/tools.rst:1662
+msgid "For multiple images, choose to upload a zip file"
+msgstr ""
+
+#: ../../source/tools.rst:1664
+msgid "After uploading you will be presented with a confirmation"
+msgstr ""
+
+#: ../../source/tools.rst:1666
+msgid "|image291|"
+msgstr ""
+
+#: ../../source/tools.rst:1670
+msgid "There is a limit of 100K on the size of the picture uploaded and it is recommended that the image be 200x300 pixels, but smaller images will work as well."
+msgstr ""
+
+#: ../../source/tools.rst:1677
+msgid "Catalog"
+msgstr ""
+
+#: ../../source/tools.rst:1682
+msgid "Batch item deletion"
+msgstr ""
+
+#: ../../source/tools.rst:1684
+msgid "*Get there:* More > Tools > Catalog > Batch item deletion"
+msgstr ""
+
+#: ../../source/tools.rst:1686
+msgid "This tool will allow you to delete a batch of item records from Koha."
+msgstr ""
+
+#: ../../source/tools.rst:1688
+msgid "From the tool you can choose to upload a file of barcodes or item ids, or you can scan items one by one into the box below the upload tool."
+msgstr ""
+
+#: ../../source/tools.rst:1691
+msgid "|image298|"
+msgstr ""
+
+#: ../../source/tools.rst:1693
+msgid "Once you have your file uploaded or the barcodes scanned you can click 'Continue.'"
+msgstr ""
+
+#: ../../source/tools.rst:1696
+msgid "You will be presented with a confirmation screen. From here you can uncheck the items you don't want to delete and decide if Koha should delete the bib record if the last item is being deleted before clicking 'Delete selected items.' If you'd like you can delete the bibliographic record if you're deleting the last item by clicking the checkbox next to 'Delete records if no items remain'."
+msgstr ""
+
+#: ../../source/tools.rst:1703
+msgid "|image299|"
+msgstr ""
+
+#: ../../source/tools.rst:1705
+msgid "If your file (or list of scanned barcodes) has more than 1000 barcodes, Koha will be unable to present you with a list of the items. You will still be able to delete them, but not able to choose which items specifically to delete or delete the biblio records."
+msgstr ""
+
+#: ../../source/tools.rst:1710
+msgid "|image300|"
+msgstr ""
+
+#: ../../source/tools.rst:1712
+msgid "If the items are checked out you will be presented with an error after clicking 'Delete selected items' and the items will not be deleted."
+msgstr ""
+
+#: ../../source/tools.rst:1715
+msgid "|image301|"
+msgstr ""
+
+#: ../../source/tools.rst:1717
+msgid "If the items can be deleted they will be and you will be presented with a confirmation of your deletion."
+msgstr ""
+
+#: ../../source/tools.rst:1720
+msgid "|image302|"
+msgstr ""
+
+#: ../../source/tools.rst:1725
+msgid "Batch item modification"
+msgstr ""
+
+#: ../../source/tools.rst:1727
+msgid "*Get there:* More > Tools > Catalog > Batch item modification"
+msgstr ""
+
+#: ../../source/tools.rst:1729
+msgid "This tool will allow you to modify a batch of item records in Koha."
+msgstr ""
+
+#: ../../source/tools.rst:1731
+msgid "|image1431|"
+msgstr ""
+
+#: ../../source/tools.rst:1733
+msgid "From the tool you can choose to upload a file of barcodes or item ids, or you can scan items one by one into the box below the upload tool. You can also decide the items edited should be populated with the default values you have defined in your :ref:`default framework <marc-bibliographic-frameworks-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:1739
+msgid "Once you have your file uploaded or the barcodes listed you can click 'Continue.'"
+msgstr ""
+
+#: ../../source/tools.rst:1742
+msgid "|image1432|"
+msgstr ""
+
+#: ../../source/tools.rst:1744
+msgid "You will be presented with a summary of the items you want to modify. From here you can uncheck the items you don't want to modify before making changes in the form below. You can also hide columns you don't need to see to prevent having to scroll from left to right to see the entire item form.  The holds column displays a count of the current holds for the item."
+msgstr ""
+
+#: ../../source/tools.rst:1753
+msgid "To uncheck all items that are currently checked out you can click the 'Clear on loan' link at the top of the form."
+msgstr ""
+
+#: ../../source/tools.rst:1756
+msgid "Using the edit form you can choose which fields to make edits to. By checking the checkbox to the right of each field you can clear the values in that field for the records you are modifying."
+msgstr ""
+
+#: ../../source/tools.rst:1760
+msgid "|image295|"
+msgstr ""
+
+#: ../../source/tools.rst:1762
+msgid "You can also click the 'RegEx' link to change the text field to a regular expression substitution. This is used to change only a part of a text string."
+msgstr ""
+
+#: ../../source/tools.rst:1765
+msgid "|image1481|"
+msgstr ""
+
+#: ../../source/tools.rst:1767
+msgid "Once you have made you changes you will be presented with the resulting items."
+msgstr ""
+
+#: ../../source/tools.rst:1770
+msgid "|image296|"
+msgstr ""
+
+#: ../../source/tools.rst:1774
+msgid "You can also edit items on one bibliographic record in a batch by going to the bibliographic record and clicking Edit > Edit items in batch"
+msgstr ""
+
+#: ../../source/tools.rst:1777
+msgid "|image297|"
+msgstr ""
+
+#: ../../source/tools.rst:1782
+msgid "Batch record deletion"
+msgstr ""
+
+#: ../../source/tools.rst:1784
+msgid "This tool will take a batch of record numbers for either bibliographic records or authority records and allow you to delete all those records and any items attached to them in a batch."
+msgstr ""
+
+#: ../../source/tools.rst:1788
+msgid "First you need to tell the tool if you're deleting bibliographic or authority records."
+msgstr ""
+
+#: ../../source/tools.rst:1791
+msgid "Next, you can:"
+msgstr ""
+
+#: ../../source/tools.rst:1793
+msgid "load a file with biblionumbers or authids;"
+msgstr ""
+
+#: ../../source/tools.rst:1795
+msgid "|image1231|"
+msgstr ""
+
+#: ../../source/tools.rst:1797
+msgid "use a :ref:`list <lists-label>`;"
+msgstr ""
+
+#: ../../source/tools.rst:1799
+msgid "|image1442|"
+msgstr ""
+
+#: ../../source/tools.rst:1801
+msgid "or enter the list of numbers in the box provided."
+msgstr ""
+
+#: ../../source/tools.rst:1803
+msgid "|image1443|"
+msgstr ""
+
+#: ../../source/tools.rst:1805
+msgid "Once you submit the form you will be presented with a summary of the records you are trying to delete."
+msgstr ""
+
+#: ../../source/tools.rst:1808
+msgid "|image1232|"
+msgstr ""
+
+#: ../../source/tools.rst:1810
+msgid "If a record you want to delete can't be deleted it will be highlighted."
+msgstr ""
+
+#: ../../source/tools.rst:1812
+msgid "Check the records you want to delete and click the 'Delete selected records' button to finish the process."
+msgstr ""
+
+#: ../../source/tools.rst:1818
+msgid "Batch record modification"
+msgstr ""
+
+#: ../../source/tools.rst:1820
+msgid "*Get there:* More > Tools > Catalog > Batch record modification"
+msgstr ""
+
+#: ../../source/tools.rst:1822
+msgid "This tool will allow you to edit batches of bibliographic and authority records using :ref:`MARC modification templates <marc-modification-templates-label>`. Before visiting this tool you will want to set up at least one MARC modification template."
+msgstr ""
+
+#: ../../source/tools.rst:1827
+msgid "When you visit the tool it will ask you:"
+msgstr ""
+
+#: ../../source/tools.rst:1829
+msgid "Choose whether you're editing bibliographic or authority records"
+msgstr ""
+
+#: ../../source/tools.rst:1831
+msgid "Enter the biblionumbers or authids"
+msgstr ""
+
+#: ../../source/tools.rst:1833
+msgid "You can upload a file of these numbers;"
+msgstr ""
+
+#: ../../source/tools.rst:1835
+msgid "|image303|"
+msgstr ""
+
+#: ../../source/tools.rst:1837
+msgid "You can use a :ref:`list <lists-label>`;"
+msgstr ""
+
+#: ../../source/tools.rst:1839
+msgid "|image1440|"
+msgstr ""
+
+#: ../../source/tools.rst:1841
+msgid "Or enter the numbers (one per line) in the box provided."
+msgstr ""
+
+#: ../../source/tools.rst:1843
+msgid "|image1441|"
+msgstr ""
+
+#: ../../source/tools.rst:1845
+msgid "Finally choose the MARC modification template you'd like to use to edit these records."
+msgstr ""
+
+#: ../../source/tools.rst:1848
+msgid "Once you've entered your criteria click 'Continue'"
+msgstr ""
+
+#: ../../source/tools.rst:1850
+msgid "|image1233|"
+msgstr ""
+
+#: ../../source/tools.rst:1852
+msgid "You will be presented with a list of records that will be edited. Next to each one is a checkbox so you can uncheck any items you would rather not edit at this time."
+msgstr ""
+
+#: ../../source/tools.rst:1856
+msgid "Clicking 'Preview MARC' will allow you to see what edits will be made when you finalize the edit."
+msgstr ""
+
+#: ../../source/tools.rst:1859
+msgid "|image1234|"
+msgstr ""
+
+#: ../../source/tools.rst:1861
+msgid "Once you're sure everything is the way you want you can click the 'Modify selected records' button and your records will be modified."
+msgstr ""
+
+#: ../../source/tools.rst:1867
+msgid "Automatic item modifications by age"
+msgstr ""
+
+#: ../../source/tools.rst:1869
+msgid "*Get there:* More > Tools > Catalog > Automatic item modifications by age"
+msgstr ""
+
+#: ../../source/tools.rst:1872
+msgid "This tool allows librarians to update item specific fields when an item reaches a certain age."
+msgstr ""
+
+#: ../../source/tools.rst:1877
+msgid "Staff need the items\\_batchmod permission to access this tool"
+msgstr ""
+
+#: ../../source/tools.rst:1881
+msgid "The settings in this tool will be acted upon by the :ref:`corresponding cron job <cron-automatic-item-update-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:1884
+msgid "If you haven't created any rules you will see the option to 'Add rules' on the Tool page. Click this button to create rules."
+msgstr ""
+
+#: ../../source/tools.rst:1887
+msgid "|image1235|"
+msgstr ""
+
+#: ../../source/tools.rst:1889
+msgid "If you have rules already there will be a button that reads 'Edit rules'. To create a new rule click the 'Edit rules' button at the top of the page"
+msgstr ""
+
+#: ../../source/tools.rst:1893
+msgid "|image304|"
+msgstr ""
+
+#: ../../source/tools.rst:1895
+msgid "You will be brought to a page where you can edit exisitng rules or create a new rule"
+msgstr ""
+
+#: ../../source/tools.rst:1898
+msgid "|image305|"
+msgstr ""
+
+#: ../../source/tools.rst:1900
+msgid "In the form that appears you can set :"
+msgstr ""
+
+#: ../../source/tools.rst:1902
+msgid "the age in days at which the item will update (Age)"
+msgstr ""
+
+#: ../../source/tools.rst:1904
+msgid "what criteria is needed to trigger the update (Conditions)"
+msgstr ""
+
+#: ../../source/tools.rst:1906
+msgid "what changes are made when the script runs (Substitutions)"
+msgstr ""
+
+#: ../../source/tools.rst:1908
+msgid "|image306|"
+msgstr ""
+
+#: ../../source/tools.rst:1910
+msgid "Once you're done you can click the 'Add this rule' link and then add additional rules or you can click the 'Submit these rules' button to save your changes."
+msgstr ""
+
+#: ../../source/tools.rst:1914
+msgid "|image307|"
+msgstr ""
+
+#: ../../source/tools.rst:1919
+msgid "Export data"
+msgstr ""
+
+#: ../../source/tools.rst:1921
+msgid "*Get there:* More > Tools > Catalog > Export data"
+msgstr ""
+
+#: ../../source/tools.rst:1923
+msgid "Koha comes with a tool that will allow you to export your bibliographic, holdings and/or authority data in bulk. This can be used to send your records to fellow libraries, organizations or services; or simply for backup purposes."
+msgstr ""
+
+#: ../../source/tools.rst:1931
+msgid "Export bibliographic records"
+msgstr ""
+
+#: ../../source/tools.rst:1933
+msgid "At the top of the screen you need to pick what data you're exporting. If you're exporting bibliographic records with or without the holdings information you want to click the 'Export bibliographic records' tab."
+msgstr ""
+
+#: ../../source/tools.rst:1937
+msgid "Fill in the form in order to limit your export to a specific range (all fields are optional)"
+msgstr ""
+
+#: ../../source/tools.rst:1940
+msgid "|image308|"
+msgstr ""
+
+#: ../../source/tools.rst:1942
+msgid "Choose to limit your export by any one or more of the following options"
+msgstr ""
+
+#: ../../source/tools.rst:1945
+msgid "Limit to a bib number range"
+msgstr ""
+
+#: ../../source/tools.rst:1947
+msgid "Limit to a specific item type"
+msgstr ""
+
+#: ../../source/tools.rst:1951
+msgid "This limit will use the type you have defined in the :ref:`item-level\\_itypes <item-level\\_itypes-label>` preference. If you have the item-level\\_itypes preference set to 'specific item' and you have no items attached to a bib record it will not be exported. To get all bib records of a specific type you will need your item-level\\_itypes preference set to 'biblio record'."
+msgstr ""
+
+#: ../../source/tools.rst:1959
+msgid "Limit to a specific library or group of libraries"
+msgstr ""
+
+#: ../../source/tools.rst:1963
+msgid "This is a filter: if you leave this set to the default (all libraries selected) or select one or more libraries, bib records with no items attached will not be exported. To get bib records with no items you will need to 'clear all' (i.e. de-select all libraries)."
+msgstr ""
+
+#: ../../source/tools.rst:1969
+msgid "Limit to a call number range"
+msgstr ""
+
+#: ../../source/tools.rst:1971
+msgid "Limit to an acquisition date range"
+msgstr ""
+
+#: ../../source/tools.rst:1973
+msgid "If you'd like you can load a file of biblionumbers for the records you would like to export.  File type needs to be .csv or .txt"
+msgstr ""
+
+#: ../../source/tools.rst:1976
+msgid "|image309|"
+msgstr ""
+
+#: ../../source/tools.rst:1978
+msgid "Next choose what to skip when exporting"
+msgstr ""
+
+#: ../../source/tools.rst:1980
+msgid "|image310|"
+msgstr ""
+
+#: ../../source/tools.rst:1982
+msgid "By default items will be exported, if you would like to only export bibliographic data, check the 'Don't export items' box"
+msgstr ""
+
+#: ../../source/tools.rst:1985
+msgid "To limit your export only to items from the library you're logged in as (if you leave the 'Library' field set to 'All') or to the library you selected above check the 'Remove non-local items' box"
+msgstr ""
+
+#: ../../source/tools.rst:1990
+msgid "You can also choose what fields you don't want to export. This can be handy if you're sharing your data, you can remove all local fields before sending your data to another library"
+msgstr ""
+
+#: ../../source/tools.rst:1994 ../../source/tools.rst:2035
+msgid "Finally choose the file type and file name"
+msgstr ""
+
+#: ../../source/tools.rst:1996
+msgid "|image311|"
+msgstr ""
+
+#: ../../source/tools.rst:1998 ../../source/tools.rst:2039
+msgid "Choose to export your data in marc or marcxml format"
+msgstr ""
+
+#: ../../source/tools.rst:2000 ../../source/tools.rst:2041
+msgid "Choose the name you want your file to save as"
+msgstr ""
+
+#: ../../source/tools.rst:2002
+msgid "Click 'Export bibliographic records'"
+msgstr ""
+
+#: ../../source/tools.rst:2007
+msgid "Export authority records"
+msgstr ""
+
+#: ../../source/tools.rst:2009
+msgid "At the top of the screen you need to pick what data you're exporting. If you're exporting authority records you want to click the 'Export authority records' tab."
+msgstr ""
+
+#: ../../source/tools.rst:2013
+msgid "Fill in the form in order to limit your export to a specific range or type of authority record (all fields are optional)"
+msgstr ""
+
+#: ../../source/tools.rst:2016
+msgid "|image312|"
+msgstr ""
+
+#: ../../source/tools.rst:2018
+msgid "Or you can choose a file of authids to export"
+msgstr ""
+
+#: ../../source/tools.rst:2020
+msgid "|image1236|"
+msgstr ""
+
+#: ../../source/tools.rst:2022
+msgid "File type needs to be .csv or .txt"
+msgstr ""
+
+#: ../../source/tools.rst:2024
+msgid "Next choose fields that you would like to exclude from the export separated by a space (no commas)"
+msgstr ""
+
+#: ../../source/tools.rst:2027
+msgid "|image313|"
+msgstr ""
+
+#: ../../source/tools.rst:2029
+msgid "If you'd like to exclude all subfields of the 200 for example just enter 200"
+msgstr ""
+
+#: ../../source/tools.rst:2032
+msgid "If you'd like to exclude a specific subfield enter it beside the field value 100a will exclude just the subfield 'a' of the 100"
+msgstr ""
+
+#: ../../source/tools.rst:2037
+msgid "|image314|"
+msgstr ""
+
+#: ../../source/tools.rst:2043
+msgid "Click 'Export authority records'"
+msgstr ""
+
+#: ../../source/tools.rst:2048
+msgid "Inventory"
+msgstr ""
+
+#: ../../source/tools.rst:2050
+msgid "*Get there:* More > Tools > Catalog > Inventory"
+msgstr ""
+
+#: ../../source/tools.rst:2052
+msgid "Koha's inventory tool can be used in one of three ways:"
+msgstr ""
+
+#: ../../source/tools.rst:2054
+msgid "By creating a shelf list that you can then mark items off on;"
+msgstr ""
+
+#: ../../source/tools.rst:2056
+msgid "By uploading barcodes gathered by a portable scanner;"
+msgstr ""
+
+#: ../../source/tools.rst:2058
+msgid "By comparing barcodes gathered by a portable scanner or scanned directly to a generated shelf list."
+msgstr ""
+
+#: ../../source/tools.rst:2064
+msgid "Creating a shelf list"
+msgstr ""
+
+#: ../../source/tools.rst:2066
+msgid "If you do not have the ability to use your barcode scanner on the floor of the library, the option available to you is to generate a shelf list based on criteria you enter. You can then print it to use while walking around the library checking your collection or use it directly in Koha on a portable device."
+msgstr ""
+
+#: ../../source/tools.rst:2072
+msgid "|generateshelflist|"
+msgstr ""
+
+#: ../../source/tools.rst:2074
+msgid "First, choose the criteria for the items you want to print out on a list. All parameters are optional, but if none are selected, the resulting list might be quite large."
+msgstr ""
+
+#: ../../source/tools.rst:2078
+msgid "Library: choose the branch you want to check, as well as if that branch is the home library or the current holding library of the items."
+msgstr ""
+
+#: ../../source/tools.rst:2081
+msgid "Shelving location (items.location) is: you can filter by location."
+msgstr ""
+
+#: ../../source/tools.rst:2083
+msgid "Item callnumber between ... and ...: you can also limit the list to a specific range of callnumbers."
+msgstr ""
+
+#: ../../source/tools.rst:2086
+msgid "If filtering by callnumber, make sure to choose the correct classification scheme"
+msgstr ""
+
+#: ../../source/tools.rst:2089
+msgid "You can filter even more with item statuses (not for loan status, lost status, withdrawn status or damaged status). Check the boxes next to the statuses you want to include. For example, if you are using the list to shelf read, check only the 'for loan' status as the other items probably won't be on the shelves."
+msgstr ""
+
+#: ../../source/tools.rst:2094
+msgid "Last inventory date: enter a date here to skip items that have been marked as seen recently."
+msgstr ""
+
+#: ../../source/tools.rst:2097
+msgid "Skip items on loan: check this box to filter out loaned items from the list."
+msgstr ""
+
+#: ../../source/tools.rst:2099
+msgid "Skip items on hold awaiting pickup: check this box to filter out items that are awaiting pickup by patrons"
+msgstr ""
+
+#: ../../source/tools.rst:2102
+msgid "Item types: check the boxes next to the item types you want to include in your shelf list"
+msgstr ""
+
+#: ../../source/tools.rst:2105
+msgid "Export to CSV file: check this box to generate a CSV file for altering in an application on your desktop. If this box is unchecked, the list will be presented on the screen."
+msgstr ""
+
+#: ../../source/tools.rst:2109
+msgid "Click on 'Submit' to generate your shelf list."
+msgstr ""
+
+#: ../../source/tools.rst:2111
+msgid "|shelflist|"
+msgstr ""
+
+#: ../../source/tools.rst:2113
+msgid "Once you have found the items on your shelves, return to this list and check the boxes next to the items you found. Next, click on one of the three buttons to continue:"
+msgstr ""
+
+#: ../../source/tools.rst:2117
+msgid "Mark seen and quit: updates the 'last seen' date of the checked items to today and returns to the previous screen."
+msgstr ""
+
+#: ../../source/tools.rst:2120
+msgid "Mark seen and continue: updates the 'last seen' date of the checked items to today and shows the next page of the list."
+msgstr ""
+
+#: ../../source/tools.rst:2123
+msgid "Continue without marking: doesn't update any of the items on this page and shows the next page of the list."
+msgstr ""
+
+#: ../../source/tools.rst:2129
+msgid "Uploading barcodes with a scanner"
+msgstr ""
+
+#: ../../source/tools.rst:2131
+msgid "If you have a portable scanner (or a laptop and USB scanner) you can walk through the library with the scanner in hand and scan barcodes as you come across them (on a laptop, scan the barcodes into a text file or directly into the on screen text box). Once finished you can then upload the text file generated by the scanner to Koha."
+msgstr ""
+
+#: ../../source/tools.rst:2137
+msgid "|importbarcodes|"
+msgstr ""
+
+#: ../../source/tools.rst:2139
+msgid "Set inventory date to: choose the date you want to mark all items as last seen."
+msgstr ""
+
+#: ../../source/tools.rst:2142
+msgid "Compare barcodes list to results: uncheck for this method."
+msgstr ""
+
+#: ../../source/tools.rst:2144
+msgid "Do not check in item scanned during inventory: unless this is checked, Koha will check in items scanned, as it is assumed that they are on the shelf and so not loaned out. If you do not want to check in scanned items, check this option."
+msgstr ""
+
+#: ../../source/tools.rst:2149
+msgid "Check barcodes list for items shelved out of order: if this option is checked, Koha will compare the call numbers and make sure they are in the correct order."
+msgstr ""
+
+#: ../../source/tools.rst:2153
+msgid "Click 'Submit'. This will update all the items' 'last seen' date to the chosen date."
+msgstr ""
+
+#: ../../source/tools.rst:2156
+msgid "Once you have the updated the last seen date for all items scanned during the inventory it is possible to use reports to identify items that were not scanned and can therefore be assumed missing (you can use the :ref:`batch item modification tool <batch-item-modification-label>` to change the LOST status of these items). There are sample reports you can use on the `Koha SQL Reports Library <https://wiki.koha-community.org/wiki/SQL_Reports_Library#Inventory.2F_Shelflists>`_."
+msgstr ""
+
+#: ../../source/tools.rst:2166
+msgid "Comparing scanned barcodes to a shelf list"
+msgstr ""
+
+#: ../../source/tools.rst:2168
+msgid "Alternatively, you can combine the two methods to automatically compare a list of scanned barcodes with a generated list."
+msgstr ""
+
+#: ../../source/tools.rst:2171
+msgid "First, upload you barcode file or scan the barcodes in the box."
+msgstr ""
+
+#: ../../source/tools.rst:2173
+msgid "Set inventory date to: choose the date you want to appear in the items' 'last seen' field."
+msgstr ""
+
+#: ../../source/tools.rst:2176
+msgid "Compare barcodes list to results: should automatically be checked."
+msgstr ""
+
+#: ../../source/tools.rst:2178
+msgid "Do not check in items scanned during inventory: make sure to check this option if you do not want the scanned items to be automatically checked-in if they are checked-out."
+msgstr ""
+
+#: ../../source/tools.rst:2182
+msgid "Choose the filters (library, shelving location, callnumbers, statuses or item types) to generate a list with which to compare your barcodes. Click on 'Submit'."
+msgstr ""
+
+#: ../../source/tools.rst:2188
+msgid "Depending on the number of barcodes you are comparing, this may take a few minutes. It is not recommended to compare lists of more than 1000 barcodes as this may cause a session timeout."
+msgstr ""
+
+#: ../../source/tools.rst:2192
+msgid "Once Koha has finished comparing the barcodes file to the generated list, it will return the number of items updated and a list of problematic items."
+msgstr ""
+
+#: ../../source/tools.rst:2197
+msgid "Unlike when :ref:`creating a shelf list <creating-a-shelf-list-label>`, the list that will be presented here will only contain the items that Koha has determined are problematic."
+msgstr ""
+
+#: ../../source/tools.rst:2201
+msgid "Missing (not scanned): the item is in the generated list but not in the barcodes file."
+msgstr ""
+
+#: ../../source/tools.rst:2204
+msgid "Found in wrong place: the item is in the barcodes list, but not in the generated list."
+msgstr ""
+
+#: ../../source/tools.rst:2207
+msgid "Still checked out: the item is checked out, but is in the generated list. It was not automatically checked in."
+msgstr ""
+
+#: ../../source/tools.rst:2210
+msgid "No barcode: the barcode doesn't exist."
+msgstr ""
+
+#: ../../source/tools.rst:2212
+msgid "Unknown not-for-loan status: the item has 'not for loan' status that is not in the :ref:`NOT\\_LOAN authorized values list <existing-values-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:2215
+msgid "Item may be shelved out of order: the callnumber is out of order"
+msgstr ""
+
+#: ../../source/tools.rst:2220
+msgid "Label creator"
+msgstr ""
+
+#: ../../source/tools.rst:2222
+msgid "*Get there:* More > Tools > Catalog > Label creator"
+msgstr ""
+
+#: ../../source/tools.rst:2224
+msgid "The label creator tool allows you to use layouts and templates which you design to print a nearly unlimited variety of labels including barcodes. Here are some of the features of the label creator tool:"
+msgstr ""
+
+#: ../../source/tools.rst:2228
+msgid "Customize label layouts"
+msgstr ""
+
+#: ../../source/tools.rst:2230
+msgid "Design custom label templates for printed labels"
+msgstr ""
+
+#: ../../source/tools.rst:2232
+msgid "Build and manage batches of labels"
+msgstr ""
+
+#: ../../source/tools.rst:2234
+msgid "Export single or multiple batches"
+msgstr ""
+
+#: ../../source/tools.rst:2236
+msgid "Export single or multiple labels from within a batch"
+msgstr ""
+
+#: ../../source/tools.rst:2238
+msgid "Export label data in one of three formats:"
+msgstr ""
+
+#: ../../source/tools.rst:2240
+msgid "PDF - Readable by any standard PDF reader, making labels printable directly on a printer"
+msgstr ""
+
+#: ../../source/tools.rst:2243
+msgid "CSV - Export label data after your chosen layout is applied allowing labels to be imported in to a variety of applications"
+msgstr ""
+
+#: ../../source/tools.rst:2246
+msgid "XML - Included as an alternate export format"
+msgstr ""
+
+#: ../../source/tools.rst:2253
+msgid "*Get there:* More > Tools > Label creator > Manage > Label templates"
+msgstr ""
+
+#: ../../source/tools.rst:2255
+msgid "A template is based on the label/card stock you are using. This might be Avery 5160 for address labels, Gaylord 47-284 for spine labels or Avery 28371 for your patron cards, just to give a couple of examples. These labels will include all of the information you will need for setting up in Koha. This information may be on the packaging, and if not it can usually be found on the vendor's website."
+msgstr ""
+
+#: ../../source/tools.rst:2267
+msgid "To add a new template, you want to click on the 'New' button at the top of the label creator page and choosing 'Label template'."
+msgstr ""
+
+#: ../../source/tools.rst:2270
+msgid "|image318|"
+msgstr ""
+
+#: ../../source/tools.rst:2272
+msgid "Using the form that appears you can define the template for your sheet of labels or cards."
+msgstr ""
+
+#: ../../source/tools.rst:2275
+msgid "|image319|"
+msgstr ""
+
+#: ../../source/tools.rst:2277
+msgid "'Template ID' will be automatically generated after saving your template, this is simply a system generated unique id"
+msgstr ""
+
+#: ../../source/tools.rst:2280
+msgid "'Template code' should be something you can use to identify your template on a list of templates"
+msgstr ""
+
+#: ../../source/tools.rst:2283
+msgid "You can use the 'Template description' to add additional information about the template"
+msgstr ""
+
+#: ../../source/tools.rst:2286
+msgid "The 'Units' pull down is used to define what measurement scale you're going to be using for the template. This should probably match the unit of measurement used on the template description provided by the product vendor."
+msgstr ""
+
+#: ../../source/tools.rst:2291 ../../source/tools.rst:2409
+msgid "|image320|"
+msgstr ""
+
+#: ../../source/tools.rst:2293
+msgid "The measurements, number of columns and number of rows can be found on the vendor product packaging or website."
+msgstr ""
+
+#: ../../source/tools.rst:2296
+msgid "Page height: height of the page"
+msgstr ""
+
+#: ../../source/tools.rst:2298
+msgid "Page width: width of the page"
+msgstr ""
+
+#: ../../source/tools.rst:2300
+msgid "Label width: width of the label"
+msgstr ""
+
+#: ../../source/tools.rst:2302
+msgid "|image1485|"
+msgstr ""
+
+#: ../../source/tools.rst:2304
+msgid "Label height: height of the label"
+msgstr ""
+
+#: ../../source/tools.rst:2306
+msgid "|image1484|"
+msgstr ""
+
+#: ../../source/tools.rst:2308
+msgid "Top page margin: height between the top of the page and the top of the first row of labels"
+msgstr ""
+
+#: ../../source/tools.rst:2311
+msgid "|image1488|"
+msgstr ""
+
+#: ../../source/tools.rst:2313
+msgid "Left page margin: width between the left side of the page and the left side of the first column of labels"
+msgstr ""
+
+#: ../../source/tools.rst:2316
+msgid "|image1486|"
+msgstr ""
+
+#: ../../source/tools.rst:2318
+msgid "Top text margin: height between the top of the label and the top of the first line of text"
+msgstr ""
+
+#: ../../source/tools.rst:2321
+msgid "|image1489|"
+msgstr ""
+
+#: ../../source/tools.rst:2323
+msgid "Left text margin: width between the left side of the label and the start of the text"
+msgstr ""
+
+#: ../../source/tools.rst:2326
+msgid "|image1487|"
+msgstr ""
+
+#: ../../source/tools.rst:2330
+msgid "If you do not supply a left text margin in the template, a 3/16\" (13.5 point) left text margin will apply by default."
+msgstr ""
+
+#: ../../source/tools.rst:2333
+msgid "Number of columns: number of columns of labels in a page, or number of labels per row"
+msgstr ""
+
+#: ../../source/tools.rst:2336
+msgid "Number of rows: number of rows of labels in a page, or number of labels per column"
+msgstr ""
+
+#: ../../source/tools.rst:2339
+msgid "Gap between columns: width between two columns of labels"
+msgstr ""
+
+#: ../../source/tools.rst:2341
+msgid "|image1482|"
+msgstr ""
+
+#: ../../source/tools.rst:2343
+msgid "Gap between rows: height between two rows of labels"
+msgstr ""
+
+#: ../../source/tools.rst:2345
+msgid "|image1483|"
+msgstr ""
+
+#: ../../source/tools.rst:2351
+msgid "Before picking a profile try printing some sample labels so that you can easily define a profile that is right for your printer/template combination."
+msgstr ""
+
+#: ../../source/tools.rst:2355
+msgid "After finding any anomalies in the printed document, :ref:`create a profile <label-add-a-profile-label>` and assign it to the template."
+msgstr ""
+
+#: ../../source/tools.rst:2358
+msgid "After saving, your templates will appear on the 'Manage' area under 'Label templates'."
+msgstr ""
+
+#: ../../source/tools.rst:2361
+msgid "|image321|"
+msgstr ""
+
+#: ../../source/tools.rst:2368
+msgid "*Get there:* More > Tools > Label creator > Manage > Printer profiles"
+msgstr ""
+
+#: ../../source/tools.rst:2370
+msgid "A profile is a set of \"adjustments\" applied to a given :ref:`template <label-add-a-template-label>` just prior to printing which compensates for anomalies unique and peculiar to a given printer (to which the profile is assigned). This means if you set a template up and then print a sample set of data and find that the items are not all aligned the same on each label, you need to set up a profile for each printer to make up for the differences in printing styles, such as the shifting of text to the left, right, top or bottom."
+msgstr ""
+
+#: ../../source/tools.rst:2379
+msgid "If your labels are printing just the way you want, you will not need a profile."
+msgstr ""
+
+#: ../../source/tools.rst:2387
+msgid "To add a new profile, you want to click on the 'New' button at the top of the label creator tool and choose 'Printer profile'."
+msgstr ""
+
+#: ../../source/tools.rst:2390
+msgid "|image322|"
+msgstr ""
+
+#: ../../source/tools.rst:2392
+msgid "Using the form that appears you can create a profile to fix any problems with your template."
+msgstr ""
+
+#: ../../source/tools.rst:2395
+msgid "|image323|"
+msgstr ""
+
+#: ../../source/tools.rst:2397
+msgid "The 'Printer name' and 'Paper bin' do not have to match your printer exactly, they are for your reference so you can remember what printer you have set the profile for. So if you want to use the Printer model number in printer name or you can call it 'the printer on my desk'"
+msgstr ""
+
+#: ../../source/tools.rst:2402
+msgid "'Template name' will be filled in once you have chosen which template to apply the profile to on the :ref:`template edit form <label-add-a-template-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:2406
+msgid "The 'Units' pull down is used to define what measurement scale you're going to be using for your profile."
+msgstr ""
+
+#: ../../source/tools.rst:2411
+msgid "Offset describes what happens when the entire image is off center either vertically or horizontally and creep describes a condition where the distance between the labels changes across the page or up and down the page"
+msgstr ""
+
+#: ../../source/tools.rst:2416
+msgid "For these values, negative numbers move the error up and to the left and positive numbers move the error down and to the right"
+msgstr ""
+
+#: ../../source/tools.rst:2419
+msgid "Example: the text is .25\" from the left edge of the first label, .28\" from the left edge of the second label and .31\" from the left edge of the third label. This means the horizontal creep should be set to .03\" to make up for this difference."
+msgstr ""
+
+#: ../../source/tools.rst:2424
+msgid "After saving, your profiles will appear on the 'Manage' area under 'Printer profiles'."
+msgstr ""
+
+#: ../../source/tools.rst:2427
+msgid "|image325|"
+msgstr ""
+
+#: ../../source/tools.rst:2437
+msgid "*Get there:* More > Tools > Label creator > Manage > Layouts"
+msgstr ""
+
+#: ../../source/tools.rst:2439
+msgid "A layout is used to define the fields you want to appear on your labels."
+msgstr ""
+
+#: ../../source/tools.rst:2446
+msgid "To add a new layout, you want to click on the 'New' button at the top of the Label creator tool and choose 'Layout'."
+msgstr ""
+
+#: ../../source/tools.rst:2449
+msgid "|image326|"
+msgstr ""
+
+#: ../../source/tools.rst:2451
+msgid "Using the form that appears you can decide what appears on your labels."
+msgstr ""
+
+#: ../../source/tools.rst:2453
+msgid "|image327|"
+msgstr ""
+
+#: ../../source/tools.rst:2455
+msgid "The name of your layout can be anything you'd like to help you identify it later."
+msgstr ""
+
+#: ../../source/tools.rst:2458
+msgid "If this is a barcode label you'll want to choose the encoding (Code 39 is the most common)"
+msgstr ""
+
+#: ../../source/tools.rst:2461
+msgid "The layout type can be any combination of bibliographic information and/or barcode. For example a spine label would just be Biblio whereas a label for your circulation staff to use to checkout the book would probably be Biblio/Barcode."
+msgstr ""
+
+#: ../../source/tools.rst:2466
+msgid "Biblio: only bibliographic information will appear on the label (e.g. spine labels)"
+msgstr ""
+
+#: ../../source/tools.rst:2469
+msgid "|image1456|"
+msgstr ""
+
+#: ../../source/tools.rst:2471
+msgid "Barcode/Biblio: the barcode will appear at the top of the label and the bibliographic information undeneath"
+msgstr ""
+
+#: ../../source/tools.rst:2474
+msgid "|image1455|"
+msgstr ""
+
+#: ../../source/tools.rst:2476
+msgid "Biblio/Barcode: the bibliographic information will appear at the top of the label and the barcode underneath"
+msgstr ""
+
+#: ../../source/tools.rst:2479
+msgid "|image1457|"
+msgstr ""
+
+#: ../../source/tools.rst:2481
+msgid "Alternating: the bibliographic information will appear on one label, and the barcode on the next label, alternating for each item"
+msgstr ""
+
+#: ../../source/tools.rst:2484
+msgid "|image1453|"
+msgstr ""
+
+#: ../../source/tools.rst:2486
+msgid "Barcode: only the barcode will appear on the label"
+msgstr ""
+
+#: ../../source/tools.rst:2488
+msgid "|image1454|"
+msgstr ""
+
+#: ../../source/tools.rst:2490
+msgid "The Bibliographic data to print includes any of the data fields that may be mapped to your MARC frameworks. You can choose from the preset list of fields or you can click on 'List fields' and enter your own data. In 'List fields', you can specify MARC subfields as a 4-character tag-subfield string, for example 254a for the title field. You can also enclose a whitespace-separated list of fields to concatenate on one line in double quotes, for example \"099a 099b\" or \"itemcallnumber barcode\". The fields available are from the database tables list below. Finally you could add in static text strings in single-quote, for example 'Some static text here.'"
+msgstr ""
+
+#: ../../source/tools.rst:2501
+msgid "You can use the schema viewer (http://schema.koha-community.org) with the following tables to find field names to use:"
+msgstr ""
+
+#: ../../source/tools.rst:2504
+msgid "Currently all fields in the following tables are used: items, biblioitems, biblio, branches"
+msgstr ""
+
+#: ../../source/tools.rst:2507
+msgid "|image328|"
+msgstr ""
+
+#: ../../source/tools.rst:2509
+msgid "Choose if the label maker should print out the guidelines around each label"
+msgstr ""
+
+#: ../../source/tools.rst:2512
+msgid "Choose if you'd like Koha to try to split your call numbers (usually used on spine labels)"
+msgstr ""
+
+#: ../../source/tools.rst:2517
+msgid "Call number spltting rules are managed under :ref:`Administration > Classification sources <classification-sources-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:2520
+msgid "Choose your text settings such as alignment, font type and size. You can also italicize the title by checking the 'Oblique title' box."
+msgstr ""
+
+#: ../../source/tools.rst:2525
+msgid "|image1490|"
+msgstr ""
+
+#: ../../source/tools.rst:2532
+msgid "*Get there:* More > Tools > Label creator > Manage > Label batches"
+msgstr ""
+
+#: ../../source/tools.rst:2534
+msgid "Batches are made up of the items for which you would like to print labels. Once in this tool you can search for the item records you would like to print out labels for."
+msgstr ""
+
+#: ../../source/tools.rst:2543
+msgid "Batches can be created in one of two ways. The first is to click the 'Create label batch' link on the ':ref:`Staged MARC management <staged-marc-record-management-label>`' page:"
+msgstr ""
+
+#: ../../source/tools.rst:2547
+msgid "|image329|"
+msgstr ""
+
+#: ../../source/tools.rst:2549
+msgid "The other is to choose to create a new batch from the label creator tool"
+msgstr ""
+
+#: ../../source/tools.rst:2551
+msgid "|image330|"
+msgstr ""
+
+#: ../../source/tools.rst:2553
+msgid "You will be brought to an empty batch with a box to scan barcodes or itemnumbers in to and an 'Add item(s)' button at the bottom of the page."
+msgstr ""
+
+#: ../../source/tools.rst:2556
+msgid "|image331|"
+msgstr ""
+
+#: ../../source/tools.rst:2558
+msgid "You can either scan barcodes in to the box provided and click the 'Add item(s)' button or you can click the 'Add item(s)' button with the barcodes box empty. Clicking 'Add item(s)' with nothing in the barcodes box will open a search window for you to find the items you want to add to the batch."
+msgstr ""
+
+#: ../../source/tools.rst:2564
+msgid "|image332|"
+msgstr ""
+
+#: ../../source/tools.rst:2566
+msgid "From the search results, click the check box next to the items you want to add to the batch and click the 'Add checked' button. You can also add items one by one by clicking the 'Add' link to the left of each item."
+msgstr ""
+
+#: ../../source/tools.rst:2570
+msgid "|image333|"
+msgstr ""
+
+#: ../../source/tools.rst:2572
+msgid "Once you have added all of the items click the 'Done' button. Click again on the 'Add item(s)' button to transfer the items from the barcode box to the batch. The resulting page will list the items you have selected."
+msgstr ""
+
+#: ../../source/tools.rst:2576
+msgid "|image334|"
+msgstr ""
+
+#: ../../source/tools.rst:2578
+msgid "To print your labels, click the 'Export full batch' button. To print only some of the labels, click the 'Export selected item(s)' button. Either way you will be presented with a confirmation screen where you can choose your template and layout. If you're using a sheet of labels that is not complete, you can enter the starting label (labels are counted horizontally)."
+msgstr ""
+
+#: ../../source/tools.rst:2585 ../../source/tools.rst:2624
+msgid "|image335|"
+msgstr ""
+
+#: ../../source/tools.rst:2587
+msgid "You will then be presented with three download options: PDF, Excel, and CSV."
+msgstr ""
+
+#: ../../source/tools.rst:2590
+msgid "|image336|"
+msgstr ""
+
+#: ../../source/tools.rst:2592
+msgid "After saving your file, simply print on the blank labels you have in your library."
+msgstr ""
+
+#: ../../source/tools.rst:2598
+msgid "Barcode range"
+msgstr ""
+
+#: ../../source/tools.rst:2600
+msgid "*Get there:* More > Tools > Label creator > New > Barcode range"
+msgstr ""
+
+#: ../../source/tools.rst:2602
+msgid "If you want to print your barcode labels in advance, before even cataloging the items, you can choose to add a batch of a range of barcodes."
+msgstr ""
+
+#: ../../source/tools.rst:2605
+msgid "Click 'New' and choose 'Barcode range' from the label creator tool."
+msgstr ""
+
+#: ../../source/tools.rst:2607
+msgid "|image1491|"
+msgstr ""
+
+#: ../../source/tools.rst:2609
+msgid "Enter the starting and ending barcodes."
+msgstr ""
+
+#: ../../source/tools.rst:2613
+msgid "The barcode range tool does not accept leading zeroes. If you enter 0001234 the barcode that will be printed will be 1234."
+msgstr ""
+
+#: ../../source/tools.rst:2616
+msgid "|image1492|"
+msgstr ""
+
+#: ../../source/tools.rst:2618
+msgid "Click 'Print range'."
+msgstr ""
+
+#: ../../source/tools.rst:2620
+msgid "You will be presented with the confirmation screen where you can choose your template and layout and enter the starting label if using an incomplete sheet of labels."
+msgstr ""
+
+#: ../../source/tools.rst:2626
+msgid "The only download option for barcode ranges is PDF."
+msgstr ""
+
+#: ../../source/tools.rst:2628
+msgid "Save the file and print it on a blank sheet of labels."
+msgstr ""
+
+#: ../../source/tools.rst:2633
+msgid "Quick spine label creator"
+msgstr ""
+
+#: ../../source/tools.rst:2635
+msgid "*Get there:* More > Tools > Catalog > Quick spine label creator"
+msgstr ""
+
+#: ../../source/tools.rst:2639
+msgid "This tool does not use the label layouts or templates, it simply prints a spine label in the first spot on the label sheet."
+msgstr ""
+
+#: ../../source/tools.rst:2642
+msgid "Define the fields you want to print on the spine label in the :ref:`SpineLabelFormat` system preference"
+msgstr ""
+
+#: ../../source/tools.rst:2645
+msgid "Format your label printing by editing spinelabel.css found in koha-tmpl/intranet-tmpl/prog/en/css/"
+msgstr ""
+
+#: ../../source/tools.rst:2648
+msgid "To use this tool you simply need the barcode for the book you'd like to print the spine label for."
+msgstr ""
+
+#: ../../source/tools.rst:2651
+msgid "|image337|"
+msgstr ""
+
+#: ../../source/tools.rst:2656
+msgid "Rotating collections"
+msgstr ""
+
+#: ../../source/tools.rst:2658
+msgid "*Get there:* More > Tools > Catalog > Rotating collections"
+msgstr ""
+
+#: ../../source/tools.rst:2660
+msgid "Rotating collections is a tool for managing collections of materials that frequently get shifted from library to library. It adds the ability to store not only an item's home library and current location but also information about where it is supposed to be transferred to next to ensure that all items in the collection are sent to the correct library. When an item in a rotating collection is checked in, library staff is notified that the item is part of a rotating collection and which branch it should be sent to if it is not at the correct one."
+msgstr ""
+
+#: ../../source/tools.rst:2671
+msgid "The :ref:`AutomaticItemReturn` system preference must be set to \"Don't automatically transfer items to their home library when they are returned\" for rotating collections to function properly."
+msgstr ""
+
+#: ../../source/tools.rst:2676
+msgid "To create a new rotating collection, click the \"New collection\" button, fill in the title and description, and click \"Submit\". Once submitted you'll see \"Collection name added successfully\"; click \"Return to rotating collections home\" to return to the main Rotating collections management page (or click Rotating collections in the sidebar)."
+msgstr ""
+
+#: ../../source/tools.rst:2683
+msgid "To add items to a collection, click \"Actions\" and choose \"Add or remove items\" next to the collection's name in the list of collections. Under \"Add or remove items\" scan or type in the barcode of the item you wish to add to the collection, and hit enter or click 'Submit' if necessary."
+msgstr ""
+
+#: ../../source/tools.rst:2689
+msgid "To remove an item from a collection, either click 'Remove' next to the item's barcode in the list of items within the collection or check the \"Remove item from collection\" box next to the Barcode text box under \"Add or remove items\", and scan or type in the barcode, clicking \"Submit\" or hitting Enter if necessary. Note: The \"Remove item from collection\" checkbox will remain checked as long as you are on the \"Add or remove items\" page, unless you uncheck it, to facilitate quickly removing a number of items at a time by scanning their barcodes."
+msgstr ""
+
+#: ../../source/tools.rst:2702
+msgid "Transfer a rotating collection"
+msgstr ""
+
+#: ../../source/tools.rst:2704
+msgid "Transferring a collection will:"
+msgstr ""
+
+#: ../../source/tools.rst:2706
+msgid "Change the current location of the items in that collection to the library it is to be transferred to"
+msgstr ""
+
+#: ../../source/tools.rst:2709
+msgid "Initiate a transfer from its original current location/holding library to the current location/holding library it is to be rotated to. When a library receives a collection they will need to check in the items to complete the transfer."
+msgstr ""
+
+#: ../../source/tools.rst:2714
+msgid "You can transfer a collection in one of two ways:"
+msgstr ""
+
+#: ../../source/tools.rst:2716
+msgid "From the main Rotating collections page, click on \"Actions\" and choose \"Transfer\" next to the title of the collection you wish to transfer; choose the library you wish to transfer the collection to and click \"Transfer collection\"."
+msgstr ""
+
+#: ../../source/tools.rst:2721
+msgid "Or, from the \"add or remove items\" page for a collection, you can click the \"Transfer\" button, choose the library you wish to transfer the collection to and click \"Transfer Collection\"."
+msgstr ""
+
+#: ../../source/tools.rst:2727
+msgid "In order to complete the transfer process, the library receiving the rotating collection should check in all items from the collection as they receive them. This will clear the transfer so that the items are no longer shown as being \"in transit\"."
+msgstr ""
+
+#: ../../source/tools.rst:2732
+msgid "If an item in a rotating collection is checked in at a library other than the one it is supposed to be transferred to, a notification will appear notifying library staff that the item is part of a rotating collection, also letting them know where the item needs to be sent."
+msgstr ""
+
+#: ../../source/tools.rst:2737
+msgid "|image292|"
+msgstr ""
+
+#: ../../source/tools.rst:2742
+msgid "Stock rotation"
+msgstr ""
+
+#: ../../source/tools.rst:2744
+msgid "Stock rotation helps to spread resources more fairly amongst library branches and allows patrons to see a wider range of titles."
+msgstr ""
+
+#: ../../source/tools.rst:2747
+msgid "Items are popular whilst they are new at a particular branch. However, their use often tails off over time. This tool empowers librarians to automate the movement of items on to another branch before usage declines and thereby extends the items useful life."
+msgstr ""
+
+#: ../../source/tools.rst:2752
+msgid "Library staff create rotation plans and then assign them to items. A cronjob is then used to cycle these items round the specified libraries on the rotation plan, moving them to the next stage after the prescribed period of time has passed at the current stage."
+msgstr ""
+
+#: ../../source/tools.rst:2757
+msgid "Email notices may be used to provide the library branches with a list of items to be put in-transit to the next branch and if an item is found to be on loan at the time that it should be transfered then an alert will be displayed when it is next returned."
+msgstr ""
+
+#: ../../source/tools.rst:2762
+msgid "From the stock rotation tool page you can add new rotation plans and see a summary of your currently configured rotation plans. You can then edit plan details, activate and deactivate plans and manage stages and items on a given rotation plan."
+msgstr ""
+
+#: ../../source/tools.rst:2767
+msgid "|image1381|"
+msgstr ""
+
+#: ../../source/tools.rst:2771
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: stock_rotation)."
+msgstr ""
+
+#: ../../source/tools.rst:2775
+msgid "This tool utilises a cron job that must be configured to run on a daily basis."
+msgstr ""
+
+#: ../../source/tools.rst:2778
+msgid "Editing rota details"
+msgstr ""
+
+#: ../../source/tools.rst:2780
+msgid "|image1382|"
+msgstr ""
+
+#: ../../source/tools.rst:2782
+msgid "Name: A clear name or code to identify the rota"
+msgstr ""
+
+#: ../../source/tools.rst:2784
+msgid "Cyclical: Denotes whether items remain (No) at the last library on the rotation plan upon reaching the end of the rota or whether they continue (Yes) to rotate, returning back to the first library on the rotation plan once they have completed their alloted time at the last library, indefinitely until manually removed from the rota."
+msgstr ""
+
+#: ../../source/tools.rst:2790
+msgid "Active: Denotes whether a rota is active and as such whether items on it are rotating. It also governs whether items may be added to and removed from the rota.  A rota may be switched between active and inactive at any time allowing for rota maintanence."
+msgstr ""
+
+#: ../../source/tools.rst:2795
+msgid "Description: One may optionally add an expanded description of the rota for display in summary views."
+msgstr ""
+
+#: ../../source/tools.rst:2799
+msgid "Managing rota stages"
+msgstr ""
+
+#: ../../source/tools.rst:2801
+msgid "|image1383|"
+msgstr ""
+
+#: ../../source/tools.rst:2803
+msgid "Stages may be edited, added, removed and re-ordered at any time from this page."
+msgstr ""
+
+#: ../../source/tools.rst:2805
+msgid "Library: The library the item will be at during this stage"
+msgstr ""
+
+#: ../../source/tools.rst:2807
+msgid "Duration: The amount of time the item should stage at this stage"
+msgstr ""
+
+#: ../../source/tools.rst:2810
+msgid "Managing rota items - Tool view"
+msgstr ""
+
+#: ../../source/tools.rst:2812
+msgid "|image1384|"
+msgstr ""
+
+#: ../../source/tools.rst:2816
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: stock_rotation_manage_items)."
+msgstr ""
+
+#: ../../source/tools.rst:2820
+msgid "Items can be added to a rota individually (by barcode) or in bulk (via the upload of a line delimited barcode file) on this page."
+msgstr ""
+
+#: ../../source/tools.rst:2823
+msgid "You will also be presented with a summary of all items on the rota with their current location and you have the options to immediately progress items, mark items as 'in demand' and remove an item from rotation."
+msgstr ""
+
+#: ../../source/tools.rst:2827
+msgid "In demand: If an item is marked as 'in demand' then the duration the item will stay at it's current stage will be doubled compared to what is set in the rota. This is often used for items that are found to be unexpectedly popular at a particular library."
+msgstr ""
+
+#: ../../source/tools.rst:2833
+msgid "Managing rota items - Catalog view"
+msgstr ""
+
+#: ../../source/tools.rst:2835
+msgid "|image1385|"
+msgstr ""
+
+#: ../../source/tools.rst:2837
+msgid "Rotating items may also be managed from the catalog view: When stock rotation is enabled a new menu tab 'Rota' will appear on a catalog records detail view."
+msgstr ""
+
+#: ../../source/tools.rst:2840
+msgid "All attached items will appear in the summary view with their current status in relation to rotas and the option to mark items as 'in demand' or immediately progress them.  You can also remove items from rotation and add items to rotas here too."
+msgstr ""
+
+#: ../../source/tools.rst:2846
+msgid "Managing rota items - EDI"
+msgstr ""
+
+#: ../../source/tools.rst:2848
+msgid "Items can be automatically added to rotas at aquisition time by using the LRP (Library Rotation Plan) field in EDI."
+msgstr ""
+
+#: ../../source/tools.rst:2852
+msgid "Managing rotation notices"
+msgstr ""
+
+#: ../../source/tools.rst:2854
+msgid "Stock rotation can send email notices to branch libraries to aid in selecting the items due for rotation. Branch 'Reply-to' addresses will be used in preference to 'Email' addresses for the notice recipients."
+msgstr ""
+
+#: ../../source/tools.rst:2858
+msgid "The contents of the notices can be customised in the normal manor through the notices tool and the relevant notice has the code SR_SLIP."
+msgstr ""
+
+#: ../../source/tools.rst:2862
+msgid "Permissions"
+msgstr ""
+
+#: ../../source/tools.rst:2864
+msgid "The stock rotation tool uses two distinct permissions:"
+msgstr ""
+
+#: ../../source/tools.rst:2867
+msgid "manage_rotas:"
+msgstr ""
+
+#: ../../source/tools.rst:2867
+msgid "this governs a users ability to create, update and delete a rota."
+msgstr ""
+
+#: ../../source/tools.rst:2871
+msgid "manate_rota_items:"
+msgstr ""
+
+#: ../../source/tools.rst:2870
+msgid "this governs a users ability to add, remove and progress items on a rota."
+msgstr ""
+
+#: ../../source/tools.rst:2876
+msgid "MARC modification templates"
+msgstr ""
+
+#: ../../source/tools.rst:2878
+msgid "The MARC modification templates system gives Koha users the power to make alterations to MARC records automatically while :ref:`staging MARC records for import <stage-marc-records-for-import-label>` or :ref:`making batch record modifications <batch-record-modification-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:2883
+msgid "This tool is useful for altering MARC records from various vendors/sources work with your MARC framework. The system essentially allows one to create a basic script using actions to Copy, Move, Add, Update and Delete fields."
+msgstr ""
+
+#: ../../source/tools.rst:2888
+msgid "|image1501|"
+msgstr ""
+
+#: ../../source/tools.rst:2890
+msgid "Click on 'New template' (a template can be made up of one or more actions), enter a name and click 'Submit'. Optionally, you can decide to copy an existing template by choosing the template to copy in the 'Duplicate a template' drop-down menu."
+msgstr ""
+
+#: ../../source/tools.rst:2895
+msgid "|image338|"
+msgstr ""
+
+#: ../../source/tools.rst:2897
+msgid "Next you can add actions to the template. Click on 'New action'. A 'Add a new action' box will appear that you can use to specify what exactly you want to do. For example if you're loading in a batch of files from your EBook vendor you might want to add the biblio item type of EBOOK to the 942$c."
+msgstr ""
+
+#: ../../source/tools.rst:2903
+msgid "|image1237|"
+msgstr ""
+
+#: ../../source/tools.rst:2905
+msgid "Choose 'Add new'"
+msgstr ""
+
+#: ../../source/tools.rst:2907
+msgid "Enter the field 942 and subfield c"
+msgstr ""
+
+#: ../../source/tools.rst:2909
+msgid "Enter the value of 'EBOOK' (or whatever your ebook item type code is)"
+msgstr ""
+
+#: ../../source/tools.rst:2911 ../../source/tools.rst:2943
+#: ../../source/tools.rst:2974 ../../source/tools.rst:3003
+msgid "Provide a description so you can identify this action later"
+msgstr ""
+
+#: ../../source/tools.rst:2913 ../../source/tools.rst:2945
+#: ../../source/tools.rst:2976 ../../source/tools.rst:3005
+msgid "Click 'Add action'"
+msgstr ""
+
+#: ../../source/tools.rst:2917
+msgid "If you wish to update the values in an existing field choose the option ‘Update existing or add new’.  This will update existing values where found and add a new field if one doesn’t exist."
+msgstr ""
+
+#: ../../source/tools.rst:2921
+msgid "Each action can also have an optional condition to check the value or existence of another field. For example you might want to add the call number to the item record if it's not already there."
+msgstr ""
+
+#: ../../source/tools.rst:2925
+msgid "|image339|"
+msgstr ""
+
+#: ../../source/tools.rst:2927
+msgid "Choose 'Copy'"
+msgstr ""
+
+#: ../../source/tools.rst:2929
+msgid "Decide if you want to copy the first occurrence or all occurrence of the field"
+msgstr ""
+
+#: ../../source/tools.rst:2932
+msgid "Enter the field 090 (or other bibliographic call number field) and subfield a to copy"
+msgstr ""
+
+#: ../../source/tools.rst:2935
+msgid "Enter the 952 field and o subfield to copy to"
+msgstr ""
+
+#: ../../source/tools.rst:2937 ../../source/tools.rst:2965
+msgid "Choose 'if'"
+msgstr ""
+
+#: ../../source/tools.rst:2939
+msgid "Enter the 952 field and o subfield"
+msgstr ""
+
+#: ../../source/tools.rst:2941
+msgid "Choose \"doesn't exist\""
+msgstr ""
+
+#: ../../source/tools.rst:2947
+msgid "The Copy & Move actions also support regular expressions, which can be used to automatically modify field values during the copy/move. An example would be to strip out the '$' character in field 020$c."
+msgstr ""
+
+#: ../../source/tools.rst:2951
+msgid "|image340|"
+msgstr ""
+
+#: ../../source/tools.rst:2953 ../../source/tools.rst:2991
+msgid "Choose 'Copy and replace'"
+msgstr ""
+
+#: ../../source/tools.rst:2955 ../../source/tools.rst:2993
+msgid "Decide if you want to copy the first occurrence or all occurrences of the field"
+msgstr ""
+
+#: ../../source/tools.rst:2958
+msgid "Enter the field 020 and subfield c to copy"
+msgstr ""
+
+#: ../../source/tools.rst:2960
+msgid "Enter the 020 field and c subfield to copy to"
+msgstr ""
+
+#: ../../source/tools.rst:2962
+msgid "Check the 'RegEx' box and enter your regular expression (in this case s/\\\\$// )"
+msgstr ""
+
+#: ../../source/tools.rst:2967
+msgid "Enter the 020 field and c subfield"
+msgstr ""
+
+#: ../../source/tools.rst:2969
+msgid "Choose \"matches\""
+msgstr ""
+
+#: ../../source/tools.rst:2971
+msgid "Check the 'RegEx' box and enter your regular expression (in this case m/^\\\\$/ )"
+msgstr ""
+
+#: ../../source/tools.rst:2980
+msgid "The value for an update can include variables that change each time the template is used. Currently, the system supports two variables, \\_\\_BRANCHCODE\\_\\_ which is replaced with the branchcode of the library currently using the template, and \\_\\_CURRENTDATE\\_\\_ which is replaced with the current date in ISO format ( YYYY-MM-DD )."
+msgstr ""
+
+#: ../../source/tools.rst:2986
+msgid "You could also use regular expressions to add your library's proxy URL in front of links in your MARC record."
+msgstr ""
+
+#: ../../source/tools.rst:2989
+msgid "|image1238|"
+msgstr ""
+
+#: ../../source/tools.rst:2996
+msgid "Enter the field 856 and subfield u to copy"
+msgstr ""
+
+#: ../../source/tools.rst:2998
+msgid "Enter the 856 field and u subfield to copy to"
+msgstr ""
+
+#: ../../source/tools.rst:3000
+msgid "Check the 'RegEx' box and enter your regular expression (in this case s/^/PROXY\\_URL/ )"
+msgstr ""
+
+#: ../../source/tools.rst:3007
+msgid "When choosing between 'Copy' and 'Copy and replace' keep the following example in mind:"
+msgstr ""
+
+#: ../../source/tools.rst:3015
+msgid "If we apply action (a) Copy the whole field 245 to 300, we get:"
+msgstr ""
+
+#: ../../source/tools.rst:3023
+msgid "If we apply action (b) Copy the subfield 245$a to 300$a, we get:"
+msgstr ""
+
+#: ../../source/tools.rst:3030
+msgid "Once your actions are saved you can view them at the top of the screen. Actions can be moved around using the arrows to the left of them."
+msgstr ""
+
+#: ../../source/tools.rst:3033
+msgid "|image341|"
+msgstr ""
+
+#: ../../source/tools.rst:3035
+msgid "Actions will be done in the order they appear. Depending on your actions the order may be very important. For example you don't want to delete a field before you copy it to another field. You can use the blue arrows to move actions up or down the list."
+msgstr ""
+
+#: ../../source/tools.rst:3040
+msgid "The up arrow will move the action up one position"
+msgstr ""
+
+#: ../../source/tools.rst:3042
+msgid "The up arrow with a line at the top will move the action to the first position"
+msgstr ""
+
+#: ../../source/tools.rst:3044
+msgid "The down arrow with a line at the bottom will move the action to the last position"
+msgstr ""
+
+#: ../../source/tools.rst:3046
+msgid "The down arrow will move the action down one position"
+msgstr ""
+
+#: ../../source/tools.rst:3048
+msgid "Once your template is saved you will be able to pick it when using the :ref:`Stage MARC records for import <stage-marc-records-for-import-label>` tool or when using the :ref:`batch record modification <batch-record-modification-label>` tool."
+msgstr ""
+
+#: ../../source/tools.rst:3053
+msgid "|image343|"
+msgstr ""
+
+#: ../../source/tools.rst:3058
+msgid "Stage MARC records for import"
+msgstr ""
+
+#: ../../source/tools.rst:3060
+msgid "*Get there:* More > Tools > Catalog > Stage MARC records for import"
+msgstr ""
+
+#: ../../source/tools.rst:3062
+msgid "This tool can be used to import both bibliographic and authority records that are saved in MARC format. Importing records into Koha includes two steps. The first is to stage records for import."
+msgstr ""
+
+#: ../../source/tools.rst:3066
+msgid "First find the MARC file on your computer"
+msgstr ""
+
+#: ../../source/tools.rst:3068
+msgid "|image344|"
+msgstr ""
+
+#: ../../source/tools.rst:3070
+msgid "Next you will be presented with options for record matching and item imports"
+msgstr ""
+
+#: ../../source/tools.rst:3073
+msgid "|image345|"
+msgstr ""
+
+#: ../../source/tools.rst:3075
+msgid "'Comments about this file': enter comments to identify your upload when going to the ':ref:`Manage staged MARC records <staged-marc-record-management-label>`' tool"
+msgstr ""
+
+#: ../../source/tools.rst:3078
+msgid "'Record type': tell Koha which type of file this is, bibliographic or authority"
+msgstr ""
+
+#: ../../source/tools.rst:3081
+msgid "|image346|"
+msgstr ""
+
+#: ../../source/tools.rst:3083
+msgid "'Character encoding': choose the character encoding of your file"
+msgstr ""
+
+#: ../../source/tools.rst:3085
+msgid "|image347|"
+msgstr ""
+
+#: ../../source/tools.rst:3087
+msgid "'Format': choose the MARC format of your file"
+msgstr ""
+
+#: ../../source/tools.rst:3089
+msgid "|image1493|"
+msgstr ""
+
+#: ../../source/tools.rst:3091
+msgid "'Modify record using the following template': choose if you would like to use a :ref:`MARC modification template <marc-modification-templates-label>` to alter the data you're about to import"
+msgstr ""
+
+#: ../../source/tools.rst:3095
+msgid "|image348|"
+msgstr ""
+
+#: ../../source/tools.rst:3097
+msgid "Choose whether or not you want to look for matching records"
+msgstr ""
+
+#: ../../source/tools.rst:3099
+msgid "|image349|"
+msgstr ""
+
+#: ../../source/tools.rst:3101
+msgid "'Record matching rule': choose which rules to use to check your catalog if these records already exsit."
+msgstr ""
+
+#: ../../source/tools.rst:3106
+msgid "You can set up :ref:`record matching rules <record-matching-rules-label>` in the administration area"
+msgstr ""
+
+#: ../../source/tools.rst:3109
+msgid "|image350|"
+msgstr ""
+
+#: ../../source/tools.rst:3111
+msgid "When using the ISBN matching rule Koha will find only exact matches. If you find that the ISBN match is not working to your satisfaction you can change the :ref:`AggressiveMatchOnISBN` preference to 'Do' and then run your import again."
+msgstr ""
+
+#: ../../source/tools.rst:3117
+msgid "'Action if matching record found': choose what to do with matching records if they are found"
+msgstr ""
+
+#: ../../source/tools.rst:3120
+msgid "Replace existing record with incoming record: choose this if you are importing more complete records than the ones you currently have, or if you made some changes using an external tool (MarcEdit for example)"
+msgstr ""
+
+#: ../../source/tools.rst:3124
+msgid "Add incoming record: this will keep the existing record and add the incoming record, so you may end up with duplicates"
+msgstr ""
+
+#: ../../source/tools.rst:3127
+msgid "Ignore incoming record (its items may still be processed): choose this if you do not want to replace existing records"
+msgstr ""
+
+#: ../../source/tools.rst:3130
+msgid "'Action if no match is found': choose what to do with records that are unique"
+msgstr ""
+
+#: ../../source/tools.rst:3133
+msgid "Add incoming record: choose this if you wish to import records that are not already in your catalog (for example, for new titles)"
+msgstr ""
+
+#: ../../source/tools.rst:3136
+msgid "Ignore incoming record: choose this if you don't want to import records that are not alreay in your catalogue (for example, if you're only replacing existing records and don't want to add anything)"
+msgstr ""
+
+#: ../../source/tools.rst:3140
+msgid "'Check for embedded item record data?': choose whether or not to import the item data (field 952) found in the MARC records (if the file you're loading is a bibliographic file)"
+msgstr ""
+
+#: ../../source/tools.rst:3144
+msgid "|image351|"
+msgstr ""
+
+#: ../../source/tools.rst:3146
+msgid "Always add items: always add items regardless of matching status"
+msgstr ""
+
+#: ../../source/tools.rst:3148
+msgid "Add items only if matching bib was found: this will only add items to existing records in your catalog"
+msgstr ""
+
+#: ../../source/tools.rst:3151
+msgid "Add items only if no matching bib was found: this will only add items to the new records you're importing, not the ones that already exist"
+msgstr ""
+
+#: ../../source/tools.rst:3154
+msgid "Replace items if a matching bib was found: the match will look at the itemnumbers and barcodes to match on for items and will only replace existing items."
+msgstr ""
+
+#: ../../source/tools.rst:3160
+msgid "Itemnumbers take precendence over barcodes"
+msgstr ""
+
+#: ../../source/tools.rst:3162
+msgid "Ignore items: this will not add any items"
+msgstr ""
+
+#: ../../source/tools.rst:3164
+msgid "Click 'Stage for import'"
+msgstr ""
+
+#: ../../source/tools.rst:3166
+msgid "You will be presented with a confirmation of your MARC import"
+msgstr ""
+
+#: ../../source/tools.rst:3168
+msgid "|image352|"
+msgstr ""
+
+#: ../../source/tools.rst:3170
+msgid "To complete the process continue to the :ref:`Manage staged MARC records tool <staged-marc-record-management-label>` by clicking on the 'Manage staged records' button."
+msgstr ""
+
+#: ../../source/tools.rst:3177
+msgid "Staged MARC record management"
+msgstr ""
+
+#: ../../source/tools.rst:3179
+msgid "*Get there:* More > Tools > Catalog > Staged MARC record management"
+msgstr ""
+
+#: ../../source/tools.rst:3181
+msgid "Once you have :ref:`staged <stage-marc-records-for-import-label>` your records for import you can complete the import using this tool."
+msgstr ""
+
+#: ../../source/tools.rst:3184
+msgid "|image353|"
+msgstr ""
+
+#: ../../source/tools.rst:3186
+msgid "From the list of staged records, click on the file name that you want to finish importing"
+msgstr ""
+
+#: ../../source/tools.rst:3189
+msgid "You will note that records that have already been imported will say so under 'Status'"
+msgstr ""
+
+#: ../../source/tools.rst:3192
+msgid "A summary of your import will appear along with the option to change your matching rules"
+msgstr ""
+
+#: ../../source/tools.rst:3195
+msgid "|image354|"
+msgstr ""
+
+#: ../../source/tools.rst:3197
+msgid "Below the summary is the option to import the batch of records using a specific framework"
+msgstr ""
+
+#: ../../source/tools.rst:3200
+msgid "|image355|"
+msgstr ""
+
+#: ../../source/tools.rst:3202
+msgid "Choosing a framework other than 'Default' isn't necessary, but it's helpful for running reports and having the right bibliographic level item type selected on import."
+msgstr ""
+
+#: ../../source/tools.rst:3206
+msgid "Below the framework selection there will be a list of the records that will be imported"
+msgstr ""
+
+#: ../../source/tools.rst:3209
+msgid "|image356|"
+msgstr ""
+
+#: ../../source/tools.rst:3211
+msgid "Review your summary before completing your import to make sure that your matching rule worked and that the records appear as you expect them to"
+msgstr ""
+
+#: ../../source/tools.rst:3215
+msgid "Matches will appear with info under the 'Match details column'"
+msgstr ""
+
+#: ../../source/tools.rst:3217
+msgid "|image357|"
+msgstr ""
+
+#: ../../source/tools.rst:3219
+msgid "and when clicking the 'View' link under 'Diff' you can see the difference between versions."
+msgstr ""
+
+#: ../../source/tools.rst:3222
+msgid "|image358|"
+msgstr ""
+
+#: ../../source/tools.rst:3224
+msgid "Click 'Import into catalog' to complete the import"
+msgstr ""
+
+#: ../../source/tools.rst:3226
+msgid "|image359|"
+msgstr ""
+
+#: ../../source/tools.rst:3228
+msgid "Once your import is complete a link to the new records will appear to the right of each title that was imported"
+msgstr ""
+
+#: ../../source/tools.rst:3231
+msgid "You can also undo your import by clicking the 'Undo import into catalog' button"
+msgstr ""
+
+#: ../../source/tools.rst:3234
+msgid "Records imported using this tool remain in the 'reservoir' until they are cleaned. These items will appear when searching the catalog from the `Cataloging <#cataloging>`__ tool:"
+msgstr ""
+
+#: ../../source/tools.rst:3238
+msgid "|image360|"
+msgstr ""
+
+#: ../../source/tools.rst:3240
+msgid "To clean items out of the 'reservoir':"
+msgstr ""
+
+#: ../../source/tools.rst:3242
+msgid "Visit the main screen of the manage staged MARC records tool"
+msgstr ""
+
+#: ../../source/tools.rst:3244
+msgid "|image361|"
+msgstr ""
+
+#: ../../source/tools.rst:3246
+msgid "To clean a batch, click the 'Clean' button to the right"
+msgstr ""
+
+#: ../../source/tools.rst:3248
+msgid "You will be presented with a confirmation message"
+msgstr ""
+
+#: ../../source/tools.rst:3250
+msgid "|image362|"
+msgstr ""
+
+#: ../../source/tools.rst:3252
+msgid "Accept the deletion and the records will be removed from the reservoir and the status will be changed to 'cleaned'"
+msgstr ""
+
+#: ../../source/tools.rst:3258
+msgid "Upload local cover image"
+msgstr ""
+
+#: ../../source/tools.rst:3260
+msgid "*Get there:* More > Tools > Catalog > Upload local cover image"
+msgstr ""
+
+#: ../../source/tools.rst:3262
+msgid "This tool allows you to upload cover images for the materials in your catalog."
+msgstr ""
+
+#: ../../source/tools.rst:3265
+msgid "To access this tool staff need the :ref:`upload\\_local\\_cover\\_images permission <patron-permissions-defined-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:3268
+msgid "For images to show in the staff client and OPAC you need to set :ref:`LocalCoverImages` and :ref:`OPACLocalCoverImages` preferences to 'Display'."
+msgstr ""
+
+#: ../../source/tools.rst:3272
+msgid "Images can be uploaded in batches or individually."
+msgstr ""
+
+#: ../../source/tools.rst:3274
+msgid "**Notes**"
+msgstr ""
+
+#: ../../source/tools.rst:3276
+msgid "Koha does not have a maximum file size limit for this tool, but the webserver (such as Apache) may limit the maximum size of uploads (talk to your system administrator)."
+msgstr ""
+
+#: ../../source/tools.rst:3280
+msgid "Where there are multiple images for a record they will display left to right (then top to bottom, depending on screen size) in the order they were uploaded. The image on the left (the first one uploaded) is used as a thumbnail cover in search results and on the details page. There is no way to reorder cover images uploaded in this way, so be sure to upload them in the order you'd like them to appear."
+msgstr ""
+
+#: ../../source/tools.rst:3288
+msgid "|image1239|"
+msgstr ""
+
+#: ../../source/tools.rst:3290
+msgid "To upload a single image:"
+msgstr ""
+
+#: ../../source/tools.rst:3292
+msgid "Go to the tool, click the 'Browse' button, and find the image on your local machine."
+msgstr ""
+
+#: ../../source/tools.rst:3295
+msgid "|image363|"
+msgstr ""
+
+#: ../../source/tools.rst:3297 ../../source/tools.rst:3341
+msgid "Click 'Upload file'."
+msgstr ""
+
+#: ../../source/tools.rst:3299
+msgid "Choose 'Image file' under the 'File type' section."
+msgstr ""
+
+#: ../../source/tools.rst:3301
+msgid "Enter the biblionumber for the record you're attaching this image to. This is not the same as the barcode, this is the system generated number assigned by Koha."
+msgstr ""
+
+#: ../../source/tools.rst:3305
+msgid "Find the biblionumber by looking at the end of the URL in the address bar when on the details page"
+msgstr ""
+
+#: ../../source/tools.rst:3308
+msgid "|image364|"
+msgstr ""
+
+#: ../../source/tools.rst:3310
+msgid "or by clicking on the MARC tab on the details page in the staff client."
+msgstr ""
+
+#: ../../source/tools.rst:3313
+msgid "|image365|"
+msgstr ""
+
+#: ../../source/tools.rst:3315 ../../source/tools.rst:3345
+msgid "If you would like to replace any other cover images you may have uploaded in the past, check the 'Replace existing covers' box under the 'Options' section."
+msgstr ""
+
+#: ../../source/tools.rst:3319
+msgid "Click 'Process images'."
+msgstr ""
+
+#: ../../source/tools.rst:3321
+msgid "You are presented with a summary of the upload and a link to the record you have just added the image to."
+msgstr ""
+
+#: ../../source/tools.rst:3324
+msgid "To upload a batch of images:"
+msgstr ""
+
+#: ../../source/tools.rst:3326
+msgid "Create a folder with the images to upload in it."
+msgstr ""
+
+#: ../../source/tools.rst:3328
+msgid "Create a text file (\\*.txt) named either datalink.txt or idlink.txt listing the biblionumber followed by the image name for each image, one per line."
+msgstr ""
+
+#: ../../source/tools.rst:3332
+msgid "For example: 4091,image4091.jpg"
+msgstr ""
+
+#: ../../source/tools.rst:3334
+msgid "|image366|"
+msgstr ""
+
+#: ../../source/tools.rst:3336
+msgid "Create a ZIP file that includes all the images to upload and the text file."
+msgstr ""
+
+#: ../../source/tools.rst:3338
+msgid "Go to the tool, click the 'Browse' button, and browse to the ZIP file on your computer."
+msgstr ""
+
+#: ../../source/tools.rst:3343
+msgid "Choose 'Zip file' under the 'File type' section"
+msgstr ""
+
+#: ../../source/tools.rst:3349
+msgid "Click 'Process images'"
+msgstr ""
+
+#: ../../source/tools.rst:3351
+msgid "You are presented with a summary of the upload."
+msgstr ""
+
+#: ../../source/tools.rst:3353
+msgid "|image367|"
+msgstr ""
+
+#: ../../source/tools.rst:3357
+msgid "The source image is used to generate a 140 x 200 px thumbnail image and a 600 x 800 px full-size image. The original sized image uploaded is not kept by Koha."
+msgstr ""
+
+#: ../../source/tools.rst:3361
+msgid "In the staff client the cover images appear on the details page under the 'Images' tab in the holdings table at the bottom."
+msgstr ""
+
+#: ../../source/tools.rst:3364
+msgid "|image368|"
+msgstr ""
+
+#: ../../source/tools.rst:3366
+msgid "In the OPAC the cover images appear in the 'Images' tab, as well as next to the title and on the search results."
+msgstr ""
+
+#: ../../source/tools.rst:3369
+msgid "To remove a cover image click 'Delete image' below the image in the staff client if you have the :ref:`upload\\_local\\_cover\\_images permission <patron-permissions-defined-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:3377
+msgid "Additional Tools"
+msgstr ""
+
+#: ../../source/tools.rst:3382
+msgid "Calendar"
+msgstr ""
+
+#: ../../source/tools.rst:3384
+msgid "*Get there:* More > Tools > Additional tools > Calendar"
+msgstr ""
+
+#: ../../source/tools.rst:3386
+msgid "Libraries can define library closings and holidays to be used when calculating due dates. You can make use of the calendar by turning on the proper system preferences:"
+msgstr ""
+
+#: ../../source/tools.rst:3390
+msgid ":ref:`useDaysMode`: Choose the method for calculating due date - either include days the library is closed in the calculation or don't include them"
+msgstr ""
+
+#: ../../source/tools.rst:3393
+msgid ":ref:`finescalendar`: This will check the holiday calendar before charging fines"
+msgstr ""
+
+#: ../../source/tools.rst:3396
+msgid "|image369|"
+msgstr ""
+
+#: ../../source/tools.rst:3401
+msgid "Adding events"
+msgstr ""
+
+#: ../../source/tools.rst:3403
+msgid "Before adding events, choose the library you would like to apply the closings to. When adding events you will be asked if you would like to apply the event to one branch or all branches. To add events, simply"
+msgstr ""
+
+#: ../../source/tools.rst:3407
+msgid "Click on the date on the calendar that you would like to apply the closing to"
+msgstr ""
+
+#: ../../source/tools.rst:3410
+msgid "|image370|"
+msgstr ""
+
+#: ../../source/tools.rst:3412
+msgid "In the form that appears above the calendar, enter the closing information (for more info on each option click the question mark [?] to the right of the option)"
+msgstr ""
+
+#: ../../source/tools.rst:3416
+msgid "Library will be filled in automatically based on the library you chose from the pull down at the top of the page"
+msgstr ""
+
+#: ../../source/tools.rst:3419
+msgid "The day information will also be filled in automatically based on the date you clicked on the calendar"
+msgstr ""
+
+#: ../../source/tools.rst:3422
+msgid "If this holiday extends on more than one day, enter the end date in 'To date'"
+msgstr ""
+
+#: ../../source/tools.rst:3425
+msgid "In the 'title' enter the name of the holiday or the reason for the closing"
+msgstr ""
+
+#: ../../source/tools.rst:3428
+msgid "In the 'description' enter more information about this holiday"
+msgstr ""
+
+#: ../../source/tools.rst:3430
+msgid "Next you can choose if this event is a one time event or if it is repeatable."
+msgstr ""
+
+#: ../../source/tools.rst:3433
+msgid "'Holiday only on this day': this is a one day holiday"
+msgstr ""
+
+#: ../../source/tools.rst:3435
+msgid "'Holiday repeated every same day of the week': this is a weekly closing (if you're closed every Sunday, for example)"
+msgstr ""
+
+#: ../../source/tools.rst:3438
+msgid "'Holiday repeated yearly on the same date': this is an annual holiday closing (if you're closed on January 1st each year, for example)"
+msgstr ""
+
+#: ../../source/tools.rst:3442
+msgid "'Holiday on a range': this is a holiday that extends on several days"
+msgstr ""
+
+#: ../../source/tools.rst:3447
+msgid "Make sure to enter a 'To Date' at the top if you choose 'Holiday on a range'"
+msgstr ""
+
+#: ../../source/tools.rst:3450
+msgid "'Holiday repeated yearly on a range': this is a holiday that extends on several days each year (such as summer holidays for schools)"
+msgstr ""
+
+#: ../../source/tools.rst:3455
+msgid "Make sure to enter a 'To Date' at the top if you choose 'Holiday repeated yearly on a range'"
+msgstr ""
+
+#: ../../source/tools.rst:3458
+msgid "Finally decide if this event should be applied to all libraries or just the one you have originally selected"
+msgstr ""
+
+#: ../../source/tools.rst:3461
+msgid "If you'd rather enter all the holidays and then copy them all to another branch all at once you can use the copy menu below the calendar"
+msgstr ""
+
+#: ../../source/tools.rst:3465
+msgid "|image371|"
+msgstr ""
+
+#: ../../source/tools.rst:3467
+msgid "After saving you will see the event listed in the summary to the right the calendar"
+msgstr ""
+
+#: ../../source/tools.rst:3470
+msgid "|image372|"
+msgstr ""
+
+#: ../../source/tools.rst:3475
+msgid "Editing events"
+msgstr ""
+
+#: ../../source/tools.rst:3477
+msgid "To edit events"
+msgstr ""
+
+#: ../../source/tools.rst:3479
+msgid "Click on the event on the calendar that you want to change (do this by clicking on the date on the calendar, not the event listed in the summary)"
+msgstr ""
+
+#: ../../source/tools.rst:3483
+msgid "|image373|"
+msgstr ""
+
+#: ../../source/tools.rst:3485
+msgid "From this form you can make edits to the holiday or delete the holiday completely."
+msgstr ""
+
+#: ../../source/tools.rst:3488 ../../source/tools.rst:3501
+msgid "All actions require that you click 'Save' before the change will be made."
+msgstr ""
+
+#: ../../source/tools.rst:3491
+msgid "Clicking on repeatable events will offer slightly different options"
+msgstr ""
+
+#: ../../source/tools.rst:3493
+msgid "|image374|"
+msgstr ""
+
+#: ../../source/tools.rst:3495
+msgid "In the form above you will note that there is now an option to 'Generate an exception for this repeated holiday' and 'Generate exceptions on a range of dates' choosing one of these options will allow you to make it so that this date is not closed even though the library is usually closed on this date."
+msgstr ""
+
+#: ../../source/tools.rst:3507
+msgid "Additional help"
+msgstr ""
+
+#: ../../source/tools.rst:3509
+msgid "When adding or editing events you can get additional help by clicking on the question mark next to various different options on the form"
+msgstr ""
+
+#: ../../source/tools.rst:3512
+msgid "|image375|"
+msgstr ""
+
+#: ../../source/tools.rst:3517
+msgid "CSV profiles"
+msgstr ""
+
+#: ../../source/tools.rst:3519
+msgid "*Get there:* More > Tools > Additional tools > CSV profiles"
+msgstr ""
+
+#: ../../source/tools.rst:3521
+msgid "CSV profiles are created to define how you would like your cart or list to export."
+msgstr ""
+
+#: ../../source/tools.rst:3527
+msgid "Add CSV profiles"
+msgstr ""
+
+#: ../../source/tools.rst:3529
+msgid "To add a CSV profile"
+msgstr ""
+
+#: ../../source/tools.rst:3531
+msgid "Click on 'New CSV profile'"
+msgstr ""
+
+#: ../../source/tools.rst:3533
+msgid "|image376|"
+msgstr ""
+
+#: ../../source/tools.rst:3535
+msgid "The 'Profile name' will appear on the export pull down list when choosing 'Download' from your cart or list"
+msgstr ""
+
+#: ../../source/tools.rst:3538
+msgid "|image378|"
+msgstr ""
+
+#: ../../source/tools.rst:3540
+msgid "The 'Profile type' determines what type of fields you plan to use (MARC or SQL) to define your profile"
+msgstr ""
+
+#: ../../source/tools.rst:3543
+msgid "If you choose MARC then you will need to enter MARC fields"
+msgstr ""
+
+#: ../../source/tools.rst:3545
+msgid "|image1502|"
+msgstr ""
+
+#: ../../source/tools.rst:3547
+msgid "If you choose SQL then you will need to enter SQL database fields"
+msgstr ""
+
+#: ../../source/tools.rst:3549
+msgid "|image377|"
+msgstr ""
+
+#: ../../source/tools.rst:3551
+msgid "The 'Usage' field is used to indicate what type of report this CSV profile is used with"
+msgstr ""
+
+#: ../../source/tools.rst:3554
+msgid "'Export records' (only available with MARC profile type): this is used to export records from your cart or lists"
+msgstr ""
+
+#: ../../source/tools.rst:3557
+msgid "'Late serial issues claims' (only available with SQL profile type): this is used to :ref:`export late issues of serial subscriptions <claim-late-serials-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:3560
+msgid "'Export late orders' (only available with SQL profile type): this is used to :ref:`export late orders in the acquisitions module <claims-and-late-orders-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:3566
+msgid "'Basket export in acquisition' (only available with SQL profile"
+msgstr ""
+
+#: ../../source/tools.rst:3565
+msgid "type): this is used to :ref:`download records from acquisitions baskets <create-a-basket-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:3570
+msgid "'Export lost items in report' (only available with SQL profile"
+msgstr ""
+
+#: ../../source/tools.rst:3569
+msgid "type): this is used to export a CSV from the :ref:`lost items report <lost-items-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:3572
+msgid "The 'Profile description' is for your own benefit, but will also appear in the OPAC when patrons download content, so make sure it's clear for your patrons as well"
+msgstr ""
+
+#: ../../source/tools.rst:3576
+msgid "The 'CSV separator' is the character used to separate values and value groups"
+msgstr ""
+
+#: ../../source/tools.rst:3581
+msgid "The most common option here is comma because most spreadsheet applications know how to open files split by commas."
+msgstr ""
+
+#: ../../source/tools.rst:3584
+msgid "The 'Field separator' is the character used to separate duplicate fields"
+msgstr ""
+
+#: ../../source/tools.rst:3587
+msgid "Example: You may have multiple 650 fields and this is the character that will appear in between each one in the column"
+msgstr ""
+
+#: ../../source/tools.rst:3590
+msgid "|image379|"
+msgstr ""
+
+#: ../../source/tools.rst:3592
+msgid "The 'Subfield separator' is the character used to separate duplicate subfields"
+msgstr ""
+
+#: ../../source/tools.rst:3595
+msgid "Example: You may have multiple $a subfields in a field"
+msgstr ""
+
+#: ../../source/tools.rst:3597
+msgid "The 'Encoding' field lets you define the encoding used when saving the file"
+msgstr ""
+
+#: ../../source/tools.rst:3600
+msgid "The 'Only available on the staff interface' checkbox (only for MARC profile types) lets you limit this CSV profile to staff interface only, meaning patrons will not be able to use this profile to export their cart or lists from the OPAC"
+msgstr ""
+
+#: ../../source/tools.rst:3605
+msgid "Finally format your CSV file using the 'Profile MARC fields' or 'Profile SQL fields' box"
+msgstr ""
+
+#: ../../source/tools.rst:3608
+msgid "Define which fields or subfields you want to export, separated by pipes. Example : 200\\|210$a\\|301 for MARC or biblio.title\\|biblio.author for SQL"
+msgstr ""
+
+#: ../../source/tools.rst:3614
+msgid "You can also use your own headers (instead of the ones from Koha) by prefixing the field number with a header, followed by the equal sign. Example: Personal name=100\\|title=245$a\\|300"
+msgstr ""
+
+#: ../../source/tools.rst:3619
+msgid "When you have entered in all of the information for your profile, simply click 'Submit' and you will be presented with a confirmation that your profile has been saved."
+msgstr ""
+
+#: ../../source/tools.rst:3623
+msgid "|image380|"
+msgstr ""
+
+#: ../../source/tools.rst:3628
+msgid "Modify CSV profiles"
+msgstr ""
+
+#: ../../source/tools.rst:3630
+msgid "Once you have created at least one CSV profile an 'Edit profile' tab will appear next to the 'New profile' button."
+msgstr ""
+
+#: ../../source/tools.rst:3633
+msgid "|image381|"
+msgstr ""
+
+#: ../../source/tools.rst:3635
+msgid "Choose the profile you would like to edit and alter the necessary fields."
+msgstr ""
+
+#: ../../source/tools.rst:3638
+msgid "After submitting your changes you will be presented with a confirmation message at the top of the screen"
+msgstr ""
+
+#: ../../source/tools.rst:3641
+msgid "|image382|"
+msgstr ""
+
+#: ../../source/tools.rst:3643
+msgid "To delete a profile, check the 'Delete selected profile' option before clicking 'Submit Query'"
+msgstr ""
+
+#: ../../source/tools.rst:3646
+msgid "|image383|"
+msgstr ""
+
+#: ../../source/tools.rst:3651
+msgid "Using CSV profiles"
+msgstr ""
+
+#: ../../source/tools.rst:3653
+msgid "Your CSV profiles will appear on the export list or cart menu under the 'Download' button in both the staff client and the OPAC"
+msgstr ""
+
+#: ../../source/tools.rst:3656
+msgid "|image384|"
+msgstr ""
+
+#: ../../source/tools.rst:3661
+msgid "Log viewer"
+msgstr ""
+
+#: ../../source/tools.rst:3663
+msgid "*Get there:* More > Tools > Additional tools > Log viewer"
+msgstr ""
+
+#: ../../source/tools.rst:3665
+msgid "Actions within the Koha system are tracked in log files. Your :ref:`system preferences <logs-label>` can be changed to prevent the logging of different actions. These logs can be viewed using the log viewer."
+msgstr ""
+
+#: ../../source/tools.rst:3669
+msgid "|image385|"
+msgstr ""
+
+#: ../../source/tools.rst:3671
+msgid "Choosing different combinations of menu options will produce the log file for that query."
+msgstr ""
+
+#: ../../source/tools.rst:3674
+msgid "A query for all logs related to the Circulation module produces a result |image386|"
+msgstr ""
+
+#: ../../source/tools.rst:3679
+msgid "You can customize the columns of this table in the :ref:`'Table settings'<column-settings-label>` section of the Administration module (table id: logst)."
+msgstr ""
+
+#: ../../source/tools.rst:3686
+msgid "News"
+msgstr ""
+
+#: ../../source/tools.rst:3688
+msgid "*Get there:* More > Tools > Additional tools > News"
+msgstr ""
+
+#: ../../source/tools.rst:3690
+msgid "Koha's news module allows librarians to post news to the OPAC, staff interface and circulation receipts."
+msgstr ""
+
+#: ../../source/tools.rst:3693
+msgid "|news|"
+msgstr ""
+
+#: ../../source/tools.rst:3695
+msgid "To add news to either the OPAC, the staff interface or a circulation receipt:"
+msgstr ""
+
+#: ../../source/tools.rst:3698 ../../source/tools.rst:3789
+msgid "Click 'New entry'"
+msgstr ""
+
+#: ../../source/tools.rst:3700
+msgid "|addnews|"
+msgstr ""
+
+#: ../../source/tools.rst:3702
+msgid "Code: enter a unique code for this news item"
+msgstr ""
+
+#: ../../source/tools.rst:3704
+msgid "Display location: choose where to put the news"
+msgstr ""
+
+#: ../../source/tools.rst:3706
+msgid "|newsdisplaylocations|"
+msgstr ""
+
+#: ../../source/tools.rst:3708
+msgid "Librarian and OPAC interfaces: content will appear on the staff interface main page as well as in the news block on the OPAC"
+msgstr ""
+
+#: ../../source/tools.rst:3711
+msgid "Librarian interface: content will appear on the staff interface main page"
+msgstr ""
+
+#: ../../source/tools.rst:3714
+msgid "|staffnews|"
+msgstr ""
+
+#: ../../source/tools.rst:3716
+msgid "OPAC: content will appear in the top middle part of the OPAC page"
+msgstr ""
+
+#: ../../source/tools.rst:3719
+msgid "Below the news in the OPAC there will be an RSS icon allowing you and your users to subscribe to library news"
+msgstr ""
+
+#: ../../source/tools.rst:3722
+msgid "|newsrss|"
+msgstr ""
+
+#: ../../source/tools.rst:3724
+msgid "You can allow your users to choose to see branch-specific news with the :ref:`OpacNewsLibrarySelect` system preference"
+msgstr ""
+
+#: ../../source/tools.rst:3727
+msgid "Slip: content will appear on the circulation receipts"
+msgstr ""
+
+#: ../../source/tools.rst:3729
+msgid "|image391|"
+msgstr ""
+
+#: ../../source/tools.rst:3733
+msgid "This can be activated or deactivated in the :ref:`Notices & slips tool <notices-and-slips-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:3736
+msgid "Library: choose the library for which this news item will be shown"
+msgstr ""
+
+#: ../../source/tools.rst:3738
+msgid "Publication date: use the publication date field to control from which date your news item appears"
+msgstr ""
+
+#: ../../source/tools.rst:3741 ../../source/tools.rst:3841
+msgid "Examples: (these assume today's date as 7 May 2019)"
+msgstr ""
+
+#: ../../source/tools.rst:3743 ../../source/tools.rst:3843
+msgid "Publish on current date: set publication date as 7 May 2019"
+msgstr ""
+
+#: ../../source/tools.rst:3745 ../../source/tools.rst:3845
+msgid "Schedule for publishing in future: set date later than 7 May 2019"
+msgstr ""
+
+#: ../../source/tools.rst:3747 ../../source/tools.rst:3847
+msgid "Backdate the news item: set date earlier than 7 May 2019"
+msgstr ""
+
+#: ../../source/tools.rst:3749
+msgid "Expiration date: use the expiration date field to automatically stop showing the news item when it is no longer relevant."
+msgstr ""
+
+#: ../../source/tools.rst:3752
+msgid "If this field is empty the news item will be shown until you remove it manually"
+msgstr ""
+
+#: ../../source/tools.rst:3755
+msgid "Appear in position: you decide in what order your news items appear"
+msgstr ""
+
+#: ../../source/tools.rst:3757
+msgid "If the field is left empty, the news will appear from newest to oldest"
+msgstr ""
+
+#: ../../source/tools.rst:3759
+msgid "In this field, 0 is the top-most position; the larger the number, the lower in the list the news will appear"
+msgstr ""
+
+#: ../../source/tools.rst:3762
+msgid "You can enter the news title and text for each language installed"
+msgstr ""
+
+#: ../../source/tools.rst:3766 ../../source/tools.rst:3874
+msgid "You can choose which type of editor to use here (either a text editor or a WYSIWYG (what you see is what you get) editor) with the :ref:`AdditionalContentsEditor` system preference."
+msgstr ""
+
+#: ../../source/tools.rst:3770 ../../source/tools.rst:3878
+msgid "After filling in all of the fields, click 'Submit'"
+msgstr ""
+
+#: ../../source/tools.rst:3772
+msgid "Depending on your choice for the :ref:`NewsAuthorDisplay` system preference, you will also see the person who created the news item (this uses the logged in person)."
+msgstr ""
+
+#: ../../source/tools.rst:3779
+msgid "HTML customizations"
+msgstr ""
+
+#: ../../source/tools.rst:3781
+msgid "*Get there:* More > Tools > Additional tools > HTML customizations"
+msgstr ""
+
+#: ../../source/tools.rst:3783
+msgid "Koha's HTML customizations tool allows staff to post content to the OPAC."
+msgstr ""
+
+#: ../../source/tools.rst:3785
+msgid "|additionalcontent|"
+msgstr ""
+
+#: ../../source/tools.rst:3787
+msgid "To add content to the OPAC:"
+msgstr ""
+
+#: ../../source/tools.rst:3791
+msgid "|addadditionalcontent|"
+msgstr ""
+
+#: ../../source/tools.rst:3793
+msgid "Code: enter a unique code for this additional content item"
+msgstr ""
+
+#: ../../source/tools.rst:3795
+msgid "Display location: choose where to put the content"
+msgstr ""
+
+#: ../../source/tools.rst:3797
+msgid "|additionalcontentdisplaylocations|"
+msgstr ""
+
+#: ../../source/tools.rst:3800
+msgid "The following image shows where each block is displayed on the OPAC's main page"
+msgstr ""
+
+#: ../../source/tools.rst:3803
+msgid "|image1068|"
+msgstr ""
+
+#: ../../source/tools.rst:3807
+msgid ":ref:`OpacNav` and :ref:`OpacNavBottom` are system preferences and the :ref:`Quote of the day <quote-of-the-day-(qotd)-editor-label>` feature is found in the tools module. The rest of the customizable blocks are managed in the HTML customizations tool."
+msgstr ""
+
+#: ../../source/tools.rst:3813
+msgid "OpacNavRight: content will appear on the right side of the OPAC page"
+msgstr ""
+
+#: ../../source/tools.rst:3815
+msgid "opacheader: content will appear at the top of the OPAC page"
+msgstr ""
+
+#: ../../source/tools.rst:3817
+msgid "OpacCustomSearch: content will replace the simple search bar at the top of the page"
+msgstr ""
+
+#: ../../source/tools.rst:3820
+msgid "OpacMainUserBlock: content will appear in the middle of the OPAC's main page"
+msgstr ""
+
+#: ../../source/tools.rst:3823
+msgid "opaccredits: content will appear at the bottom of the page"
+msgstr ""
+
+#: ../../source/tools.rst:3825
+msgid "OpacLoginInstructions: content will appear under the login box on the OPAC's main page"
+msgstr ""
+
+#: ../../source/tools.rst:3828
+msgid "OpacSuggestionInstructions: content will replace the text at the top of the :ref:`purchase suggestion form on the OPAC <purchase-suggestions-opac-label>`"
+msgstr ""
+
+#: ../../source/tools.rst:3831
+msgid "ArticleRequestDisclaimerText: content will appear and patron will have to accept before they can continue to the article request form; use for any copyright/disclaimer patrons need to be aware of regarding photocopies or scans of articles or chapters"
+msgstr ""
+
+#: ../../source/tools.rst:3836
+msgid "Library: choose the library for which this content will be shown"
+msgstr ""
+
+#: ../../source/tools.rst:3838
+msgid "Publication date: use the publication date field to control from which date your content appears"
+msgstr ""
+
+#: ../../source/tools.rst:3849
+msgid "Expiration date: use the expiration date field to automatically stop showing the content when it is no longer relevant."
+msgstr ""
+
+#: ../../source/tools.rst:3852
+msgid "If this field is empty the content will be shown until you remove it manually"
+msgstr ""
+
+#: ../../source/tools.rst:3855
+msgid "Appear in position: you decide in what order your content appear, when there is more than one in the same display location"
+msgstr ""
+
+#: ../../source/tools.rst:3858
+msgid "If the field is left empty, the content will appear from oldest to newest"
+msgstr ""
+
+#: ../../source/tools.rst:3860
+msgid "In this field, 0 is the top-most position; the larger the number, the lower in the list the content will appear"
+msgstr ""
+
+#: ../../source/tools.rst:3863
+msgid "You can enter the content title and text for each language installed"
+msgstr ""
+
+#: ../../source/tools.rst:3867
+msgid "The title is not shown for additional content. It mostly serves to know at a glance what the content is about when looking at the list of additional content items. If you want a title to appear, you must add it in the text portion."
+msgstr ""
+
+#: ../../source/tools.rst:3884
+msgid "Task scheduler"
+msgstr ""
+
+#: ../../source/tools.rst:3886
+msgid "*Get there:* More > Tools > Additional tools > Task scheduler"
+msgstr ""
+
+#: ../../source/tools.rst:3888
+msgid "The task scheduler is a way to schedule reports to run whenever you want."
+msgstr ""
+
+#: ../../source/tools.rst:3891
+msgid "To schedule a task, visit the task scheduler and fill in the form"
+msgstr ""
+
+#: ../../source/tools.rst:3893
+msgid "|image392|"
+msgstr ""
+
+#: ../../source/tools.rst:3895
+msgid "Current Server Time shows the time on your server (schedule all of your reports to run based on that time - not on your local time)"
+msgstr ""
+
+#: ../../source/tools.rst:3898
+msgid "Time should be entered as hh:mm (2 digit hour, 2 digit minute)"
+msgstr ""
+
+#: ../../source/tools.rst:3900
+msgid "Date should be entered using the calendar pop up"
+msgstr ""
+
+#: ../../source/tools.rst:3902
+msgid "From Report choose the report you want to schedule"
+msgstr ""
+
+#: ../../source/tools.rst:3904
+msgid "Choose whether to receive the text of or a link to the results"
+msgstr ""
+
+#: ../../source/tools.rst:3906
+msgid "In the Email filed enter the email of the person you want to receive your report"
+msgstr ""
+
+#: ../../source/tools.rst:3909
+msgid "Below the task scheduler form, there is a list of scheduled reports"
+msgstr ""
+
+#: ../../source/tools.rst:3911
+msgid "|image393|"
+msgstr ""
+
+#: ../../source/tools.rst:3913
+msgid "You can also schedule reports directly from the list of saved reports by clicking the 'Schedule' link"
+msgstr ""
+
+#: ../../source/tools.rst:3916
+msgid "|image394|"
+msgstr ""
+
+#: ../../source/tools.rst:3921
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../source/tools.rst:3923
+msgid "Task scheduler will not work if the user the web server runs as doesn't have the permission to use it. To find out if the right user has the permissions necessary, check /etc/at.allow to see what users are in it. If you don't have that file, check etc/at.deny. If at.deny exists but is blank, then every user can use it. Talk to your system admin about adding the user to the right place to make the task scheduler work."
+msgstr ""
+
+#: ../../source/tools.rst:3933
+msgid "Edit quotes for QOTD feature"
+msgstr ""
+
+#: ../../source/tools.rst:3935
+msgid "*Get there:* More > Tools > Additional Tools > Edit quotes for QOTD feature"
+msgstr ""
+
+#: ../../source/tools.rst:3938
+msgid "This tool will allow you to add and edit quotes to show on the OPAC or the staff interface."
+msgstr ""
+
+#: ../../source/tools.rst:3941
+msgid "|image1514|"
+msgstr ""
+
+#: ../../source/tools.rst:3943
+msgid "To turn this feature on set the :ref:`QuoteOfTheDay` system preference to either 'OPAC', 'staff interface', or both, and add at least one quote using this tool."
+msgstr ""
+
+#: ../../source/tools.rst:3947
+msgid "In the OPAC, the quotes will appear above the 'OpacMainUserBlock' :ref:`news block <news-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:3950
+msgid "|image1069|"
+msgstr ""
+
+#: ../../source/tools.rst:3952
+msgid "In the staff interface, the quotes will appear under the news on the left side."
+msgstr ""
+
+#: ../../source/tools.rst:3954
+msgid "|image1513|"
+msgstr ""
+
+#: ../../source/tools.rst:3959
+msgid "Add a quote"
+msgstr ""
+
+#: ../../source/tools.rst:3961
+msgid "To add a quote:"
+msgstr ""
+
+#: ../../source/tools.rst:3963
+msgid "Click the 'Add quote' button in the toolbar and an empty quote entry will be added to the end of the current quote list."
+msgstr ""
+
+#: ../../source/tools.rst:3966 ../../source/tools.rst:4001
+msgid "|image396|"
+msgstr ""
+
+#: ../../source/tools.rst:3970
+msgid "Both the 'Source' and the 'Text' fields must be filled in in order to save the new quote."
+msgstr ""
+
+#: ../../source/tools.rst:3973
+msgid "|image397|"
+msgstr ""
+
+#: ../../source/tools.rst:3975
+msgid "When finished filling in both fields, press the <Enter> key on your keyboard to save the new quote."
+msgstr ""
+
+#: ../../source/tools.rst:3978
+msgid "The list will update and the new quote should now be visible in the list."
+msgstr ""
+
+#: ../../source/tools.rst:3983
+msgid "You may cancel the addition of a new quote any time prior to saving it simply by pressing the <Esc> key on your keyboard."
+msgstr ""
+
+#: ../../source/tools.rst:3989
+msgid "Import quotes"
+msgstr ""
+
+#: ../../source/tools.rst:3991
+msgid "You can import a batch of quotes as a CSV file. Your file must contain two columns in the form: \"source\",\"text\" with no header row."
+msgstr ""
+
+#: ../../source/tools.rst:3996
+msgid "You will be prompted to confirm upload of files larger than 512KB."
+msgstr ""
+
+#: ../../source/tools.rst:3998
+msgid "To start the import process click the 'Import quotes' button at the top of the screen"
+msgstr ""
+
+#: ../../source/tools.rst:4003
+msgid "Once on the import quotes screen you can browse your computer for the file you would like to import"
+msgstr ""
+
+#: ../../source/tools.rst:4006
+msgid "|image400|"
+msgstr ""
+
+#: ../../source/tools.rst:4008
+msgid "After selecting the CSV file, click the 'Open' button and the file will be uploaded into a temporary editing table."
+msgstr ""
+
+#: ../../source/tools.rst:4011
+msgid "|image401|"
+msgstr ""
+
+#: ../../source/tools.rst:4013
+msgid "From the listing you can edit either the 'Source' or 'Text' fields by clicking on the desired field. When you are finished editing a field, press the <Enter> key on your keyboard to save the changes."
+msgstr ""
+
+#: ../../source/tools.rst:4017 ../../source/tools.rst:4051
+msgid "|image398|"
+msgstr ""
+
+#: ../../source/tools.rst:4019
+msgid "You can also delete quotes from this listing before completing the import."
+msgstr ""
+
+#: ../../source/tools.rst:4022 ../../source/tools.rst:4060
+msgid "Select the quote(s) you desire to delete by clicking on the corresponding quote id."
+msgstr ""
+
+#: ../../source/tools.rst:4025
+msgid "|image403|"
+msgstr ""
+
+#: ../../source/tools.rst:4027
+msgid "Once quote selection is finished, simply click the 'Delete quote(s)' key."
+msgstr ""
+
+#: ../../source/tools.rst:4030 ../../source/tools.rst:4066
+msgid "You will be prompted to confirm the deletion."
+msgstr ""
+
+#: ../../source/tools.rst:4032
+msgid "|image405|"
+msgstr ""
+
+#: ../../source/tools.rst:4034 ../../source/tools.rst:4068
+msgid "After confirming the deletion, the list will update and the quote(s) will no longer appear."
+msgstr ""
+
+#: ../../source/tools.rst:4037
+msgid "Once you are satisfied with the quotes, click the 'Save quotes' button in the toolbar at the top and the quotes will be saved."
+msgstr ""
+
+#: ../../source/tools.rst:4043
+msgid "Edit or delete a quote"
+msgstr ""
+
+#: ../../source/tools.rst:4045
+msgid "Once the current quote pool has been loaded into the editing table, you may edit the quote source and text."
+msgstr ""
+
+#: ../../source/tools.rst:4048
+msgid "Edit either the 'Source' or 'Text' fields by clicking on the desired field."
+msgstr ""
+
+#: ../../source/tools.rst:4053
+msgid "When you are finished editing a field, press the <Enter> key on your keyboard to save the changes."
+msgstr ""
+
+#: ../../source/tools.rst:4056
+msgid "The list will be updated, the edits saved, and visible."
+msgstr ""
+
+#: ../../source/tools.rst:4058
+msgid "If you'd like you can also delete quote(s)."
+msgstr ""
+
+#: ../../source/tools.rst:4063
+msgid "Once quote selection is finished, simply click the 'Delete quote(s)' button."
+msgstr ""
+
+#: ../../source/tools.rst:4074
+msgid "Upload"
+msgstr ""
+
+#: ../../source/tools.rst:4076
+msgid "*Get there:* More > Tools > Additional Tools > Upload"
+msgstr ""
+
+#: ../../source/tools.rst:4078
+msgid "This tool will allow you to upload files to your Koha system for selection from the :ref:`Cataloging form <attaching-files-to-records-label>`."
+msgstr ""
+
+#: ../../source/tools.rst:4084
+msgid "Upload Files"
+msgstr ""
+
+#: ../../source/tools.rst:4086
+msgid "When you first visit the Upload tool you might see a warning about missing a category."
+msgstr ""
+
+#: ../../source/tools.rst:4089
+msgid "|image1242|"
+msgstr ""
+
+#: ../../source/tools.rst:4091
+msgid "Categories are defined in the :ref:`authorized value <authorized-values-label>` in the UPLOAD category. If you do not have upload categories then your files will be temporary and will be deleted the next time the server is rebooted. Once you have a value in the UPLOAD authorized value category you will see a Category pull down below the 'Browse' button."
+msgstr ""
+
+#: ../../source/tools.rst:4097
+msgid "|image1243|"
+msgstr ""
+
+#: ../../source/tools.rst:4099
+msgid "Browse your computer a file, choose a category and decide if the public will be able to download this file via the OPAC. Once your file is uploaded you will be presented with a confirmation."
+msgstr ""
+
+#: ../../source/tools.rst:4103
+msgid "|image1244|"
+msgstr ""
+
+#: ../../source/tools.rst:4108
+msgid "Search files"
+msgstr ""
+
+#: ../../source/tools.rst:4110
+msgid "All uploaded files are searchable from below the upload form. Using the form you can search any part of the filename and/or the Hashvalue.Search uploaded files"
+msgstr ""
+
+#: ../../source/tools.rst:4114
+msgid "You will be presented with the results of your search."
+msgstr ""
+
+#: ../../source/tools.rst:4116
+msgid "|image1245|"
+msgstr ""
+
+#: ../../source/tools.rst:4119
+msgid "Access files"
+msgstr ""
+
+#: ../../source/tools.rst:4121
+msgid "*Get there:* More > Tools > Additional Tools > Access files"
+msgstr ""
+
+#: ../../source/tools.rst:4123
+msgid "This option allows access to files stored on the server from the staff interface. The directories where the files are stored need to be defined in the koha-conf.xml file. In order to be able to access the tool, a staff patron requires the superlibrarian or access_files patron permission"
+msgstr ""
+
+#: ../../source/tools.rst:4128
+msgid "|image1340|"
+msgstr ""
+
+#: ../../source/tools.rst:4133
+msgid "Cashup registers"
+msgstr ""
+
+#: ../../source/tools.rst:4135
+msgid "*Get there:* More > Tools > Additional tools > Cashup registers"
+msgstr ""
+
+#: ../../source/tools.rst:4142
+msgid "OPAC problem reports"
+msgstr ""
+
+#: ../../source/tools.rst:4144
+msgid "*Get there:* More > Tools > Additional tools > OPAC problem reports"
+msgstr ""
+
+#: ../../source/tools.rst:4146
+msgid "This tool is used to manage the problem reports sent by patrons via the OPAC."
+msgstr ""
+
+#: ../../source/tools.rst:4150
+msgid "This tool only appears if you have enabled the :ref:`OPACReportProblem` system preference."
+msgstr ""
+
+#: ../../source/tools.rst:4153
+msgid "From this tool, you will see all the problems that were reported by patrons on the OPAC."
+msgstr ""
+
+#: ../../source/tools.rst:4156
+msgid "|image1503|"
+msgstr ""
+
+#: ../../source/tools.rst:4158
+msgid "From the 'Actions' column, you can"
+msgstr ""
+
+#: ../../source/tools.rst:4160
+msgid "'Mark viewed': mark this problem report as viewed, this will change the status of the problem report to 'Viewed'"
+msgstr ""
+
+#: ../../source/tools.rst:4163
+msgid "'Mark closed': close this problem report, this will change the status of the problem report to 'Closed'"
+msgstr ""
+
+#: ../../source/tools.rst:4166
+msgid "'Mark new': mark this problem as new (i.e. not viewed), this will revert the status back to 'New'."
+msgstr ""
+
+#: ../../source/tools.rst:4169
+msgid "You can also batch change statuses by checking the boxes next to the problem reports you want to change and use the bottons at the top of the page."
+msgstr ""
