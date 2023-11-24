@@ -1,0 +1,4885 @@
+.. include:: images.rst
+
+.. _circulation-system-preferences-label:
+
+Circulation
+-------------------------------------------------------------------------------
+
+*Get there:* More > Administration > Global system preferences > Circulation
+
+.. _article-requests-sysprefs-label:
+
+Article requests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _articlerequests-label:
+
+ArticleRequests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patrons to place article requests.
+
+Default: Don't enable
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Description:
+
+-  This preference controls whether or not patrons can request articles.
+
+-  This is the main switch for the
+   :ref:`article request<article-requests-circulation-label>` functionality.
+
+.. _articlerequestslinkcontrol-label:
+
+ArticleRequestsLinkControl
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ article request link on search results.
+
+Default: Use algorithm to show or hide
+
+Values:
+
+-  Always show
+
+-  Use algorithm to show or hide
+
+Description:
+
+-  On the OPAC results page, either always show the 'Request article' link
+   or check the branch, patron and item type combination to determine
+   whether or not an article can be requested from this particular record
+   before displaying the link.
+
+.. _articlerequestsmandatoryfields-label:
+
+ArticleRequestsMandatoryFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: For records that are record level or item level requestable, make the
+following fields mandatory: \_\_\_
+
+Default: None selected
+
+Values:
+
+-  [Select all]
+
+-  Author
+
+-  Chapters
+
+-  Date
+
+-  Issue
+
+-  Pages
+
+-  Title
+
+-  Volume
+
+Description:
+
+-  This preference controls what fields must be filled in before an article
+   request can be placed for either a record level or item level request.
+   Choosing [Select all] indicates that all fields listed (Author, Chapters,
+   Date, Issue, Pages, Title, Volume) must be completed before the article
+   request can be placed.
+
+.. _articlerequestsmandatoryfieldsitemsonly-label:
+
+ArticleRequestsMandatoryFieldsItemsOnly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: For records that are only item level requestable, make the following
+fields mandatory: \_\_\_
+
+Default: None selected
+
+Values:
+
+-  [Select all]
+
+-  Author
+
+-  Chapters
+
+-  Date
+
+-  Issue
+
+-  Pages
+
+-  Title
+
+-  Volume
+
+Description:
+
+-  This preference controls what fields must be filled in before an article
+   request can be placed for an item level request only. Choosing [Select all]
+   indicates that all fields listed (Author, Chapters, Date, Issue, Pages,
+   Title, Volume) must be completed before the article request can be placed.
+
+.. _articlerequestsmandatoryfieldsrecordonly-label:
+
+ArticleRequestsMandatoryFieldsRecordOnly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: For records that are only record level requestable, make the following
+fields mandatory: \_\_\_
+
+Default: None selected
+
+Values:
+
+-  [Select all]
+
+-  Author
+
+-  Chapters
+
+-  Date
+
+-  Issue
+
+-  Pages
+
+-  Title
+
+-  Volume
+
+Description:
+
+-  This preference controls what fields must be filled in before an article
+   request can be placed for a record level request only. Choosing [Select all]
+   indicates that all fields listed (Author, Chapters, Date, Issue, Pages,
+   Title, Volume) must be completed before the article request can be placed.
+
+.. _articlerequestsopachostredirection-label:
+
+ArticleRequestsOpacHostRedirection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ redirection from child to host based on MARC21 773$w when the
+child has no items when requesting articles on the OPAC.
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  When enabled, if a patron attempts to place an article request from an
+   analytic record the system will automatically populate some details in the
+   request from using data from the host record.
+
+.. _articlerequestssupportedformats-label:
+
+ArticleRequestsSupportedFormats
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following article request formats are supported: \_\_\_
+
+Default: PHOTOCOPY
+
+Values: Valid choices are currently PHOTOCOPY and SCAN
+
+Description:
+
+-  This system preference controls the choices available in the 'Format' drop-
+   down menu when placing an article request.
+
+-  The valid choices are PHOTOCOPY and SCAN.
+
+-  Separate choices with a pipe (\|), for example PHOTOCOPY\|SCAN
+
+-  The first choice in the list will be the default choice in the article
+   request form.
+
+.. _batch-checkout-label:
+
+Batch checkout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _batchcheckouts-label:
+
+BatchCheckouts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ batch checkouts
+
+Default: Don't allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This system preference is the main switch for the
+   :ref:`batch checkout<batch-checkouts-label>` functionality
+
+-  Make sure to add the patron categories allowed to have batch checkouts in
+   :ref:`BatchCheckoutsValidCategories <BatchCheckoutsValidCategories-label>`
+
+See also:
+
+-  :ref:`BatchCheckoutsValidCategories <BatchCheckoutsValidCategories-label>`
+
+.. _batchcheckoutsvalidcategories-label:
+
+BatchCheckoutsValidCategories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Patron categories allowed to checkout in a batch: \_\_\_
+
+Default: none
+
+Values: :ref:`patron categories<patron-categories-label>`
+
+Description:
+
+-  Check the patron categories for which batch checkouts are allowed
+
+-  :ref:`BatchCheckouts <BatchCheckouts-label>` must be enabled for this preference to have any effect
+
+See also:
+
+-  :ref:`BatchCheckouts <BatchCheckouts-label>`
+
+.. _checkin-policy-label:
+
+Checkin policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _automaticconfirmtransfer-label:
+
+AutomaticConfirmTransfer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ automatically confirm a transfer when the modal is dismissed
+without clicking 'Yes'.
+
+Default: Don't
+
+Values:
+
+-  Don't
+
+-  Do
+
+Description:
+
+-  This system preference is used to control the transfer behavior when a staff
+   member clicks away from the transfer confirmation pop-up.
+
+-  When set to "Don't", clicking away from the pop-up will leave the item as is.
+
+-  When set to "Do", clicking away from the pop-up will confirm the transfer
+   and put the item in transit.
+
+-  It is only possible to click away from the pop-up if the
+   :ref:`TransfersBlockCirc <transfersblockcirc-label>` system preference is set
+   to "Don't block".
+
+.. _blockreturnoflostitems-label:
+
+BlockReturnOfLostItems
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ returning of items that have been lost.
+
+Default: Don't block
+
+Values:
+
+-  Block
+
+-  Don't block
+
+Description:
+
+-  This preference controls whether and item with a lost status
+   (952$1 in MARC21) can be checked in or not.
+
+.. _blockreturnofwithdrawnitems-label:
+
+BlockReturnOfWithdrawnItems
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ returning of items that have been withdrawn.
+
+Default: Block
+
+Values:
+
+-  Block
+
+-  Don't block
+
+Description:
+
+-  This preference controls whether and item with a withdrawn status
+   (952$0 in MARC21) can be checked in or not.
+
+.. _calculatefinesonbackdate-label:
+
+CalculateFinesOnBackdate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ calculate and update overdue charges when an item is returned with 
+a backdated return date.
+
+Default: Do
+
+Values:
+
+-  Do
+
+-  Don't
+
+Description:
+
+-  This system preference is similar to :ref:`CalculateFinesOnReturn <CalculateFinesOnReturn-label>` but is 
+   used when checkins are backdated either through the book drop mode or the 
+   specified return date (see :ref:`SpecifyReturnDate <SpecifyReturnDate-label>`).
+
+.. _calculatefinesonreturn-label:
+
+CalculateFinesOnReturn
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ calculate and update overdue charges when an item is
+returned.
+
+Default: Do
+
+Values:
+
+-  Do
+
+-  Don't
+
+Description:
+
+-  If this preference is set to "Do" and the :ref:`fines cron
+   job <cron-fines-label>` is off then Koha will calculate fines only
+   when items are returned. If you have the fines cron job on and this
+   preference set to "Do" then this preference will calculate fines
+   based on the cron (usually run nightly) and then again when you check
+   the item in. This option is best for those who are doing hourly
+   loans. If this preference is set to "Don't" then fines will only be
+   accrued if the fines cron job is running.
+
+.. Warning::
+
+    If you are doing hourly loans, this should be set to 'Do'.
+
+.. Warning::
+
+    The :ref:`finesMode <finesMode-label>` system preference must be set to 'Calculate and charge' 
+    in order for this system preference to have any effect.
+
+.. _hidepersonalpatrondetailoncirculation-label:
+
+HidePersonalPatronDetailOnCirculation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ hide patrons phone number, email address, street address
+and city in the circulation page
+
+Default: Don't
+
+Values:
+
+-  Don't
+
+-  Do
+
+Description:
+
+-  This preference controls the display of the patron's phone number,
+   email address, and physical address from the left side of the screen
+   (under their picture, if they have one) on the
+   :ref:`circulation page <checking-items-out-label>`.
+
+-  When set to 'Do', this information will only be visible on the patron's
+   detail page.
+
+.. _holdsautofill-label:
+
+HoldsAutoFill
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ automatically fill holds instead of asking the librarian.
+
+Default: Don't
+
+Values:
+
+-  Do
+
+-  Don't
+
+Description:
+
+-  If set to 'Do', the holds confirmation pop-up will not appear upon checking
+   in an item placed on hold.
+
+.. _holdsautofillprintslip-label:
+
+HoldsAutoFillPrintSlip
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ automatically display the holds slip dialog for auto-filled holds.
+
+Default: Don't
+
+Values:
+
+-  Do
+
+-  Don't
+
+Description:
+
+-  If set to 'Do', the holds slip print pop-up will appear automatically
+   upon checking in an item placed on hold.
+
+-  :ref:`HoldsAutoFill <HoldsAutoFill-label>` must be set to 'do' for this preference to have any
+   effect.
+
+.. _holdsneedprocessingsip-label:
+
+HoldsNeedProcessingSIP
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ holds automatically if matching item is returned via SIP protocol.
+
+Default: Fulfill
+
+Values:
+
+-  Fulfill
+
+-  Don't fulfill
+
+Description:
+
+-  This system preference controls whether or not holds are automatically filled 
+   by items returned via SIP (sorter, auto check-in stations, etc.)
+
+.. _skipholdtraponnotforloanvalue-label:
+
+SkipHoldTrapOnNotForLoanValue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Never trap items with 'not for loan' values of \_\_\_ to fill holds.
+
+Description:
+
+-  This system preference is used to completely exclude items with 'not for loan' 
+   values from filling holds.
+
+-  Enter :ref:`NOT\_LOAN authorized values <existing-values-label>` separated 
+   by pipes (\|).
+
+.. _storelastborrower-label:
+
+StoreLastBorrower
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the last patron to return an item.
+
+Default: Don't store
+
+Values:
+
+-  Don't store
+
+-  Store
+
+Description:
+
+-  This preference allows you to store the last patron to borrow an item
+   even if the patron has chosen to have their reading history
+   anonymized.
+
+.. Note::
+
+   This setting is independent of :ref:`opacreadinghistory <opacreadinghistory-label>` and
+   :ref:`AnonymousPatron <AnonymousPatron-label>`.
+
+.. _transfersblockcirc-label:
+
+TransfersBlockCirc
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ staff from continuing to checkin items when a transfer is 
+triggered.
+
+Default: Block
+
+Values:
+
+-  Don't block
+
+-  Block
+
+Description:
+
+-  This system preference controls whether or not the transfer pop-up blocks
+   further checkins.
+
+-  If this is set to "Don't block", the
+   :ref:`AutomaticConfirmTransfer <automaticconfirmtransfer-label>` system
+   preference determines what happens if the pop-up is dismissed without
+   confirming the transfer.
+
+.. _trapholdsonorder-label:
+
+TrapHoldsOnOrder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ items that are not for loan but holdable (notforlan < 0) to fill 
+holds.
+
+Default: Trap
+
+Values:
+
+-  Don't trap
+
+-  Trap
+
+Description: 
+
+-  This system preference controls whether or not items that have a 
+   :ref:`NOT_LOAN authorized value <existing-values-label>` smaller than 0 
+   (which means that the item can be put on hold, but not checked out), should 
+   be used to fill holds.
+
+.. _updateitemlocationoncheckin-label:
+
+UpdateItemLocationOnCheckin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: This is a list of value pairs. The first value is followed immediately
+by colon, space, then the second value.
+
+Description:
+
+-  This system preference affects the item's current and permanent locations
+   when the item is checked in (whether it was checked out or not).
+
+-  If the location value on the left of the colon (:) matches
+   the item's current location, it will be updated to match the location value
+   on the right of the colon (:).
+
+-  The values are the LOC :ref:`authorised values <existing-values-label>`.
+
+-  For example, 'STAFF: GEN' will move an item from the staff office to the
+   general collection when the item is checked in.
+
+-  Special terms
+
+   -  PROC: Processing center. When using PROC, only the current location will
+      be affected.
+
+   -  CART: Shelving cart. When using CART, only the current location will be
+      affected.
+
+   -  \_PERM\_: This will use the item's permanent location, whatever that
+      location is.
+
+   -  \_BLANK\_: Used on the left as a first value, it will add a location if
+       there is none. Used on the right as a second value, it will remove the
+       location.
+
+   -  \_ALL\_: Used on the left as a first value, it will affect all items and
+      override all other rules.
+
+.. Warning::
+
+   Requires YAML syntax to work
+
+   This means
+
+   -  Make sure there is NO space between the first value and the colon
+
+   -  Make sure there IS a space between the colon and the second value
+
+   -  Make sure each pair is on its own line
+
+-  If using PROC or CART, use the 
+   :ref:`cart\_to\_shelf cron job <cron-in-processing/book-cart-label>` to 
+   return the items to their permanent location after a determined number of 
+   hours.
+
+.. _updatenotforloanstatusoncheckin-label:
+
+UpdateNotForLoanStatusOnCheckin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: This is a list of value pairs. When an item is checked in, if the
+not for loan value on the left matches the items not for loan value it
+will be updated to the right-hand value.
+
+Description:
+
+-  This system preference affects the item's 'not for loan' status
+   when the item is checked in (whether it was checked out or not).
+
+-  If the status value on the left of the colon (:) matches
+   the item's current status, it will be updated to match the status value
+   on the right of the colon (:).
+
+-  The values are the NOT\_LOAN :ref:`authorised values <existing-values-label>`.
+
+-  For example, '-1: 0' will cause an item that was set to 'Ordered' to now be 
+   available for loan
+
+-  This system preference can also be used to only display the not for loan
+   status. To do so, enter :code:`ONLYMESSAGE` on the right of the colon.
+   For example ::
+
+   -1: ONLYMESSAGE
+
+   This will simply show the label for -1 without changing the status.
+
+.. Warning::
+
+   Requires YAML syntax to work
+
+   This means
+
+   -  Make sure there is NO space between the first value and the colon
+
+   -  Make sure there IS a space between the colon and the second value
+
+   -  Make sure each pair is on its own line
+
+.. _checkout-policy-label:
+
+Checkout policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _agerestrictionmarker-label:
+
+AgeRestrictionMarker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Restrict patrons with the following target audience values from
+checking out inappropriate materials: \_\_\_
+
+Description:
+
+-  This preference defines certain keywords that will trigger Koha to
+   restrict checkout based on age. These restrictions can be overridden
+   by the :ref:`AgeRestrictionOverride <AgeRestrictionOverride-label>`
+   preference. Enter in this field a series of keywords separated by bar
+   (\|) with no spaces. For example PG\|R\|E\|EC\|Age\| will look for PG
+   followed by an age number, R folllowed by an age number, Age followed
+   by an age number, and so on. These values can appear in any MARC
+   field, but Library of Congress recommends the 521$a (Target Audience
+   Note). Whatever field you decide to use you must map the word
+   agerestriction in the biblioitems table to that field in the :ref:`Koha to
+   MARC Mapping <koha-to-marc-mapping-label>`. When cataloging you can enter
+   values like PG 13 or E 10 in the 521$a and Koha will then notify
+   circulation librarians that the material may not be recommended for
+   the patron based on their age.
+
+       **Important**
+
+       You must map the word agerestriction in the biblioitems table to
+       the MARC field where this information will appear via the :ref:`Koha
+       to MARC Mapping <koha-to-marc-mapping-label>` administration area.
+
+.. _agerestrictionoverride-label:
+
+AgeRestrictionOverride
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ staff to check out an item with age restriction.
+
+Values:
+
+-  Allow
+
+   |image25|
+
+-  Don't allow
+
+   |image26|
+
+Description:
+
+-  When the :ref:`AgeRestrictionMarker <AgeRestrictionMarker-label>` preference
+   is set, Koha will try to warn circulation librarians before checking
+   out an item that might have an age restriction listed in the MARC
+   record. This preference asks if you would like the staff to be able
+   to still check out these items to patrons under the age limit.
+
+.. _allfinesneedoverride-label:
+
+AllFinesNeedOverride
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Require
+
+Asks: \_\_\_ staff to manually override all fines, even fines less than
+:ref:`noissuescharge <noissuescharge-label>`.
+
+Values:
+
+-  Don't require
+
+-  Require
+
+Description:
+
+-  This preference let's you decide if you want to always be warned that
+   the patron has fines when checking out. If you have it set to
+   'Require' then no matter how much money the patron owes a message
+   will pop up warning you that the patron owes money.
+
+.. _allowfineoverride-label:
+
+AllowFineOverride
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ staff to manually override and check out items to patrons
+who have more than :ref:`noissuescharge <noissuescharge-label>` in fines.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This preference lets you decide if you staff can check out to patrons
+   who owe more money than you usually let them carry on their account.
+   If set to 'Allow' staff will be warned that the patrons owes money,
+   but it won't stop the staff from checking out to the patron.
+
+.. _allowitemsonholdcheckoutsco-label:
+
+AllowItemsOnHoldCheckoutSCO
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ checkouts of items reserved to someone else in the SCO module.
+If allowed do not generate RESERVE_WAITING and RESERVED warning. This
+allows self checkouts for those items.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+    **Important**
+
+    This system preference relates only to Koha's web based self checkout.
+
+Description:
+
+-  When this preference is set to 'Allow' patrons will be able to use
+   Koha's web based self checkout to check out a book to themselves
+   even if it's on hold for someone else. If you would like Koha to
+   prevent people from checking out books that are on hold for someone
+   else set this preference to "Don't allow".
+
+.. _allowitemsonholdcheckout-label:
+
+AllowItemsOnHoldCheckoutSIP
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ checkouts of items reserved to someone else via SIP checkout 
+messages.
+
+Default: Don't allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+    **Important**
+
+    This system preference relates only to SIP-based self-checkout, not
+    Koha's web based self checkout.
+
+Description:
+
+-  When this preference is set to 'Allow' patrons will be able to use
+   your external self check machine to check out a book to themselves
+   even if it's on hold for someone else.
+
+-  If you would like Koha to prevent people from checking out books that are 
+   on hold for someone else set this preference to 'Don't allow'.
+
+.. _allowmultipleissuesonabiblio-label:
+
+AllowMultipleIssuesOnABiblio
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to check out multiple items from the same record.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  If this preference is set to 'Allow' then patrons will be able to
+   check out multiple copies of the same title at the same time. If it's
+   set to "Don't allow" then patrons will only be allowed to check out
+   one item attached to a record at a time. Regardless of the option
+   chosen in this preference records with subscriptions attached will
+   allow multiple check outs.
+
+       **Important**
+
+       This will only effect records without a subscription attached.
+
+.. _allownotforloanoverride-label:
+
+AllowNotForLoanOverride
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ staff to override and check out items that are marked as
+not for loan.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This parameter is a binary setting which controls the ability of
+   staff (patrons will always be prevented from checking these items
+   out) to check out items that are marked as "not for loan". Setting it
+   to "Allow" would allow such items to be checked out, setting it to
+   "Don't allow" would prevent this. This setting determines whether
+   items meant to stay in the library, such as reference materials, and
+   other library resources can be checked out by patrons.
+
+.. _allowrenewallimitoverride-label:
+
+AllowRenewalLimitOverride
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ staff to manually override the renewal limit and renew a
+checkout when it would go over the renewal limit.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This preference is a binary setting which controls the ability of
+   staff to override the limits placed on the number of times an item
+   can be renewed. Setting it to "Allow" would allow such limits to be
+   overridden, setting it to "Don't allow" would prevent this. This is a
+   preference in which if it is set to "allow" it would allow the
+   library staff to use their judgment for overriding the renew limit
+   for special cases, setting it to "Don't allow" prevents an
+   opportunity for abuse by the library staff.
+
+.. _allowrenewalonholdoverride-label:
+
+AllowRenewalOnHoldOverride
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ staff to renew items that are on hold by manually specifying a due date.
+
+Default: Don't allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+- This preference enables items that are on hold to be renewed with a due date specified by the user.
+
+  It can appear in two locations:
+
+  1. In the "Checkouts" table on the Patron Details screen. It is possible to select on loan items that would otherwise fulfill a hold request to be renewed. When such an item is selected, an additional date selection box is displayed to allow the user to specify the due date for all on hold items that are to be renewed.
+
+  2. In the Circulation > Renew alert screen. When a barcode of an on loan item that would ordinarily fulfill a hold request is entered, the usual alert is displayed indicating that the item is on hold, it is still possible to override this, and renew. With this preference enabled it is also possible to specify a due date.
+
+.. _allowreturntobranch-label:
+
+AllowReturnToBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: to any library
+
+Asks: Allow materials to be returned to \_\_\_
+
+Values:
+
+-  either the library the item is from or the library it was checked out
+   from.
+
+-  only the library the item is from.
+
+-  only the library the item was checked out from.
+
+-  to any library.
+
+Description:
+
+-  This preference lets the library system decide how they will accept
+   returns. Some systems allow for items to be returned to any library
+   in the system (the default value of this preference) others want to
+   limit item returns to only specific branches. This preference will
+   allow you to limit item returns (checkins) to the branch(es) set in
+   the value.
+
+.. _allowtoomanyoverride-label:
+
+AllowTooManyOverride
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ staff to override and check out items when the patron has
+reached the maximum number of allowed checkouts.
+
+Values:
+
+-  Allow
+
+   |image27|
+
+-  Don't allow
+
+   |image28|
+
+Description:
+
+-  If this preference is set to "Allow" then staff all will be presented
+   with an option to checkout more items to a patron than are normally
+   allowed in the :ref:`circulation and fines rules <circulation-and-fines-rules-label>`. If
+   this preference is set to "Don't allow" then no staff member will be
+   able to check out more than the circulation limit.
+
+.. _automaticitemreturn-label:
+
+AutomaticItemReturn
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Do
+
+Asks: \_\_\_ automatically transfer items to their home branch when they
+are returned.
+
+Values:
+
+-  Do
+
+-  Don't
+
+Description:
+
+-  This preference is a binary setting which determines whether an item
+   is returned to its home branch automatically or not. If set to
+   "Don't", the staff member checking an item in at a location other
+   than the item's home branch will be asked whether the item will
+   remain at the non-home branch (in which case the new location will be
+   marked as a holding location) or returned. Setting it to "Do" will
+   ensure that items checked in at a branch other than their home branch
+   will be sent to that home branch.
+
+.. _autoreturncheckedoutitems-label:
+
+AutoReturnCheckedOutItems
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ require librarians to manually confirm a checkout where the item
+is already checked out to another patron.
+
+Values:
+
+-  Do
+
+-  Don't
+
+Default: Do
+
+Description:
+
+-  This preference controls whether Koha asks for a confirmation when trying
+   to check out an item that is already checked out to another patron.
+
+-  Set to 'Do', Koha will ask the staff member to confirm the check out.
+
+   |image1433|
+
+-  Set to 'Don't', Koha will simply return the item from the previous
+   patron's file and check it out to the actual patron and show a message.
+
+   |image1434|
+
+.. _circcontrol-label:
+
+CircControl
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: the library the item is from
+
+Asks: Use the checkout and fines rules of \_\_\_
+
+Values:
+
+-  the library the item is from
+
+   -  The :ref:`circulation and fines policies <circulation-and-fines-rules-label>`
+      will be determined by the item's library where :ref:`HomeOrHoldingBranch <HomeOrHoldingBranch-label>`
+      chooses if item's home library is used or holding library is used.
+
+-  the library the patron is from
+
+   -  The :ref:`circulation and fines policies <circulation-and-fines-rules-label>`
+      will be determined the patron's home library
+
+-  the library you are logged in at
+
+   -  The :ref:`circulation and fines policies <circulation-and-fines-rules-label>` will be
+      determined by the library that checked the item out to the patron
+
+.. _circcontrolreturnsbranch-label:
+
+CircControlReturnsBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: To determine whether an item is transferred or remains in the library
+after checkin, use the circulation rules of \_\_\_.
+
+Default: the library the item is owned by (homebranch)
+
+Values:
+
+-  the library the item is checked in at (checkin library)
+
+-  the library the item is currently held by (holdingbranch)
+
+-  the library the item is owned by (homebranch)
+
+Description:
+
+-  This system preference controls which
+   :ref:`return policy rule <item-hold-policies-label>` (item returns home,
+   item returns to issuing library, or item floats) is used when checking in
+   items.
+
+.. _consideronsitecheckoutsasnormalcheckouts-label:
+
+ConsiderOnSiteCheckoutsAsNormalCheckouts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ on-site checkouts as normal checkouts. If enabled, on-site 
+checkouts will count toward the checkout limit for regular checkouts. The 
+on-site limit will still apply for on-site checkouts. If disabled, both values 
+will be checked separately.
+
+Default: Consider
+
+Values:
+
+-  Consider
+
+-  Don't consider
+
+Description:
+
+-  This preference allows you to decide if checkouts that are considered 
+   :ref:`on-site checkouts <onsitecheckouts-label>` are counted toward the total
+   checkouts a patron can have. You can also set your 
+   :ref:`circulation and fines rules <circulation-and-fines-rules-label>` to 
+   allow only a certain number of normal and on-site checkouts.
+
+.. _defaultlongoverduechargevalue-label:
+
+DefaultLongOverdueChargeValue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Charge a lost item to the borrower's account when the LOST value
+of the item changes to \_\_\_
+
+Description:
+
+-  Leave this field empty if you don't want to charge the user for lost
+   items. If you want the user to be charged enter the `LOST authorized
+   value <#lost>`__ you are using in the
+   :ref:`DefaultLongOverdueLostValue <defaultlongoverduelostvalue-and-defaultlongoverduedays-label>`
+   preference. This preference is used when the :ref:`longoverdue cron
+   job <cron-long-overdues-label>` is called without the --charge parameter.
+
+.. _defaultlongoverduelostvalue-and-defaultlongoverduedays-label:
+
+DefaultLongOverdueLostValue and DefaultLongOverdueDays
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: By default, set the LOST value of an item to \_\_\_ when the item
+has been overdue for more than \_\_\_ days.
+
+Description:
+
+-  These preferences are used when the :ref:`longoverdue cron
+   job <cron-long-overdues-label>` is called without the --lost parameter. It
+   allows users to set the values of the :ref:`longoverdue
+   cron <cron-long-overdues-label>` without having to edit the crontab.
+   Setting the values to 1 and 30 for example will mark the item with
+   the `LOST authorized value <#lost>`__ of 1 after the item is 30 days
+   overdue.
+
+.. _homeorholdingbranch-label:
+
+HomeOrHoldingBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: the item's home library (homebranch).
+
+Asks: Use the checkout and fines rules of \_\_\_
+
+Values:
+
+-  the item's home library (homebranch).
+
+-  the item's holding library (holdingbranch).
+
+Description:
+
+-  This preference does several things.
+
+   -  If :ref:`CircControl <CircControl-label>` is set to 'the library the item
+      is from' then the :ref:`circulation and fines
+      policies <circulation-and-fines-rules-label>` will be determined by the item's
+      library where HomeOrHoldingBranch chooses if item's home library
+      is used or holding library is used.
+
+   -  If :ref:`IndependentBranches <IndependentBranches-label>` is set to
+      'Prevent' then the value of this preference is used in figuring
+      out if the item can be checked out. If the item's home library
+      does not match the logged in library, the item cannot be checked
+      out unless you are a :ref:`superlibrarian <patron-permissions-defined-label>`.
+
+    **Important**
+
+    It is not recommend that this setting be changed after initial setup
+    of Koha because it will change the behavior of items already checked
+    out.
+
+.. _issuelostitem-label:
+
+IssueLostItem
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: display a message
+
+Asks: When issuing an item that has been marked as lost, \_\_\_.
+
+Values:
+
+-  display a message
+
+   |image29|
+
+-  do nothing
+
+   -  This option will just check the item out without notifying you
+      that the item was marked lost.
+
+-  require confirmation
+
+   |image30|
+
+Description:
+
+-  This preference lets you define how library staff are notified that
+   an item with a lost status is being checked out. This will help staff
+   mark items as 'available' if you choose to 'display a message' or
+   'require confirmation.^ If you choose to 'do nothing,^ there will be
+   no notification that the item being checked out is marked as 'lost.^
+
+.. _issuinginprocess-label:
+
+IssuingInProcess
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't prevent
+
+Asks: \_\_\_ patrons from checking out an item whose rental charge would
+take them over the limit.
+
+Values:
+
+-  Don't prevent
+
+-  Prevent
+
+Description:
+
+-  This preference determines if a patron can check items out if there
+   is an overdue fine on the account and any of the materials the patron
+   wishes to check out will potentially tip the account balance over the
+   maximum fines policy the library has in place.
+
+Example: Your library has a $5 limit set for 'fines' (i.e., after
+incurring $5 in fines, a patron can no longer check out items). A patron
+comes to the desk with 5 items to check out (4 books and a video) The
+patron has $4 in charges already on their account. One of the videos has
+a rental charge of $1, therefore making the total fines on the patron's
+account suddenly $5 (the limit).
+
+.. _itemsdeniedrenewal-label:
+
+ItemsDeniedRenewal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Define custom rules to deny specific items from renewal.
+
+Description:
+
+-  This preference allows you to specify items that should not be renewed
+   either from the OPAC or staff client.  You can enter any combination of
+   fields (from the items table in the Koha database) followed by a colon
+   then a space then a bracketed list of values separated by commas. e.g:
+
+   ::
+
+       ccode: [NEWFIC,NULL,DVD]
+       itype: [NEWBK,""]
+
+-  The word 'NULL' can be used to block renewal on undefined fields,
+   while an empty string "" will block on an empty (but defined) field.
+
+    **Note**
+
+    If using automatic renewal notices your notice text should be updated to
+    account for the new reason that renewals may be denied "item_denied_renewal".
+
+.. _marklostitemsasreturned-label:
+
+MarkLostItemsAsReturned
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ items as returned when flagged as lost.
+
+Default: Disable
+
+Values:
+
+-  [Select All]
+
+-  From the :ref:`'holds to pull' <holds-to-pull-label>` list
+
+-  From the :ref:`batch item modification tool <batch-item-modification-label>`
+
+-  From the items tab of the catalog module
+
+-  From the :ref:`longoverdue cronjob <cron-long-overdues-label>`
+
+-  When cataloging an item
+
+-  When marking an item as a return claim
+
+-  When receiving a payment for the items
+
+Description:
+
+-  The library can choose which of these actions or all of these actions, does an
+   item gets automatically returned from the patron's account or not.
+
+.. _maxoutstanding-label:
+
+maxoutstanding
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 5
+
+Asks: Prevent patrons from making holds on the OPAC if they owe more
+than \_\_\_ USD in fines.
+
+.. _noissuescharge-label:
+
+noissuescharge
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Prevent patrons from checking out items if they have more than
+\_\_\_ {:ref:`currency <currencies-and-exchange-rates-label>`} in fines.
+
+Default: 5
+
+Description:
+
+-  This preference is the maximum amount of money owed to the library
+   before the user is banned from borrowing more items.
+
+-  By default, this includes all :ref:`debit types <debit-types-label>` (overdue
+   fines, account creation fees, hold fees, manual fees, rental fees, etc.), but
+   it's possible to exclude debit types or to include custom manual debit types
+   using the 'Included in noissuescharge' option when
+   :ref:`creating or editing a debit type <add-debit-type-label>`.
+
+See also:
+
+-  :ref:`maxoutstanding <maxoutstanding-label>`
+
+-  :ref:`NoIssuesChargeGuarantees <noissueschargeguarantees-label>`
+
+-  :ref:`NoIssuesChargeGuarantorsWithGuarantees <noissueschargeguarantorswithguarantees-label>`
+
+-  :ref:`AllFinesNeedOverride <allfinesneedoverride-label>`
+
+-  :ref:`AllowFineOverride <allowfineoverride-label>`
+
+.. _noissueschargeguarantees-label:
+
+NoIssuesChargeGuarantees
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Prevent a patron from checking out if the patron has guarantees
+owing in total more than \_\_\_ USD in fines.
+
+Description:
+
+-  Allows a library to prevent patrons from checking out items if his or
+   her guarantees owe too much in fines.
+
+
+.. _noissueschargeguarantorswithguarantees-label:
+
+NoIssuesChargeGuarantorsWithGuarantees
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Prevent a patron from checking out if the patron has guarantors and those
+guarantor's guarantees owing in total more than \_\_\_ (currency) in fines.
+
+Description:
+
+-  Allows a library to prevent patrons from checking out items if their
+   guarantees or their guarantees' other guarantors owe too much in fines.
+
+-  This effectively blocks the entire family.
+
+.. _norenewalbeforeprecision-label:
+
+NoRenewalBeforePrecision
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: date
+
+Asks: Calculate "No renewal before" based on \_\_\_.
+
+Values:
+
+-  date
+
+-  exact time
+
+    **Note**
+
+    Only relevant for loans calculated in days, hourly loans are not
+    affected.
+
+Description:
+
+-  This preference allows you to control how the 'No renewal before"
+   option in the :ref:`circulation and fines rules <circulation-and-fines-rules-label>`
+   administration area.
+
+.. _noticebcc-label:
+
+NoticeBcc
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Send all notices as a BCC to this email address \_\_\_
+
+This preference makes it so that a librarian can get a copy of every
+notice sent out to patrons.
+
+    **Note**
+
+    If you'd like more than one person to receive the blind copy you can
+    simply enter in multiple email addresses separated by commas.
+
+ .. _onsitecheckoutautocheck-label:
+
+OnSiteCheckoutAutoCheck
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't enable
+
+Asks: \_\_\_ onsite checkout by default if last checkout was an onsite one.
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Description:
+
+-  This preference allows you specify that if a preceding checkout was an onsite
+   checkout, then the 'On-site checkout' checkbox will be ticked
+   ready for the next checkout.
+
+.. _onsitecheckouts-label:
+
+OnSiteCheckouts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Disable
+
+Asks: \_\_\_ the on-site checkouts feature.
+
+Values:
+
+-  Disable
+
+-  Enable
+
+   |image1184|
+
+Description:
+
+-  This preference lets you check out items that are 'not for loan' to
+   patrons. A checkbox is added to the checkout screen when this
+   preference is set to 'Enable' labeled 'On-site checkout'. This allows
+   you to track who's using items that are normally not for loan or are
+   in a closed stack setting.
+
+.. _onsitecheckoutsforce-label:
+
+OnSiteCheckoutsForce
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Disable
+
+Asks: \_\_\_ the on-site for all cases (Even if a user is debarred,
+etc.).
+
+Values:
+
+-  Disable
+
+-  Enable
+
+   |image31|
+
+Description:
+
+-  This preference lets the staff override any restrictions a patron
+   might have and check out items for use within the library. The
+   :ref:`OnSiteCheckouts <OnSiteCheckouts-label>` preference must first be set
+   to 'Enable' for this preference to be considered.
+
+.. _opacfinenorenewalsblockautorenew-label:
+
+OPACFineNoRenewalsBlockAutoRenew
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: If a patron owes more than the value of :ref:`OPACFineNoRenewals <OPACFineNoRenewals-label>`,
+\_\_\_ his/her auto renewals.
+
+Values:
+
+-  Allow
+
+-  Block
+
+.. _overduenoticecalendar-label:
+
+OverdueNoticeCalendar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when working out the period for overdue notices
+
+Default: Ignore calendar
+
+Values:
+
+-  Ignore calendar
+
+   -  Notices do not take holidays into account, so they will be sent
+      even if holidays have meant the item is not actually overdue yet
+
+-  Use calendar
+
+   -  Notices take holidays into account, so they will not be sent if
+      holidays mean the item is not actually overdue yet
+
+.. _overduenoticefrom-label:
+
+OverdueNoticeFrom
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Organize and send overdue notices using the \_\_\_.
+
+Default: command-line option 
+
+Values:
+
+-  command-line option
+
+-  item home library
+
+-  checkout library
+
+Description:
+
+-  This system preference determines which library's information will be used 
+   in the overdue notices (if there is information in the 
+   :ref:`notice template<notices-and-slips-label>` such as 
+   \<\<branches.branchname\>\> or \<\<branches.branchphone\>\>, or, in the new 
+   syntax, \[\% branch.branchname \%\] or \[\% branch.branchphone \%\]) and 
+   which email address will be used to send the notices.
+
+-  This system preference overrides the --frombranch parameter in the 
+   :ref:`overdue\_notices.pl cronjob<cron-overdue-notice-label>`.
+
+-  When set to "command-line option", the library information will be that of 
+   the --frombranch parameter in the 
+   :ref:`overdue\_notices.pl cronjob<cron-overdue-notice-label>` or the 
+   checkout library if the parameter is absent.
+
+-  When set to "item home library", the library information will be that of the 
+   overdue item's home library.
+
+-  When set to "checkout library", the library information will be that of the 
+   library at which the overdue item was checked out.
+
+.. _overduesblockcirc-label:
+
+OverduesBlockCirc
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Ask for confirmation
+
+Asks: \_\_\_ when checking out to a borrower that has overdues
+outstanding
+
+Values:
+
+-  Ask for confirmation
+
+   -  Will not let you check an item out to patrons with overdues until
+      a librarian confirms that it is okay
+
+-  Block
+
+   -  Block all patrons with overdue items from being able to check out
+
+-  Don't block
+
+   -  Allow all patrons with overdue items to continue to check out
+
+.. _overduesblockrenewing-label:
+
+OverduesBlockRenewing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: allow renewing
+
+Asks: When a patron's checked out item is overdue, \_\_\_
+
+Values:
+
+-  allow renewing
+
+-  block renewing for all the patron's items
+
+-  block renewing for only this item
+
+.. _printnoticesmaxlines-label:
+
+PrintNoticesMaxLines
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include up to \_\_\_ item lines in a printed overdue notice.
+
+    **Note**
+
+    If the number of items is greater than this number, the notice will
+    end with a warning asking the borrower to check their online account
+    for a full list of overdue items.
+
+    **Note**
+
+    Set to 0 to include all overdue items in the notice, no matter how
+    many there are.
+
+    **Important**
+
+    This preference only refers to the print notices, not those sent via
+    email.
+
+.. _renewaccruingiteminopac-label:
+
+RenewAccruingItemInOpac
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: If a patron pays off all fines on an overdue item that is accruing fines 
+in the OPAC via a payment plugin, \_\_\_ the item automatically.
+
+Default: Don't renew
+
+Values:
+
+-  Don't renew
+
+-  Renew
+
+Description:
+
+-  This system preference allows you to control whether or not overdue items 
+   are renewed if the patron pays the fine online.
+
+     **Note**
+
+     If the :ref:`RenewalPeriodBase <RenewalPeriodBase-label>` system preference is set to 'due date', 
+     renewed items may still be overdue even after renewal.
+
+.. _renewaccruingitemwhenpaid-label:
+
+RenewAccruingItemWhenPaid
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: If a patron pays off all fines on an overdue item that is accruing fines 
+\_\_\_  the item automatically.
+
+Default: Don't renew
+
+Values:
+
+-  Don't renew
+
+-  Renew
+
+Description:
+
+-  This system preference allows you to control whether or not overdue items 
+   are renewed if the fine is paid in the staff interface.
+
+     **Note**
+
+     If the :ref:`RenewalPeriodBase <RenewalPeriodBase-label>` system preference is set to 'due date', 
+     renewed items may still be overdue even after renewal.
+
+.. _renewalperiodbase-label:
+
+RenewalPeriodBase
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: the old due date of the checkout
+
+Asks: When renewing checkouts, base the new due date on \_\_\_
+
+Values:
+
+-  the old due date of the checkout
+
+-  the current date
+
+.. _renewalsendnotice-label:
+
+RenewalSendNotice
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't send
+
+Asks: \_\_\_\_ a renewal notice according to patron checkout alert
+preferences.
+
+Values:
+
+-  Don't send
+
+-  Send
+
+Description:
+
+-  If a patron has chosen to receive a check out notice in their
+   messaging preferences and this preference is set to 'Send' then those
+   patrons will also receive a notice when they renew materials. You
+   will want to set up a :ref:`new notice <adding-notices-and-slips-label>` with the code of
+   RENEWAL (if you don't already have it) with custom text for renewing
+   items.
+
+       **Important**
+
+       This preference requires that you have
+       :ref:`EnhancedMessagingPreferences <EnhancedMessagingPreferences-label>`
+       set to 'Allow'
+
+.. _rentalfeescheckoutconfirmation-label:
+
+RentalFeesCheckoutConfirmation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: do not ask
+
+Asks: When checking out an item with rental fees, \_\_\_ for
+confirmation.
+
+Values:
+
+-  ask
+
+  |image1183|
+
+-  do not ask
+
+Description:
+
+-  If you are charging rental fees for items this preference will make
+   it so that you can show (or not show) a confirmation before checking
+   out an item that will incur a rental charge.
+
+.. _returnbeforeexpiry-label:
+
+ReturnBeforeExpiry
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't require
+
+Asks: \_\_\_ patrons to return books before their accounts expire (by
+restricting due dates to before the patron's expiration date).
+
+Values:
+
+-  Don't require
+
+-  Require
+
+Description:
+
+-  This is preference may prevent a patron from having items checked out
+   after their library card has expired. If this is set to "Require",
+   then a due date of any checked out item can not be set for a date
+   which falls after the patron's card expiration. If the setting is
+   left "Don't require" then item check out dates may exceed the
+   expiration date for the patron's library card.
+
+.. _staffsearchresultsdisplaybranch-label:
+
+StaffSearchResultsDisplayBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: the library the item is held by
+
+Asks: For search results in the staff client, display the branch of
+\_\_\_
+
+Values:
+
+-  the library the item is from
+
+-  the library the items is held by
+
+.. _switchonsitecheckouts-label:
+
+SwitchOnSiteCheckouts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't switch
+
+Asks: \_\_\_ on-site checkouts to normal checkouts when checked out.
+
+Values:
+
+-  Don't switch
+
+-  Switch
+
+.. _transfersmaxdayswarning-label:
+
+TransfersMaxDaysWarning
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 3
+
+Asks: Show a warning on the "Transfers to Receive" screen if the
+transfer has not been received \_\_\_ days after it is sent.
+
+Description:
+
+-  The TransferMaxDaysWarning preference is set at a default number of
+   days. This preference allows for a warning to appear after a set
+   amount of time if an item being transferred between library branches
+   has not been received. The warning will appear in the :ref:`Transfers to
+   Receive <transfers-to-receive-label>` report.
+
+.. _unseenrenewals-label:
+
+UnseenRenewals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ renewals to be recorded as "unseen" by the library, and count 
+against the patrons unseen renewals limit. 
+
+Default: Don't allow
+
+Values:
+
+-  Don't allow
+
+-  Allow
+
+Description:
+
+-  This system preference enables the unseen renewals functionality. It allows 
+   staff to mark renewals as "unseen", i.e. the staff didn't actually see the 
+   item.
+
+-  If you activate this preference, make sure to add a value in the 'Unseen 
+   renewals allowed (count)' column of the 
+
+.. _updatenotforloanstatusoncheckout-label:
+
+UpdateNotForLoanStatusOnCheckout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: This is a list of value pairs. When an item is checked out, if the
+not for loan value on the left matches the items not for loan value it
+will be updated to the right-hand value.
+
+Description:
+
+-  This system preference affects the item's 'not for loan' status
+   when the item is checked out.
+
+-  If the status value on the left of the colon (:) matches
+   the item's current status, it will be updated to match the status value
+   on the right of the colon (:).
+
+-  The values are the NOT\_LOAN :ref:`authorised values <existing-values-label>`.
+
+-  For example, '-1: 0' will cause an item that was set to 'Ordered' to now be
+   available for loan
+
+-  This system preference can also be used to only display the not for loan
+   status. To do so, enter :code:`ONLYMESSAGE` on the right of the colon.
+   For example ::
+
+   -1: ONLYMESSAGE
+
+   This will simply show the label for -1 without changing the status.
+
+.. Warning::
+
+   Requires YAML syntax to work
+
+   This means
+
+   -  Make sure there is NO space between the first value and the colon
+
+   -  Make sure there IS a space between the colon and the second value
+
+   -  Make sure each pair is on its own line
+
+.. _usebranchtransferlimits-and-branchtransferlimitstype-label:
+
+UseBranchTransferLimits and BranchTransferLimitsType
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Defaults: Don't enforce and collection code
+
+Asks: \_\_\_ branch transfer limits based on \_\_\_
+
+UseBranchTransferLimits Values:
+
+-  Don't enforce
+
+-  Enforce
+
+BranchTransferLimitsType Values:
+
+-  collection code
+
+-  item type
+
+BranchTransferLimitsType Description:
+
+-  This parameter is a binary setting which determines whether items are
+   transferred according to item type or collection code. This value
+   determines how the library manager is able to restrict what items can
+   be transferred between the branches.
+
+.. _usedaysmode-label:
+
+useDaysMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when calculating the date due.
+
+Default: Use the calendar to skip days the library is closed
+
+Values:
+
+-  Use the calendar to skip days the library is closed
+
+-  Use the calendar to push the due date to the next open day
+
+-  Ignore the calendar
+
+-  Use the calendar to push the due date to the next open matching weekday
+   for weekly loan periods, or the next open day otherwise (Note: This preference
+   setting only works with loan periods in multiples of 7).
+
+Description:
+
+-  This preference controls how scheduled library closures affect the
+   due date of a material.
+
+-  The 'Use the calendar to skip all days the library is closed' setting allows 
+   for a scheduled closure not to count as a day in the loan period. 
+
+-  The 'Ignore the calendar' setting would not consider the scheduled closure 
+   at all
+
+-  The 'Use the calendar to push the due date to the next open day' would only 
+   affect the due date if the day the item is due would fall specifically on
+   the day of closure.
+
+-  The final option, 'Use the calendar to push the due date to the next open 
+   matching weekday for weekly loan periods, or the next open day otherwise' 
+   allows libraries to accommodate patrons who may only be able to visit the 
+   library on a certain day of the week, such as part-time students or patrons 
+   who rely on public transport.
+
+Example:
+
+-  The library has put December 24th and 25th in as closures on the
+   calendar. A book checked out by a patron has a due date of December
+   25th according to the circulation and fine rules.
+
+   -  If this preference is set to 'Ignore the calendar' then the item will 
+      remain due on the 25th.
+
+   -  If the preference is set to 'Use the calendar to push the due date to the 
+      next open day', then the due date will be December 26th.
+
+   -  If the preference is set to 'Usethe calendar to skip all days the library 
+      is closed' then the due date will be pushed to the 27th of December to 
+      accommodate for the two closed days.
+
+   -  If the preference is set to 'Use the calendar to push the due date to the 
+      next open matching weekday for weekly loan periods, or the next open day 
+      otherwise' the item would be due back on January 1st. If January 1st was 
+      also a closed day then the item would be due back on the next available 
+      open day.
+
+The calendar is defined on a branch by branch basis. To learn more about
+the calendar, check out the :ref:`Calendar<calendar-label>`
+section of this manual.
+
+.. _usetransportcostmatrix-label:
+
+UseTransportCostMatrix
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't use
+
+Asks: \_\_\_ Transport Cost Matrix for calculating optimal holds filling
+between branches.
+
+Values:
+
+-  Don't use
+
+-  Use
+
+Description:
+
+-  If the system is configured to use the :ref:`Transport cost
+   matrix <transport-cost-matrix-label>` for filling holds, then when
+   attempting to fill a hold, the system will search for the lowest cost
+   branch, and attempt to fill the hold with an item from that branch
+   first. Branches of equal cost will be selected from randomly. The
+   branch or branches of the next highest cost shall be selected from
+   only if all the branches in the previous group are unable to fill the
+   hold.
+
+   The system will use the item's current holding branch when
+   determining whether the item can fulfill a hold using the Transport
+   Cost Matrix.
+
+.. _course-reserves-system-preferences-label:
+
+Course reserves
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _usecoursereserves-label:
+
+UseCourseReserves
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't use
+
+Asks: \_\_\_ course reserves
+
+Values:
+
+-  Don't use
+
+-  Use
+
+Description:
+
+-  The `Course Reserves <#coursereserves>`__ module in Koha allows you
+   to temporarily move items to 'reserve' and assign different
+   circulation rules to these items while they are being used for a
+   specific course.
+
+.. _curbside-pickup-preferences-label:
+
+Curbside pickup module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _curbsidepickup-label:
+
+CurbsidePickup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the curbside pickup module.
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Default: Disable
+
+Description:
+
+-  This system preference is the main switch for the
+   :ref:`curbside pickup module<curbside-pickup-configuration-label>`.
+
+.. _fines-policy-label:
+
+Fines policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _finescalendar-label:
+
+finesCalendar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when calculating the period for fines.
+
+Default: Use the calendar
+
+Values:
+
+-  Ignore the calendar
+
+-  Use the calendar
+
+Description:
+
+-  This preference will determine whether or not fines will be accrued
+   on days where the library is closed. Examples include holidays, library 
+   in-service days, etc. 
+
+-  If set to 'Use the calendar', Koha will skip closed days when calculating 
+   the overdue fines.
+
+-  If set to 'Ignore the calendar', fines will be calculated directly, with 
+   no consideration of closed days.
+
+  **Important**
+
+  To make use of this setting your system administrator must first access 
+  Koha's :ref:calendar<calendar-label>` and mark closed days as 'holidays'
+  ahead of time.
+
+The calendar is defined on a branch by branch basis. To learn more about
+the calendar, check out the :ref:`calendar <calendar-label>`
+section of this manual.
+
+.. _finesincludegraceperiod-label:
+
+FinesIncludeGracePeriod
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Include
+
+Asks: \_\_\_ the grace period when calculating the fine for an overdue
+item.
+
+Values:
+
+-  Don't include
+
+-  Include
+
+Description:
+
+-  This preference lets you control how Koha calculates fines when there
+   is a grace period. If you choose to include the grace period when
+   calculating fines then Koha will charge for the days in the grace
+   period should the item be overdue more than those days. If you choose
+   not to include the grace period then Koha will only charge for the
+   days overdue after the grace period.
+
+.. _finesmode-label:
+
+finesMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Asks: \_\_\_ fines
+
+Default: Don't calculate
+
+Values:
+
+-  Don't calculate
+
+-  Calculate and charge
+
+    **Important**
+
+    If this system preference is set to 'Calculate and charge', you must either 
+    add the :ref:`fines cron job <cron-fines-label>` to your crontab, or enable 
+    :ref:`CalculateFinesOnReturn <CalculateFinesOnReturn-label>`
+
+    If the cronjobs/fines.pl cronjob is being run, accruing and final fines will 
+    be calculated when the cron runs and accruing fines will be finalized when 
+    an item is returned. If CalculateFinesOnReturn is enabled, final fines will 
+    be calculated when an item is returned.     
+
+.. _holdfeemode-label:
+
+HoldFeeMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: only if all items are checked out and the record has at least one hold already.
+
+Asks: Charge a hold fee \_\_\_
+
+Values:
+
+-  any time a hold is collected.
+
+-  any time a hold is placed.
+
+-  only if all items are checked out and the record has at least one hold already.
+
+.. _norefundonlostreturneditemsage-label:
+
+NoRefundOnLostReturnedItemsAge
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Don't refund lost fees if a lost item is checked in more than \_\_\_ days 
+after it was marked lost. 
+
+Description:
+
+-  Enter a number of days after which lost items are not refunded.
+
+**Note**
+
+Set the refund policy in the :ref:`default lost item fee refund on return policy <item-fee-refund-on-return-label>` 
+rule in the :ref:`circulation and fines rules <circulation-and-fines-rules-label>`.
+
+.. _processingfeenote-label:
+
+ProcessingFeeNote
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Set the text to be recorded in the column 'note', table 'accountlines' when the processing fee (defined in item type) is applied.
+
+.. _refundlostonreturncontrol-label:
+
+RefundLostOnReturnControl
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: If a lost item is returned, apply the refunding rules defined
+in the \_\_\_
+
+Default: check-in library.
+
+Values:
+
+-  check-in library.
+
+-  item holding branch.
+
+-  item home branch.
+
+Description:
+
+-  This refers to the :ref:`default lost item fee refund on return policy <item-fee-refund-on-return-label>` 
+   rule in the :ref:`circulation and fines rules <circulation-and-fines-rules-label>`.
+
+**Note** 
+
+You can limit the number of days after which a lost item is not refunded using 
+the :ref:`NoRefundOnLostReturnedItemsAge <NoRefundOnLostReturnedItemsAge-label>` system preference.
+
+.. _suspensionscalendar-label:
+
+SuspensionsCalendar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: not including the days the library is closed
+
+Asks: Calculate suspension expiration based on days overdue \_\_\_
+
+Values:
+
+-  Ignore the calendar
+
+-  Use the calendar
+
+Description:
+
+-  This system preference determines whether the :ref:`calendar <calendar-label>` is taken into
+   account when making suspension calculations.  Suspension rules can be
+   configured within the :ref:`circulation rules <circulation-and-fines-rules-label>`.
+   If set to ‘directly’ the suspension period will ignore any closed days
+   that have been added to the calendar.  If set to ‘not including the
+   days the library is closed’ any days marked as closed within the calendar
+   will be skipped when calculating the end date for the suspension.
+
+.. _usedefaultreplacementcost-label:
+
+useDefaultReplacementCost
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't use
+
+Asks: \_\_\_ the default replacement cost defined in item type.
+
+Values:
+
+-  Don't use
+
+-  Use
+
+Description:
+
+-  This preference enables the use of the replacement cost set on the item type level
+
+.. _whenlostchargereplacementfee-label:
+
+WhenLostChargeReplacementFee
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Charge
+
+Asks: \_\_\_ the replacement price when a patron loses an item.
+
+Values:
+
+-  Charge
+
+-  Don't charge
+
+Description:
+
+-  This preference lets you tell Koha what to do with an item is marked
+   lost. If you want Koha can 'Charge' the patron the replacement fee
+   listed on the item they lost or it can do nothing in reference to the
+   patron and just mark the item lost in the catalog.
+
+.. _whenlostforgivefine-label:
+
+WhenLostForgiveFine
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't forgive
+
+Asks: \_\_\_ the fines on an item when it is lost.
+
+Values:
+
+-  Don't forgive
+
+-  Forgive
+
+Description:
+
+-  This preference allows the library to decide if fines are charged in
+   addition to the replacement fee when an item is marked as lost. If
+   this preference is set to 'Forgive' then the patron won't be charged
+   fines in addition to the replacement fee.
+
+.. _holds-policy-label:
+
+Holds policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _allowholddateinfuture-label:
+
+AllowHoldDateInFuture
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ hold requests to be placed that do not enter the waiting
+list until a certain future date.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+.. _allowholditemtypeselection-label:
+
+AllowHoldItemTypeSelection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ hold fulfillment to be limited by itemtype.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+.. _allowholdpolicyoverride-label:
+
+AllowHoldPolicyOverride
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ staff to override hold policies when placing holds.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This preference is a binary setting which controls whether or not the
+   library staff can override the circulation and fines rules as they
+   pertain to the placement of holds. Setting this value to "Don't
+   allow" will prevent anyone from overriding, setting it to "Allow"
+   will allow it. This setting is important because it determines how
+   strict the libraries rules for placing holds are. If this is set to
+   "Allow", exceptions can be made for patrons who are otherwise
+   normally in good standing with the library, but there is opportunity
+   for the staff to abuse this function. If it is set to "Don't allow",
+   no abuse of the system is possible, but it makes the system entirely
+   inflexible in respect to holds.
+
+.. _allowholdsondamageditems-label:
+
+AllowHoldsOnDamagedItems
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ hold requests to be placed on damaged items.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This parameter is a binary setting which controls whether or not hold
+   requests can be placed on items that are marked as "damaged" (items
+   are marked as damaged by editing subfield 4 on the item record).
+   Setting this value to "Don't allow" will prevent anyone from placing
+   a hold on such items, setting it to "Allow" will allow it. This
+   preference is important because it determines whether or not a patron
+   can place a request for an item that might be in the process of being
+   repaired or not in good condition. The library may wish to set this
+   to "Don't allow" if they were concerned about their patrons not
+   receiving the item in a timely manner or at all (if it is determined
+   that the item is beyond repair). Setting it to "Allow" would allow a
+   patron to place a hold on an item and therefore receive it as soon as
+   it becomes available.
+
+.. _allowholdsonpatronspossessions-label:
+
+AllowHoldsOnPatronsPossessions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_\_ a patron to place a hold on a record where the patron
+already has one or more items attached to that record checked out.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  By setting to "Don't allow," you can prevent patrons from placing
+   holds on items they already have out, thus preventing them from
+   blocking anyone else from getting an item.
+
+.. _allowrenewalifotheritemsavailable-label:
+
+AllowRenewalIfOtherItemsAvailable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ a patron to renew an item with unfilled holds if other
+available items can fill that hold.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+.. _autoresumesuspendedholds-label:
+
+AutoResumeSuspendedHolds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ suspended holds to be automatically resumed by a set date.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  If this preference is set to 'Allow' then all suspended holds will be
+   able to have a date at after which they automatically become
+   unsuspended. If you have this preference set to 'Allow' you will also
+   need the :ref:`Unsuspend Holds <cron-unsuspend-holds-label>` cron job running.
+
+    **Important**
+
+    The holds will become unsuspended the date after that entered by the
+    patron.
+
+.. _canmarkholdstopullaslost-label:
+
+CanMarkHoldsToPullAsLost
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ from the 'Holds to pull' screen
+
+Default: Do not allow to mark items as lost
+
+Values:
+
+-  Allow to mark items as lost
+
+-  Allow to mark items as lost and notify the patron
+
+-  Do not allow to mark items as lot
+
+Description:
+
+-  This preference lets you choose whether the staff can mark items
+   as lost directly from the :ref:`'Holds to pull' list <holds-to-pull-label>`
+   if they can't find the item on the shelf.
+
+-  The actual lost value that will be assigned to the item is defined in the 
+   :ref:`UpdateItemWhenLostFromHoldList <UpdateItemWhenLostFromHoldList-label>`
+   system preference.
+
+-  If the patron is notified, the message sent will be based on the
+   CANCEL\_HOLD\_ON\_LOST template. It can be customized in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. Warning::
+
+   This only applies to item-level holds.
+
+.. _canreservefromotherbranches-label:
+
+canreservefromotherbranches
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ a user from one library to place a hold on an item from
+another library
+
+Description:
+
+-  This preference is a binary setting which determines whether patrons
+   can place holds on items from other branches. If the preference is
+   set to "Allow" patrons can place such holds, if it is set to "Don't
+   allow" they cannot. This is an important setting because it
+   determines if users can use Koha to request items from another
+   branch. If the library is sharing an installation of Koha with other
+   independent libraries which do not wish to allow interlibrary
+   borrowing it is recommended that this parameter be set to "Don't
+   allow".
+
+Values:
+
+-  Allow
+
+-  Don't allow (with :ref:`IndependentBranches <IndependentBranches-label>`)
+
+.. _confirmfutureholds-label:
+
+ConfirmFutureHolds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 0
+
+Asks: Confirm future hold requests (starting no later than \_\_\_ days
+from now) at checkin time.
+
+Description:
+
+-  When confirming a hold at checkin time, the number of days in this
+   preference is taken into account when deciding which holds to show
+   alerts for. This preference does not interfere with renewing,
+   checking out or transferring a book.
+
+    **Note**
+
+    This number of days will be used too in calculating the default end
+    date for the Holds to pull-report. But it does not interfere with
+    issuing, renewing or transferring books.
+
+    **Important**
+
+    This preference is only looked at if you're allowing hold dates in
+    the future with :ref:`AllowHoldDateInFuture <AllowHoldDateInFuture-label>`
+    or :ref:`OPACAllowHoldDateInFuture <OPACAllowHoldDateInFuture-label>`
+
+.. _decreaseloanhighholds-preferences-label:
+
+decreaseLoanHighHolds, decreaseLoanHighHoldsDuration, decreaseLoanHighHoldsValue, decreaseLoanHighHoldsControl, and decreaseLoanHighHoldsIgnoreStatuses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the reduction of loan period \_\_\_ to days for high demand items
+with more than \_\_\_ holds \_\_\_ . Ignore items with the following statuses
+when counting items \_\_\_
+
+decreaseLoanHighHolds default: Don't enable
+
+decreaseLoanHighHoldsControl default: on the record
+
+Values:
+
+decreaseLoanHighHolds
+
+-  Don't enable
+
+-  Enable
+
+decreaseLoanHighHoldsControl
+
+-  over the number of holdable items on the records
+
+-  on the record
+
+decreaseLoanHighHoldsIgnoreStatuses
+
+-  [Select All]
+
+-  Damaged
+
+-  Lost
+
+-  Not for loan
+
+-  Withdrawn
+
+Description:
+
+-  These preferences let you change the loan length for items that have
+   many holds on them. This will not affect items that are already
+   checked out, but items that are checked out after the
+   decreaseLoanHighHoldsValue is met will only be checked out for the
+   number of days entered in the decreaseLoanHighHoldsDuration
+   preference.
+
+   |decreaseLoanHighHoldsDuration|
+
+.. _defaultholdpickuplocation-label:
+
+DefaultHoldPickupLocation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When placing a hold via the staff interface default the pickup location
+to the \_\_\_ .
+
+Values:
+
+-  item's holding library
+
+-  item's home library
+
+-  logged in library
+
+Default: logged in library
+
+Description:
+
+-  This system preference lets you determine which library is the default
+   pickup location while
+   :ref:`placing holds in the staff interface<placing-holds-in-staff-client-label>`.
+
+.. Warning::
+
+   This system preference only applies to item-level holds.
+
+.. _displaymultiplacehold-label:
+
+DisplayMultiPlaceHold
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't enable
+
+Asks: \_\_\_ the ability to place holds on multiple biblio from the
+search results
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+.. _emaillibrarianwhenholdisplaced-label:
+
+emailLibrarianWhenHoldIsPlaced
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't enable
+
+Asks: \_\_\_ sending an email to the Koha administrator email address
+whenever a hold request is placed.
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Description:
+
+-  This preference enables Koha to email the library staff whenever a
+   patron requests an item to be held. While this function will
+   immediately alert the librarian to the patron's need, it is extremely
+   impractical in most library settings. In most libraries the hold
+   lists are monitored and maintained from a separate interface. That
+   said, many libraries that allow on shelf holds prefer to have this
+   preference turned on so that they are alerted to pull an item from
+   the shelf.
+
+    **Important**
+
+    In order for this email to send you must have a
+    :ref:`notice <notices-and-slips-label>` template with the code of HOLDPLACED
+
+    **Important**
+
+    This notice will only be sent if the :ref:`process\_message\_queue.pl
+    cron job <cron-message-queue-label>` is being run periodically to send the
+    messages.
+
+.. _enableitemgroupholds-label:
+
+EnableItemGroupHolds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the ability to place holds on item groups.
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Default: Don't enable
+
+Description:
+
+-  This system preference allows users to place holds on item groups.
+
+-  This is useful if you need to place holds on a subset of items on a
+   bibliographic record, rather than a specific item or the next available item.
+
+-  Requires :ref:`EnableItemGroups<enableitemgroups-label>`
+
+.. _enableitemgroups-label:
+
+EnableItemGroups
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the item groups feature to allow collecting groups of items on a
+record together.
+
+Description:
+
+-  This system preference enables the item groups feature.
+
+-  It can be used with :ref:`EnableItemGroupHolds<enableitemgroupholds-label>`
+   to allow holds on item groups.
+
+.. _excludeholidaysfrommaxpickupdelay-label:
+
+ExcludeHolidaysFromMaxPickUpDelay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when calculating the period for a hold's max pickup delay.
+
+Default: Ignore the calendar
+
+Values:
+
+-  Ignore the calendar
+
+-  Use the calendar
+
+Description:
+
+-  This system preference determines whether or not closed days in the 
+   :ref:`calendar<calendar-label>` are taken into account when calculating the 
+   time period for patrons to pick up their holds (see 
+   :ref:`ReservesMaxPickUpDelay <ReservesMaxPickUpDelay-label>`).
+
+-  If set to 'Ignore the calendar', the pickup delay will be calculated 
+   directly.
+
+-  If set to 'Use the calendar', holidays will be excluded from the pickup 
+   delay.
+
+.. _expirereservesmaxpickupdelay-label:
+
+ExpireReservesMaxPickUpDelay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ holds to expire automatically if they have not been picked
+by within the time period specified in
+:ref:`ReservesMaxPickUpDelay <ReservesMaxPickUpDelay-label>`
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  If set to 'allow' this will cancel holds that have been waiting for
+   longer than the number of days specified in the
+   :ref:`ReservesMaxPickUpDelay <ReservesMaxPickUpDelay-label>` system
+   preference. Holds will only be cancelled if the :ref:`Expire Holds cron
+   job <cron-expired-holds-label>` is running.
+
+.. _expirereservesautofill-label:
+
+ExpireReservesAutoFill
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ automatically fill the next hold using the item.
+
+Default: Don't
+
+Values:
+
+-  Don't
+
+-  Do
+
+Description:
+
+-  If :ref:`ExpireReservesMaxPickUpDelay <expirereservesmaxpickupdelay-label>`
+   is set to 'Allow', you can choose to automatically fill the next hold when
+   a hold is cancelled.
+
+-  If this system preference is set to "Don't", the expired hold will be
+   cancelled, but the item will not be used to fill the next hold, if there is
+   one. Staff must manually
+   :ref:`check in the item in order to trigger the next hold <receiving-holds-label>`.
+
+-  If this system preference is set to "Do", the item will be used to fill the
+   next hold, if there is one, without manual input from staff members.
+
+   -  If :ref:`they opted to receive 'Hold filled' notices <advance-notices-and-hold-notices-label>`,
+      a notification will be sent to the next patron to advise them that they
+      can now come pick up their hold.
+
+      .. Note::
+
+         The notice sent is based on the HOLD template, which can be customized
+         in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+    -  A notification will also be sent to the email address in
+       :ref:`ExpireReservesAutoFillEmail <expirereservesautofillemail-label>`
+       to alert staff that the hold is now waiting for someone else.
+
+       .. Note::
+
+         The notice sent is based on the HOLD\_CHANGED template, which can be
+         customized in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. Warning::
+
+   This system preference will not have any effect unless
+   :ref:`ExpireReservesMaxPickUpDelay <expirereservesmaxpickupdelay-label>` is
+   set to 'Allow'.
+
+.. _expirereservesautofillemail-label:
+
+ExpireReservesAutoFillEmail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Send email notification of the new hold filled with a canceled item to \_\_\_.
+
+Description:
+
+-  If :ref:`ExpireReservesMaxPickUpDelay <expirereservesmaxpickupdelay-label>`
+   is set to 'Allow', and :ref:`ExpireReservesAutoFill <expirereservesautofill-label>`
+   is set to 'Do', an email will be sent to alert staff that the hold is now
+   waiting for someone else.
+
+   .. Note::
+
+      The notice sent is based on the HOLD\_CHANGED template, which can be
+      customized in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+-  If this system preference is empty, the notification will be sent to the
+   :ref:`library's <libraries-label>` reply-to address.
+
+.. Warning::
+
+   This system preference will not have any effect unless
+   :ref:`ExpireReservesAutoFill <expirereservesautofill-label>` is
+   set to 'Do'.
+
+.. _expirereservesmaxpickupdelaycharge-label:
+
+ExpireReservesMaxPickUpDelayCharge
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 0
+
+Asks: If using
+:ref:`ExpireReservesMaxPickUpDelay <ExpireReservesMaxPickUpDelay-label>`, charge
+a borrower who allows his or her waiting hold to expire a fee of \_\_\_
+USD
+
+Description:
+
+-  If you are expiring holds that have been waiting too long you can use
+   this preference to charge the patron for not picking up their hold.
+   If you don't charge patrons for items that aren't picked up you can
+   leave this set to the default which is 0. Holds will only be
+   cancelled and charged if the :ref:`Expire Holds cron
+   job <cron-expired-holds-label>` is running.
+
+.. _expirereservesonholidays-label:
+
+ExpireReservesOnHolidays
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: If using :ref:`ExpireReservesMaxPickUpDelay <ExpireReservesMaxPickUpDelay-label>`, \_\_\_ expired holds to be canceled on 
+days the library is closed per the calendar.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+.. _holdssplitqueue-label:
+
+HoldsSplitQueue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: nothing
+
+Asks: In the staff client, split the holds queue into separate tables by \_\_\_
+
+Values:
+
+-  pickup library
+
+-  pickup library and itemtype
+
+-  hold itemtype
+
+-  nothing
+
+Description:
+
+-  This feature allows you to separate holds by pickup library or itemtype in the
+   holds page of a record (not in the global holds queue found on the circulation
+   page).
+
+-  When using the up and down arrows the priorities will be changed only
+   in the group the holds belongs to.
+
+.. _holdssplitqueuenumbering-label:
+
+HoldsSplitQueueNumbering
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: the actual priority, which may be out of order
+
+Asks: If the holds queue is split, show librarians \_\_\_
+
+Values:
+
+-  the actual priority, which may be out of order
+
+-  'virtual' priorities, where each group is numbered separately
+
+Description:
+
+-  This system preference is only effective if :ref:`HoldsSplitQueue <HoldsSplitQueue-label>` is set to
+   any value except 'nothing'.
+
+-  This system preference controls the priority numbering on the holds page
+   of a record (not in the global holds queue found on the circulation page).
+
+.. _localholdspriority-preferences-label:
+
+LocalHoldsPriority, LocalHoldsPriorityPatronControl, LocalHoldsPriorityItemControl
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ priority for filling holds to patrons whose \_\_\_ matches
+the item's \_\_\_
+
+LocalHoldsPriority Values:
+
+-  Don't give
+
+-  Give
+
+LocalHoldsPriorityPatronControl Values:
+
+-  home library
+
+-  pickup library
+
+LocalHoldsPriorityItemControl Values:
+
+-  holding library
+
+-  home library
+
+Description:
+
+-  This feature will allow libraries to specify that, when an item is
+   returned, a local hold may be given priority for fulfillment even
+   though it is of lower priority in the list of unfilled holds.
+
+.. _maxreserves-label:
+
+maxreserves
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 50
+
+Asks: Patrons can only have \_\_\_ holds at once.
+
+.. _opacallowholddateinfuture-label:
+
+OPACAllowHoldDateInFuture
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to place holds that don't enter the waiting list
+until a certain future date.
+
+Values:
+
+-  Allow
+
+   -  :ref:`AllowHoldDateInFuture <AllowHoldDateInFuture-label>` must also be
+      enabled for this to work
+
+-  Don't allow
+
+.. _opacallowusertochangebranch-label:
+
+OPACAllowUserToChangeBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Asks: Allow users to change the library to pick up a hold for these statuses:
+\_\_\_
+
+Default: none
+
+Values (multiple values allowed):
+
+-  [Select all]
+
+-  In transit
+
+-  Pending
+
+-  Suspended
+
+Description:
+
+-  This system preference is used to allow patrons to change the pickup location
+   of their holds through their account in the OPAC.
+
+-  This system preference allows multiple values. Check all that apply.
+
+-  By default, patrons cannot change the pickup location of their holds from the
+   OPAC.
+
+-  When one or more status is selected, a 'Change' link will appear under the
+   current pickup library's name for holds that have that status in the holds
+   tab of the :ref:`patron's account <your-summary-label>`.
+
+   |myholds-changepickuplibrary|
+
+.. _opacallowusertochoosebranch-label:
+
+OPACAllowUserToChooseBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ a user to choose the library to pick up a hold from.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  Changing this preference will not prevent staff from being able to
+   transfer titles from one library to another to fill a hold, it will
+   only prevent patrons from saying they plan on picking a book up at a
+   library other than their home library.
+
+-  The list of available pickup locations will include all libraries that
+   have 'Pickup location' set to 'Yes' on the library configuration page.
+
+.. _opacholdsifavailableatpickup-label:
+
+OPACHoldsIfAvailableAtPickup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ to pickup holds at libraries where the item is available.
+
+Values:
+
+-  Don't allow
+
+-  Allow
+
+Description:
+
+-  Prevents borrowers from requesting items that are on the shelf
+   at the same branch at which they wish to pick up those items.
+
+.. _opacholdsifavailableatpickupexceptions-label:
+
+OPACHoldsIfAvailableAtPickupExceptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: blank
+
+Asks: Patron categories not affected by :ref:`OPACHoldsIfAvailableAtPickup <OPACHoldsIfAvailableAtPickup-label>`
+\_\_\_ (list of patron categories separated with a pipe ^|^)
+
+Description:
+
+-  Patron category codes listed here separated by a pipe ^|^ are unaffected by
+   :ref:`OPACHoldsIfAvailableAtPickup <OPACHoldsIfAvailableAtPickup-label>`.
+
+.. _realtimeholdsqueue-label:
+
+RealTimeHoldsQueue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ updating the holds queue in real time.
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  This system preference is used to enable the automatic updating of the
+   :ref:`holds queue <holds-queue-label>`.
+
+-  If this system preference is set to 'Disable', the
+   :ref:`build\_holds\_queue.pl cronjob <cron-holds-queue-report-label>` should
+   be run regularly to build the holds queue.
+
+.. _reservescontrolbranch-label:
+
+ReservesControlBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: item's home library
+
+Asks: Check the \_\_\_ to see if the patron can place a hold on the
+item.
+
+Values:
+
+-  item's home library.
+
+-  patron's home library.
+
+.. _reservesmaxpickupdelay-label:
+
+ReservesMaxPickUpDelay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 7
+
+Asks: Mark a hold as problematic if it has been waiting for more than
+\_\_\_ days.
+
+Description:
+
+-  This preference (based on calendar days, not the
+   :ref:`Koha holiday calendar <calendar-label>`) puts an expiration date on an item a
+   patron has on hold. After this expiration date the staff will have
+   the option to release the unclaimed hold which then may be returned
+   to the library shelf or issued to the next patron on the item's hold
+   list. Items that are 'expired' by this preference are moved to the
+   'Holds Over' tab on the :ref:`Holds Awaiting Pickup <holds-awaiting-pickup-label>`
+   report.
+
+.. _reservesneedreturns-label:
+
+ReservesNeedReturns
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't automatically
+
+Asks: \_\_\_ mark holds as found and waiting when a hold is placed
+specifically on them and they are already checked in.
+
+Values:
+
+-  Automatically
+
+-  Don't automatically
+
+Description:
+
+-  This preference refers to 'item specific' holds where the item is
+   currently on the library shelf. This preference allows a library to
+   decide whether an 'item specific' hold is marked as "Waiting" at the
+   time the hold is placed or if the item will be marked as "Waiting"
+   after the item is checked in. This preference will tell the patron
+   that their item is 'Waiting' for them at their library and ready for
+   check out.
+
+.. _holds-queue-system-preferences-label:
+
+StaticHoldsQueueWeight, HoldsQueueSkipClosed and RandomizeHoldsQueueWeight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+StaticHoldsQueueWeight Default: 0
+
+HoldsQueueSkipClosed Default: open or closed
+
+RandomizeHoldsQueueWeight Default: in that order
+
+Asks: Satisfy holds using items from the libraries \_\_\_ (as
+branchcodes, separated by commas; if empty, uses all libraries) when
+they are \_\_\_ \_\_\_.
+
+HoldsQueueSkipClosed Values:
+
+-  open or closed
+
+-  open
+
+RandomizeHoldsQueueWeight Values:
+
+-  in random order
+
+   -  If StaticHoldsQueueWeight is left at the default Koha will
+      randomize all libraries, otherwise it will randomize the libraries
+      listed.
+
+-  in that order
+
+   -  If StaticHoldsQueueWeight is left at the default then this will
+      use all of your branches in alphabetical order, otherwise it will
+      use the branches in the order that you entered them in the
+      StaticHoldsQueueWeight preference.
+
+Descriptions:
+
+-  These preferences control how the :ref:`Holds Queue
+   report <holds-queue-label>` is generated using :ref:`a cron
+   job <cron-holds-queue-report-label>`.
+
+   If you do not want all of your libraries to participate in the
+   on-shelf holds fulfillment process, you should list the the libraries
+   that \*do\* participate in the process here by inputting all the
+   participating library's branchcodes, separated by commas ( e.g.
+   "MPL,CPL,SPL,BML" etc. ).
+
+   By default, the holds queue will be generated such that the system
+   will first attempt to hold fulfillment using items already at the
+   pickup library if possible. If there are no items available at the
+   pickup library to fill a hold, build\_holds\_queue.pl will then use
+   the list of libraries defined in StaticHoldsQueueWeight. If
+   RandomizeHoldsQueueWeight is disabled ( which it is by default ), the
+   script will assign fulfillment requests in the order the branches are
+   placed in the StaticHoldsQueueWeight system preference.
+
+   For example, if your system has three libraries, of varying sizes (
+   small, medium and large ) and you want the burden of holds
+   fulfillment to be on larger libraries before smaller libraries, you
+   would want StaticHoldsQueueWeight to look something like
+   "LRG,MED,SML".
+
+   If you want the burden of holds fulfillment to be spread out equally
+   throughout your library system, simply enable
+   RandomizeHoldsQueueWeight. When this system preference is enabled,
+   the order in which libraries will be requested to fulfill an on-shelf
+   hold will be randomized each time the list is regenerated.
+
+    **Important**
+
+    The :ref:`Transport Cost Matrix <transport-cost-matrix-label>` takes
+    precedence in controlling where holds are filled from, if the matrix
+    is not used then Koha checks the StaticHoldsQueueWeight. To use the
+    Transport Cost Matrix simply set your
+    :ref:`UseTransportCostMatrix <UseTransportCostMatrix-label>` preference to
+    'Use'
+
+.. _suspendholdsintranet-label:
+
+SuspendHoldsIntranet
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ holds to be suspended from the intranet.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  The holds suspension feature can be turned on and off in the staff
+   client by altering this system preference. If this is set to 'allow'
+   you will want to set the
+   :ref:`AutoResumeSuspendedHolds <AutoResumeSuspendedHolds-label>` system
+   preference.
+
+.. _suspendholdsopac-label:
+
+SuspendHoldsOpac
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ holds to be suspended from the OPAC.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  The holds suspension feature can be turned on and off in the OPAC by
+   altering this system preference. If this is set to 'allow' you will
+   want to set the
+   :ref:`AutoResumeSuspendedHolds <AutoResumeSuspendedHolds-label>` system
+   preference.
+
+.. _transferwhencancelallwaitingholds-label:
+
+TransferWhenCancelAllWaitingHolds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't transfer
+
+Asks: \_\_\_ items when cancelling all waiting holds.
+
+Values:
+
+-  Don't transfer
+
+-  Transfer
+
+Description:
+
+-  When TransferWhenCancelAllWaitingHolds is set to "Don't transfer", no
+   branch transfer records are created. Koha will not allow the holds to
+   be transferred, because that would orphan the items at the library
+   where the holds were awaiting pickup, without any further instruction
+   to staff as to what items are at the library or where they need to
+   go. When that system preference set to "Transfer", branch transfers
+   are created, so the holds may be cancelled.
+
+.. _updateitemwhenlostfromholdlist-label:
+
+UpdateItemWhenLostFromHoldList
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Update item's values when marked as lost from the hold to pull screen.
+
+Description:
+
+-  This is a list of values to update an item when it is marked as lost from
+   the holds to pull screen. For example, write "itemlost: 1" to set the items.
+   itemlost value to 1 when the item is marked as lost. This will use the authorized
+   value 1 from the :ref:`LOST authorized value list<existing-values-label>`.
+
+-  Examples of keywords:
+
+   -  itemlost: lost status, uses the 
+      :ref:`LOST authorized values list<existing-values-label>`
+
+   -  notforloan: not for loan status, uses the 
+      :ref:`NOT_LOAN authorized values list<existing-values-label>`
+
+   -  withdrawn: withdrawn status, uses the 
+      :ref:`WITHDRAWN authorized values list<existing-values-label>`
+
+   -  damaged: damaged status, uses the 
+      :ref:`DAMAGED authorized values list<existing-values-label>`
+
+   -  location: location code, uses the 
+      :ref:`LOC authorized values list<existing-values-label>`
+
+   -  ccode: collection code, uses the 
+      :ref:`CCODE authorized values list<existing-values-label>`
+
+-  This preference requires that the :ref:`CanMarkHoldsToPullAsLost <CanMarkHoldsToPullAsLost-label>` system
+   preference be set to either 'Allow' option
+
+
+.. Warning ::
+
+   Requires YAML syntax to work
+
+   This means
+
+   -  Make sure there is NO space between the field name and the colon
+
+   -  Make sure there IS a space between the colon and the value
+
+   -  Make sure each pair is on its own line
+
+.. _housebound-module-label:
+
+Housebound module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _houseboundmodule-label:
+
+HouseboundModule
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Disable
+
+Asks: \_\_\_ housebound module
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  This preference enables or disables the Housebound module which
+   handles management of circulation to Housebound readers.
+
+.. _housebound-interface-label:
+
+Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _allowallmessagedeletion-label:
+
+AllowAllMessageDeletion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ staff to delete messages added from other libraries.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+.. _allowcheckoutnotes-label:
+
+AllowCheckoutNotes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ patrons to submit notes about checked out items.
+
+Values:
+
+-  Don't allow
+
+-  Allow
+
+This preference if set to allow will give your patrons the option to add
+a note to an item they have checked out on the OPAC side.  This note will be
+seen on the staff side when the item is checked in.
+
+.. _allowofflinecirculation-label:
+
+AllowOfflineCirculation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Do not enable
+
+Asks: \_\_\_ offline circulation on regular circulation computers.
+
+Values:
+
+-  Do not enable
+
+-  Enable
+
+Description:
+
+-  Setting this preference to 'Enable' allows you to use the Koha
+   interface for :ref:`offline circulation <offline-circulation-utilities-label>`. This system
+   preference does not affect the :ref:`Firefox
+   plugin <firefox-plugin-label>` or the :ref:`desktop
+   application <offline-circ-tool-for-windows-label>`, any of these three options can
+   be used for offline circulation without effecting the other.
+
+.. _autoswitchpatron-label:
+
+AutoSwitchPatron
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't enable
+
+Asks: \_\_\_ the automatic redirection to another patron when a patron
+barcode is scanned instead of a book. This should not be enabled if you
+have overlapping patron and book barcodes.
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Description:
+
+-  Enabling this system preference allows staff to scan a patron barcode instead
+   of an item barcode in the checkout box to switch patron records.
+
+.. _circautoprintquickslip-label:
+
+CircAutoPrintQuickSlip
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: open a print quick slip window
+
+Asks: When an empty barcode field is submitted in circulation \_\_\_
+
+Values:
+
+-  clear the screen
+
+-  open a print quick slip window
+
+-  open a print slip window
+
+Description:
+
+-  If this preference is set to open a quick slip
+   (:ref:`ISSUEQSLIP <existing-notices-and-slips-label>`) or open a slip
+   (:ref:`ISSUESLIP <existing-notices-and-slips-label>`) for printing it will eliminate the
+   need for the librarian to click the print button to generate a
+   checkout receipt for the patron they're checking out to. If the
+   preference is set to clear the screen then "checking out" an empty
+   barcode will clear the screen of the patron you were last working
+   with.
+
+.. _circconfirmitemparts-label:
+
+CircConfirmItemParts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ staff to confirm that all parts of an item are present at 
+checkin/checkout.
+
+Default: Don't require
+
+Values:
+
+-  Don't require
+
+-  Require
+
+Description:
+
+-  This system preference controls whether a message or an alert asking for
+   confirmation is shown when checking out or checking in an item with 
+   accompanying materials.
+
+-  The message/alert will appear if the item has a value in the 
+   "3 - Materials specified (bound volume or other part)" item field (952$3)
+
+-  If the value is set to "Don't require", a simple message will appear at 
+   checkin and checkout
+
+   |CircConfirmItemParts-dontrequire|
+
+-  If the value is set to "Require", there will be an alert asking staff to 
+   confirm that they checked that all parts are present
+
+   At checkout
+
+   |CircConfirmItemParts-require-checkout|
+
+   At checkin
+
+   |CircConfirmItemParts-require-checkin|
+
+.. _circsidebar-label:
+
+CircSidebar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Deactivate
+
+Asks: \_\_\_ the navigation sidebar on all Circulation pages.
+
+Values:
+
+-  Deactivate
+
+-  Activate
+
+.. _displayclearscreenbutton-label:
+
+DisplayClearScreenButton
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ to clear the current patron from the screen on the circulation
+screen.
+
+Values:
+
+-  Show print quick slip and clear buttons
+
+-  Show print slip and clear buttons
+
+-  Don't show clear screen button
+
+Default: Don't show clear screen button
+
+Description:
+
+-  This system preference is used to display a small button in the corner of
+   the checkout box to print either the quick slip or the slip, and go back to
+   the main checkout page
+
+   |DisplayClearScreenButton|
+
+.. _exportcirchistory-label:
+
+ExportCircHistory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the export patron checkout history options.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  This system preference enables the option to
+   :ref:`export patrons' checkouts <export-checkouts-label>` in MARC or CSV
+   format.
+
+.. Warning::
+
+   Contrary to what its name suggests, this option is not available for the
+   patrons' checkout history. It is only for current checkouts.
+
+.. _exportremovefields-label:
+
+ExportRemoveFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following fields should be excluded from the patron checkout history
+CSV or MARC (ISO 2709) export \_\_\_
+
+Description:
+
+-  This space separated list of fields (e.g. 100a 245b) will
+   automatically be excluded when
+   :ref:`exporting the patron's current checkouts <export-checkouts-label>`.
+
+   |ExportCircHistory|
+
+-  This system preference requires that
+   :ref:`ExportCircHistory <exportcirchistory-label>` be enabled.
+
+.. _filterbeforeoverduereport-label:
+
+FilterBeforeOverdueReport
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't require
+
+Asks: \_\_\_ staff to choose which checkouts to show before running the
+overdues report.
+
+Description:
+
+-  Koha's overdue report shows you all of the overdue items in your
+   library system. If you have a large library system you'll want to set
+   this preference to 'Require' to force those running the report to
+   first limit the data generated to a branch, date range, patron
+   category or other such filter. Requiring that the report be filtered
+   before it's run prevents your staff from running a system heavy
+   report and slowing down other operations in the system.
+
+   |image34|
+
+Values:
+
+-  Don't require
+
+-  Require
+
+.. _finenotifyatcheckin-label:
+
+FineNotifyAtCheckin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't notify
+
+Asks: \_\_\_ librarians of overdue fines on the items they are checking
+in.
+
+Values:
+
+-  Don't notify
+
+-  Notify
+
+Description:
+
+-  With this preference set to 'Notify' all books that have overdue
+   fines owed on them will pop up a warning when checking them in. This
+   warning will need to acknowledged before you can continue checking
+   items in. With this preference set to 'Don't notify,^ you will still
+   see fines owed on the patron record, you just won't have an
+   additional notification at check in.
+
+   |image35|
+
+.. _holdstopullstartdate-label:
+
+HoldsToPullStartDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 2
+
+Asks: Set the default start date for the Holds to pull list to \_\_\_
+day(s) ago.
+
+Description:
+
+-  The :ref:`Holds to Pull <holds-to-pull-label>` report in circulation defaults to
+   filtering holds placed 2 days ago. This preference allows you to set
+   this default filter to any number of days.
+
+.. _itembarcodefallbacksearch-label:
+
+itemBarcodeFallbackSearch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't enable
+
+Asks: \_\_\_ the automatic use of a keyword catalog search if the phrase
+entered as a barcode on the checkout page does not turn up any results
+during an item barcode search.
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+   |image40|
+
+Description:
+
+-  Sometimes libraries want to checkout using something other than the
+   barcode. Enabling this preference will do a keyword search of Koha to
+   find the item you're trying to check out. You can use the call
+   number, barcode, part of the title or anything you'd enter in the
+   keyword search when this preference is enabled and Koha will ask you
+   which item you're trying to check out.
+
+    **Important**
+
+    While you're not searching by barcode a barcode is required on every
+    title you check out. Only titles with barcodes will appear in the
+    search results.
+
+.. _itembarcodeinputfilter-label:
+
+itemBarcodeInputFilter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't filter
+
+Asks: \_\_\_ scanned item barcodes.
+
+Values:
+
+-  Convert from CueCat format
+
+-  Convert from Libsuite8 form
+
+-  Don't filter
+
+-  EAN-13 or zero-padded UPC-A from
+
+-  Remove spaces from
+
+-  Remove the first number from T-prefix style
+
+   -  This format is common among those libraries migrating from Follett
+      systems
+
+.. _noticecss-label:
+
+NoticeCSS
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the stylesheet at \_\_\_ on Notices.
+
+    **Important**
+
+    This should be a complete URL, starting with http://
+
+Description:
+
+-  If you would like to style your notices with a consistent set of
+   fonts and colors you can use this preference to point Koha to a
+   stylesheet specifically for your notices.
+
+.. _numreturneditemstoshow-label:
+
+numReturnedItemsToShow
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 20
+
+Asks : Show the \_\_\_ last returned items on the checkin screen.
+
+.. _patronautocomplete-label:
+
+PatronAutoComplete
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ to guess the patron being entered while typing a patron search 
+for circulation or patron search. Only returns the first 10 results at a time.
+
+Default: Try
+
+Values:
+
+-  Try
+
+-  Don't try
+
+Description:
+
+-  This system preference enables the auto-complete feature in the 
+   :ref:`patron search <patron-search-label>` in the Patrons and Circulation 
+   modules.
+
+-  Setting it to "Try" would enable a staff member to begin typing a name or 
+   other value into the field and have a menu pop up with suggestions for 
+   completing it. Setting it to "Don't try" would disable this feature. 
+
+-  This preference can make staff members' jobs easier or it could potentially 
+   slow down the page loading process.
+
+   |image33|
+
+.. _previousissuesdefaultsortorder-label:
+
+previousIssuesDefaultSortOrder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Sort previous checkouts on the circulation page from \_\_\_ due
+date.
+
+Default: earliest to latest
+
+Values:
+
+-  earliest to latest
+
+-  latest to earliest
+
+Description:
+
+-  This system preference controls how you want the previous checkouts to appear 
+   in the patron's :ref:`checkout tab <checking-items-out-label>`.
+
+-  If you choose 'earliest to latest', the oldest checkout will be at the top.
+
+-  If you choose 'latest to earliest', the most recent checkout will be at the 
+   top.
+
+.. _recordlocaluseonreturn-label:
+
+RecordLocalUseOnReturn
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't record
+
+Asks: \_\_\_ local use when an unissued item is checked in.
+
+Values:
+
+-  Don't record
+
+-  Record
+
+Description:
+
+-  When this preference is set to "Don't record" you can record local
+   use of items by checking items out to the statistical patron. With
+   this preference set to "Record" you can record local use by checking
+   out to the statistical patron and/or by checking in a book that is
+   not currently checked out.
+
+.. _showallcheckins-label:
+
+ShowAllCheckins
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Do not show
+
+Asks: \_\_\_ all items in the "Checked-in items" list, even items that
+were not checked out.
+
+Values:
+
+-  Do not show
+
+-  Show
+
+Description:
+
+-  When items that are not currently checked out are checked in they
+   don't show on the list of checked in items. This preference allows
+   you to choose how you'd like the log of checked in items displays.
+
+.. _specifyduedate-label:
+
+SpecifyDueDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ staff to specify a due date for a checkout.
+
+Default: Allow
+
+Values:
+
+-  Don't allow
+
+-  Allow
+
+Description:
+
+-  This preference allows for circulation staff to change a due date
+   from the automatic due date, defined by
+   :ref:`circulation and fines rules <circulation-and-fines-rules-label>`,
+   to another calendar date during :ref:`checkout <checking-items-out-label>`.
+
+-  This option would be used for circumstances in which the due date may need
+   to be decreased or extended for any reason.
+
+.. _specifyreturndate-label:
+
+SpecifyReturnDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ staff to specify a return date for a check in.
+
+Values:
+
+-  Allow
+
+  |image1185|
+
+-  Don't allow
+
+  |image1186|
+
+Description:
+
+-  This preference lets you decide if staff can specify an arbitrary
+   return date when checking in items. If an arbitrary return date is
+   specified then fines are recalculated accordingly.
+
+.. _todaysissuesdefaultsortorder-label:
+
+todaysIssuesDefaultSortOrder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Sort today's checkouts on the circulation page from \_\_\_ due
+date.
+
+Default: latest to earliest
+
+Values:
+
+-  earliest to latest
+
+-  latest to earliest
+
+Description:
+
+-  This system preference controls how you want today's checkouts to appear 
+   in the patron's :ref:`Checkout tab. <checking-items-out-label>`
+
+-  If you choose 'earliest to latest', the oldest checkout will be at the top.
+
+-  If you choose 'latest to earliest', the most recent checkout will be at the 
+   top.
+
+.. _updatetotalissuesoncirc-label:
+
+UpdateTotalIssuesOnCirc
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Do not
+
+Asks: \_\_\_ update a bibliographic record's total issues count whenever
+an item is issued
+
+Values:
+
+-  Do
+
+       **Important**
+
+       This increases server load significantly; if performance is a
+       concern, use the :ref:`cron job <cron-track-total-checkouts-label>` to update the total issues count instead.
+
+-  Do not
+
+Description:
+
+-  Koha can track the number of times and item is checked out and store
+   that on the item record in the database. This information is not
+   stored by default. Setting this preference to 'Do' will tell Koha to
+   track that info every time the item is checked out in real time.
+   Otherwise you could use the :ref:`cron job <cron-track-total-checkouts-label>` to have
+   Koha update that field nightly.
+
+.. _usecirculationdesks-label:
+
+UseCirculationDesks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ circulation desks with circulation
+
+Default: Don't use
+
+Values:
+
+-  Don't use
+
+-  Use
+
+Description:
+
+-  This preference enables the ability to manage various circulation desks 
+   within a single library.
+
+.. _waitingnotifyatcheckin-label:
+
+WaitingNotifyAtCheckin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't notify
+
+Asks: \_\_\_ librarians of waiting holds for the patron whose items they
+are checking in.
+
+Values:
+
+-  Don't notify
+
+-  Notify
+
+   |image43|
+
+Description:
+
+-  When checking in books you can choose whether or not to have a notice
+   pop up if the patron who returned the book has a hold waiting for
+   pick up. If you choose 'Notify' for WaitingNotifyAtCheckin then every
+   time a hold is found for the patron who had the book out last a
+   message will appear on your check in screen.
+
+.. _itembundles-preferences-label:
+
+Item bundles
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _bundlelostvalue-label:
+
+BundleLostValue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the :ref:`LOST authorized value<existing-values-label>` \_\_\_ to 
+represent 'missing from bundle' at return.
+
+Default: 5
+
+Description:
+
+-  This system preference is used when circulating item bundles to set the lost
+   status of the item when it is missing from it's bundle upon checkin.
+
+-  The value in this system preference should be a number, representing a lost 
+   status in the :ref:`LOST authorized values list<existing-values-label>`.
+
+-  The default value for this preference is 5, which is the 'Missing from bundle'
+   status in the default values for the LOST category. If you didn't install the
+   default values, make sure the system preference value refers to an actual
+   lost status.
+
+.. _bundlenotloanvalue-label:
+
+BundleNotLoanValue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the :ref:`NOT_LOAN authorized value<existing-values-label>` \_\_\_ to
+represent 'added to bundle' when an item is attached to bundle.
+
+Default: 3
+
+Description:
+
+-  This system preference is used when creating item bundles, to set the not for
+   loan status of the item when it is added to a bundle so that the item itself
+   cannot be circulated by itself, but only as part as the bundle.
+
+-  The value in this system preference should be a number, representing a not
+   for loan status in the
+   :ref:`NOT\_LOAN authorized values list<existing-values-label>`.
+
+-  The default value for this preference is 3, which is the 'Added to bundle'
+   status in the default values for the NOT\_LOAN category. If you didn't
+   install the default values, make sure the system preference value refers to
+   an actual not for loan status (the status should be positive so that patrons
+   cannot place holds on the bundled item).
+
+.. _patron-restrictions-preferences-label:
+
+Patron restrictions
+~~~~~~~~~~~~~~~~~~~
+
+.. _autoremoveoverduesrestrictions-label:
+
+AutoRemoveOverduesRestrictions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Do not
+
+Asks: \_\_\_ allow OVERDUES restrictions triggered by sent notices to be
+cleared automatically when all overdue items are returned by a patron.
+
+Values:
+
+-  Do
+
+-  Do not
+
+Description:
+
+-  Using the :ref:`Overdue Notice/Status Triggers <overdue-notice/status-triggers-label>` you
+   can restrict patrons after they receive an overdue notice. This
+   preference lets you define whether Koha will automatically remove
+   that restriction once the overdue items in question are returned or
+   not.
+
+.. _cumulativerestrictionperiods-label:
+
+CumulativeRestrictionPeriods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the restriction periods.
+
+Default: Don't cumulate
+
+Values:
+
+-  Don't cumulate
+
+-  Cumulate
+
+Description:
+
+-  This system preference controls whether or not
+   :ref:`restriction<patron-restrictions-label>` periods should be served
+   concurrently or consecutively.
+
+-  If set to "Don't cumulate", the patron will be restricted only for the
+   longest period. (For example, if a patron has a restriction of 10 days and
+   another restriction of 15 days, they will be restricted for 15 days.)
+
+-  If set to "Cumulate", the patron will be restricted for the sum of all the
+   restriction period. (For example, if a patron has a restriction of 10 days 
+   and another restriction of 15 days, they will be restricted for 25 days.)
+
+.. _patronrestrictiontypes-label:
+
+PatronRestrictionTypes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the type of patron restriction to be specified when applying manually. 
+
+Default: Don't allow
+
+Values:
+
+- Allow
+
+- Don't allow
+
+Description:
+
+- This preference allows staff the ability to pick a restriction type when
+  :ref:`adding a manual restriction to a patron <patron-restrictions-label>`.
+
+.. _restrictionblockrenewing-label:
+
+RestrictionBlockRenewing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: If patron is restricted, \_\_\_ renewing of items from the staff
+interface and via the 
+:ref:`misc/cronjobs/automatic_renewals.pl <cron-automatic-renewal-label>`
+cronjob.
+
+Values:
+
+- Allow
+- Block
+
+Description:
+
+- This preference affects all forms of renewals made from the staff 
+  interface and the automatic renewals cron job. 
+
+.. _recalls-preferences-label:
+
+Recalls
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The recalls feature allows users to recall items that are currently checked out.
+
+.. _recallsmaxpickupdelay-label:
+
+RecallsMaxPickUpDelay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Mark a recall as problematic if it has been waiting to be picked up for
+\_\_\_ days.
+
+Default: 7
+
+Description:
+
+-  This system preference defines the number of days a user has to come pick up
+   their recalled item.
+
+-  The recalls that have been awaiting pickup for more than this number of days
+   will be highlighted in the circulation module.
+
+-  This preference is applied if there is no defined waiting period in the
+   :ref:`circulation rules<circulation-and-fines-rules-label>`.
+
+.. _userecalls-label:
+
+UseRecalls
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ recalls.
+
+Default: Don't use
+
+Values:
+
+-  Don't use
+
+-  Use
+
+Description:
+
+-  This is the main switch for the recalls feature.
+
+-  Make sure you configure
+   :ref:`circulation and fines rules <circulation-and-fines-rules-label>` for
+   recalls once enabled.
+
+.. _returnclaims-label:
+
+Return claims
+~~~~~~~~~~~~~~~~~
+
+These system preferences are used by the :ref:`return claims <return-claim-label>`
+feature, where staff can mark checkouts as 'claimed returned' when a patron
+says they returned an item, and track those claims.
+
+.. _claimreturnedchargefee-label:
+
+ClaimReturnedChargeFee
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When marking a checkout as "claims returned”,
+
+Values:
+
+-  Ask if a lost fee should be charged (default)
+
+-  Charge a lost fee
+
+-  Don't charge a lost fee
+
+Description:
+
+-  This preference allows a library to choose if a lost fee is charged at the time an item being claimed is returned. If set to ask, there is a checkbox to either charge or don’t charge per transaction. If set to charge, Koha will charge the patron the replacement price of the item. If set to don’t charge, Koha will not charge the patron.
+
+.. _claimreturnedlostvalue-label:
+
+ClaimReturnedLostValue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the LOST authorised value  \_\_\_ to represent returns claims.
+
+Description:
+
+-  Add a LOST authorized value - this enables the return claims feature. Add a new authorized value to the LOST category to represent the library's return claims.
+
+.. _claimreturnedwarningthreshold-label:
+
+ClaimReturnedWarningThreshold
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Warn librarians that a patron has excessive return claims if the patron has claimed the return of more than \_\_\_ items.
+
+Description:
+
+-  Enter a number if a library would like to set a limit to the number of returns claims that the patron can have before showing a warning on the patron's screen.
+
+.. _cleanupdatabasereturnclaims-label:
+
+CleanUpDatabaseReturnClaims
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Remove resolved return claims older than \_\_\_ days.
+
+Default: (empty)
+
+Description:
+
+-  This system preference is used to delete
+   :ref:`resolved return claims <resolve-return-claim-label>`.
+
+-  This system preference requires the
+   :ref:`cleanup\_database.pl cron job <cron-clean-up-database-label>` with the
+   :code:`--return-claims` parameter.
+
+.. _sip2preferences-label:
+
+SIP2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _sip2sortbinmapping-label:
+
+SIP2SortBinMapping
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the following mappings to determine the sort_bin of a returned item.
+
+Description:
+
+-  This system preference is used to set the 'sort bin' or CL response for SIP
+   equipment when checking in an item. The mappings entered here will determine which bin the SIP sorter sends an item to.
+
+-  This system preference must be filled with a specific syntax.
+
+   -  Each mapping should be on its own line.
+
+   -  Each mapping should be of the form
+
+      ::
+
+       branchcode:item field:comparator:item field value:sort bin number
+
+      where
+
+      -  'branchcode' is the library where the checkin is being performed (i.e.
+         library assigned to the SIP user)
+
+      -  'item field' is a database column in the items table
+
+      -  'comparator' is the type of comparison, possible values are:
+
+        -  :code:`eq` (is equal to)
+
+        -  :code:`<` (is less than)
+
+        -  :code:`<=` (is less than or equal to)
+
+        -  :code:`>` (is greater than)
+
+        -  :code:`>=` (is greater than or equal to)
+
+        -  :code:`ne` (is not equal to)
+
+      - 'item field value' is the value to compare against the value in the
+        specified 'item field'
+
+        .. Note::
+
+           Specifying 'item field value' with a leading :code:`\$` and an item field
+           name will use the value of that field in the item for comparison.
+
+           For example, :code:`\$holdingbranch` will compare the item field to the item's
+           homebranch.
+
+      - 'sort bin number' is the expected return value in the CL field of the
+        SIP response for an item matching the rule.
+
+.. Tip::
+
+   The mappings will be taken into account in the order the lines are written, starting with the top one.
+   Think carefully about the logic your mappings should follow and which order to write them in to achieve what you want.
+
+Mapping examples
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+   ::
+
+    CPL:itype:eq:BOOK:1
+
+   This will return sort bin 1 for an item of itemtype code 'BOOK' returned to the library with branchcode 'CPL'.
+
+   ::
+
+    CPL:itemcallnumber:<:339.6:3
+
+   This will return sort bin 3 for an item with a callnumber less than 339.6
+   returned to the 'CPL' library.
+
+   ::
+
+    CPL:homebranch:ne:\$holdingbranch:X
+
+   This will return sort bin 'X' for an item returned to CPL where the
+   holdingbranch is not equal to the homebranch (i.e. any item belonging to a
+   different library than 'CPL').
+
+.. Admonition:: Version
+
+   Before Koha version 23.11, each line can only have one 'item field' mapping. From 23.11, each line can use multiple item fields mappings.
+
+   There is no limit on the number of item field mappings that can be used in one line.
+
+   This allows for more refined sorting rules. For example, instead of only sorting by item type, a library may now sort by item type and collection code and not for loan status. 
+
+
+   ::
+
+    CPL:itype:eq:BOOK:ccode:eq:TEEN:5
+
+   This will return sort bin 5 for an item with the itemtype code 'BOOK' and the collection code 'TEEN' returned to the library with branchcode 'CPL'.
+
+Use case
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+Centerville Library (branchcode 'CPL') has SIP equipment which sorts returned items into 4 bins.
+
+-  Bin number 1 is for CPL items to be shelved on floor 1 (items whose location code is 'FLOOR1').
+
+-  Bin 2 is for CPL items to be shelved on floor 2 (items whose location code is 'FLOOR2').
+
+-  Bin 3 is for CPL items that require specific attention, e.g. they need to be checked before shelving or they are part of a specific collection. The CPL stock team is currently recalling the floor 1 Parent collection using this bin.
+
+-  Bin 4 is solely for items that need to be transferred to other libraries (items whose homebranch is not CPL).
+
+Here is the content of their SIP2SortBinMapping system preference.
+
+   ::
+      # Items to be transferred go to bin 4
+      CPL:homebranch:ne:$holdingbranch:4
+      # CPL toys, special stock and Floor 1 parent collection go to bin 3
+      CPL:itype:eq:TOY:3
+      CPL:notforloan:>=:1:3
+      CPL:location:eq:FLOOR1:ccode:eq:PARENT:3
+      # Other floor 1 CPL stock to bin 1
+      CPL:location:eq:FLOOR1:1
+      # Floor 2 CPL stock to bin 2
+      CPL:location:eq:FLOOR2:2
+
+Note that the mapping for bin 4 is at the top.
+This ensures that items to be transferred to other libraries are dealt with first; the next mappings will therefore only concern CPL items.
+
+.. _uselocationasaqisip-label:
+
+UseLocationAsAQInSIP
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use \_\_\_ for AQ field in SIP protocol.
+
+Default: homebranch
+
+Values:
+
+-  homebranch
+
+-  permanent\_location
+
+Description:
+
+-  This system preference allows you to decide which item information is used
+   as the AQ response for SIP equipment.
+
+-  AQ is used in automated sorting bins, for example, as the item's 'permanent
+   location'. For some libraries, that might mean the item's home library,
+   whereas for others it might mean the item's permanent location.
+
+Self check-in module (sci-main.pl)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _selfcheckinmainuserblock-label:
+
+SelfCheckInMainUserBlock
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following HTML on the self check-in screen
+
+Description:
+
+-  HTML entered in this field will appear in the center of the main page
+   of your self checkin screen
+
+.. _selfscheckinmodule-label:
+
+SelfCheckInModule
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't enable
+
+Asks: \_\_\_ the standalone self check-in module (available at:
+/cgi-bin/koha/sci/sci-main.pl
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Description:
+
+-  This system preference will activate (or deactivate) the self check-
+   in module
+
+.. _selfcheckintimeout-label:
+
+SelfCheckInTimeout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 120
+
+Asks: Reset the current self check-in screen after \_\_\_ seconds
+
+Description:
+
+-  Enter the number of seconds after which you want the self check-in
+   screen to refresh and go back to the main page (for example, if a
+   patron forgot to log out).
+
+.. _selfcheckinusercss-label:
+
+SelfCheckInUserCSS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following CSS on all the self check-in screens
+
+Description:
+
+-  The CSS code entered here will override any CSS on the self check-in
+   screens
+
+.. _selfcheckinuserjs-label:
+
+SelfCheckInUserJS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following JavaScript on all the self check-in screens
+
+Description:
+
+-  The JavaScript entered here will override any other JavaScript on
+   the self check-in screens
+
+.. _self-checkout-system-preferences-label:
+
+Self check-out module (sco-main.pl)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _scouserjs-label:
+
+SCOUserJS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following JavaScript on all pages in the web-based self 
+checkout:
+
+Description:
+
+-  The JavaScript entered in this preference will affect all of your
+   Koha self check-out screens.
+
+.. _scomainuserblock-label:
+
+SCOMainUserBlock
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following HTML on the web-based self checkout screen:
+
+Description:
+
+-  The HTML entered in this preference will be used on the main self check-out 
+   screen.
+
+.. _scousercss-label:
+
+SCOUserCSS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following CSS on all pages in the web-based self checkout:
+
+Description:
+
+-  The CSS entered in this preference will be used on all of your Koha self 
+   check-out screens.
+
+.. _showpatronimageinwebbasedselfcheck-label:
+
+ShowPatronImageInWebBasedSelfCheck
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the patron's picture (if one has been added) when they use the 
+web-based self check-out.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If this system preference is set to 'Show', the patron will see their own 
+   picture when logging into the web-based self check-out module.
+
+.. _webbasedselfcheck-label:
+
+WebBasedSelfCheck
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the web-based self checkout system.
+
+Default: Don't enable
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Description:
+
+-  Enabling this preference will allow access to the :ref:`self check-out 
+   <self-checkout-label>` module in Koha.
+
+-  Your self check-out module is available at: https://YOUR.OPAC.URL/cgi-bin/koha/
+   sco/sco-main.pl
+
+.. _selfcheckoutbylogin-label:
+
+SelfCheckoutByLogin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Have patrons login into the web-based self checkout system with
+their \_\_\_
+
+Default: Cardnumber
+
+Values:
+
+-  Cardnumber
+
+   |image44|
+
+-  Username and password
+
+   |image45|
+
+Description:
+
+-  This preference lets you decide how your patrons will log in to the
+   self checkout machine. Either the patron's card number (barcode) or their
+   username and password set using the opac/staff username and
+   password fields on the :ref:`patron record <add-a-new-patron-label>`.
+
+.. _selfchecktimeout-label:
+
+SelfCheckTimeout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Time out the current patron's web-based self checkout system login
+after \_\_\_ seconds.
+
+Default: 120
+
+Description:
+
+-  After the machine is idle for the time entered in this preference the
+   self check out system will log out the current patron and return to
+   the starting screen.
+
+.. _scoallowcheckin-label:
+
+SCOAllowCheckin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patrons to return items through web-based self checkout
+system.
+
+Default: Don't allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This preference is used to determine if you want patrons to be
+   allowed to return items through your self check machines. By default
+   Koha's self check-out interface is simply for checking items out.
+
+.. _selfcheckhelpmessage-label:
+
+SelfCheckHelpMessage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following HTML in the Help page of the web-based self
+checkout system:
+
+Description:
+
+-  Clicking the 'Help' link in the top right of the self check-out
+   interface opens up a three step process for using the self check-out
+   module. Adding HTML to this system preference will show that
+   additional help text above what's already included.
+
+.. _autoselfcheck-preferences-label:
+
+AutoSelfCheckAllowed, AutoSelfCheckID and AutoSelfCheckPass
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Important**
+
+    Most libraries will want to leave this set to 'Don't allow'. This
+    preference turns off the requirement to log into the self checkout
+    machine with a staff username and password by storing the username
+    and password for automatic login.
+
+Asks: \_\_\_ the web-based self checkout system to automatically login
+with this staff login \_\_\_ and this password \_\_\_ .
+
+AutoSelfCheckAllowed default: Don't allow
+
+AutoSelfCheckAllowed values:
+
+-  Allow
+
+-  Don't allow
+
+AutoSelfCheckID value:
+
+-  The username of a staff patron with the 'self\_checkout\_module'
+   :ref:`permission <patron-permissions-defined-label>`.
+
+AutoSelfCheckPass value:
+
+-  The password of a staff patron with the 'self\_checkout\_module'
+   :ref:`permission <patron-permissions-defined-label>`.
+
+.. _selfcheckreceiptprompt-label:
+
+SelfCheckReceiptPrompt
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the print receipt popup dialog when self checkout is finished.
+
+Default: Show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  This preference controls whether a prompt shows up on the web based
+   self check-out when the patron clicks the 'Finish' button.
+
+.. _selfcheckallowbyipranges-label:
+
+SelfCheckAllowByIPRanges
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_
+
+Description:
+
+-  This system preference is used to limit access to the self check-out module 
+   by IP ranges.
+
+-  Use ranges or simple IP addresses separated by spaces, like 
+   '192.168.1.1 192.168.0.0/24'.
+
+-  If you do not want to limit access by IP range, leave this system preference 
+   blank.
+
+.. _stock-rotation-system-preferences-label:
+
+Stock rotation module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _stockrotation-module-label:
+
+StockRotation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the stock rotation module
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  If set to 'Enable', the :ref:`stock rotation module <stock-rotation-label>`
+   will appear under Cataloging > Automation.
+
+

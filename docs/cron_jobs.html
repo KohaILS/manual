@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>工作排程與守護行程 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Cataloguing plugins (value builders)" href="valuebuilder.html" />
+    <link rel="prev" title="應用核對清單" href="implementation_checklist.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">工作排程與守護行程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#crontab-example">Crontab 範例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cron-jobs">工作排程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#backup">備份</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#daily-backup">每日備份</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#search">搜尋</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sitemap">站台地圖</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rebuild-index">重建索引</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#circulation">流通</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#holds-queue">預約佇列</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expired-holds">預約過期</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unsuspend-holds">取消預約</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fines">罰款</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#static-fines">固定罰款</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#long-overdues">逾期太久</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#track-total-checkouts">追蹤借出總數</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-patron-file-for-offline-circulation">產生讀者檔供離線流通之用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-renewal">自動續借</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-checkin">自動還入</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#recalls">催還</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#expire-recalls">到期催還</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overdue-recalls">逾期催還</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#patrons">讀者</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#batch-delete-patrons">批次刪除讀者</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#anonymize-patron-data">匿名讀者資料</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-patron-categories">更新讀者目錄</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-patrons-messaging-preferences">更新讀者的訊息偏好</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#notices">通知</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#message-queue">信件佇列</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-notice">提前通知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overdue-notice">逾期通知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holds-reminder">Holds reminder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print-overdues">印出逾期通知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print-hold-notices">列印預約通知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#talking-tech">Talking Tech</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notify-patrons-of-expiration">通知讀者證有效日期</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#in-processing-book-cart">處理中/圖書車</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catalog">目錄</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-webservice-batch">批次匯入網頁服務</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connexion-import-daemon">Connexion Import Daemon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batch-item-deletion">批次刪除館藏</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-url-quick">快速檢查 URL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-records-via-leader">經由紀錄標示刪除紀錄</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-authorities">更新權威記錄</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serials-update">更新期刊</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-item-update">自動更新館藏</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stock-rotation">Stock rotation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opac">OPAC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rss-feeds">RSS Feeds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authorities-browser">權威瀏覽器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subject-author-clouds">主題/著者雲</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#system-administration">系統管理</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#services-throttle">服務量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clean-up-database">清理資料庫</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#share-usage-stats">共享使用統計</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-for-data-inconsistencies">Search for data inconsistencies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#acquisitions">採訪</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#clean-up-old-suggestions">清除舊的建議</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#email-suggestions-to-process">將建議以電郵送入程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edi-message-processing">EDI 訊息處理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-temporary-edi-files">移除暫存 EDI 檔案</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reports">報表</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#run-report">執行報表</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#social-data">社會資料</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-report-social-data">取得社會資料報表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-social-data">更新社會資料</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#daemons">守護行程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zebra-indexer-daemon">Zebra indexer daemon</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deprecated-scripts">不適用的腳本</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">工作排程與守護行程</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cron_jobs.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="implementation_checklist.html" class="btn btn-neutral float-left" title="應用核對清單" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="valuebuilder.html" class="btn btn-neutral float-right" title="Cataloguing plugins (value builders)" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cron-jobs-and-daemons">
+<span id="cron-jobs-label"></span><h1>工作排程與守護行程<a class="headerlink" href="#cron-jobs-and-daemons" title="此标题的永久链接"></a></h1>
+<p>Koha is supported by a number of background tasks. These tasks can either
+be periodically executed tasks (cron jobs) or continuously running tasks called
+daemons.</p>
+<p>工作排程是安排自動伺服器裡的指令或腳本以完成指定工作的 Linux 指令。以工作排程方式執行的腳本通常是修改檔案或資料庫；然而，它們也可以執行其他不需修改伺服器資料的工作，像是送出電子郵件通知。</p>
+<p>daemon 是 Linux 命令，系統啟動後就開始執行，並持續在背景執行若干功能。Koha 用到的資料庫 (MYSQL 或 MariaDB) 及網頁伺服器 (通常是 Apache)，就是一種 daemon。</p>
+<p>Koha has many cron jobs in place that you can enable
+(search engine indexing, overdue notice generation, data
+cleanup and more), and a few daemons. This chapter will explain those for you.</p>
+<section id="crontab-example">
+<h2>Crontab 範例<a class="headerlink" href="#crontab-example" title="此标题的永久链接"></a></h2>
+<p>Koha crontab 在 misc/cronjobs/crontab.example</p>
+<p>此範例包括 boilerplate 工作排程款目的樣本。</p>
+</section>
+<section id="cron-jobs">
+<span id="cron-jobs-subchapter-label"></span><h2>工作排程<a class="headerlink" href="#cron-jobs" title="此标题的永久链接"></a></h2>
+<p>The locations in the documentation assume a development install where files are
+found in misc/ relative to the git root checkout. If you have installed using
+Debian packages or the standard install from source, you will want to look for
+files in /usr/share/koha/bin/.</p>
+<p>Other locations are possible with other installation methods. You can perform a
+simple find search if they are not located in these directories.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For anyone with shell access using Debian packages, the following command is
+an easy way to find files installed by a Debian package:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-L</span> <span class="pre">koha-common</span></code></p>
+<p>This provides a comprehensive listing of the files installed by the
+koha-common package. You can then easily find the file from there.</p>
+</div>
+<section id="backup">
+<span id="cron-daily-backup-label"></span><h3>備份<a class="headerlink" href="#backup" title="此标题的永久链接"></a></h3>
+<section id="daily-backup">
+<h4>每日備份<a class="headerlink" href="#daily-backup" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/backup.sh</p>
+<p>做：新增 Koha 資料庫逐日備份。</p>
+<p>刊期建議：日刊</p>
+</section>
+</section>
+<section id="search">
+<span id="cron-search-label"></span><h3>搜尋<a class="headerlink" href="#search" title="此标题的永久链接"></a></h3>
+<section id="sitemap">
+<span id="cron-sitemap-label"></span><h4>站台地圖<a class="headerlink" href="#sitemap" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/sitemap.pl</p>
+<p>做：從 Koha instance 產生的書目紀錄與產生網站地圖檔案及其通訊協定都描述於 <a class="reference external" href="http://sitemaps.org">http://sitemaps.org</a>。此腳本的目標是讓搜尋引擎直接近用書目紀錄。避免搜尋引擎瀏覽 Koha 的 OPAC 產生不必要的流量增加伺服器的工作量。</p>
+<blockquote>
+<div><p><strong>說明</strong> 產生檔案 sitemapindex.xml。藉此參照至多個網站地圖檔案。每個檔案至多可以容納 50,000 URL 並命多為 sitemapXXXX.xml。</p>
+<p>檔案必須儲存在 Koha OPAC 的根錄內。就是與 robots.txt 同個目錄包括以下的內容：</p>
+<p><code class="docutils literal notranslate"><span class="pre">Sitemap:</span> <span class="pre">sitemapindex.xml</span>
+<span class="pre">User-agent:</span> <span class="pre">*</span>
+<span class="pre">Disallow:</span> <span class="pre">/cgi-bin/</span></code></p>
+</div></blockquote>
+</section>
+<section id="rebuild-index">
+<span id="cron-rebuild-index-label"></span><h4>重建索引<a class="headerlink" href="#rebuild-index" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/migration_tools/rebuild_zebra.pl</p>
+<p>做：納入最近變更的資料更新 Zebra 索引。</p>
+<p>必需用到的：Zebra</p>
+<p>頻率建議：每隔 x 分鐘，(5-15 分鐘之間) 視執行所需</p>
+<blockquote>
+<div><p><strong>Note</strong>
+On newer Koha installations, this cron job has been replaced by the
+<a class="reference internal" href="#cron-koha-indexer-label"><span class="std std-ref">koha-indexer daemon</span></a> which indexes new
+and modified Koha data every 30 seconds.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="circulation">
+<span id="cron-circulation-label"></span><h3>流通<a class="headerlink" href="#circulation" title="此标题的永久链接"></a></h3>
+<section id="holds-queue">
+<span id="cron-holds-queue-report-label"></span><h4>預約佇列<a class="headerlink" href="#holds-queue" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/holds/build_holds_queue.pl</p>
+<p>做：更新預約順位報表</p>
+<p>必須用到：<a class="reference internal" href="circulation.html#holds-queue-label"><span class="std std-ref">預約順位報表</span></a></p>
+<p>建議頻率：每 1-4 小時</p>
+<p>說明：</p>
+<ul>
+<li><p>應定期執行腳本若您的圖書館系統允許讀者預約在架的館藏。此腳本決定負責滿足此預約的圖書館。</p>
+<p>由系統偏好 <a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">StaticHoldsQueueWeight</span></a> 與 <a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">RandomizeHoldsQueueWeight</span></a> 共同控制其行為。</p>
+<p>不讓所有圖書館參與館藏滿足預約計畫，應列出*要*參加該計畫的圖書館，包括圖書館的條碼，並以逗點區隔(如：”MPL,CPL,SPL,BML” 等)。</p>
+<p>預設，預約順位將先列入提取圖書館。若無法滿足，則 build_holds_queue.pl 將取用 StaticHoldsQueueWeight 設定的圖書館。若停用 RandomizeHoldsQueueWeight (預設值為停用)，則依 StaticHoldsQueueWeight 偏好設定的圖書館順序，逐一取用。</p>
+<p>例如，系統內有三個規模不一的圖書館(大型、中型與小型)，希望由大型圖書館承擔較多的預約責任，StaticHoldsQueueWeight偏好應設為”LRG,MED,SML”。</p>
+<p>若期望各圖書館平均分擔預約的任務，應啟用RandomizeHoldsQueueWeight偏好，將隨機將預約分配給各圖書館。</p>
+</li>
+</ul>
+</section>
+<section id="expired-holds">
+<span id="cron-expired-holds-label"></span><h4>預約過期<a class="headerlink" href="#expired-holds" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/holds/cancel_expired_holds.pl</p>
+<p>Does: cancels holds
+where the user has set an expiration date. If the library is using the
+<a class="reference internal" href="circulationpreferences.html#expirereservesmaxpickupdelay-label"><span class="std std-ref">ExpireReservesMaxPickUpDelay</span></a> and
+<a class="reference internal" href="circulationpreferences.html#expirereservesmaxpickupdelaycharge-label"><span class="std std-ref">ExpireReservesMaxPickUpDelayCharge</span></a>
+preferences then this script will also cancel holds that have been
+sitting on the hold shelf for too long and will (if the library does)
+charge the patron for not picking up the hold.</p>
+<p>可以使用 –原因參數增加取消原因。使用 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">HOLD_CANCELLATION 權威值類型</span></a> 中取消代碼</p>
+<p>刊期建議：日刊</p>
+</section>
+<section id="unsuspend-holds">
+<span id="cron-unsuspend-holds-label"></span><h4>取消預約<a class="headerlink" href="#unsuspend-holds" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/holds/auto_unsuspend_holds.pl</p>
+<p>Does: checks to find holds that should no longer be
+suspended and removes the suspension if the
+<a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds-label"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> preference is
+set to ‘allow’. This puts the patron back in to the queue where they
+were when the hold was suspended.</p>
+<p>刊期建議：日刊</p>
+</section>
+<section id="fines">
+<span id="cron-fines-label"></span><h4>罰款<a class="headerlink" href="#fines" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/fines.pl</p>
+<p>做: 計算和收取(或遞增)逾期罰款每館藏對讀者帳號。罰款計算使用寬限期已處理，罰款間隔， 罰款總數和其它參數從:ref:<cite>circulation and fines rules &lt;circulation-and-fines-rules-label&gt;</cite>.</p>
+<p>Required by: <a class="reference internal" href="circulationpreferences.html#finesmode-label"><span class="std std-ref">finesMode</span></a> system preference</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>說明</strong> 若 Koha 系統偏好 ‘finesMode’ 已設為 ‘production’，則向讀者收取罰款。若設為 ‘test’，則計算罰款但不收取。</p>
+<p><strong>說明</strong> 假日不計入罰款。</p>
+<p><strong>參數</strong> -  -h|–help</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>取得協助資訊</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>-l|–log</p>
+<ul>
+<li><p>記錄匯出至檔案 (如果提供 -o 參數)</p></li>
+</ul>
+</li>
+<li><p>-o|–out</p>
+<ul>
+<li><p>為記錄匯出資料夾 (預設是 env 或 /tmp 如果資料夾不存在)</p></li>
+</ul>
+</li>
+<li><p>-v|–verbose</p>
+<ul>
+<li><p>verbose 模式</p></li>
+</ul>
+</li>
+<li><p>-m|–maxdays</p>
+<ul>
+<li><p>逾期多少天來處理</p></li>
+<li><p>這可以透過簡單地處理的記錄數量來提高性能。考慮到流通政策通常會在幾天後將罰款限制在最高限額，因此將處理的逾期款項限制在逾期 X 天以內是安全的。</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="static-fines">
+<span id="cron-staticfines-label"></span><h4>固定罰款<a class="headerlink" href="#static-fines" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/staticfines.pl</p>
+<p>做： 針對目前未付的讀者對任何/所有逾期收取單獨一定的罰款.費用由讀者類型每指令行定義或將使用流通規則針對讀者未付的最長逾期館藏（只針對第一個罰款期間）。一旦收費，罰款是定額： 沒有新罰款會再加入直到現有罰款已完全付清。</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>說明</strong> 若 Koha 系統偏好 ‘finesMode’ 已設為 ‘production’，則向讀者收取罰款。若設為 ‘test’，則計算罰款但不收取。</p>
+<p><strong>說明</strong> 假日不計入罰款。</p>
+</div></blockquote>
+</section>
+<section id="long-overdues">
+<span id="cron-long-overdues-label"></span><h4>逾期太久<a class="headerlink" href="#long-overdues" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/longoverdue.pl</p>
+<p>做：允許更改不同程度的遺失館藏，並向讀者收取館藏記錄內的重置價格。</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>Staff can control some of the parameters for the longoverdue cron
+job with the
+<a class="reference internal" href="circulationpreferences.html#defaultlongoverduelostvalue-and-defaultlongoverduedays-label"><span class="std std-ref">DefaultLongOverdueLostValue</span></a> and
+<a class="reference internal" href="circulationpreferences.html#defaultlongoverduechargevalue-label"><span class="std std-ref">DefaultLongOverdueChargeValue</span></a>
+preferences.</p>
+</div></blockquote>
+</section>
+<section id="track-total-checkouts">
+<span id="cron-track-total-checkouts-label"></span><h4>追蹤借出總數<a class="headerlink" href="#track-total-checkouts" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/update_totalissues.pl</p>
+<p>做：以最新的借出現況更新資料庫內 biblioitems.totalissues 欄位的內容。</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>警示</strong></p>
+<p>需考量資料庫伺服器與 Koha 伺服器的時間不同步的狀況，並使用 –since 參數取代 –interval 參數做為新增性更新的依據。</p>
+<p><strong>說明</strong></p>
+<p>This cronjob can be used if there is a performance concern. Otherwise,
+use the UpdateTotalIssuesOnCirc System preference.</p>
+</div></blockquote>
+</section>
+<section id="generate-patron-file-for-offline-circulation">
+<span id="cron-generate-patron-file-for-offline-circulation-label"></span><h4>產生讀者檔供離線流通之用<a class="headerlink" href="#generate-patron-file-for-offline-circulation" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/create_koc_db.pl</p>
+<p>做：從 <a class="reference internal" href="circulation.html#offline-circ-tool-for-windows-label"><span class="std std-ref">Koha 離線流通</span></a> 工具產生 borrowers.db 檔案</p>
+<p>建議頻率：每週</p>
+</section>
+<section id="automatic-renewal">
+<span id="cron-automatic-renewal-label"></span><h4>自動續借<a class="headerlink" href="#automatic-renewal" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/automatic_renewals.pl</p>
+<p>做：若在 <span class="xref std std-ref">流通與罰款規則</span> 裡允許自動續借，將自動續借。</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>為了正確執行，您必須使用 –confirm 參數, 否則它會在測試模式下執行</p>
+<p><strong>參數</strong> -  -h|–help</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>取得協助資訊</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>–發送-通知</p>
+<ul>
+<li><p>如果執行了自動續借，寄送 AUTO_RENEWALS 通知給讀者</p></li>
+</ul>
+</li>
+<li><p>-v|–verbose</p>
+<ul>
+<li><p>verbose 模式</p></li>
+</ul>
+</li>
+<li><p>-c|–confirm</p>
+<ul>
+<li><p>若沒有此參數則不會進行任何更改，腳本將以測試模式執行</p></li>
+<li><p>若沒有此參數，腳本也將預設為詳細模式</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="automatic-checkin">
+<span id="cron-automatic-checkin-label"></span><h4>自動還入<a class="headerlink" href="#automatic-checkin" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/automatic_checkin.pl</p>
+<p>做：在借出期限後自動檢查館藏。這是在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>館藏類型級別&lt;item-types-label&gt;`設定的。</p>
+<p>建議頻率：每晚</p>
+</section>
+</section>
+<section id="recalls">
+<span id="cron-recalls-label"></span><h3>催還<a class="headerlink" href="#recalls" title="此标题的永久链接"></a></h3>
+<section id="expire-recalls">
+<span id="cron-expire-recalls-label"></span><h4>到期催還<a class="headerlink" href="#expire-recalls" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/recalls/expire_recalls.pl</p>
+<p>做：自動標記為逾期催還</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>已被要求，但尚未履行且已逾期</p></li>
+<li><p>recalls that have been awaiting pickup longer than the pickup period in
+the <a class="reference internal" href="administration.html#defining-circulation-rules-label"><span class="std std-ref">circulation rules</span></a> or the
+period set in the <a class="reference internal" href="circulationpreferences.html#recallsmaxpickupdelay-label"><span class="std std-ref">RecallsMaxPickUpDelay</span></a> system preference</p></li>
+</ul>
+</div></blockquote>
+<p>建議頻率：每晚</p>
+</section>
+<section id="overdue-recalls">
+<span id="cron-overdue-recalls-label"></span><h4>逾期催還<a class="headerlink" href="#overdue-recalls" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/recalls/overdue_recalls.pl</p>
+<p>做：如果未在調整後的到期日歸還，則會將催還的館藏設定為逾期</p>
+<p>建議頻率：每晚</p>
+</section>
+</section>
+<section id="patrons">
+<span id="cron-patrons-label"></span><h3>讀者<a class="headerlink" href="#patrons" title="此标题的永久链接"></a></h3>
+<section id="batch-delete-patrons">
+<span id="cron-delete-patrons-label"></span><h4>批次刪除讀者<a class="headerlink" href="#batch-delete-patrons" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/delete_patrons.pl</p>
+<p>做：依照未曾借出日期、到期日、上網日期、屬性、或所屬圖書館，批次刪除讀者紀錄。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>應採用 ISO 格式的日期，如 2013-07-19，可以用指令產生 date -d ‘-3 month’ “+%Y-%m-%d”。</p>
+<p><strong>重要</strong></p>
+<p>此選項是選擇讀者記錄去刪除 <strong>累積的</strong>。比方說，供應同為 –expired_before 以及 –library 指定特定讀者記錄必須吻合 <em>同時</em> 選擇刪除為條件。</p>
+<p><strong>參數</strong></p>
+<ul>
+<li><p>–not_borrowed_since 刪除到此日未曾借過書過的讀者</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Patrons who have all their old checkouts anonymized will have an
+empty circulation history and be deleted if this option is used.
+Anonymization can happen because the patron has borrowers.privacy = 2,
+through <a class="reference internal" href="#cron-anonymize-patron-data-label"><span class="std std-ref">cronjobs doing anonymization</span></a>
+or by the <a class="reference internal" href="opac.html#your-privacy-label"><span class="std std-ref">patron choosing to anonymize their history in the OPAC</span></a>.</p>
+</div>
+</li>
+<li><p>–expired_before 刪除帳號失效日早過此日的讀者</p></li>
+<li><p>–last_seen
+Delete patrons who have not been connected since this date.
+The system preference <a class="reference internal" href="patronspreferences.html#tracklastpatronactivity-label"><span class="std std-ref">TrackLastPatronActivity</span></a> must be
+enabled to use this option.</p></li>
+<li><p>–category_code 刪除此類讀者類型的讀者</p></li>
+<li><p>–library 刪除此圖書館的讀者</p></li>
+<li><p>-c|–confirm 此旗標心須提供以便程式能實際刪除讀者記錄。如果未提供，程式將呈報它將刪除的讀者記錄</p></li>
+<li><p>-v|–verbose Verbose 模式.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="anonymize-patron-data">
+<span id="cron-anonymize-patron-data-label"></span><h4>匿名讀者資料<a class="headerlink" href="#anonymize-patron-data" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/batch_anonymise.pl</p>
+<p>做：用於匿名讀者資料。此腳本將從流通記錄裡移除讀者號，一方面保護讀者的隱私同時又保持原有的流通記錄。</p>
+</section>
+<section id="update-patron-categories">
+<span id="cron-update-patron-categories-label"></span><h4>更新讀者目錄<a class="headerlink" href="#update-patron-categories" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/update_patrons_category.pl</p>
+<p>做：將符合條件的讀者的讀者類型更新為另一個指定的讀者類型。當兒童讀者達到 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型</span></a> 中定義的年齡上限時，這可用於將兒童讀者從兒童讀者類型轉換為成人讀者類型。</p>
+<p>此腳本用以重置 j2a.pl script。</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>DESCRIPTION</strong></p>
+<p>此腳本設計為使用命令行參數指定的標準將讀者從一個類型更新到另一個類型。</p>
+<p><strong>參數</strong></p>
+<ul class="simple">
+<li><p>–too_old 更新，如果讀者超過其當前 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型</span></a> 的年齡上限。</p></li>
+<li><p>–too_young 更新，如果讀者低於他們 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型</span></a> 的最低年齡限制。</p></li>
+<li><p>如果讀者帳號的罰款總額超過 X，–fo=X|–fineover=X 更新。</p></li>
+<li><p>如果讀者帳號的罰款總額低於 X，–fu=X|–fineunder=X 更新。</p></li>
+<li><p>–rb=date|regbefore=日期更新，如果讀者的註冊日期早於給定日期。</p></li>
+<li><p>–ra=date|regafter=日期更新，如果讀者的註冊日期晚於給定日期。</p></li>
+<li><p>-d –field name=值如果符合給定條件，則更新。 &lt;name&gt; 必須替換為 borrowers 表單的分欄。如果欄位的內容等於 &lt;value&gt;，則符合條件。</p></li>
+<li><p>–where &lt;conditions&gt; 如果符合 SQL &lt;where&gt; 語法，則更新。</p></li>
+<li><p>-v|–verbose 詳細模式：若未有此旗標，只回報嚴重的錯誤。</p></li>
+<li><p>-c|–confirm 送出對資料庫的更改。除非將此參數新增到命令中，否則不會進行任何更改。</p></li>
+<li><p>-b|–branch &lt;branchcode&gt; 更新，如果讀者的所屬圖書館與給定的 &lt;branchcode&gt; 匹配。</p></li>
+<li><p>-f|–form &lt;categorycode&gt; 更新，如果讀者當前有這個讀者類型。</p></li>
+<li><p>-t|–to &lt;categorycode&gt; 將符合條件的讀者更新為該讀者類型。</p></li>
+</ul>
+<p><strong>USAGE EXAMPLES</strong></p>
+<p>“update_patrons_category.pl”</p>
+<p>“update_patrons_category.pl” -b=&lt;branchcode&gt; -f=&lt;categorycode&gt; -t=&lt;categorycode&gt; -c”處理單一分館，並逐一更新讀者類型)</p>
+<p>“update_patrons_category.pl” -f=&lt;categorycode&gt; -t=&lt;categorycode&gt; -v” (處理所有分館、顯示全部訊息、回報受影響的讀者。不更動資料庫)</p>
+</div></blockquote>
+</section>
+<section id="update-patrons-messaging-preferences">
+<span id="cron-borrowers-messaging-preferences-label"></span><h4>更新讀者的訊息偏好<a class="headerlink" href="#update-patrons-messaging-preferences" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/maintenance/borrowers-force-messaging-defaults.pl</p>
+<p>做：將讀者的訊息偏好更新為 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者類型&lt;patron-categories-label&gt;`中設定的預設值。</p>
+<p>當 <a class="reference internal" href="patrons.html#add-a-new-patron-label"><span class="std std-ref">增加新讀者</span></a> 或當 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>使用讀者匯入工具&lt;patron-import-label&gt; 匯入讀者時，會自動設定預設訊息偏好，但是，如果您直接在資料庫中匯入讀者，則不會設定這些訊息偏好。</p>
+<p>沒有建議的頻率。這是一個在需要時使用的工具，如果您經常直接在資料庫中輸入讀者（例如經由第三方），您可以將它增加到您的排程列中。</p>
+<blockquote>
+<div><p><strong>DESCRIPTION</strong></p>
+<p>If the <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> system preference is enabled after borrowers have
+been created in the DB, those borrowers won’t have messaging transport
+preferences default values as defined for their borrower category. So you would
+have to modify each borrower one by one if you would like to send them ‘Hold
+Filled’ notice for example.</p>
+<p>此腳本為所有讀者建立/覆蓋訊息偏好，並將它們設定為為他們所屬類型定義的預設值（除非您使用選項 -not-expired 或 -no-overwrite 來更新子欄位）。</p>
+<p><strong>參數</strong></p>
+<ul>
+<li><p>–doit</p>
+<p>更新讀者。如果沒有此選項，腳本將不會更新讀者的訊息偏好。它只會列出應更新的讀者。</p>
+</li>
+<li><p>–not-expired</p>
+<p>僅更新仍然活躍的讀者（其檔案尚未過期）。</p>
+</li>
+<li><p>–no-overwrite</p>
+<p>只更新沒有任何訊息偏好的讀者。此選項將跳過已經設定了偏好的讀者。</p>
+</li>
+<li><p>–類型</p>
+<p>只更新指定類型的讀者。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>此選項**不能**重複。</p>
+<p>範例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">borrowers</span><span class="o">-</span><span class="n">force</span><span class="o">-</span><span class="n">messaging</span><span class="o">-</span><span class="n">defaults</span><span class="o">.</span><span class="n">pl</span> <span class="o">--</span><span class="n">doit</span> <span class="o">--</span><span class="n">category</span> <span class="n">PT</span> <span class="o">--</span><span class="n">category</span> <span class="n">B</span>
+</pre></div>
+</div>
+<p>只會更新類型 B（指定的最後一個類型）的讀者。</p>
+</div>
+</li>
+<li><p>–從</p>
+<p>僅更新自指定日期以來註冊的讀者。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>此選項可以使用特定或相對日期。</p>
+<p>範例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">borrowers</span><span class="o">-</span><span class="n">force</span><span class="o">-</span><span class="n">messaging</span><span class="o">-</span><span class="n">defaults</span><span class="o">.</span><span class="n">pl</span> <span class="o">--</span><span class="n">doit</span> <span class="o">--</span><span class="n">since</span> <span class="s2">&quot;2022-07-12&quot;</span>
+</pre></div>
+</div>
+<p>只會更新自 2022 年 7 月 12 日以來註冊的讀者。</p>
+<p>和:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>borrowers-force-messaging-defaults.pl --doit --since `date -d &quot;1 day ago&quot; &#39;+%Y-%m-%d&#39;
+</pre></div>
+</div>
+<p>只會更新自昨天以來註冊的讀者。</p>
+</div>
+</li>
+</ul>
+<p><strong>USAGE EXAMPLES</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">borrowers</span><span class="o">-</span><span class="n">force</span><span class="o">-</span><span class="n">messaging</span><span class="o">-</span><span class="n">defaults</span><span class="o">.</span><span class="n">pl</span> <span class="o">--</span><span class="n">doit</span>
+</pre></div>
+</div>
+<p>更新所有讀者其各自類型的訊息預設偏好值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">borrowers</span><span class="o">-</span><span class="n">force</span><span class="o">-</span><span class="n">messaging</span><span class="o">-</span><span class="n">defaults</span><span class="o">.</span><span class="n">pl</span> <span class="o">--</span><span class="n">doit</span> <span class="o">--</span><span class="ow">not</span><span class="o">-</span><span class="n">expired</span>
+</pre></div>
+</div>
+<p>更新所有會員資格未過期的讀者其各自類型的訊息預設偏好值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">borrowers</span><span class="o">-</span><span class="n">force</span><span class="o">-</span><span class="n">messaging</span><span class="o">-</span><span class="n">defaults</span><span class="o">.</span><span class="n">pl</span> <span class="o">--</span><span class="n">doit</span> <span class="o">--</span><span class="n">category</span> <span class="n">PT</span>
+</pre></div>
+</div>
+<p>更新 PT 類型中所有讀者的訊息預設偏好。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">borrowers</span><span class="o">-</span><span class="n">force</span><span class="o">-</span><span class="n">messaging</span><span class="o">-</span><span class="n">defaults</span><span class="o">.</span><span class="n">pl</span> <span class="o">--</span><span class="n">doit</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">overwrite</span> <span class="o">--</span><span class="n">since</span> <span class="s2">&quot;2022-03-01&quot;</span>
+</pre></div>
+</div>
+<p>更新未設定任何訊息偏好且自 2022 年 3 月 1 日起註冊的讀者。</p>
+</div></blockquote>
+</section>
+</section>
+<section id="notices">
+<span id="cron-notices-label"></span><h3>通知<a class="headerlink" href="#notices" title="此标题的永久链接"></a></h3>
+<section id="message-queue">
+<span id="cron-message-queue-label"></span><h4>信件佇列<a class="headerlink" href="#message-queue" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/process_message_queue.pl</p>
+<p>Does: processes the message queue to send outgoing emails and SMS messages to
+patrons. Messages are queued in the message queue by other scripts, such as
+<a class="reference internal" href="#cron-advanced-notice-label"><span class="std std-ref">advance_notices.pl</span></a>,
+<a class="reference internal" href="#cron-overdue-notice-label"><span class="std std-ref">overdue_notices.pl</span></a>, and
+<a class="reference internal" href="#cron-holdsreminder-label"><span class="std std-ref">holds_reminder.pl</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Requires that
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> be
+set to ‘Allow’.</p>
+</div>
+<p>建議頻率：1-4小時</p>
+<blockquote>
+<div><p><strong>DESCRIPTION</strong></p>
+<p>This script processes the message queue in the message_queue database
+table. It sends out the messages in that queue and marks them
+appropriately to indicate success or failure. It is recommended that
+you run this regularly from cron, especially if you are using the
+<a class="reference internal" href="#cron-advanced-notice-label"><span class="std std-ref">advance_notices.pl</span></a> script.</p>
+<p><strong>參數</strong></p>
+<ul class="simple">
+<li><p>-u | –username</p>
+<ul>
+<li><p>Username of the mail account used to send the notices.</p></li>
+</ul>
+</li>
+<li><p>-p | –password</p>
+<ul>
+<li><p>Password of mail account used to send the notices.</p></li>
+</ul>
+</li>
+<li><p>-t | –type</p>
+<ul>
+<li><p>If supplied, only processes this type of message. Possible values are</p>
+<ul>
+<li><p>email</p></li>
+<li><p>sms</p></li>
+</ul>
+</li>
+<li><p>Repeatable</p></li>
+</ul>
+</li>
+<li><p>-c | –code</p>
+<ul>
+<li><p>If supplied, only processes messages with this
+<a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">letter code</span></a>.</p></li>
+<li><p>Repeatable.</p></li>
+</ul>
+</li>
+<li><p>-l | –limit</p>
+<ul>
+<li><p>The maximum number of messages to process for this run.</p></li>
+</ul>
+</li>
+<li><p>-m | –method</p>
+<ul>
+<li><p>Authentication method required by SMTP server (see perldoc Sendmail.pm
+for supported authentication types).</p></li>
+</ul>
+</li>
+<li><p>-h | –help</p>
+<ul>
+<li><p>Help message.</p></li>
+</ul>
+</li>
+<li><p>-v | –verbose</p>
+<ul>
+<li><p>Provides verbose output to STDOUT.</p></li>
+</ul>
+</li>
+<li><p>-w | –where</p>
+<ul>
+<li><p>Filter messages to send with additional conditions in a where clause.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="advanced-notice">
+<span id="cron-advanced-notice-label"></span><h4>提前通知<a class="headerlink" href="#advanced-notice" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/advance_notices.pl</p>
+<p>Does: prepares “pre-due” notices and “item due” notices for patrons who
+request them prepares notices for patrons for items just due or coming
+due soon. requires
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> to be
+on</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>此腳本不會真的送出通知。祗把通知置於 <a class="reference internal" href="#cron-message-queue-label"><span class="std std-ref">訊息佇列</span></a> 供以後使用</p>
+</div></blockquote>
+</section>
+<section id="overdue-notice">
+<span id="cron-overdue-notice-label"></span><h4>逾期通知<a class="headerlink" href="#overdue-notice" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：Script path: misc/cronjobs/overdue_notices.pl</p>
+<p>做：準備讀者逾期的訊息 (經電子郵件或列印)</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>DESCRIPTION</strong></p>
+<p>This script creates and queues the overdue notices according to the
+parameters set in the
+<a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">overdue notice/status triggers tool</span></a>.</p>
+<p><strong>參數</strong></p>
+<ul>
+<li><p>-n | –nomail</p>
+<ul class="simple">
+<li><p>Do not send any email. Overdue notices that would have been sent to
+the patrons or to the admin are printed to standard out. CSV data (if
+the –csv flag is set) is written to standard out or to any CSV
+filename given.</p></li>
+</ul>
+</li>
+<li><p>–max &lt;days&gt;</p>
+<ul class="simple">
+<li><p>Maximum days overdue to deal with.</p></li>
+<li><p>Items overdue since longer than max days are assumed to be handled
+somewhere else, probably the <a class="reference internal" href="#cron-long-overdues-label"><span class="std std-ref">longoverdues</span></a>
+script. They are therefore ignored by this script. No notices are
+sent for them, and they are not added to any CSV files.</p></li>
+<li><p>Defaults to 90 days.</p></li>
+</ul>
+</li>
+<li><p>–library &lt;branchcode&gt;</p>
+<ul class="simple">
+<li><p>Only deal with overdues from this library.</p></li>
+<li><p>Use the value in the branches.branchcode table.</p></li>
+<li><p>This parameter is repeatable, to process overdues for a group of
+libraries.</p></li>
+</ul>
+</li>
+<li><p>–csv &lt;filename&gt;</p>
+<ul class="simple">
+<li><p>Produces a CSV file.</p></li>
+<li><p>If the -n (no mail) flag is set, this CSV data is sent to standard
+out or to a filename if provided. Otherwise, only overdues that could
+not be emailed are sent in CSV format to the admin.</p></li>
+</ul>
+</li>
+<li><p>–html &lt;directory&gt;</p>
+<ul class="simple">
+<li><p>Output html to a file in the given directory.</p></li>
+<li><p>If a patron does not have an email address or if the -n (no mail) flag
+is set, an HTML file is generated in the specified directory. This
+can be downloaded or further processed by library staff.</p></li>
+<li><p>The file will be called notices-YYYY-MM-DD.html and placed in the
+directory specified.</p></li>
+</ul>
+</li>
+<li><p>–text &lt;directory&gt;</p>
+<ul class="simple">
+<li><p>Output plain text to a file in the given directory.</p></li>
+<li><p>If a patron does not have an email address or if the -n (no mail) flag
+is set, a text file is generated in the specified directory. This can
+be downloaded or further processed by library staff.</p></li>
+<li><p>The file will be called notices-YYYY-MM-DD.txt and placed in the
+directory specified.</p></li>
+</ul>
+</li>
+<li><p>–itemscontent &lt;list of fields&gt;</p>
+<ul class="simple">
+<li><p>Item information in templates.</p></li>
+<li><p>Takes a comma separated list of fields that get substituted into
+templates in places of the &lt;&lt;items.content&gt;&gt; placeholder.</p></li>
+<li><p>Defaults to due date,title,barcode,author</p></li>
+<li><p>Other possible values come from fields in the biblio, items and issues
+tables.</p></li>
+</ul>
+</li>
+<li><p>–borcat &lt;categorycode&gt;</p>
+<ul class="simple">
+<li><p>Prepare only overdue notices for specified patron categories.</p></li>
+<li><p>This parameter is repeatable, to include several patron categories.</p></li>
+<li><p>Use the value in categories.categorycode.</p></li>
+</ul>
+</li>
+<li><p>–borcatout &lt;categorycode&gt;</p>
+<ul class="simple">
+<li><p>Do not prepare overdue notices for specified patron categories.</p></li>
+<li><p>This parameter is repeatable, to exclude several patron categories.</p></li>
+<li><p>Use the value in categories.categorycode.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p>t | –triggered</p></li>
+<li><p>This option causes a notice to be generated if and only if an item is
+overdue by the number of days defined in the
+<a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">overdue notice trigger</span></a>.</p></li>
+<li><p>By default, a notice is sent each time the script runs, which is
+suitable for less frequent run cron script, but requires syncing
+notice triggers with the cron schedule to ensure proper behavior.</p></li>
+<li><p>Add the –triggered option for daily cron, at the risk of no notice
+being generated if the cron fails to run on time.</p></li>
+</ul>
+</li>
+<li><p>–test</p>
+<ul class="simple">
+<li><p>This option makes the script run in test mode.</p></li>
+<li><p>In test mode, the script won’t make any changes on the DB. This is
+useful for debugging configuration.</p></li>
+</ul>
+</li>
+<li><p>–list-all</p>
+<ul class="simple">
+<li><p>By default, &lt;&lt;items.content&gt;&gt; lists only those items that fall in
+the range of the currently processing notice.</p></li>
+<li><p>Choose –list-all to include all overdue items in the list
+(limited by the –max setting).</p></li>
+</ul>
+</li>
+<li><p>–date &lt;yyyy-mm-dd&gt;</p>
+<ul class="simple">
+<li><p>Emulate overdues run for this date.</p></li>
+</ul>
+</li>
+<li><p>–email &lt;email_type&gt;</p>
+<ul class="simple">
+<li><p>Specify the type of email that will be used.</p></li>
+<li><p>Can be ‘email’, ‘emailpro’ or ‘B_email’.</p></li>
+<li><p>This parameter is repeatable.</p></li>
+</ul>
+</li>
+<li><p>–frombranch</p>
+<ul class="simple">
+<li><p>Organize and send overdue notices by home library (item-homebranch) or
+checkout library (item-issuebranch).</p></li>
+<li><p>Defaults to item-issuebranch.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This option is only used if the <a class="reference internal" href="circulationpreferences.html#overduenoticefrom-label"><span class="std std-ref">OverdueNoticeFrom</span></a> system
+preference is set to ‘command-line option’.</p>
+</div>
+</li>
+</ul>
+<p><strong>USAGE EXAMPLES</strong></p>
+<p>“overdue_notices.pl”</p>
+<p>(All libraries are processed individually, and notices are
+prepared for all patrons with overdue items for whom we have email
+addresses. Messages for those patrons for whom we have no email
+address are sent in a single attachment to the library administrator’s
+email address, or to the address in the <a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress-label"><span class="std std-ref">KohaAdminEmailAddress</span></a> system
+preference.)</p>
+<p>“overdue_notices.pl -n –csv /tmp/overdues.csv”</p>
+<p>(Sends no email and populates /tmp/overdues.csv with information about
+all overdue items.)</p>
+<p>“overdue_notices.pl –library MAIN max 14</p>
+<p>(Prepares notices of overdues in the last 2 weeks for the MAIN library.)</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This script does not actually send the notices. It queues them in
+the <a class="reference internal" href="#cron-message-queue-label"><span class="std std-ref">message queue</span></a> to be sent later or
+generates the HTML for printing.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>See also:</p>
+<p>The <a class="reference internal" href="#cron-advanced-notice-label"><span class="std std-ref">misc/cronjobs/advance_notices.pl</span></a>
+script allows you to send messages to patrons in advance of their items
+becoming due, or to alert them of items that have just become due.</p>
+<p>The <a class="reference internal" href="#cron-message-queue-label"><span class="std std-ref">misc/cronjobs/process_message_queue.pl</span></a>
+script sends the emails.</p>
+</div>
+</section>
+<section id="holds-reminder">
+<span id="cron-holdsreminder-label"></span><h4>Holds reminder<a class="headerlink" href="#holds-reminder" title="此标题的永久链接"></a></h4>
+<p>Script path: misc/cronjobs/holds/holds_reminder.pl</p>
+<p>Does: prepares reminder messages to be sent to patrons with waiting holds.</p>
+<p><a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> must be
+set to ‘Allow’, and patrons must have requested to have this notice (either
+through the <a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a> in their online account
+in the OPAC, if <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, or in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a> in the
+staff interface).</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>參數</strong></p>
+<ul>
+<li><p>-c | –confirm</p>
+<ul class="simple">
+<li><p>Confirm flag, no email will be generated if this parameter is not set</p></li>
+</ul>
+</li>
+<li><p>-date &lt;YYYY-MM-DD&gt;</p>
+<ul class="simple">
+<li><p>Send notices as would have been sent on a specific date</p></li>
+</ul>
+</li>
+<li><p>-days &lt;number of days&gt;</p>
+<ul class="simple">
+<li><p>Number of days the hold has been waiting</p></li>
+<li><p>If this parameter is not set, a notice will be sent to all patrons
+with waiting holds</p></li>
+<li><p>Optional parameter</p></li>
+</ul>
+</li>
+<li><p>-holidays</p>
+<ul class="simple">
+<li><p>Use the calendar exclude holidays from waiting days</p></li>
+</ul>
+</li>
+<li><p>-lettercode &lt;lettercode&gt;</p>
+<ul class="simple">
+<li><p>Code of the <a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">predefined notice</span></a>
+to use</p></li>
+<li><p>Optional parameter, the default is HOLD_REMINDER</p></li>
+</ul>
+</li>
+<li><p>-library &lt;branchcode&gt;</p>
+<ul class="simple">
+<li><p>Only deal with holds from this library</p></li>
+<li><p>This flag is repeatable, to select notices for a group of libraries</p></li>
+</ul>
+</li>
+<li><p>-mtt &lt;message_transport_type&gt;</p>
+<ul class="simple">
+<li><p>Type of messages to send (email, sms, print)</p>
+<ul>
+<li><p>‘email’ and ‘sms’ will fall back to ‘print’ if the patron does not
+have an email address/phone number</p></li>
+</ul>
+</li>
+<li><p>The default is to use the patrons’
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>
+for the ‘Hold reminder’ notice</p></li>
+<li><p>Passing this parameter will force send even if the patron has not
+chosen to receive hold reminder notices</p></li>
+<li><p>This can be repeated to send various notices</p></li>
+</ul>
+</li>
+<li><p>-t | –triggered</p>
+<ul class="simple">
+<li><p>Include only holds &lt;days&gt; days waiting, and not longer</p></li>
+<li><p>If this is not set, the script will send messages for all holds
+waiting for equal to or more than &lt;days&gt; days</p></li>
+<li><p>This option is useful if the cron is being run daily to avoid
+spamming the patrons</p></li>
+<li><p>Optional parameter</p></li>
+</ul>
+</li>
+<li><p>-v</p>
+<ul class="simple">
+<li><p>Verbose</p></li>
+<li><p>Without this flag set, only fatal errors are reported.</p></li>
+<li><p>If verbose is set but not confirm, a list of notices that would have
+been sent to the patrons are printed to standard out</p></li>
+</ul>
+</li>
+<li><p>-help</p>
+<ul class="simple">
+<li><p>Brief help message</p></li>
+</ul>
+</li>
+<li><p>-man</p>
+<ul class="simple">
+<li><p>Full documentation</p></li>
+</ul>
+<p><strong>範例</strong></p>
+<p>下列是此程式的範例:</p>
+<dl class="simple">
+<dt>::</dt><dd><p>holds_reminder.pl -library MAIN -days 14</p>
+</dd>
+</dl>
+<p>prepares notices of holds waiting for 2 weeks for the MAIN library</p>
+<dl class="simple">
+<dt>::</dt><dd><p>holds_reminder.pl -lettercode LATE_HOLDS -library MAIN -days 14</p>
+</dd>
+</dl>
+</li>
+</ul>
+<blockquote>
+<div><p>prepares notices of holds waiting for 2 weeks for the MAIN library, using
+the ‘LATE_HOLDS’ notice template</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="print-overdues">
+<span id="cron-printoverdues-label"></span><h4>印出逾期通知<a class="headerlink" href="#print-overdues" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/printoverdues.sh</p>
+<p>做：從目錄的 HTML 檔案產生 PDF 並列印</p>
+</section>
+<section id="print-hold-notices">
+<span id="cron-print-hold-notices-label"></span><h4>列印預約通知<a class="headerlink" href="#print-hold-notices" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/gather_print_notices.pl</p>
+<p>做：檢視因為讀者未留電子郵件地址而保留的訊息並產生列印通知</p>
+<p>建議頻率：每晚</p>
+</section>
+<section id="talking-tech">
+<span id="cron-talking-tech-label"></span><h4>Talking Tech<a class="headerlink" href="#talking-tech" title="此标题的永久链接"></a></h4>
+<p>設定此第三方產品的詳情參見 <a class="reference internal" href="third_party_software.html#talking-tech-label"><span class="std std-ref">Talking Tech</span></a>。</p>
+<section id="sending-notices-file">
+<span id="cron-sending-notices-file-label"></span><h5>送出通知檔<a class="headerlink" href="#sending-notices-file" title="此标题的永久链接"></a></h5>
+<p>腳本路徑：misc/cronjobs/thirdparty/TalkingTech_itiva_outbound.pl</p>
+<p>做：產生 Spec C 的通知檔案供 Talking Tech i-tiva 電話通知系統。</p>
+<p>Required by:
+<a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification-label"><span class="std std-ref">TalkingTechItivaPhoneNotification</span></a></p>
+<p>建議頻率：每晚</p>
+</section>
+<section id="receiving-notices-file">
+<span id="cron-receiving-notices-file-label"></span><h5>收到通知檔案<a class="headerlink" href="#receiving-notices-file" title="此标题的永久链接"></a></h5>
+<p>腳本路徑：misc/cronjobs/thirdparty/TalkingTech_itiva_inbound.pl</p>
+<p>做：腳本處理收到來自Talking Tech i-tiva 電話通知系統的結果檔案。</p>
+<p>Required by:
+<a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification-label"><span class="std std-ref">TalkingTechItivaPhoneNotification</span></a></p>
+<p>建議頻率：每晚</p>
+</section>
+</section>
+<section id="notify-patrons-of-expiration">
+<span id="cron-notify-patrons-of-expiration-label"></span><h4>通知讀者證有效日期<a class="headerlink" href="#notify-patrons-of-expiration" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/membership_expiry.pl</p>
+<p>做：把借書證到期的警示通知置於 <a class="reference internal" href="#cron-message-queue-label"><span class="std std-ref">訊息佇列</span></a> 工作排程。</p>
+<p>Requires: <a class="reference internal" href="patronspreferences.html#membershipexpirydaysnotice-label"><span class="std std-ref">MembershipExpiryDaysNotice</span></a></p>
+<p>頻率：每天</p>
+<blockquote>
+<div><p><strong>參數</strong></p>
+<blockquote>
+<div><ul>
+<li><dl class="option-list">
+<dt><kbd><span class="option">--man</span></kbd></dt>
+<dd><p>Prints the manual page and exits.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="option-list">
+<dt><kbd><span class="option">-v</span></kbd></dt>
+<dd><p>Verbose. Without this flag set, only fatal errors are reported.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="option-list">
+<dt><kbd><span class="option">-n</span></kbd></dt>
+<dd><p>Do not send any email. Membership expiry notices that would have
+been sent to the patrons are printed to standard out.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="option-list">
+<dt><kbd><span class="option">-c</span></kbd></dt>
+<dd><p>Confirm flag: Add this option. The script will only print a
+usage statement otherwise.</p>
+</dd>
+</dl>
+</li>
+<li><p>-branch Optional branchcode to restrict the cronjob to that branch.</p></li>
+<li><dl class="simple">
+<dt>-before Optional parameter to extend the selection with a number of days</dt><dd><p>BEFORE the date set by the preference.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="option-list">
+<dt><kbd><span class="option">-a<var>fter</var></span></kbd></dt>
+<dd><dl class="simple">
+<dt>Optional parameter to extend the selection with a number of days</dt><dd><p>AFTER the date set by the preference.</p>
+</dd>
+<dt>e.g. –before 100 –after 100 will notify patrons who have accounts expiring within a date range</dt><dd><p>of 100 days before and 100 days after the preference.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="option-list">
+<dt><kbd><span class="option">-w<var>here</var></span></kbd></dt>
+<dd><dl class="simple">
+<dt>Use this option to specify a condition. Add “me” (alias) followed by the column name from</dt><dd><p>the borrowers table.</p>
+</dd>
+</dl>
+<p>e.g. –where=”me.categorycode !=’YA’” will notify patrons from categories other than ‘YA’</p>
+<blockquote>
+<div><p>–where=”me.categorycode = ‘S’” will notify patrons from the category ‘S’ only</p>
+<p class="attribution">—where ‘me.lastseen IS NOT NULL’ will only notify patrons who have been seen.</p>
+</div></blockquote>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>-letter Optional parameter to use another notice than the default:</dt><dd><p>MEMBERSHIP_EXPIRY</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+<section id="in-processing-book-cart">
+<span id="cron-in-processing-book-cart-label"></span><h3>處理中/圖書車<a class="headerlink" href="#in-processing-book-cart" title="此标题的永久链接"></a></h3>
+<p>腳本路徑：misc/cronjobs/cart_to_shelf.pl</p>
+<p>做：以 CART 位置做為館藏永久位置而更新所有館藏。</p>
+<p>Required by: <a class="reference internal" href="catalogingpreferences.html#newitemsdefaultlocation-label"><span class="std std-ref">NewItemsDefaultLocation</span></a>, and
+<a class="reference internal" href="circulationpreferences.html#updateitemlocationoncheckin-label"><span class="std std-ref">UpdateItemLocationOnCheckin</span></a> system preferences</p>
+<p>建議頻率：每小時</p>
+</section>
+<section id="catalog">
+<span id="cron-catalog-label"></span><h3>目錄<a class="headerlink" href="#catalog" title="此标题的永久链接"></a></h3>
+<section id="import-webservice-batch">
+<span id="cron-import-webservice-batch-label"></span><h4>批次匯入網頁服務<a class="headerlink" href="#import-webservice-batch" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/import_webservice_batch.pl</p>
+<p>做：處理批次匯入 ‘網頁服務’ 屬性佇列的工作排程。也可經由 UI 處理批次。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>此腳本適用於 OCLC Connexion</p>
+</div></blockquote>
+</section>
+<section id="connexion-import-daemon">
+<span id="cron-connexion-import-daemon-label"></span><h4>Connexion Import Daemon<a class="headerlink" href="#connexion-import-daemon" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/bin/connexion_import_daemon.pl</p>
+<p>做：daemon 聽取 OCLC Connexion 的請求並回應 OCLC Gateway 規格。讀取 MARC XML 的請求並從組態檔匯入參數轉交給 svc/import_bib</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>此腳本適用於 OCLC Connexion</p>
+</div></blockquote>
+</section>
+<section id="batch-item-deletion">
+<span id="cron-delete-items-label"></span><h4>批次刪除館藏<a class="headerlink" href="#batch-item-deletion" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/delete_items.pl</p>
+<p>做：產生一項工作排程針對館藏資料庫並刪除在指令行符合條件的館藏。</p>
+<blockquote>
+<div><p><strong>參數</strong></p>
+<ul class="simple">
+<li><p>–verbose發送由收集的 C &lt;-where&gt; 參數以及受 Standard Out 影響的館藏所生成的 “WHERE” 子句。</p></li>
+<li><p>–where C&lt;-where&gt; 選項可以多次調用。以下參數必須是有效的SQL語法，該語法是語法查詢館藏表 C&lt;WHERE&gt; 的一部分。這些由 C&lt;AND&gt; 加入。</p></li>
+<li><p>–commit 無館藏會被刪除, 除非 C&lt;–commit&gt; 旗標出現</p></li>
+</ul>
+<p><strong>範例</strong></p>
+<p>下列是此程式的範例:</p>
+<p>delete_items.pl –where “items.withdrawn ! 0” –where “items.withdrawn_on &lt; $(date –date=”13 month ago” –rfc-3339=date)” –commit</p>
+<p>delete_items.pl –where “itemlost &gt;= ‘1’” –where “itemlost &lt;=’4’” –where “itemlost_on &lt; ‘2014-04-28’” –commit</p>
+</div></blockquote>
+</section>
+<section id="check-url-quick">
+<span id="cron-check-url-quick-label"></span><h4>快速檢查 URL<a class="headerlink" href="#check-url-quick" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/check-url-quick.pl</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>此腳本替換了已棄用的 check-url.pl 腳本</p>
+</div>
+<p>做: 檢查書目記錄中的網址；掃瞄所有書目記錄從856段分欄u發現的網址並且顯示</p>
+<blockquote>
+<div><p><strong>參數</strong></p>
+<ul>
+<li><p>–host=http://default.tld 使用不含URL，即不以 ‘http:’ 開頭的伺服器主機。例如，若 –host=http://www.mylib.com，則當856$u包含 ‘img/image.jpg’ 時，檢查的URL為：<a class="reference external" href="http://www.mylib.com/image.jpg">http://www.mylib.com/image.jpg</a>。</p></li>
+<li><p>–tags 段保留分欄u裡的網址。如果未提供，856段已檢查，許多段可以被指定，舉例：</p>
+<p>check-url-quick.pl –tags 310 410 856</p>
+</li>
+<li><p>–verbose|v 兩者輸出成功以及失敗的網址</p></li>
+<li><p>–html 輸出格式為HTML。結果可以轉成檔案，可以透過 http 取得．從這個方式，有可能直接連結至書目記錄的編輯模式。使用此參數 –host-intranet 是必需的.</p></li>
+<li><p>–host-intranet=http://koha-pro.tld 網路伺服器連結至Koha館員介面中書目記錄的編輯頁面。</p></li>
+<li><p>–timeout=10 抓網址的時限。預設10秒。</p></li>
+<li><p>–maxconn=1000 同時請求 HTTP 的數目. 預設是200個連結。</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-records-via-leader">
+<span id="cron-delete-records-via-leader-label"></span><h4>經由紀錄標示刪除紀錄<a class="headerlink" href="#delete-records-via-leader" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/delete_records_via_leader.pl</p>
+<p>做：刪除紀錄標示第 5 碼的內容為 ‘d’ 的 MARC 紀錄</p>
+<blockquote>
+<div><p><strong>參數</strong></p>
+<ul class="simple">
+<li><p>-c|–confirm 若沒有此參數，程式將無法執行</p></li>
+<li><p>-v|–verbose Verbose 模式</p></li>
+<li><p>-t|–test 測試模式，不會刪除記錄。測試模式不能決定記錄/館藏被刪除，它只能讓您知道程式將刪除那些記錄或館藏。</p></li>
+<li><p>-i|–delete-items 在刪除記錄前試著刪除。 記錄連同館藏無法刪除。</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="update-authorities">
+<span id="cron-update-authorities-label"></span><h4>更新權威記錄<a class="headerlink" href="#update-authorities" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/merge_authorities.pl</p>
+<p>做：依照權威記錄的變動更新對應的書目資料</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>此腳本的名稱是誤導。此腳本並未合併權威記錄反而合併與其連結的書目記錄。執行腳本時編輯權威記錄將適用於使用權威記錄的書目記錄。</p>
+</div></blockquote>
+<p>Required by: <a class="reference internal" href="authoritiespreferences.html#authoritymergelimit-label"><span class="std std-ref">AuthorityMergeLimit</span></a>
+system preference</p>
+<p>建議頻率：每晚</p>
+</section>
+<section id="serials-update">
+<span id="cron-serials-update-label"></span><h4>更新期刊<a class="headerlink" href="#serials-update" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/serialsUpdate.pl</p>
+<p>做：檢查訂閱中的期刊是否有 “遲到” 的刊期，若有，此腳本設定它為遲到，並把下一期列為期待簽收。</p>
+<p>建議頻率：每晚</p>
+</section>
+<section id="automatic-item-update">
+<span id="cron-automatic-item-update-label"></span><h4>自動更新館藏<a class="headerlink" href="#automatic-item-update" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/automatic_item_modification_by_age.pl</p>
+<p>Does: updates items based on the list of rules set forth in the
+<a class="reference internal" href="cataloging.html#automatic-item-modifications-by-age-label"><span class="std std-ref">Automatic item modifications by age</span></a> tool</p>
+<p>Required by: <a class="reference internal" href="cataloging.html#automatic-item-modifications-by-age-label"><span class="std std-ref">Automatic item modifications by age</span></a></p>
+<p>建議頻率：每晚</p>
+</section>
+<section id="stock-rotation">
+<span id="cron-stockrotation-label"></span><h4>Stock rotation<a class="headerlink" href="#stock-rotation" title="此标题的永久链接"></a></h4>
+<p>Script path: misc/cronjobs/stockrotation.pl</p>
+<p>Does: moves items from one <a class="reference internal" href="cataloging.html#stock-rotation-label"><span class="std std-ref">stock rotation</span></a> stage to
+the next, if they are available for processing.</p>
+<p>Each library will receive a report with “items of interest” for them for
+today’s rota checks. Each item there will be an item that should, according
+to Koha, be located on the shelves of that branch, and which should be picked
+up and checked in.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The email sent is based on the SR_SLIP template. It can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>The item will either:</p>
+<ul class="simple">
+<li><p>have been placed in transit to their new stage library;</p></li>
+<li><p>have been placed in transit to be returned to their current stage library;</p></li>
+<li><p>have just been added to a rota and will already be at the correct library;</p></li>
+</ul>
+<p>Upon check-in,</p>
+<ul class="simple">
+<li><p>items that need to be transferred elsewhere will be put in transit and a
+message will pop up requesting the item be sent to their new branch.</p></li>
+<li><p>items that are already at the correct library will be checked in and no
+message will pop up.</p></li>
+</ul>
+<p>Required by: <a class="reference internal" href="cataloging.html#stock-rotation-label"><span class="std std-ref">Stock rotation</span></a> tool</p>
+<p>建議頻率：每晚</p>
+<blockquote>
+<div><p><strong>參數</strong></p>
+<ul class="simple">
+<li><p>-a|–admin-email</p>
+<ul>
+<li><p>An address to which email reports should also be sent</p></li>
+<li><p>This is an additional email address to which all email reports will be
+sent, in addition to sending them to branch email addresses.</p></li>
+</ul>
+</li>
+<li><p>-b|–branchcode</p>
+<ul>
+<li><p>Select branch to report on for ‘email’ reports (default: all)</p></li>
+<li><p>If the ‘email’ report is selected, you can use the ‘branchcode’
+parameter to specify which branch’s report you would like to see.</p></li>
+<li><p>The default is ‘all’.</p></li>
+</ul>
+</li>
+<li><p>-x|–execute</p>
+<ul>
+<li><p>Actually perform stockrotation housekeeping</p></li>
+<li><p>By default, this script merely reports on the current status of the
+stock rotation subsystem. In order to actually place items in transit,
+the script must be run with the ‘execute’ argument.</p></li>
+</ul>
+</li>
+<li><p>-r|–report</p>
+<ul>
+<li><p>Select either ‘full’ or ‘email’</p></li>
+<li><p>The ‘report’ argument allows you to select the type of report that
+will be emitted.</p></li>
+<li><p>The default is ‘full’.</p></li>
+<li><p>If the ‘email’ report is selected, you can use the ‘branchcode’
+parameter to specify which branch’s report you would like to see.</p></li>
+</ul>
+</li>
+<li><p>-S|–Send-all</p>
+<ul>
+<li><p>Send email reports even if the report body is empty</p></li>
+<li><p>This argument causes even reports with an empty body to be sent.</p></li>
+</ul>
+</li>
+<li><p>-s|–send-email</p>
+<ul>
+<li><p>Send reports by email</p></li>
+<li><p>This argument causes the script to send reports by email.</p></li>
+</ul>
+</li>
+<li><p>-h|–help</p>
+<ul>
+<li><p>Display the help message</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="opac">
+<span id="cron-opac-label"></span><h3>OPAC<a class="headerlink" href="#opac" title="此标题的永久链接"></a></h3>
+<section id="rss-feeds">
+<span id="cron-rss-feeds-label"></span><h4>RSS Feeds<a class="headerlink" href="#rss-feeds" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/rss/rss.pl</p>
+<p>做：給任何 SQL 詢問使用的 RSS XML 文件 (不是供搜尋結果 RSS feed 使用)。<a class="reference internal" href="opac.html#custom-rss-feeds-label"><span class="std std-ref">詳情</span></a>。</p>
+<p>建議頻率：每小時</p>
+</section>
+<section id="authorities-browser">
+<span id="cron-authorities-browser-label"></span><h4>權威瀏覽器<a class="headerlink" href="#authorities-browser" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/build_browser_and_cloud.pl</p>
+<p>做：在 OPAC 產生權威瀏覽的內容</p>
+<p>Required by: <a class="reference internal" href="opacpreferences.html#opacbrowser-label"><span class="std std-ref">OpacBrowser</span></a> system preference</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>此偏好與工作排程應祗適用於法語系統。</p>
+</div></blockquote>
+</section>
+<section id="subject-author-clouds">
+<span id="cron-subject-author-clouds-label"></span><h4>主題/著者雲<a class="headerlink" href="#subject-author-clouds" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/cloud-kw.pl</p>
+<p>做：從 Koha Zebra 索引產生 HTML 鍵詞雲。misc/cronjobs/cloud-sample.conf 有若干此腳本運算元的範例。</p>
+<p>頻率：這是您可每月執行一次的腳本類型，其內容並不常變動。</p>
+</section>
+</section>
+<section id="system-administration">
+<span id="cron-system-administration-label"></span><h3>系統管理<a class="headerlink" href="#system-administration" title="此标题的永久链接"></a></h3>
+<section id="services-throttle">
+<span id="cron-services-throttle-label"></span><h4>服務量<a class="headerlink" href="#services-throttle" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/services_throttle.pl</p>
+<p>做：重設 xISBN 服務量</p>
+<p>建議頻率：每晚</p>
+</section>
+<section id="clean-up-database">
+<span id="cron-clean-up-database-label"></span><h4>清理資料庫<a class="headerlink" href="#clean-up-database" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/cleanup_database.pl</p>
+<p>做：截切 sessions 表單、清理 zebra 序列款目、作為記錄與待處理 MARC 檔案。</p>
+<p>請參考 <a class="reference external" href="http://schema.koha-community.org/">http://schema.koha-community.org/</a> Koha 資料庫綱要</p>
+<blockquote>
+<div><p><strong>參數</strong> -  –del-exp-selfreg</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>從讀者表單中刪除過期的自助註冊帳號（尚未從“臨時”類型升級的帳號）。</p></li>
+<li><p>The number of days for expiry is set in the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationexpiretemporaryaccountsdelay-label"><span class="std std-ref">PatronSelfRegistrationExpireTemporaryAccountsDelay</span></a> system
+preference.</p></li>
+<li><p>The temporary patron category is set in the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationdefaultcategory-label"><span class="std std-ref">PatronSelfRegistrationDefaultCategory</span></a> system preference.</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>–del-unv-selfreg DAYS</p>
+<ul class="simple">
+<li><p>刪除 borrower_modifications 中所有早於 DAYS 的未驗證自助註冊。</p></li>
+</ul>
+</li>
+<li><p>–deleted-catalog DAYS</p>
+<ul class="simple">
+<li><p>從表單 deletedbiblio、deletedbiblio_metadata、deletedbiblioitems 和 deleteditems 中清除超過 DAYS 天前刪除的書目記錄。</p></li>
+</ul>
+</li>
+<li><p>–deleted-patrons DAYS</p>
+<ul class="simple">
+<li><p>從 deletedborrowers 表單中清除超過 DAYS 天前刪除的讀者。</p></li>
+</ul>
+</li>
+<li><p>–fees DAYS</p>
+<ul class="simple">
+<li><p>清除 accountlines 表單中早於 DAYS 天的項目，其中 amountoutstanding 為 0 或 NULL。</p></li>
+<li><p>在 –fees 的情況下，DAYS 必須大於或等於 1。</p></li>
+</ul>
+</li>
+<li><p>-h|–help</p>
+<ul class="simple">
+<li><p>取得協助訊息</p></li>
+</ul>
+</li>
+<li><p>–import DAYS</p>
+<ul class="simple">
+<li><p>從匯入表單中清除早於 DAYS 天的項目。</p></li>
+<li><p>這包括 import_batches、import_biblios、import_items、import_record_matches 和 import_records。</p></li>
+<li><p>在 import_batches 中，使用 –z3950 參數移除 Z39.50 搜尋結果的批次。</p></li>
+<li><p>如果未指定天數，則預設為 60 天。</p></li>
+</ul>
+</li>
+<li><dl class="option-list">
+<dt><kbd><span class="option">--list-invites</span></kbd></dt>
+<dd><p>日數</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>從早於 DAYS 天的 virtualshelfshares 表單中清除（未接受的）清單分享邀請</p></li>
+<li><p>如果未指定天數，則預設為 14 天。</p></li>
+</ul>
+</li>
+<li><p>–logs DAYS</p>
+<ul class="simple">
+<li><p>從 action_logs 表中清除早於 DAYS 天的項目。</p></li>
+<li><p>如果未指定天數，則預設為 180 天。</p></li>
+</ul>
+</li>
+<li><p>–log-modules</p>
+<ul class="simple">
+<li><p>指定要清除的 action_log 模組。</p></li>
+<li><p>此選項可重複。</p></li>
+<li><p>請參閱 <a class="reference internal" href="faq.html#faq-action-logs-modules"><span class="std std-ref">動作記錄模組和動作</span></a> 模組名稱</p></li>
+</ul>
+</li>
+<li><p>–preserve-logs</p>
+<ul class="simple">
+<li><p>指定要排除的 action_log 模組。</p></li>
+<li><p>此選項可重複。</p></li>
+<li><p>請參閱 <a class="reference internal" href="faq.html#faq-action-logs-modules"><span class="std std-ref">動作記錄模組和動作</span></a> 模組名稱</p></li>
+</ul>
+</li>
+<li><p>-m|–mail DAYS</p>
+<ul class="simple">
+<li><p>從 message_queue 表中清除早於 DAYS 天的項目。</p></li>
+<li><p>如果未指定天數，則預設為 30 天。</p></li>
+</ul>
+</li>
+<li><p>–merged</p>
+<ul class="simple">
+<li><p>從 Need_merge_authorities 表中清除已完成的項目。</p></li>
+</ul>
+</li>
+<li><p>–oauth-tokens</p>
+<ul class="simple">
+<li><p>刪除過期的 OAuth2 tokens</p></li>
+</ul>
+</li>
+<li><p>–old-issues DAYS</p>
+<ul class="simple">
+<li><p>從 old_issues 表清除超過 DAYS 天前的借出還入。</p></li>
+</ul>
+</li>
+<li><p>–old-reserves DAYS</p>
+<ul class="simple">
+<li><p>清除從 old_reserves 表中 DAYS 天以上的預約。</p></li>
+</ul>
+</li>
+<li><p>–restrictions DAYS</p>
+<ul class="simple">
+<li><p>從 borrower_debarments 表中清除已超過 DAYS 天的讀者限制。</p></li>
+<li><p>如果未指定天數，則預設為 30 天。</p></li>
+</ul>
+</li>
+<li><p>–return-claims</p>
+<ul class="simple">
+<li><p>Purge all <a class="reference internal" href="circulation.html#resolve-return-claim-label"><span class="std std-ref">resolved return claims</span></a>
+older than the number of days specified in the system preference
+<a class="reference internal" href="circulationpreferences.html#cleanupdatabasereturnclaims-label"><span class="std std-ref">CleanUpDatabaseReturnClaims</span></a>.</p></li>
+</ul>
+</li>
+<li><p>–all-restrictions</p>
+<ul class="simple">
+<li><p>從 borower_debarments 表中清除所有過期的讀者限制。</p></li>
+</ul>
+</li>
+<li><p>–searchhistory DAYS</p>
+<ul class="simple">
+<li><p>從 search_history 表中清除早於 DAYS 天的項目。</p></li>
+<li><p>如果未指定天數，則預設為 30 天</p></li>
+</ul>
+</li>
+<li><p>–sessions</p>
+<ul class="simple">
+<li><p>清除工作階段表。</p></li>
+<li><p>如果您在使用者已登錄 Koha 時使用它，他們將須重新連線。</p></li>
+</ul>
+</li>
+<li><p>–sessdays DAYS</p>
+<ul class="simple">
+<li><p>僅清除大於 DAYS 天的工作階段。</p></li>
+</ul>
+</li>
+<li><p>–statistics DAYS</p>
+<ul class="simple">
+<li><p>從統計表單中清除超過 DAYS 天以上的項目。</p></li>
+</ul>
+</li>
+<li><p>–temp-uploads</p>
+<ul class="simple">
+<li><p>Delete temporary uploads from the uploaded_files table older than the
+number of days specified in the <a class="reference internal" href="toolspreferences.html#uploadpurgetemporaryfilesdays-label"><span class="std std-ref">UploadPurgeTemporaryFilesDays</span></a>
+system preference.</p></li>
+</ul>
+</li>
+<li><p>–temp-uploads-days DAYS</p>
+<ul class="simple">
+<li><p>Override the <a class="reference internal" href="toolspreferences.html#uploadpurgetemporaryfilesdays-label"><span class="std std-ref">UploadPurgeTemporaryFilesDays</span></a> system preference value.</p></li>
+</ul>
+</li>
+<li><p>–transfers DAYS</p>
+<ul class="simple">
+<li><p>從 branchtransfers 表單中清除已完成超過 DAYS 天的轉移。</p></li>
+</ul>
+</li>
+<li><p>–unique-holidays DAYS</p>
+<ul class="simple">
+<li><p>從 special_holidays 表單中刪除所有早於 DAYS 的單獨假日</p></li>
+</ul>
+</li>
+<li><p>–uploads-missing FLAG</p>
+<ul class="simple">
+<li><p>當 FLAG 為 true 時，刪除遺失檔案的上傳記錄，否則會計算</p></li>
+</ul>
+</li>
+<li><p>-v|–verbose</p>
+<ul class="simple">
+<li><p>verbose 模式</p></li>
+</ul>
+</li>
+<li><p>–zebraqueue DAYS</p>
+<ul class="simple">
+<li><p>清除已完成超過 DAYS 天的 zebraqueue 項目。</p></li>
+<li><p>如果未指定天數，則預設為 30 天。</p></li>
+</ul>
+</li>
+<li><p>–z3950</p>
+<ul class="simple">
+<li><p>清除 Z39.50 儲存於匯入表單內的搜尋紀錄。</p></li>
+<li><p>要清除所有其他匯入資訊，請參閱上面的 – 匯入參數。</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="share-usage-stats">
+<span id="cron-share-usage-stats-label"></span><h4>共享使用統計<a class="headerlink" href="#share-usage-stats" title="此标题的永久链接"></a></h4>
+<p>路徑腳本：misc/cronjobs/share_usage_with_koha_community.pl</p>
+<p>Does: sends your info to the <a class="reference external" href="http://hea.koha-community.org/">Hea
+website</a>
+if you’re sharing information via the <a class="reference internal" href="administrationpreferences.html#usagestats-label"><span class="std std-ref">UsageStats</span></a>
+feature</p>
+<p>頻率：每月</p>
+</section>
+<section id="search-for-data-inconsistencies">
+<span id="cron-search-data-inconsistencies-label"></span><h4>Search for data inconsistencies<a class="headerlink" href="#search-for-data-inconsistencies" title="此标题的永久链接"></a></h4>
+<p>Script path: misc/maintenance/search_for_data_inconsistencies.pl</p>
+<p>Does: reveals problems in data, such as</p>
+<ul class="simple">
+<li><p>items without home or holding <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library</span></a></p></li>
+<li><p>items without <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item type</span></a> or with invalid
+<a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item type</span></a></p></li>
+<li><p>bibliographic records without <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item type</span></a> or with
+invalid <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item type</span></a></p></li>
+<li><p>bibliographic records with invalid MARCXML</p></li>
+<li><p>bibliographic records without biblionumber or biblioitemnumber in MARCXML</p></li>
+<li><p>bibliographic records without title</p></li>
+<li><p>invalid values in fields where the
+<a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">framework</span></a> limits to an
+<a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized value category</span></a></p></li>
+<li><p>authority records without <a class="reference internal" href="administration.html#authority-types-label"><span class="std std-ref">authority type</span></a> or
+with invalid <a class="reference internal" href="administration.html#authority-types-label"><span class="std std-ref">authority type</span></a></p></li>
+<li><p>patrons who are too old or too young for their
+<a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">category</span></a></p></li>
+</ul>
+<p>Some of these issues can cause problems in circulation or catalog search, so
+it’s important that they be corrected.</p>
+<p>There is no suggested frequency. This is a tool to be used when needed.</p>
+</section>
+</section>
+<section id="acquisitions">
+<span id="cron-acquisitions-label"></span><h3>採訪<a class="headerlink" href="#acquisitions" title="此标题的永久链接"></a></h3>
+<section id="clean-up-old-suggestions">
+<span id="cron-clean-up-old-suggestions-label"></span><h4>清除舊的建議<a class="headerlink" href="#clean-up-old-suggestions" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/purge_suggestions.pl</p>
+<p>做：從建議管理區域移除舊的建議。</p>
+<p><strong>參數</strong></p>
+<ul>
+<li><p>幫助|？</p>
+<p>顯示協助資訊</p>
+</li>
+<li><p>天</p>
+<p>根據“管理於”日期定義要刪除的建議時期</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The system preference <a class="reference internal" href="acquisitionspreferences.html#purgesuggestionsolderthan-label"><span class="std std-ref">PurgeSuggestionsOlderThan</span></a> can also be used to
+define the number of days used in the script. If using the system preference,
+don’t use the ‘days’ parameter.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>基於 ‘管理於’ 建議的天數。</p>
+</div>
+</li>
+<li><p>確認</p>
+<p>此參數對於腳本執行是必需的。</p>
+</li>
+</ul>
+</section>
+<section id="email-suggestions-to-process">
+<span id="cron-email-suggestions-to-process-label"></span><h4>將建議以電郵送入程序<a class="headerlink" href="#email-suggestions-to-process" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/notice_unprocessed_suggestions.pl</p>
+<p>做：將待處理的採訪建議告知基金擁有者</p>
+</section>
+<section id="edi-message-processing">
+<span id="cron-edi-message-processing-label"></span><h4>EDI 訊息處理<a class="headerlink" href="#edi-message-processing" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/edi_cron.pl</p>
+<p>做：送出與接收 EDI 訊息</p>
+<p>頻率：每 15 分鐘</p>
+</section>
+<section id="remove-temporary-edi-files">
+<span id="cron-remove-temporary-edi-files-label"></span><h4>移除暫存 EDI 檔案<a class="headerlink" href="#remove-temporary-edi-files" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/remove_temporary_edifiles.pl</p>
+<p>做：移除 5 天前的暫存 EDI 檔案</p>
+</section>
+</section>
+<section id="reports">
+<span id="cron-reports-label"></span><span id="cron-deprecated-scripts-label"></span><h3>報表<a class="headerlink" href="#reports" title="此标题的永久链接"></a></h3>
+<section id="run-report">
+<h4>執行報表<a class="headerlink" href="#run-report" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/runreport.pl</p>
+<p>做：執行已經儲存的報表</p>
+<blockquote>
+<div><p><strong>參數</strong></p>
+<ul class="simple">
+<li><p>-v|–verbose Verbose 輸出</p></li>
+<li><p>–format=s 選擇格式。選擇文字, html, csv或tsv</p></li>
+<li><p>-e|–email 無論使用或不使用電子郵件 (implied by –to 或 –from)</p></li>
+<li><p>-a|–attachment 附加報告檔案。無法使用html格式</p></li>
+<li><p>–username 使用者名稱透過 SMTP 伺服器認證</p></li>
+<li><p>–password 密碼透過 SMTP 伺服器認證</p></li>
+<li><p>–method 身份驗證的類型。就是登錄, DIGEST-MD5, 等。</p></li>
+<li><p>–to=s 電子郵件地址送報告至</p></li>
+<li><p>–from=s 電子郵件地址送報告來自</p></li>
+<li><p>–subject=s 電子郵件的主旨</p></li>
+<li><p>–store-results 儲存報告結果</p></li>
+<li><p>–csv-header 在csv的第一列加入欄位名稱</p></li>
+</ul>
+<p><strong>參數</strong></p>
+<ul class="simple">
+<li><p>reportID 報表 ID 的 save_sql.id 編號，可以指定多個ID</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="social-data">
+<h3>社會資料<a class="headerlink" href="#social-data" title="此标题的永久链接"></a></h3>
+<section id="get-report-social-data">
+<h4>取得社會資料報表<a class="headerlink" href="#get-report-social-data" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/social_data/get_report_social_data.pl</p>
+<p>做：從 Babelthèque 下載資料加入 OPAC 紀錄</p>
+<p>建議頻率：每晚</p>
+</section>
+<section id="update-social-data">
+<h4>更新社會資料<a class="headerlink" href="#update-social-data" title="此标题的永久链接"></a></h4>
+<p>腳本路徑：misc/cronjobs/social_data/update_social_data.pl</p>
+<p>做：以 Babelthèque 資料更新 OPAC 紀錄</p>
+</section>
+</section>
+</section>
+<section id="daemons">
+<span id="cron-daemons-subchapter-label"></span><h2>守護行程<a class="headerlink" href="#daemons" title="此标题的永久链接"></a></h2>
+<p>常駐程式會持續執行輔助 Koha 作業。  您的資料庫和網頁伺服器將作為常駐程式執行。大多數較新版本的 Koha 啟動兩個不同的常駐程式：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>zebra - 此為索引伺服器</p></li>
+<li><p>koha-indexer - 此守護行程使用新的和修改的數據（書目和權威）更新索引伺服器</p></li>
+</ul>
+</div></blockquote>
+<p>這些守護行程由腳本 /etc/init.d/koha-common 啟動。</p>
+<section id="zebra-indexer-daemon">
+<span id="cron-koha-indexer-label"></span><h3>Zebra indexer daemon<a class="headerlink" href="#zebra-indexer-daemon" title="此标题的永久链接"></a></h3>
+<p>腳本路徑：/usr/sbin/koha-indexer（從 /etc/init.d/koha-common 調用）</p>
+<p>koha-indexer 腳本以守護行程模式調用 rebuild_zebra.pl。此模式下，腳本將連續運作並每30秒檢查數據庫中是否有新數據或修改過的數據。  然後將新記錄或修改後的記錄發送到Zebra 進行索引，這只需一秒鐘左右。與 <a class="reference internal" href="#cron-rebuild-index-label"><span class="std std-ref">cron job approach</span></a> 相比，此方法的優點是搜尋系統對更改的反應快很多。</p>
+</section>
+</section>
+<section id="deprecated-scripts">
+<h2>不適用的腳本<a class="headerlink" href="#deprecated-scripts" title="此标题的永久链接"></a></h2>
+<p>不應在未修改前執行這些：</p>
+<p>腳本路徑：misc/cronjobs/update_items.pl</p>
+<p>腳本路徑：misc/cronjobs/smsoverdues.pl</p>
+<p>腳本路徑：misc/cronjobs/notifyMailsOp.pl</p>
+<p>腳本路徑：misc/cronjobs/reservefix.pl</p>
+<p>腳本路徑：misc/cronjobs/zebraqueue_start.pl</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="implementation_checklist.html" class="btn btn-neutral float-left" title="應用核對清單" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="valuebuilder.html" class="btn btn-neutral float-right" title="Cataloguing plugins (value builders)" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

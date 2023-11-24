@@ -1,0 +1,1887 @@
+.. include:: images.rst
+
+.. _opac-label:
+
+OPAC
+===============================================================================
+
+.. _search-results-opac-label:
+
+Search results
+-------------------------------------------------------------------------------
+
+To search the OPAC you can either choose to enter your search words in
+the box at the top of the OPAC or click on the 'Advanced search' link to
+perform a more detailed search.
+
+|searchboxopac|
+
+If Elasticsearch is used and the :ref:`OpacBrowseSearch system preference <opacbrowsesearch-label>` is enabled, you will also see the :ref:`Browse search <browse-search-label>` option.
+
+.. Note:: 
+   
+   For more on searching check the :ref:`Searching<searching-label>` chapter in
+   this manual.
+
+.. _results-overview-label:
+
+Results overview
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|opacsearchresults|
+
+After performing a search, the number of results found for the search
+will appear above the results.
+
+By default, the search results are sorted based on the
+:ref:`OPACdefaultSortField and OPACdefaultSortOrder <opacdefaultsortfield-and-opacdefaultsortorder-label>`
+system preference values. To change the sort order of these results, you can 
+choose another sorting method from the drop-down menu on the right.
+
+|sortingresults|
+
+Under each title in the results list, there will be a series of values from the 
+record's leader (field 000). 
+
+|opacsearchresultsingle|
+
+.. Note:: 
+  
+   These values have nothing to do with the item types or collection codes you 
+   have applied to your records or items. This data is all pulled from the 
+   record's control fields.
+   
+   This can be turned on or off with the
+   :ref:`DisplayOPACiconsXSLT <DisplayOPACiconsXSLT-label>` system preference.
+
+Below each title, there will be the availability for the items attached to the 
+record.
+
+.. Note::
+
+   Even if you filtered on one library location, all locations that hold
+   the item will appear on the search results.
+
+.. Warning::
+
+   An item's hold status does not affect whether or not the item is
+   'available' until the item is in 'waiting' status. Items with
+   on-shelf holds will show as available until a staff member has pulled
+   them from the shelf and checked the item in make it show 'waiting'.
+
+If any :ref:`enhanced content system preferences <enhanced-content-system-preferences-label>`
+are turned on, there may be cover images next to the search results.
+
+If :ref:`Did you mean? <did-you-mean?-label>` options are set, there will be a
+yellow bar across the top of your results will other related
+searches.
+
+|image943|
+
+If you performed an advanced search you see an option to go back and
+edit your advanced search blow the list of results pages.
+
+|image1295|
+
+.. _filters-label:
+
+Filters
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To filter your results click on the links below the 'Refine your search'
+menu on the left of your screen
+
+|image944|
+
+Depending on your setting for the
+:ref:`DisplayLibraryFacets <DisplayLibraryFacets-label>` system preference you
+will see filters for your home, holding or both libraries.
+
+|image1296|
+
+After clicking a facet you can remove that filter from your results by
+clicking the small 'x' that appears to the right of the facet.
+
+|image1297|
+
+.. _search-rss-feeds-label:
+
+Search RSS feeds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You will be able to subscribe to your search results as an RSS feed by
+clicking the RSS icon in your address bar or next to the number of
+results. To learn more about what RSS feeds are check out `this tutorial
+video <http://www.youtube.com/watch?v=0klgLsSxGsU>`__.
+
+|opacsearchresults|
+
+Subscribing to search results as RSS feeds will allow you to see when a
+new item is added to the catalog in your area of interest.
+
+.. _bibliographic-record-label:
+
+Bibliographic record
+--------------------------------------
+
+When you click on a title from the search results, you're brought to the
+bibliographic detail of the record. This page is broken down in several
+different areas.
+
+At the top of your screen will be the title and the GMD:
+
+|image946|
+
+Below the title the authors will be listed. These come from your 1xx and
+7xx fields. Clicking the author will run a search for other titles with
+that author.
+
+|image947|
+
+If you have an authority file you will see a magnifying glass to the
+right of author (and other) authorities. Clicking that magnifying glass
+will take you directly to the authority record.
+
+|image948|
+
+If you have your :ref:`DisplayOPACiconsXSLT <DisplayOPACiconsXSLT-label>`
+preference set to 'show' you will see a material type that is determined
+by values in your fixed fields (learn more in the :ref:`XSLT material
+type icons <material-type-cataloging-guide-label>` cataloging guide.
+
+|image949|
+
+Next you'll see the description of the record you're viewing:
+
+|image950|
+
+Following that information you'll find the subject headings which can be
+clicked to search for other titles on similar topics
+
+|image951|
+
+If your record has a table of contents or summary it will appear next to
+the 'Summary' or 'Table of contents' label
+
+|image952|
+
+If your record has data in the 856 fields you'll see the links to the
+right of the 'Online resources' label
+
+|image953|
+
+If the title you're viewing is in a public list then you'll see a list
+of those to the right of the 'List(s) this item appears in' label and if
+it has tags they will appear below the 'Tags from this library' label
+
+|image954|
+
+In the tabs below the details you will find your holdings data
+
+|image955|
+
+     **Note**
+
+     -  You can customize the columns of this table in the 
+        :ref:`'Table settings'<column-settings-label>` section of the 
+        Administration module (table id: holdingst).
+
+Any notes (5xx fields) that have been cataloged will appear under 'Title
+notes'
+
+|image956|
+
+If the bibliographic record is linked to a subscription in the 
+:ref:`Serials module<serials-label>`, there will be a 'Subscriptions' tab 
+with the subscription and issues information.
+
+|subscriptiontab|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: subscriptionst).
+
+.. Note::
+
+   If you chose a notice in the 'Patron notification' field when
+   :ref:`adding the subscription <add-a-subscription-label>`, there will be a
+   button patrons can click to be notified by email when a new issue is received.
+
+If you're allowing comments they will appear in the next tab
+
+|image957|
+
+If the :ref:`OPACAuthorIdentifiers system preference <opacauthoridentifiers-label>`
+is turned on, and that your author authority records have standard identifiers,
+there will be an 'Author identifiers' tab showing the identifiers with links
+to the author record on the source website.
+
+|authoridentifiersopac|
+
+And finally if you have enabled FRBR and you have other editions of the
+title in your collection you will see the 'Editions' tab.
+
+|image958|
+
+To the right of the details you'll find a series of boxes. The first box
+is a list of buttons to help navigate the search results. From there you
+can see the next or previous result from your search or return to the
+results.
+
+|image959|
+
+Clicking 'Browse results' at the top of the right column will open up your
+search results on the detail page
+
+|image960|
+
+Below the search buttons you'll find the links to place a hold, print
+the record, save the record to your lists, add it to your cart or send to a 
+device (using a QR code).
+
+Another option that will appear on this right hand side bar, if a library is
+allowing purchase suggestions (see the :ref:`suggestion <suggestion-label>` system preference),
+is the ability to 'Suggest for Purchase'. Clicking this link will bring the
+user to the :ref:`purchase suggestion form<purchase-suggestions-opac-label>` to
+fill out.
+
+|biboptions|
+
+Clicking 'More searches' will show the list of libraries you entered in
+your :ref:`OPACSearchForTitleIn <OPACSearchForTitleIn-label>` preference
+
+|bibmoresearch|
+
+Under the 'Save record' label you will find a series of file formats you
+can save the record as. This list can be customized by altering the
+:ref:`OpacExportOptions <OpacExportOptions-label>` system preference.
+
+|image963|
+
+If at any time you want to change the view from the 'Normal' view to see
+the Marc or the ISBD you can click the tabs across the top of the record
+
+|image964|
+
+.. _report-concern-opac-label:
+
+Reporting concerns about bibliographic records
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the :ref:`OpacCatalogConcerns <opaccatalogconcerns-label>` system preference is
+enabled, patrons will be able to report concerns regarding specific bibliographic
+records.
+
+This is similar to the :ref:`problem report feature <opac-report-problem-label>`
+but is linked to a specific bibliographic record, and there is the possibility
+to have a resolution.
+
+To report a new concern,
+
+-  In the bibliographic record's detail page, click the 'Report a concern' link
+   in the options at the right side.
+
+   |biboptions|
+
+   .. Note::
+
+      Patrons must be logged in to report a concern. If they are not logged in,
+      the system will ask them for their login information.
+
+-  Fill in the concern form.
+
+   |reportaconcern|
+
+   -  Title: enter a title describing succinctly the problem.
+
+   -  Please describe your concern: enter details about the problem, being the
+      more descriptive possible so that the staff member who receives this is
+      able to replicate and see the problem.
+
+      An example of what is expected in the description is provided in the field:
+
+      ::
+
+       **Describe the concern**
+
+       A clear and concise description of what the concern is.
+
+       **To Reproduce**
+
+       Steps to reproduce the behavior:
+       1. Go to '...'
+       2. Click on '....'
+       3. Scroll down to '....'
+       4. See error
+
+       **Expected behavior**
+
+       A clear and concise description of what you expected to happen.
+
+      .. Note::
+
+         This text is customizable in the
+         :ref:`HTML customizations tool <html-customizations-label>`, by
+         changing the 'CatalogConcernTemplate' entry.
+
+         The text at the bottom of the form ("Please describe your concern
+         clearly...") is also customizable in the
+         :ref:`HTML customizations tool <html-customizations-label>`, by
+         changing the 'CatalogConcernHelp' entry.
+
+-  Click 'Submit'.
+
+This will send an email to the cataloging team to notify them that a new concern
+has been created. The email will be sent to the email address in the
+:ref:`CatalogerEmails <catalogeremails-label>` system preference. The email
+sent is the TICKET\_NOTIFY notice, which can be customized in the
+:ref:`Notices and slips tool <notices-and-slips-label>`.
+
+An email will also be sent to the reporter to notify them that the concern has
+been received. The email
+sent is the TICKET\_ACKNOWLEDGE notice, which can be customized in the
+:ref:`Notices and slips tool <notices-and-slips-label>`.
+
+Concerns reported about this record are visible in the 'Concerns' tab.
+
+|concernstab|
+
+All concern tickets will be visible in the catalog concerns report.
+
+Newly opened concern reports will also appear in the notification section at the
+bottom of the staff interface main page.
+
+|pendingrequests|
+
+.. _lists-and-cart-opac-label:
+
+Lists and the cart
+-------------------------------------------------------------------------------
+
+A cart is a temporary holding place for records you're interested in finding
+during this session. That means that once you log out of the OPAC or close the
+browser you lose the items in your cart.
+
+A list is a more permanent location for saving items.
+
+To learn more about lists, check the :ref:`Lists and cart <lists-and-cart-label>`
+chapter of this manual, which deal with these features in the staff interface.
+
+.. _lists-opac-label:
+
+Lists
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Patrons can manage their own private lists by visiting the 'Lists' section of
+their account.
+
+|yourlists|
+
+.. _creating-lists-label:
+
+Creating lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To create a list the patron simply needs to click the 'New list' link
+and populate the form that appears.
+
+|newlist|
+
+-  List name: the patron must enter a list name, it is the only required field
+
+-  Sort this list by: the patron can choose how they want the list sorted (by
+   title, author, publication year, call number or date added to the list).
+
+-  Category: the patron can choose to keep this list private or make it public.
+   A public list will be visible to all OPAC users.
+
+   .. Note::
+     
+      This field will only appear if the
+      :ref:`OpacAllowPublicListCreation <opacallowpubliclistcreation-label>`
+      system preference is set to 'Allow'. Otherwise all lists created by
+      patrons will be private.
+
+-  Allow changes to content from: the patron can choose who will be able to add
+   or remove titles from the list.
+   
+   -  Nobody: nobody, including the patron themselves will be able to add or
+      remove titles.
+
+   -  Owner only: only the patron who created the list will be able to add or
+      remove titles. If the list is public or shared, the OPAC users or sharers
+      will not be able to change the list contents.
+      
+   -  Anyone seeing this list: everyone who has access to the list will be able
+      to add or remove titles. If the list is public, this means everyone. If the
+      list is private, only the owner will have the ability to change the contents.
+      And if the list is shared, the owner and sharers will have this ability.
+      
+   -  Staff only: this option will only appear to staff members, to make the
+      list editable by all staff members.
+
+Lists can also be created by choosing the 'New list' option in the 'Add
+to' menu on the search results
+
+|addtonewlist|
+
+.. _adding-titles-to-lists-label:
+
+Adding titles to lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Titles can be added to lists from the search results or from the
+bibliographic record.
+
+In the search results, the option to add items to the list appear below each
+result ('Save to lists' button)
+
+|opacsearchresultsingle|
+
+and across the top of the results page, next to 'Select titles to: Add to...'
+
+|opacsearchresults|
+
+To add a single title to a list, click the 'Save to lists' option and
+then choose the list you'd like to add the title to. To add multiple
+titles to a list check the boxes on the left of the titles you want to
+add and then choose the list you want to add the titles to from the 'Add
+too' pull down at the top of the screen.
+
+From the bibliographic record, the option to save the title to a list is in the
+menu on the right.
+
+|opacrecorddetails|
+
+Titles can also be added to a list from the :ref:`cart <cart-opac-label>`.
+
+.. _viewing-lists-contents-label:
+
+Viewing lists contents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To view the contents of a list, click on the list name under the 'Lists'
+button.
+
+|chooselist|
+
+The contents of the list will look similar to your search results pages
+except that there will be different menu options across the top of the
+list.
+
+|listview|
+
+To the right of the list title there is an RSS icon that will allow you
+to subscribe to updates to the list.
+
+.. Note::
+
+   The RSS icon only appears on public lists.
+
+Using the menu options above the list you can place multiple items on
+hold, download the list contents, email the list or print the list out.
+
+-  To place a hold on one or more list items check the box to the left
+   of the item and click the 'Place hold' link at the top
+
+-  To download the list contents click the 'Download list' link and
+   choose the format you'd like to download the list in
+
+-  To email the list contents to someone, click the 'Send list' link and
+   enter in your email details in the form that pops up
+
+   |emailist|
+
+   .. Note::
+
+      The message sent when emailing the list is LIST, which can be customized
+      in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+-  To print the contents of your list out click the 'Print list' link
+
+.. _managing-lists-label:
+
+Managing lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once the list is saved, patrons can begin
+:ref:`adding items to it <adding-titles-to-lists-label>`. From the
+:ref:`'Lists' tab <your-lists-label>` in their account, the patron can edit
+and delete the lists they have created by clicking the appropriate button to the
+right of the list name.
+
+|yourlists|
+
+To edit the list's title or sorting patrons click the 'Edit' button to the
+right of the list description.
+
+|editlist|
+
+When clicking 'Delete' next to a list you will be asked to confirm that
+you want to delete the list.
+
+|deletelist|
+
+If the :ref:`OpacAllowSharingPrivateLists <OpacAllowSharingPrivateLists-label>`
+system preference is set to 'Allow', patrons will see the 'Share' button on the
+list of lists and the 'Share list' button at the top of each individual list.
+Clicking this will ask you to enter the email address of a patron.
+
+|sharelist|
+
+Once the email address is entered Koha will present you with a
+confirmation message
+
+|shareconfirmation|
+
+and will send a message to that patron.
+
+Once the other patron accepts the shared list, the sharing patron will receive
+a confirmation.
+
+.. Note::
+
+   The message sent to share the list is SHARE\_INVITE and the message sent
+   to the sharing patron to confirm the other patron has accepted the share is
+   SHARE\_ACCEPT. Both messages are customizable in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+The other patron will see the shared list with their own private lists (the type
+will be 'Shared' rather than 'Private'). They will also have the option to
+remove the share, if they don't want to have access to this list anymore.
+
+The owner of the shared list will have the option to transfer the ownership of
+the list to one of the patrons with whom the list is shared.
+
+If the :ref:`TagsInputOnDetail <TagsInputOnDetail-label>` system preference is
+enabled, patrons will have the possibility of
+:ref:`adding tags to titles <opac-tagging-label>` from the list view.
+
+.. _cart-opac-label:
+
+Cart
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _adding-titles-to-the-cart-label:
+
+Adding titles to the cart
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Titles can be added to the cart from the search results or from the
+bibliographic record.
+
+In the search results, the option to add items to the cart appear below each
+result ('Add to cart' button)
+
+|opacsearchresultsingle|
+
+and across the top of the results page, next to 'Select titles to: Add to...'
+
+|opacsearchresults|
+
+Clicking the 'Add to cart' button under a single result will add the one title
+to your cart.
+
+To add multiple titles at once, check the box to the left of each result
+and then choose 'Cart' from the 'Add to' pull down at the top of the
+screen. Once titles are added to the cart you will be presented with a
+confirmation at the top of the page.
+
+|addedtocart|
+
+From the results you will see which items are in your cart and will be
+able to remove those items by clicking '(remove)'.
+
+|iteminyourcart|
+
+From the bibliographic record, the option to add the title to the cart is in the
+menu on the right.
+
+|opacrecorddetails|
+
+.. _managing-the-cart-label:
+
+Managing the cart
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once there are titles in the cart, you can manage the contents by
+clicking on the 'Cart' button usually found at the top of the screen.
+Your cart will open in a new window.
+
+|cartcontents|
+
+From this window you are presented with several options. Across the top
+of the cart are several buttons.
+
+-  More details: clicking this will show additional information about the titles
+   in the cart (ISBNs, subjects, publisher info, notes and more).
+
+   |cartmoredetails|
+
+   When clicked, tThe 'More details' button will become 'Brief display'.
+   Clicking this will return to the default display in table form of the title,
+   author, copyright date and item location and status.
+
+-  Send: the option to send the contents of the cart to an email address.
+   This is handy if you want to send the resources you found at the library to
+   your home email account to refer to later or to send to a patron researching
+   a specific topic. Clicking this link will open up a new window that asks for
+   the email address and message to send.
+
+   |emailcart|
+
+   .. Warning::
+
+      The cart can only be emailed by logged in users. This will prevent the
+      cart email function from being used for spamming.
+
+   .. Note::
+
+      The message sent when emailing the cart is CART, which can be customized
+      in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+-  Download: you can download the contents of the cart in several pre-defined
+   formats or using a :ref:`CSV profile <csv-profiles-label>` that you defined
+   in the tools module.
+
+   |downloadcart|
+
+-  Empty and close: this will empty the cart and close the window.
+
+-  Hide window: this will close the window, but the cart will not be emptied.
+
+-  Print: this will print out the contents of the cart.
+
+In addition to the various different ways to save the contents of the
+cart, there are ways to add value to the data in your cart.
+
+Select one or more titles from the cart and choose one of the options:
+
+-  Remove: this will remove the selected titles from the cart.
+
+-  Add to a list: this will add the selected titles to a
+   :ref:`list <adding-titles-to-lists-label>`
+
+-  Place hold: this will :ref:`place a hold <placing-holds-label>` on all
+   selected titles
+
+-  Tag: if the :ref:`TagsInputOnDetail <TagsInputOnDetail-label>` system
+   preference is enabled, patrons will be able to
+   :ref:`add tags to selected titles <opac-tagging-label>`.
+
+.. _placing-holds-label:
+
+Placing holds
+----------------------------------
+
+Patrons can place holds on items via the OPAC if they're logged in and
+you have the :ref:`OPACHoldRequests <OPACHoldRequests-label>` preference set to
+'Allow'. If the item can be placed on hold the option to place it on
+hold will appear in several different places.
+
+-  When viewing a list or search results page you'll see the option to
+   place hold on multiple items by checking the boxes to the left of the
+   results and clicking 'Place hold' at the top
+
+   |image982|
+
+-  When viewing a list or search results page you'll see the option to
+   place the item on hold below the basic information about the title
+
+   |opacsearchresultsingle|
+
+-  When viewing an individual title you'll see the option to place a
+   hold in the box on the right side of the screen
+
+   |image984|
+
+No matter which of the above links you click to place your hold you'll
+be brought to the same hold screen.
+
+|image985|
+
+-  Check the box to the left of the items you'd like to place on hold
+
+-  The title includes a link back to the detail page for the record
+
+-  The priority shows where in the holds queue this hold will fall
+
+-  If allowed by your
+   :ref:`OPACAllowUserToChooseBranch <OPACAllowUserToChooseBranch-label>`
+   preference the patron can choose where they'd like to pick up their
+   hold. The list of available pickup locations will include all libraries that
+   have 'Pickup location' set to 'Yes' on the library configuration page.
+
+-  If you would like to see more options you can click 'Show more
+   options'
+
+   Place hold form with more options
+
+   -  If you have the
+      :ref:`AllowHoldItemTypeSelection <AllowHoldItemTypeSelection-label>`
+      preference set to 'Allow' and the record had more than one item
+      type attached you will see an option to choose to limit the hold
+      to a specific item type
+
+      |image1301|
+
+-  If allowed by your
+   :ref:`OPACAllowHoldDateInFuture <OPACAllowHoldDateInFuture-label>`
+   preference, the 'Hold starts on date' column will show. This field
+   allows the patron to have their hold start on a future date.
+
+-  By default holds placed in the system remain until canceled, but if
+   the patron fills in a 'Hold not needed after' date then the hold has
+   an expiration date.
+
+   -  **Important**
+
+          Expired holds are removed by the :ref:`expired holds cron
+          job <cron-expired-holds-label>`, this is not an automatic process
+          and must be set up by your system administrator
+
+-  If allowed by the :ref:`OpacHoldNotes <OpacHoldNotes-label>` preference then
+   patrons can leave notes about their holds for the library by clicking
+   the 'Edit notes' button
+
+   |image986|
+
+-  If the :ref:`EnableItemGroupHolds <enableitemgroupholds-label>` system
+   preference is set to 'Enable' and the record has
+   :ref:`item groups <item-groups-label>`, the patron can choose to place a hold
+   on the next available item of a group, rather than the next available item on
+   the whole record or a specific item.
+
+-  Depending on the rules you set regarding item specific holds in your
+   :ref:`circulation and fines rules <circulation-and-fines-rules-label>` the patron will be
+   allowed to choose whether to place the hold on the next available
+   copy and/or a specific copy.
+
+   |image987|
+
+After clicking the 'Place hold' button the patron will be brought to their
+account page where they'll see all of the items they have on hold.
+
+.. _request-recalls-opac-label:
+
+Requesting recalls
+-------------------------------------------------------------------------------
+
+If your library accepts recalls (see
+:ref:`setting up recalls<recalls-setup-label>` for more information), patrons
+will be able to place recalls on items.
+
+The option to request a recall appears in various places in the OPAC:
+
+-  In the results list after a search, the 'Place recall' option appears at the
+   bottom of each recallable result.
+
+   |opacsearchresultsingle|
+
+-  In the detailed record. the 'Place recall' option appears on the right
+   side of the screen (or bottom in mobile view) in the options
+
+   |biboptions|
+
+Either of those links will lead to the recall form.
+
+|placerecallform|
+
+-  Pick up location: the patron can choose where they'd like to pick up their
+   recalled item.
+
+-  Recall not needed after: if the patron not need this item after a certain
+   date, they can enter it here. The recall will be automatically expired
+   (with the :ref:`expire\_recalls.pl cronjob<cron-expire-recalls-label>`) after
+   that date.
+
+-  Recall next available item or Recall a specific item: the patron can choose
+   to recall any item or a specific one. If they choose 'Recall a specific item',
+   they will be asked to select the item in the list.
+
+Once the patron confirms their recall request, they will have get a message
+saying the the patron who currently has the item will be notified.
+
+.. Note::
+
+   The notice sent to the patron who currently has the item is
+   RETURN\_RECALLED\_ITEM. It can be edited in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+The request will be added to the recalls tab in their account summary, as well
+as in  their recall history list.
+
+.. _enhanced-content-opac-label:
+
+Enhanced content
+-------------------------------------------
+
+.. _opac-tagging-label:
+
+Tagging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Depending on the settings for the :ref:`TagsEnabled <TagsEnabled-label>`,
+:ref:`TagsInputOnList <TagsInputOnList-label>` and
+:ref:`TagsInputOnDetail <TagsInputOnDetail-label>` system preferences, patrons
+may be able to add tags to bibliographic records from the search results and/or
+from the bibliographic records' detail page.
+
+If you are allowing patrons to add tags from the search results list (see
+:ref:`TagsInputOnDetail <TagsInputOnDetail-label>`), patron will see an 'Add
+tag' button below each result and a 'Tag' option at the top of the screen.
+
+|opacsearchresults|
+
+To add a tag to one item, click 'Add tag', type the tag or tags (separated by
+commas) in the 'New tag' box and click 'Add'. You will be presented with a
+confirmation of your tags being added.
+
+|tagsadded-results|
+
+From the results you can also tag items in bulk by clicking the
+checkboxes on the left and then clicking the 'Tag' button at the top.
+After clicking the button it will change into an input box for you to
+add tags to all of the items you have selected.
+
+|tagaddmultiple-results|
+
+If the :ref:`TagsInputOnDetail <TagsInputOnDetail-label>` system preference is
+enabled, patrons will also have the possibility to add tags from a
+:ref:`list <lists-opac-label>` and from the :ref:`cart <cart-opac-label>`.
+
+If the :ref:`TagsInputOnDetail <TagsInputOnDetail-label>` system preference is
+enabled, patrons will have the possibility of adding tags from the record detail
+page by clicking the 'Add tag(s)' link. The link will be replaced by an input
+box.
+
+|tagadd-detail|
+
+Emojis can also be included using the emoji picker when adding tags from the
+record detail page.
+
+|emojipicker|
+
+.. _opac-comments-label:
+
+Comments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Patrons can leave comments in the OPAC if you have the
+:ref:`OPACComments <OPACComments-label>` preference set to allow this. Each
+bibliographic record has a comments tab below the bibliographic
+information.
+
+|image991|
+
+If the patron is logged in they will see a link to add a comment to the
+item. Clicking this link will open a pop up window with a box for their
+comments.
+
+|image992|
+
+Once the comment has been typed and the 'Submit' button clicked, the
+patron will see their comment as pending and other patrons will simply
+see that there are no comments on the item.
+
+|image993|
+
+Once the comment is approved the patron will see the number of comments
+on the 'Comments' tab and their comment labeled amongst the other
+comments. If the :ref:`ShowReviewerPhoto <ShowReviewerPhoto-label>` system preference is set to 'Show',
+the patron's photo pulled from the `Libravatar <https://www.libravatar.org>`_
+library will be displayed next to their comment.
+
+|yourcomment|
+
+Other patrons will see the comment with the name of the patron who left
+the comment (unless you have set the :ref:`ShowReviewer <ShowReviewer-label>`
+preference to not show patron names).
+
+|image995|
+
+If you have your :ref:`OpacShowRecentComments <OpacShowRecentComments-label>`
+set to show then you'll see the approved comments on that page.
+
+|image996|
+
+From this page patrons can subscribe to the recent comments using RSS if
+they would like.
+
+.. _zotero-label:
+
+Zotero
+~~~~~~~~~~~~~~~~~~~~
+
+Zotero is a Firefox add on that allows for the saving and generating of
+a bibliography. Learn more about and download Zotero at
+http://zotero.org.
+
+When on the search results in the Koha OPAC, if you have Zotero
+installed, you will see a folder icon in the address bar to the right of
+the URL. Clicking that folder will open up a list of titles on the page
+for you to pick from to add to Zotero.
+
+|image997|
+
+Select the titles you want to add to Zotero and then click the 'OK'
+button. This will add the title to Zotero. You can see the title by
+opening your Zotero library.
+
+|image998|
+
+.. _custom-rss-feeds-label:
+
+Custom RSS feeds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Using the :ref:`RSS feeds cron job <cron-rss-feeds-label>` you can generate an RSS feed for any SQL
+query (for example a new acquisitions RSS feed). The cron job is run on the
+command line to produce an RSS XML document.
+
+The output should be placed in a directory accessible to the OPAC (or
+staff) web interface so that users can download the RSS feed.
+
+An example of usage can be found at: misc/cronjobs/rss.pl
+lastAcquired.conf
+
+Normally the RSS cron job should be run periodically (e.g., daily) to keep the
+feed up-to-date.
+
+The configuration file (e.g., lastAcquired.conf) lists
+
+-  name of the template file to use
+
+-  path of output file
+
+-  SQL query
+
+The RSS cron job runs the SQL query, then feeds the output of the query through
+the template to produce the output file.
+
+    **Important**
+
+    To use custom RSS feeds you need to turn on the :ref:`RSS cron job <cron-rss-feeds-label>`.
+
+.. _opac-self-registration-label:
+
+OPAC self registration
+----------------------------------------------
+
+If you allow it, patrons can register for their own accounts via the
+OPAC. If you have the
+:ref:`PatronSelfRegistration <PatronSelfRegistration-label>` preference set to
+'Allow' then patrons will see a link to register below the log in box.
+
+|opachomeloginform|
+
+When the patron clicks the 'Register here' link they will be brought to a
+registration page. The options on the registration page can be controlled
+by editing the
+:ref:`PatronSelfRegistrationBorrowerMandatoryField <PatronSelfRegistrationBorrowerMandatoryField-label>`
+and the
+:ref:`PatronSelfRegistrationBorrowerUnwantedField <PatronSelfRegistrationBorrowerUnwantedField-label>`
+preferences.
+
+|image1000|
+
+Once the patron has submitted their registration they will
+either be sent an email to confirm their account (if you have the
+:ref:`PatronSelfRegistrationVerifyByEmail <PatronSelfRegistrationVerifyByEmail-label>`
+preference to require this) or presented with their new username and
+password. If the :ref:`PatronSelfRegistrationPrefillForm <PatronSelfRegistrationPrefillForm-label>` system preference is
+set to 'Show and prefill', they will be presented with the prefilled login form.
+
+|image1001|
+
+
+
+To be notified when a patron registers via the OPAC, use the :ref:`EmailPatronRegistrations <emailpatronregistrations-and-emailaddressforpatronregistrations-label>` system preference.
+
+Patrons registered in this way will not have a cardnumber until assigned
+one by the library, but will have access to all OPAC functionality
+immediately. For this reason it is recommended that you:
+
+-  set up a provisional :ref:`patron category <adding-a-patron-category-label>` for self
+   registered patrons (such as 'Self Registered) instead of using an
+   existing patron category and set that value in the
+   :ref:`PatronSelfRegistrationDefaultCategory <PatronSelfRegistrationDefaultCategory-label>`
+   preference
+
+-  give this patron category minimal circulation privileges in the
+   :ref:`circulation and fines rules <circulation-and-fines-rules-label>` (such as allowing a
+   couple holds, but no check outs)
+
+That way patrons will either have to come in to the library to verify
+their identity before given a cardnumber and the ability to check items
+out or the library will have to come up with internal policy on
+generating cardnumbers before providing them to self registered patrons.
+Once this is done the library can change the category to one that is
+more appropriate (be it an adult, resident, non resident, student, etc)
+and add a cardnumber/barcode.
+
+.. _your-account-label:
+
+Your account
+-------------------------------------------------------------------------------
+
+If the :ref:`opacuserlogin <opacuserlogin-label>` system preference is set to 'Allow', patrons can
+log in and access their account.
+
+Once logged in patrons are brought to their 
+:ref:`account summary <your-summary-label>`. 
+
+If patrons access the home page while logged in, and :ref:`OPACUserSummary <OPACUserSummary-label>` is 
+set to 'Show', they will see a small summary of their account instead of the 
+login fields.
+
+|OPACUserSummary|
+
+If :ref:`OPACShowSavings <opacshowsavings-label>` is set to
+display savings in the summary box, this summary section will also contain the
+savings the patron made by using the library rather than purchasing the items.
+
+|OPACShowSavings-summarybox|
+
+From any page on the OPAC, clicking on their name at the top right of the page 
+will bring a patron back to their account.
+
+.. _resetting-your-password-label:
+
+Resetting your password
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you have the :ref:`OpacResetPassword <OpacResetPassword-label>` system preference set to 'Allow',
+patrons can reset their password by clicking the 'Forgot your password?'
+link found under the login box.
+
+|forgotpwlink|
+
+Once clicked, they will be presented with a form asking for their
+username and their email address.
+
+|passwordrecover|
+
+.. Warning::
+
+   Patrons **must** have an email address on file to reset their password.
+   If they don't have an email address already in their file, they will get 
+   an error message
+
+   |reseterror|
+
+The system will then email the patron instructions for resetting their
+password.
+
+|resetconfirm|
+
+The content of the email can be customized with the
+:ref:`Notices and slips tool <notices-and-slips-label>`. The code of the letter 
+is PASSWORD\_RESET.
+
+If the :ref:`NotifyPasswordChange <notifypasswordchange-label>` system
+preference is enabled, the patron will receive a notification indicating their
+password was changed.
+
+The content of that email can be customized with the
+:ref:`Notices and slips tool <notices-and-slips-label>`. The code of the letter
+is PASSWORD\_CHANGE.
+
+.. _your-summary-label:
+
+Your summary
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+From the 'your summary' tab, patrons will see all of the items they have 
+checked out with the overdue items highlighted in red. 
+
+|yoursummary|
+
+:ref:`OPAC messages <opac-messages-label>` and :ref:`OPAC notes <opac-notes-label>`
+will be displayed at the top of this page. For OPAC messages, the patron will
+have the option to dismiss the message. This will hide the message from their
+OPAC account and mark it as read, but it will not delete the message.
+
+|opacmessage2|
+
+You can add content to this page with the
+:ref:`OpacMySummaryNote HTML customization location <html-customizations-label>`.
+Content added there will appear above the patron's summary and below the
+welcome message.
+
+|OpacMySummaryNote|
+
+If :ref:`OPACShowSavings <opacshowsavings-label>` is set to
+display savings in the 'your summary' page, this section will also contain the
+savings the patron made by using the library rather than purchasing the items.
+
+|OPACShowSavings-yoursummary|
+
+If :ref:`OpacRenewalAllowed <OpacRenewalAllowed-label>` set to 'Allow', patrons will be able to renew 
+their checkouts from the OPAC.
+
+If the patron has pending charges exceeding the value set in 
+:ref:`OPACFineNoRenewals <OPACFineNoRenewals-label>`, a note will display explaining that renewals cannot 
+be made.
+
+|OPACFineNoRenewals|
+
+A note will display if the patron cannot place holds due to their charges 
+exceeding the value set in the :ref:`maxoutstanding <maxoutstanding-label>` system preference.
+
+|maxoutstanding|
+
+If :ref:`AllowPatronToControlAutoRenewal <AllowPatronToControlAutoRenewal-label>` is set to 'Allow patrons', patrons 
+will be able to choose whether or not they want their checkouts to be 
+renewed automatically. If they choose ‘Yes’, items for which automatic renewal is enabled in the circulation rules will renew as expected. If they choose ‘No’, the automatic renewals that would have applied to this patron’s checkouts will not take place.
+
+|allowautorenewal|
+
+If you have HTML entered in the :ref:`OPACMySummaryHTML <OPACMySummaryHTML-label>`
+preference then you will see that to the right of the 'Fines' column.
+
+.. Tip::
+
+   By default, the barcode is not displayed in the patron's checkout table on
+   the OPAC. If your patrons would like to see the items barcodes on their list of
+   checked out items you can set up a
+   :ref:`patron attribute <patron-attribute-types-label>` with the value of
+   SHOW\_BCODE and :ref:`authorized value <authorized-values-label>` of YES\_NO.
+
+   |SHOW_BCODEadd|
+
+   Then, on the :ref:`patron's record set the value <editing-patrons-label>` for
+   SHOW\_BCODE to 'Yes'.
+
+   |SHOW_BCODEattribute|
+
+   This will add a column to the checkout summary in the OPAC that shows
+   the patron the barcodes of the items they have checked out.
+
+If you would like your patrons to leave a note on an item they have checked out
+:ref:`AllowCheckoutNotes <allowcheckoutnotes-label>` preference must be set to allow.
+
+In the patron's summary of checkouts, there will be an added column
+to allow the patron to leave a note (for example: missing first page, or DVD is
+scratched).
+
+|AllowCheckoutNotes|
+
+When the patron clicks on 'Add note', they will be able to write a note about
+this checkout.
+
+|checkoutnote|
+
+Staff will be able to :ref:`see and manage checkout notes <checkoutnotes-label>`
+from the staff interface.
+
+If their guarantee has allowed it via :ref:`their privacy <your-privacy-label>`,
+or alternatively, if the staff is allowed to change this privacy setting in the
+staff interface with the :ref:`AllowStaffToSetCheckoutsVisibilityForGuarantor <AllowStaffToSetCheckoutsVisibilityForGuarantor-label>`
+system preference and this setting is turned on, when the guarantor logs in
+they will see a tab labeled "Relatives' checkouts" on their summary tab.
+
+|relativecheckouts|
+
+Clicking on the 'Overdue' tab will show only the items that are overdue.
+
+|myoverdues|
+
+The 'Fines' tab will show just a total of what the patron owes. Clicking
+on the total will take them to the 'your fines' tab where they will see a
+complete breakdown of their fines and bills. If you don't charge fines
+at your library you can turn the display of these tabs off by setting
+the :ref:`OPACFinesTab <OPACFinesTab-label>` preference to 'Don't allow.'
+
+|mycharges|
+
+If their guarantee has allowed it via :ref:`their privacy <your-privacy-label>`,
+or alternatively, if the staff is allowed to change this privacy setting in the
+staff interface with the :ref:`AllowStaffToSetFinesVisibilityForGuarantor <AllowStaffToSetFinesVisibilityForGuarantor-label>`
+system preference and this setting is turned on, when the guarantor logs in
+they will see a tab labeled "Relatives' charges" on their summary tab.
+
+|relativecharges|
+
+The 'Holds' tab shows the patron the status of
+all of the items they have on hold.
+
+|myholds|
+
+Depending on the value of the :ref:`SuspendHoldsOpac <SuspendHoldsOpac-label>`
+system preference, patrons can suspend their own holds if they are not in
+transit or already waiting for them. When they click 'Suspend' they will be
+presented with the option to choose a date for their hold to resume.
+
+|suspenduntil|
+
+They can also suspend all of their holds indefinitely or until a
+specific date if they choose by filling in the suspend options at the
+bottom of the page.
+
+.. Note::
+
+   If the :ref:`AutoResumeSuspendedHolds <AutoResumeSuspendedHolds-label>`
+   system preference is set to "Don't allow", patrons will not have the option
+   to put an end date on the hold suspension.
+
+From this tab, patrons can also cancel holds. Depending on the
+:ref:`waiting hold cancellation policy <defaultwaitingholdcancellationpolicy-label>`,
+they may also be able to cancel holds that are already waiting for them.
+
+Depending on the value of the :ref:`OPACAllowUserToChangeBranch <opacallowusertochangebranch-label>`
+system preference, the patron may be able to change the pickup library of holds.
+When one or more status is selected in the system preference, a 'Change' link
+will appear under the current pickup library's name for holds that have that
+status.
+
+|myholds-changepickuplibrary|
+
+When the patron clicks on the 'Change' link, there is a pop-up with a selection
+of libraries that allow hold pickups.
+
+|myholds-changepickuplibrary-modal|
+
+If your library :ref:`allows recalls<recalls-label>`, the patron can see the
+recalls they have requested and their various statuses in the 'Recalls' tab.
+
+|myrecalls|
+
+The patron can cancel a recall by clicking the 'Cancel' button, provided that
+it is not already awaiting pickup.
+
+.. _patron-flags-label:
+
+Patron flags
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you have :ref:`flagged your patron's account <add-patron-flags-label>` they may
+see one of the following error messages at the top of their account.
+
+-  Card marked as lost
+
+   |image1011|
+
+-  Patron address in question
+
+   |image1012|
+
+   -  **Note**
+
+          this error message will not include a link to the update form
+          if you have :ref:`OPACPatronDetails <OPACPatronDetails-label>` set to
+          'Don't allow'
+
+-  Patron marked restricted
+
+   |image1013|
+
+.. _your-fines-label:
+
+Your fines
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your library charges fines the next tab on the left is 'your fines'.
+Opening this tab will show the patron an entire history of their
+accounting at the library.
+
+|image1014|
+
+If you are allowing patrons to pay their fines using PayPal with the
+:ref:`EnablePayPalOpacPayments <enablepaypalopacpayments-and-paypalsandboxmode-label>` preference
+there will be checkboxes to the left of each fine with an outstanding
+amount.
+
+|image1306|
+
+At the bottom the patron will see the option to pay with PayPal for the
+items they have checked.
+
+|image1015|
+
+After paying they will be presented with a confirmation
+
+|image1307|
+
+And you will see that the fine was paid using PayPal on the staff
+side.
+
+|image1308|
+
+.. _your-details-label:
+
+Your personal details
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you have your :ref:`OPACPatronDetails <OPACPatronDetails-label>` preference
+set to 'Allow', your patrons will see a form filled in with their
+contacting information by clicking on the 'Your personal details' tab. You
+can control what fields patrons see and can modify via the OPAC by
+setting the :ref:`PatronSelfModificationBorrowerUnwantedField <patronselfmodificationborrowerunwantedfield-label>` and :ref:`PatronSelfModificationMandatoryField <patronselfmodificationmandatoryfield-label>` preferences.
+
+|personaldetails|
+
+Patrons can edit their details in this form and click 'Submit changes'
+to have their edits sent to the library for review before their record
+is updated. Staff will see all patrons requesting modification to their
+record listed below the modules on the main dashboard along with
+anything else awaiting library attention.
+
+|pendingrequests|
+
+If the :ref:`OPACPatronDetails <OPACPatronDetails-label>` preference is set to
+'Don't allow' then patrons will simply see their details and a message
+stating that they should contact the library for changes.
+
+.. _your-tags-label:
+
+Your tags
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your library has :ref:`TagsEnabled <TagsEnabled-label>` set to 'Allow' then
+the next tab on the left will be 'your tags'. This tab will show patrons
+all of the tags in the system as a cloud and then all of the tags they
+have applied in a list format. From here patrons have the ability to
+remove tags that they have added if they want.
+
+|image1019|
+
+.. _change-your-password-label:
+
+Change your password
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Next, if you have :ref:`OpacPasswordChange <OpacPasswordChange-label>` set to
+'Allow' the next tab will be 'change your password,' where patrons can
+change their password for logging into the OPAC. Patrons will be
+presented with a standard form asking them to enter their old password
+and then their new password twice.
+
+|image1020|
+
+If the :ref:`NotifyPasswordChange <notifypasswordchange-label>` system
+preference is enabled, the patron will receive a notification indicating their
+password was changed.
+
+The content of this email can be customized with the
+:ref:`Notices and slips tool <notices-and-slips-label>`. The code of the letter
+is PASSWORD\_CHANGE.
+
+.. _your-search-history-label:
+
+Your search history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you have your :ref:`EnableOpacSearchHistory <EnableOpacSearchHistory-label>`
+preference set to 'Keep' then your patrons can access their search
+history via the 'your search history' tab.
+
+|image1021|
+
+The search history is a record of all searches run by the patron.
+Clicking on any of the search phrases will re-run the search for the
+patron. The search history can be deleted by the patron at any time by
+clicking the 'Delete your search history' link found at the top of this
+tab or by clicking the little red 'x' next to the 'Search history' link
+at the top right of the OPAC.
+
+|image1022|
+
+.. _your-checkout-history-label:
+
+Checkout history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the :ref:`opacreadinghistory <opacreadinghistory-label>` system preference is
+set to 'Allow', patrons will have access to the 'Checkout history' tab. This
+will show the patron their entire borrowing history, unless they have asked the
+library to not keep that information via the :ref:`'Privacy' tab <your-privacy-label>`.
+
+|yourcheckouthistory|
+
+If :ref:`OPACShowSavings <opacshowsavings-label>` is set to
+display savings in the 'your summary' page, this section will also contain the
+savings the patron made by using the library rather than purchasing the items.
+
+|OPACShowSavings-checkouthistory|
+
+.. _your-privacy-label:
+
+Your privacy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The 'your privacy' tab will appear if you have both the
+:ref:`opacreadinghistory <opacreadinghistory-label>` and the
+:ref:`OPACPrivacy <OPACPrivacy-label>` preferences set to 'Allow.' This tab will
+allow the patrons to decide how the library keeps their circulation
+history data.
+
+|image1024|
+
+The patron can choose from three options:
+
+-  Forever: keep my reading history without limit. This is the option
+   for users who want to keep track of what they are reading.
+
+-  Default: keep my reading history according to local laws. This is the
+   default option : the library will keep your reading history for the
+   duration permitted by local laws.
+
+-  Never: Delete my reading history immediately. This will delete all
+   record of the item that was checked-out upon check-in.
+
+Depending on the patron's suggestions the contents of the ':ref:`Your reading
+history <your-checkout-history-label>`' tab and the ':ref:`Circulation
+History <circulation-history-label>`' tab in the staff client may change.
+
+Regardless of the patron's choice they can delete their reading history
+in bulk at any time by clicking the 'Immediate deletion' button.
+
+|image1025|
+
+Clicking this button will not delete items that are currently checked
+out, but will clear the patron's past reading history.
+
+    **Important**
+
+    In order for the patron to be able to delete their reading history
+    you must have the :ref:`AnonymousPatron <AnonymousPatron-label>` preference
+    set.
+
+If you're allowing guarantees to grand permission to their guarantors to
+view their current checkouts with the
+:ref:`AllowPatronToSetCheckoutsVisibilityForGuarantor <AllowPatronToSetCheckoutsVisibilityForGuarantor-label>`
+preference they will see that option on this
+screen.
+
+|image1309|
+
+When the guarantor logs in they will see a tab labeled "Relatives'
+checkouts" on their summary tab.
+
+|relativecheckouts|
+
+.. _your-holds-history-label:
+
+Your holds history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the :ref:`OPACHoldsHistory <OPACHoldsHistory-label>` system preference is set to 'Allow', patrons
+will be able to see all their current and past holds.
+
+|opacholdshistory|
+
+.. _your-purchase-suggestions-label:
+
+Your purchase suggestions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your library allows patrons to make purchase suggestions the next tab
+will show all suggestions that the patron made to the library and their
+statuses. To disable this tab and the suggestion functionality set the
+:ref:`suggestion <suggestion-label>` preference to 'Don't allow.'
+
+|image1026|
+
+If you have :ref:`OPACViewOthersSuggestions <OPACViewOthersSuggestions-label>`
+set to 'Show' then patrons will be able to search suggestions from the
+top of this list.
+
+.. _your-messaging-label:
+
+Messaging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your library has the
+:ref:`EnhancedMessagingPreferences <EnhancedMessagingPreferences-label>` and the
+:ref:`EnhancedMessagingPreferencesOPAC <EnhancedMessagingPreferencesOPAC-label>`
+preferences set to 'Allow' then your patrons will be able to choose
+which messages they receive from the library (with the exception of
+overdue notices which the library controls).
+
+|image1027|
+
+If you use an outside driver for sending text messages set with the
+:ref:`SMSSendDriver <SMSSendDriver-label>` preference, you will see an
+additional column to receive these messages as SMS (or text messages)
+and a field for a cell (or SMS) number.
+
+|image1028|
+
+If you are using the Email protocol for sending text messages set with
+the :ref:`SMSSendDriver <SMSSendDriver-label>` preference, you will see an
+additional column to receive these messages as SMS (or text messages), a
+field for a cell (or SMS) number, and a pull down listing :ref:`cellular
+providers entered in administration <sms-cellular-providers-label>`.
+
+|image1029|
+
+If you are using the :ref:`i-tiva Talking
+Tech <talkingtechitivaphonenotification-label>` service you will see an
+additional column to receive these messages via Phone.
+
+|image1311|
+
+-  These notices are:
+
+   -  Advanced notice: A notice in advance of the patron's items being
+      due (The patron can choose the number of days in advance)
+
+   -  Item checkout: A notice that lists all the of the items the
+      patron has just checked out and/or renewed, this is an electronic
+      form of the checkout receipt
+
+   -  Hold filled: A notice when you have confirmed the hold is waiting
+      for the patron
+
+   -  Item due: A notice on the day and item is due back at the library
+
+   -  Item check-in: A notice that lists all the of the items the
+      patron has just checked in
+
+      .. Note::
+
+        This notice can be customized by editing the CHECKIN notice in the
+        :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+   -  Item checkout: A notice that lists all the of the items the patron has just
+      checked out and/or renewed, this is an electronic form of the checkout
+      receipt
+
+      .. Note::
+
+         This notice can be customized by editing the CHECKOUT notice in the
+         :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+   -  Auto renewal: A notice that notifies the patron that their checkouts have
+      been automatically renewed, or if there was a problem with their automatic
+      renewal.
+
+      .. Note::
+
+         This notice can be customized by editing the AUTO\_RENEWAL or
+         AUTO\_RENEWAL\_DGST notices in the
+         :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+      -  This option will only appear if the
+         :ref:`AutoRenewalNotices <AutoRenewalNotices-label>` is set to
+         "according to patrons messaging preferences".
+
+Patrons can choose to receive their notices as a digest by checking the
+'Digest only?' box along with the delivery method. A digest is a
+combination of all the messages of that type (so all items due in 3 days
+in one email) in to one email instead of multiple emails for each alert.
+
+If the :ref:`TranslateNotices <TranslateNotices-label>` preference is set to Allow the patron will also see 
+an option to choose 'Preferred language for notices' with a dropdown list of available languages.   
+
+    **Important**
+
+    You must choose a delivery method (SMS or email or phone) along with
+    'Digest only?' if you would like to receive a digest of the
+    messages.
+
+.. _your-lists-label:
+
+Lists
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the :ref:`virtualshelves <virtualshelves-label>` system preference is set
+to 'Allow', patron will see a 'Lists' tab.
+
+From here, patrons can view public lists and
+:ref:`create or edit their own private lists <creating-lists-label>`.
+
+|yourlists|
+
+.. _ask-for-a-discharge-label:
+
+Ask for a discharge
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the :ref:`useDischarge <useDischarge-label>` system preference is enabled,
+patrons will be able to request a discharge via the OPAC. A discharge is a
+certificate that says the patron has no current checkouts and no holds.
+
+Patrons can request a discharge from the library by going to the 'Ask for
+discharge' tab in their online account.
+
+|dischargetab|
+
+From here they can request a discharge by clicking the 'Ask for a discharge'
+button. They will receive a confirmation of their request.
+
+Once the :ref:`discharge is approved by library staff <approve-discharge-label>`,
+the patron will see a download link to download a PDF of their discharge.
+
+|dischargedownload|
+
+.. _your-routing-lists-label:
+
+Your routing lists
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you are named as a recipient on
+any :ref:`serial routing lists <create-a-routing-list-label>` you will see them
+listed here. The following note is displayed "You are subscribed to the
+routing lists for following serial titles. If you wish to make changes,
+please contact the library".
+
+.. _your-interlibrary-loan-requests-label:
+
+Your interlibrary loan requests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your library has the :ref:`ILLModule <ILLModule-label>` preference set to ‘Enable’ patrons
+will have the option to make ILL requests when logged in to their OPAC
+account. From here they can view their existing requests and place new ones.
+
+|image1373|
+
+To place a new interlibrary loan request click on ‘Create a new request’ and
+choose a request form.
+
+|image1374|
+
+    **Note**
+
+    The options displayed are dependent on your ILL configuration. See the
+    ILL backends wiki page at https://wiki.koha-community.org/wiki/ILL_backends
+    further explanation.
+
+    **Note**
+
+    If you have entered copyright text in the :ref:`ILLModuleCopyrightClearance <ILLModuleCopyrightClearance-label>`
+    preference the text displays here and you need to click ‘Yes’ to accept
+    before continuing.
+
+Complete the publication details as fully as possible. Depending on the
+form in use you may see the option to add Custom fields for additional
+information such as notes. Destination branch is a required field, this
+is the branch you would like the request to be sent to.
+
+|image1375|
+
+Click on 'Create' to submit your request to the library for processing.
+
+Your submitted request will be listed with a status of ‘New request’. Once
+processed the status will be updated to ‘Requested’.
+
+Click on ‘View’ to make changes or cancel your request.
+
+You cannot edit the form details but you can add a note to request a
+modification and then click on ‘Submit modifications’ at the bottom of
+the screen. Your modification will be sent to the library for processing.
+
+.. Note::
+
+   When a patron modifies an inter-library loan request, an email is sent to
+   library staff so that they can view the changes from the
+   :ref:`ILL module <managing-ILL-requests-label>`.
+
+   The email sent is based on the ILL\_REQUEST\_MODIFIED template. It can be
+   customized in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+For new requests you will also have the option to ‘Request cancellation’.
+Your request will be updated with the status ‘Cancellation requested’ and
+can then be removed by library staff.
+
+.. Note::
+
+   When a patron cancels an inter-library loan request, an email is sent to
+   library staff so that they can cancel it from the
+   :ref:`ILL module <managing-ILL-requests-label>`.
+
+   The email sent is based on the ILL\_REQUEST\_CANCEL template. It can be
+   customized in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _your-recalls-history-label:
+
+Your recalls history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your library :ref:`allows recalls<recalls-label>`, the patron can see all
+their past and current recalls they have requested and their various statuses
+in the 'your recalls history' tab.
+
+|recallshistory|
+
+The patron can cancel a recall by clicking the 'Cancel' button, provided that
+it is not already awaiting pickup.
+
+.. _curbside-pickup-opac-label:
+
+Curbside pickups
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your library offers :ref:`curbside pickup <curbside-pickup-configuration-label>`,
+the patron will be able to see their scheduled pickups under 'Curbside pickups'.
+
+|yourcurbsidepickups|
+
+The patron has the option to indicate that they are outside the library by
+clicking 'Alert staff of your arrival'.
+
+The patron also has the option to cancel their scheduled pickup with the 'Cancel
+this pickup' button.
+
+If the 'Patron-scheduled pickup' setting is turned on in the
+:ref:`curbside pickup configuration <curbside-pickup-configuration-label>`, the
+patron will be able to schedule their own curbside pickup appointment.
+
+|scheduleapickup|
+
+-  The patron must first choose a library at which they want to pick up their
+   items
+
+   .. Note::
+
+      Only libraries with curbside pickup enabled will be displayed in the
+      drop-down menu.
+
+      Furthermore, if the 'Enable for waiting holds only' setting is turned on,
+      only the libraries at which the patron has waiting holds will be enabled.
+
+-  The patron must then choose a date
+
+   .. Note::
+
+     Only dates with available time slots will be displayed.
+
+-  The possible pickup times will be displayed, depending on the day of the week
+
+   |curbsidepickuptimeslots|
+
+   .. Note::
+
+      The number in parentheses under each time slot is the number of available
+      appointments for that time. If the maximum number of appointments has been
+      reached, based on the 'Maximum patrons per interval' setting in the
+      :ref:`curbside pickup configuration<curbside-pickup-configuration-label>`,
+      the time slot will be greyed out and the patron will not be able to select
+      it.
+
+-  The patron can optionally add a note about their pickup
+
+-  The patron must then click 'Schedule pickup' to save their appointment
+
+.. _purchase-suggestions-opac-label:
+
+Purchase suggestions
+-------------------------------------------------------------------------------
+
+If your library has the :ref:`suggestion <suggestion-label>` preference set to 'Allow', patrons
+will have the option to make purchase suggestions in several areas in the OPAC.
+
+If you are allowing everyone to see the purchase suggestions made by
+others with the :ref:`OPACViewOthersSuggestions <OPACViewOthersSuggestions-label>` preference, there will be a
+link at the top of your OPAC under the search box.
+
+|suggestfromsearch|
+
+There will be a link when the patron finds nothing for their search.
+
+|suggestfromnoresults|
+
+There will be a 'Suggest for purchase' option in the detailed view of a
+bibliographic record.
+
+|biboptions|
+
+And there will be a link in the
+:ref:`Your purchase suggestions <your-purchase-suggestions-label>` tab in the
+patron's account.
+
+|suggestfrommyaccount|
+
+Clicking any one of these links will open the purchase suggestion form.
+
+|newsuggestion|
+
+-  The informational text at the top of the form can be replaced using the
+   :ref:`HTML customizations tool<html-customizations-label>`, display location
+   OpacSuggestionInstructions.
+
+-  From the form only the 'Title' is required by default.
+
+   -  Mandatory fields can be set using the :ref:`OPACSuggestionMandatoryFields <OPACSuggestionMandatoryFields-label>`
+      system preference.
+
+-  The :ref:`OPACSuggestionUnwantedFields <OPACSuggestionUnwantedFields-label>` system preference can be used to
+   hide unnecessary fields.
+
+-  The :ref:`OPACSuggestionAutoFill <opacsuggestionautofill-label>` system
+   preference can be used to help patrons fill out the form using information
+   from Google Books.
+
+-  The item type list can be edited by editing the SUGGEST\_FORMAT
+   :ref:`authorized value list<authorized-values-label>`.
+
+-  The 'Reason for suggestion' list can be edited by editing the OPAC\_SUG
+   :ref:`authorized value list<authorized-values-label>`.
+
+If the item already exists in the catalog, the patron will see a message with
+what Koha thinks is the corresponding title. Matches are made on the title/
+author, ISBN or ISSN. If the title isn't what the patron is trying to suggest,
+they can click 'Confirm your suggestion', to suggest it anyway.
+
+|suggestionmatch|
+
+Once the form is submitted the purchase suggestion will appear in the
+:ref:`acquisitions module<managing-purchase-suggestions-label>` for the
+librarians to manage.
+
+If a purchase suggestion has been ordered through the
+:ref:`acquisitions module<managing-purchase-suggestions-label>`, the patron's
+purchase suggestion title will be clickable and bring the patron directly to
+the ordered record in the OPAC.
+
+.. _opaclibrariespage-label:
+
+Libraries
+-------------------------------------------------------------------------------
+
+The 'Libraries' page shows the contact information (address lines, city, state,
+zip/postal code, country, phone number, fax number, website) for
+:ref:`libraries <libraries-label>` in the system that are set as 'Public'.
+
+|librariespage|
+
+The library name is a link to a specific page for this library. This second
+page also includes
+:ref:`'OpacLibraryInfo' HTML customizations <html-customizations-label>` for
+this library.
+
+|librarypage|
+
+.. _opac-report-problem-label:
+
+Reporting problems
+-------------------------------------------------------------------------------
+
+If the :ref:`OPACReportProblem <opacreportproblem-label>` system preference is
+enabled, patrons will have the option to report problems on the OPAC (broken
+links or inaccurate information for example).
+
+At the bottom of each page is a 'Report a problem' link.
+
+|opacmain|
+
+When the patron clicks on the link, they are brought to a form where they can
+specify what exactly is the problem.
+
+|reportproblem|
+
+The problem report is sent to the Koha administrator by email (to the address
+in :ref:`KohaAdminEmailAddress <KohaAdminEmailAddress-label>`), and will appear
+in the :ref:`OPAC problem reports tool <opac-problem-reports-tool>`. If the
+:ref:`library <libraries-label>` has an email address, the patron will have the
+choice to either send the problem report to the library or to the administrator.
+
+.. Note::
+
+   The notice sent by email is customizable in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. The letter code is
+   PROBLEM\_REPORT.

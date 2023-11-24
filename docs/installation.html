@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koha 安裝過程介紹 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="System preferences" href="globalpreferences.html" />
+    <link rel="prev" title="概述" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Koha 安裝過程介紹</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-koha-web-installer">什麼是 Koha 網頁安裝器呢？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-koha-onboarding-tool">什麼是 Koha 使用者導引工具呢？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#web-installer">網頁安裝器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-installer-login">網頁安裝器-登入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#language-picker">語言選擇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installer-perl-modules-installed">安裝 perl 模組已安裝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-settings">資料庫設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ready-to-fill-tables-with-data">準備於資料表單內填入資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-tables-created">新增資料庫表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ready-for-basic-configurations">準備進行基本設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#select-marc-flavour">選擇您的 MARC 類型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marc21-and-unimarc-setup">MARC21 與 UNIMARC 的設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marc21-setup">MARC 21 設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unimarc-setup">UNIMARC 設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selected-data-added">選定新增的資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redirect-to-onboarding-tool">進入新手工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#onboarding-tool">使用者導引工具</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-library">新增圖書館</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-patron-category">新增讀者屬性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-patron">新增讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-an-item-type">新增館藏類型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-circulation-rule">新增流通規則</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onboarding-tool-complete">新手工具完成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login-to-access-staff-interface">登入館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#staff-interface">館員介面</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#advanced-configurations">進階的設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#virtualhost-overrides">VirtualHost 覆蓋</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opac-branch-default">OPAC_BRANCH_DEFAULT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Koha 安裝過程介紹</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="intro.html" class="btn btn-neutral float-left" title="概述" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="globalpreferences.html" class="btn btn-neutral float-right" title="System preferences" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction-to-the-koha-installation-process">
+<span id="koha-installation-process-label"></span><h1>Koha 安裝過程介紹<a class="headerlink" href="#introduction-to-the-koha-installation-process" title="此标题的永久链接"></a></h1>
+<p>這是 Koha 安裝手冊。</p>
+<p>Koha 圖書館管理系統的安裝過程中使用 2 種工具：</p>
+<ul class="simple">
+<li><p>網頁安裝器</p></li>
+<li><p>使用者導引工具</p></li>
+</ul>
+<p>本文件將會對這兩項工具做說明。</p>
+<section id="what-is-the-koha-web-installer">
+<h2>什麼是 Koha 網頁安裝器呢？<a class="headerlink" href="#what-is-the-koha-web-installer" title="此标题的永久链接"></a></h2>
+<p>透過網頁安裝器能設定資料庫表單，用以儲存所有您在Koha系統裡會用到的資料，其中包括分館、讀者與館藏的資訊。</p>
+<p>網頁安裝器以鍵入資料庫管理帳號的登入畫面為起點。</p>
+<p>之後，網頁安裝器會新增資料表單並供 Koha 使用的資料。接著，經由使用者導引工具執行若干必要的設定。</p>
+</section>
+<section id="what-is-the-koha-onboarding-tool">
+<h2>什麼是 Koha 使用者導引工具呢？<a class="headerlink" href="#what-is-the-koha-onboarding-tool" title="此标题的永久链接"></a></h2>
+<p>使用者導引工具確保在啟用 Koha 前，系統內至少有一個圖書館、讀者類型、讀者、館藏類型及流通規則。</p>
+<p>如果您已先選擇安裝圖書館，讀者類別，館藏類別的範例資料，那以下的安裝過程就會跳過對應這些資料的建立步驟。</p>
+<p>然而，在每次安裝時，您必須建立一個讀者與其帳號密碼 (在使用者導引工具安裝過程的最後，再次登入館員介面時，需要使用到) ，以及一個流通規則。</p>
+</section>
+</section>
+<section id="web-installer">
+<h1>網頁安裝器<a class="headerlink" href="#web-installer" title="此标题的永久链接"></a></h1>
+<section id="web-installer-login">
+<h2>網頁安裝器-登入<a class="headerlink" href="#web-installer-login" title="此标题的永久链接"></a></h2>
+<p><strong>登入網頁安裝</strong></p>
+<p>安裝 Koha 時，首先出現的是登入畫面。</p>
+<blockquote>
+<div><p><img alt="image1152" src="_images/installer_login.png" /></p>
+<p>網頁安裝器-登入</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Koha 版本名稱</strong>：顯示安裝的 Koha 版本編號。</p></li>
+<li><p><strong>使用者名稱</strong>：<em>koha_kohadev</em> 為預設的資料庫管理者名稱。</p></li>
+<li><p><strong>密碼</strong>：<em>password</em> 為預設的資料庫管理密碼。</p></li>
+<li><p><em>登入</em>：點選此按鈕來登入</p></li>
+</ol>
+</section>
+<section id="language-picker">
+<h2>語言選擇<a class="headerlink" href="#language-picker" title="此标题的永久链接"></a></h2>
+<p><strong>安裝起始畫面</strong></p>
+<p>這是網頁安裝器的第一個畫面。</p>
+<blockquote>
+<div><p><img alt="image1166" src="_images/installer_start_screen.png" /></p>
+<p>網頁安裝器起始畫面</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><em>語言選擇</em> 下拉選單：在此指定 Koha系統所使用的語文。</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>以安裝器去安裝另個語言 (如 zh_TW、zh_CN) ，就能在網頁安裝器使用該等語言。</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>按 <em>繼續下個步驟</em> 載入網頁安裝器的下一個步驟。</p></li>
+</ol>
+</section>
+<section id="installer-perl-modules-installed">
+<h2>安裝 perl 模組已安裝<a class="headerlink" href="#installer-perl-modules-installed" title="此标题的永久链接"></a></h2>
+<p>此畫面顯示安裝器已取得必要的相依套件，並於下個畫面新增資料庫。</p>
+<blockquote>
+<div><p><img alt="image1167" src="_images/perl_modules_installed.png" /></p>
+<p>已安裝的 Perl 模組</p>
+</div></blockquote>
+<p>按 <em>繼續下個步驟</em> 鈕載入網頁安裝器的下一個步驟。</p>
+</section>
+<section id="database-settings">
+<h2>資料庫設定<a class="headerlink" href="#database-settings" title="此标题的永久链接"></a></h2>
+<p>此畫面會列出資料庫的設定值，並請您按下*繼續下個步驟* 代表確認設定值無誤。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>這些設定對大多數使用者來說是不會有問題的，否則您應請求支援。</p>
+</div>
+<p><img alt="image1168" src="_images/database_settings.png" /></p>
+<p>資料庫設定</p>
+<ol class="arabic simple">
+<li><p><strong>資料庫設定：</strong> 確認資料庫設定值無誤。</p></li>
+<li><p>按 <em>繼續下個步驟</em> 以完成確認資料庫的設定</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>連結已建立</strong></p>
+<p>按了 <em>下一步</em> 將確立資料庫的連結：</p>
+<p><img alt="image1169" src="_images/connection_established.png" /></p>
+<p>資料庫連結已建立</p>
+<ol class="arabic simple">
+<li><p><strong>連結建立訊息：</strong> 此訊息代表您已成功地建立資料庫。</p></li>
+<li><p>按 <em>繼續下個步驟</em> 鈕以載入下個階段</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>若資料庫有連結上的困難，安裝器的設定將暫停於此。請再次檢查 koha-conf.xml 檔案的連結資訊，並確認資料庫本身的權限及認證的正確性。</p>
+</div>
+</section>
+<section id="ready-to-fill-tables-with-data">
+<h2>準備於資料表單內填入資料<a class="headerlink" href="#ready-to-fill-tables-with-data" title="此标题的永久链接"></a></h2>
+<p>此畫面代表一切已就緒，您可於下個畫面新增資料庫表單。</p>
+<blockquote>
+<div><p><img alt="image1170" src="_images/ready_for_data.png" /></p>
+<p>資料庫等待接收資料</p>
+</div></blockquote>
+<p>按 <em>繼續下個步驟</em> 鈕以載入下個階段</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>完成此步驟需要花一點時間。請耐心等待。</p>
+</div>
+</section>
+<section id="database-tables-created">
+<h2>新增資料庫表<a class="headerlink" href="#database-tables-created" title="此标题的永久链接"></a></h2>
+<blockquote>
+<div><p><img alt="image1171" src="_images/database_tables_created.png" /></p>
+<p>新增資料庫表</p>
+</div></blockquote>
+<p>按 <em>繼續下個步驟</em></p>
+</section>
+<section id="ready-for-basic-configurations">
+<h2>準備進行基本設定<a class="headerlink" href="#ready-for-basic-configurations" title="此标题的永久链接"></a></h2>
+<p>此畫面導向並進行Koha操作時所必備的設置。</p>
+<blockquote>
+<div><p><img alt="image1172" src="_images/install_basic_configurations.png" /></p>
+<p>準備進行基本設定</p>
+</div></blockquote>
+<p>按 <em>繼續下個步驟</em></p>
+</section>
+<section id="select-marc-flavour">
+<h2>選擇您的 MARC 類型<a class="headerlink" href="#select-marc-flavour" title="此标题的永久链接"></a></h2>
+<p>必須在此畫面選擇 MARC 類型 (儲存於資料庫的書目 (目錄) 紀錄格式)：</p>
+<blockquote>
+<div><p><img alt="image1173" src="_images/select_basic_configurations.png" /></p>
+<p>選擇您的 MARC 類型</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Unimarc：</strong> 義大利等歐洲國家 (不含英國) 慣用的格式。</p></li>
+<li><p><strong>MARC 21：</strong> 預選的格式，受美國文化影響的地區常使用它。</p></li>
+<li><p>按 <em>繼續下個步驟</em> 確認您的選擇</p></li>
+</ol>
+</section>
+<section id="marc21-and-unimarc-setup">
+<h2>MARC21 與 UNIMARC 的設定<a class="headerlink" href="#marc21-and-unimarc-setup" title="此标题的永久链接"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>剛才是選擇 MARC 21 或 UNIMARC 做為 MARC 的格式。此頁面則列出這兩種格式的細節資訊。</p>
+</div>
+</section>
+<section id="marc21-setup">
+<h2>MARC 21 設定<a class="headerlink" href="#marc21-setup" title="此标题的永久链接"></a></h2>
+<p><img alt="image1174" src="_images/marc21_basic_setup.png" /></p>
+<p>MARC 21 設定</p>
+<ol class="arabic simple">
+<li><p><strong>預設 MARC 21 標準權威類型：</strong> 權威類型是權威紀錄的模板 (用來搜尋機構目錄內館藏的搜尋欄位儲存於此)。此選項將安裝權威類型範例。</p></li>
+<li><p><strong>預設 MARC 21 書目框架：</strong> 在前個畫面選定預設MARC 21的書目框架 (並且點選 <em>匯入</em>) 後，系統將會套用此預設的書目框架。</p></li>
+<li><p><strong>選擇 MARC 21 書目紀錄的對映規則：</strong> MARC 21 對應規則係用來搜尋權威類型時，找出特定書目紀錄的所有資訊。</p></li>
+<li><p><strong>‘FA’，即 ‘快速新增’ 基本輕量的 MARC 21 框架供館藏互借用，或流通櫃台的即時編目：</strong> FA MARC 框架僅顯示少量欄位達到即時編目的效果。勾選此項目將安裝基本輕量框架。</p></li>
+<li><p><strong>書目資料常用類型的範例 MARC 21 書目框架：</strong> 安裝此框架模板供新增館藏用。</p></li>
+<li><p><strong>Koha 預設的容許值：</strong> 安裝 Koha 時，所必備的容許值。</p></li>
+<li><p><strong>預設分類法來源與排序規則：</strong> 插入杜威分類法等常用的圖書館分類法。</p></li>
+<li><p><strong>電子郵件及簡訊的預設訊息：</strong> 提供使用者選擇圖書館與其連絡的方式，包括：電子郵件、紙本訊息、簡訊、或電話。少了它們就無法寄送通知。</p></li>
+<li><p><strong>讀者屬性：</strong> 並不會安裝任何資料，且此項目需被移除。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>訂閱刊期範例：<a href="#id3"><span class="problematic" id="id4">**</span></a>可預測的定期到達館藏 (如月刊)，可以利用預設的刊期簡化簽收程序。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>通知範例：<a href="#id3"><span class="problematic" id="id4">**</span></a>將範例通知加入資料庫，送出之前可以另外客製化。人工新增通知很費事且可能出錯。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>設定預設訊息供強化訊組組態使用：<a href="#id3"><span class="problematic" id="id4">**</span></a>強化訊息組態供使用者選擇接收訊息的類型。選定後將插入供 due、predue、與其他進階訊息類型的範例。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>設定給逾期與其他進階通知的電子郵件與 SMS 的預設訊息：<a href="#id3"><span class="problematic" id="id4">**</span></a>搜入 SMS 與電子郵件類王。選定經由電子郵件或 SMS 發送通知後即為必備。</p></li>
+<li><p><strong>卷期範例：</strong> 此選項會安裝卷期範例，以節省鍵入的人工。</p></li>
+<li><p><strong>圖書館位置等的容許值範例。安裝後隨時可改：</strong> 安裝的容許值，可以篩選使用者的輸入，使其符合圖書館及其他物件的要求。</p></li>
+<li><p><strong>CSV 設定檔：</strong> 可以用 Koha 匯出館藏。CSV 設定檔決定匯出館藏的內容。CSV/tab 匯出不適用於此。</p></li>
+<li><p><strong>書目館藏的記錄代碼符合 Z39.71-2006 的值：</strong> 不是 Koha 的必備。館藏敘述告知使用者圖書館是否典藏及該藏的位置。選定後將安裝館藏敘述的代碼值。</p></li>
+<li><p><strong>MARC 的關係代碼表：</strong> 不是 Koha 的必備。關係是個人 (通常是著者) 與館藏的關係。選定後將在資料庫安裝關係紀錄的範例。</p></li>
+<li><p><strong>ACQ 模組預設的美元匯率幣別：</strong> 安裝美元、英磅、加拿大元與歐元。選定美元為預設的採訪用幣別。不安裝時，則需在採訪前個別設定幣別。</p></li>
+<li><p><strong>有用的讀者屬性：</strong> 不是 Koha 的必備。以條碼識別讀者。勾選後即確認讀者條碼顯示在讀者摘要頁面。</p></li>
+<li><p><strong>讀者屬性與類別範例：</strong> 不是 Koha 的必備。選定後將在資料庫安裝讀者屬性與類別範例。將略過入職工具的新增讀者類型。</p></li>
+<li><p><strong>標籤與讀者證資料範例：</strong> 不是 Koha 的必備，但建議安裝。選定後安裝書標與讀者證的範例資料節省未來新增書標與讀者證的辛勞。</p></li>
+<li><p><strong>行事曆樣本：星期日、聖誕節、新年</strong> 不是 Koha 的必備。選定後於資料庫安裝重複的假期 (聖誕節等) 樣本。</p></li>
+<li><p><strong>館藏類型範例:</strong> 此為非必要項目。 選擇此項目後，資料庫中將會有預設的館藏類型，這意味著在操作新手工具的流程時，會略過建立館藏類型的步驟。</p></li>
+<li><p><strong>圖書館範例:</strong> 此為非必要項目。 選擇此項目後，資料庫中將會有預設的圖書館。 開發者通常藉此項目做功能示範或者開發目的之用。 此項目的選定會使得在操作新手工具的流程時，略過建立圖書館的步驟。</p></li>
+<li><p><strong>最新消息範例:</strong> 此為非必要項目。選擇此項目後，OPAC(線上公用目錄)、館員資料庫首頁上將會出現預設的最新消息。</p></li>
+<li><p><strong>讀者範例:</strong> 此為非必要項目。讀者係指使用 Koha 圖書館管理系統者，例如: 圖書館使用者與館員。選擇此項目後，資料庫中將會有數個預設的讀者範例。 開發者通常藉此項目做功能示範或者開發目的之用。</p></li>
+<li><p><strong>引言範例:</strong> 此為非必要項目。 每日引言會出現在OPAC(線上公用目錄)上向圖書館使用者公告。選擇此項目後將會增添一些圖書館相關的引言。</p></li>
+<li><p><strong>允許近用以下的伺服器搜尋與下載紀錄資訊：</strong> 此為非必要項目，但建議安裝。以此組態 Koha 可以近用 Z39.50 伺服器，搜尋並匯入 MARC 21 紀錄。可以避免人工輸入所有紀錄，且加快處理流程。</p></li>
+<li><p>按 <em>匯入</em> 鈕安裝預設及選定的資料。</p></li>
+</ol>
+</section>
+<section id="unimarc-setup">
+<h2>UNIMARC 設定<a class="headerlink" href="#unimarc-setup" title="此标题的永久链接"></a></h2>
+<p>在UNIMARC 進階設定中有兩種特有的資料項目：</p>
+<ul class="simple">
+<li><p>UNIMARC 的英文權威結構</p></li>
+<li><p>預設的 UNIMARC 英文書目框架</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>UNIMARC 與 MARC 21 的選項值是一樣的，不必重複。</p>
+</div>
+<p><img alt="image1175" src="_images/unimarc_basic_setup.png" /></p>
+<p>UNIMARC 設定</p>
+<ol class="arabic simple">
+<li><p><em>UNIMARC 的英文權威結構：</em> 權威紀錄儲存搜尋資料庫內的館藏。不同於 MARC 21，使用 UNIMARC 權威結構時需要與 UNIMARC 相容。選擇此選項才能相容。</p></li>
+<li><p><em>預設 UNIMARC 英文書目框架：</em> 在前個畫面勾選 UNIMARC 後，再確認此選項。</p></li>
+<li><p>按 <em>匯入</em> 鈕安裝資料樣本</p></li>
+</ol>
+</section>
+<section id="selected-data-added">
+<h2>選定新增的資料<a class="headerlink" href="#selected-data-added" title="此标题的永久链接"></a></h2>
+<p>按了 <em>匯入</em> 鈕後出現 MARC 21 或 UNIMARC 設定畫面。顯示已將選定/預設資料插入資料庫。</p>
+<blockquote>
+<div><p><img alt="image1176" src="_images/data_added_1.png" /></p>
+<p>選定新增的資料</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>新增選用資料：</strong> 勾取的選用資料將顯示在此。若未勾選則不會顯示 <strong>新增選用資料</strong>。</p></li>
+<li><p><strong>新增 MySQL 資料：</strong> 將安裝這些資料並顯示在此畫面。</p></li>
+<li><p><strong>新增必備資料：</strong> 如上。</p></li>
+<li><p><strong>安裝訊息：</strong> 告知 Koha 資料已安裝妥當可續使用新手工具。</p></li>
+<li><p>按 <em>設定 Koha 基本要求</em> 鈕進入另個畫面，帶進新手工具。</p></li>
+</ol>
+</section>
+<section id="redirect-to-onboarding-tool">
+<h2>進入新手工具<a class="headerlink" href="#redirect-to-onboarding-tool" title="此标题的永久链接"></a></h2>
+<p>10秒後轉至新手工具啟始畫面。</p>
+<blockquote>
+<div><p><img alt="image1177" src="_images/redirect.png" /></p>
+<p>進入新手工具</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>若未轉至其他畫面請依箭頭指示點選。</p>
+</div>
+</section>
+</section>
+<section id="onboarding-tool">
+<h1>使用者導引工具<a class="headerlink" href="#onboarding-tool" title="此标题的永久链接"></a></h1>
+<section id="create-a-library">
+<h2>新增圖書館<a class="headerlink" href="#create-a-library" title="此标题的永久链接"></a></h2>
+<p>若未安裝樣本圖書館，安裝器將提示新增第一個圖書館或分館。</p>
+<p>Koha 裡的圖書館代表一個 “實體的” 地方。可以從管理 -&gt; 圖書館與群組加入更多圖書館。</p>
+<blockquote>
+<div><p><img alt="image1153" src="_images/create_library_screen_1.png" /></p>
+<p>新增圖書館</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>圖書館代碼：</strong> 最多 10 個字母。</p></li>
+<li><p><strong>名稱：</strong> 圖書館的官方名稱，通常選廣為人知者。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>新增其他圖書館：<a href="#id3"><span class="problematic" id="id4">**</span></a>如果需要更多圖書館，或者需要對這個新建立的圖書館進行更改，從管理 -&gt; 圖書館與群組新增或編修圖書館</p></li>
+<li><p>按 <em>送出</em> 鈕就能新增圖書館。</p></li>
+</ol>
+<p>範例：</p>
+<blockquote>
+<div><p><img alt="image1154" src="_images/create_library_screen_1_example.png" /></p>
+<p>新增樣本圖書館</p>
+</div></blockquote>
+<p><strong>圖書館代碼：</strong> 為了簡化工作，圖書館代碼最多 10 個字母。</p>
+</section>
+<section id="create-a-patron-category">
+<h2>新增讀者屬性<a class="headerlink" href="#create-a-patron-category" title="此标题的永久链接"></a></h2>
+<p>Koha 的讀者必定屬於一個類型。就像一個模子出來的；同個類型的讀者共享相同的特徵，包括流通規則、通知頻率、預約權限及其他。至少應設定一個讀者類型。</p>
+<p>必備一個讀者類型：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>類型代碼</p></li>
+<li><p>說明</p></li>
+<li><p>必備逾期通知</p></li>
+<li><p>類別</p></li>
+<li><p>預設隱私</p></li>
+<li><p>註冊期間：月數或到期日</p></li>
+</ul>
+<p><img alt="image1155" src="_images/create_patron_categories_1.png" /></p>
+<p>新增讀者屬性</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>圖書館新增訊息：</strong> 確認成功地新增圖書館。</p></li>
+<li><p><strong>類型代碼：</strong> 最多 10 個字母。</p></li>
+<li><p><strong>說明：</strong> 描述此讀者類型的作用。</p></li>
+<li><p><em>必備逾期通知</em> 下拉鈕：預設為 ‘不用’。設定此讀者類型接收逾期通知。</p></li>
+<li><p><strong>類型：</strong> 由館員新增類型。</p></li>
+<li><p><strong>預設隱私：</strong> 預設值為 ‘預設’。預設的隱私控制閱讀紀錄保留的期限。</p></li>
+<li><p><strong>註冊時間 - 以月為單位：</strong> 這是從該讀者類別建立的讀者註冊的月數。</p></li>
+<li><p><strong>到期日的註冊期限：</strong> 從點擊此輸入框時出現的互動日期選擇器日曆圖標中選擇一個日期。您選擇的日期將是從此讀者類別建立的讀者的註冊結束日期。</p></li>
+<li><p><strong>新增讀者類型的路徑：</strong> 從管理 -&gt; 讀者類型可以新增或改變讀者類型。</p></li>
+<li><p>按 <em>送出</em> 鈕新增讀者類型。</p></li>
+</ol>
+<p>範例：</p>
+<blockquote>
+<div><p><img alt="image1156" src="_images/create_patron_category_1_example.png" /></p>
+</div></blockquote>
+</section>
+<section id="create-a-patron">
+<h2>新增讀者<a class="headerlink" href="#create-a-patron" title="此标题的永久链接"></a></h2>
+<p>完成新手程序後，超級圖書館員必須登入館員介面。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在此紀錄使用者帳號及密碼，以便登入為 Koha 管理者 (超級圖書館員)。</p>
+</div>
+<p>必須匯入/選擇：</p>
+<ul>
+<li><p>姓氏</p></li>
+<li><p>名字</p></li>
+<li><p>讀者證號碼</p></li>
+<li><p>圖書館</p></li>
+<li><p>讀者證類型</p></li>
+<li><p>使用者名稱</p></li>
+<li><p>密碼</p>
+<p><img alt="image1157" src="_images/create_patron_1.png" /></p>
+<p>新增讀者</p>
+</li>
+</ul>
+<ol class="arabic simple">
+<li><p><strong>新增讀者類型訊息：</strong> 表示新增讀者類型成功。</p></li>
+<li><p><strong>姓：</strong> 姓或說明</p></li>
+<li><p><strong>名：</strong> 名，或說明</p></li>
+<li><p><strong>讀者證號：</strong> 不能重複</p></li>
+<li><p><em>圖書館</em> 下拉選單：以新手工具新增的圖書館，將是唯一選項。否則將被網頁安裝器從樣本圖書館隨機選取。</p></li>
+<li><p><em>讀者類型</em> 下拉選單：以新手工具新增的讀者類型，將是唯一選項。否則將選取 <em>館員</em> 讀者類型。</p></li>
+<li><p><strong>超級圖書館員權限：</strong> 可以從館員介面近用所有的圖書館員及網頁功能，且不必編輯。它是 Koha 內最有權限的使用者，小心保管密碼。</p></li>
+<li><p><strong>帳號：</strong> 以帳號登入館員介面及 OPAC (線上公用目錄，Online Patron Access Catalogue)。</p></li>
+<li><p><strong>密碼：</strong> 包括字母、數字與空格，不能超過 8 個字元。</p></li>
+<li><p><strong>確認密碼：</strong> 重複鍵入密碼</p></li>
+<li><p>按 <em>送出</em> 鈕新增讀者帳號</p></li>
+<li><p><strong>新增讀者路徑：</strong> 進入讀者 -&gt; 新增讀者就能新增或變更讀者</p></li>
+<li><p><strong>給予讀者權限：</strong> 新增讀者後，到更多 -&gt; 設定權限給予權限。</p></li>
+</ol>
+<p>範例：</p>
+<blockquote>
+<div><p><img alt="image1158" src="_images/create_patron_1_example.png" /></p>
+<p>新增範本讀者</p>
+</div></blockquote>
+</section>
+<section id="create-an-item-type">
+<h2>新增館藏類型<a class="headerlink" href="#create-an-item-type" title="此标题的永久链接"></a></h2>
+<p>若未於網頁安裝器安裝館藏類型範本，將顯示本畫面。</p>
+<p>如同讀者類型，館藏類型也是一種模板，用於聚集相同性質的館藏。</p>
+<p>您需鍵入：</p>
+<ul>
+<li><p>館藏類型代碼</p></li>
+<li><p>說明</p>
+<p><img alt="image1159" src="_images/create_item_type_1.png" /></p>
+<p>新增館藏類型</p>
+</li>
+</ul>
+<ol class="arabic simple">
+<li><p><strong>新增管理者帳號訊息：</strong> 表示新增管理者成功</p></li>
+<li><p><strong>館藏類型代碼：</strong> 最多 10 個字元</p></li>
+<li><p><strong>說明：</strong> 描述館藏類型的內容。</p></li>
+<li><p><strong>新增館藏屬性的路徑：</strong> 從管理 -&gt; 館藏類型可以新增或編修館藏類型</p></li>
+<li><p>按 <em>送出</em> 鈕完成新增館藏類型</p></li>
+</ol>
+<p>範例：</p>
+<blockquote>
+<div><p><img alt="image1160" src="_images/create_item_type_1_example.png" /></p>
+<p>新增館藏類型樣本</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>篩選館藏類型代碼時只接受字母。</p>
+</div>
+</section>
+<section id="create-a-circulation-rule">
+<h2>新增流通規則<a class="headerlink" href="#create-a-circulation-rule" title="此标题的永久链接"></a></h2>
+<p>此螢幕顯示從網頁安裝器安裝的樣本資料。</p>
+<p>根據圖書館對讀者借閱館藏的限制，新增流通規則。</p>
+<blockquote>
+<div><p><img alt="image1161" src="_images/create_circulation_rule_1.png" /></p>
+<p>新增流通規則</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>此表單只能輸入數字。</p>
+</div>
+<ol class="arabic simple">
+<li><p><strong>新增館藏類型訊息：</strong> 表示新增館藏類型成功</p></li>
+<li><p><em>分館</em> 下拉選單：可應用於流通規則的圖書館 (或分館)。預設值為 <em>全部</em>，可以從下拉選單選取其中之一。</p></li>
+<li><p><em>讀者類型</em> 下拉選單：可應用於流通規則的讀者類型。如同 <em>分館</em> 其預設值為 <em>全部</em>，但可從下拉選單選取其中之一。</p></li>
+<li><p><em>館藏類型</em> 下拉選單：可應用於流通規則的館藏類型。除了 <em>全部</em> 還可勾選其他。</p></li>
+<li><p><strong>借閱冊數：</strong> 從指定圖書館、指定讀者類型、與指定館藏類型可借出的冊數。預設為 50。</p></li>
+<li><p><strong>借閱期限：</strong> 允許借閱的日數或小時。預設為 14。</p></li>
+<li><p><em>單位</em> 下拉選單：設定為 <em>日</em>，適用於 <strong>借閱期限</strong> 與 <strong>續借期限</strong></p></li>
+<li><p><strong>續借次數：</strong> 允許續借館藏的次數。預設為 10 次。</p></li>
+<li><p><strong>續借期限：</strong> 允許續借的日數或小時。預設為 14。</p></li>
+<li><p><em>允許架上預約</em> 下拉選單：允許預約仍在館內的館藏。</p></li>
+<li><p><strong>新增流通規則的路徑：</strong> 從管理 -&gt; 流通與罰款規則新增或編修流通規則</p></li>
+<li><p>按 <em>送出</em> 鈕完成新增流通規則。</p></li>
+</ol>
+</section>
+<section id="onboarding-tool-complete">
+<h2>新手工具完成<a class="headerlink" href="#onboarding-tool-complete" title="此标题的永久链接"></a></h2>
+<p>此頁告知新增流通規則完成，Koha 的安裝結束</p>
+<blockquote>
+<div><p><img alt="image1162" src="_images/onboarding_tool_complete.png" /></p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>網頁安裝訊息：</strong> 表示網頁安裝完成</p></li>
+<li><p><strong>新增流通規則訊息：</strong> 表示新增流通規則成功。</p></li>
+<li><p><strong>啟用 Koha：</strong> 點選登入 Koha，使用新手工具新增的管理者帳號。</p></li>
+</ol>
+</section>
+<section id="login-to-access-staff-interface">
+<span id="login-staff-label"></span><h2>登入館員介面<a class="headerlink" href="#login-to-access-staff-interface" title="此标题的永久链接"></a></h2>
+<p>完成新手工具的作業，可以使用新手工具新增的讀者帳號登入館員介面</p>
+<blockquote>
+<div><p><img alt="image1163" src="_images/login.png" /></p>
+<p>登入畫面</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>使用者名稱：</strong> 輸入新增給讀者的使用者名稱</p></li>
+<li><p><strong>密碼：</strong> 輸入新增的密碼</p></li>
+<li><p><strong>圖書館：</strong> 打算登入的圖書館館員介面。此選項可以是：<em>我的圖書館</em> 或安裝/新增的圖書館。首次登入，使用 <em>我的圖書館</em> 做為預設值也不錯。</p></li>
+<li><p>按 <em>登入</em> 鈕進入館員介面</p></li>
+</ol>
+<p>範例：</p>
+<blockquote>
+<div><p><img alt="image1164" src="_images/login_example.png" /></p>
+<p>登入樣本</p>
+</div></blockquote>
+</section>
+<section id="staff-interface">
+<h2>館員介面<a class="headerlink" href="#staff-interface" title="此标题的永久链接"></a></h2>
+<p>現在應出現館員介面</p>
+<blockquote>
+<div><p><img alt="image1165" src="_images/staff_interface.png" /></p>
+<p>館員介面</p>
+</div></blockquote>
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<p>館員介面詳情，請參見 <a class="reference external" href="https://koha-community.org/documentation/">https://koha-community.org/documentation/</a></p>
+</div>
+</section>
+</section>
+<section id="advanced-configurations">
+<span id="advanced-configurations-label"></span><h1>進階的設定<a class="headerlink" href="#advanced-configurations" title="此标题的永久链接"></a></h1>
+<section id="virtualhost-overrides">
+<h2>VirtualHost 覆蓋<a class="headerlink" href="#virtualhost-overrides" title="此标题的永久链接"></a></h2>
+<p>Koha允許在VirtualHost級別上覆蓋一些系統設定。</p>
+<section id="opac-branch-default">
+<h3>OPAC_BRANCH_DEFAULT<a class="headerlink" href="#opac-branch-default" title="此标题的永久链接"></a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>OPAC_BRANCH_DEFAULT`指令可以用來為OPAC的匿名使用者指定預設分行。</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nb">SetEnv</span><span class="w"> </span>OPAC_BRANCH_DEFAULT<span class="w"> </span><span class="s2">&quot;CPL&quot;</span>
+<span class="nb">RequestHeader</span><span class="w"> </span>add<span class="w"> </span>X-Koha-SetEnv<span class="w"> </span><span class="s2">&quot;OPAC_BRANCH_DEFAULT CPL&quot;</span>
+</pre></div>
+</div>
+<p>說明：這個覆蓋會影響使用者在登錄OPAC之前看到的 <cite>新聞</cite> 和 <cite>HTML定制</cite> 模組。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="intro.html" class="btn btn-neutral float-left" title="概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="globalpreferences.html" class="btn btn-neutral float-right" title="System preferences" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

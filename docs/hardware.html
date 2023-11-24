@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuring receipt printers &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Important links" href="links.html" />
+    <link rel="prev" title="在 Koha 使用第三方軟體" href="third_party_software.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring receipt printers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#for-epson-tm-t88iii-3-and-tm-t88iv-4-printers">供 Epson TM-T88III (3) &amp;amp; TM-T88IV (4) 印表機使用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-the-print-driver">In the print driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#in-firefox">在 Firefox</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#for-epson-tm-t88ii-2-printers">For Epson TM-T88II (2) printers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-firefox-2-label">在 Firefox</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#for-star-sp542-printers">For Star SP542 printers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-the-printer">Installing the printer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-firefox-to-print-to-receipt-printer">Configuring Firefox to print to receipt printer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuring receipt printers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hardware.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="third_party_software.html" class="btn btn-neutral float-left" title="在 Koha 使用第三方軟體" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="links.html" class="btn btn-neutral float-right" title="Important links" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuring-receipt-printers">
+<span id="configuring-receipt-printers-label"></span><h1>Configuring receipt printers<a class="headerlink" href="#configuring-receipt-printers" title="此标题的永久链接"></a></h1>
+<p>以下說明係供特定收條印表機使用，但可能也適用於設定其他廠牌的印表機。</p>
+<section id="for-epson-tm-t88iii-3-and-tm-t88iv-4-printers">
+<span id="for-epson-tm-t88iii-3-and-tm-t88iv-4-printers-label"></span><h2>供 Epson TM-T88III (3) &amp;amp; TM-T88IV (4) 印表機使用<a class="headerlink" href="#for-epson-tm-t88iii-3-and-tm-t88iv-4-printers" title="此标题的永久链接"></a></h2>
+<section id="in-the-print-driver">
+<span id="in-the-print-driver-label"></span><h3>In the print driver<a class="headerlink" href="#in-the-print-driver" title="此标题的永久链接"></a></h3>
+<p>這些說明適用於 5,0,3,0 版的 Epson TM-T88III 印表機驅動程式；EPSON TM-T88IV 版本用的是 ReceiptE4。從 <a class="reference external" href="https://www.epsonexpert.com/login">EpsonExpert 技術資源中心網站</a> 取得該等驅動程式；進入該技術資源，從下拉選單內選取適當的印表機。</p>
+<p>點選 開始 &amp;gt; 印表機與傳真機 &amp;gt; 點選收條印表機 &amp;gt; 屬性</p>
+<ul class="simple">
+<li><p>進階分頁，點選列印預設鈕</p></li>
+<li><p>布局分頁：紙張尺寸：捲筒 80 x 297mm</p></li>
+<li><p>TM-T88III：布局分頁：按縮小列印並適合頁寬</p></li>
+<li><p>TM-T88IV：按縮小列印；在彈出的視窗內點選 OK。應自動選取適合頁寬。</p></li>
+<li><p>OK 您已處理完畢。</p></li>
+</ul>
+</section>
+<section id="in-firefox">
+<span id="in-firefox-1-label"></span><h3>在 Firefox<a class="headerlink" href="#in-firefox" title="此标题的永久链接"></a></h3>
+<p>在檔案 &amp;gt; 頁面設定：</p>
+<ul class="simple">
+<li><p>於格式 &amp;amp; 選項分頁縮小至適當頁面</p></li>
+<li><p>把邊界 &amp;amp; 頁首/頁尾分頁設定邊界為 0,0,0,0。可使收條使用捲紙所有可用空間。</p></li>
+<li><p>設定所有的標題/頁尾為 -空白-。此舉將移除所有來自 Firefox 可能的垃圾，如：網址、頁碼等。</p></li>
+<li><p>點選 OK</p></li>
+</ul>
+<p>設定 Firefox 的預設列表機設定您不會看到 “印表機” 對話盒：</p>
+<ul>
+<li><p>至檔案 &amp;gt; 列印</p></li>
+<li><p>設定印表機為收條印表機。</p></li>
+<li><p>按進階 (或屬性) 鈕</p></li>
+<li><p>布局分頁：紙張尺寸：捲筒 80 x 297mm</p></li>
+<li><p>TM-T88III：布局分頁：按縮小列印並適合頁寬</p></li>
+<li><p>TM-T88IV：按縮減列印尺寸；點選彈出視窗的 OK。應自動選取適合頁寬。</p></li>
+<li><p>OK 已完成，列印您選定的頁面。</p></li>
+<li><p>鍵入 <a class="reference external" href="about:config">about:config</a>, 於網址列。點選 “我保證，一定會小心的！” 的警示訊息。</p></li>
+<li><p>在篩選器裡，鍵入 print.always。</p></li>
+<li><p>找尋 print.always_print_silent。</p>
+<ul class="simple">
+<li><p>若偏好已存在則設定其值為真。</p></li>
+</ul>
+</li>
+<li><p>若偏好不存在 (且不在瀏覽器內) 您可新增偏好。</p>
+<ul class="simple">
+<li><p>點選偏好區塊再選擇新增 &amp;gt; 布林邏輯</p></li>
+<li><p>在對話盒鍵入 print.always_print_silent 並設其值為真。此舉設定 Firefox 的印表使用相同的設定與印表機並不再顯示對話盒。</p></li>
+</ul>
+<blockquote>
+<div><p><strong>警示</strong></p>
+<p>在 <a class="reference external" href="about:config">about:config</a> 設定 print.always_print_silent 為 DISABLES 取消 Firefox 選取印表機的功能。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="for-epson-tm-t88ii-2-printers">
+<span id="for-epson-tm-t88ii-2-printers-label"></span><h2>For Epson TM-T88II (2) printers<a class="headerlink" href="#for-epson-tm-t88ii-2-printers" title="此标题的永久链接"></a></h2>
+<p>登錄 <a class="reference external" href="https://www.epsonexpert.com/login">EpsonExpert 技術資源中心</a> 取得驅動程式；進入技術資源，從印表機下拉選單選取印表機模式。</p>
+<section id="in-firefox-2-label">
+<span id="id1"></span><h3>在 Firefox<a class="headerlink" href="#in-firefox-2-label" title="此标题的永久链接"></a></h3>
+<p>在檔案 &amp;gt; 頁面設定：</p>
+<ul class="simple">
+<li><p>於格式 &amp;amp; 選項分頁縮小至適當頁面</p></li>
+<li><p>把邊界 &amp;amp; 頁首/頁尾分頁設定邊界為 0,0,0,0。可使收條使用捲紙所有可用空間。</p></li>
+<li><p>設定所有的標題/頁尾為 -空白-。此舉將移除所有來自 Firefox 可能的垃圾，如：網址、頁碼等。</p></li>
+<li><p>點選 OK</p></li>
+</ul>
+<p>設定 Firefox 的預設列表機設定您不會看到 “印表機” 對話盒：</p>
+<ul>
+<li><p>至檔案 &amp;gt; 列印</p></li>
+<li><p>設定印表機為收條印表機。</p></li>
+<li><p>列印現在的頁面。</p></li>
+<li><p>鍵入 <a class="reference external" href="about:config">about:config</a>, 於網址列。點選 “我保證，一定會小心的！” 的警示訊息。</p></li>
+<li><p>在篩選器裡，鍵入 print.always。</p></li>
+<li><p>找尋，print.always_print_silent。</p>
+<ul class="simple">
+<li><p>若偏好已存在則設定其值為真。</p></li>
+</ul>
+</li>
+<li><p>若偏好不存在 (且不在瀏覽器內) 您可新增偏好。</p>
+<ul class="simple">
+<li><p>點選偏好區塊再選擇新增 &amp;gt; 布林邏輯</p></li>
+<li><p>在對話盒鍵入 print.always_print_silent 並設定其值為真。此舉設定 Firefox 的印表使用相同的設定與印表機並不再顯示對話盒。</p></li>
+</ul>
+<blockquote>
+<div><p><strong>警示</strong></p>
+<p>在 <a class="reference external" href="about:config">about:config</a> 設定 print.always_print_silent 為 DISABLES 取消 Firefox 選取印表機的功能。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="for-star-sp542-printers">
+<span id="for-star-sp542-printers-label"></span><h2>For Star SP542 printers<a class="headerlink" href="#for-star-sp542-printers" title="此标题的永久链接"></a></h2>
+<section id="installing-the-printer">
+<span id="installing-the-printer-label"></span><h3>Installing the printer<a class="headerlink" href="#installing-the-printer" title="此标题的永久链接"></a></h3>
+<p>以下的指令係供 Star SP542 收條印表機使用，也可能適用於 Star SP5xx 系列的印表機。</p>
+<p>Star SP542 收條印表機與 Koha 與 <strong>Firefox on Windows XP SP3</strong> 搭配良好。此印表機與其他平行或 USB 介面相當容易安裝與組態。您需要以下可從網際網路多個地方取得的可執行檔：</p>
+<p>linemode_2k-xp_20030205.exe</p>
+<p>實際上此可行執檔處理所有的安裝事宜；您不再需要微軟視窗的 “新增印表機” 程式。我們建議使用該檔案安裝印表機，不再需要軟體監控印表機；我們的經驗是沒有問題。簡單地選取安裝的收條印表機，不需監控它。</p>
+<p>有時，安裝程式不會把印表機安裝在正確的埠號，特別是使用 USB 介面時。祗要去 “開始 -&amp;gt; 印表機與傳真機 -&amp;gt; SP542 印表機屬性 -&amp;gt; 埠號”，再點選適當的埠號即可。</p>
+<p>需要重新啟動，即使安裝軟體或作業系統沒有要求。</p>
+<p><strong>Windows 7</strong> 使用者應參照此頁面：<a class="reference external" href="http://www.starmicronics.com/supports/win7.aspx">http://www.starmicronics.com/supports/win7.aspx</a>。</p>
+</section>
+</section>
+<section id="configuring-firefox-to-print-to-receipt-printer">
+<span id="configuring-firefox-to-print-to-receipt-printer-label"></span><h2>Configuring Firefox to print to receipt printer<a class="headerlink" href="#configuring-firefox-to-print-to-receipt-printer" title="此标题的永久链接"></a></h2>
+<ul class="simple">
+<li><p>開啟檔案 &amp;gt; 設定頁面</p></li>
+<li><p>設定所有的標題與頁尾為空白</p></li>
+<li><p>設定邊界為 0 (零)</p></li>
+<li><p>在 Firefox 網址列，鍵入 <a class="reference external" href="about:config">about:config</a></p></li>
+<li><p>搜尋 print.always_print_silent 並在該字串連按兩次</p></li>
+<li><p>改變設定真</p>
+<ul>
+<li><p>此舉讓您略過印表彈出盒，以及必須點選 OK，自動列印適合尺寸的收條。</p></li>
+</ul>
+</li>
+<li><p>若 print.always_print_silent 沒有出現</p>
+<ul>
+<li><p>點選偏好視窗的空白區塊</p></li>
+<li><p>選擇新增 &amp;gt; 布林邏輯</p></li>
+<li><p>鍵入 “print.always_print_silent” 為其名稱(不含引號)</p></li>
+<li><p>點選 OK</p></li>
+<li><p>選擇此值為真</p></li>
+</ul>
+</li>
+<li><p>您可從 print.print_printer 中選取印表機</p>
+<ul>
+<li><p>您祗能選取一般/文字(或收條印表機的其他名稱)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="third_party_software.html" class="btn btn-neutral float-left" title="在 Koha 使用第三方軟體" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="links.html" class="btn btn-neutral float-right" title="Important links" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

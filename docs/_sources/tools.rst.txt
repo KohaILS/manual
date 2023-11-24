@@ -1,0 +1,3345 @@
+.. include:: images.rst
+
+.. _tools-label:
+
+Tools
+=====
+
+Tools in Koha all perform some sort of action. Often many of the items
+listed under Tools in Koha are referred to as 'Reports' in other library
+management systems.
+
+-  *Get there:* More > Tools
+
+.. _tools-patrons-and-circulation-label:
+
+Patrons and circulation
+------------------------------------------
+
+.. _patron-lists-label:
+
+Patron lists
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Patron lists
+
+Patron lists are a way to store a group of patrons for easy modification
+via the :ref:`batch patron modification tool <batch-patron-modification-label>` or
+reporting.
+
+|patronlists|
+
+To create a new list of patrons click the 'New patron list' button
+
+|newpatronlist|
+
+Enter a list name.
+
+Checking the 'Shared' box will make this list visible to all users with
+the :ref:`manage_patron_lists permission <patron-permissions-defined-label>`.
+
+Save the list.
+
+|addtopatronlist|
+
+Each list has an 'Actions' menu with more list options.
+
+|patronlistmenu|
+
+To add patrons to the list click the 'Add patrons' link in the 'Actions'
+menu.
+
+|image248|
+
+Enter the patron's name or cardnumber in the search box and click on the
+right result to add the patron.
+
+Alternatively, you can click on the 'Enter multiple card numbers' link and
+scan (or type in) barcodes in the box.
+
+|patronstoadd|
+
+Once you have all of the patrons you would like to add you can click the
+'Add patrons' button to save them to the list.
+
+|patronlist|
+
+     **Note**
+
+     -  You can customize the columns of this table in the 
+        :ref:`'Table settings'<column-settings-label>` section of the 
+        Administration module (table id: patron-list-table).
+
+.. _patron-clubs-label:
+
+Patron clubs
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Patron clubs
+
+Patron clubs create clubs in which patrons may be enrolled. It is
+useful for tracking summer reading programs, book clubs and other such clubs.
+
+    **Important**
+
+    Staff will need the :ref:`clubs permissions <patron-permissions-defined-label>`
+    to edit clubs, templates and enroll patrons. To learn how to set patron
+    permissions, go to the :ref:`patron permissions section <setting-patron-permissions-label>`
+    of this manual.
+
+Creating a new club template
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Click on the 'New club template' button. Here you can add fields that can be
+filled out at the time a new club is created based on the template, or a new
+enrollment is created for a given club based on the template.
+
+|image1364|
+
+The name is required. This could be something like 'Adult book club', 'Children’s
+book club' or 'Summer reading program'. Remember these templates will be starting
+point for each club you create.
+
+The description can be any additional information.
+
+Allow public enrollment: if this box is checked it will allow patrons to enroll
+in a club based on this template from the OPAC.
+
+Require valid email address: if this box is checked only patrons
+with a valid email address can enroll. So they will need a email address
+to enroll.
+
+The library drop down gives you the flexibility to let staff from specific
+branches create clubs with this template. If you let it set to blank, staff
+from any branch will be able to create a new club using this template.
+
+Club fields: these fields will be used when creating a club based on this
+template. For example, this can be the name of the club, the name of the animator, the theme, etc.
+
+|image1365|
+
+  'Name' is the label of the field
+
+  'Description' is additional information about this field.
+
+  You can connect authorized values here.
+
+Enrollment fields: you can add any additional fields you want to have filled
+out by your patrons when they enroll in a club base on this template.
+
+|image1366|
+
+  'Name' is the label of the field
+
+  'Description' is additional information about this field.
+
+  You can connect authorized values here.
+
+Creating a new club based on a template
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Click on the 'New club' dropdown menu and select the template you want to use.
+Here you can add information about a new club using a template you created.
+
+|image1367|
+
+The name is required, this will be the name of the specific club using the
+template you created. For example, 'Summer 2018 reading club'.
+
+The description can be any additional information.
+
+Start and End date will depict when this club runs, the entire duration
+of the club. Once the club expires, enrollment will not be possible.
+
+The library drop down gives you the flexibility to enroll patrons from specific
+branches. If you let it set to blank, patrons from any branch will be able to enroll.
+
+Enrolling a patron in a club from the staff interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To enroll a patron in a club from the staff client, go to the patron's account.
+
+On the 'Details' page or the 'Check out' page, click on the 'Clubs' tab. All
+ongoing clubs will be displayed in this tab.
+
+|image1368|
+
+Click on the 'Enroll' button and fill in the fields.
+
+You can also cancel enrollment by clicking on the cancel enrollment.
+
+Enrolling a patron in a club from the OPAC
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you allow public enrollment, the club will be visible on the OPAC.
+
+Patrons have to sign into their account. In the 'Your summary' section, they
+will be able to click on the 'Clubs' tab and enroll.
+
+|image1369|
+
+Viewing enrollments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can monitor the enrollments in each club by going to the 'Patron clubs' tool page
+and choosing 'Enrollment' from the 'Actions' button.
+
+|image1370|
+
+Placing a hold for a patron club
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can place holds for a patron club - holds are placed for club members in a random order.
+
+To place a hold for a patron club:
+
+1. Go to the patron clubs tool ('Home > Tools > Patron clubs').
+2. Click the 'Actions' button for the club and select 'Search to hold'.
+3. Search for a title and select a record.
+4. Select 'Place hold for [CLUBNAME]' from either the action links for the record, or from the 'Place hold' action in the menu bar.
+5. The place holds page is displayed and lists the club members.
+6. Click the 'Place hold' button.
+
+Result: Holds are placed for all club members.
+
+.. _comments-label:
+
+Comments
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Comments
+
+All comments added by patrons via the OPAC to bibliographic records
+require moderation by the librarians. If there are comments awaiting
+moderation they will be listed on the main page of the staff client
+below the module list:
+
+|commentswaiting|
+
+and next to the Comments tool on the Tools page
+
+|commentswaitingtools|
+
+To moderate comments click on the notification on the main dashboard or
+go directly to the Comments tool and click 'Approve' or 'Delete' to the
+right of the comments awaiting moderation.
+
+|commentmoderation|
+
+If there are no comments to moderate you will see a message saying just
+that
+
+|nocomments|
+
+You can also review and unapprove comments you have approved in the past
+by choosing the 'Approved comments' tab
+
+|commentapproved|
+
+.. _patron-import-label:
+
+Patron import
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Import patrons
+
+The patron import tool can be used at any time to add patrons in bulk.
+It is commonly used in universities and schools when a new batch of
+students registers.
+
+.. _creating-patron-file-label:
+
+Creating a patron import file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can download a blank CSV file with a header from the start page
+of the patron import tool that you can use as a template for your
+patron import. The header contains all fields that can be used with
+the patron import tool. You can delete fields and columns you don't need
+with the exception of a few mandatory ones. When overlaying, if your new .csv 
+includes blank columns, any existing values in patron records will be overwritten 
+with blanks. It is best to remove any blank columns in a .csv to ensure no existing data
+is removed.
+
+ **Important**
+
+    cardnumber, surname, and all fields you have
+    defined in the :ref:`BorrowerMandatoryField <borrowermandatoryfield-label>`
+    preference are required and must match valid entries in your
+    database.
+
+    **Important**
+
+    The 'password' should be stored in plaintext, and will be converted
+    to a Bcrypt hash.
+
+    If your passwords are already encrypted, talk to your systems
+    administrator about options
+
+    **Important**
+
+    Date formats should match your :ref:`dateformat system preference <dateformat-label>`,
+    and must be zero-padded, e.g. '01/02/2008'. Alternatively you can supply
+    dates in ISO format (e.g. '2008-12-01').
+
+    **Important**
+
+    If your data contains special characters or diacritics, make sure your file
+    is encoded in UTF-8. Otherwise, the special characters will not be imported
+    correctly.
+
+    **Note**
+
+    If loading :ref:`patron attributes <patron-attribute-types-label>`, the
+    'patron\_attributes' field should contain a comma-separated list of
+    attribute types and values.
+
+    -  The attribute type code and a colon should precede each value.
+
+       -  For example: "INSTID:12345,BASEBALL:Cubs"
+
+       -  This field must be wrapped in quotes if multiple values are
+          defined.
+
+       -  Since values can contain spaces, additional doubled-quotes may
+          be required:
+
+          -  "INSTID:12345,BASEBALL:Cubs,""BASEBALL:White Sox""
+
+    **Note**
+
+    It's possible to set restrictions using the patron import
+    tool. If the expiration date and comment match an existing restriction,
+    the one in the import file will be skipped. So a patron import can be
+    repeated multiple times without creating duplicate restrictions.
+    But if one of the criteria is different, a new restriction will be added.
+
+.. _importing-patrons-label:
+
+Importing patrons
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once you have created your file, you can use the patron import tool to
+bring the data into Koha.
+
+-  Choose your CSV file
+
+   |image255|
+
+-  Choose to match on 'cardnumber' or 'username' to prevent adding of
+   duplicate card numbers to the system. Additional matchpoints can be
+   set up using patron attributes marked as unique.
+
+   |image256|
+
+-  Next you can choose default values to apply to all patrons you are
+   importing
+
+   -  For example, if you're importing patrons specific to one branch you can use
+      the field on the import form to apply the branch code to all those
+      you are importing.
+
+-  Finally, you need to decide on what data you want to replace if there
+   are duplicates.
+
+   -  A matching record is found using the field you chose for matching
+      criteria to prevent duplication
+
+     |image257|
+
+   -  When using patron attributes in your installation, you can choose how
+      they are handled on import. You can either decide to always overlay all
+      patron attributes or you choose to only replace patron attributes
+      included in your import file. This will leave other attributes
+      untouched.
+
+     |image1355|
+
+.. _notices-and-slips-label:
+
+Notices & slips
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Notices & slips
+
+All notices and circulation receipts (or slips) generated by Koha can be
+customized using the Notices & slips tool. The system comes with several
+predefined templates that will appear when you first visit this tool.
+
+|image258|
+
+     **Note**
+
+     -  You can customize the columns of this table in the 
+        :ref:`'Table settings'<column-settings-label>` section of the 
+        Administration module (table id: lettert).
+
+Each notice can be edited, but only a few can be deleted, this is to
+prevent system errors should a message try to send without a template.
+Each notice and slip can be edited on a per library basis, by default
+you will see the notices for all libraries.
+
+If you have a style you'd like applied to all slips you can point the
+:ref:`SlipCSS <slipcss-label>` preference to a stylesheet. The same is true for
+notices, using the :ref:`NoticeCSS <noticecss-label>` preference to define a
+stylesheet.
+
+You will also want to review the `Customising notices and slips
+<https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_
+wiki page for more information on formatting these notices.
+
+.. _adding-notices-and-slips-label:
+
+Adding notices and slips
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To add a new notice or slip
+
+-  Click 'New notice'
+
+   |image259|
+
+-  Choose which library this notice or slip is for
+
+   -  **Important**
+
+          Not all notices can be branch specific for more information
+          review the `Customising notices and slips <https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_
+          wiki page.
+
+-  Choose the module this notice is related to
+
+-  The Code is limited to 20 characters
+
+-  Use the name field to expand on your Code
+
+   -  **Note**
+
+          With overdue notices, be sure to put your branch name in the
+          description as well so that it will be visible when setting up
+          your :ref:`triggers <overdue-notice/status-triggers-label>`.
+
+-  Next you can customize the notice for every possible delivery method
+
+   -  Every notice should have an Email template set for it
+
+      |image1220|
+
+   -  If you're using the
+      :ref:`TalkingTechItivaPhoneNotification <talkingtechitivaphonenotification-label>`
+      service you can set up a Phone notification
+
+      |image1221|
+
+   -  If you plan on printing this notice you can set the Print template
+      next
+
+      |image1222|
+
+   -  If you have enabled SMS notices with the
+      :ref:`SMSSendDriver <smssenddriver-label>` preference you can set the text
+      for your SMS notices next
+
+      |image1223|
+
+-  Each notice offers you the same options
+
+   -  If you plan on writing the notice or slip in HTML check the 'HTML
+      message' box, otherwise the content will be generated as plain
+      text
+
+   -  Message subject is what will appear in the subject line of the
+      email
+
+   -  In the message body feel free to type whatever message you feel is
+      best, use the fields on the left hand side to enter individualized
+      data from the from database.
+
+      -  **Note**
+
+             Review the `Customising notices and slips <https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_
+             wiki page for more information.
+
+      -  **Important**
+
+             Overdue notices can use <<items.content>> tags by
+             themselves, or use <item></item> to span all of the tags.
+             Learn more about the :ref:`Overdue notice
+             markup <overdue-notice-markup-label>`
+
+             -  On overdue notices make sure to use <<items.content>>
+                tags to print out the data related to all items that are
+                overdue.
+
+             -  The other option, only for overdue notices, is to use
+                the <item></item> tags to span the line so that it will
+                print out multiple lines. One example for the
+                <item></item> tag option is:
+
+                <item>"<<biblio.title>>" by <<biblio.author>>,
+                <<items.itemcallnumber>>, Barcode: <<items.barcode>> ,
+                Checkout date: <<issues.issuedate>>, Due date:
+                <<issues.date\_due>> Fine: <<items.fine>> </item>
+
+      -  **Important**
+
+             Only the overdue notices take advantage of the
+             <item></item> tags, all other notices referencing items
+             need to use <<items.content>>
+
+      -  **Note**
+
+             To add today's date you can use the <<today>> syntax
+
+      -  **Note**
+
+             If you don't want to print the patron's full name on your
+             slips or notice you can enter data in the Other name or
+             Initials field for each patron and use that value instead.
+
+   -  The system preference :ref:`TranslateNotices <translatenotices-label>` will add tabs for each
+      installed language to the notices editor. The notice defined in the
+      'Default' tab will be used if there is no preferred language set
+      for a patron.
+
+      |image1335|
+
+.. _preview-notice-templates-label:
+
+Preview notice templates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For some notices it is possible to preview the notice template showing how
+it would look to a specified patron for a particular item or record.
+
+If a notice template is previewable the notice template header will contain a
+field to enter preview data
+
+|image1342|
+
+Fill in the necessary information for the template then click the Preview button
+below the message body. The preview dialog will indicate if there are any problems
+generating the notice template preview.
+
+.. _overdue-notice-markup-label:
+
+Overdue notice markup
+'''''''''''''''''''''''''''''''''''''''''
+
+When creating your overdue notices there are two tags in addition to the
+various database fields that you can use in your notices. You will also
+want to review the `Customising notices and slips
+<https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_
+wiki page for information on formatting item information in these notices.
+
+    **Important**
+
+    These new tags only work on the overdue notices, not other
+    circulation related notices at this time.
+
+These tags are <item> and </item> which should enclose all fields from
+the biblio, biblioitems, and items tables.
+
+An example of using these tags in a notice template might be like:
+
+::
+
+       The following item(s) is/are currently overdue:
+
+       <item>"<<biblio.title>>" by <<biblio.author>>, <<items.itemcallnumber>>, Barcode: <<items.barcode>> Fine: <<items.fine>></item>
+
+Which, assuming two items were overdue, would result in a notice like:
+
+::
+
+       The following item(s) is/are currently overdue:
+
+       "A Short History of Western Civilization" by Harrison, John B, 909.09821 H2451, Barcode: 08030003 Fine: 3.50
+       "History of Western Civilization" by Hayes, Carlton Joseph Huntley, 909.09821 H3261 v.1, Barcode: 08030004 Fine: 3.50
+
+.. _existing-notices-and-slips-label:
+
+Existing notices and slips
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Among the default notices are notices for several common actions within
+Koha. All of these notices can be customized by altering their text via
+the Notices and slips tool and their style using the
+:ref:`NoticeCSS <noticecss-label>` system preference to define a stylesheet.
+
+.. Tip::
+
+   Review the `Customising notices and slips
+   <https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips>`_
+   wiki page for information on formatting item
+   information in these notices.
+
+Here are some of what those notices do:
+
+-  2FA\_DISABLE
+
+   -  This notice is sent to a staff user when they disable the
+      :ref:`two-factor authentication <two-factor-authentication-staff-label>`
+      on their account.
+
+-  2FA\_ENABLE
+
+   -  This notice is sent to a staff user when they enable the
+      :ref:`two-factor authentication <two-factor-authentication-staff-label>`
+      on their account.
+
+-  2FA\_OTP\_TOKEN
+
+   -  This notice is used to send a time-based one-time password to a staff user
+      for them to use to log into the staff interface if they have enabled the
+      :ref:`two-factor authentication <two-factor-authentication-staff-label>`
+      on their account.
+
+-  ACCEPTED
+
+   -  This notice is sent to the patron when their
+      :ref:`purchase suggestion is accepted <approve-reject-suggestions-label>`.
+
+      .. Note::
+
+         If you don't want to send this notice, simply delete it.
+
+-  ACCOUNT\_PAYMENT
+
+   -  This notice is sent for each
+      :ref:`payment transaction <pay-and-writeoff-fines-label>` in a patron's
+      account if the :ref:`UseEmailReceipts <useemailreceipts-label>` system
+      preference is set to 'Send'.
+
+-  ACCOUNT\_WRITEOFF
+
+   -  This notice is sent for each
+      :ref:`writeoff transaction <pay-and-writeoff-fines-label>` in a patron's
+      account if the :ref:`UseEmailReceipts <useemailreceipts-label>` system
+      preference is set to 'Send'.
+
+-  ACQCLAIM (Acquisition claim)
+
+   -  Used for :ref:`claiming orders <claims-and-late-orders-label>` in the
+      :ref:`aquisitions module <acquisitions-label>`.
+
+   -  ACQCLAIM is the code of the sample notice, but it's possible to define
+      several notices choosing any code. Only the module 'Claim
+      acquisition' will be taken into account. All notices with this module
+      will appear in the pull down on the :ref:`late orders page <claims-and-late-orders-label>`.
+
+   -  This notice is sent if several criteria are met:
+
+      #. The staff patron triggering the email has a valid email address.
+
+      #. The :ref:`vendor contact <vendors-label>` marked as 'Contact about late
+         orders?' has a valid email address.
+
+-  ACQORDER (Acquisition order)
+
+   -  Used in the :ref:`acquisitions module <acquisitions-label>` to send order
+      information to the vendor
+
+   -  The notice is triggered manually from the
+      :ref:`basket summary page <edit-basket-label>` using the 'Email order'
+      button in the toolbar.
+
+   -  This notice is sent if several criteria are met:
+
+      #. The staff patron triggering the email has a valid email address.
+
+      #. The :ref:`vendor contact <vendors-label>` marked as 'Primary acquisitions
+         contact' and 'Contact when ordering' has a valid email address.
+
+-  ACQ\_NOTIF\_ON\_RECEIV
+
+   -  Used in the acquisition module to
+      :ref:`inform patrons on receiving orders <order-patron-notifications-label>`
+      they have been added to.
+
+-  AR\_CANCELED
+
+   -  This notice is sent to the patron when an
+      :ref:`article request <managing-article-requests-label>` is cancelled by
+      staff.
+
+-  AR\_COMPLETED
+
+   -  This notice is sent to the patron when an
+      :ref:`article request <managing-article-requests-label>` is marked as
+      completed by staff.
+
+-  AR\_PENDING
+
+   -  This notice is sent to the patron when an
+      :ref:`article request <managing-article-requests-label>` is changed to
+      'pending' status
+
+-  AR\_PROCESSING
+
+   -  This notice is sent to the patron when an
+      :ref:`article request <managing-article-requests-label>` is marked as
+      being processed by staff.
+
+-  AR\_REQUESTED
+
+   -  This notice is sent to the patron when an
+      :ref:`article request has been made <placing-article-requests-label>` in
+      order to confirm the request.
+
+-  AUTO\_RENEWALS
+
+   -  This notice is sent to the patron if automatic renewals are enabled 
+      and the patron has chosen to receive it in their 
+      :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+   -  In order to send this notice, you must set the :ref:`AutoRenewalNotices <autorenewalnotices-label>`
+      system preference to "according to patron messaging preferences".
+
+   -  This notice is set so that, depending on the result of the renewal, 
+      whether is was successful or not, the message will be different.
+
+-  AUTO\_RENEWALS\_DGST
+
+   -  This notice is sent to the patron if automatic renewals are enabled 
+      and the patron has chosen to receive the digest in their 
+      :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+   -  In order to send this notice, you must set the :ref:`AutoRenewalNotices <autorenewalnotices-label>`
+      system preference to "according to patron messaging preferences".
+
+   -  This notice is set so that, depending on the result of the renewal, 
+      whether is was successful or not, the message will be different.
+
+-  AVAILABLE
+
+   -  This notice is sent to the patron who
+      :ref:`made a purchase suggestion <purchase-suggestions-opac-label>`, when
+      the :ref:`order created from the suggestion <order-from-purchase-suggestion-label>`
+      is :ref:`received <receiving-orders-label>`.
+
+      .. Note::
+
+         If you don't want to send this notice, simply delete it.
+
+-  CART
+
+   -  This notice is used when
+      :ref:`sending the cart by email from the OPAC <managing-the-cart-label>`
+      or when :ref:`sending the cart by email from the staff interface <cart-label>`.
+
+-  CANCEL\_HOLD\_ON\_LOST
+
+   -  This notice is sent to a patron who placed a hold on an item and staff
+      marked this items as lost from the :ref:`'Holds to pull' list <holds-to-pull-label>`.
+
+   -  This notice is sent if the :ref:`CanMarkHoldsToPullAsLost <CanMarkHoldsToPullAsLost-label>`
+      system preference is set to 'Allow to mark items as lost and notify the
+      patron'.
+
+-  CHECKIN
+
+   -  This notice is sent as the 'Check in' notice for all items that
+      are checked in
+
+   -  This notice is used if two criteria are met:
+
+      #. The
+         :ref:`EnhancedMessagingPreferences <enhancedmessagingpreferences-label>`
+         is set to 'Allow'
+
+      #. The patron has requested to receive this notice
+
+         -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+            is set to 'Show', patrons will be able to choose their messaging
+            preferences in their online account in the
+            :ref:`Messaging tab <your-messaging-label>`.
+
+         -  Staff can select this notice for a patron in their
+            :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+-  CHECKOUT
+
+   -  This notice is sent as the 'Check out' notice for all items that
+      are checked out
+
+   -  This notice is used if two criteria are met:
+
+      #. The
+         :ref:`EnhancedMessagingPreferences <enhancedmessagingpreferences-label>`
+         is set to 'Allow'
+
+      #. The patron has requested to receive this notice
+
+         -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+            is set to 'Show', patrons will be able to choose their messaging
+            preferences in their online account in the
+            :ref:`Messaging tab <your-messaging-label>`.
+
+         -  Staff can select this notice for a patron in their
+            :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+-  CHECKOUT\_NOTE
+
+   -  This notice is sent to the system administration (the email address in
+      :ref:`KohaAdminEmailAddress <kohaadminemailaddress-label>`) to alert them
+      that a patron added a :ref:`checkout note <checkoutnotes-label>` from
+      their :ref:`checkouts list on the OPAC <your-summary-label>`.
+
+-  DISCHARGE
+
+  -  This notice is used to generate a PDF to document a successful
+     discharge request
+
+  -  The PDF can either be downloaded by the patron from their patron
+     account or from the staff interface when discharging a patron
+
+  -  The discharge feature is controlled by the :ref:`useDischarge <usedischarge-label>`
+     system preference.
+
+-  DUE
+
+   -  This notice is sent as the
+      :ref:`'Item due' notice <advance-notices-and-hold-notices-label>` for an
+      checked out item that is due today.
+
+   -  This notice is used if two criteria are met:
+
+      #. The
+         :ref:`EnhancedMessagingPreferences <enhancedmessagingpreferences-label>`
+         is set to 'Allow'
+
+      #. The patron has requested to receive this notice
+
+         -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+            is set to 'Show', patrons will be able to choose their messaging
+            preferences in their online account in the
+            :ref:`Messaging tab <your-messaging-label>`.
+
+         -  Staff can select this notice for a patron in their
+            :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+-  DUEDGST
+
+   -  This notice is sent as the
+      :ref:`'Item due' notice <advance-notices-and-hold-notices-label>` for all
+      checked out items that are due today (digest option).
+
+   -  This notice is used if two criteria are met:
+
+      #. The
+         :ref:`EnhancedMessagingPreferences <enhancedmessagingpreferences-label>`
+         is set to 'Allow'
+
+      #. The patron has requested to receive this notice as a digest
+
+         -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+            is set to 'Show', patrons will be able to choose their messaging
+            preferences in their online account in the
+            :ref:`Messaging tab <your-messaging-label>`.
+
+         -  Staff can select this notice for a patron in their
+            :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+-  HOLD (Hold available for pickup)
+
+   -  This notice is sent to the patron when their hold is ready for pickup.
+
+   -  This notice is used if two criteria are met:
+
+      #. The
+         :ref:`EnhancedMessagingPreferences <enhancedmessagingpreferences-label>`
+         is set to 'Allow'
+
+      #. The patron has requested to receive this notice as a digest
+
+         -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+            is set to 'Show', patrons will be able to choose their messaging
+            preferences in their online account in the
+            :ref:`Messaging tab <your-messaging-label>`.
+
+         -  Staff can select this notice for a patron in their
+            :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+   -  When this notice references the branches table it is referring to
+      the pickup branch information.
+
+-  HOLD\_CHANGED
+
+   -  This notice is sent to library staff (either the email address in
+      :ref:`ExpireReservesAutoFillEmail <expirereservesautofillemail-label>`),
+      or the :ref:`library's <libraries-label>` reply-to address, to alert them
+      that a hold has been canceled, the item filled the next hold and is now
+      waiting for another patron.
+
+   -  This notice is only sent if
+      :ref:`ExpireReservesAutoFill <expirereservesautofill-label>` is set to
+      'Do'.
+
+-  HOLD\_REMINDER
+
+   -  This notice is sent to the patron when their hold has been waiting for
+      pickup for more than a number of days
+
+   -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+      is set to 'Show', patrons will be able to choose their messaging
+      preferences in their online account in the
+      :ref:`Messaging tab <your-messaging-label>`. The notice is 'Hold reminder'.
+
+   -  Staff can select this notice for a patron in their
+      :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+      The notice is 'Hold reminder'.
+
+   -  The :ref:`holds\_reminder.pl <cron-holdsreminder-label>` cron job is
+      required to generate this notice.
+
+-  HOLDPLACED
+
+   -  This notice is sent to the library staff when a hold has been placed.
+
+   -  This notice requires the
+      :ref:`emailLibrarianWhenHoldIsPlaced <emaillibrarianwhenholdisplaced-label>`
+      system preference to be set to 'Enable'.
+
+   -  When this notice references the branches table it is referring to
+      the pickup library information.
+
+-  ILL\_PARTNER\_REQ
+
+   -  This notice is used by the :ref:`ILL module <ill-requests-label>` to send
+      :ref:`requests to partner libraries <place-request-with-partners-label>`.
+
+-  ILL\_PICKUP\_READY
+
+   -  This notice is sent to the patron when the
+      :ref:`inter-library loan <ill-requests-label>` they requested has been
+      fulfilled and is now ready for pickup.
+
+   -  Staff can select this notice for a patron in their
+      :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+      The notice is 'Interlibrary loan ready'.
+
+      .. Note::
+
+         The option will only appear in the messaging preferences if the
+         :ref:`ILLModule <illmodule-label>` system preference is enabled.
+
+   -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+      is set to 'Show', patrons will be able to choose their messaging
+      preferences in their online account in the
+      :ref:`Messaging tab <your-messaging-label>`. The notice is 'Interlibrary
+      loan ready'.
+
+      .. Note::
+
+         The option will only appear in the messaging preferences if the
+         :ref:`ILLModule <illmodule-label>` system preference is enabled.
+
+-  ILL\_REQUEST\_CANCEL
+
+   -  This notice is sent to library staff when a patron
+      :ref:`cancels their inter-library loan request <your-interlibrary-loan-requests-label>`
+      from their account in the OPAC.
+
+-  ILL\_REQUEST\_MODIFIED
+
+   -  This notice is sent to library staff when a patron
+      :ref:`modifies their inter-library loan request <your-interlibrary-loan-requests-label>`
+      from their account in the OPAC.
+
+-  ILL\_REQUEST\_UNAVAIL
+
+   -  This notice is sent to the patron when the
+      :ref:`inter-library loan <ill-requests-label>` they requested has been
+      cancelled because it was unavailable.
+
+   -  Staff can select this notice for a patron in their
+      :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+      The notice is 'Interlibrary loan unavailable'.
+
+      .. Note::
+
+         The option will only appear in the messaging preferences if the
+         :ref:`ILLModule <illmodule-label>` system preference is enabled.
+
+   -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+      is set to 'Show', patrons will be able to choose their messaging
+      preferences in their online account in the
+      :ref:`Messaging tab <your-messaging-label>`. The notice is 'Interlibrary
+      loan unavailable'.
+
+      .. Note::
+
+         The option will only appear in the messaging preferences if the
+         :ref:`ILLModule <illmodule-label>` system preference is enabled.
+
+-  ILL\_REQUEST\_UPDATE
+
+   -  This notice is sent to the patron to alert them that
+      :ref:`their inter-library loan request has been updated <managing-ILL-requests-label>`.
+
+   -  Staff can select this notice for a patron in their
+      :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+      The notice is 'Interlibrary loan updated'.
+
+      .. Note::
+
+         The option will only appear in the messaging preferences if the
+         :ref:`ILLModule <illmodule-label>` system preference is enabled.
+
+   -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+      is set to 'Show', patrons will be able to choose their messaging
+      preferences in their online account in the
+      :ref:`Messaging tab <your-messaging-label>`. The notice is 'Interlibrary
+      loan updated'.
+
+      .. Note::
+
+         The option will only appear in the messaging preferences if the
+         :ref:`ILLModule <illmodule-label>` system preference is enabled.
+
+-  LIST
+
+   -  This notice is used when
+      :ref:`sending a list by email from the OPAC <viewing-lists-contents-label>`
+      or when :ref:`sending a list by email from the staff interface <viewing-lists-label>`.
+
+-  MEMBERSHIP\_EXPIRY
+
+   -  This notice can be sent to patrons to warn them that their cards
+      are expiring soon.
+
+   -  Requires that you have the
+      :ref:`MembershipExpiryDaysNotice <membershipexpirydaysnotice-label>` set
+      and the :ref:`related cron job <cron-notify-patrons-of-expiration-label>` set.
+
+-  NEW\_CURBSIDE\_PICKUP
+
+   -  This notice is sent to the patron when
+      :ref:`a curbside pickup is scheduled <curbsidepickup-schedule-label>`.
+
+   -  In order to send this notice,
+
+      -  The :ref:`curbside pickup module must be enabled <curbside-pickup-configuration-label>`
+
+      -  The patron must have chosen to receive the 'Hold filled' notice by email.
+
+         -  Staff can select this notice for a patron in their
+            :ref:`messaging preferences <advance-notices-and-hold-notices-label>`
+
+         -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+            is set to 'Show', patrons will be able to choose their messaging
+            preferences in their online account in the
+            :ref:`Messaging tab <your-messaging-label>`.
+
+-  NEW\_SUGGESTION
+
+   -  This notice is sent to library staff when the
+      :ref:`EmailPurchaseSuggestions <emailpurchasesuggestions-and-emailaddressforsuggestions-label>`
+      system preference is enabled.
+
+-  NOTIFY\_MANAGER
+   
+   -  This notice is sent to a staff member when they are :ref:`assigned as manager of 
+      a suggestion <managing-purchase-suggestions-label>` in the acquisitions module.
+
+-  ODUE (Overdue notice)
+
+   -  This notice is used to send overdue notices to patrons
+
+   -  ODUE is the code of the sample notice, but it's possible to use
+      any code and define multiple different messages for different
+      patron categories and notice levels
+
+   -  Requires that you set :ref:`Overdue notice/status
+      triggers <overdue-notice/status-triggers-label>`
+
+-  OPAC\_REG
+
+   -  This notice is sent to library staff when the
+      :ref:`EmailPatronRegistrations <emailpatronregistrations-and-emailaddressforpatronregistrations-label>`
+      system preference is enabled and a
+      :ref:`patron registers through the OPAC <opac-self-registration-label>`.
+
+-  OPAC\_REG\_VERIFY
+
+   -  This notice is sent to the
+      :ref:`patron who registered through the OPAC <opac-self-registration-label>`
+      if the :ref:`PatronSelfRegistrationVerifyByEmail <patronselfregistrationverifybyemail-label>`
+      system preference is enabled.
+
+-  ORDERED
+
+   -  This notice is sent to the
+      :ref:`patron who made a suggestion <your-purchase-suggestions-label>`,
+      when the
+      :ref:`'from a suggestion' option is used to create an order from it <order-from-purchase-suggestion-label>`.
+
+   .. Note::
+
+      If you don't want to send this notice, just delete it.
+
+-  PASSWORD\_CHANGE
+
+   -  This notice is sent to a patron whose password was changed, if the
+      :ref:`NotifyPasswordChange <notifypasswordchange-label>` system preference
+      is enabled.
+
+-  PASSWORD\_RESET
+
+   -  This notice is sent when 
+      :ref:`a patron requests a new password from the OPAC <resetting-your-password-label>` 
+      in order to validate the email address.
+
+   -  The password reset feature is controlled by the :ref:`OpacResetPassword <opacresetpassword-label>`
+      system preference.
+
+-  PICKUP\_RECALLED\_ITEM
+
+   -  This notice is sent to the patron who has
+      :ref:`requested a recall <request-recalls-opac-label>` when the
+      item is :ref:`ready for them to pick up <recalls-receive-label>`.
+
+-  PREDUE
+
+   -  This notice is sent as the
+      :ref:`'Advanced notice' <advance-notices-and-hold-notices-label>` when an
+      item is due
+
+   -  This notice is used if two criteria are met:
+
+      #. The
+         :ref:`EnhancedMessagingPreferences <enhancedmessagingpreferences-label>`
+         is set to 'Allow'
+
+      #. The patron has requested to receive this notice
+
+         -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+            is set to 'Show', patrons will be able to choose their messaging
+            preferences in their online account in the
+            :ref:`Messaging tab <your-messaging-label>`.
+
+         -  Staff can select this notice for a patron in their
+            :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+-  PREDUEDGST
+
+   -  This notice is sent as the
+      :ref:`'Advanced notice' digest <advance-notices-and-hold-notices-label>`
+      for all items that are due
+
+   -  This notice is used if two criteria are met:
+
+      #. The
+         :ref:`EnhancedMessagingPreferences <enhancedmessagingpreferences-label>`
+         is set to 'Allow'
+
+      #. The patron has requested to receive this notice as a digest
+
+         -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+            is set to 'Show', patrons will be able to choose their messaging
+            preferences in their online account in the
+            :ref:`Messaging tab <your-messaging-label>`.
+
+         -  Staff can select this notice for a patron in their
+            :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+-  PROBLEM\_REPORT
+
+   -  This notice is sent to the email address in the
+      :ref:`KohaAdminEmailAddress <KohaAdminEmailAddress-label>` system
+      preference, or the :ref:`library <libraries-label>`'s email address when
+      a patron :ref:`reports a problem on the OPAC <opac-report-problem-label>`.
+
+-  RECEIPT
+
+   -  Used to send a payment receipt by email from the
+      :ref:`point of sale module <point-of-sale-label>`.
+
+-  REJECTED
+
+   -  This notice is sent when a
+      :ref:`patron's purchase suggestion is rejected <approve-reject-suggestions-label>`.
+
+      .. Note::
+
+         If you don't want to send this notice, just delete it.
+
+-  RENEWAL
+
+   -  This notice is sent as the 'Item checkout and renewal' notice for all items that
+      are renewed
+
+   -  This notice is used if three criteria are met:
+
+      #. The
+         :ref:`EnhancedMessagingPreferences <enhancedmessagingpreferences-label>`
+         is set to 'Allow'
+
+      #. The :ref:`RenewalSendNotice <renewalsendnotice-label>` system preference is
+         set to 'Send'
+
+      #. The patron has requested to receive this notice
+
+         -  If :ref:`EnhancedMessagingPreferencesOPAC <enhancedmessagingpreferencesopac-label>`
+            is set to 'Show', patrons will be able to choose their messaging
+            preferences in their online account in the
+            :ref:`Messaging tab <your-messaging-label>`.
+
+         -  Staff can select this notice for a patron in their
+            :ref:`messaging preferences <advance-notices-and-hold-notices-label>`.
+
+-  RETURN\_RECALLED\_ITEM
+
+   -  This notice is sent to the patron who currently has an item in their
+      possession that :ref:`has been recalled <request-recalls-opac-label>`.
+      It serves to notify them of the new due date for the checked out item.
+
+-  SERIAL_ALERT (New serial issue)
+
+   -  Notice used in the serials module to notify patrons/staff
+      of new issues of a serial. SERIAL_ALERT (RLIST in older versions)
+      is provided as a sample notice, but the notice code can be chosen
+      freely as only the module is taken into account. Multiple notices
+      can also be managed.
+
+   -  You have the option to select the notice used to inform the patron
+      about a received serial issue when
+      :ref:`adding or editing a subscription <add-a-subscription-label>`. Choose
+      from the 'Patron notification' drop down menu.
+
+   -  If a notice has been selected for a subscription, patrons can
+      subscribe to the email notification from the subscription tab
+      in the :ref:`detail view in the OPAC <bibliographic-record-label>`.
+
+      .. Note::
+
+         Notice also that if you'd like to notify patrons of new serial
+         issues, you can click on 'define a notice' which will take you
+         to the 'Notices' tool.
+
+-  SHARE\_ACCEPT
+
+   -  Used to notify a patron when another patron has accepted their shared list.
+
+   -  Requires that the
+      :ref:`OpacAllowSharingPrivateLists <opacallowsharingprivatelists-label>`
+      system preference be set to 'Allow'.
+
+   -  See :ref:`Managing lists <managing-lists-label>` for more information
+      about sharing lists.
+
+-  SHARE\_INVITE
+
+   -  Used to notify a patron that another patron would like to share a
+      list with them.
+
+   -  Requires that the
+      :ref:`OpacAllowSharingPrivateLists <opacallowsharingprivatelists-label>`
+      system preference be set to 'Allow'.
+
+   -  See :ref:`Managing lists <managing-lists-label>` for more information
+      about sharing lists.
+
+-  SR\_SLIP
+
+   -  Used to notify library staff from a particular library branch of items
+      that should be transferred to another library in the context of
+      :ref:`stock rotation <stock-rotation-label>`.
+
+   -  Requires the :ref:`stockrotation.pl <cron-stockrotation-label>` cron job.
+
+-  STAFF\_PASSWORD\_RESET
+
+   -  This notice is sent when a staff member sends a
+      :ref:`password reset email <patron-password-label>` to a patron.
+
+   -  The password reset feature is controlled by the
+      :ref:`OpacResetPassword <opacresetpassword-label>` system preference.
+
+-  TICKET\_ACKNOWLEDGE
+
+   -  This notice is sent to the reporter of a catalog concern when they
+      :ref:`report a concern through the staff interface <report-concern-staff-label>`,
+      or when they :ref:`report a concern through the OPAC <report-concern-opac-label>`,
+      to acknowledge that the concern report was received.
+
+   -  The concern report feature is enabled in the staff interface by the
+      :ref:`CatalogConcerns <catalogconcerns-label>` system preference and in
+      the OPAC by the :ref:`OpacCatalogConcerns <opaccatalogconcerns-label>`
+      system preference.
+
+-  TICKET\_NOTIFY
+
+   -  This notice is sent to the cataloging team, to the email address in the
+      :ref:`CatalogerEmails <catalogeremails-label>` system preference, to
+      notify them that
+      :ref:`a concern was reported about a bibliographic record <report-concern-staff-label>`.
+
+   -  The concern report feature is enabled in the staff interface by the
+      :ref:`CatalogConcerns <catalogconcerns-label>` system preference and in
+      the OPAC by the :ref:`OpacCatalogConcerns <opaccatalogconcerns-label>`
+      system preference.
+
+-  TICKET\_RESOLVE
+
+   -  This notice is sent to the reporter of a catalog concern when
+      :ref:`the concern is marked as resolved with the 'Notify' flag <manage-catalog-concerns-label>`.
+
+   -  The concern report feature is enabled in the staff interface by the
+      :ref:`CatalogConcerns <catalogconcerns-label>` system preference and in
+      the OPAC by the :ref:`OpacCatalogConcerns <opaccatalogconcerns-label>`
+      system preference.
+
+-  TICKET\_UPDATE
+
+   -  This notice is sent to the reporter of a catalog concern when
+      :ref:`the concern is updated with the 'Notify' flag <manage-catalog-concerns-label>`.
+
+   -  The concern report feature is enabled in the staff interface by the
+      :ref:`CatalogConcerns <catalogconcerns-label>` system preference and in
+      the OPAC by the :ref:`OpacCatalogConcerns <opaccatalogconcerns-label>`
+      system preference.
+
+-  TO\_PROCESS
+
+   -  Used to notify a staff member if a purchase suggestion has been
+      moved to the fund they manage
+
+   -  Requires the
+      :ref:`notice\_unprocessed\_suggestions <cron-email-suggestions-to-process-label>` cron job
+
+-  WELCOME
+
+   -  Sent to patrons when their account is set up if the
+      :ref:`AutoEmailNewUser <autoemailnewuser-label>` preference is set to
+      'Send'
+
+   .. Note::
+
+      For security reasons, it is not possible to send the patron's password in 
+      a notice. 
+
+There are also a set of predefined slips (or receipts) listed on this
+page. All of these slips can be customized by altering their text via
+the Notices & slips tool and their style using the
+:ref:`SlipCSS <slipcss-label>` preference to define a stylesheet. Here is what
+those slips are used for:
+
+-  ACCOUNT\_CREDIT
+
+   -  Used to print a receipt for a credit (either a payment, writeoff or other
+      credit).
+
+   -  The slip or receipt can be printed manually with the 'Print' button
+      next to a credit type account line in the
+      :ref:`patron's accounting tab <charging-fines/actions-label>`.
+
+   -  The slip or receipt can also be printed semi-automatically when
+      :ref:`paying or writing off a charge <pay-and-writeoff-fines-label>` if
+      the :ref:`FinePaymentAutoPopup <FinePaymentAutoPopup-label>` system
+      preference is enabled.
+
+   .. Note::
+
+      It is possible to set specific notices for different credit types. To do
+      so, :ref:`create a new notice <adding-notices-and-slips-label>` with the
+      code CREDIT\_ followed by the :ref:`credit type code <credit-types-label>`.
+
+      For example, to have a specific slip for writeoffs,
+      :ref:`create a new notice <adding-notices-and-slips-label>` with the code
+      CREDIT\_WRITEOFF.
+
+-  ACCOUNT\_DEBIT
+
+   -  Used to print an invoice for a debit (any type of charge, such as a lost
+      item fee, or overdue fine).
+
+   -  The slip or invoice can be printed manually with the 'Print' button
+      next to a debit type account line in the
+      :ref:`patron's accounting tab <charging-fines/actions-label>`.
+
+   .. Note::
+
+      It is possible to set specific notices for different debit types. To do
+      so, :ref:`create a new notice <adding-notices-and-slips-label>` with the
+      code DEBIT\_ followed by the :ref:`debit type code <debit-types-label>`.
+
+      For example, to have a specific slip for lost items,
+      :ref:`create a new notice <adding-notices-and-slips-label>` with the code
+      DEBIT\_LOST.
+
+-  ACCOUNTS_SUMMARY
+
+   -  Used to print a summary of outstanding charges and unused credits in the
+      patron's account.
+
+   -  The slip can be printed manually with the 'Print account balance' option
+      in the :ref:`'Print' button <printing-receipts-label>` at the top of the
+      patron's details page.
+
+-  AR\_SLIP
+
+   -  Used to print a slip for an :ref:`article request <managing-article-requests-label>`
+
+   -  The slip or receipt can be printed manually when
+      :ref:`managing article requests from the staff interface <managing-article-requests-label>`.
+
+   -  *Get there:* Circulation > Article requests > Actions > Print slip
+
+-  CHECKINSLIP
+
+   -  This slip lists all items that were checked in today for this patron
+
+   -  To print this slip, click Print >
+      :ref:`Print checkin slip <printing-receipts-label>` from the patron file
+
+   -  You can also print this slip from the :ref:`Check in page <check-in-(returning)-label>`
+
+-  ISSUEQSLIP
+
+   -  Used to :ref:`print the quick slip in circulation <printing-receipts-label>`
+
+   -  The quick slip only includes items that were checked out today
+
+-  ISSUESLIP
+
+   -  Used to :ref:`print a full slip in circulation <printing-receipts-label>`
+
+   -  The slip or receipt will show items checked out today as well as
+      items that are still checked out
+
+-  HOLD\_SLIP
+
+   -  Used to print a holds slip
+
+   -  The holds slip is generated when
+      :ref:`a hold is confirmed and set to waiting <receiving-holds-label>`.
+
+-  OVERDUE\_SLIP
+
+   -  Used to print an overdues slip
+
+   -  The overdues slip can be generated manually using the
+      :ref:`'print' menu in the patron account <printing-receipts-label>` in
+      the staff interface. It will show all items overdue.
+
+-  RECALL\_REQUESTER\_DET
+
+   -  Used to print the details of the patron who has requested a recall on an
+      item, when :ref:`receiving the recall <recalls-receive-label>`.
+
+-  RECEIPT
+
+   -  Used to print a payment receipt in the
+      :ref:`point of sale module <point-of-sale-label>`.
+
+-  TRANSFERSLIP
+
+   -  Used to print a transfer slip
+
+   -  The transfer slip is printed when you confirm a transfer from one
+      branch to another in your system
+
+This tool also allows you to modify database entries for some specific purposes.
+So far, only the overdue fine description is available.
+
+-  OVERDUE\_FINE\_DESC
+
+   -  This template is used to generate the description for overdue fines in a
+      :ref:`patron's account <fines-label>`.
+
+      .. Note::
+
+         The information available to this customization come from the checkouts
+         (issues), items and patrons (borrowers).
+
+.. _overdue-notice/status-triggers-label:
+
+Overdue notice/status triggers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Overdue
+   notice/status triggers
+
+In order to send the overdue notices that you defined using the
+:ref:`Notices & slips <notices-and-slips-label>` tool, you need to first set the triggers to have
+these messages.
+
+    **Important**
+
+    In order to have overdue notices sent to your patrons, you need to
+    :ref:`set that patron category <adding-a-patron-category-label>` to require overdue
+    notices.
+
+    **Important**
+
+    Depending on the value of your
+    :ref:`OverdueNoticeCalendar <overduenoticecalendar-label>` preference the
+    delay may or may not include days the library is closed based on the
+    :ref:`holiday calendar <calendar-label>`.
+
+The Overdue notice/status triggers tool gives the librarian the power to
+send up to three notices to each patron type notifying them of overdue
+items
+
+|image260|
+
+-  Delay is the number of days after an issue is due before an action is
+   triggered.
+
+   -  **Important**
+
+          If you want Koha to trigger an action (send a letter or
+          restrict member), a delay value is required.
+
+-  To send additional notices, click on the tabs for 'Second' and
+   'Third' notice
+
+-  If you would like to prevent a patron from checking items out because
+   of their overdue items, check the 'Restrict' box, this will put a
+   notice on the patron's record at checkout informing the librarian
+   that the patron cannot check out due to overdue items.
+
+   -  If you choose to restrict a patron in this way you can also have
+      Koha automatically remove that restriction with the
+      :ref:`AutoRemoveOverduesRestrictions <autoremoveoverduesrestrictions-label>`
+      preference.
+
+-  Next you can choose the delivery method for the overdue notice. You
+   can choose from Email, Phone (if you are using the :ref:`i-tiva Talking
+   Tech service <talkingtechitivaphonenotification-label>`), Print and SMS
+   (if you have set your :ref:`SMSSendDriver <smssenddriver-label>`).
+
+.. _patron-card-creator-label:
+
+Patron card creator
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patron card creator
+
+The patron card creator allow you to use layouts and templates which you
+design to print your custom patron cards on your printer. Here are some
+of the features of the patron card creator module:
+
+-  Customize patron card layouts with text retrieved from the Koha
+   patron data
+
+-  Design custom card templates for printed patron cards (to match the
+   label sheets)
+
+-  Build and manage batches of patron cards to print
+
+-  Export (as PDF) single or multiple batches to print
+
+-  Export (as PDF) single or multiple patron cards from within a batch
+
+.. _patron-card-layouts-label:
+
+Layouts
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  *Get there:* More > Tools > Patron card creator > Manage > Layouts
+
+A layout defines the text and images that will be printed on to the card
+and where it will appear.
+
+    **Note**
+
+    Up to three lines of text, the patron's number in barcode
+    representation and up to two images can be printed on to the card.
+
+.. _patron-add-a-layout-label:
+
+Add a layout
+'''''''''''''''''''''''''''''''''
+
+If you have no layouts defined, you will add a new layout by clicking
+the 'New' button and choosing 'Layout'.
+
+|image1224|
+
+You may also choose to press 'Manage layout' on the left side. Here you
+are offered a list of available layouts you can select for editing. But
+at the top of the page there is still the 'New layout' button.
+
+|image261|
+
+-  The name you assign to the layout is for your benefit, name it
+   something that will be easy to identify at a later date
+
+-  The Units pull down is used to define what measurement scale you're
+   going to be using for your layout.
+
+   |units|
+
+   -  **Note**
+
+          A Postscript Point is 1/72", an Adobe Agate is 1/64", an Inch
+          is 25.4 SI Millimeters
+
+-  Next, note if this layout is for the front or the back of the patron
+   card
+
+   -  **Note**
+
+          You will need a layout for both the front and back of your
+          card if you have 2-sided library cards, this option doesn't
+          allow you to print two sided cards, just lets you track which
+          side of the card you're designing.
+
+-  You have the option of adding up to 3 lines of text to your card.
+   Your text can be static text of your choosing and/or fields from the
+   patron record. If you want to print fields from the patron record you
+   want to put the field names in brackets like so - <firstname>
+
+   -  **Note**
+
+          A full list of field names can be found in the database schema
+          at http://schema.koha-community.org
+
+-  For each line of text, you can choose your font, font size and the
+   location of the text on the card using the lower X and Y coordinates
+
+-  In order to show the barcode and the patron card number you will need
+   to check the 'Print card number as barcode' option. This will turn
+   the patron card number into a barcode. If you want the number to
+   print in human readable format you will need to check the 'Print card
+   number as text under barcode' option.
+
+-  Finally you can choose up to two images to print on the card.
+
+   -  One can be the :ref:`patron image <upload-patron-images-label>` which you
+      can resize to meet your needs.
+
+   -  The other image can be something like a library logo or symbol
+      that you uploaded using the ':ref:`manage
+      images <manage-images-label>`' module of the patron card creator
+      Tool.
+
+    **Important**
+
+    It is the designers responsibility to define textlines, barcode and
+    images such that overlap is avoided.
+
+After saving, your layouts will appear on the 'Manage layouts' page.
+
+|image263|
+
+.. _patron-templates-label:
+
+Templates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  *Get there:* More > Tools > Patron card creator > Manage > Card
+   templates
+
+A template describes the arrangement of labels on the label sheet/card
+stock you are using. This might be Avery 5160 for address labels,
+Gaylord 47-284 for spine labels or Avery 28371 for your patron cards,
+just to give a couple of examples. All of the information you will need
+for setting up a template may be on the packaging, and if not it can
+usually be found on the vendor's website or can be measured from a
+sample sheet.
+
+.. _patron-add-a-template-label:
+
+Add a template
+'''''''''''''''''''''''''''''''''''''
+
+To add a new template click on the 'New template' button at the top of
+your page which brings you to the Edit template form immediately. You
+may also choose to press 'Manage templates' on the left side. Here you
+are offered a list of available templates you can select for editing.
+But in the top of the page there is still the 'New template' button.
+
+|newcardtemplate|
+
+Using the form that appears after pressing either 'Edit' or 'New
+template' you can define the template for your sheet of labels or cards.
+
+|image265|
+
+-  Template ID is simply a system generated unique id
+
+-  Template code should be the name of this template to identify it on a
+   list of templates
+
+-  You can use the template description to add additional information
+   about the template
+
+-  The Units pull down is used to define what measurement scale you're
+   going to be using for the template.
+
+   |units|
+
+   -  **Note**
+
+          A Postscript Point is 1/72", an Adobe Agate is 1/64", an Inch
+          is 25.4 SI Millimeters
+
+-  The measurements (page height, page width, card width, card height)
+   may be on the packaging, and if not it can usually be found on the
+   vendor's website or can be measured from a sample sheet.
+
+-  A profile is a set of "adjustments" applied to a given template just
+   prior to printing which compensates for anomalies unique and peculiar
+   to a given printer (to which the profile is assigned).
+
+   -  Before defining a profile try printing some sample cards so that
+      you can take measurements to define a profile to perform the right
+      adjustments for your printer/template combination.
+
+   -  After finding and documenting any anomalies in the printed
+      document, then you can :ref:`create a profile <patron-add-a-profile-label>` and
+      assign it to the template.
+
+   -  **Important**
+
+          Do not specify a profile unless needed, i.e. do not click to
+          define a printer profile. It is not possible to remove a
+          profile from a template but you can switch to another profile.
+
+   -  **Note**
+
+          If you are using different printers you may be required to
+          define several templates that are identical only different
+          profiles are specified.
+
+After saving, your templates will appear on the 'Manage templates' page.
+
+|image267|
+
+.. _patron-profiles-label:
+
+Profiles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  *Get there:* More > Tools > Patron card creator > Manage > Profiles
+
+A profile is a set of "adjustments" applied to a given
+:ref:`template <patron-templates-label>` just prior to printing which compensates
+for anomalies unique and peculiar to a given printer. This means if you
+set a template up and then print a sample set of data and find that the
+items are not all aligned the same on each card, you need to set up a
+profile for each printer (or even different tray selections on the same
+printer) to make up for the differences in printing styles, such as the
+shifting of text to the left, right, top or bottom.
+
+If your cards are printing just the way you want, you will not need a
+profile.
+
+.. _patron-add-a-profile-label:
+
+Add a profile
+'''''''''''''''''''''''''''''''''''
+
+To add a new profile, you want to click on the 'Profiles' button at the
+top of your page and choose 'New profile'
+
+|image268|
+
+To add a new profile, you want to click on the 'New profile' button at
+the top of your page. Using the form that appears you can define the
+values to correct the card misalignment on your label sheet. You may
+also choose 'Manage profiles' on the left side and select one of the
+currently available profiles for editing.
+
+|image269|
+
+-  The Printer name and Paper bin do not have to match your printer
+   exactly, they are for your reference so you can remember what printer
+   you have set the profile for.
+
+   -  **Note**
+
+          For example: if you want to use the Printer model number in
+          printer name you can, or you can call it 'the printer on my
+          desk'
+
+-  Template will be filled in once you have chosen which template to
+   apply the profile to on the :ref:`template edit form <patron-add-a-template-label>`
+
+-  The Units pull down is used to define what measurement scale you're
+   going to be using for your profile.
+
+   |units|
+
+   -  **Note**
+
+          A Postscript Point is 1/72", an Adobe Agate is 1/64", an Inch
+          is 25.4 SI Millimeters
+
+-  Offset should be used when the entire image is off center either
+   vertically or horizontally. Creep describes a condition where the
+   distance between the labels changes across the page or up and down
+   the page
+
+   -  For offset and creep values, negative numbers move the printed
+      information up and to the left on the printed sheet and positive
+      numbers move down and to the right
+
+   -  Example: the text is printed 0 .25" from the left edge of the
+      first label, 0 .28" from the left edge of the second label and 0
+      .31" from the left edge of the third label. This means the
+      horizontal creep should be set to (minus) -0.03 " to make up for
+      this difference.
+
+After saving, your profiles will appear on the 'Manage printer profiles'
+page.
+
+|image271|
+
+Once you have saved your new profile, you can return to the list of
+templates and choose to edit the template that this profile is for.
+
+.. _patron-batches-label:
+
+Batches
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  *Get there:* More > Tools > Patron card creator > Manage > Card
+   batches
+
+A batch is a collection of patrons for whom you want to generate cards.
+
+.. _patron-add-a-batch-label:
+
+Add a batch
+'''''''''''''''''''''''''''''''
+
+To add a new batch, you want to click on the 'New batches' button at the
+top of your page. Choosing the menu item 'Manage batches' on the left a
+list of already defined batches is displayed. In this display you can
+either select a batch for editing or add a new batch.
+
+|image272|
+
+For a new batch a message pops up and directs you to select patrons to
+be processed in this batch.
+
+|image1225|
+
+After choosing the 'Add patron(s)' button the Patron Search window pops
+up.
+
+|patronsearchpopup|
+
+From here you can search for patrons to add to your batch by any part of
+their name, their category and/or library. Entering \* in the search box
+will display all the patrons.
+
+|image1227|
+
+From the results you can add patrons to the batch by clicking the 'Add'
+button. After adding patrons from the results you can start over and
+perform another search or click 'Close' at the bottom of the screen to
+indicate that you are done. You will then be presented with your
+batch.
+
+|image1228|
+If you are satisfied with your batch you can proceed to export. If you
+want to correct or even delete that batch the buttons to do so can be
+found at the top of your screen. You can always come back here through
+the 'Manage > Card batches' button.
+
+If you would like to export all patron cards you can click 'Export card
+batch' otherwise you can choose specific patrons to print cards for by
+checking the box to the right of their names and then choose 'Export
+selected card(s)' at the top.
+
+The export menu will ask you to choose a template, a layout and starting
+position (where on the sheet should printing begin).
+
+    **Note**
+
+    For the starting position if the first 6 labels have already been
+    used on your sheet you can start printing on label in position 7 on
+    the sheet. The labels are numbered left to right from top to bottom.
+
+|image1229|
+
+Once you click 'Export' you will be presented with a PDF of your labels
+for printing
+
+|image1230|
+
+When you open the PDF you will see the cards for printing
+
+|image273|
+
+The above image shows a layout that is made up of two textlines. The
+first one is just plain text, the second one is composed of the
+<firstname> <surname> fields. A patron image is printed (if available)
+and the barcode of patrons number is displayed in code 39. All this is
+printed on a template with three columns and 8 rows using position 1-3
+here. When printing this PDF please take care that your printer doesn't
+rescale the PDF (e.g do not fit to paper size) otherwise the printer
+will not be able to print to the right place per your templates.
+
+.. _manage-images-label:
+
+Manage images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  *Get there:* More > Tools > Patron card creator > Manage > Images
+
+Images uploaded using this tool will appear on the menu when creating
+:ref:`patron card layouts <patron-card-layouts-label>`. You are limited in how many
+images you can upload (not counting patron images) by the
+:ref:`ImageLimit <imagelimit-label>` system preference.
+
+    **Important**
+
+    Images must be under 500k in size.
+
+    **Note**
+
+    Pictures uploaded with this tool should be at least 300dpi which is
+    the minimum quality for a printable image.
+
+In the center of the screen is a simple upload form, simply browse for
+the file on your computer and give it a name you'll recognize later.
+
+|image274|
+
+Once the file is uploaded you will be presented with a confirmation
+message.
+
+|image275|
+
+And the image will be listed with all of your others on the right hand
+side of the page.
+
+|image276|
+
+To delete one or multiple of these images, click the checkbox to the
+right of each image you want to delete and click the 'Delete' button.
+
+.. _patrons-anonymize-bulk-delete-label:
+
+Batch patron deletion/anonymization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Batch patron
+   deletion/anonymization
+
+This tool allows you to bulk anonymize circulation histories (this means
+that you keep records of how many times items were checked out - but not
+the patrons who checked the items out) or bulk delete patrons (remove
+them from the system completely).
+
+    **Important**
+
+    Patrons with outstanding fines or items checked out are not saved.
+    They are not completely removed from the system (they are only moved
+    to the delete\_borrowers table), but this tool does not provide as
+    many checks as one may desire.
+
+    **Important**
+
+    Before using this tool it is recommended that you backup your
+    database. Changes made here are permanent.
+
+    **Important**
+
+    The anonymization will fail quietly if
+    :ref:`AnonymousPatron <anonymouspatron-label>` preference does not contain a
+    valid value.
+
+|image277|
+
+To either delete or anonymize patrons
+
+-  Check the 'Verify' box on the task you would like to complete (delete
+   or anonymize)
+
+-  Enter a date before which you want to alter the data
+
+-  If deleting patrons you can also choose to find patrons who
+
+   -  have not borrowed since a specific date
+
+   -  have accounts that will expire before a specific date
+
+   -  are in a specific :ref:`patron category <patron-categories-label>`
+
+   -  are in a :ref:`patron list <patron-lists-label>`
+
+-  Click 'Next'
+
+-  A confirmation will appear asking if you're sure this is what you
+   want to happen
+
+   |image278|
+
+-  Clicking 'Finish' will delete or anonymize your data
+
+   |image279|
+
+.. _batch-patron-modification-label:
+
+Batch patron modification
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Batch patron
+   modification
+
+With this tool you can make edits to a batch of patron records. Simply
+load in a file of cardnumbers (one per line), choose from a :ref:`list of
+patrons <patron-lists-label>` or scan patron card numbers in to the box
+provided.
+
+|image280|
+
+Once you have the file loaded or the barcodes scanned click 'Continue.'
+You will be presented with a list of the patrons and the changes you can
+make.
+
+|image281|
+
+To the left of each text box there is a checkbox. Clicking that checkbox
+will clear our the field values.
+
+    **Important**
+
+    If the field is mandatory you will not be able to clear the value in
+    it.
+
+If you have multiple patron attributes you can change them all by using
+the '+ New' link to the right of the text box. This will allow you to
+add another attribute value.
+
+|image282|
+
+Once you have made the changes you want, you can click 'Save' and Koha
+will present you with the changed patron records.
+
+
+.. _batch-extend-due-dates-label:
+
+Batch extend due dates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Batch extend due dates
+
+This tool allows you to update due dates in bulk, this can be useful if a library needs to close unexpectedly and cannot accept returns.
+
+|batchextendselection|
+
+-  You can filter the selection of checkouts based on patron category, library or a combination of both.  You can select multiple options in the dropdown lists if needed.
+
+-  Next, specify a date range for the current due date of the materials on loan.  For example, you may want to extend the due dates for recent checkouts but exclude long overdue loans.
+
+-  Choose to extend the due dates either to a new hard due date or by a number of days.  Using the number of days option can prevent large numbers of loans being due on the same date.
+
+-  You can choose whether to preview the results of your selections.
+
+|batchextendpreview|
+
+-  If you preview the results you will see a table which shows you the current due date and the new due date so that you can check your selections.  You can untick checkouts if they are incorrect or go back and change your selection.
+
+-  Click on the Modify selected checkouts button to see a confirmation screen showing the checkouts that have been modified.
+
+.. Note::
+   Access to this tool requires the Tools permission `batch_extend_due_dates`.
+
+
+.. _tag-moderation-label:
+
+Tag moderation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Tags
+
+Depending on your :ref:`tagging system preferences <tagging-label>`,
+librarians may need to approve tags before they are published on the
+OPAC. This is done via the tag moderation tool. If there are tags
+awaiting moderation they will be listed on the main staff dashboard
+under the module labels:
+
+|image283|
+
+To moderate the tags visit the Tags tool. When first visiting the tool,
+you will be presented with a list of tags that are pending approval or
+rejection by a librarian
+
+|image284|
+
+-  To see all of the titles this tag was added to simply click on the
+   term
+
+   |image1230|
+
+   -  From this list of titles you can remove a tag without outright
+      rejecting it from being used in the future by clicking the 'Remove
+      tag' button to the right of the title.
+
+-  To approve a tag, you can either click the 'Approve' button in line
+   with the term, or check all terms you want to approve and click
+   'Approve' below the table.
+
+-  To reject a tag, you can either click the 'Reject' button in line
+   with the term, or check all terms you want to reject and click
+   'Reject' below the table.
+
+Once a tag has been approved or rejected it will be moved to the
+appropriate list of tags. A summary of all tags will appear on the right
+of the screen.
+
+|image285|
+
+Even though a tag is approved or rejected, it can still be moved to
+another list. When viewing approved tags each tag has the option to
+reject:
+
+|image286|
+
+To check terms against the approved and rejected lists (and possibly
+against :ref:`the dictionary <tagsexternaldictionary-label>` you have assigned
+for tag moderation) simply enter the term into the search box on the
+bottom right of the screen to see the status of the term
+
+|image287|
+
+Finally you can find tags by using the filters on the left.
+
+|image288|
+
+.. _upload-patron-images-label:
+
+Upload patron images
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Patrons and circulation > Upload patron
+   images
+
+Patron images can be uploaded in bulk if you are :ref:`allowing patron
+images <patronimages-label>` to be attached to patron records. These images
+can also be used when creating :ref:`patron cards <patron-card-creator-label>`.
+
+-  Create a txt file and title it "DATALINK.TXT" or "IDLINK.TXT"
+
+-  On each line in the text file enter the patron's card number followed
+   by comma (or tab) and then the image file name
+
+   |image289|
+
+   -  Make sure that your TXT file is a plain text document, not RTF.
+
+-  Zip up the text file and the image files
+
+-  Go to the Upload patron images tool
+
+   |image290|
+
+-  For a single image, simply point to the image file and enter the
+   patron card number
+
+-  For multiple images, choose to upload a zip file
+
+-  After uploading you will be presented with a confirmation
+
+   |image291|
+
+    **Important**
+
+    There is a limit of 100K on the size of the picture uploaded and it
+    is recommended that the image be 200x300 pixels, but smaller images
+    will work as well.
+
+.. _rotating-collections-label:
+
+Rotating collections
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Catalog > Rotating collections
+
+Rotating collections is a tool for managing collections of materials
+that frequently get shifted from library to library. It adds the ability
+to store not only an item's home library and current location but also
+information about where it is supposed to be transferred to next to
+ensure that all items in the collection are sent to the correct library.
+When an item in a rotating collection is checked in, library staff is
+notified that the item is part of a rotating collection and which branch
+it should be sent to if it is not at the correct one.
+
+    **Important**
+
+    The :ref:`AutomaticItemReturn <automaticitemreturn-label>` system preference
+    must be set to "Don't automatically transfer items to their home
+    library when they are returned" for rotating collections to function
+    properly.
+
+-  To create a new rotating collection, click the "New collection"
+   button, fill in the title and description, and click "Submit". Once
+   submitted you'll see "Collection name added successfully"; click
+   "Return to rotating collections home" to return to the main Rotating
+   collections management page (or click Rotating collections in the
+   sidebar).
+
+-  To add items to a collection, click "Actions" and choose "Add or
+   remove items" next to the collection's name in the list of
+   collections. Under "Add or remove items" scan or type in the barcode
+   of the item you wish to add to the collection, and hit enter or click
+   'Submit' if necessary.
+
+-  To remove an item from a collection, either click 'Remove' next to the
+   item's barcode in the list of items within the collection or check
+   the "Remove item from collection" box next to the Barcode text box
+   under "Add or remove items", and scan or type in the barcode, clicking
+   "Submit" or hitting Enter if necessary. Note: The "Remove item from
+   collection" checkbox will remain checked as long as you are on the
+   "Add or remove items" page, unless you uncheck it, to facilitate
+   quickly removing a number of items at a time by scanning their
+   barcodes.
+
+.. _transfer-a-rotating-collection-label:
+
+Transfer a rotating collection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Transferring a collection will:
+
+-  Change the current location of the items in that collection to the
+   library it is to be transferred to
+
+-  Initiate a transfer from its original current location/holding
+   library to the current location/holding library it is to be rotated
+   to. When a library receives a collection they will need to check in
+   the items to complete the transfer.
+
+You can transfer a collection in one of two ways:
+
+-  From the main Rotating collections page, click on "Actions" and choose
+   "Transfer" next to the title of the collection you wish to transfer;
+   choose the library you wish to transfer the collection to and click "Transfer
+   collection".
+
+-  Or, from the "add or remove items" page for a collection, you can
+   click the "Transfer" button, choose the library you wish to transfer
+   the collection to and click "Transfer Collection".
+
+    **Important**
+
+    In order to complete the transfer process, the library receiving the
+    rotating collection should check in all items from the collection as
+    they receive them. This will clear the transfer so that the items
+    are no longer shown as being "in transit".
+
+If an item in a rotating collection is checked in at a library other
+than the one it is supposed to be transferred to, a notification will
+appear notifying library staff that the item is part of a rotating
+collection, also letting them know where the item needs to be sent.
+
+|image292|
+
+.. _additional-tools-label:
+
+Additional tools
+---------------------------------------
+
+.. _calendar-label:
+
+Calendar
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional tools > Calendar
+
+Libraries can define library closings and holidays to be used when
+calculating due dates. You can make use of the calendar by turning on
+the proper system preferences:
+
+-  :ref:`useDaysMode <usedaysmode-label>`: Choose the method for calculating due date - either
+   include days the library is closed in the calculation or don't include them
+
+-  :ref:`finescalendar <finescalendar-label>`: This will check the holiday calendar before charging
+   fines
+
+|image369|
+
+.. _adding-events-label:
+
+Adding events
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before adding events, choose the library you would like to apply the
+closings to. When adding events you will be asked if you would like to
+apply the event to one branch or all branches. To add events, simply
+
+-  Click on the date on the calendar that you would like to apply the
+   closing to
+
+   |image370|
+
+-  In the form that appears above the calendar, enter the closing
+   information (for more info on each option click the question mark [?]
+   to the right of the option)
+
+   -  Library will be filled in automatically based on the library you
+      chose from the pull down at the top of the page
+
+   -  The day information will also be filled in automatically based on
+      the date you clicked on the calendar
+
+      -  If this holiday extends on more than one day, enter the end date in 
+         'To date'
+
+   -  In the 'title' enter the name of the holiday or the reason for the 
+      closing
+
+   -  In the 'description' enter more information about this holiday
+
+   -  Next you can choose if this event is a one time event or if it is
+      repeatable.
+
+      -  'Holiday only on this day': this is a one day holiday 
+
+      -  'Holiday repeated every same day of the week': this is a weekly 
+         closing (if you're closed every Sunday, for example)
+
+      -  'Holiday repeated yearly on the same date': this is an annual 
+         holiday closing (if you're closed on January 1st each year, for 
+         example) 
+
+      -  'Holiday on a range': this is a holiday that extends on several 
+         days
+
+            **Note**
+
+            Make sure to enter a 'To Date' at the top if you choose 
+            'Holiday on a range'
+
+      -  'Holiday repeated yearly on a range': this is a holiday that extends 
+         on several days each year (such as summer holidays for schools) 
+
+            **Note**
+
+            Make sure to enter a 'To Date' at the top if you choose 'Holiday 
+            repeated yearly on a range'
+
+   -  Finally decide if this event should be applied to all libraries or
+      just the one you have originally selected
+
+      -  If you'd rather enter all the holidays and then copy them all
+         to another branch all at once you can use the copy menu below
+         the calendar
+
+         |image371|
+
+-  After saving you will see the event listed in the summary to the
+   right the calendar
+
+   |image372|
+
+.. _editing-events-label:
+
+Editing events
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To edit events
+
+-  Click on the event on the calendar that you want to change (do this
+   by clicking on the date on the calendar, not the event listed in the
+   summary)
+
+   |image373|
+
+-  From this form you can make edits to the holiday or delete the
+   holiday completely.
+
+   -  All actions require that you click 'Save' before the change will
+      be made.
+
+-  Clicking on repeatable events will offer slightly different options
+
+   |image374|
+
+   -  In the form above you will note that there is now an option to
+      'Generate an exception for this repeated holiday' and 'Generate exceptions 
+      on a range of dates' choosing one of these options will allow you to 
+      make it so that this date is not closed even though the library is 
+      usually closed on this date.
+
+   -  All actions require that you click 'Save' before the change
+      will be made.
+
+.. _additional-help-label:
+
+Additional help
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When adding or editing events you can get additional help by clicking on
+the question mark next to various different options on the form
+
+|image375|
+
+.. _csv-profiles-label:
+
+CSV profiles
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional tools > CSV profiles
+
+CSV profiles are created to define how you would like your cart or list
+to export.
+
+.. _add-csv-profiles-label:
+
+Add CSV profiles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To add a CSV profile
+
+-  Click on 'New CSV profile'
+
+   |image376|
+
+   -  The 'Profile name' will appear on the export pull down list when
+      choosing 'Download' from your cart or list
+
+      |image378|
+
+   -  The 'Profile type' determines what type of fields you plan to use
+      (MARC or SQL) to define your profile
+
+      -  If you choose MARC then you will need to enter MARC fields
+
+         |image1502|
+
+      -  If you choose SQL then you will need to enter SQL database fields
+
+         |image377|
+
+   -  The 'Usage' field is used to indicate what type of report this CSV 
+      profile is used with
+
+      -  'Export records' (only available with MARC profile type): this is 
+         used to export records from your cart or lists
+
+      -  'Late serial issues claims' (only available with SQL profile type):
+         this is used to :ref:`export late issues of serial subscriptions <claim-late-serials-label>`
+
+      -  'Export late orders' (only available with SQL profile type): this is 
+         used to :ref:`export late orders in the acquisitions module 
+         <claims-and-late-orders-label>`
+
+      -  'Basket export in acquisition' (only available with SQL profile 
+          type): this is used to :ref:`download records from acquisitions 
+          baskets <create-a-basket-label>`
+
+      -  'Export lost items in report' (only available with SQL profile 
+          type): this is used to export a CSV from the :ref:`lost items 
+          report <lost-items-label>`
+
+   -  The 'Profile description' is for your own benefit, but will also
+      appear in the OPAC when patrons download content, so make sure
+      it's clear for your patrons as well
+
+   -  The 'CSV separator' is the character used to separate values and
+      value groups
+
+          **Note**
+
+          The most common option here is comma because most spreadsheet
+          applications know how to open files split by commas.
+
+   -  The 'Field separator' is the character used to separate duplicate
+      fields
+
+      -  Example: You may have multiple 650 fields and this is the
+         character that will appear in between each one in the column
+
+         |image379|
+
+   -  The 'Subfield separator' is the character used to separate
+      duplicate subfields
+
+      -  Example: You may have multiple $a subfields in a field
+
+   -  The 'Encoding' field lets you define the encoding used when saving
+      the file
+
+   -  The 'Only available on the staff interface' checkbox (only for MARC 
+      profile types) lets you limit this CSV profile to staff interface 
+      only, meaning patrons will not be able to use this profile to export 
+      their cart or lists from the OPAC
+
+   -  Finally format your CSV file using the 'Profile MARC fields' or 'Profile
+      SQL fields' box
+
+      -  Define which fields or subfields you want to export, separated
+         by pipes. Example : 200\|210$a\|301 for MARC or
+         biblio.title\|biblio.author for SQL
+
+      -  **Note**
+
+             You can also use your own headers (instead of the ones from
+             Koha) by prefixing the field number with a header,
+             followed by the equal sign. Example: Personal
+             name=100\|title=245$a\|300
+
+When you have entered in all of the information for your profile,
+simply click 'Submit' and you will be presented with a confirmation
+that your profile has been saved.
+
+|image380|
+
+.. _modify-csv-profiles-label:
+
+Modify CSV profiles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once you have created at least one CSV profile an 'Edit profile' tab
+will appear next to the 'New profile' button.
+
+|image381|
+
+-  Choose the profile you would like to edit and alter the necessary
+   fields.
+
+-  After submitting your changes you will be presented with a
+   confirmation message at the top of the screen
+
+   |image382|
+
+-  To delete a profile, check the 'Delete selected profile' option
+   before clicking 'Submit Query'
+
+   |image383|
+
+.. _using-csv-profiles-label:
+
+Using CSV profiles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Your CSV profiles will appear on the export list or cart menu under the
+'Download' button in both the staff client and the OPAC
+
+|image384|
+
+.. _log-viewer-label:
+
+Log viewer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional tools > Log viewer
+
+Actions within the Koha system are tracked in log files. Your :ref:`system
+preferences <logs-label>` can be changed to prevent the logging of
+different actions. These logs can be viewed using the log viewer.
+
+|logviewer|
+
+.. Note::
+
+   The warning sign next to a module name indicates that the actions in this
+   module are not logged. Change your :ref:`logs preferences<logging-label>`
+   to log actions from a module.
+
+Choosing different combinations of menu options will produce the log
+file for that query.
+
+A query for all logs related to the Circulation module produces a result
+
+|logresults|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: logst).
+
+.. _news-label:
+
+News
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional tools > News
+
+Koha's news module allows librarians to post news to the OPAC, staff
+interface and circulation receipts.
+
+|news|
+
+To add news to either the OPAC, the staff interface or a circulation
+receipt:
+
+-  Click 'New entry'
+
+   |addnews|
+
+   -  Code: enter a unique code for this news item
+
+   -  Display location: choose where to put the news
+
+      |newsdisplaylocations|
+
+      -  Librarian and OPAC interfaces: content will appear on the staff 
+         interface main page as well as in the news block on the OPAC
+      
+      -  Librarian interface: content will appear on the staff interface 
+         main page
+
+         |staffnews|
+
+      -  OPAC: content will appear in the top middle part of the OPAC 
+         page
+
+         -  Below the news in the OPAC there will be an RSS icon allowing you
+            and your users to subscribe to library news
+
+            |newsrss|
+
+         -  You can allow your users to choose to see branch-specific news 
+            with the :ref:`OpacNewsLibrarySelect <opacnewslibraryselect-label>` system preference
+
+      -  Slip: content will appear on the circulation receipts
+
+         |image391|
+
+         .. Note::
+
+            This can be activated or deactivated in the 
+            :ref:`Notices & slips tool <notices-and-slips-label>`
+
+   -  Library: choose the library for which this news item will be shown
+
+      - Prior to end users logging in to the OPAC only news items listed to
+        appear for 'All libraries' will display unless your system administrator
+        has configured an 'OPAC_BRANCH_DEFAULT' override in virtual host
+        configuration. See :ref:`installation <advanced-configurations-label>` for details.
+
+   -  Publication date: use the publication date field to control from which 
+      date your news item appears
+
+      -  Examples: (these assume today's date as 7 May 2019)
+
+         -  Publish on current date: set publication date as 7 May 2019
+
+         -  Schedule for publishing in future: set date later than 7 May 2019
+
+         -  Backdate the news item: set date earlier than 7 May 2019
+
+   -  Expiration date: use the expiration date field to automatically stop 
+      showing the news item when it is no longer relevant. 
+
+      -  If this field is empty the news item will be shown until you remove 
+         it manually
+
+   -  Appear in position: you decide in what order your news items appear
+
+      -  If the field is left empty, the news will appear from newest to oldest
+
+      -  In this field, 0 is the top-most position; the larger the number, the 
+         lower in the list the news will appear
+
+   -  You can enter the news title and text for each language installed 
+
+.. Note::
+
+      You can choose which type of editor to use here (either a text editor or 
+      a WYSIWYG (what you see is what you get) editor) with the 
+      :ref:`AdditionalContentsEditor <additionalcontentseditor-label>` system preference.
+
+-  After filling in all of the fields, click 'Save' at the top of the page.
+
+   -  Alternatively, click the arrow next to the 'Save' button and choose
+      'Save and continue editing' if you need to stay on this page to continue
+      editing the news item.
+
+Depending on your choice for the :ref:`NewsAuthorDisplay <newsauthordisplay-label>` system preference,
+you will also see the person who created the news item (this uses the logged in
+person).
+
+.. _html-customizations-label:
+
+HTML customizations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional tools > HTML customizations
+
+Koha's HTML customizations tool allows staff to post content to the OPAC.
+
+|additionalcontent|
+
+To add content to the OPAC:
+
+-  Click 'New entry'
+
+   |addadditionalcontent|
+
+   -  Code: enter a unique code for this additional content item
+
+   -  Display location: choose where to put the content
+
+      |additionalcontentdisplaylocations|
+
+      
+      The following image shows where each block is displayed on the OPAC's 
+      main page
+
+      |image1068|
+
+      .. Note::
+
+         The :ref:`Quote of the day <quote-of-the-day-(qotd)-editor-label>`
+         feature is found in the tools module, and the news are managed in the
+         :ref:`news tool <news-label>`. The rest of the customizable
+         blocks are managed in the HTML customizations tool.
+
+      -  ArticleRequestsDisclaimerText: content will appear and patron will have
+         to accept before they can continue to the article request form; use
+         for any copyright/disclaimer patrons need to be aware of regarding
+         photocopies or scans of articles or chapters
+
+      -  CatalogConcernHelp: content will appear at the bottom of catalog
+         concern form when
+         :ref:`reporting a concern in the OPAC <report-concern-opac-label>`, or
+         :ref:`reporting a concern in the staff interface <report-concern-staff-label>`.
+         The default text is "Please describe your concern clearly and the
+         library will try to deal with it as quickly as possible".
+
+      -  CatalogConcernTemplate: content will appear in the main text area of
+         the catalog concern form when
+         :ref:`reporting a concern in the OPAC <report-concern-opac-label>`, or
+         :ref:`reporting a concern in the staff interface <report-concern-staff-label>`.
+         The default text is
+
+         ::
+
+          **Describe the concern**
+
+          A clear and concise description of what the concern is.
+
+          **To Reproduce**
+
+          Steps to reproduce the behavior:
+          1. Go to '...'
+          2. Click on '....'
+          3. Scroll down to '....'
+          4. See error
+
+          **Expected behavior**
+
+          A clear and concise description of what you expected to happen.
+
+         .. Tip::
+
+            Since this will be in a text field, there is no way to add formatting.
+            Make sure to use the text editor, not the WYSIWYG editor, in order
+            to have line breaks in your text.
+
+      -  opaccredits: content will appear at the bottom of the page
+
+      -  OpacCustomSearch: content will replace the simple search bar at the
+         top of the page
+
+      -  opacheader: content will appear at the top of the OPAC page
+
+      -  OpacLibraryInfo: content will appear in the
+         :ref:`'Libraries' page in the OPAC <opaclibrariespage-label>`, as well
+         as in the holdings table in the OPAC
+
+      -  OpacLoginInstructions: content will appear under the login box on
+         the OPAC's main page
+
+      -  OpacMainUserBlock: content will appear in the middle of the OPAC's
+         main page
+
+      -  OpacMoreSearches: content will appear under the search box at the
+         top of the OPAC. By default (and depending on system preferences)
+         there is a link for Advanced Search, Course reserves, Authority search,
+         and Tag cloud. Any new searches will be added to the right of the already
+         present links.
+
+      -  OpacMySummaryNote: content will appear above the patron's summary and
+         below the welcome message when the patron logs in to the OPAC and
+         views their :ref:`'your summary' tab <your-summary-label>`.
+
+         |OpacMySummaryNote|
+
+      -  OpacNav: content will appear on the left hand column of the main page
+         and patron account on the OPAC. When on the patron account page, the
+         content in OpacNav will appear before the account tabs (summary,
+         charges, personal details, etc.)
+
+      -  OpacNavBottom: content will appear on the left hand column of the main
+         page and patron account on the OPAC. When on the patron account page,
+         the content in OpacNavBottom will appear after the account tabs (summary,
+         charges, personal details, etc.). On the main page, the content in
+         OpacNavBottom appears right below the content in OpacNav.
+
+      -  OpacNavRight: content will appear on the right side of the OPAC page
+
+      -  OpacSuggestionInstructions: content will replace the text at the top
+         of the :ref:`purchase suggestion form on the OPAC <purchase-suggestions-opac-label>`
+
+   -  Library: choose the library for which this content will be shown
+
+      - Prior to end users logging in to the OPAC only content blocks listed to
+        appear for 'All libraries' will display unless your system administrator
+        has configured an 'OPAC_BRANCH_DEFAULT' override in virtual host
+        configuration.
+
+   -  Publication date: use the publication date field to control from which 
+      date your content appears
+
+      -  Examples: (these assume today's date as 7 May 2019)
+
+         -  Publish on current date: set publication date as 7 May 2019
+
+         -  Schedule for publishing in future: set date later than 7 May 2019
+
+         -  Backdate the news item: set date earlier than 7 May 2019
+
+   -  Expiration date: use the expiration date field to automatically stop 
+      showing the content when it is no longer relevant.
+
+      -  If this field is empty the content will be shown until you remove it 
+         manually
+
+   -  Appear in position: you decide in what order your content appear, when 
+      there is more than one in the same display location
+
+      -  If the field is left empty, the content will appear from oldest to newest
+
+      -  In this field, 0 is the top-most position; the larger the number, the 
+         lower in the list the content will appear
+
+   -  You can enter the content title and text for each language installed 
+
+      .. Note::
+
+         The title is not shown for additional content. It mostly serves to 
+         know at a glance what the content is about when looking at the list of 
+         additional content items. If you want a title to appear, you must add 
+         it in the text portion.
+
+.. Note::
+
+      You can choose which type of editor to use here (either a text editor or 
+      a WYSIWYG (what you see is what you get) editor) with the 
+      :ref:`AdditionalContentsEditor <additionalcontentseditor-label>` system preference.
+
+-  After filling in all of the fields, click 'Save' at the top of the page.
+
+   -  Alternatively, click the arrow next to the 'Save' button and choose
+      'Save and continue editing' if you need to stay on this page to continue
+      editing the news item.
+
+.. _additional-content-pages-label:
+
+Pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional tools > Pages
+
+The pages tool is a tool to create custom additional pages in the OPAC and in 
+the staff interface. It is based on the same tool as the 
+:ref:`news <news-label>` and the 
+:ref:`HTML customizations<html-customizations-label>`, therefore it works in the 
+same way.
+
+|pages|
+
+To add a new page:
+
+-  Click 'New entry'
+
+   |addpage|
+
+   -  Display location: choose the interface from which this page should be
+      accessed
+
+      -  Librarian and OPAC interfaces: two links will be created, one for the 
+         OPAC and one for the staff interface
+
+      -  Librarian interface: a link for the staff interface will be created
+
+      -  OPAC: a link for the OPAC will be created
+
+   -  Library: choose the library for which this page will be available
+
+      - If an OPAC page is limited to a library, only logged in users whose 
+        home library matches the page library will be able to access the page.
+        
+      - Pages limited to a library will not be accessible to OPAC users who are 
+        not logged in, unless your system administrator has configured an 
+        'OPAC_BRANCH_DEFAULT' override in virtual host configuration.
+        
+      - If a staff interface page is limited to a library, only staff logged 
+        into that library will be able to access the page.
+
+   -  Publication date: use the publication date field to control from which 
+      date your page is accessible, if it should only be accessed at a future 
+      date.
+      
+      .. -  If the publication date is set to today, before today or is left blank, 
+         the page will be immediately accessible.
+         
+      .. -  If the publication date is set in the future, the page will only be 
+         accessible at that date or later.
+         This currently doesn't work. See bug 32020.
+
+   -  Expiration date: use the expiration date field to remove the page after a 
+      specific date.
+
+      -  If this field is empty the page will be available until you remove it 
+         manually
+
+         .. This currently doesn't work. See bug 32020.
+
+   -  You can enter the page title and content for each language installed 
+
+.. Note::
+
+      You can choose which type of editor to use here (either a text editor or 
+      a WYSIWYG (what you see is what you get) editor) with the 
+      :ref:`AdditionalContentsEditor <additionalcontentseditor-label>` system preference.
+
+-  After filling in all of the fields, click 'Save' at the top of the page.
+
+   -  Alternatively, click the arrow next to the 'Save' button and choose
+      'Save and continue editing' if you need to stay on this page to continue
+      editing the news item.
+
+-  In the table, a link will be generated for the OPAC or the staff interface 
+   or both. Use this link in HTML customizations, news or system preferences 
+   such as :ref:`IntranetNav<intranetnav-label>` or 
+   :ref:`IntranetmainUserBlock<intranetmainuserblock-label>` so that the 
+   patrons or staff members can access the new page.
+
+   .. Note::
+
+      To link to a specific page, use the code in the URL with the :code:`code=`
+      parameter. For example::
+
+       OPACBASEURL/cgi-bin/koha/opac-page.pl?code=staff_and_opac_42
+
+       STAFFCLIENTBASEURL/cgi-bin/koha/tools/page.pl?code=staff_and_opac_42
+
+      In multi-language installations, use the :code:`language=` parameter
+      followed by the language code to link to the page in a specific language.
+      For example::
+
+       OPACBASEURL/cgi-bin/koha/opac-page.pl?code=staff_and_opac_42&language=fr-CA
+
+       STAFFCLIENTBASEURL/cgi-bin/koha/tools/page.pl?code=staff_and_opac_42&language=fr-CA
+
+To use a custom page
+
+Once the page has been developed and saved, you will see a summary table of all custom pages. 
+This table also displays the generated links to access these custom pages. The links will be available in both the default 
+language, and the installed language currently in use by the logged in staff member.
+
+|pages|
+
+There is a button to preview the created page. This is helpful to check how the page looks and functions before it is deployed.
+
+|pagepreview|
+
+Now the page has been created, there are a number of ways to make the page accessible to your patrons in the Koha OPAC.
+
+|pageexample|
+
+One option is to use an HTML customisation to add the link to the page to a section of the OPAC. The page can be added as 
+a navigation link (in OpacNav, OpacNavBottom, or OpacNavRight). Depending on the page, it may be more suitable in the header 
+(opacheader), footer (opaccredits), or main section of the homepage (OpacMainUserBlock).
+
+HTML customizations are only displayed on the OPAC, so News items would be the appropriate tool to add the link to
+the main landing page of the staff interface.
+
+|opacnavexample|
+
+The benefit of putting the page link in an HTML customization or News item is that you can use the WYSIWYG editor, instead of
+writing code. However, there is always the option to write the content in the HTML text editor too, if you prefer.
+
+Those more proficient in writing code could use jQuery (Javascript) to insert their page link anywhere in the OPAC or staff interface.
+
+|opacuserjsexample|
+
+Using jQuery, the pages could be added to either interface as simple text links, or as more advanced button links or image links. Add code 
+to the OPACUserJS system preference to apply jQuery to the OPAC, or to the IntranetUserJS system preference to apply jQuery to the staff interface.
+
+
+Clever ways to use custom pages:
+
+There are many interesting ways to use custom pages in a Koha library. We’ve heard discussion of pages being used for tables of contents, 
+frequently asked questions pages for the library, and enquiry forms.
+
+|pageexample-form|
+
+Another way to make custom Koha page content accessible for users, would be to catalogue those pages so 
+they pop in in Koha search results, for example library tutorials that patrons may be looking for.
+
+|pageexample-record|
+
+Once the page has been created, it can be catalogued in the URI field of a record (856$u). Alternatively, it could 
+be catalogued in the URI field of an item attached to a record (952$u). Both of these fields get converted into hyperlinks
+by Koha. If catalogued in a record or item, it would then be indexed and become searchable.
+
+Once catalogued, these pages could be used in other ways that are typically reserved for books and other records. The records 
+representing pages can be added to lists, or stored in virtual collections or locations that make them easier to find in the catalogue. 
+They could even be captured and displayed in carousels!
+
+
+
+.. _task-scheduler-label:
+
+Task scheduler
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional tools > Task scheduler
+
+The task scheduler is a way to schedule reports to run whenever you
+want.
+
+To schedule a task, visit the task scheduler and fill in the form
+
+|image392|
+
+-  Current Server Time shows the time on your server (schedule all of
+   your reports to run based on that time - not on your local time)
+
+-  Time should be entered as hh:mm (2 digit hour, 2 digit minute)
+
+-  Date should be entered using the calendar pop up
+
+-  From Report choose the report you want to schedule
+
+-  Choose whether to receive the text of or a link to the results
+
+-  In the Email filed enter the email of the person you want to receive
+   your report
+
+Below the task scheduler form, there is a list of scheduled reports
+
+|image393|
+
+You can also schedule reports directly from the list of saved reports by
+clicking the 'Schedule' link
+
+|image394|
+
+.. _troubleshooting-label:
+
+Troubleshooting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Task scheduler will not work if the user the web server runs as doesn't
+have the permission to use it. To find out if the right user has the
+permissions necessary, check /etc/at.allow to see what users are in it.
+If you don't have that file, check etc/at.deny. If at.deny exists but is
+blank, then every user can use it. Talk to your system admin about
+adding the user to the right place to make the task scheduler work.
+
+.. _quote-of-the-day-(qotd)-editor-label:
+
+Quote editor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional Tools > Quote editor
+
+This tool will allow you to add and edit quotes to show on the OPAC or the 
+staff interface.
+
+|qotdeditor|
+
+To turn this feature on set the :ref:`QuoteOfTheDay <quoteoftheday-label>` system preference to
+either 'OPAC', 'staff interface', or both, and add at least one quote using this 
+tool. 
+
+In the OPAC, the quotes will appear above the 'OpacMainUserBlock' 
+:ref:`news block <news-label>`.
+
+|image1069|
+
+In the staff interface, the quotes will appear under the news on the left side. 
+
+|staffnews|
+
+.. _add-a-quote-label:
+
+Adding a quote
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To add a quote:
+
+-  Click the 'New quote' button in the toolbar at the top of the page.
+
+   |qotdeditor|
+   
+-  Fill out the form.
+
+   |newquote|
+
+   -  Source: enter the source of the quote, e.g. the name of the person who 
+      said the quote
+      
+   -  Text: enter the text of the quote
+
+   .. Warning::
+
+      Both the 'Source' and the 'Text' fields must be filled in in
+      order to save the new quote.
+
+-  Click 'Submit' to save the new quote.
+
+The new quote should now be visible in the list.
+
+.. _import-quotes-label:
+
+Importing quotes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can import a batch of quotes as a CSV file. Your file must contain two 
+columns in the form: "source","text" with no header row.
+
+.. Note::
+
+   You will be prompted to confirm upload of files larger than 512KB.
+
+-  To start the import process click the 'Import quotes' button at the
+   top of the screen.
+
+   |qotdeditor|
+
+-  Once on the import quotes screen you can browse your computer for the
+   file you would like to import
+
+   |importquotes|
+
+-  After selecting the CSV file, click the 'Open' button and the file
+   will be uploaded into a temporary editing table.
+
+   |importedsummary|
+
+-  From the listing you can edit either the 'Source' or 'Text' fields by
+   clicking on the desired field. When you are finished editing a field,
+   press the <Enter> key on your keyboard to save the changes.
+
+   |editimportquote|
+
+-  Once you are satisfied with the quotes, click the 'Save quotes'
+   button in the toolbar at the top and the quotes will be saved.
+
+.. _edit-quote-label:
+
+Editing a quote
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To edit a quote, click on the 'Edit' button to the right of the quote.
+
+|qotdeditor|
+
+Edit either the 'Source' or 'Text' fields.
+
+Click 'Submit' to save the quote.
+
+.. _delete-quote-label:
+
+Deleting a quote
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To delete a quote, click on the 'Delete' button to the right of the quote.
+
+|qotdeditor|
+
+Confirm the deletion by clicking 'Delete'.
+
+|deletequote|
+
+.. _tool-plugins-label:
+
+Tool plugins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This tool is used to view, manage and configure plugins used as tools.
+
+This section will only be visible once you have uploaded tool-type plugins in
+the :ref:`plugin administration page <plugn-administration-label>`.
+
+-  *Get there:* More > Tools > Additional Tools > Tool plugins
+
+From this page, you will see only tool-type plugins.
+
+See the :ref:`managing plugins section <manage-plugins-label>` of this manual
+to learn how to manage your tool-type plugins.
+
+.. _upload-label:
+
+Upload
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional Tools > Upload
+
+This tool will allow you to upload files to your Koha system for
+selection from the :ref:`Cataloging form <attaching-files-to-records-label>`.
+
+.. _upload-files-label:
+
+Upload files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you first visit the Upload tool you might see a warning about
+missing a category.
+
+|image1242|
+
+Categories are defined in the :ref:`authorized value <authorized-values-label>`
+in the UPLOAD category. If you do not have upload categories then your
+files will be temporary and will be deleted the next time the server is
+rebooted. Once you have a value in the UPLOAD authorized value category
+you will see a Category pull down below the 'Browse' button.
+
+|image1243|
+
+Browse your computer a file, choose a category and decide if the public
+will be able to download this file via the OPAC. Once your file is
+uploaded you will be presented with a confirmation.
+
+|image1244|
+
+.. _search-files-label:
+
+Search files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+All uploaded files are searchable from below the upload form. Using the
+form you can search any part of the filename and/or the Hashvalue.Search
+uploaded files
+
+You will be presented with the results of your search.
+
+|image1245|
+
+Access files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  *Get there:* More > Tools > Additional Tools > Access files
+
+This option allows access to files stored on the server from the staff interface.
+The directories where the files are stored need to be defined in the koha-conf.xml
+file. In order to be able to access the tool, a staff patron requires the superlibrarian
+or access_files patron permission
+
+|image1340|
+
+.. _opac-problem-reports-tool:
+
+OPAC problem reports
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there:* More > Tools > Additional tools > OPAC problem reports
+
+This tool is used to manage the problem reports sent by patrons via the OPAC.
+
+.. Note::
+
+   This tool only appears if the
+   :ref:`OPACReportProblem <opacreportproblem-label>` system preference is
+   enabled.
+
+From this tool, you will see all the problems that were reported by patrons on 
+the OPAC.
+
+|opacproblemreports|
+
+From the 'Actions' column, you can
+
+-  'Mark viewed': mark this problem report as viewed, this will change the 
+   status of the problem report to 'Viewed'
+
+-  'Mark closed': close this problem report, this will change the status of the 
+   problem report to 'Closed'
+
+-  'Mark new': mark this problem as new (i.e. not viewed), this will revert the 
+   status back to 'New'.
+
+You can also batch change statuses by checking the boxes next to the problem 
+reports you want to change and use the button at the top of the page.
+
+.. _cash-management-label:
+
+Cash management
+---------------
+
+Koha includes a number of options for dealing with monetary transactions and 
+actions to allow for fine grained tracking of these processes for audit and
+analytic processes.
+
+.. _cash-management-registers-label:
+
+Cash registers
+~~~~~~~~~~~~~~
+
+Cash registers can be used to track transactions to a specific location in your
+library. This can be especially helpful for detailing where cash has been taken
+for payments and then when this cash is subsequently removed and taken to the 
+bank.
+
+Setup
+^^^^^
+
+To enable the use of cash registers, you must turn on the :ref:`UseCashRegisters <usecashregisters-label>`
+system preference. 
+
+You can then configure cash registers for your library from the 
+:ref:`cash registers <cashregisters-label>` page in the administration module.
+
+.. _cash-management-register-cashup-label:
+
+Cashup
+^^^^^^
+
+The action of 'cashing up' can be recorded against a cash register from both 
+the :ref:`library details <cash-management-library-details-label>` and 
+:ref:`register details <cash-management-register-details-label>` pages.
+
+Clicking the `Record cashup` button will simply record the date and time that
+the action has taken place and is intended to allow the regular record of when 
+money is collected from the cash register and taken to the bank.
+
+Both of the above pages utilize the cashup record to limit the display of 
+transactions/summaries to only pertinent information, since the last cashup.
+
+Once a cashup has taken place, a summary of the transactions taken during that
+cashup period is available for display, and printing, via the `Summary` link 
+found next to the last cashup date on the register details page.
+
+|image1515|
+
+.. _cash-management-library-details-label:
+
+Cash summary for *library*
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- *Get there:* Home > Tools > Cash summary for *library*
+
+A summary of transaction amounts associated to a libraries cash registers can 
+be found under the 'Cash summary for *library*' page tool. 
+
+The summary will list registers associated with your logged in branch alongside 
+information about how much money should be found in each register, what is 
+available to take to the bank and a breakdown of income vs outgoings.
+
+*Note:* You can also access this page from the left hand menu available on the
+:ref:`Point of sale <point-of-sale-label>` page when that module is enabled.
+
+.. _cash-management-register-details-label:
+
+Transaction history for *register*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- *Get there:* Home > Tools > Cash management > Transaction history for *register*
+
+A list of all transactions to have taken place at a register is available by 
+clicking on the cash register name from the 
+:ref:`library details <cash-management-library-details-label>` page.
+
+If you have the correct permissions, you can re-print receipts, issue refunds
+and record :ref:`cashups <cash-management-register-cashup-label>` from this page.
+
+*Note:* You can also access this page from the left hand menu available on the
+:ref:`Point of sale <point-of-sale-label>` page when that module is enabled.

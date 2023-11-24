@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPAC &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="搜尋" href="searching.html" />
+    <link rel="prev" title="報表" href="reports.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OPAC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#search-results">搜尋結果</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#results-overview">檢視結果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filters">篩選器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-rss-feeds">搜尋 RSS feeds</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bibliographic-record">書目紀錄</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-concerns-about-bibliographic-records">Reporting concerns about bibliographic records</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lists-and-the-cart">虛擬書架與書目清單</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lists">虛擬書架</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-lists">新增虛擬書架</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-titles-to-lists">新增題名至虛擬書架</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewing-lists-contents">檢視虛擬書架內容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-lists">管理虛擬書架</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cart">借出籃</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-titles-to-the-cart">新增題名入書車</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-the-cart">管理書車</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#placing-holds">預約</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requesting-recalls">要求催還</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enhanced-content">強化內容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tagging">標籤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comments">評論</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zotero">Zotero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-rss-feeds">客製化 RSS Feeds</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opac-self-registration">OPAC 自助註冊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#your-account">我的帳號</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resetting-your-password">重設密碼</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-summary">我的摘要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-flags">讀者旗標</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-fines">您的罰款</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-personal-details">您的個人詳情</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-tags">您的標籤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-your-password">改變您的密碼</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-search-history">您的搜尋紀錄</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checkout-history">Checkout history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-privacy">您的隱私</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-holds-history">您的預約記錄</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-purchase-suggestions">您的採訪建議</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messaging">Messaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-lists-label">虛擬書架</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ask-for-a-discharge">要求離館</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-routing-lists">您的傳閱清單</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-interlibrary-loan-requests">您的館際互借請求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-recalls-history">您的催還記錄</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#curbside-pickups">Curbside pickups</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#purchase-suggestions">採購建議</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reporting-problems">Reporting problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">OPAC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/opac.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="reports.html" class="btn btn-neutral float-left" title="報表" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="searching.html" class="btn btn-neutral float-right" title="搜尋" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="opac">
+<span id="opac-label"></span><h1>OPAC<a class="headerlink" href="#opac" title="此标题的永久链接"></a></h1>
+<section id="search-results">
+<span id="search-results-opac-label"></span><h2>搜尋結果<a class="headerlink" href="#search-results" title="此标题的永久链接"></a></h2>
+<p>從 OPAC 首頁上方的搜尋鍵入搜尋的字詞，也可按 ‘進階搜尋’ 連結，打開更詳細的搜尋頁面。</p>
+<p><img alt="Library catalog search box at the top of the page in the OPAC" src="_images/searchboxopac.png" /></p>
+<p>If Elasticsearch is used and the <a class="reference internal" href="opacpreferences.html#opacbrowsesearch-label"><span class="std std-ref">OpacBrowseSearch system preference</span></a> is enabled, you will also see the <a class="reference internal" href="searching.html#browse-search-label"><span class="std std-ref">Browse search</span></a> option.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For more on searching check the <a class="reference internal" href="searching.html#searching-label"><span class="std std-ref">Searching</span></a> chapter in
+this manual.</p>
+</div>
+<section id="results-overview">
+<span id="results-overview-label"></span><h3>檢視結果<a class="headerlink" href="#results-overview" title="此标题的永久链接"></a></h3>
+<p><img alt="Search results list in the OPAC, facets are on the left" src="_images/opacsearchresults.png" /></p>
+<p>After performing a search, the number of results found for the search
+will appear above the results.</p>
+<p>By default, the search results are sorted based on the
+<a class="reference internal" href="searchingpreferences.html#opacdefaultsortfield-and-opacdefaultsortorder-label"><span class="std std-ref">OPACdefaultSortField and OPACdefaultSortOrder</span></a>
+system preference values. To change the sort order of these results, you can
+choose another sorting method from the drop-down menu on the right.</p>
+<p><img alt="The sorting drop-down menu offers various options to sort the search results, such as relevance, popularity, author, call number, publication or copyright date, acquisition date, and title" src="_images/sortingresults.png" /></p>
+<p>Under each title in the results list, there will be a series of values from the
+record’s leader (field 000).</p>
+<p><img alt="A single search result in the OPAC, visible is a checkbox on the left, some bibliographic information, the title being a link, availability of items, star ratings, place hold option, place recall option, save to lists option and add to cart option" src="_images/opacsearchresultsingle.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>These values have nothing to do with the item types or collection codes you
+have applied to your records or items. This data is all pulled from the
+record’s control fields.</p>
+<p>This can be turned on or off with the
+<a class="reference internal" href="opacpreferences.html#displayopaciconsxslt-label"><span class="std std-ref">DisplayOPACiconsXSLT</span></a> system preference.</p>
+</div>
+<p>Below each title, there will be the availability for the items attached to the
+record.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Even if you filtered on one library location, all locations that hold
+the item will appear on the search results.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>An item’s hold status does not affect whether or not the item is
+‘available’ until the item is in ‘waiting’ status. Items with
+on-shelf holds will show as available until a staff member has pulled
+them from the shelf and checked the item in make it show ‘waiting’.</p>
+</div>
+<p>If any <a class="reference internal" href="enhancedcontentpreferences.html#enhanced-content-system-preferences-label"><span class="std std-ref">enhanced content system preferences</span></a>
+are turned on, there may be cover images next to the search results.</p>
+<p>If <a class="reference internal" href="administration.html#did-you-mean-label"><span class="std std-ref">Did you mean?</span></a> options are set, there will be a
+yellow bar across the top of your results will other related
+searches.</p>
+<p><img alt="image943" src="_images/didyoumeanopac.png" /></p>
+<p>在進階搜尋的結果清單下，可選擇回到上次的進階搜尋，再編輯該次的進階搜尋。</p>
+<p><img alt="image1295" src="_images/editadvanced.png" /></p>
+</section>
+<section id="filters">
+<span id="filters-label"></span><h3>篩選器<a class="headerlink" href="#filters" title="此标题的永久链接"></a></h3>
+<p>勾選螢幕左方搜尋結果下方的 ‘縮小您的搜尋’ 選單，就能篩選搜尋的結果</p>
+<p><img alt="image944" src="_images/refineresults.png" /></p>
+<p>Depending on your setting for the
+<a class="reference internal" href="searchingpreferences.html#displaylibraryfacets-label"><span class="std std-ref">DisplayLibraryFacets</span></a> system preference you
+will see filters for your home, holding or both libraries.</p>
+<p><img alt="image1296" src="_images/locationfacet.png" /></p>
+<p>按下其中一個層面後，可按該層面右方的小 ‘x’ 從結果中移除篩選器。</p>
+<p><img alt="image1297" src="_images/removefilter.png" /></p>
+</section>
+<section id="search-rss-feeds">
+<span id="search-rss-feeds-label"></span><h3>搜尋 RSS feeds<a class="headerlink" href="#search-rss-feeds" title="此标题的永久链接"></a></h3>
+<p>點選搜尋結果數量旁的 RSS 圖示即可訂閱您的搜尋結果。詳情請查看 <a href="#id1"><span class="problematic" id="id2">:ref:`此教學影片 &lt;http://www.youtube.com/watch?v=0klgLsSxGsU&gt;`__</span></a>。</p>
+<p><img alt="Search results list in the OPAC, facets are on the left" src="_images/opacsearchresults.png" /></p>
+<p>以 RSS 方式訂閱搜尋結果，將允許您看到有興趣的新增館藏。</p>
+</section>
+</section>
+<section id="bibliographic-record">
+<span id="bibliographic-record-label"></span><h2>書目紀錄<a class="headerlink" href="#bibliographic-record" title="此标题的永久链接"></a></h2>
+<p>按搜尋結果的題名，進入該書目記錄的詳情。此頁面分為幾個區塊。</p>
+<p>螢幕最上方是題名及其 GMD：</p>
+<p><img alt="image946" src="_images/bibtitle.png" /></p>
+<p>在題名之下列出著者。它們來自書目記錄的欄位 1xx 與 7xx。按作者連結則搜尋該著者的其他題名。</p>
+<p><img alt="image947" src="_images/bibauthor.png" /></p>
+<p>使用權威記錄檔案時，在著者 (及其他) 權威旁會出現一個放大鏡。按該放大鏡可直接開啟權威記錄。</p>
+<p><img alt="image948" src="_images/authoritylink.png" /></p>
+<p>If you have your <a class="reference internal" href="opacpreferences.html#displayopaciconsxslt-label"><span class="std std-ref">DisplayOPACiconsXSLT</span></a>
+preference set to ‘show’ you will see a material type that is determined
+by values in your fixed fields (learn more in the <a class="reference internal" href="cataloging.html#material-type-cataloging-guide-label"><span class="std std-ref">XSLT material
+type icons</span></a> cataloging guide.</p>
+<p><img alt="image949" src="_images/bibleader.png" /></p>
+<p>接著可看到檢視記錄的說明：</p>
+<p><img alt="image950" src="_images/bibdetails.png" /></p>
+<p>接著是主題標目的資訊，按下後搜尋類似主題的其他題名</p>
+<p><img alt="image951" src="_images/bibsubjects.png" /></p>
+<p>若紀錄有目次或摘要，將顯示在 ‘摘要’ 或 ‘目次’ 標籤旁</p>
+<p><img alt="image952" src="_images/bibsummary.png" /></p>
+<p>856 欄位的資料將顯示在 ‘線上資源’ 標籤的右方連結</p>
+<p><img alt="image953" src="_images/biblinks.png" /></p>
+<p>若檢視的題名已經在公共虛擬書架內，則在 ‘列出收錄此館藏的虛擬書架’ 標籤右方可看到該虛擬書架的名稱，若已有標籤也顯示在 ‘此圖書館的標籤’ 之下</p>
+<p><img alt="image954" src="_images/bibtags.png" /></p>
+<p>在分頁的詳情下可找到館藏資料</p>
+<p><img alt="image955" src="_images/bibholdings.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> 部份, 在OPAC項目中自定義此表的列（table id：holdingst）。</p></li>
+</ul>
+</div></blockquote>
+<p>編目時加入的附註 (5xx欄位) 都出現在 ‘題名附註’ 分頁下</p>
+<p><img alt="image956" src="_images/bibtitlenotes.png" /></p>
+<p>如果書目記錄鏈接到 <a class="reference internal" href="serials.html#serials-label"><span class="std std-ref">Serials 模塊</span></a> 中的訂閱時，則會有一個帶有訂閱和發行訊息的“訂閱”選項頁籤。</p>
+<p><img alt="Subscription tab in a detailed record in the OPAC" src="_images/subscriptiontab.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 自定義此表的列(table id: subscriptionst)。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you chose a notice in the ‘Patron notification’ field when
+<a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">adding the subscription</span></a>, there will be a
+button patrons can click to be notified by email when a new issue is received.</p>
+</div>
+<p>若允許讀者評論則該等評論將出現在下個分頁</p>
+<p><img alt="image957" src="_images/bibcomments.png" /></p>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacauthoridentifiers-label"><span class="std std-ref">OPACAuthorIdentifiers system preference</span></a>
+is turned on, and that your author authority records have standard identifiers,
+there will be an ‘Author identifiers’ tab showing the identifiers with links
+to the author record on the source website.</p>
+<p><img alt="The detailed view of a bibliographic record, the selected tab at the bottom is Author identifiers, both authors are listed with their Scopus ID" src="_images/authoridentifiersopac.png" /></p>
+<p>若已啟用 FRBR 則同名的其他版本館藏將出現在 ‘版本’ 分頁。</p>
+<p><img alt="image958" src="_images/bibeditions.png" /></p>
+<p>在詳情頁面右方有一些盒子。第一個盒子是協助瀏覽搜尋結果的鈕。可看到前一筆或後一筆的結果。</p>
+<p><img alt="image959" src="_images/bibsearch.png" /></p>
+<p>按上方右欄的 ‘瀏覽結果’，將在詳情頁面打開搜尋結果</p>
+<p><img alt="image960" src="_images/bibbrowseresults.png" /></p>
+<p>在搜尋按鈕下您將找到預留的連結, 列印記錄, 儲存紀錄到您的清單上,添加它到您的購物車或是發送到一個裝置(使用一個QR code).</p>
+<p>Another option that will appear on this right hand side bar, if a library is
+allowing purchase suggestions (see the <a class="reference internal" href="opacpreferences.html#suggestion-label"><span class="std std-ref">suggestion</span></a> system preference),
+is the ability to ‘Suggest for Purchase’. Clicking this link will bring the
+user to the <a class="reference internal" href="#purchase-suggestions-opac-label"><span class="std std-ref">purchase suggestion form</span></a> to
+fill out.</p>
+<p><img alt="List of options: Place hold, Place recall, Print, Request article, Save to your lists, Add to your cart, Suggest for purchase, Report a concern, Unhighlight, Send to device, Save record, More searches" src="_images/biboptions.png" /></p>
+<p>Clicking ‘More searches’ will show the list of libraries you entered in
+your <a class="reference internal" href="opacpreferences.html#opacsearchfortitlein-label"><span class="std std-ref">OPACSearchForTitleIn</span></a> preference</p>
+<p><img alt="The detailed view of a bibliographic record, in the options on the left, the 'More searches' option is open and options to search for this title in various external catalogs are displayed" src="_images/bibmoresearch.png" /></p>
+<p>Under the ‘Save record’ label you will find a series of file formats you
+can save the record as. This list can be customized by altering the
+<a class="reference internal" href="opacpreferences.html#opacexportoptions-label"><span class="std std-ref">OpacExportOptions</span></a> system preference.</p>
+<p><img alt="image963" src="_images/bibsave.png" /></p>
+<p>任何時候都可以按紀錄上方的分頁鈕，改變檢視書目記錄從 ‘基本檢視’ 轉為 MARC 或 ISBD</p>
+<p><img alt="image964" src="_images/bibviews.png" /></p>
+<section id="reporting-concerns-about-bibliographic-records">
+<span id="report-concern-opac-label"></span><h3>Reporting concerns about bibliographic records<a class="headerlink" href="#reporting-concerns-about-bibliographic-records" title="此标题的永久链接"></a></h3>
+<p>If the <a class="reference internal" href="opacpreferences.html#opaccatalogconcerns-label"><span class="std std-ref">OpacCatalogConcerns</span></a> system preference is
+enabled, patrons will be able to report concerns regarding specific bibliographic
+records.</p>
+<p>This is similar to the <a class="reference internal" href="#opac-report-problem-label"><span class="std std-ref">problem report feature</span></a>
+but is linked to a specific bibliographic record, and there is the possibility
+to have a resolution.</p>
+<p>To report a new concern,</p>
+<ul>
+<li><p>In the bibliographic record’s detail page, click the ‘Report a concern’ link
+in the options at the right side.</p>
+<p><img alt="List of options: Place hold, Place recall, Print, Request article, Save to your lists, Add to your cart, Suggest for purchase, Report a concern, Unhighlight, Send to device, Save record, More searches" src="_images/biboptions.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Patrons must be logged in to report a concern. If they are not logged in,
+the system will ask them for their login information.</p>
+</div>
+</li>
+<li><p>Fill in the concern form.</p>
+<p><img alt="The report a concern form" src="_images/reportaconcern.png" /></p>
+<ul>
+<li><p>Title: enter a title describing succinctly the problem.</p></li>
+<li><p>Please describe your concern: enter details about the problem, being the
+more descriptive possible so that the staff member who receives this is
+able to replicate and see the problem.</p>
+<p>An example of what is expected in the description is provided in the field:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">Describe</span> <span class="n">the</span> <span class="n">concern</span><span class="o">**</span>
+
+<span class="n">A</span> <span class="n">clear</span> <span class="ow">and</span> <span class="n">concise</span> <span class="n">description</span> <span class="n">of</span> <span class="n">what</span> <span class="n">the</span> <span class="n">concern</span> <span class="ow">is</span><span class="o">.</span>
+
+<span class="o">**</span><span class="n">To</span> <span class="n">Reproduce</span><span class="o">**</span>
+
+<span class="n">Steps</span> <span class="n">to</span> <span class="n">reproduce</span> <span class="n">the</span> <span class="n">behavior</span><span class="p">:</span>
+<span class="mf">1.</span> <span class="n">Go</span> <span class="n">to</span> <span class="s1">&#39;...&#39;</span>
+<span class="mf">2.</span> <span class="n">Click</span> <span class="n">on</span> <span class="s1">&#39;....&#39;</span>
+<span class="mf">3.</span> <span class="n">Scroll</span> <span class="n">down</span> <span class="n">to</span> <span class="s1">&#39;....&#39;</span>
+<span class="mf">4.</span> <span class="n">See</span> <span class="n">error</span>
+
+<span class="o">**</span><span class="n">Expected</span> <span class="n">behavior</span><span class="o">**</span>
+
+<span class="n">A</span> <span class="n">clear</span> <span class="ow">and</span> <span class="n">concise</span> <span class="n">description</span> <span class="n">of</span> <span class="n">what</span> <span class="n">you</span> <span class="n">expected</span> <span class="n">to</span> <span class="n">happen</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This text is customizable in the
+<a class="reference internal" href="tools.html#html-customizations-label"><span class="std std-ref">HTML customizations tool</span></a>, by
+changing the ‘CatalogConcernTemplate’ entry.</p>
+<p>The text at the bottom of the form (“Please describe your concern
+clearly…”) is also customizable in the
+<a class="reference internal" href="tools.html#html-customizations-label"><span class="std std-ref">HTML customizations tool</span></a>, by
+changing the ‘CatalogConcernHelp’ entry.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Click ‘Submit’.</p></li>
+</ul>
+<p>This will send an email to the cataloging team to notify them that a new concern
+has been created. The email will be sent to the email address in the
+<a class="reference internal" href="catalogingpreferences.html#catalogeremails-label"><span class="std std-ref">CatalogerEmails</span></a> system preference. The email
+sent is the TICKET_NOTIFY notice, which can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+<p>An email will also be sent to the reporter to notify them that the concern has
+been received. The email
+sent is the TICKET_ACKNOWLEDGE notice, which can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+<p>Concerns reported about this record are visible in the ‘Concerns’ tab.</p>
+<p><img alt="The Concerns tab of a bibliographic record in the staff interface, it contains a table with the concerns reported for this record" src="_images/concernstab.png" /></p>
+<p>All concern tickets will be visible in the catalog concerns report.</p>
+<p>Newly opened concern reports will also appear in the notification section at the
+bottom of the staff interface main page.</p>
+<p><img alt="Prompt on staff interface homepage to view pending article requests, pending purchase suggestions, patrons requesting modifications, pending catalog concerns, pending checkout notes, and pending OPAC problem reports" src="_images/pendingrequests.png" /></p>
+</section>
+</section>
+<section id="lists-and-the-cart">
+<span id="lists-and-cart-opac-label"></span><h2>虛擬書架與書目清單<a class="headerlink" href="#lists-and-the-cart" title="此标题的永久链接"></a></h2>
+<p>A cart is a temporary holding place for records you’re interested in finding
+during this session. That means that once you log out of the OPAC or close the
+browser you lose the items in your cart.</p>
+<p>A list is a more permanent location for saving items.</p>
+<p>To learn more about lists, check the <a class="reference internal" href="lists.html#lists-and-cart-label"><span class="std std-ref">Lists and cart</span></a>
+chapter of this manual, which deal with these features in the staff interface.</p>
+<section id="lists">
+<span id="lists-opac-label"></span><h3>虛擬書架<a class="headerlink" href="#lists" title="此标题的永久链接"></a></h3>
+<p>Patrons can manage their own private lists by visiting the ‘Lists’ section of
+their account.</p>
+<p><img alt="List of private lists in a patron's account on the OPAC" src="_images/yourlists.png" /></p>
+<section id="creating-lists">
+<span id="creating-lists-label"></span><h4>新增虛擬書架<a class="headerlink" href="#creating-lists" title="此标题的永久链接"></a></h4>
+<p>To create a list the patron simply needs to click the ‘New list’ link
+and populate the form that appears.</p>
+<p><img alt="Create a new list form" src="_images/newlist.png" /></p>
+<ul>
+<li><p>List name: the patron must enter a list name, it is the only required field</p></li>
+<li><p>Sort this list by: the patron can choose how they want the list sorted (by
+title, author, publication year, call number or date added to the list).</p></li>
+<li><p>Category: the patron can choose to keep this list private or make it public.
+A public list will be visible to all OPAC users.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will only appear if the
+<a class="reference internal" href="opacpreferences.html#opacallowpubliclistcreation-label"><span class="std std-ref">OpacAllowPublicListCreation</span></a>
+system preference is set to ‘Allow’. Otherwise all lists created by
+patrons will be private.</p>
+</div>
+</li>
+<li><p>Allow changes to content from: the patron can choose who will be able to add
+or remove titles from the list.</p>
+<ul class="simple">
+<li><p>Nobody: nobody, including the patron themselves will be able to add or
+remove titles.</p></li>
+<li><p>Owner only: only the patron who created the list will be able to add or
+remove titles. If the list is public or shared, the OPAC users or sharers
+will not be able to change the list contents.</p></li>
+<li><p>Anyone seeing this list: everyone who has access to the list will be able
+to add or remove titles. If the list is public, this means everyone. If the
+list is private, only the owner will have the ability to change the contents.
+And if the list is shared, the owner and sharers will have this ability.</p></li>
+<li><p>Staff only: this option will only appear to staff members, to make the
+list editable by all staff members.</p></li>
+</ul>
+</li>
+</ul>
+<p>從搜尋結果的 ‘新增至’ 選單裡的 ‘新增虛擬書架’ 選項，就可以新增虛擬書架</p>
+<p><img alt="In search results in the OPAC, With selected results dropdown menu is open and the mouse cursor is on the New list option" src="_images/addtonewlist.png" /></p>
+</section>
+<section id="adding-titles-to-lists">
+<span id="adding-titles-to-lists-label"></span><h4>新增題名至虛擬書架<a class="headerlink" href="#adding-titles-to-lists" title="此标题的永久链接"></a></h4>
+<p>Titles can be added to lists from the search results or from the
+bibliographic record.</p>
+<p>In the search results, the option to add items to the list appear below each
+result (‘Save to lists’ button)</p>
+<p><img alt="A single search result in the OPAC, visible is a checkbox on the left, some bibliographic information, the title being a link, availability of items, star ratings, place hold option, place recall option, save to lists option and add to cart option" src="_images/opacsearchresultsingle.png" /></p>
+<p>and across the top of the results page, next to ‘Select titles to: Add to…’</p>
+<p><img alt="Search results list in the OPAC, facets are on the left" src="_images/opacsearchresults.png" /></p>
+<p>按選定單筆書目後，按 ‘儲存至虛擬書架’ 選項，再選擇虛擬書架名稱，就完成新增書目的工作。也可勾選多筆書目記錄左方的方格，再從螢莫上方的 ‘同時新增’ 選單裡選擇虛擬書架，完成新增多筆書目的工作。</p>
+<p>From the bibliographic record, the option to save the title to a list is in the
+menu on the right.</p>
+<p><img alt="Bibliographic record details page in the OPAC" src="_images/opacrecorddetails.png" /></p>
+<p>Titles can also be added to a list from the <a class="reference internal" href="#cart-opac-label"><span class="std std-ref">cart</span></a>.</p>
+</section>
+<section id="viewing-lists-contents">
+<span id="viewing-lists-contents-label"></span><h4>檢視虛擬書架內容<a class="headerlink" href="#viewing-lists-contents" title="此标题的永久链接"></a></h4>
+<p>按 ‘虛擬書架’ 名稱下的虛擬書架鈕，即可檢視虛擬書架的內容。</p>
+<p><img alt="Main page of the OPAC, the mouse cursor is on the Lists button at the top and the list of lists is open" src="_images/chooselist.png" /></p>
+<p>虛擬書架的內容有點像是搜尋結果頁面，祗是上方的選單略有不同。</p>
+<p><img alt="Contents of a list" src="_images/listview.png" /></p>
+<p>在虛擬書架右側有個 RSS 圖示允許您訂閱該虛擬書架的更新。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The RSS icon only appears on public lists.</p>
+</div>
+<p>使用虛擬書架上方的選單可以預約多筆館藏、下載虛擬書架內容、電郵或列印該虛擬書架。</p>
+<ul>
+<li><p>勾選清單左方的小方塊，再按選單上方的 ‘預約’ 連結完成預約工作</p></li>
+<li><p>按上方的 ‘下載虛擬書架’ 連結，再指定下載的格式，就能下載該筆虛擬書架</p></li>
+<li><p>按 ‘送出虛擬書架’ 連結並在彈出表單裡鍵入電子郵件，就能把虛擬書架內容送出去</p>
+<p><img alt="'Sending your list' form" src="_images/emailist.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The message sent when emailing the list is LIST, which can be customized
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+<li><p>按 ‘列印虛擬書架’ 連結即可列印該筆虛擬書架的內容</p></li>
+</ul>
+</section>
+<section id="managing-lists">
+<span id="managing-lists-label"></span><h4>管理虛擬書架<a class="headerlink" href="#managing-lists" title="此标题的永久链接"></a></h4>
+<p>Once the list is saved, patrons can begin
+<a class="reference internal" href="#adding-titles-to-lists-label"><span class="std std-ref">adding items to it</span></a>. From the
+<a class="reference internal" href="#your-lists-label"><span class="std std-ref">‘Lists’ tab</span></a> in their account, the patron can edit
+and delete the lists they have created by clicking the appropriate button to the
+right of the list name.</p>
+<p><img alt="List of private lists in a patron's account on the OPAC" src="_images/yourlists.png" /></p>
+<p>To edit the list’s title or sorting patrons click the ‘Edit’ button to the
+right of the list description.</p>
+<p><img alt="Edit list form" src="_images/editlist.png" /></p>
+<p>按虛擬書架旁的 ‘刪除’ 連結，經過確認後就可刪除該虛擬書架。</p>
+<p><img alt="Confirmation message when deleting a list: Are you sure you want to delete this list? Followed by the name of the list and the number of items in the list. The options are Yes, delete and No, do not delete." src="_images/deletelist.png" /></p>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacallowsharingprivatelists-label"><span class="std std-ref">OpacAllowSharingPrivateLists</span></a>
+system preference is set to ‘Allow’, patrons will see the ‘Share’ button on the
+list of lists and the ‘Share list’ button at the top of each individual list.
+Clicking this will ask you to enter the email address of a patron.</p>
+<p><img alt="Share a list with another patron form" src="_images/sharelist.png" /></p>
+<p>鍵入電子郵件後，Koha 將顯示確認訊息</p>
+<p><img alt="Share confirmation message: An invitation to share list Shakespeare will be sent shortly to email address of the other patron. You will receive an email notification if someone accepts your share before it expires." src="_images/shareconfirmation.png" /></p>
+<p>且送訊息給該讀者。</p>
+<p>Once the other patron accepts the shared list, the sharing patron will receive
+a confirmation.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The message sent to share the list is SHARE_INVITE and the message sent
+to the sharing patron to confirm the other patron has accepted the share is
+SHARE_ACCEPT. Both messages are customizable in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>The other patron will see the shared list with their own private lists (the type
+will be ‘Shared’ rather than ‘Private’). They will also have the option to
+remove the share, if they don’t want to have access to this list anymore.</p>
+<p>The owner of the shared list will have the option to transfer the ownership of
+the list to one of the patrons with whom the list is shared.</p>
+<p>If the <a class="reference internal" href="enhancedcontentpreferences.html#tagsinputondetail-label"><span class="std std-ref">TagsInputOnDetail</span></a> system preference is
+enabled, patrons will have the possibility of
+<a class="reference internal" href="#opac-tagging-label"><span class="std std-ref">adding tags to titles</span></a> from the list view.</p>
+</section>
+</section>
+<section id="cart">
+<span id="cart-opac-label"></span><h3>借出籃<a class="headerlink" href="#cart" title="此标题的永久链接"></a></h3>
+<section id="adding-titles-to-the-cart">
+<span id="adding-titles-to-the-cart-label"></span><h4>新增題名入書車<a class="headerlink" href="#adding-titles-to-the-cart" title="此标题的永久链接"></a></h4>
+<p>Titles can be added to the cart from the search results or from the
+bibliographic record.</p>
+<p>In the search results, the option to add items to the cart appear below each
+result (‘Add to cart’ button)</p>
+<p><img alt="A single search result in the OPAC, visible is a checkbox on the left, some bibliographic information, the title being a link, availability of items, star ratings, place hold option, place recall option, save to lists option and add to cart option" src="_images/opacsearchresultsingle.png" /></p>
+<p>and across the top of the results page, next to ‘Select titles to: Add to…’</p>
+<p><img alt="Search results list in the OPAC, facets are on the left" src="_images/opacsearchresults.png" /></p>
+<p>Clicking the ‘Add to cart’ button under a single result will add the one title
+to your cart.</p>
+<p>To add multiple titles at once, check the box to the left of each result
+and then choose ‘Cart’ from the ‘Add to’ pull down at the top of the
+screen. Once titles are added to the cart you will be presented with a
+confirmation at the top of the page.</p>
+<p><img alt="At the top of the page in the OPAC, next to the cart, a pop up message says '2 item(s) added to your cart' and there is a small 2 next to the cart" src="_images/addedtocart.png" /></p>
+<p>從搜尋結果可以看到被加入書車的館藏，按 ‘(移除)’ 鈕就能從書車中移除。</p>
+<p><img alt="A single search result in the OPAC, the option 'Add to cart' is replaced by 'In your cart (remove)'" src="_images/iteminyourcart.png" /></p>
+<p>From the bibliographic record, the option to add the title to the cart is in the
+menu on the right.</p>
+<p><img alt="Bibliographic record details page in the OPAC" src="_images/opacrecorddetails.png" /></p>
+</section>
+<section id="managing-the-cart">
+<span id="managing-the-cart-label"></span><h4>管理書車<a class="headerlink" href="#managing-the-cart" title="此标题的永久链接"></a></h4>
+<p>Once there are titles in the cart, you can manage the contents by
+clicking on the ‘Cart’ button usually found at the top of the screen.
+Your cart will open in a new window.</p>
+<p><img alt="Content of the cart" src="_images/cartcontents.png" /></p>
+<p>在此視窗有若干選項。書車上方有若干選擇鈕。</p>
+<ul>
+<li><p>More details: clicking this will show additional information about the titles
+in the cart (ISBNs, subjects, publisher info, notes and more).</p>
+<p><img alt="Content of the cart, expanded. Shown is the title, author, subjects, copyright date, notes, url and item location and status of the first title in the cart." src="_images/cartmoredetails.png" /></p>
+<p>When clicked, tThe ‘More details’ button will become ‘Brief display’.
+Clicking this will return to the default display in table form of the title,
+author, copyright date and item location and status.</p>
+</li>
+<li><p>Send: the option to send the contents of the cart to an email address.
+This is handy if you want to send the resources you found at the library to
+your home email account to refer to later or to send to a patron researching
+a specific topic. Clicking this link will open up a new window that asks for
+the email address and message to send.</p>
+<p><img alt="'Sending your cart' form" src="_images/emailcart.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>The cart can only be emailed by logged in users. This will prevent the
+cart email function from being used for spamming.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The message sent when emailing the cart is CART, which can be customized
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+<li><p>Download: you can download the contents of the cart in several pre-defined
+formats or using a <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV profile</span></a> that you defined
+in the tools module.</p>
+<p><img alt="Options to download the contents of the cart: BibTeX, ISBD, MARC, RIS and custom CSV profiles" src="_images/downloadcart.png" /></p>
+</li>
+<li><p>Empty and close: this will empty the cart and close the window.</p></li>
+<li><p>Hide window: this will close the window, but the cart will not be emptied.</p></li>
+<li><p>Print: this will print out the contents of the cart.</p></li>
+</ul>
+<p>In addition to the various different ways to save the contents of the
+cart, there are ways to add value to the data in your cart.</p>
+<p>Select one or more titles from the cart and choose one of the options:</p>
+<ul class="simple">
+<li><p>Remove: this will remove the selected titles from the cart.</p></li>
+<li><p>Add to a list: this will add the selected titles to a
+<a class="reference internal" href="#adding-titles-to-lists-label"><span class="std std-ref">list</span></a></p></li>
+<li><p>Place hold: this will <a class="reference internal" href="#placing-holds-label"><span class="std std-ref">place a hold</span></a> on all
+selected titles</p></li>
+<li><p>Tag: if the <a class="reference internal" href="enhancedcontentpreferences.html#tagsinputondetail-label"><span class="std std-ref">TagsInputOnDetail</span></a> system
+preference is enabled, patrons will be able to
+<a class="reference internal" href="#opac-tagging-label"><span class="std std-ref">add tags to selected titles</span></a>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="placing-holds">
+<span id="placing-holds-label"></span><h2>預約<a class="headerlink" href="#placing-holds" title="此标题的永久链接"></a></h2>
+<p>Patrons can place holds on items via the OPAC if they’re logged in and
+you have the <a class="reference internal" href="opacpreferences.html#opacholdrequests-label"><span class="std std-ref">OPACHoldRequests</span></a> preference set to
+‘Allow’. If the item can be placed on hold the option to place it on
+hold will appear in several different places.</p>
+<ul>
+<li><p>檢視虛擬書架或在搜尋結果頁面，勾選書目記錄左方的方格，按上方的 ‘預約’ 鈕，就能預約該筆館藏</p>
+<p><img alt="image982" src="_images/opacplaceholdresults.png" /></p>
+</li>
+<li><p>檢視虛擬書架或在搜尋結果頁面，在每筆館藏的基本資料下都有預約選項</p>
+<p><img alt="A single search result in the OPAC, visible is a checkbox on the left, some bibliographic information, the title being a link, availability of items, star ratings, place hold option, place recall option, save to lists option and add to cart option" src="_images/opacsearchresultsingle.png" /></p>
+</li>
+<li><p>檢視個別書目時，在螢幕的右方有個區塊，包括預約連結</p>
+<p><img alt="image984" src="_images/opacplaceholdsdetail.png" /></p>
+</li>
+</ul>
+<p>不論以何種連結進入預約，都會進入同個預約畫面。</p>
+<p><img alt="image985" src="_images/opacplacehold.png" /></p>
+<ul>
+<li><p>按館藏左方的方格就可預約該館藏</p></li>
+<li><p>題名包括連結回紀錄的詳情頁面</p></li>
+<li><p>順位顯示預約佇列中此預約位置</p></li>
+<li><p>If allowed by your
+<a class="reference internal" href="circulationpreferences.html#opacallowusertochoosebranch-label"><span class="std std-ref">OPACAllowUserToChooseBranch</span></a>
+preference the patron can choose where they’d like to pick up their
+hold. The list of available pickup locations will include all libraries that
+have ‘Pickup location’ set to ‘Yes’ on the library configuration page.</p></li>
+<li><p>按 ‘顯示更多選項’，就能看到更多選項</p>
+<p>更多選項裡的預約表單</p>
+<ul>
+<li><p>If you have the
+<a class="reference internal" href="circulationpreferences.html#allowholditemtypeselection-label"><span class="std std-ref">AllowHoldItemTypeSelection</span></a>
+preference set to ‘Allow’ and the record had more than one item
+type attached you will see an option to choose to limit the hold
+to a specific item type</p>
+<p><img alt="image1301" src="_images/AllowHoldItemTypeSelection1.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>If allowed by your
+<a class="reference internal" href="circulationpreferences.html#opacallowholddateinfuture-label"><span class="std std-ref">OPACAllowHoldDateInFuture</span></a>
+preference, the ‘Hold starts on date’ column will show. This field
+allows the patron to have their hold start on a future date.</p></li>
+<li><p>預約的效力一直留在系統內，但讀者可以在 ‘此日期後取消預約’ 欄位內鍵入日期事先指定取消預約的日期。</p>
+<ul>
+<li><p><strong>重要</strong></p>
+<blockquote>
+<div><p>取消預約的工作由 <a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">Expired Holds 工作排程</span></a> 執行，此排程需由系統管理者設定才會自動執行</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>If allowed by the <a class="reference internal" href="opacpreferences.html#opacholdnotes-label"><span class="std std-ref">OpacHoldNotes</span></a> preference then
+patrons can leave notes about their holds for the library by clicking
+the ‘Edit notes’ button</p>
+<p><img alt="image986" src="_images/holdnote.png" /></p>
+</li>
+<li><p>If the <a class="reference internal" href="circulationpreferences.html#enableitemgroupholds-label"><span class="std std-ref">EnableItemGroupHolds</span></a> system
+preference is set to ‘Enable’ and the record has
+<a class="reference internal" href="cataloging.html#item-groups-label"><span class="std std-ref">item groups</span></a>, the patron can choose to place a hold
+on the next available item of a group, rather than the next available item on
+the whole record or a specific item.</p></li>
+<li><p>按照 <span class="xref std std-ref">流通與罰款規則</span> 的設定，讀者可以在預約時指定可借的單件或特定單件。</p>
+<p><img alt="image987" src="_images/opacplaceholdspecific.png" /></p>
+</li>
+</ul>
+<p>按下預約鈕後，讀者進入其帳號頁面可看到所有預約的館藏。</p>
+</section>
+<section id="requesting-recalls">
+<span id="request-recalls-opac-label"></span><h2>要求催還<a class="headerlink" href="#requesting-recalls" title="此标题的永久链接"></a></h2>
+<p>如果你的圖書館接受催還（見 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>設定催還&lt;recalls-setup-label&gt;`了解更多訊息），讀者就可以對館藏進行催還。</p>
+<p>要求催還的選項出現在 OPAC 的不同地方：</p>
+<ul>
+<li><p>在搜尋後的結果列表中，’放置催還’選項出現在每個可催還結果的底部。</p>
+<p><img alt="A single search result in the OPAC, visible is a checkbox on the left, some bibliographic information, the title being a link, availability of items, star ratings, place hold option, place recall option, save to lists option and add to cart option" src="_images/opacsearchresultsingle.png" /></p>
+</li>
+<li><p>在詳細記錄中。 ‘地點催還’選項出現在選項中螢幕的右側（或移動視圖的底部）</p>
+<p><img alt="List of options: Place hold, Place recall, Print, Request article, Save to your lists, Add to your cart, Suggest for purchase, Report a concern, Unhighlight, Send to device, Save record, More searches" src="_images/biboptions.png" /></p>
+</li>
+</ul>
+<p>這些連結中的任何一個都將指向催還表格。</p>
+<p><img alt="The form to request a recall in the OPAC" src="_images/placerecallform.png" /></p>
+<ul class="simple">
+<li><p>領取地點：讀者可以選擇他們想領取催還館藏的地點。</p></li>
+<li><p>之後不需要催還：如果讀者在某個日期之後不需要這個館藏，他們可以在這裡輸入它。催還將在該日期後自動過期（用 <a class="reference internal" href="cron_jobs.html#cron-expire-recalls-label"><span class="std std-ref">expire_recalls.pl 工作排程</span></a>）。</p></li>
+<li><p>催還下一個可用的館藏或催還一個特定的館藏：讀者可以選擇催還任何館藏或一個特定的館藏。如果他們選擇 ‘催還一個特定的館藏’，他們將被要求在列表中選擇該館藏。</p></li>
+</ul>
+<p>Once the patron confirms their recall request, they will have get a message
+saying the the patron who currently has the item will be notified.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notice sent to the patron who currently has the item is
+RETURN_RECALLED_ITEM. It can be edited in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>The request will be added to the recalls tab in their account summary, as well
+as in  their recall history list.</p>
+</section>
+<section id="enhanced-content">
+<span id="enhanced-content-opac-label"></span><h2>強化內容<a class="headerlink" href="#enhanced-content" title="此标题的永久链接"></a></h2>
+<section id="tagging">
+<span id="opac-tagging-label"></span><h3>標籤<a class="headerlink" href="#tagging" title="此标题的永久链接"></a></h3>
+<p>Depending on the settings for the <a class="reference internal" href="enhancedcontentpreferences.html#tagsenabled-label"><span class="std std-ref">TagsEnabled</span></a>,
+<a class="reference internal" href="enhancedcontentpreferences.html#tagsinputonlist-label"><span class="std std-ref">TagsInputOnList</span></a> and
+<a class="reference internal" href="enhancedcontentpreferences.html#tagsinputondetail-label"><span class="std std-ref">TagsInputOnDetail</span></a> system preferences, patrons
+may be able to add tags to bibliographic records from the search results and/or
+from the bibliographic records’ detail page.</p>
+<p>If you are allowing patrons to add tags from the search results list (see
+<a class="reference internal" href="enhancedcontentpreferences.html#tagsinputondetail-label"><span class="std std-ref">TagsInputOnDetail</span></a>), patron will see an ‘Add
+tag’ button below each result and a ‘Tag’ option at the top of the screen.</p>
+<p><img alt="Search results list in the OPAC, facets are on the left" src="_images/opacsearchresults.png" /></p>
+<p>To add a tag to one item, click ‘Add tag’, type the tag or tags (separated by
+commas) in the ‘New tag’ box and click ‘Add’. You will be presented with a
+confirmation of your tags being added.</p>
+<p><img alt="A single search result in the OPAC, under the 'Add tag' button is an input box 'New tag(s), separated by a comma' with and 'Add' button and a '(done)' link" src="_images/tagsadded-results.png" /></p>
+<p>按搜尋結果頁面的左上方的 ‘標籤’ 鈕，可對多個館藏新增標籤。按鈕之後，改變輸入盒供新增標籤給所有選定的館藏。</p>
+<p><img alt="List of search results on the OPAC, several titles are selected, the 'Tag' button at the top has been replaced by an input box name 'New tag' with and 'Add' button and a '(done)' link" src="_images/tagaddmultiple-results.png" /></p>
+<p>If the <a class="reference internal" href="enhancedcontentpreferences.html#tagsinputondetail-label"><span class="std std-ref">TagsInputOnDetail</span></a> system preference is
+enabled, patrons will also have the possibility to add tags from a
+<a class="reference internal" href="#lists-opac-label"><span class="std std-ref">list</span></a> and from the <a class="reference internal" href="#cart-opac-label"><span class="std std-ref">cart</span></a>.</p>
+<p>If the <a class="reference internal" href="enhancedcontentpreferences.html#tagsinputondetail-label"><span class="std std-ref">TagsInputOnDetail</span></a> system preference is
+enabled, patrons will have the possibility of adding tags from the record detail
+page by clicking the ‘Add tag(s)’ link. The link will be replaced by an input
+box.</p>
+<p><img alt="Bibliographic record details page in the OPAC, the 'Add tag(s)' link has been replaced by an input field name 'New tag(s), separated by a comma', inside the input field on the right is a smiling face emoji (emoji picker), followed 'Add' button and a '(done)' link" src="_images/tagadd-detail.png" /></p>
+<p>Emojis can also be included using the emoji picker when adding tags from the
+record detail page.</p>
+<p><img alt="The smiling face emoji in the input box is activated and a list of emojis is open underneath" src="_images/emojipicker.png" /></p>
+</section>
+<section id="comments">
+<span id="opac-comments-label"></span><h3>評論<a class="headerlink" href="#comments" title="此标题的永久链接"></a></h3>
+<p>Patrons can leave comments in the OPAC if you have the
+<a class="reference internal" href="opacpreferences.html#opaccomments-label"><span class="std std-ref">OPACComments</span></a> preference set to allow this. Each
+bibliographic record has a comments tab below the bibliographic
+information.</p>
+<p><img alt="image991" src="_images/commentstab.png" /></p>
+<p>讀者登入後可看新增評論給館藏的連結。按此連結將彈出包括其評論盒的視窗。</p>
+<p><img alt="image992" src="_images/addcomment.png" /></p>
+<p>鍵入評論後按 ‘送出’ 鈕，讀者將看到其評論列入待決，其他讀者還看到此評論。</p>
+<p><img alt="image993" src="_images/commentpending.png" /></p>
+<p>Once the comment is approved the patron will see the number of comments
+on the ‘Comments’ tab and their comment labeled amongst the other
+comments. If the <a class="reference internal" href="opacpreferences.html#showreviewerphoto-label"><span class="std std-ref">ShowReviewerPhoto</span></a> system preference is set to ‘Show’,
+the patron’s photo pulled from the <a class="reference external" href="https://www.libravatar.org">Libravatar</a>
+library will be displayed next to their comment.</p>
+<p><img alt="The 'Comment' tab in the OPAC, show Your comment, the date of the comment, the comment itself, with an 'Edit' link and the patron's avatar" src="_images/yourcomment.png" /></p>
+<p>Other patrons will see the comment with the name of the patron who left
+the comment (unless you have set the <a class="reference internal" href="opacpreferences.html#showreviewer-label"><span class="std std-ref">ShowReviewer</span></a>
+preference to not show patron names).</p>
+<p><img alt="image995" src="_images/commentby.png" /></p>
+<p>If you have your <a class="reference internal" href="opacpreferences.html#opacshowrecentcomments-label"><span class="std std-ref">OpacShowRecentComments</span></a>
+set to show then you’ll see the approved comments on that page.</p>
+<p><img alt="image996" src="_images/recentcomments.png" /></p>
+<p>讀者可從此頁面以 RSS 訂閱最新的評論。</p>
+</section>
+<section id="zotero">
+<span id="zotero-label"></span><h3>Zotero<a class="headerlink" href="#zotero" title="此标题的永久链接"></a></h3>
+<p>Zotero 是 Firefox 的外掛程式，藉以儲存與產生書目。下載與詳情見官網 <a class="reference external" href="http://zotero.org">http://zotero.org</a>。</p>
+<p>安裝 Zoteor 後，從 Koha OPAC 的搜尋結果，在 URL 右方看到一個 Zotero 的圖示。按下該圖示開啟題名清單，由此加入 Zotero。</p>
+<p><img alt="image997" src="_images/zoteroaddressbar.png" /></p>
+<p>選擇題名，再按 ‘OK’ 鈕。就能加入 Zotero。打開 Zotero 可看到新加入的書目。</p>
+<p><img alt="image998" src="_images/zoterotitle.png" /></p>
+</section>
+<section id="custom-rss-feeds">
+<span id="custom-rss-feeds-label"></span><h3>客製化 RSS Feeds<a class="headerlink" href="#custom-rss-feeds" title="此标题的永久链接"></a></h3>
+<p>使用 <a class="reference internal" href="cron_jobs.html#cron-rss-feeds-label"><span class="std std-ref">RSS 送出工作排程</span></a> 就能產生供 SQL 使用的 RSS (譬如新增採訪 RSS 送出)。工作排程依 RSS XML 文件要求的命令執行。</p>
+<p>輸出的文件應置於近用 OPAC (或館員介面) 的網頁，使用者才能下載 RSS 摘要。</p>
+<p>使用的範例在這裡：misc/cronjobs/rss.pl lastAcquired.conf</p>
+<p>通常定期 (每天) 執行 rss.pl 更新其內容。</p>
+<p>組態檔 (如：lastAcquired.conf) 清單</p>
+<ul class="simple">
+<li><p>使用的模板檔名</p></li>
+<li><p>匯出檔案的路徑</p></li>
+<li><p>SQL 查詢</p></li>
+</ul>
+<p>rss.pl 執行 SQL 查詢，然後經由暫存送出查詢結果的檔案。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>必須先打開 <a class="reference internal" href="cron_jobs.html#cron-rss-feeds-label"><span class="std std-ref">RSS 工作排程</span></a> 才能夠客製化 RSS 送出。</p>
+</div></blockquote>
+</section>
+</section>
+<section id="opac-self-registration">
+<span id="opac-self-registration-label"></span><h2>OPAC 自助註冊<a class="headerlink" href="#opac-self-registration" title="此标题的永久链接"></a></h2>
+<p>If you allow it, patrons can register for their own accounts via the
+OPAC. If you have the
+<a class="reference internal" href="opacpreferences.html#patronselfregistration-label"><span class="std std-ref">PatronSelfRegistration</span></a> preference set to
+‘Allow’ then patrons will see a link to register below the log in box.</p>
+<p><img alt="&quot;Log in to your account&quot; section on the OPAC homepage. Underneath the Log in button is the mention: &quot;Don't have an account? Register here.&quot;" src="_images/opachomeloginform.png" /></p>
+<p>When the patron clicks the ‘Register here’ link they will be brought to a
+registration page. The options on the registration page can be controlled
+by editing the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationborrowermandatoryfield-label"><span class="std std-ref">PatronSelfRegistrationBorrowerMandatoryField</span></a>
+and the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationborrowerunwantedfield-label"><span class="std std-ref">PatronSelfRegistrationBorrowerUnwantedField</span></a>
+preferences.</p>
+<p><img alt="image1000" src="_images/patronregistration.png" /></p>
+<p>Once the patron has submitted their registration they will
+either be sent an email to confirm their account (if you have the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationverifybyemail-label"><span class="std std-ref">PatronSelfRegistrationVerifyByEmail</span></a>
+preference to require this) or presented with their new username and
+password. If the <a class="reference internal" href="opacpreferences.html#patronselfregistrationprefillform-label"><span class="std std-ref">PatronSelfRegistrationPrefillForm</span></a> system preference is
+set to ‘Show and prefill’, they will be presented with the prefilled login form.</p>
+<p><img alt="image1001" src="_images/patronregistrationcomplete.png" /></p>
+<p>To be notified when a patron registers via the OPAC, use the <a class="reference internal" href="opacpreferences.html#emailpatronregistrations-and-emailaddressforpatronregistrations-label"><span class="std std-ref">EmailPatronRegistrations</span></a> system preference.</p>
+<p>自助註冊的讀者還沒有圖書館發給的讀者號，但已可立馬使用 OPAC 的所有功能。因此，建議您：</p>
+<ul class="simple">
+<li><p>set up a provisional <a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">patron category</span></a> for self
+registered patrons (such as ‘Self Registered) instead of using an
+existing patron category and set that value in the
+<a class="reference internal" href="opacpreferences.html#patronselfregistrationdefaultcategory-label"><span class="std std-ref">PatronSelfRegistrationDefaultCategory</span></a>
+preference</p></li>
+<li><p>give this patron category minimal circulation privileges in the
+<a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a> (such as allowing a
+couple holds, but no check outs)</p></li>
+</ul>
+<p>如此一來，讀者必須親自到館確認其身份，給予讀者證號碼，擁有借出的權限。館員更改其類型，給予身份 (成年人、居民、非居民、學生等) 並讀者證號碼。</p>
+</section>
+<section id="your-account">
+<span id="your-account-label"></span><h2>我的帳號<a class="headerlink" href="#your-account" title="此标题的永久链接"></a></h2>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> system preference is set to ‘Allow’, patrons can
+log in and access their account.</p>
+<p>登入後，讀者將被帶到他們的 <a class="reference internal" href="#your-summary-label"><span class="std std-ref">帳號匯總</span></a>。</p>
+<p>If patrons access the home page while logged in, and <a class="reference internal" href="opacpreferences.html#opacusersummary-label"><span class="std std-ref">OPACUserSummary</span></a> is
+set to ‘Show’, they will see a small summary of their account instead of the
+login fields.</p>
+<p><img alt="A small box with the number of checkouts, overdues, holds and pending charges has replaced the login fields" src="_images/OPACUserSummary.png" /></p>
+<p>If <a class="reference internal" href="opacpreferences.html#opacshowsavings-label"><span class="std std-ref">OPACShowSavings</span></a> is set to
+display savings in the summary box, this summary section will also contain the
+savings the patron made by using the library rather than purchasing the items.</p>
+<p><img alt="A small box with the number of checkouts, overdues, holds, pending charges and savings" src="_images/OPACShowSavings-summarybox.png" /></p>
+<p>在 OPAC 的任何頁面上，單擊頁面右上角的姓名，都會將訂閱會員帶回他們的帳戶。</p>
+<section id="resetting-your-password">
+<span id="resetting-your-password-label"></span><h3>重設密碼<a class="headerlink" href="#resetting-your-password" title="此标题的永久链接"></a></h3>
+<p>If you have the <a class="reference internal" href="opacpreferences.html#opacresetpassword-label"><span class="std std-ref">OpacResetPassword</span></a> system preference set to ‘Allow’,
+patrons can reset their password by clicking the ‘Forgot your password?’
+link found under the login box.</p>
+<p><img alt="Under the login fields, there is a 'Forgot your password' link" src="_images/forgotpwlink.png" /></p>
+<p>點擊後，他們將看到一個表格，要求他們提供使用者名稱和電子郵件地址。</p>
+<p><img alt="The password recovery form" src="_images/passwordrecover.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>讀者**必須**有一個電子郵件地址用於重置密碼。 如果他們的文件中沒有電子郵件地址，他們將收到一條錯誤消息</p>
+<p><img alt="An error message says No account was found with the provided information. Please contact the library if you need further assistance." src="_images/reseterror.png" /></p>
+</div>
+<p>系統發送電子郵件，指示讀者重設密碼。</p>
+<p><img alt="Confirmation message says You will receive an email shortly. Please click the link in this email to finish the process of resetting your password. This link is valid for 2 days starting now. Return to the main page" src="_images/resetconfirm.png" /></p>
+<p>電子郵件的內容可以使用 <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">通知和單據工具</span></a> 進行自定義。 信件密碼為密碼_重設。</p>
+<p>If the <a class="reference internal" href="patronspreferences.html#notifypasswordchange-label"><span class="std std-ref">NotifyPasswordChange</span></a> system
+preference is enabled, the patron will receive a notification indicating their
+password was changed.</p>
+<p>The content of that email can be customized with the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. The code of the letter
+is PASSWORD_CHANGE.</p>
+</section>
+<section id="your-summary">
+<span id="your-summary-label"></span><h3>我的摘要<a class="headerlink" href="#your-summary" title="此标题的永久链接"></a></h3>
+<p>在 ‘你的摘要’ 標籤中，讀者將看到他們所借出的所有館藏，其中逾期的館藏以紅色標示。</p>
+<p><img alt="View of the account summary on the OPAC" src="_images/yoursummary.png" /></p>
+<p><a class="reference internal" href="patrons.html#opac-messages-label"><span class="std std-ref">OPAC messages</span></a> and <a class="reference internal" href="patrons.html#opac-notes-label"><span class="std std-ref">OPAC notes</span></a>
+will be displayed at the top of this page. For OPAC messages, the patron will
+have the option to dismiss the message. This will hide the message from their
+OPAC account and mark it as read, but it will not delete the message.</p>
+<p><img alt="'Messages for you' box in the patron's online account with a message reading &quot;'Please bring a proof of address on your next visit to the library.' Written on 15/05/2023 by Centerville&quot; and a dismiss button" src="_images/opacmessage2.png" /></p>
+<p>You can add content to this page with the
+<a class="reference internal" href="tools.html#html-customizations-label"><span class="std std-ref">OpacMySummaryNote HTML customization location</span></a>.
+Content added there will appear above the patron’s summary and below the
+welcome message.</p>
+<p><img alt="Top of the your summary page, under the title of the page, it is written Welcome Mary Burton, Click here if you're not Mary Burton and below that is a text that says This is OpacMySummaryNote." src="_images/OpacMySummaryNote.png" /></p>
+<p>If <a class="reference internal" href="opacpreferences.html#opacshowsavings-label"><span class="std std-ref">OPACShowSavings</span></a> is set to
+display savings in the ‘your summary’ page, this section will also contain the
+savings the patron made by using the library rather than purchasing the items.</p>
+<p><img alt="A message at the top of the 'Your summary' page in the patron's account on the OPAC that reads &quot;Congratulations, you have saved a total of $ 76.65 by using the library.&quot;" src="_images/OPACShowSavings-yoursummary.png" /></p>
+<p>If <a class="reference internal" href="opacpreferences.html#opacrenewalallowed-label"><span class="std std-ref">OpacRenewalAllowed</span></a> set to ‘Allow’, patrons will be able to renew
+their checkouts from the OPAC.</p>
+<p>If the patron has pending charges exceeding the value set in
+<a class="reference internal" href="opacpreferences.html#opacfinenorenewals-label"><span class="std std-ref">OPACFineNoRenewals</span></a>, a note will display explaining that renewals cannot
+be made.</p>
+<p><img alt="Warning message saying Please note You cannot renew your books online. Reason: Your fines exceed 1.00." src="_images/OPACFineNoRenewals.png" /></p>
+<p>A note will display if the patron cannot place holds due to their charges
+exceeding the value set in the <a class="reference internal" href="circulationpreferences.html#maxoutstanding-label"><span class="std std-ref">maxoutstanding</span></a> system preference.</p>
+<p><img alt="Warning message saying Please note Your account has outstanding fees &amp; charges of 12.50. Holds are blocked because your fine balance is over the limit." src="_images/maxoutstanding.png" /></p>
+<p>If <a class="reference internal" href="patronspreferences.html#allowpatrontocontrolautorenewal-label"><span class="std std-ref">AllowPatronToControlAutoRenewal</span></a> is set to ‘Allow patrons’, patrons
+will be able to choose whether or not they want their checkouts to be
+renewed automatically. If they choose ‘Yes’, items for which automatic renewal is enabled in the circulation rules will renew as expected. If they choose ‘No’, the automatic renewals that would have applied to this patron’s checkouts will not take place.</p>
+<p><img alt="An option to update auto-renewal preferences" src="_images/allowautorenewal.png" /></p>
+<p>If you have HTML entered in the <a class="reference internal" href="opacpreferences.html#opacmysummaryhtml-label"><span class="std std-ref">OPACMySummaryHTML</span></a>
+preference then you will see that to the right of the ‘Fines’ column.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>By default, the barcode is not displayed in the patron’s checkout table on
+the OPAC. If your patrons would like to see the items barcodes on their list of
+checked out items you can set up a
+<a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">patron attribute</span></a> with the value of
+SHOW_BCODE and <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized value</span></a> of YES_NO.</p>
+<p><img alt="Example of adding a patron attribute type with code SHOW_BCODE, the description is &quot;Show barcode on patrons' checkouts in the OPAC&quot; and the authorized value is YES_NO" src="_images/SHOW_BCODEadd.png" /></p>
+<p>Then, on the <a class="reference internal" href="patrons.html#editing-patrons-label"><span class="std std-ref">patron’s record set the value</span></a> for
+SHOW_BCODE to ‘Yes’.</p>
+<p><img alt="Example of modifying patron attributes in a patron's file. The mouse cursor is on the 'Yes' option for &quot;Show barcode on patron's checkouts in the OPAC&quot;" src="_images/SHOW_BCODEattribute.png" /></p>
+<p>This will add a column to the checkout summary in the OPAC that shows
+the patron the barcodes of the items they have checked out.</p>
+</div>
+<p>If you would like your patrons to leave a note on an item they have checked out
+<a class="reference internal" href="circulationpreferences.html#allowcheckoutnotes-label"><span class="std std-ref">AllowCheckoutNotes</span></a> preference must be set to allow.</p>
+<p>In the patron’s summary of checkouts, there will be an added column
+to allow the patron to leave a note (for example: missing first page, or DVD is
+scratched).</p>
+<p><img alt="Patron's 'Your summary' page with AllowCheckoutNotes enabled, there is a column titled 'Report a problem' in the checkouts table, with a button 'Add note' for each checkout" src="_images/AllowCheckoutNotes.png" /></p>
+<p>When the patron clicks on ‘Add note’, they will be able to write a note about
+this checkout.</p>
+<p><img alt="Window for the patron to report a problem about on of their checkouts" src="_images/checkoutnote.png" /></p>
+<p>Staff will be able to <a class="reference internal" href="circulation.html#checkoutnotes-label"><span class="std std-ref">see and manage checkout notes</span></a>
+from the staff interface.</p>
+<p>If their guarantee has allowed it via <a class="reference internal" href="#your-privacy-label"><span class="std std-ref">their privacy</span></a>,
+or alternatively, if the staff is allowed to change this privacy setting in the
+staff interface with the <a class="reference internal" href="patronspreferences.html#allowstafftosetcheckoutsvisibilityforguarantor-label"><span class="std std-ref">AllowStaffToSetCheckoutsVisibilityForGuarantor</span></a>
+system preference and this setting is turned on, when the guarantor logs in
+they will see a tab labeled “Relatives’ checkouts” on their summary tab.</p>
+<p><img alt="The Relatives' checkouts tab in a patron's summary page on the OPAC" src="_images/relativecheckouts.png" /></p>
+<p>按 ‘逾期’ 分頁將祗顯示逾期的館藏。</p>
+<p><img alt="The Overdues tab in a patron's summary page on the OPAC" src="_images/myoverdues.png" /></p>
+<p>The ‘Fines’ tab will show just a total of what the patron owes. Clicking
+on the total will take them to the ‘your fines’ tab where they will see a
+complete breakdown of their fines and bills. If you don’t charge fines
+at your library you can turn the display of these tabs off by setting
+the <a class="reference internal" href="opacpreferences.html#opacfinestab-label"><span class="std std-ref">OPACFinesTab</span></a> preference to ‘Don’t allow.’</p>
+<p><img alt="The Charges tab in a patron's summary page on the OPAC" src="_images/mycharges.png" /></p>
+<p>If their guarantee has allowed it via <a class="reference internal" href="#your-privacy-label"><span class="std std-ref">their privacy</span></a>,
+or alternatively, if the staff is allowed to change this privacy setting in the
+staff interface with the <a class="reference internal" href="patronspreferences.html#allowstafftosetfinesvisibilityforguarantor-label"><span class="std std-ref">AllowStaffToSetFinesVisibilityForGuarantor</span></a>
+system preference and this setting is turned on, when the guarantor logs in
+they will see a tab labeled “Relatives’ charges” on their summary tab.</p>
+<p><img alt="The Relatives' charges tab in a patron's summary page on the OPAC" src="_images/relativecharges.png" /></p>
+<p>‘預約’ 分頁顯示讀者所有的預約館藏。</p>
+<p><img alt="The Holds tab in a patron's summary page on the OPAC" src="_images/myholds.png" /></p>
+<p>Depending on the value of the <a class="reference internal" href="circulationpreferences.html#suspendholdsopac-label"><span class="std std-ref">SuspendHoldsOpac</span></a>
+system preference, patrons can suspend their own holds if they are not in
+transit or already waiting for them. When they click ‘Suspend’ they will be
+presented with the option to choose a date for their hold to resume.</p>
+<p><img alt="Suspend hold pop up modal asking until which date to suspend the hold (clear date to suspend indefinitely) and to confirm the suspension" src="_images/suspenduntil.png" /></p>
+<p>也可以無限期地延遲預約，或從頁面下方指定延遲至指定日期。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds-label"><span class="std std-ref">AutoResumeSuspendedHolds</span></a>
+system preference is set to “Don’t allow”, patrons will not have the option
+to put an end date on the hold suspension.</p>
+</div>
+<p>From this tab, patrons can also cancel holds. Depending on the
+<a class="reference internal" href="administration.html#defaultwaitingholdcancellationpolicy-label"><span class="std std-ref">waiting hold cancellation policy</span></a>,
+they may also be able to cancel holds that are already waiting for them.</p>
+<p>Depending on the value of the <a class="reference internal" href="circulationpreferences.html#opacallowusertochangebranch-label"><span class="std std-ref">OPACAllowUserToChangeBranch</span></a>
+system preference, the patron may be able to change the pickup library of holds.
+When one or more status is selected in the system preference, a ‘Change’ link
+will appear under the current pickup library’s name for holds that have that
+status.</p>
+<p><img alt="The Holds tab in a patron's summary page on the OPAC, OPACAllowUserToChangeBranch is enabled for pending holds, there is a Change link under the current pickup library's name" src="_images/myholds-changepickuplibrary.png" /></p>
+<p>When the patron clicks on the ‘Change’ link, there is a pop-up with a selection
+of libraries that allow hold pickups.</p>
+<p><img alt="Pop-up window for the patron to choose a new pickup library for their hold" src="_images/myholds-changepickuplibrary-modal.png" /></p>
+<p>如果你的圖書館 <a class="reference internal" href="circulation.html#recalls-label"><span class="std std-ref">允許催還</span></a>，讀者可以在’催還’標籤中看到他們要求的催還和它們的各種狀態。</p>
+<p><img alt="The Recalls tab in a patron's summary page on the OPAC" src="_images/myrecalls.png" /></p>
+<p>讀者可以通過點擊’取消’按鈕來取消催還，前提是它還沒有等待被領取。</p>
+</section>
+<section id="patron-flags">
+<span id="patron-flags-label"></span><h3>讀者旗標<a class="headerlink" href="#patron-flags" title="此标题的永久链接"></a></h3>
+<p>If you have <a class="reference internal" href="patrons.html#add-patron-flags-label"><span class="std std-ref">flagged your patron’s account</span></a> they may
+see one of the following error messages at the top of their account.</p>
+<ul>
+<li><p>借書證被通報遺失</p>
+<p><img alt="image1011" src="_images/nocard.png" /></p>
+</li>
+<li><p>請更新地址</p>
+<p><img alt="image1012" src="_images/noaddress.png" /></p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>this error message will not include a link to the update form
+if you have <a class="reference internal" href="opacpreferences.html#opacpatrondetails-label"><span class="std std-ref">OPACPatronDetails</span></a> set to
+‘Don’t allow’</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>讀者權限被限制</p>
+<p><img alt="image1013" src="_images/debarred.png" /></p>
+</li>
+</ul>
+</section>
+<section id="your-fines">
+<span id="your-fines-label"></span><h3>您的罰款<a class="headerlink" href="#your-fines" title="此标题的永久链接"></a></h3>
+<p>若有罰款下個分頁就是 ‘我的罰款’。開啟後顯示所有的罰款記錄。</p>
+<p><img alt="image1014" src="_images/mybilling.png" /></p>
+<p>若已設定 <a class="reference internal" href="opacpreferences.html#enablepaypalopacpayments-and-paypalsandboxmode-label"><span class="std std-ref">EnablePayPalOpacPayments</span></a> 偏好，允許讀者以 PayPal 支付罰款，則在待付罰款左方將出現勾選盒。</p>
+<p><img alt="image1306" src="_images/finescheckboxes.png" /></p>
+<p>在最下方，讀者可看到以 PayPal 支付館藏的勾選內容。</p>
+<p><img alt="image1015" src="_images/paypaypal.png" /></p>
+<p>付款後將出現確認訊息</p>
+<p><img alt="image1307" src="_images/paypalconfirm.png" /></p>
+<p>在館員端可看到已使用 PayPal 支付罰款。</p>
+<p><img alt="image1308" src="_images/staffpaypal.png" /></p>
+</section>
+<section id="your-personal-details">
+<span id="your-details-label"></span><h3>您的個人詳情<a class="headerlink" href="#your-personal-details" title="此标题的永久链接"></a></h3>
+<p>If you have your <a class="reference internal" href="opacpreferences.html#opacpatrondetails-label"><span class="std std-ref">OPACPatronDetails</span></a> preference
+set to ‘Allow’, your patrons will see a form filled in with their
+contacting information by clicking on the ‘Your personal details’ tab. You
+can control what fields patrons see and can modify via the OPAC by
+setting the <a class="reference internal" href="opacpreferences.html#patronselfmodificationborrowerunwantedfield-label"><span class="std std-ref">PatronSelfModificationBorrowerUnwantedField</span></a> and <a class="reference internal" href="opacpreferences.html#patronselfmodificationmandatoryfield-label"><span class="std std-ref">PatronSelfModificationMandatoryField</span></a> preferences.</p>
+<p><img alt="Personal details tab" src="_images/personalDetails.png" /></p>
+<p>讀者可從這個表單編輯詳情，再按最下方的 ‘送出改變’ 把修改的結果送交館員審核。館員可在頁面下方看到所有需要審核的資料。</p>
+<p><img alt="Prompt on staff interface homepage to view pending article requests, pending purchase suggestions, patrons requesting modifications, pending catalog concerns, pending checkout notes, and pending OPAC problem reports" src="_images/pendingrequests.png" /></p>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacpatrondetails-label"><span class="std std-ref">OPACPatronDetails</span></a> preference is set to
+‘Don’t allow’ then patrons will simply see their details and a message
+stating that they should contact the library for changes.</p>
+</section>
+<section id="your-tags">
+<span id="your-tags-label"></span><h3>您的標籤<a class="headerlink" href="#your-tags" title="此标题的永久链接"></a></h3>
+<p>If your library has <a class="reference internal" href="enhancedcontentpreferences.html#tagsenabled-label"><span class="std std-ref">TagsEnabled</span></a> set to ‘Allow’ then
+the next tab on the left will be ‘your tags’. This tab will show patrons
+all of the tags in the system as a cloud and then all of the tags they
+have applied in a list format. From here patrons have the ability to
+remove tags that they have added if they want.</p>
+<p><img alt="image1019" src="_images/mytags.png" /></p>
+</section>
+<section id="change-your-password">
+<span id="change-your-password-label"></span><h3>改變您的密碼<a class="headerlink" href="#change-your-password" title="此标题的永久链接"></a></h3>
+<p>Next, if you have <a class="reference internal" href="opacpreferences.html#opacpasswordchange-label"><span class="std std-ref">OpacPasswordChange</span></a> set to
+‘Allow’ the next tab will be ‘change your password,’ where patrons can
+change their password for logging into the OPAC. Patrons will be
+presented with a standard form asking them to enter their old password
+and then their new password twice.</p>
+<p><img alt="image1020" src="_images/mypassword.png" /></p>
+<p>If the <a class="reference internal" href="patronspreferences.html#notifypasswordchange-label"><span class="std std-ref">NotifyPasswordChange</span></a> system
+preference is enabled, the patron will receive a notification indicating their
+password was changed.</p>
+<p>The content of this email can be customized with the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. The code of the letter
+is PASSWORD_CHANGE.</p>
+</section>
+<section id="your-search-history">
+<span id="your-search-history-label"></span><h3>您的搜尋紀錄<a class="headerlink" href="#your-search-history" title="此标题的永久链接"></a></h3>
+<p>If you have your <a class="reference internal" href="opacpreferences.html#enableopacsearchhistory-label"><span class="std std-ref">EnableOpacSearchHistory</span></a>
+preference set to ‘Keep’ then your patrons can access their search
+history via the ‘your search history’ tab.</p>
+<p><img alt="image1021" src="_images/mysearchhistory.png" /></p>
+<p>搜尋記錄是讀者在 OPAC 的搜尋過程。按任何一個搜尋就重新執行一遍。任何時間讀者可以按分頁上方的 ‘刪除您的搜尋記錄’ 連結或在 OPAC 右上角的紅色 ‘x’，刪除其內容。</p>
+<p><img alt="image1022" src="_images/searchistory.png" /></p>
+</section>
+<section id="checkout-history">
+<span id="your-checkout-history-label"></span><h3>Checkout history<a class="headerlink" href="#checkout-history" title="此标题的永久链接"></a></h3>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacreadinghistory-label"><span class="std std-ref">opacreadinghistory</span></a> system preference is
+set to ‘Allow’, patrons will have access to the ‘Checkout history’ tab. This
+will show the patron their entire borrowing history, unless they have asked the
+library to not keep that information via the <a class="reference internal" href="#your-privacy-label"><span class="std std-ref">‘Privacy’ tab</span></a>.</p>
+<p><img alt="View of the patron's checkout history on the OPAC" src="_images/yourcheckouthistory.png" /></p>
+<p>If <a class="reference internal" href="opacpreferences.html#opacshowsavings-label"><span class="std std-ref">OPACShowSavings</span></a> is set to
+display savings in the ‘your summary’ page, this section will also contain the
+savings the patron made by using the library rather than purchasing the items.</p>
+<p><img alt="A message at the top of the 'Checkout history' page in the patron's account on the OPAC that reads &quot;Congratulations, you have saved a total of $ 76.65 by using the library.&quot;" src="_images/OPACShowSavings-checkouthistory.png" /></p>
+</section>
+<section id="your-privacy">
+<span id="your-privacy-label"></span><h3>您的隱私<a class="headerlink" href="#your-privacy" title="此标题的永久链接"></a></h3>
+<p>The ‘your privacy’ tab will appear if you have both the
+<a class="reference internal" href="opacpreferences.html#opacreadinghistory-label"><span class="std std-ref">opacreadinghistory</span></a> and the
+<a class="reference internal" href="opacpreferences.html#opacprivacy-label"><span class="std std-ref">OPACPrivacy</span></a> preferences set to ‘Allow.’ This tab will
+allow the patrons to decide how the library keeps their circulation
+history data.</p>
+<p><img alt="image1024" src="_images/myprivacy.png" /></p>
+<p>讀者有三個選項：</p>
+<ul class="simple">
+<li><p>永久有效：永久保留您的閱讀記錄。這是讀者自己的選擇。</p></li>
+<li><p>預設：依法保留您的借出記錄。這是預設選項：圖書館依法保留相當期間的借出記錄。</p></li>
+<li><p>絕不：立即刪除我的閱讀記錄。將在還入時，刪除所有借出與還入的記錄。</p></li>
+</ul>
+<p>館員介面的 ‘<span class="xref std std-ref">我的閱讀紀錄</span>’ 分頁與 ‘<a class="reference internal" href="patrons.html#circulation-history-label"><span class="std std-ref">流通紀錄</span></a>’ 分頁，都依讀者的建議而改變。</p>
+<p>不論選擇何種隱私規則，都可以點選 ‘立即刪除’ 鈕，批次刪除所有的閱讀紀錄。</p>
+<p><img alt="image1025" src="_images/deletecirchistory.png" /></p>
+<p>按此鈕不會刪除借出中的館藏，但將清除讀者的閱讀紀錄。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>In order for the patron to be able to delete their reading history
+you must have the <a class="reference internal" href="opacpreferences.html#anonymouspatron-label"><span class="std std-ref">AnonymousPatron</span></a> preference
+set.</p>
+</div></blockquote>
+<p>If you’re allowing guarantees to grand permission to their guarantors to
+view their current checkouts with the
+<a class="reference internal" href="opacpreferences.html#allowpatrontosetcheckoutsvisibilityforguarantor-label"><span class="std std-ref">AllowPatronToSetCheckoutsVisibilityForGuarantor</span></a>
+preference they will see that option on this
+screen.</p>
+<p><img alt="image1309" src="_images/AllowPatronToSetCheckoutsVisibilityForGuarantor.png" /></p>
+<p>保證人登入後，在其摘要分頁有個分頁標示為 “親屬借出”。</p>
+<p><img alt="The Relatives' checkouts tab in a patron's summary page on the OPAC" src="_images/relativecheckouts.png" /></p>
+</section>
+<section id="your-holds-history">
+<span id="your-holds-history-label"></span><h3>您的預約記錄<a class="headerlink" href="#your-holds-history" title="此标题的永久链接"></a></h3>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacholdshistory-label"><span class="std std-ref">OPACHoldsHistory</span></a> system preference is set to ‘Allow’, patrons
+will be able to see all their current and past holds.</p>
+<p><img alt="Screenshot of the holds history table in the patron's account on the OPAC." src="_images/opacholdshistory.png" /></p>
+</section>
+<section id="your-purchase-suggestions">
+<span id="your-purchase-suggestions-label"></span><h3>您的採訪建議<a class="headerlink" href="#your-purchase-suggestions" title="此标题的永久链接"></a></h3>
+<p>If your library allows patrons to make purchase suggestions the next tab
+will show all suggestions that the patron made to the library and their
+statuses. To disable this tab and the suggestion functionality set the
+<a class="reference internal" href="opacpreferences.html#suggestion-label"><span class="std std-ref">suggestion</span></a> preference to ‘Don’t allow.’</p>
+<p><img alt="image1026" src="_images/mysuggestions.png" /></p>
+<p>If you have <a class="reference internal" href="opacpreferences.html#opacviewotherssuggestions-label"><span class="std std-ref">OPACViewOthersSuggestions</span></a>
+set to ‘Show’ then patrons will be able to search suggestions from the
+top of this list.</p>
+</section>
+<section id="messaging">
+<span id="your-messaging-label"></span><h3>Messaging<a class="headerlink" href="#messaging" title="此标题的永久链接"></a></h3>
+<p>If your library has the
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> and the
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+preferences set to ‘Allow’ then your patrons will be able to choose
+which messages they receive from the library (with the exception of
+overdue notices which the library controls).</p>
+<p><img alt="image1027" src="_images/mymessages.png" /></p>
+<p>If you use an outside driver for sending text messages set with the
+<a class="reference internal" href="patronspreferences.html#smssenddriver-label"><span class="std std-ref">SMSSendDriver</span></a> preference, you will see an
+additional column to receive these messages as SMS (or text messages)
+and a field for a cell (or SMS) number.</p>
+<p><img alt="image1028" src="_images/OPACSMSSendDriver.png" /></p>
+<p>If you are using the Email protocol for sending text messages set with
+the <a class="reference internal" href="patronspreferences.html#smssenddriver-label"><span class="std std-ref">SMSSendDriver</span></a> preference, you will see an
+additional column to receive these messages as SMS (or text messages), a
+field for a cell (or SMS) number, and a pull down listing <a class="reference internal" href="administration.html#sms-cellular-providers-label"><span class="std std-ref">cellular
+providers entered in administration</span></a>.</p>
+<p><img alt="image1029" src="_images/smsopac.png" /></p>
+<p>If you are using the <a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification-label"><span class="std std-ref">i-tiva Talking
+Tech</span></a> service you will see an
+additional column to receive these messages via Phone.</p>
+<p><img alt="image1311" src="_images/opacphonemsg.png" /></p>
+<ul>
+<li><p>這些通知是：</p>
+<ul>
+<li><p>提早通知：用於通知讀者其借出的館藏即將到期 (讀者可指定提前的天數)</p></li>
+<li><p>借出館藏：通知讀者剛借出或續借的館藏，就是電子版的借出收條</p></li>
+<li><p>預約可取：讀者預約書籍已在館可取</p></li>
+<li><p>到期通知：館藏到期當天的通知</p></li>
+<li><p>還入館藏：讀者剛還入的館藏清單</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This notice can be customized by editing the CHECKIN notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+<li><p>借出館藏：通知讀者剛借出或續借的館藏，就是電子版的借出收條</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This notice can be customized by editing the CHECKOUT notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+<li><p>Auto renewal: A notice that notifies the patron that their checkouts have
+been automatically renewed, or if there was a problem with their automatic
+renewal.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This notice can be customized by editing the AUTO_RENEWAL or
+AUTO_RENEWAL_DGST notices in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<ul class="simple">
+<li><p>This option will only appear if the
+<a class="reference internal" href="patronspreferences.html#autorenewalnotices-label"><span class="std std-ref">AutoRenewalNotices</span></a> is set to
+“according to patrons messaging preferences”.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>按 ‘祗有摘要?’ 盒後讀者就祗接收摘要式通知。把所有此類型 (3 天內到期的資訊置於一個電子郵件) 的訊息納入一個電子郵件寄出。</p>
+<p>If the <a class="reference internal" href="i18npreferences.html#translatenotices-label"><span class="std std-ref">TranslateNotices</span></a> preference is set to Allow the patron will also see
+an option to choose ‘Preferred language for notices’ with a dropdown list of available languages.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>詢問 ‘祗要摘要嗎？’ 同時須選擇傳送方式 (SMS 或電子郵件或電話)，讀者才能收到該摘要的訊息。</p>
+</div></blockquote>
+</section>
+<section id="your-lists-label">
+<span id="id1"></span><h3>虛擬書架<a class="headerlink" href="#your-lists-label" title="此标题的永久链接"></a></h3>
+<p>If the <a class="reference internal" href="administrationpreferences.html#virtualshelves-label"><span class="std std-ref">virtualshelves</span></a> system preference is set
+to ‘Allow’, patron will see a ‘Lists’ tab.</p>
+<p>From here, patrons can view public lists and
+<a class="reference internal" href="#creating-lists-label"><span class="std std-ref">create or edit their own private lists</span></a>.</p>
+<p><img alt="List of private lists in a patron's account on the OPAC" src="_images/yourlists.png" /></p>
+</section>
+<section id="ask-for-a-discharge">
+<span id="ask-for-a-discharge-label"></span><h3>要求離館<a class="headerlink" href="#ask-for-a-discharge" title="此标题的永久链接"></a></h3>
+<p>If the <a class="reference internal" href="patronspreferences.html#usedischarge-label"><span class="std std-ref">useDischarge</span></a> system preference is enabled,
+patrons will be able to request a discharge via the OPAC. A discharge is a
+certificate that says the patron has no current checkouts and no holds.</p>
+<p>Patrons can request a discharge from the library by going to the ‘Ask for
+discharge’ tab in their online account.</p>
+<p><img alt="Discharge tab in the patron account in the OPAC" src="_images/dischargetab.png" /></p>
+<p>From here they can request a discharge by clicking the ‘Ask for a discharge’
+button. They will receive a confirmation of their request.</p>
+<p>Once the <a class="reference internal" href="patrons.html#approve-discharge-label"><span class="std std-ref">discharge is approved by library staff</span></a>,
+the patron will see a download link to download a PDF of their discharge.</p>
+<p><img alt="Discharge tab in the patron account in the OPAC with a 'Get your discharge' link" src="_images/dischargedownload.png" /></p>
+</section>
+<section id="your-routing-lists">
+<span id="your-routing-lists-label"></span><h3>您的傳閱清單<a class="headerlink" href="#your-routing-lists" title="此标题的永久链接"></a></h3>
+<p>如果您被指定為任何:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>serial routing lists &lt;create-a-routing-list-label&gt;`您將會看見他們被列在這裡. 顯示以下說明”您已訂閱以下連續性標題的傳閱清單. 如果您想改變, 請聯繫圖書館”.</p>
+</section>
+<section id="your-interlibrary-loan-requests">
+<span id="your-interlibrary-loan-requests-label"></span><h3>您的館際互借請求<a class="headerlink" href="#your-interlibrary-loan-requests" title="此标题的永久链接"></a></h3>
+<p>If your library has the <a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a> preference set to ‘Enable’ patrons
+will have the option to make ILL requests when logged in to their OPAC
+account. From here they can view their existing requests and place new ones.</p>
+<p><img alt="image1373" src="_images/MyILLrequests.png" /></p>
+<p>提出一個新的館際互借請求請點擊‘創建一個新的請求’和選擇請求的類型.</p>
+<p><img alt="image1374" src="_images/ILLformpicker.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>The options displayed are dependent on your ILL configuration. See the
+ILL backends wiki page at <a class="reference external" href="https://wiki.koha-community.org/wiki/ILL_backends">https://wiki.koha-community.org/wiki/ILL_backends</a>
+further explanation.</p>
+<p><strong>說明</strong></p>
+<p>If you have entered copyright text in the <a class="reference internal" href="illpreferences.html#illmodulecopyrightclearance-label"><span class="std std-ref">ILLModuleCopyrightClearance</span></a>
+preference the text displays here and you need to click ‘Yes’ to accept
+before continuing.</p>
+</div></blockquote>
+<p>Complete the publication details as fully as possible. Depending on the
+form in use you may see the option to add Custom fields for additional
+information such as notes. Destination branch is a required field, this
+is the branch you would like the request to be sent to.</p>
+<p><img alt="image1375" src="_images/ILLform.png" /></p>
+<p>點擊’創建’提交您的請求給圖書館進行處理.</p>
+<p>Your submitted request will be listed with a status of ‘New request’. Once
+processed the status will be updated to ‘Requested’.</p>
+<p>點擊‘查看’來改變或是取消您的請求.</p>
+<p>You cannot edit the form details but you can add a note to request a
+modification and then click on ‘Submit modifications’ at the bottom of
+the screen. Your modification will be sent to the library for processing.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>When a patron modifies an inter-library loan request, an email is sent to
+library staff so that they can view the changes from the
+<a class="reference internal" href="ILL_requests.html#managing-ill-requests-label"><span class="std std-ref">ILL module</span></a>.</p>
+<p>The email sent is based on the ILL_REQUEST_MODIFIED template. It can be
+customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>對於新的請求您也可以選擇‘取消請求’. 您的請求狀態將會被更新成‘取消請求’之後就會被圖書館員移除.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>When a patron cancels an inter-library loan request, an email is sent to
+library staff so that they can cancel it from the
+<a class="reference internal" href="ILL_requests.html#managing-ill-requests-label"><span class="std std-ref">ILL module</span></a>.</p>
+<p>The email sent is based on the ILL_REQUEST_CANCEL template. It can be
+customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="your-recalls-history">
+<span id="your-recalls-history-label"></span><h3>您的催還記錄<a class="headerlink" href="#your-recalls-history" title="此标题的永久链接"></a></h3>
+<p>如果你的圖書館 <a class="reference internal" href="circulation.html#recalls-label"><span class="std std-ref">允許催還</span></a>，讀者可以在’你的催還曆史’標籤中看到他們過去和現在申請的所有催還，以及他們的各種狀態。</p>
+<p><img alt="The Recalls history page in a patron's account in the OPAC" src="_images/recallshistory.png" /></p>
+<p>讀者可以通過點擊’取消’按鈕來取消催還，前提是它還沒有等待被領取。</p>
+</section>
+<section id="curbside-pickups">
+<span id="curbside-pickup-opac-label"></span><h3>Curbside pickups<a class="headerlink" href="#curbside-pickups" title="此标题的永久链接"></a></h3>
+<p>If your library offers <a class="reference internal" href="administration.html#curbside-pickup-configuration-label"><span class="std std-ref">curbside pickup</span></a>,
+the patron will be able to see their scheduled pickups under ‘Curbside pickups’.</p>
+<p><img alt="The 'Curbside pickups' tab in the patron's account in the OPAC, shows a 'Your pickups' tab, with one scheduled pickup with the library, the date and time, notes and action buttons (Alert staff of your arrival and Cancel this pickup)" src="_images/yourcurbsidepickups.png" /></p>
+<p>The patron has the option to indicate that they are outside the library by
+clicking ‘Alert staff of your arrival’.</p>
+<p>The patron also has the option to cancel their scheduled pickup with the ‘Cancel
+this pickup’ button.</p>
+<p>If the ‘Patron-scheduled pickup’ setting is turned on in the
+<a class="reference internal" href="administration.html#curbside-pickup-configuration-label"><span class="std std-ref">curbside pickup configuration</span></a>, the
+patron will be able to schedule their own curbside pickup appointment.</p>
+<p><img alt="The 'Curbside pickups' tab in the patron's account in the OPAC, shows a 'Schedule a pickup' tab, with a drop-down to choose the library" src="_images/scheduleapickup.png" /></p>
+<ul>
+<li><p>The patron must first choose a library at which they want to pick up their
+items</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Only libraries with curbside pickup enabled will be displayed in the
+drop-down menu.</p>
+<p>Furthermore, if the ‘Enable for waiting holds only’ setting is turned on,
+only the libraries at which the patron has waiting holds will be enabled.</p>
+</div>
+</li>
+<li><p>The patron must then choose a date</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Only dates with available time slots will be displayed.</p>
+</div>
+</li>
+<li><p>The possible pickup times will be displayed, depending on the day of the week</p>
+<p><img alt="The 'Curbside pickups' tab in the patron's account in the OPAC, shows a 'Schedule a pickup' tab, a library is chosen in the library drop-down, a date is selected in the date field, all the time slots for that day are displayed and one is chosen in green, one is greyed out" src="_images/curbsidepickuptimeslots.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The number in parentheses under each time slot is the number of available
+appointments for that time. If the maximum number of appointments has been
+reached, based on the ‘Maximum patrons per interval’ setting in the
+<a class="reference internal" href="administration.html#curbside-pickup-configuration-label"><span class="std std-ref">curbside pickup configuration</span></a>,
+the time slot will be greyed out and the patron will not be able to select
+it.</p>
+</div>
+</li>
+<li><p>The patron can optionally add a note about their pickup</p></li>
+<li><p>The patron must then click ‘Schedule pickup’ to save their appointment</p></li>
+</ul>
+</section>
+</section>
+<section id="purchase-suggestions">
+<span id="purchase-suggestions-opac-label"></span><h2>採購建議<a class="headerlink" href="#purchase-suggestions" title="此标题的永久链接"></a></h2>
+<p>If your library has the <a class="reference internal" href="opacpreferences.html#suggestion-label"><span class="std std-ref">suggestion</span></a> preference set to ‘Allow’, patrons
+will have the option to make purchase suggestions in several areas in the OPAC.</p>
+<p>If you are allowing everyone to see the purchase suggestions made by
+others with the <a class="reference internal" href="opacpreferences.html#opacviewotherssuggestions-label"><span class="std std-ref">OPACViewOthersSuggestions</span></a> preference, there will be a
+link at the top of your OPAC under the search box.</p>
+<p><img alt="A link labeled 'Purchase suggestions' appears under the search bar on the main page of the OPAC" src="_images/suggestfromsearch.png" /></p>
+<p>讀者搜尋不著時將出現一個連結。</p>
+<p><img alt="A message reading 'Not finding what you're looking for? Make a purchase suggestion', there is a link under the words 'purchase suggestion'" src="_images/suggestfromnoresults.png" /></p>
+<p>在書目記錄的詳細視圖中將有一個’建議購買’的選項。</p>
+<p><img alt="List of options: Place hold, Place recall, Print, Request article, Save to your lists, Add to your cart, Suggest for purchase, Report a concern, Unhighlight, Send to device, Save record, More searches" src="_images/biboptions.png" /></p>
+<p>在讀者帳戶中的 <a class="reference internal" href="#your-purchase-suggestions-label"><span class="std std-ref">你的購買建議</span></a> 標籤會有一個連結。</p>
+<p><img alt="There is a link 'New purchase suggestion' under the title of the page" src="_images/suggestfrommyaccount.png" /></p>
+<p>按任何一個連結將打開採訪建議表單。</p>
+<p><img alt="New purchase suggestion form" src="_images/newsuggestion.png" /></p>
+<ul class="simple">
+<li><p>表格頂部的訊息文字可以用 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>HTML 自定義工具&lt;html-customizations-label&gt;`替換，顯示位置OpacSuggestionInstructions。</p></li>
+<li><p>預設情況下，表單中僅需要’標題’。</p>
+<ul>
+<li><p>Mandatory fields can be set using the <a class="reference internal" href="opacpreferences.html#opacsuggestionmandatoryfields-label"><span class="std std-ref">OPACSuggestionMandatoryFields</span></a>
+system preference.</p></li>
+</ul>
+</li>
+<li><p>The <a class="reference internal" href="opacpreferences.html#opacsuggestionunwantedfields-label"><span class="std std-ref">OPACSuggestionUnwantedFields</span></a> system preference can be used to
+hide unnecessary fields.</p></li>
+<li><p>The <a class="reference internal" href="opacpreferences.html#opacsuggestionautofill-label"><span class="std std-ref">OPACSuggestionAutoFill</span></a> system
+preference can be used to help patrons fill out the form using information
+from Google Books.</p></li>
+<li><p>可以透過編輯建議_格式 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>容許值 &lt;authorized-values-label&gt;`來編輯項目種類表單。</p></li>
+<li><p>‘建議的原因 ‘列表可以通過編輯OPAC_SUG :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>容許值列表&lt;authorized-values-label&gt;`來編輯。</p></li>
+</ul>
+<p>If the item already exists in the catalog, the patron will see a message with
+what Koha thinks is the corresponding title. Matches are made on the title/
+author, ISBN or ISSN. If the title isn’t what the patron is trying to suggest,
+they can click ‘Confirm your suggestion’, to suggest it anyway.</p>
+<p><img alt="A message reading &quot;A similar document already exists: Shakespeare's Sonnets . Click on &quot;Confirm your suggestion&quot; to ignore this message.&quot; The title is a link to the record." src="_images/suggestionmatch.png" /></p>
+<p>一旦提交表單，採購建議將出現在 <a class="reference internal" href="acquisitions.html#managing-purchase-suggestions-label"><span class="std std-ref">採訪模組</span></a> ，供圖書館員管理。</p>
+<p>如果通過 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>採訪模組&lt;managing-purchase-suggestions-label&gt;訂購了購買建議，讀者的購買建議標題將可以點擊，並將讀者直接帶到OPAC中的訂購記錄。</p>
+</section>
+<section id="libraries">
+<span id="opaclibrariespage-label"></span><h2>Libraries<a class="headerlink" href="#libraries" title="此标题的永久链接"></a></h2>
+<p>The ‘Libraries’ page shows the contact information (address lines, city, state,
+zip/postal code, country, phone number, fax number, website) for
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">libraries</span></a> in the system that are set as ‘Public’.</p>
+<p><img alt="Libraries page in the opac" src="_images/librariespage.png" /></p>
+<p>The library name is a link to a specific page for this library. This second
+page also includes
+<a class="reference internal" href="tools.html#html-customizations-label"><span class="std std-ref">‘OpacLibraryInfo’ HTML customizations</span></a> for
+this library.</p>
+<p><img alt="Library-specific page for a Test library, showing the address lines, city, state, zip/postal code, country, phone, fax, website, and OpacLibraryInfo HTML customization" src="_images/librarypage.png" /></p>
+</section>
+<section id="reporting-problems">
+<span id="opac-report-problem-label"></span><h2>Reporting problems<a class="headerlink" href="#reporting-problems" title="此标题的永久链接"></a></h2>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacreportproblem-label"><span class="std std-ref">OPACReportProblem</span></a> system preference is
+enabled, patrons will have the option to report problems on the OPAC (broken
+links or inaccurate information for example).</p>
+<p>At the bottom of each page is a ‘Report a problem’ link.</p>
+<p><img alt="Main page of the OPAC" src="_images/opacmain.png" /></p>
+<p>When the patron clicks on the link, they are brought to a form where they can
+specify what exactly is the problem.</p>
+<p><img alt="The report a problem page" src="_images/reportproblem.png" /></p>
+<p>The problem report is sent to the Koha administrator by email (to the address
+in <a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress-label"><span class="std std-ref">KohaAdminEmailAddress</span></a>), and will appear
+in the <a class="reference internal" href="tools.html#opac-problem-reports-tool"><span class="std std-ref">OPAC problem reports tool</span></a>. If the
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library</span></a> has an email address, the patron will have the
+choice to either send the problem report to the library or to the administrator.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notice sent by email is customizable in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. The letter code is
+PROBLEM_REPORT.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="reports.html" class="btn btn-neutral float-left" title="報表" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="searching.html" class="btn btn-neutral float-right" title="搜尋" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>網頁服務 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="管理" href="administration.html" />
+    <link rel="prev" title="工具" href="toolspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">網頁服務</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general">一般</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#accesscontrolalloworigin">AccessControlAllowOrigin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ils-di">ILS-DI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ils-di-system-preference-label">ILS-DI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ils-di-authorizedips">ILS-DI:AuthorizedIPs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#idref-pref-label">IdRef</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#idref-label">IdRef</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mana-kb">Mana 知識庫</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autosharewithmana">AutoShareWithMana</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mana">Mana</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manatoken">ManaToken</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#oai-pmh">OAI-PMH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-pref-label">OAI-PMH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-archiveid">OAI-PMH:archiveID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-autoupdatesets">OAI-PMH:AutoUpdateSets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-autoupdatesetsembeditemdata">OAI-PMH:AutoUpdateSetsEmbedItemData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-conffile">OAI-PMH:ConfFile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-deletedrecord">OAI-PMH:DeletedRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oai-pmh-maxcount">OAI-PMH:MaxCount</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rest-api">REST API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#restbasicauth">RESTBasicAuth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restdefaultpagesize">RESTdefaultPageSize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restoauth2clientcredentials">RESTOAuth2ClientCredentials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restpublicanonymousrequests">RESTPublicAnonymousRequests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restpublicapi">RESTPublicAPI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting">報表</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#svcmaxreportrows">SvcMaxReportRows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">網頁服務</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/webservicespreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="toolspreferences.html" class="btn btn-neutral float-left" title="工具" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administration.html" class="btn btn-neutral float-right" title="管理" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="web-services">
+<span id="web-services-system-preferences-label"></span><h1>網頁服務<a class="headerlink" href="#web-services" title="此标题的永久链接"></a></h1>
+<p><em>到那裡:</em> 更多 &gt; 管理 &gt; 系統偏好 &gt; 網頁服務</p>
+<section id="general">
+<span id="webservices-general-system-preferences-label"></span><h2>一般<a class="headerlink" href="#general" title="此标题的永久链接"></a></h2>
+<section id="accesscontrolalloworigin">
+<span id="accesscontrolalloworigin-label"></span><h3>AccessControlAllowOrigin<a class="headerlink" href="#accesscontrolalloworigin" title="此标题的永久链接"></a></h3>
+<p>詢問: 將 Access-Control-Allow-Origin 標題設於 ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這是用於 OPAC 報表 SVC 路由的標頭。</p></li>
+</ul>
+</section>
+</section>
+<section id="ils-di">
+<span id="webservices-ils-di-system-preferences-label"></span><h2>ILS-DI<a class="headerlink" href="#ils-di" title="此标题的永久链接"></a></h2>
+<section id="ils-di-system-preference-label">
+<span id="id1"></span><h3>ILS-DI<a class="headerlink" href="#ils-di-system-preference-label" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ 對 OPAC 讀者的 ILS-DI 服務</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+</section>
+<section id="ils-di-authorizedips">
+<span id="ils-di-authorizedips-label"></span><h3>ILS-DI:AuthorizedIPs<a class="headerlink" href="#ils-di-authorizedips" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 允許 IP 位址用在 ILS-DI 服務 (啟用後)。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>IP 位址以逗點沒有空格的方式區隔。如：15.78.193.62,197.85.10.1</p>
+<p><strong>重要的</strong></p>
+<p>空白則表示允許使用任何 IP 位址。</p>
+</div></blockquote>
+</section>
+</section>
+<section id="idref-pref-label">
+<span id="idref"></span><h2>IdRef<a class="headerlink" href="#idref-pref-label" title="此标题的永久链接"></a></h2>
+<section id="idref-label">
+<span id="id2"></span><h3>IdRef<a class="headerlink" href="#idref-label" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問: ___ 來自OPAC線上公用目錄詳情的 IdRef 網頁服務。IdRef 允許從 Sudoc 資料庫請求權威。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>IdRef 是 Sudoc 權威的法文服務。使用 <a class="reference external" href="http://www.sudoc.abes.fr/">Sudoc 資料庫</a>，可以請求/修改/新增權威。若記錄來自 Sudoc (所以 009 欄位將填入整數)，在 OPAC 可看到 “Author: Idref” 若 7..$3 (unimarc 權威) 可填入 ppn。按 Idref 連結，顯示彈出視窗。</p>
+<blockquote>
+<div><p><img alt="image1201" src="_images/idref1.png" /></p>
+</div></blockquote>
+<p>請求 Idref 網頁服務則顯示該著者的所有記錄 (依其功能)</p>
+<p><img alt="image1202" src="_images/idref2.png" /></p>
+<p>有 1 列 / 記錄以及 2 連結在最後。1 將需要 Koha (cgi-bin/koha/opac-search.pl?q=ident:003381862)，另個則導向至 sudoc 頁面 (<a class="reference external" href="http://www.sudoc.fr/003381862">http://www.sudoc.fr/003381862</a>)。</p>
+</li>
+<li><p><strong>重要的</strong></p>
+<blockquote>
+<div><p>請注意此功能僅限於 UNIMARC。</p>
+</div></blockquote>
+</li>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>法國的 Sudoc 資料庫不要與與美國政府印刷局 (SuDocs) 分類法弄混。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="mana-kb">
+<span id="mana-prefs-label"></span><h2>Mana 知識庫<a class="headerlink" href="#mana-kb" title="此标题的永久链接"></a></h2>
+<section id="autosharewithmana">
+<span id="autosharewithmana-label"></span><h3>AutoShareWithMana<a class="headerlink" href="#autosharewithmana" title="此标题的永久链接"></a></h3>
+<p>詢問: 欄位自動分享與Mana知識庫 ___</p>
+<p>預設值：無</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>訂閱</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好反應選擇使 <a class="reference internal" href="administration.html#share-with-mana-kb-label"><span class="std std-ref">Mana KB 定義</span></a> 在管理模組</p></li>
+<li><p>選擇自動分享內容給Mana知識庫意味著每次您產生那種類型的內容，它會自動複製到Mana知識庫，同時，它會提供讓其它圖書館得以取得此內容。</p></li>
+<li><p>所有內容分享給Mana知識庫是基於CC0協定,意味著不含任何著作權。任何人使用Mana知識庫可以取得，重新使用以及修改您的內容。閱讀更多關於CC0的規範，請至 <a class="reference external" href="https://creativecommons.org/choose/zero/">Creative Commons 網站</a>. 此將不會改變您Koha安裝的資料。</p></li>
+</ul>
+</section>
+<section id="mana">
+<span id="mana-pref-label"></span><h3>Mana<a class="headerlink" href="#mana" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 給Mana知識庫的意見書。</p>
+<p>預設值：不，讓我想想</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+<li><p>不，讓我想想</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好反應選擇使 <a class="reference internal" href="administration.html#share-with-mana-kb-label"><span class="std std-ref">Mana KB 定義</span></a> 在管理模組</p></li>
+</ul>
+</section>
+<section id="manatoken">
+<span id="mana-token-label"></span><h3>ManaToken<a class="headerlink" href="#manatoken" title="此标题的永久链接"></a></h3>
+<p>詢問: 資安邀請碼用於Mana知識庫的認證: ___</p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好將自動填充您的獨特Mana邀請碼當您註冊:ref:<cite>Mana KB定義&lt;share-with-mana-kb-label&gt;</cite> 在管理模組。</p></li>
+<li><p>Mana邀請碼是唯一的且和您的Koha安裝相關. 被用於登入Mana知識庫伺服器避免遭入侵所述伺服器。</p></li>
+</ul>
+</section>
+</section>
+<section id="oai-pmh">
+<span id="oai-pmh-system-preferences-label"></span><h2>OAI-PMH<a class="headerlink" href="#oai-pmh" title="此标题的永久链接"></a></h2>
+<section id="oai-pmh-pref-label">
+<span id="id3"></span><h3>OAI-PMH<a class="headerlink" href="#oai-pmh-pref-label" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ Koha 的 OAI-PMH 伺服器。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Once enabled you can visit <a class="reference external" href="http://YOURKOHACATALOG/cgi-bin/koha/oai.pl">http://YOURKOHACATALOG/cgi-bin/koha/oai.pl</a>
+to see your file. For the Open Archives Initiative-Protocol for
+Metadata Harvesting (OAI-PMH) there are two groups of ‘participants’:
+Data Providers and Service Providers. Data Providers (open archives,
+repositories) provide free access to metadata, and may, but do not
+necessarily, offer free access to full texts or other resources.
+OAI-PMH provides an easy to implement, low barrier solution for Data
+Providers. Service Providers use the OAI interfaces of the Data
+Providers to harvest and store metadata. Note that this means that
+there are no live search requests to the Data Providers; rather,
+services are based on the harvested data via OAI-PMH. Koha at present
+can only act as a Data Provider. It can not harvest from other
+repositories. The biggest stumbling block to having Koha harvest from
+other repositories is that MARC is the only metadata format that Koha
+indexes natively.</p></li>
+</ul>
+<p>OAI-PMH 詳情見：<a class="reference external" href="http://www.openarchives.org/pmh/">http://www.openarchives.org/pmh/</a></p>
+</section>
+<section id="oai-pmh-archiveid">
+<span id="oai-pmh-archiveid-label"></span><h3>OAI-PMH:archiveID<a class="headerlink" href="#oai-pmh-archiveid" title="此标题的永久链接"></a></h3>
+<p>預設值：KOHA-OAI-TEST</p>
+<p>詢問：以前置碼 ___ 辦識此網站的紀錄：</p>
+</section>
+<section id="oai-pmh-autoupdatesets">
+<span id="oai-pmh-autoupdatesets-label"></span><h3>OAI-PMH:AutoUpdateSets<a class="headerlink" href="#oai-pmh-autoupdatesets" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：新增或更新書目紀錄時 ___ 自動更新 OAI-PMH。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+</section>
+<section id="oai-pmh-autoupdatesetsembeditemdata">
+<span id="oai-pmh-autoupdatesetsembeditemdata-label"></span><h3>OAI-PMH:AutoUpdateSetsEmbedItemData<a class="headerlink" href="#oai-pmh-autoupdatesetsembeditemdata" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>Asks: ___ embedding of item data when automatically updating OAI-PMH sets.
+NOTE: This needs <a class="reference internal" href="#oai-pmh-autoupdatesets-label"><span class="std std-ref">OAI-PMH:AutoUpdateSets</span></a>
+system preference to be enabled.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+</section>
+<section id="oai-pmh-conffile">
+<span id="oai-pmh-conffile-label"></span><h3>OAI-PMH:ConfFile<a class="headerlink" href="#oai-pmh-conffile" title="此标题的永久链接"></a></h3>
+<p>若此偏好為空的，則 Koha 的開放檔案存取協定伺服器以正常模式運作，否則以延伸模式運作。在延伸模式下，可以納入 marcxml 或 Dublin Core 以外的格式。OAI-PMH:ConfFile 指定一個 YAML 組態檔列出可用的後設資料格式以及從 marcxml 紀錄新增 XSL 檔案。</p>
+<p>詳情，見附錄的 <a class="reference internal" href="webservices.html#sample-oai-conf-file-label"><span class="std std-ref">conf 檔案範例</span></a> 區塊。</p>
+</section>
+<section id="oai-pmh-deletedrecord">
+<span id="oai-pmh-deletedrecord-label"></span><h3>OAI-PMH:DeletedRecord<a class="headerlink" href="#oai-pmh-deletedrecord" title="此标题的永久链接"></a></h3>
+<p>預設：永不空白或截切 (持續)</p>
+<p>詢問：Koha 的 deletedbiblio 表單 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>永遠沒有資料在內 (不)</p></li>
+<li><p>永不空白或截切 (持續)</p></li>
+<li><p>有時可能空白或截切 (暫時)</p></li>
+</ul>
+</section>
+<section id="oai-pmh-maxcount">
+<span id="oai-pmh-maxcount-label"></span><h3>OAI-PMH:MaxCount<a class="headerlink" href="#oai-pmh-maxcount" title="此标题的永久链接"></a></h3>
+<p>預設值：50</p>
+<p>詢問：回應 ListRecords 或 ListIdentifiers 查詢時一次只送回 ___ 筆紀錄。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這是根據擷取器 ListRecord 或 ListIdentifier 詢問可取回的最大值紀錄。ListRecords 擷取全部紀錄而 ListIdentifier 是 ListRecords 的摘要格式，只擷取標題不取紀錄。</p></li>
+</ul>
+</section>
+</section>
+<section id="rest-api">
+<span id="rest-api-prefs-label"></span><h2>REST API<a class="headerlink" href="#rest-api" title="此标题的永久链接"></a></h2>
+<section id="restbasicauth">
+<span id="restbasicauth-label"></span><h3>RESTBasicAuth<a class="headerlink" href="#restbasicauth" title="此标题的永久链接"></a></h3>
+<p>詢問：___ REST API 的基本身份驗證。</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果啟用，則為 REST API 啟用基本身份驗證。</p></li>
+</ul>
+</section>
+<section id="restdefaultpagesize">
+<span id="restdefaultpagesize-label"></span><h3>RESTdefaultPageSize<a class="headerlink" href="#restdefaultpagesize" title="此标题的永久链接"></a></h3>
+<p>詢問：設定 REST API 每頁可以送回 ___ 個結果。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許您選擇每頁端點結果的數量</p></li>
+</ul>
+</section>
+<section id="restoauth2clientcredentials">
+<span id="restoauth2clientcredentials-label"></span><h3>RESTOAuth2ClientCredentials<a class="headerlink" href="#restoauth2clientcredentials" title="此标题的永久链接"></a></h3>
+<p>詢問：___ OAuth2 客戶授與憑證供 REST API 使用。</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果啟用，則為 REST API 啟用 OAuth2 客戶端的憑證流。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>必須安裝 Net::OAuth2::AuthorizationServer。</p>
+</div>
+</section>
+<section id="restpublicanonymousrequests">
+<span id="restpublicanonymousrequests-label"></span><h3>RESTPublicAnonymousRequests<a class="headerlink" href="#restpublicanonymousrequests" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 匿名訪問公開路由（不需要經過身份驗證的訪問）</p>
+<p>預設值：啟用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果啟用，API 將允許匿名訪問不需要身份驗證訪問的公共路由。</p></li>
+</ul>
+</section>
+<section id="restpublicapi">
+<span id="restpublicapi-label"></span><h3>RESTPublicAPI<a class="headerlink" href="#restpublicapi" title="此标题的永久链接"></a></h3>
+<p>詢問：___ API 的 /公開命名空間。</p>
+<p>預設值：啟用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果啟用，REST API 將公開 /公開端點。</p></li>
+</ul>
+</section>
+</section>
+<section id="reporting">
+<span id="reporting-label"></span><h2>報表<a class="headerlink" href="#reporting" title="此标题的永久链接"></a></h2>
+<section id="svcmaxreportrows">
+<span id="svcmaxreportrows-label"></span><h3>SvcMaxReportRows<a class="headerlink" href="#svcmaxreportrows" title="此标题的永久链接"></a></h3>
+<p>預設值：10</p>
+<p>詢問： 只送回 ___ 經由報表頁面服務指定報表的列數。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此值限制 <a href="#id1"><span class="problematic" id="id2">`</span></a>公共報表 &lt;#publicreport&gt;`__的結果數量。</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="toolspreferences.html" class="btn btn-neutral float-left" title="工具" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administration.html" class="btn btn-neutral float-right" title="管理" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,2609 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>流通 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="编目" href="cataloging.html" />
+    <link rel="prev" title="銷售點" href="cash_management.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">流通</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#check-out-issuing">借出 (送出)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#checking-items-out">借出館藏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#printing-receipts">列印收條</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exporting-checkouts">Exporting checkouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clear-patron-information">清除讀者資訊</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-checkouts">批次借出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-out-messages">借出訊息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-out-warnings">借出警示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checkout-notes">Checkout notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#renewing">續借</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-in-returning">還入 (送回)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#checking-items-in">還入館藏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-in-messages">還入訊息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#claiming-an-item-as-returned">Claiming an item as returned</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#resolving-a-return-claim">Resolving a return claim</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#circulating-bundles">Circulating bundles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-bundles">Creating bundles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-items-to-bundles">Adding items to bundles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removing-items-from-bundles">Removing items from bundles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Circulating bundles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#checkout">Checkout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checkin">Checkin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#missing-items">Missing items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#claims-returned-process">Claims returned process</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inventory-checking-bundle-contents-at-any-time">Inventory (checking bundle contents at any time)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#holds">預約</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#placing-holds-in-the-staff-interface">Placing holds in the staff interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-holds">管理預約</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-order-of-the-holds">Changing the order of the holds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suspending-holds">Suspending holds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-holds">Deleting holds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#receiving-holds">收到預約</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#curbside-pickups">Curbside pickups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scheduling-a-pickup">Scheduling a pickup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preparing-for-curbside-pickups">Preparing for curbside pickups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delivering-curbside-pickups">Delivering curbside pickups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cancelling-curbside-pickups">Cancelling curbside pickups</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#recalls">催還</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-recalls-in-koha">在 Koha 中設定催還</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-recalls">管理催還</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recall-statuses">催還狀態</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#receiving-recalled-items">收到催還館藏</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cancelling-recalls">取消催還</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-waiting-recalls-status">更改等待催還的狀態</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marking-recalls-as-overdue">將催還標記為逾期</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expiring-recalls">即將失效的催還</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#recalls-reports">催還報告</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recalls-queue">Recalls queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recalls-to-pull">Recalls to pull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overdue-recalls">Overdue recalls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recalls-awaiting-pickup">Recalls awaiting pickup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#old-recalls">Old recalls</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transfers">轉移</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-library">設定圖書館</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fast-add-cataloging">快速編目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#circulation-reports">流通報表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#holds-queue">預約佇列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-to-pull">預約到館待提取</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-awaiting-pickup">預約到館待提取</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hold-ratios">預約比率</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transfers-to-receive">轉移至收到</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#article-requests">請求論文</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-article-requests">放置文章請求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#placing-article-requests">放置請求論文</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-article-requests">管理文章請求</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#overdues">逾期</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overdues-with-fines">逾期罰款</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pending-on-site-checkouts">待決的現場借出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tracking-in-house-use">追蹤館內使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#self-checkout">自助借出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#self-check-in">自助借出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#offline-circulation-utilities">離線流通公用程式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#offline-circulation-in-koha">Koha 內的離線流通</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setup">設定</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circulating">流通</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#koha-offline-uploading">Koha 離線上傳</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#firefox-plugin">Firefox 插件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline-circulation-tool-for-windows">Offline circulation tool for Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#upload-offline-circulation-file">Upload offline circulation file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">流通</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/circulation.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="cash_management.html" class="btn btn-neutral float-left" title="銷售點" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cataloging.html" class="btn btn-neutral float-right" title="编目" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="circulation">
+<span id="circulation-label"></span><h1>流通<a class="headerlink" href="#circulation" title="此标题的永久链接"></a></h1>
+<p>有若干方式進入流通功能。從館員介面的首頁中央有幾個連結可以借出、還入或轉移館藏。可從每個頁面左上方的連結或首頁中央，連結至完整的流通功能。</p>
+<p>流通館藏之前應先處理相關的設定 <a class="reference internal" href="globalpreferences.html#global-system-preferences-label"><span class="std std-ref">整體系統偏好</span></a>、<a class="reference internal" href="administration.html#basic-parameters-label"><span class="std std-ref">基本參數</span></a> 與 <span class="xref std std-ref">讀者 &amp;amp; 流通規則</span>。</p>
+<p>流通時，可使用以下的熱鍵，在螢幕上方快速搜尋盒的分頁間快速移動：</p>
+<ul>
+<li><p>按著Alt+Q，進入搜尋目錄</p></li>
+<li><p>按 Alt+U 進入借出</p>
+<ul class="simple">
+<li><p>麥金塔電腦無此功能</p></li>
+</ul>
+</li>
+<li><p>按著Alt+R，進入還入</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>麥金塔電腦以 OPTION 鈕取代 ALT</p>
+</div></blockquote>
+</li>
+</ul>
+<section id="check-out-issuing">
+<span id="check-out-issuing-label"></span><h2>借出 (送出)<a class="headerlink" href="#check-out-issuing" title="此标题的永久链接"></a></h2>
+<p>必須鍵入讀者的條碼或部份姓名，才能開始借出程序。可以從三個地方進入借出：</p>
+<ul>
+<li><p>借出選項位於館員介面首頁頂部搜尋欄</p>
+<p><img alt="Menu and search bar at the top of the page in the staff interface" src="_images/checkoutsearchbar-home.png" /></p>
+</li>
+<li><p>借出選項位於主流通頁頂部搜尋欄</p>
+<p><img alt="The search bar at the top of the circulation module main page; the selected tab is Check out" src="_images/circulationmain.png" /></p>
+</li>
+</ul>
+<p>這兩個選項本質上是 <a class="reference internal" href="patrons.html#patron-search-label"><span class="std std-ref">patron search</span></a>。如果您只有一個結果，Koha 會自動轉到讀者的檔案，在“借出”標籤中。</p>
+<p><img alt="Check out tab of a patron file, current checkouts are hidden" src="_images/checkoutpatrondetail.png" /></p>
+<p>如果您的搜尋為您提供了多個結果，它會要求您選擇要借出的讀者。</p>
+<p><img alt="Patron search results table" src="_images/patronsearchresults.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 自定義此表的列(table id: memberresultst)。</p>
+</div>
+<p>點擊搜尋結果的讀者將帶您進入該讀者的「詳情」標籤頁。點擊「借出」標籤可使用借出功能。</p>
+<p>若您已啟用 <a class="reference internal" href="circulationpreferences.html#batch-checkout-label"><span class="std std-ref">批次借出</span></a> 則可從讀者詳頁裡點選「批次借出」功能</p>
+<p><img alt="Batch checkout page in a patron file, there is an option to import a file, manually enter barcodes, and add a hard due date" src="_images/batchcheckout.png" /></p>
+<section id="checking-items-out">
+<span id="checking-items-out-label"></span><h3>借出館藏<a class="headerlink" href="#checking-items-out" title="此标题的永久链接"></a></h3>
+<p>以上述的選項之一搜尋讀者，開始借出館藏給讀者。接著將出現借出畫面。</p>
+<p><img alt="Check out tab of a patron file, current checkouts are hidden" src="_images/checkoutpatrondetail.png" /></p>
+<p>如果選擇“總是立即顯示借出”，您將在借出框下方看到當前借出清單。</p>
+<p><img alt="Check out tab of a patron file, current checkouts are displayed" src="_images/checkoutpatron-alwaysshow.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The <a class="reference internal" href="circulationpreferences.html#previousissuesdefaultsortorder-label"><span class="std std-ref">previousIssuesDefaultSortOrder</span></a> system preference controls
+in which order these previous checkouts appear (earliest to latest,
+or latest to earliest).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`裡的流通項, 自定義此表的列(table id: issues-table)。</p>
+</div>
+<p>在借出畫面的上方有個欄位，用於輸入或掃描館藏的條碼。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Many modern barcode scanners will send a ‘return’ to the browser,
+making it so that the ‘Check out’ button is automatically clicked.</p>
+</div>
+<ul class="simple">
+<li><p>若該館藏沒有條碼，系統將提示您以快速編目的方式，把條碼加入。參閱本手冊的 <a class="reference internal" href="#fast-add-cataloging-label"><span class="std std-ref">快速編目</span></a> 章節。</p></li>
+<li><p>If the <a class="reference internal" href="circulationpreferences.html#itembarcodefallbacksearch-label"><span class="std std-ref">itemBarcodeFallbackSearch</span></a> system preference is set to
+‘Enable’, you can enter a keyword search in this box instead of
+just a barcode (this will make it possible to check out using title
+and/or call number).</p></li>
+<li><p>If the <a class="reference internal" href="circulationpreferences.html#autoswitchpatron-label"><span class="std std-ref">AutoSwitchPatron</span></a> system preference is set to ‘Enable’,
+scanning a patron barcode here will take you to that patron’s file.</p></li>
+</ul>
+<p>按下 ‘借出設定’ 連結，就能夠擴展借出的其他設定選項。</p>
+<p><img alt="Checkout box with checkout settings section opened" src="_images/checkoutsettings.png" /></p>
+<ul>
+<li><p>指定截止日期：此選項可用於覆蓋館藏的預設截止日期，如 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>流通和罰款規則&lt;circulation-and-fines-rules-label&gt;`中所定義。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This option will only appear if the <a class="reference internal" href="circulationpreferences.html#specifyduedate-label"><span class="std std-ref">SpecifyDueDate</span></a> system
+preference is set to allow staff to override the due date.</p>
+</div>
+<ul class="simple">
+<li><p>紅色的“X”用於清除日期。如果“指定截止日期”欄位為空，則使用 <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">流通和罰款規則中定義的預設截止日期</span></a>。</p></li>
+<li><p>請記住時間：選中此框以對所有借出使用相同的日期。這不僅會保留該讀者的指定截止日期，還會保留所有讀者的指定截止日期，直到您退出館員介面。</p></li>
+</ul>
+</li>
+<li><p>自動續訂：此選項將允許此館藏自動續訂</p>
+<ul class="simple">
+<li><p>使用自動續訂，</p>
+<ul>
+<li><p>the <a class="reference internal" href="cron_jobs.html#cron-automatic-renewal-label"><span class="std std-ref">automatic_renewals cron job</span></a>
+must be running</p></li>
+<li><p>the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a>
+regarding automatic renewals must be defined</p></li>
+</ul>
+</li>
+<li><p>就像定期續訂一樣，如果館藏被預約，借出將不會自動續訂。</p></li>
+</ul>
+</li>
+<li><p>不要根據預約減少借出時間：此選項會覆蓋 <a class="reference internal" href="circulationpreferences.html#decreaseloanhighholds-preferences-label"><span class="std std-ref">decreaseLoanHighHolds</span></a> 系統偏好。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>當啟用了 <a class="reference internal" href="circulationpreferences.html#decreaseloanhighholds-preferences-label"><span class="std std-ref">decreaseLoanHighHolds</span></a> 系統偏好時，才會出現此選項。</p>
+</div>
+</li>
+<li><p>現場借出：該選項表示本次借出為現場借出。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>僅當 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>現場借出館藏&lt;onsitecheckouts-label&gt;`允許顧客借出時，才會出現此選項。這些通常是不能外借出圖書館的館藏而您想要在圖書館借閱使用。</p>
+</div>
+</li>
+</ul>
+<p>在頁面下方有個讀者借出館藏的摘要以及到期日(若為指定參考書則為時間)，今天借出的館藏在最前上面，之前借出的館藏顯示在最下面。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The <a class="reference internal" href="circulationpreferences.html#todaysissuesdefaultsortorder-label"><span class="std std-ref">todaysIssuesDefaultSortOrder</span></a> system preference controls in
+which order these new checkouts appear (earliest to latest, or latest
+to earliest).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>以小時計的借出館藏可以納入以時計。</p>
+</div>
+<p>如果一個館藏被借出用於現場使用，該資訊將在借出摘要中以紅色標記顯示。</p>
+<p><img alt="Section of the patron's current checkouts table showing only onsite checkouts" src="_images/onsitecheckout.png" /></p>
+<p>讀者紀錄的通知，顯示在借出盒的右方</p>
+<p><img alt="Checkout box with notes and messages next to it" src="_images/patronnotes.png" /></p>
+<p>若預約到館待提取，在借出盒右方將提示館員，要求讀者提取該館藏。</p>
+<p>館員介面的書目詳情頁也會顯示借出詳情。</p>
+<p><img alt="Item table in a record detail page showing which items are checked out and to whom" src="_images/circonholdings.png" /></p>
+<section id="printing-receipts">
+<span id="printing-receipts-label"></span><h4>列印收條<a class="headerlink" href="#printing-receipts" title="此标题的永久链接"></a></h4>
+<p>把館藏借出後，有兩個方式可印出收條給讀者。</p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#circautoprintquickslip-label"><span class="std std-ref">CircAutoPrintQuickSlip</span></a>
+preference set to ‘open a print quick slip window’ you can simply hit
+enter on your keyboard or scan a blank piece of paper with your barcode
+scanner. The idea being that you’re “checking out” a blank barcode which
+triggers Koha to print the ‘Quick slip.’</p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#displayclearscreenbutton-label"><span class="std std-ref">DisplayClearScreenButton</span></a>
+system preference set to ‘Show print quick slip and clear buttons’ or ‘Show
+print slip and clear buttons’, there will be a small printer button in the top
+right of the checkout box, which can be used to print the slip or quick slip.</p>
+<p><img alt="The checkout box in a patron file, in the top right corner of the box, there is a printer button and an X button" src="_images/DisplayClearScreenButton.png" /></p>
+<p>可勾選螢幕上方的列印鈕並選擇 ‘列印收條’ 或 ‘快速列印收條’。</p>
+<p><img alt="Menu at the top of a patron's account, the 'Print' button is pressed and the options are Print summary, Print slip, Print quick slip, Print account balance, Print overdues, and Print checkin slip" src="_images/printslip.png" /></p>
+<p>If you choose ‘Print slip’ it will print all of the items the patron has
+checked out, including those they checked out at an earlier date.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The slip uses the ISSUESLIP notice. You can customize the notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>Choosing ‘Print quick slip’ will print only the items that were checked
+out today.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The quick slip uses the ISSUEQSLIP notice. You can customize the notice in
+the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>‘Print summary’ will generate a full page summary for the patron’s
+circulation information.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The summary cannot be customized.</p>
+<p>However, the tables for the checkouts, holds, and charges are customizable in
+the <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: print-summary-checkouts,
+print-summary-holds, and print-summary-fines).</p>
+</div>
+<p>‘Print account balance’ will generate a summary of outstanding charges and
+unused credits in the patron’s account.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The quick slip uses the ACCOUNTS_SUMMARY notice. You can customize the notice
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This option will only appear if the patron has charges in their
+<a class="reference internal" href="patrons.html#fines-label"><span class="std std-ref">Accounting tab</span></a>.</p>
+</div>
+<p>‘Print overdues’ will print out a slip that lists all items that are overdue.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The overdue slip uses the OVERDUE_SLIP notice. You can customize the notice
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>“列印借出清單”將印出一張清單，其中列出了今天借出的館藏。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The checkin slip uses the CHECKINSLIP notice. You can customize the notice
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="exporting-checkouts">
+<span id="export-checkouts-label"></span><h4>Exporting checkouts<a class="headerlink" href="#exporting-checkouts" title="此标题的永久链接"></a></h4>
+<p>Other than <a class="reference internal" href="#printing-receipts-label"><span class="std std-ref">printing a receipt</span></a>, there are
+several ways to export a patron’s checkouts.</p>
+<p>表格頂部的“輸出”按鈕允許您以 Microsoft Excel 或 CSV 格式輸出讀者的當前借出，甚至可以複製或列印他們的借出。</p>
+<p><img alt="Checkouts table in a patron's account, the table's export options are open (Excel, CSV, copy or print)" src="_images/exportcheckouts.png" /></p>
+<p>The CSV file exported this way will contain the columns of the table that are
+visible. You can click on the ‘Columns’ button and remove some columns first,
+if needed.</p>
+<p>If the <a class="reference internal" href="circulationpreferences.html#exportcirchistory-label"><span class="std std-ref">ExportCircHistory</span></a> system preference is
+enabled, there will be an ‘Export’ column in the checkouts table. This is used
+to export the patron’s current checkouts in either MARC or CSV format.</p>
+<p><img alt="Checkouts table in a patron's account, the last column of the table is 'Export', and at the bottom of the table, there is an option to export checkouts and not export specific fields" src="_images/ExportCircHistory.png" /></p>
+<p>To export checkouts this way,</p>
+<ul>
+<li><p>Select the checkouts to be exported using the checkboxes in the ‘Export’
+column.</p></li>
+<li><p>At the bottom of the table, choose the options for the export</p>
+<ul>
+<li><p>Export checkouts using format</p>
+<ul class="simple">
+<li><p>MARC with items: this will export the MARC records of the checked out
+titles, including the item information.</p></li>
+<li><p>MARC without items: this will export the MARC records of the checked
+out titles.</p></li>
+<li><p>CSV: this will export a CSV file of checked out titles. When this
+option is selected, a new dropdown menu will appear to choose a
+<a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV profile</span></a>.</p></li>
+</ul>
+</li>
+<li><p>Export bundle contents: if the patron checked out a
+<a class="reference internal" href="#bundles-circulation-label"><span class="std std-ref">bundle</span></a>, this option will export the
+parent record as well as all the child records.</p></li>
+<li><p>Don’t export fields: optionally, you can enter MARC fields that are not to
+be exported.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The default values in the “Don’t export field” field are set in the
+<a class="reference internal" href="circulationpreferences.html#exportremovefields-label"><span class="std std-ref">ExportRemoveFields</span></a> system preference.</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="clear-patron-information">
+<span id="clear-patron-information-label"></span><h4>清除讀者資訊<a class="headerlink" href="#clear-patron-information" title="此标题的永久链接"></a></h4>
+<p>When you’re done checking an item out if you have the
+<a class="reference internal" href="circulationpreferences.html#displayclearscreenbutton-label"><span class="std std-ref">DisplayClearScreenButton</span></a> preference set
+to ‘Show’ you can clear the current patron by clicking the X in the top
+right of the patron’s info to remove the current patron from the screen
+and start over.</p>
+<p><img alt="image495" src="_images/DisplayClearScreenButton.png" /></p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#circautoprintquickslip-label"><span class="std std-ref">CircAutoPrintQuickSlip</span></a>
+preference set to ‘clear the screen’ then you simply need to hit enter
+or scan a blank barcode and the screen will be cleared of the current
+patron.</p>
+</section>
+</section>
+<section id="batch-checkouts">
+<span id="batch-checkouts-label"></span><h3>批次借出<a class="headerlink" href="#batch-checkouts" title="此标题的永久链接"></a></h3>
+<p>If you would like to perform a batch check out you can do so by turning
+on the <a class="reference internal" href="circulationpreferences.html#batchcheckouts-label"><span class="std std-ref">BatchCheckouts</span></a> system preference and assigning the proper patron
+categories via the <a class="reference internal" href="circulationpreferences.html#batchcheckoutsvalidcategories-label"><span class="std std-ref">BatchCheckoutsValidCategories</span></a> system preference. This
+will allow you to use an RFID pad that reads multiple barcodes or perform a
+batch check out for training internal use.</p>
+<p><img alt="Batch checkout page in a patron file, there is an option to import a file, manually enter barcodes, and add a hard due date" src="_images/batchcheckout.png" /></p>
+<p>您可以從該螢幕掃描多個條碼或加下載條碼檔案。</p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#specifyduedate-label"><span class="std std-ref">SpecifyDueDate</span></a> system preference enabled you will
+have the option to set a due date for the checkouts.</p>
+<p>如果無法借出館藏，將在螢幕上給予警告，並可選擇取消選中不應借出的館藏。</p>
+<p><img alt="Warning messages when performing a batch of checkouts" src="_images/batchcheckoutwarn.png" /></p>
+<p>使用統計讀者類型則可看到被掃瞄館藏的館內使用情形。</p>
+<p><img alt="Batch checkout to a statistical patron, all checkouts were recorded as local use" src="_images/batchlocaluse.png" /></p>
+</section>
+<section id="check-out-messages">
+<span id="check-out-messages-label"></span><h3>借出訊息<a class="headerlink" href="#check-out-messages" title="此标题的永久链接"></a></h3>
+<p>被借出的套書若已著錄於館藏紀錄 (於 MARC21 時) 的分欄 3 將彈出訊息告知還有其他部份可借出。</p>
+<p><img alt="Message in circulation, the message says &quot;Note about the accompanying materials: + 1 folded map&quot;" src="_images/accompanyingmaterials.png" /></p>
+<p>有時，Koha 將禁止館藏借出館藏給讀者。發生此事時，會出現警示訊息提示原因。</p>
+<ul>
+<li><p>讀者待付罰款過多</p>
+<p><img alt="image499" src="_images/fineswarning.png" /></p>
+<ul class="simple">
+<li><p>You can set the amount at which patron checkouts are blocked with
+the <a class="reference internal" href="circulationpreferences.html#noissuescharge-label"><span class="std std-ref">noissuescharge</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>此讀者帳號被停權</p>
+<p><img alt="image500" src="_images/debarwarning.png" /></p>
+<ul>
+<li><p>This can be set by the librarian editing a patron record and
+adding a <a class="reference internal" href="patrons.html#patron-restrictions-label"><span class="std std-ref">restriction</span></a> or by the <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue/Notice
+Status Triggers</span></a></p></li>
+<li><p>取得授權的館員可以暫時取消限制</p>
+<p><img alt="image501" src="_images/overridetemporarily.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>讀者需確認其地址</p>
+<p><img alt="Warning Cannot check out Address: patron's address flagged as in doubt" src="_images/addresswarning.png" /></p>
+<ul class="simple">
+<li><p>This can be set by the staff editing a patron record and
+<a class="reference internal" href="patrons.html#add-patron-flags-label"><span class="std std-ref">adding a flag</span></a>.</p></li>
+</ul>
+</li>
+<li><p>遺失讀者證的讀者</p>
+<p><img alt="Warning Cannot check out Lost: patron's card is flagged as lost" src="_images/lostcardwarning.png" /></p>
+<ul class="simple">
+<li><p>This can be set by the staff editing a patron record and
+<a class="reference internal" href="patrons.html#add-patron-flags-label"><span class="std std-ref">adding a flag</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="check-out-warnings">
+<span id="check-out-warnings-label"></span><h3>借出警示<a class="headerlink" href="#check-out-warnings" title="此标题的永久链接"></a></h3>
+<p>有時借出會啟動警示訊息以黃色顯示在借出欄位之下。館員需確認看到這些警示才能繼續借出館藏。</p>
+<ul>
+<li><p>讀者有待繳罰款</p>
+<p><img alt="image504" src="_images/patrondebt.png" /></p>
+</li>
+<li><p>被別人預約的館藏</p>
+<p><img alt="image505" src="_images/onhold.png" /></p>
+</li>
+<li><p>館藏應在預約書架等待提取</p>
+<p><img alt="image506" src="_images/holdwaiting.png" /></p>
+</li>
+<li><p>館藏已經借出給該讀者</p>
+<p><img alt="image507" src="_images/alreadycheckedout.png" /></p>
+</li>
+<li><p>館藏已借出給其他讀者</p>
+<p><img alt="image508" src="_images/checkedoutelse.png" /></p>
+<ul class="simple">
+<li><p>此警示允許為企圖借出的讀者預約該館藏。</p></li>
+</ul>
+</li>
+<li><p>不外借館藏</p>
+<p><img alt="image509" src="_images/notforloan.png" /></p>
+</li>
+<li><p>Patron has too many things checked out and
+<a class="reference internal" href="circulationpreferences.html#allowtoomanyoverride-label"><span class="std std-ref">AllowTooManyOverride</span></a> is set to ‘Allow’</p>
+<p><img alt="image510" src="_images/toomanycheckouts.png" /></p>
+</li>
+<li><p>Patron has too many things checked out and
+<a class="reference internal" href="circulationpreferences.html#allowtoomanyoverride-label"><span class="std std-ref">AllowTooManyOverride</span></a> is set to “Don’t
+allow”</p>
+<p><img alt="image511" src="_images/toomanycheckouts-no.png" /></p>
+</li>
+<li><p>不能續借的館藏</p>
+<p><img alt="image512" src="_images/norenewals.png" /></p>
+<ul class="simple">
+<li><p>This can be overridden with the
+<a class="reference internal" href="circulationpreferences.html#allowrenewallimitoverride-label"><span class="std std-ref">AllowRenewalLimitOverride</span></a> system
+preference</p></li>
+</ul>
+</li>
+<li><p>找不到條碼號</p>
+<p><img alt="image513" src="_images/barcodefastadd.png" /></p>
+<ul class="simple">
+<li><p>詳情見本手冊的 <a class="reference internal" href="#fast-add-cataloging-label"><span class="std std-ref">快速編目</span></a> 章節。</p></li>
+</ul>
+</li>
+<li><p>借出的館藏已被標記為 ‘遺失’</p>
+<ul>
+<li><p>Depending on the value in your <a class="reference internal" href="circulationpreferences.html#issuelostitem-label"><span class="std std-ref">IssueLostItem</span></a>
+preference, you may just see a warning</p>
+<p><img alt="image514" src="_images/lostitemmsg.png" /></p>
+<p>或確認盒</p>
+<p><img alt="image515" src="_images/lostitemconfirm.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>不建議此年齡層的讀者借出此館藏</p>
+<p><img alt="image516" src="_images/agewarning.png" /></p>
+</li>
+<li><p>借出的館藏符合 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>decreaseLoanHighHolds &lt;decreaseloanhighholds-preferences-label&gt;`系統偏好的範疇</p>
+<p><img alt="image517" src="_images/decreaseLoanHighHoldsDuration1.png" /></p>
+</li>
+<li><p>館藏有隨附資料（欄位 952$3，’指定資料’，已填寫）</p>
+<p><img alt="Message in a blue box 'Note about the accompanying materials: 2 DVD'" src="_images/CircConfirmItemParts-dontrequire.png" /></p>
+<ul>
+<li><p>If <a class="reference internal" href="circulationpreferences.html#circconfirmitemparts-label"><span class="std std-ref">CircConfirmItemParts</span></a> is set to ‘Require’, the staff member will have to
+confirm the checkout</p>
+<p><img alt="Alert in a yellow box asking to confirm checkout 'Please confirm checkout Please confirm that the accompanying materials are present: 2 DVD Yes, check out (Y) No, don't check out (N)'" src="_images/CircConfirmItemParts-require-checkout.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>If the <a class="reference internal" href="patronspreferences.html#checkprevcheckout-label"><span class="std std-ref">CheckPrevCheckout</span></a> system preference
+says to check the patron’s circulation history, a warning will show to
+indicate that the patron has already checked out the item</p>
+<p><img alt="Checkout warning message: Please confirm checkout Patron has previously checked out this title ... Check out anyway? Yes, check out (Y), No, don't check out (N)" src="_images/prevcheckout.png" /></p>
+</li>
+</ul>
+</section>
+<section id="checkout-notes">
+<span id="checkoutnotes-label"></span><h3>Checkout notes<a class="headerlink" href="#checkout-notes" title="此标题的永久链接"></a></h3>
+<p>Checkout notes are notes that patrons can add from the OPAC about a particular
+item they have checked out (for example: missing first page, or DVD is
+scratched, etc.).</p>
+<p>To enable checkout notes, set the <a class="reference internal" href="circulationpreferences.html#allowcheckoutnotes-label"><span class="std std-ref">AllowCheckoutNotes</span></a>
+system preference to ‘Allow’.</p>
+<p>Once the system preference is activated, a new column titled ‘Report a problem’
+will appear in the list of checkouts in the
+<a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">patron’s summary in the OPAC</span></a>.</p>
+<p><img alt="Patron's 'Your summary' page with AllowCheckoutNotes enabled, there is a column titled 'Report a problem' in the checkouts table, with a button 'Add note' for each checkout" src="_images/AllowCheckoutNotes.png" /></p>
+<p>When the patron clicks on ‘Add note’, they will be able to write a note about
+this checkout.</p>
+<p><img alt="Window for the patron to report a problem about on of their checkouts" src="_images/checkoutnote.png" /></p>
+<p>Staff will be alerted of new checkout notes in the section at the bottom of the
+staff interface’s home page, with other pending requests.</p>
+<p><img alt="Prompt on staff interface homepage to view pending article requests, pending purchase suggestions, patrons requesting modifications, pending catalog concerns, pending checkout notes, and pending OPAC problem reports" src="_images/pendingrequests.png" /></p>
+<p>An email will also be sent to the email address in
+<a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress-label"><span class="std std-ref">KohaAdminEmailAddress</span></a> to alert the system
+administrator that a checkout note was added.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize this message in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.
+The letter code is CHECKOUT_NOTE.</p>
+</div>
+<p>Checkout notes can be managed from the circulation module home page, under
+Circulation &gt; Checkout notes, or by clicking on the message in the pending
+requests section of the staff interface home page.</p>
+<p><img alt="Main page of the circulation module" src="_images/circmenu.png" /></p>
+<p><img alt="List of checkout notes submitted by patrons, next to each note are action buttons Mark seen and Mark not seen" src="_images/checkoutnotes.png" /></p>
+<p>From this page, staff can mark notes as seen, either individually by clicking
+the ‘Mark seen’ button on the right, or in a batch by selecting the notes and
+clicking ‘Mark seen’ at the top of the page. Marking the notes as seen will
+remove them from the pending requests section of the staff interface homepage.</p>
+<p>Seen notes can be filtered out with the ‘Hide seen’ link at the top of the table.</p>
+<p>Checkout notes will also appear <a class="reference internal" href="#check-in-returning-label"><span class="std std-ref">upon checkin</span></a>.</p>
+<p><img alt="Patron note message on checkin, containing the date of the note, the title and author, and the patron's note" src="_images/patronnotecheckin.png" /></p>
+<p>Once the item is checked in, the note will be removed permanently from this page.</p>
+</section>
+</section>
+<section id="renewing">
+<span id="renewing-label"></span><h2>續借<a class="headerlink" href="#renewing" title="此标题的永久链接"></a></h2>
+<p>借出的館藏可以依照 <span class="xref std std-ref">流通規則</span> 與 <a class="reference internal" href="circulationpreferences.html#renewalperiodbase-label"><span class="std std-ref">續借偏好</span></a> 續借 (再被同個人借閱一個週期) 它。</p>
+<p>若 <a class="reference internal" href="opacpreferences.html#opacrenewalallowed-label"><span class="std std-ref">允許續借</span></a>，讀者可以經由 OPAC 續借它，但有時仍需要從館員介面續借。</p>
+<p>可從以下兩件事，續借給讀者。</p>
+<p>首先進入讀者詳情頁面或借出頁面並檢視下方的借出摘要。</p>
+<p><img alt="Issues table (circulation summary) in the patron file" src="_images/circsummary.png" /></p>
+<p>在續借欄看到館藏被續借的次數以及可續借的勾選盒。按館藏旁的勾選盒就可續借該館藏，並按 ‘續借或還入勾選館藏’ 鈕，或按 ‘全部續借’ 鈕續借全部館藏。</p>
+<p><img alt="Two buttons 'Renew or check in selected items' and 'Renew all'" src="_images/renewbutton.png" /></p>
+<p>Sometimes renewals will be blocked based on your circulation rules, to
+override this block you must have your
+<a class="reference internal" href="circulationpreferences.html#allowrenewallimitoverride-label"><span class="std std-ref">AllowRenewalLimitOverride</span></a> preference
+set to ‘Allow’. If you allow renewal limit overrides, you will see a
+checkbox at the bottom left of the circulation summary. Check that box
+and then choose the items you would like to renew.</p>
+<p><img alt="Bottom of the circulation summary table, there are two checkboxes 'Override renewal restrictions' and 'Renew as unseen if appropriate', followed by two buttons 'Renew or check in selected items' and 'Renew all'. The checkbox 'Override renewal restrictions' is checked." src="_images/overriderenew.png" /></p>
+<p>按此盒將在續借欄新增勾選盒供續借館藏之用。</p>
+<p>You can also mark a renewal as ‘unseen’, to differentiate between renewals
+where staff has actually seen the item, versus renewals where they didn’t see
+it (over the phone, for example). To do this, you must first enable
+the <a class="reference internal" href="circulationpreferences.html#unseenrenewals-label"><span class="std std-ref">UnseenRenewals</span></a> system preference. Once enabled, a checkbox will
+appear at the bottom left of the circulation summary. Check that box to mark
+the renewals as ‘unseen’. Then click either ‘Renew or check in selected items’
+or ‘Renew all’.</p>
+<p><img alt="Bottom of the circulation summary table, there are two checkboxes 'Override renewal restrictions' and 'Renew as unseen if appropriate', followed by two buttons 'Renew or check in selected items' and 'Renew all'. The checkbox 'Renew as unseen if appropriate' is checked." src="_images/unseenrenewalcheckbox.png" /></p>
+<p>第二個方法是進入流通選單下的 ‘續借’ 頁面。</p>
+<p><img alt="Part of the circulation module homepage, showing circulation-focused actions." src="_images/circmodulecolumn1.png" /></p>
+<p>然後掃瞄館藏條碼就能續借該館藏。</p>
+<p><img alt="image522" src="_images/renewbarcode.png" /></p>
+<p>續借館藏後讀者將收到確認訊息。</p>
+<p><img alt="image523" src="_images/renewed.png" /></p>
+<p>若找不到條碼將出現錯誤訊息。</p>
+<p><img alt="image524" src="_images/renewnomatch.png" /></p>
+<p>實際上未借出館藏亦發出錯誤訊息予讀者。</p>
+<p><img alt="image525" src="_images/renewnotchecked.png" /></p>
+</section>
+<section id="check-in-returning">
+<span id="check-in-returning-label"></span><h2>還入 (送回)<a class="headerlink" href="#check-in-returning" title="此标题的永久链接"></a></h2>
+<p>可從多個不同的地方還入館藏</p>
+<ul>
+<li><p>館員介面上方的還入盒</p>
+<p><img alt="image526" src="_images/checkinmain.png" /></p>
+</li>
+<li><p>在流通頁面快速搜尋區的還入選項</p>
+<p><img alt="image527" src="_images/checkinquickbox.png" /></p>
+</li>
+<li><p>讀者借出摘要(以及借出摘要頁面)的還入連結</p>
+<p><img alt="image528" src="_images/checkinlink.png" /></p>
+</li>
+<li><p>流通選單下的還入頁面</p>
+<p><img alt="image529" src="_images/checkincirc.png" /></p>
+</li>
+<li><p>Koha 還提供自動還入功能，可以在 <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item types</span></a> 中設置。</p></li>
+</ul>
+<section id="checking-items-in">
+<span id="checking-items-in-label"></span><h3>還入館藏<a class="headerlink" href="#checking-items-in" title="此标题的永久链接"></a></h3>
+<p>將館藏的條碼掃瞄入盒，就能檢查其借出狀態。借出館藏的摘要將顯示在借出盒之下</p>
+<p><img alt="image530" src="_images/checkin.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 自定義此表的列(table id: checkedintable)。</p></li>
+</ul>
+</div></blockquote>
+<p>處理還入箱的館藏時先勾選 ‘還入箱模式’ 再掃瞄館藏。才能把還入日期設為上個開館日。</p>
+<ul class="simple">
+<li><p>這要求您將閉館日加到:ref:<cite>行事曆工具&lt;calendar-label&gt;</cite></p></li>
+</ul>
+<p>掃瞄館藏前，先點選 ‘豁免收費’ 盒，就能豁免所有還入館藏的費用。</p>
+<p>If you have the <a class="reference internal" href="circulationpreferences.html#specifyreturndate-label"><span class="std std-ref">SpecifyReturnDate</span></a> preference
+set to ‘Allow’ you will be able to arbitrarily set the return date from
+below the check in box.</p>
+<p><img alt="image1258" src="_images/SpecifyReturnDate1.png" /></p>
+</section>
+<section id="check-in-messages">
+<span id="check-in-messages-label"></span><h3>還入訊息<a class="headerlink" href="#check-in-messages" title="此标题的永久链接"></a></h3>
+<p>還入館藏時出現若干訊息：</p>
+<ul>
+<li><p>If the <a class="reference internal" href="administration.html#item-hold-policies-label"><span class="std std-ref">return policy</span></a> dictates items need to
+be returned back to their home or holding library, a message will appear
+asking staff to transfer the item.</p>
+<p><img alt="Pop-up indicating an item needs to be transferred back to its home library. Options are OK and Print slip." src="_images/checkintransfer.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>When set to ‘Block’, the <a class="reference internal" href="circulationpreferences.html#transfersblockcirc-label"><span class="std std-ref">TransfersBlockCirc</span></a>
+system preference will block all actions until the pop-up is confirmed.</p>
+<p>When set to “Don’t block”, the
+<a class="reference internal" href="circulationpreferences.html#automaticconfirmtransfer-label"><span class="std std-ref">AutomaticConfirmTransfer</span></a> system
+preference determines what happens if the pop-up is dismissed without
+confirming the transfer.</p>
+</div>
+<ul>
+<li><p>After this item is checked in and the transfer is confirmed, the status
+of the item will be changed in the catalog to ‘in transit’.</p>
+<p><img alt="Item display in the staff interface, the status is 'In transit from Fairview to Centerville since 25/04/2023'." src="_images/transferstatus.png" /></p>
+</li>
+<li><p>To mark an item as back at the home or holding library, check the item
+in at that library.</p>
+<p><img alt="Check in message Not checked out Item received from Fairview." src="_images/transfercheckin.png" /></p>
+<ul class="simple">
+<li><p>A message will appear to tell you that the item is not checked
+out, but the status will now say available in the catalog. This
+step is necessary to mark items as received by the library.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>勾選的館藏是成套時，顯示提示訊息表示還有其他部份可借出</p>
+<p><img alt="Message in a blue box 'Note about the accompanying materials: 2 DVD'" src="_images/CircConfirmItemParts-dontrequire.png" /></p>
+<ul>
+<li><p>If <a class="reference internal" href="circulationpreferences.html#circconfirmitemparts-label"><span class="std std-ref">CircConfirmItemParts</span></a> is set to ‘Require’, the staff member will have to
+confirm the checkin</p>
+<p><img alt="Alert modal asking to confirm checkin 'Please confirm checkin Please confirm that the accompanying materials are present: 2 DVD Yes, check in (Y) No, don't check in (N)'" src="_images/CircConfirmItemParts-require-checkin.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>還入已被預約的館藏時，將出現確認該預約的訊息</p>
+<p><img alt="image535" src="_images/holdfound.png" /></p>
+<ul>
+<li><p>勾選確認預約鈕，將標記該館藏為預約到館待提取</p>
+<p><img alt="image536" src="_images/waitingstatus.png" /></p>
+</li>
+<li><p>勾選 ‘列印收條與確認’ 鈕，將標記館藏為預約到館待提取，並將圖書與讀者資訊列印，供館員夾在圖書中</p></li>
+<li><p>忽略預約將保留館藏在預約狀態，但保留其狀態為可借出(不能取消預約)</p></li>
+</ul>
+</li>
+<li><p>還入的館藏已被其他分館預約，將出現確認訊息，要求轉移他們</p>
+<p><img alt="Hold found pop up message indicating the item should be transferred to Centerville, the pickup library. The options are 'Confirm hold and transfer', 'Print slip, transfer, and confirm' or 'Ignore'" src="_images/holdconfirmtransfer.png" /></p>
+<ul>
+<li><p>勾選確認預約與轉移鈕，將標記館藏轉移至預約指定的圖書館</p>
+<p><img alt="image538" src="_images/intransithold.png" /></p>
+</li>
+<li><p>點擊“列印清單、轉移和確認”按鈕會將館藏標記為正在運送到預約的圖書館，並向圖書館出示收據以列印並在圖書上附上讀者資訊</p></li>
+<li><p>忽略預約將保留館藏在預約狀態，但保留其狀態為可借出(不能取消預約)</p></li>
+</ul>
+</li>
+<li><p>If you have the system showing you fines at the time of checkin
+(<a class="reference internal" href="circulationpreferences.html#finenotifyatcheckin-label"><span class="std std-ref">FineNotifyAtCheckin</span></a>) you will see a
+message telling you about the fine and providing you a link to the
+payment page for that patron</p>
+<p><img alt="image539" src="_images/FineNotifyAtCheckin.png" /></p>
+</li>
+</ul>
+</section>
+<section id="claiming-an-item-as-returned">
+<span id="return-claim-label"></span><h3>Claiming an item as returned<a class="headerlink" href="#claiming-an-item-as-returned" title="此标题的永久链接"></a></h3>
+<p>If the patron claims they returned something, you can mark that item as ‘Claimed
+returned’ and track those claims.</p>
+<p>In order to use this feature,</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="administration.html#add-new-authorized-value-label"><span class="std std-ref">Add a new authorized value</span></a> to the
+LOST category to represent items claimed as returned.</p></li>
+<li><p>Enter the authorized value in the
+<a class="reference internal" href="circulationpreferences.html#claimreturnedlostvalue-label"><span class="std std-ref">ClaimReturnedLostValue</span></a> system preference
+(this enables the return claims feature).</p></li>
+<li><p>Choose if a lost fee should be charged to the patron who claims an item as
+returned. Set a value in the
+<a class="reference internal" href="circulationpreferences.html#claimreturnedchargefee-label"><span class="std std-ref">ClaimReturnedChargeFee</span></a> system preference
+(the default is to ask if a lost fee should be charged).</p></li>
+<li><p>Optionally set a number of return claims a patron can make before a warning
+appears in their record in the
+<a class="reference internal" href="circulationpreferences.html#claimreturnedwarningthreshold-label"><span class="std std-ref">ClaimReturnedWarningThreshold</span></a>
+system preference.</p></li>
+</ul>
+<p>Once the feature is enabled, a button to ‘Claim returned’ will appear in the
+patron’s checkouts tab.</p>
+<p><img alt="List of checkouts in a patron's record" src="_images/checkoutsummary.png" /></p>
+<p>To claim an item as returned,</p>
+<ul>
+<li><p>Click the ‘Claim returned’ button next to the checkout.</p></li>
+<li><p>In the pop-up, enter any notes about this claim.</p>
+<p><img alt="Claim returned pop-up modal asking to add notes and whether or not to charge lost fees" src="_images/claimreturnedmodal.png" /></p>
+</li>
+<li><p>If the <a class="reference internal" href="circulationpreferences.html#claimreturnedchargefee-label"><span class="std std-ref">ClaimReturnedChargeFee</span></a> system
+preference is set to ask whether or not the lost fee should be charged to the
+patron, there will be a checkbox to charge the fee.</p></li>
+<li><p>Click ‘Make claim’.</p></li>
+</ul>
+<p>The claimed returned item will stay in the patron’s checkouts, and its lost
+status will be updated. The claim will also appear in the
+<a class="reference internal" href="patrons.html#patron-return-claims-label"><span class="std std-ref">‘Claims’ tab</span></a>.</p>
+<section id="resolving-a-return-claim">
+<span id="resolve-return-claim-label"></span><h4>Resolving a return claim<a class="headerlink" href="#resolving-a-return-claim" title="此标题的永久链接"></a></h4>
+<p>To resolve a claim,</p>
+<ul>
+<li><p>Go to the patron’s record in the
+<a class="reference internal" href="patrons.html#patron-return-claims-label"><span class="std std-ref">‘Claims’ tab</span></a>.</p>
+<p><img alt="Patron's claims tab" src="_images/claims.png" /></p>
+</li>
+<li><p>Click ‘Actions’ next to the item and choose ‘Resolve’.</p></li>
+<li><p>In the pop-up, choose a resolution and new lost status.</p>
+<p><img alt="Pop-up to resolve a return claim" src="_images/resolveclaim.png" /></p>
+<ul>
+<li><p>Resolution: the resolution is the reason this claim is being closed.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The values are managed in the RETURN_CLAIM_RESOLUTION
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a>.</p>
+</div>
+</li>
+<li><p>New item lost value: this is the new lost status for this item.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The values are managed in the LOST
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a>.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Click ‘Resolve claim’.</p></li>
+</ul>
+<p>The resolved claim will stay in the patron’s record, unless they are purged
+by the <a class="reference internal" href="cron_jobs.html#cron-clean-up-database-label"><span class="std std-ref">cleanup_database.pl cron job</span></a>
+after the number of days specified in the
+<a class="reference internal" href="circulationpreferences.html#cleanupdatabasereturnclaims-label"><span class="std std-ref">CleanUpDatabaseReturnClaims</span></a> system
+preference.</p>
+</section>
+</section>
+</section>
+<section id="circulating-bundles">
+<span id="bundles-circulation-label"></span><h2>Circulating bundles<a class="headerlink" href="#circulating-bundles" title="此标题的永久链接"></a></h2>
+<p>This feature adds the ability to create bundles of items that can be
+checked out as a single entity. A bundle could for example be a box of
+related items from your library or a collection of musical scores
+which need to be circulated together.</p>
+<p>You create a collection level bibliographic record and add items to
+it in the usual way. Those items can then be converted to a bundle by
+adding existing item records to them using their barcodes. The items
+will remain attached to their original records and be marked as ‘not for
+loan’.</p>
+<section id="configuration">
+<span id="bundles-configuration-circulation-label"></span><h3>Configuration<a class="headerlink" href="#configuration" title="此标题的永久链接"></a></h3>
+<p>First you need to make some configuration choices.</p>
+<p>Item types - you may want to
+<a class="reference internal" href="administration.html#adding-item-types-label"><span class="std std-ref">create a separate item type</span></a> to identify
+your bundles.</p>
+<p>Circulation rules - you can optionally
+<a class="reference internal" href="administration.html#defining-circulation-rules-label"><span class="std std-ref">create circulation rules</span></a> for your
+bundle item type.</p>
+<p>There are two system preferences which control the status values used
+with bundles:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="circulationpreferences.html#bundlenotloanvalue-label"><span class="std std-ref">BundleNotLoanValue</span></a>.</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#bundlelostvalue-label"><span class="std std-ref">BundleLostValue</span></a>.</p></li>
+</ul>
+</section>
+<section id="creating-bundles">
+<h3>Creating bundles<a class="headerlink" href="#creating-bundles" title="此标题的永久链接"></a></h3>
+<p>The bundle functionality will only be displayed if you create a
+catalogue record with the Leader, (000 MARC tag) position 7 set to ‘c’
+for Collection.</p>
+<p><img alt="The leader cataloging form, the values are the default ones except for position 7 Bibliographic level, which is set to c - Collection" src="_images/leader.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>It might be useful to have a separate MARC bibliographic framework
+for bundles with the ‘c’ set as a default value if you will use bundles
+regularly. You can also add any custom fields to the template that might
+be unique to bundles such as size or weight.</p>
+</div>
+<p>Your catalogue record will contain information to identify the content
+of the bundle.</p>
+<p>For example, if the bundle is a box of resources for school children on
+the topic of oceans, the catalogue record might look something like the
+one shown below.</p>
+<p><img alt="Detailed view of a record in the staff interface, it is a simple record with two items, both items have a 'Manage bundle' button on the right" src="_images/bundlerecord.png" /></p>
+<p>Add an item record for each physical bundle. It is likely that you will
+want a specific item type for bundles so that you can identify them
+easily and create circulation rules for them. In this case the bundle
+has the item type COLLECTION.</p>
+<p>An item record attached to this type of catalogue record can be
+converted into a bundle via the Manage bundle button on the far
+right-hand side of the holdings table for each item as shown below.</p>
+<section id="adding-items-to-bundles">
+<span id="adding-items-to-bundles-label"></span><h4>Adding items to bundles<a class="headerlink" href="#adding-items-to-bundles" title="此标题的永久链接"></a></h4>
+<p>Click on Manage bundle and then the Add to bundle button to add items to
+the bundle using the barcode of the item.</p>
+<p><img alt="'Add to bundle' pop-up, with a field to enter a barcode" src="_images/addtobundle.png" /></p>
+<p>You will see a message telling you that the item has been added
+successfully.</p>
+<p><img alt="'Add to bundle' pop-up, with a field to enter a barcode; above the field there is a message 'Success: Added' followed by a barcode" src="_images/addedtobundle.png" /></p>
+<p>When you have finished scanning in items you can click on Close and view
+the bundle contents. The bundle contents list can be exported or printed
+if required.</p>
+<p><img alt="A section to manage the bundle is open under the bundle item, showing the attached items" src="_images/managebundle.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Items added to bundles are still attached to their permanent
+catalogue record, however, they cannot be checked out individually. When
+added to a bundle an item’s
+<a class="reference internal" href="cataloging.html#notforloan-status-label"><span class="std std-ref">Not for Loan status</span></a> is updated and can
+be viewed in the holdings table of the permanent record along with a link
+to the bundle. The Not for Loan status can be defined in the
+<a class="reference internal" href="circulationpreferences.html#bundlenotloanvalue-label"><span class="std std-ref">BundleNotLoanValue system preference</span></a>.</p>
+<p><img alt="Holdings tab in a detailed record in the staff interface, one of the items has the 'Added to bundle' not for loan status, the status column also shows which bundle this item is a part of with a link to the bundle" src="_images/bundleditemnotforloan.png" /></p>
+</div>
+<p>If an item is already found to be attached to the bundle, a warning
+message will be displayed.</p>
+<p><img alt="'Add to bundle' pop-up, with a field to enter a barcode; above the field there is a message 'Warning: item xxxx already attached'" src="_images/alreadyattached.png" /></p>
+<p>If an item has an item-level hold, a warning message will be displayed. To
+add the item to the bundle anyway, click ‘Ignore holds and add to bundle’. To
+cancel, click ‘Close’.</p>
+<p><img alt="'Add to bundle' pop-up, with a field to enter a barcode; above the field there is a message 'Warning: Item xxxxx is on hold' and a button to 'Ignore holds and add to bundle'" src="_images/itemonhold.png" /></p>
+<p>If an item cannot be added to the bundle for any other reason a failure
+message will display.</p>
+<p><img alt="'Add to bundle' pop-up, with a field to enter a barcode; above the field there is a message 'Failure: item xxxx belongs to another bundle'" src="_images/belongstootherbundle.png" /></p>
+</section>
+<section id="removing-items-from-bundles">
+<h4>Removing items from bundles<a class="headerlink" href="#removing-items-from-bundles" title="此标题的永久链接"></a></h4>
+<p>To remove an individual item from a bundle you can click on the Remove
+button from the Actions column of the bundle contents list.</p>
+<p>To remove multiple items from the bundle you have two options:</p>
+<p>Use the ‘Remove from bundle’ button from within the Manage bundle
+display</p>
+<p><img alt="A section to manage the bundle is open under the bundle item, there are two buttons: 'Add to bundle' and 'Remove from bundle'" src="_images/removefrombundlebutton.png" /></p>
+<p>Scan in barcodes in the same way as you add items to bundles. You will
+see a confirmation dialogue to let you know the item has been removed.</p>
+<p><img alt="'Remove from bundle' pop-up, with a field to enter a barcode; above the field there is a message 'Success: Removed' followed by a barcode" src="_images/removedfrombundle.png" /></p>
+<p>If the item couldn’t be removed you will see a Failure message.</p>
+<p><img alt="'Remove from bundle' pop-up, with a field to enter a barcode; above the field there is a message 'Failed: Barcode matched more than one item' followed by a barcode" src="_images/barcodematchedmultiple.png" /></p>
+<p>The second way to remove multiple items is to scan the barcode of the
+item into the checkin box and you will be given the option to remove the
+item from its bundle.</p>
+<p><img alt="Warning when checking in an item that says 'Item belongs in bundle This item belongs in a bundle' followed by the title and barcode of the bundle and a button 'Remove from bundle'" src="_images/checkinbundleditem.png" /></p>
+<p>When you have finished working with a bundle you can close the contents
+list by clicking on the Manage bundle button again.</p>
+</section>
+</section>
+<section id="id1">
+<h3>Circulating bundles<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h3>
+<section id="checkout">
+<h4>Checkout<a class="headerlink" href="#checkout" title="此标题的永久链接"></a></h4>
+<p>You can checkout a bundle in the usual way from Circulation using the
+barcode of the bundle. If required you can create specific circulation
+rules for bundles based on their item type.</p>
+<p>Remember, once an item is within a bundle it cannot be checked out
+individually. If you try to do this the following alert will be
+displayed.</p>
+<p><img alt="Warning message that says 'Please confirm checkout Item is normally not for loan (Added to bundle). Check out anyway?' with two buttons: Yes, checkout (Y) and No, don't check out (N)" src="_images/confirmcheckout.png" /></p>
+<p>You can see the checkout from the patron’s list of checkouts.</p>
+<p><img alt="Checkouts tab in a patron file in the staff interface, the checked out bundle appears as a normal checkout" src="_images/checkedoutbundle.png" /></p>
+<p>You can also see that the bundle is checked out from the status column
+of the Holdings table of the catalogue record.from the catalogue record
+display.</p>
+<p><img alt="Holdings tab in a detailed record in the staff interface, the item is marked as checked out, with the name of the patron, their cardnumber and the due date" src="_images/checkedoutbundle-record.png" /></p>
+</section>
+<section id="checkin">
+<h4>Checkin<a class="headerlink" href="#checkin" title="此标题的永久链接"></a></h4>
+<p>Check in bundles in the usual way from Circulation. You will then be
+prompted to verify the presence of each item that belongs in the bundle.</p>
+<p>If you need to skip the verification process, click the ‘Confirm checkin without
+verifying bundle contents’ button. You will be able to
+<a class="reference internal" href="#bundle-invetory-label"><span class="std std-ref">verify the contents later</span></a>.</p>
+<p>A list of the items currently attached to the bundle, and expected to be
+returned, will display at the top of the dialogue. Beneath the list will
+be a ‘Barcodes’ box where you are expected to scan the barcodes of the
+returned items one by one.</p>
+<p><img alt="Please confirm bundle contents for xxxx pop-up, the pop-up shows the list of items that should be in the bundle, showing the title, author, item type and barcode, with a field in which to scan the bundled items' barcodes. One barcode has already been scanned, and there is a message 'Verified' followed by the barcode, visually, the scanned item is in a different color in the list above" src="_images/confirmbundlecontent.png" /></p>
+<p>As you scan items, the matching row in the list will be highlighted to
+give some visual feedback. You also see a running total of items that
+have been checked in on the right hand side.</p>
+<p>When you have finished scanning the returned items you can click on
+‘Confirm checkin and mark missing items as lost’ or you can cancel the
+checkin.</p>
+<p>If all the bundle items were marked as found you will be presented with
+a message to say the checkin is complete.</p>
+<p><img alt="'Bundle verified' checkin message with a button to view the bundle contents" src="_images/bundleverified.png" /></p>
+<p>You can view and print a contents list.</p>
+<p><img alt="'Bundle contents' pop-up showing the barcode and title of each bundled item; there are two buttons: Close and Print" src="_images/bundlecontents.png" /></p>
+</section>
+<section id="missing-items">
+<h4>Missing items<a class="headerlink" href="#missing-items" title="此标题的永久链接"></a></h4>
+<p>If some items were found to be missing during the verification stage the
+check in will proceed but you will be alerted to the fact that the
+bundle content has changed and you will be given the option to view and
+print an updated contents list.</p>
+<p><img alt="Warning message 'Bundle had missing items Bundle contents list updated', there are two buttons 'View updated contents list' and 'View list of missing items'" src="_images/missingitems.png" /></p>
+<p>You can also view a list of the missing items.</p>
+<p><img alt="Items missing from bundle at checkin pop-up, showing the barcode and title of each missing item; there are two buttons: Close and Print" src="_images/itemsmissingfrombundle.png" /></p>
+<p>Any items that were missing during the verification stage will
+automatically be marked with an appropriate Lost status and a return
+claim added to track which checkout lost the contained item. You can add
+your own Lost statuses as <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized values</span></a> and
+can control which lost status is used via the
+<a class="reference internal" href="circulationpreferences.html#bundlelostvalue-label"><span class="std std-ref">BundleLostValue system preference</span></a>. For example a
+‘Missing from bundle’ status as shown below.</p>
+<p><img alt="Holdings tab in a detailed record in the staff interface, one of the items has the 'Missing from bundle' lost status, the status column also shows which bundle this item is a part of with a link to the bundle" src="_images/missingfrombundlestatus.png" /></p>
+<p>In the Manage bundle contents view, the missing item displays with the
+date last seen.</p>
+<p><img alt="A section to manage the bundle is open under the bundle item, showing the attached items, a column status indicates 'Present' for all items except two, which have 'Last seen' with a date and 'Claims returned by' with the name of the last borrower" src="_images/bundleditemlastseen.png" /></p>
+</section>
+<section id="claims-returned-process">
+<h4>Claims returned process<a class="headerlink" href="#claims-returned-process" title="此标题的永久链接"></a></h4>
+<p>Within the patron record the missing items are listed as claims returned
+and can be viewed from the Claim(s) tab in the Checkouts table.</p>
+<p><img alt="Tabs at the bottom of a patron's file in the staff interface: 0 Checkouts, 0 Holds, Claims 0 / 1, Restrictions" src="_images/patrontabs.png" /></p>
+<p>Click on the numbered square to view the missing items for the patron.</p>
+<p>If an item is found it should be checked in. The checkin dialogue box
+will include a button to ‘Resolve’ the claim.</p>
+<p><img alt="Warning message 'This item has been claimed as returned by' followed by the name and cardnumber of the patron and a button 'Resolve'" src="_images/claimedreturned.png" /></p>
+<p>You are required to add a resolution reason and can optionally change
+the lost value of the item.</p>
+<p><img alt="'Resolve return claim' pop-up with one field for the resolution and the new item lost value" src="_images/resolvereturnclaim.png" /></p>
+</section>
+</section>
+<section id="inventory-checking-bundle-contents-at-any-time">
+<span id="bundle-invetory-label"></span><h3>Inventory (checking bundle contents at any time)<a class="headerlink" href="#inventory-checking-bundle-contents-at-any-time" title="此标题的永久链接"></a></h3>
+<p>A verification can be triggered at any time by checking the bundle in.
+If the system detects that the bundle was not checked out at this point,
+a modified confirmation dialogue is displayed which will include all
+items expected to be present in the bundle, even those currently marked
+as lost.</p>
+<p><img alt="Please confirm bundle contents for xxxx pop-up, the pop-up shows the list of items that should be in the bundle, showing the title, author, item type, barcode and status, with a field in which to scan the bundled items' barcodes. One item has the status 'Missing from bundle', the other items have the 'Present' status" src="_images/confirmbundlecontent-2.png" /></p>
+<p>This allows for a quick view of what should be in the bundle and what’s
+currently marked as missing. You can optionally cancel the checkin or
+choose to rescan the items to perform the verification, marking items as
+found or subsequently missing. As this is a checkin that is not
+associated with a checkout, if new items are found to be missing, we
+will mark them as lost but cannot associate them with a checkout and
+returns claim.</p>
+</section>
+</section>
+<section id="holds">
+<span id="holds-circulation-label"></span><h2>預約<a class="headerlink" href="#holds" title="此标题的永久链接"></a></h2>
+<p>Koha allows patrons to put things on hold. A ‘Hold’ is a way to reserve
+an item. Depending on your <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines
+rules</span></a> and
+<a class="reference internal" href="circulationpreferences.html#holds-policy-label"><span class="std std-ref">hold system preference</span></a> settings, patrons will be
+able to place items on hold for pickup at the library at a later date and time.</p>
+<section id="placing-holds-in-the-staff-interface">
+<span id="placing-holds-in-staff-client-label"></span><h3>Placing holds in the staff interface<a class="headerlink" href="#placing-holds-in-the-staff-interface" title="此标题的永久链接"></a></h3>
+<p>There are several ways to place holds from the staff interface. The most
+obvious is using the ‘Place hold’ button at the top of any bibliographic
+record.</p>
+<p><img alt="Detailed record in the staff interface" src="_images/recorddetail.png" /></p>
+<p>可點選目錄搜尋結上方較小字的 ‘預約’ 連結，或每個結果旁的 ‘預約’ 連結。</p>
+<p><img alt="A single search result in the staff interface" src="_images/searchresultsingle.png" /></p>
+<p>To place holds on multiple titles at the same time, check the boxes next to the
+titles in the search results, and click the ‘Place hold’ button at the top of
+the search results.</p>
+<p>以讀者的條碼或名稱的任何部份搜尋讀者，進入預約程序。</p>
+<p><img alt="Patron search when placing a hold" src="_images/placeholdfindpatron.png" /></p>
+<p>If you’d like to search for the patron first and then the bibliographic record
+for the hold, you can open the patron record and click on the ‘Search to Hold’
+button at the top of the patron record.</p>
+<p><img alt="Row of action buttons at the top of the patron's detail page: Edit, Add guarantee, Change password, Duplicate, Print, Search to hold, Add message, Schedule pickup, and More" src="_images/patronedit.png" /></p>
+<p>After clicking the button you will be brought to the catalog search page
+where you can find the title or titles you need to place a hold on. Under each
+title on the results you’ll see an option to ‘Place hold for (patron name).’</p>
+<p><img alt="Single search result in the staff interface, among the options at the bottom, there is Holds and Place hold for Eva Dillon" src="_images/placeholdfor.png" /></p>
+<p>If you want to place a hold on multiple titles for this patron, check the boxes
+to the left of the titles, click the arrow to the right of the ‘Place Hold’
+button and choose ‘Place hold for (patron name)’.</p>
+<p><img alt="The arrow button next to the 'Place hold' at the top of the search results in the staff interface is pressed and the options are: Place hold, Place hold for Eva Dillon, and Forget Eva Dillon" src="_images/placeholdoptions.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Once the holds are placed, you can choose to have Koha ‘forget’
+the patron’s name by clicking the arrow to the right of the ‘Place hold’
+button on the search results and choosing the ‘Forget (patron name)’ option.</p>
+</div>
+<p>依照同時選定的預約館藏數，您可以看見不同的預約表單。若在一個書目紀錄內預約，可看到所有預約的館藏。</p>
+<p><img alt="Form for placing a hold on a single bibliographic record" src="_images/placeholdsingle.png" /></p>
+<ul>
+<li><p>Patron: the patron’s name for whom this hold is</p></li>
+<li><p>Estimated priority: this takes into account holds that are already placed on
+this title</p></li>
+<li><p>Note: enter any notes that might apply to this hold</p></li>
+<li><p>Pickup at: choose the library where the patron will pick up the item</p></li>
+<li><p>Request specific item type: if the
+<a class="reference internal" href="circulationpreferences.html#allowholditemtypeselection-label"><span class="std std-ref">AllowHoldItemTypeSelection</span></a>
+system preference is set to ‘Allow’ there will be an option to choose to
+limit the hold to a specific item type</p></li>
+<li><p>Hold starts on date: if the
+<a class="reference internal" href="circulationpreferences.html#allowholddateinfuture-label"><span class="std std-ref">AllowHoldDateInFuture</span></a> system preference
+is set to ‘Allow’, and the patron wants the hold to start on a date other
+than today, enter the date here</p></li>
+<li><p>Hold expires on: if the patron has specified that they don’t want the item
+after a certain date, or if you have limits on hold lengths, you can enter an
+expiration date for the hold in the ‘Hold expires on date’</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>To cancel expired holds automatically you need to have the
+<a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">expired holds</span></a> cron job set to run on a
+regular basis.</p>
+</div>
+</li>
+<li><p>Hold next available item: check if the hold should be on the next available
+item, if not, choose an item group in the ‘Hold next available item from an
+item group’ section or a specific item in the ‘Place hold on a specific item’
+section below</p></li>
+<li><p>Holds to place (count): If ‘Hold next available item’ is checked and multiple
+holds per record are allowed, you can enter a number in the ‘Holds to place
+(count)’ text box to place that number of holds for the selected patron.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The ‘Holds to place (count)’ text box will only appear if the
+<a class="reference internal" href="administration.html#defining-circulation-rules-label"><span class="std std-ref">Circulation and Fines</span></a> rules are
+set to allow a ‘Holds per record’ limit that is greater than 1, but not
+Unlimited, for this combination of item type and patron category.</p>
+</div>
+</li>
+<li><p>Non-priority hold: if you are placing a hold for internal purposes, such as
+checking for missing pages or needing to add a label, check the ‘Non-priority
+hold’ box. This type of hold will not prevent the patron who currently has
+the item to renew their checkout.</p></li>
+<li><p>Hold next available item from an item group: if the
+<a class="reference internal" href="circulationpreferences.html#enableitemgroupholds-label"><span class="std std-ref">EnableItemGroupHolds</span></a> system preference
+is set to ‘Enable’ and the record has <a class="reference internal" href="cataloging.html#item-groups-label"><span class="std std-ref">item groups</span></a>,
+you can choose to place a hold on the next available item of a group, rather
+than the next available item on the whole record or a specific item.</p></li>
+<li><p>Place hold on a specific item: if the hold should be on a specific item
+rather than the next available item of the record or the group, select the
+item that should be placed on hold</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The default pickup library for item-level holds is determined by the
+<a class="reference internal" href="circulationpreferences.html#defaultholdpickuplocation-label"><span class="std std-ref">DefaultHoldPickupLocation</span></a>
+system preference.</p>
+</div>
+</li>
+</ul>
+<p>If you’re placing holds on multiple records you will be presented with
+the next available option for all titles. If no items are available for
+hold it will say so on the confirmation screen.</p>
+<p><img alt="Form for placing holds on multiple bibliographic records" src="_images/placeholdmultiple.png" /></p>
+<p>If your library uses the <a class="reference internal" href="tools.html#patron-clubs-label"><span class="std std-ref">patron clubs feature</span></a>, use
+the clubs tab to place a hold for a club.</p>
+<p>To place a hold for a club, click the clubs tab, search for and select the club
+name, and click the ‘Place hold’ button.</p>
+<p><img alt="Club search box when placing a hold for a patron club" src="_images/placeclubhold.png" /></p>
+</section>
+<section id="managing-holds">
+<span id="managing-holds-label"></span><h3>管理預約<a class="headerlink" href="#managing-holds" title="此标题的永久链接"></a></h3>
+<p>從書目紀錄左方的預約鈕，可改變或取消預約。</p>
+<p><img alt="'Holds' tab of a bibliographic record" src="_images/holdtab.png" /></p>
+<p>From the list of holds you can change the order of the holds, the pickup
+location, <a class="reference internal" href="#suspend-holds-label"><span class="std std-ref">suspend</span></a>, or <a class="reference internal" href="#cancel-holds-label"><span class="std std-ref">cancel</span></a>
+the hold.</p>
+<p><img alt="List of existing holds on a record" src="_images/holdslist.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="circulationpreferences.html#holdssplitqueue-label"><span class="std std-ref">HoldsSplitQueue</span></a> system preference is
+set, you will see the holds list split across different tables by either
+pickup library, item type or both.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="circulationpreferences.html#allowholddateinfuture-label"><span class="std std-ref">AllowHoldDateInFuture</span></a> system
+preference is set to “Don’t allow”, you will not have the option to edit the
+date the hold was placed (the column labelled Date).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Depending on how the <a class="reference internal" href="staffclientpreferences.html#hidepatronname-label"><span class="std std-ref">HidePatronName</span></a> system
+preference is set, the list may show card numbers instead of names in the
+patron column like in the image above.</p>
+</div>
+<section id="changing-the-order-of-the-holds">
+<span id="changing-holds-order-label"></span><h4>Changing the order of the holds<a class="headerlink" href="#changing-the-order-of-the-holds" title="此标题的永久链接"></a></h4>
+<p>To rearrange holds, make a selection from the ‘Priority’ drop-down or click the
+arrows to the right of the priority pull down.</p>
+<p><img alt="In the table of existing holds on a record, the Priority drop-down is open" src="_images/holdpriority.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Clicking the double down arrow to the right of the hold will stick the hold
+at the bottom of the list even if more requests are made.</p>
+<p>For example, if your library has home-bound patrons that are allowed to keep
+items out for months at a time, it would not be fair to other patrons if a
+home-bound patron were able to check out a brand new book and keep it for
+months. For this reason, the home-bound patron’s hold request would stay at
+the bottom of the queue until everyone else who wanted to read that book has
+already done so.</p>
+<p>In the list of existing holds, lowest priority holds are indicated by the
+double down arrow with a line underneath.</p>
+<p><img alt="In the list of existing holds on a record, the last hold in the list has the lowest priority activated." src="_images/lowestpriority.png" /></p>
+<p>Clicking the double arrow again will put the hold back in regular priority,
+in last place.</p>
+</div>
+</section>
+<section id="suspending-holds">
+<span id="suspend-holds-label"></span><h4>Suspending holds<a class="headerlink" href="#suspending-holds" title="此标题的永久链接"></a></h4>
+<p>If a patron asks to have their hold suspended and the
+<a class="reference internal" href="circulationpreferences.html#suspendholdsintranet-label"><span class="std std-ref">SuspendHoldsIntranet</span></a> system preference is
+set to ‘Allow’, you can do so by clicking the ‘Suspend’ button at the far right.</p>
+<p>If the patron gives you a date for the holds to resume, you can
+enter that in the date box and click the ‘Update hold(s)’ button to save
+your changes.</p>
+<p><img alt="List of existing holds on a record, the first hold is suspended until 03/14/2023" src="_images/suspendholds.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds-label"><span class="std std-ref">AutoResumeSuspendedHolds</span></a>
+system preference is set to “Don’t allow” there will not be the option to put
+an end date on the hold suspension.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The <a class="reference internal" href="cron_jobs.html#cron-unsuspend-holds-label"><span class="std std-ref">auto_unsuspend_holds.pl cron job</span></a> is
+required to automatically resume suspended holds.</p>
+</div>
+<p>You can also unsuspend holds manually by clicking the ‘Unsusped’ button.</p>
+<p>If the <a class="reference internal" href="circulationpreferences.html#suspendholdsopac-label"><span class="std std-ref">SuspendHoldsOpac</span></a> system preference is set
+to ‘Allow’, patrons will be able to suspend and unsuspend their own holds from
+<a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">their online account</span></a>.</p>
+</section>
+<section id="deleting-holds">
+<span id="cancel-holds-label"></span><h4>Deleting holds<a class="headerlink" href="#deleting-holds" title="此标题的永久链接"></a></h4>
+<p>To delete or cancel a hold, click the red trash can to the right of the hold
+line.</p>
+<p>To delete/cancel a bunch of holds you can choose ‘del’ from the drop-down menu
+on the left of each line and then click ‘Update hold(s)’ at the
+bottom of the list.</p>
+<p><img alt="The list of existing holds on a record, the Priority drop-down is open and the mouse cursor is on the 'del' option." src="_images/cancelholds.png" /></p>
+<p>Alternatively, you can select the holds to be cancelled and click the ‘Cancel
+selected’ button.</p>
+</section>
+</section>
+<section id="receiving-holds">
+<span id="receiving-holds-label"></span><h3>收到預約<a class="headerlink" href="#receiving-holds" title="此标题的永久链接"></a></h3>
+<p>當被預約的館藏 <a class="reference internal" href="#check-in-returning-label"><span class="std std-ref">還入</span></a> 或 <a class="reference internal" href="#check-out-issuing-label"><span class="std std-ref">借出</span></a> 系統會提醒向流通館員告知該館藏被預約，並為他們提供管理預約的選項。</p>
+<p>還入被預約的館藏時，系統會要求館員確認該預約或轉移館藏</p>
+<p><img alt="Hold found pop up message indicating the item should be transferred to Centerville, the pickup library. The options are 'Confirm hold and transfer', 'Print slip, transfer, and confirm' or 'Ignore'" src="_images/holdconfirmtransfer.png" /></p>
+<p>或僅確認預約</p>
+<p><img alt="Hold found pop up message. The options are 'Confirm hold', 'Print slip and confirm' or 'Ignore'" src="_images/holdconfirm.png" /></p>
+<p>如果需要轉移館藏，點擊“確認並轉移”或“列印清單、轉移和確認”會將標記的館藏轉移到適當的圖書館。</p>
+<p>如果館藏已經在預約取書的圖書館，點擊“確認”或“列印清單並確認”按鈕會將館藏標記為可供讀者取書。</p>
+<p>點擊“忽略”將保留預約，但允許將館藏借給另一位讀者或更改館藏的狀態（例如，如果館藏被損壞退回）。</p>
+<p>“列印清單並確認”或“列印清單、轉移並確認”選項將打開一個可列印頁面，您可以將其附加到包含必要的預約或轉移資訊的館藏上。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The slip that is printed is the HOLD_SLIP notice. It can be modified with
+the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>When the hold is confirmed, if
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">the patron is notified</span></a>, the
+‘hold filled’ notice will be sent to them.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notice that is sent is the HOLD notice. It can be modified with the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="circulationpreferences.html#holdsautofill-label"><span class="std std-ref">HoldsAutoFill</span></a> system preference is enabled, the circulation
+staff will not have to confirm the hold, but they will have the option to
+print the hold or transfer slip.</p>
+<p><img alt="Hold found and confirmed message. The only option is to print the slip" src="_images/HoldsAutoFill.png" /></p>
+<p>If the <a class="reference internal" href="circulationpreferences.html#holdsautofillprintslip-label"><span class="std std-ref">HoldsAutoFillPrintSlip</span></a> system preference is enabled, the print
+window to print the hold or transfer slip will open automatically.</p>
+</div>
+<p>一旦確認後，預約將在讀者記錄和借出螢幕上的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’預約’選項&lt;holds-summary-label&gt;`下顯示為“等待”。</p>
+<p><img alt="Table of patron's current holds" src="_images/holdssummary.png" /></p>
+<p>此館藏紀錄將顯示該館藏已被預約。</p>
+<p><img alt="Holdings table in a bibliographic record in the staff interface, the item's status indicates that it is Waiting at Centerville since 07/28/2022. Hold for Mary Burton." src="_images/holditem.png" /></p>
+<p>在某些情況下，讀者可能會代表其他人進來取書。在這種情況下，請確保在您將館藏借給其他人時取消預約。或者，對於已經在等待其他人的館藏，可能會錯誤地嘗試借出。在這種情況下，您將看到一條警告訊息。</p>
+<p><img alt="Warning message when attempting to checkout an item that is currently on hold and awaiting pickup to another patron. There are two options: Cancel hold and Revert waiting status. And three buttons: Yes, checkout, Don't checkout and print slip, or No, don't checkout." src="_images/holdwaitingwarn.png" /></p>
+<ul class="simple">
+<li><p>取消預約：與“是的，借出”結合使用，此選項將取消當前預約並將館藏借出給新讀者。</p></li>
+<li><p>恢復等待狀態：與“是，借出”結合使用，此選項將恢復預約狀態（放置預約的讀者將回到列中的第一位）並將館藏借出給讀者。</p></li>
+<li><p>是的，借出：此選項會將館藏借出給當前讀者。</p></li>
+<li><p>不要借出並列印清單：此選項將打開列印窗口以列印預約單，借出將被取消，預約將被保留。</p></li>
+<li><p>不，不借出：此選項將取消借出，預約將保留。</p></li>
+</ul>
+<p>如果您嘗試  <a class="reference internal" href="#check-in-returning-label"><span class="std std-ref">還入</span></a> 一個已經在等待被取走的館藏，一個彈出窗口表示找到了預約且該館藏已經在等待出現。</p>
+<p><img alt="Hold found item is already waiting checkin message" src="_images/holdwaitingcheckinwarn.png" /></p>
+<ul class="simple">
+<li><p>確認預約：此選項將保留現有的預約。</p></li>
+<li><p>列印清單並確認：此選項將打開列印窗口以列印預約單並保留現有預約單。</p></li>
+<li><p>取消預約：此選項將取消預約。</p>
+<ul>
+<li><p>如果您取消預約並且該館藏存在進一步預約，您將看到一個新選項以確認下一位讀者的預約。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="curbside-pickups">
+<span id="curbside-pickups-label"></span><h2>Curbside pickups<a class="headerlink" href="#curbside-pickups" title="此标题的永久链接"></a></h2>
+<p>Koha has an integrated curbside pickup module that can be used to schedule
+hold pickups by patrons.</p>
+<ul class="simple">
+<li><p><em>Get there</em>: Circulation &gt; Curbside pickups</p></li>
+</ul>
+<p>See the <a class="reference internal" href="administration.html#curbside-pickup-configuration-label"><span class="std std-ref">curbside pickup configuration</span></a>
+section to learn how to set up curbside pickup.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Staff needs the manage_curbside_pickups permission (under circulate) in
+order to schedule and manage pickups.</p>
+</div>
+<section id="scheduling-a-pickup">
+<span id="curbsidepickup-schedule-label"></span><h3>Scheduling a pickup<a class="headerlink" href="#scheduling-a-pickup" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>Get there</em>: Circulation &gt; Curbside pickups &gt; Schedule pickup</p></li>
+</ul>
+<p>To schedule a pickup,</p>
+<ul>
+<li><p>Click the ‘Schedule pickup’ tab</p>
+<p><img alt="Curbside pickup management page, the Schedule pickup tab is selected and it contains a patron search box" src="_images/schedule-pickup.png" /></p>
+</li>
+<li><p>Search for the patron for whom to schedule a pickup, with either their name
+or their card number</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If ‘Enable for waiting holds only’ is set in the
+<a class="reference internal" href="administration.html#curbside-pickup-configuration-label"><span class="std std-ref">curbside pickup configuration</span></a>
+for your library, and the patron has no waiting holds, there will be an
+error message.</p>
+<p><img alt="Curbside pickup management page, the Schedule pickup tab is selected, there is an error message that says 'The patron does not have waitings holds'." src="_images/no-waiting-holds.png" /></p>
+</div>
+</li>
+<li><p>Enter a date for the pickup</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Only dates with available time slots will be displayed.</p>
+</div>
+</li>
+<li><p>The possible pickup times will be displayed, depending on the day of the week</p>
+<p><img alt="Curbside pickup management page, the Schedule pickup tab is selected, a patron and a date have been entered, all the possible time slots are displayed, in 10-minute intervals, most have (0) underneath the time, some have (1) or (2), one has (3) and is displayed in red" src="_images/pickup-slots.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The number in parentheses under each time slot is the number of patrons
+who are currently scheduled for a pickup at that time. If the maximum
+number of appointments has been reached, based on the ‘Maximum patrons
+per interval’ setting in the
+<a class="reference internal" href="administration.html#curbside-pickup-configuration-label"><span class="std std-ref">curbside pickup configuration</span></a>,
+the time slot will be displayed in red and you will not be able to select
+it.</p>
+</div>
+</li>
+<li><p>If needed, you can add a note concerning this pickup</p></li>
+<li><p>勾選 ‘送出’</p></li>
+</ul>
+<p>Alternatively, you can schedule a pickup from the patron’s account.</p>
+<ul>
+<li><p>Click ‘Schedule pickup’ at the top of the patron’s detail page</p>
+<p><img alt="Row of action buttons at the top of the patron's detail page: Edit, Add guarantee, Change password, Duplicate, Print, Search to hold, Add message, Schedule pickup, and More" src="_images/patronedit.png" /></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the patron has chosen to receive the ‘Hold filled’ notice by email, they
+will also get a notification when a curbside pickup is scheduled.</p>
+<p>You can customize the notice by editing the NEW_CURBSIDE_PICKUP template in
+the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="preparing-for-curbside-pickups">
+<span id="curbsidepickup-preparation-label"></span><h3>Preparing for curbside pickups<a class="headerlink" href="#preparing-for-curbside-pickups" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>Get there</em>: Circulation &gt; Curbside pickups &gt; To be staged</p></li>
+</ul>
+<p>The ‘To be staged’ tab contains all the curbside pickups still waiting to be
+prepared.</p>
+<p><img alt="Curbside pickup management page, the To be staged tab is selected, there are several scheduled pickups to prepare" src="_images/tobestaged.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the patron has overdues or restrictions, it will be shown here, under
+their name.</p>
+</div>
+<p>Once the items are prepared and ready to be picked up, click ‘Mark as staged &amp;
+ready’. This will transfer the scheduled pickup appointment in the ‘Staged &amp;
+ready’ tab.</p>
+<p><img alt="Curbside pickup management page, the Staged &amp; ready tab is selected, there are several scheduled pickups already prepared and waiting for pickup" src="_images/stagedready.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>There is no need to checkout the item or items to the patron at this point.
+When <a class="reference internal" href="#curbsidepickup-delivery-label"><span class="std std-ref">delivering curbside pickups</span></a>, the
+module will automatically check the items out.</p>
+</div>
+<p>You have the option to refresh the list manually by clicking the ‘Refresh’
+button. You can also set up your session to refresh every X seconds. Check the
+box next to ‘Refresh automatically every X seconds’ and enter the number of
+seconds.</p>
+</section>
+<section id="delivering-curbside-pickups">
+<span id="curbsidepickup-delivery-label"></span><h3>Delivering curbside pickups<a class="headerlink" href="#delivering-curbside-pickups" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>Get there</em>: Circulation &gt; Curbside pickups &gt; Patron is outside</p></li>
+</ul>
+<p>From the OPAC, the patron can alert that they are outside. Staff can also
+indicate that the patron has arrived by clicking on the ‘Patron has arrived’
+button from the ‘Staged &amp; ready’ tab.</p>
+<p>At the designated time, meet the patron to give them their items. Then, click
+‘Mark as delivered’. This will check out the item or items to the patron and
+transfer the curbside pickup appointment to the ‘Delivered today’ tab.</p>
+</section>
+<section id="cancelling-curbside-pickups">
+<span id="curbsidepickup-cancel-label"></span><h3>Cancelling curbside pickups<a class="headerlink" href="#cancelling-curbside-pickups" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>Get there</em>: Circulation &gt; Curbside pickups &gt; To be staged</p></li>
+</ul>
+<p>If, for any reason, you need to cancel a curbside pickup appointment, click
+the ‘Cancel’ button from the ‘To be staged’ tab.</p>
+<p><img alt="Curbside pickup management page, the To be staged tab is selected, there are several scheduled pickups to prepare" src="_images/tobestaged.png" /></p>
+<p>If the appointment has already progressed beyond the ‘To be staged’ status,
+click ‘Mark as To be staged’ to bring it back there in order to cancel it.</p>
+</section>
+</section>
+<section id="recalls">
+<span id="recalls-label"></span><h2>催還<a class="headerlink" href="#recalls" title="此标题的永久链接"></a></h2>
+<p>催還功能允許使用者催還當前借出的館藏。一旦確認催還，當前借出館藏的借書者將收到通知，告知他們的到期日已調整，他們需要歸還館藏。一旦催還的館藏被退回，催還請求者將收到通知，他們的館藏正在他們指定的取書地點等待取件。</p>
+<p>請參閱 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>請求催還&lt;request-recalls-opac-label&gt;`部分，了解如何在 OPAC 中進行催還。</p>
+<section id="setting-up-recalls-in-koha">
+<span id="recalls-setup-label"></span><h3>在 Koha 中設定催還<a class="headerlink" href="#setting-up-recalls-in-koha" title="此标题的永久链接"></a></h3>
+<p>使用此功能：</p>
+<ul class="simple">
+<li><p>Enable the <a class="reference internal" href="circulationpreferences.html#userecalls-label"><span class="std std-ref">UseRecalls</span></a> system preference</p></li>
+<li><p>Set the <a class="reference internal" href="circulationpreferences.html#recallsmaxpickupdelay-label"><span class="std std-ref">RecallsMaxPickUpDelay</span></a> system preference</p></li>
+<li><p>Optionally, enable the <a class="reference internal" href="logspreferences.html#recallslog-label"><span class="std std-ref">RecallsLog</span></a> system preference</p></li>
+<li><p>修改相關的以下部分 <a class="reference internal" href="administration.html#defining-circulation-rules-label"><span class="std std-ref">流通規則</span></a></p>
+<ul>
+<li><p>允許催還（計數）</p></li>
+<li><p>每筆催還記錄（次數）</p></li>
+<li><p>允許催還架上館藏</p></li>
+<li><p>催還到期日間隔（天）</p></li>
+<li><p>催還逾期罰款金額</p></li>
+<li><p>催還提取期間</p></li>
+</ul>
+</li>
+<li><p>確保所有負責管理催還的館員都擁有特級圖書管理員或 manage_recalls <a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">權限</span></a></p></li>
+<li><p>安排 <a class="reference internal" href="cron_jobs.html#cron-recalls-label"><span class="std std-ref">催還工作排程</span></a></p></li>
+<li><p>查看 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>催還通知和清單&lt;existing-notices-and-slips-label&gt;`以確保它們具有所需的所有資訊</p></li>
+</ul>
+</section>
+<section id="managing-recalls">
+<span id="recalls-manage-label"></span><h3>管理催還<a class="headerlink" href="#managing-recalls" title="此标题的永久链接"></a></h3>
+<p>催還的特點是相對自動化。館員無需進行大量操作即可管理催還。</p>
+<section id="recall-statuses">
+<span id="recall-statuses-label"></span><h4>催還狀態<a class="headerlink" href="#recall-statuses" title="此标题的永久链接"></a></h4>
+<p>催還的可能狀態如下：</p>
+<ul class="simple">
+<li><p>要求</p>
+<ul>
+<li><p>已提出新的催還要求，該館藏必須由當前擁有該館藏的讀者歸還</p></li>
+<li><p>要求催還出現在</p>
+<ul>
+<li><p>the <a class="reference internal" href="#recalls-queue-label"><span class="std std-ref">recalls queue</span></a></p></li>
+<li><p>the <a class="reference internal" href="#recalls-to-pull-label"><span class="std std-ref">recalls to pull list</span></a>, if an
+available item can fulfill the recall</p></li>
+<li><p>書目記錄的“催還”選項</p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recalls-label"><span class="std std-ref">‘Recalls’ tab of the patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recall-history-label"><span class="std std-ref">‘Recalls history’ tab of a patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-recalls-history-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>等待</p>
+<ul>
+<li><p>催還的館藏正在請求者選擇的分館等待取得</p></li>
+<li><p>等待催還出現在</p>
+<ul>
+<li><p>the <a class="reference internal" href="#recalls-awaiting-pickup-label"><span class="std std-ref">recalls awaiting pickup list</span></a></p></li>
+<li><p>the <a class="reference internal" href="#recalls-queue-label"><span class="std std-ref">recalls queue</span></a></p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recalls-label"><span class="std std-ref">‘Recalls’ tab of the patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recall-history-label"><span class="std std-ref">‘Recalls history’ tab of a patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-recalls-history-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>轉移中</p>
+<ul>
+<li><p>一件館藏已指定為催還並正在運送到請求者選擇的取件分館</p></li>
+<li><p>在途催還出現在</p>
+<ul>
+<li><p>the <a class="reference internal" href="#recalls-queue-label"><span class="std std-ref">recalls queue</span></a></p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recalls-label"><span class="std std-ref">‘Recalls’ tab of the patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recall-history-label"><span class="std std-ref">‘Recalls history’ tab of a patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-recalls-history-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>逾期</p>
+<ul>
+<li><p>被催還的逾期館藏由目前擁有它的讀者歸還</p></li>
+<li><p>逾期催還出現</p>
+<ul>
+<li><p>the <a class="reference internal" href="#recalls-overdue-label"><span class="std std-ref">overdue recalls list</span></a></p></li>
+<li><p>the <a class="reference internal" href="#recalls-queue-label"><span class="std std-ref">recalls queue</span></a></p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recalls-label"><span class="std std-ref">‘Recalls’ tab of the patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recall-history-label"><span class="std std-ref">‘Recalls history’ tab of a patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-recalls-history-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>已填入</p>
+<ul>
+<li><p>已將催還的館藏借出給催還請求者，催還已完成</p></li>
+<li><p>已完成的催還出現</p>
+<ul>
+<li><p>the <a class="reference internal" href="#recalls-old-label"><span class="std std-ref">old recalls list</span></a></p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recall-history-label"><span class="std std-ref">‘Recalls history’ tab of a patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-recalls-history-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>失效的</p>
+<ul>
+<li><p>The recall was not completed before a defined expiration date or the
+recall requester failed to pick up their waiting recall within the pickup
+period defined in <a class="reference internal" href="circulationpreferences.html#recallsmaxpickupdelay-label"><span class="std std-ref">RecallsMaxPickUpDelay</span></a></p></li>
+<li><p>失效的催還出現在</p>
+<ul>
+<li><p>the <a class="reference internal" href="#recalls-old-label"><span class="std std-ref">old recalls list</span></a></p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recall-history-label"><span class="std std-ref">‘Recalls history’ tab of a patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-recalls-history-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>已取消</p>
+<ul>
+<li><p>催還請求被取消。</p></li>
+<li><p>取消的催還出現在</p>
+<ul>
+<li><p>the <a class="reference internal" href="#recalls-old-label"><span class="std std-ref">old recalls list</span></a></p></li>
+<li><p>the <a class="reference internal" href="patrons.html#patron-recall-history-label"><span class="std std-ref">‘Recalls history’ tab of a patron’s file</span></a>
+(and <a class="reference internal" href="opac.html#your-recalls-history-label"><span class="std std-ref">its equivalent in the OPAC</span></a>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="receiving-recalled-items">
+<span id="recalls-receive-label"></span><h4>收到催還館藏<a class="headerlink" href="#receiving-recalled-items" title="此标题的永久链接"></a></h4>
+<p>在 <a class="reference internal" href="#check-in-returning-label"><span class="std std-ref">還入</span></a> 一件被催還的館藏時，將出現一個彈出窗口，要求工作人員確認或忽略催還。</p>
+<p><img alt="Pop up indicating the checked in item has been recalled" src="_images/returnrecall.png" /></p>
+<ul>
+<li><p>確認催還：此選項會將催還設定“等待”狀態，如果讀者在其檔案中有電子郵件地址，將通知他們他們催還的館藏現在已準備好取書。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>發送的通知是 PICKUP_RECALLLED_ITEM。您可以在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>notices and slips tool&lt;notices-and-slips-label&gt;`修改內容</p>
+</div>
+</li>
+<li><p>列印清單並確認：除了“確認催還”（更改狀態並發送通知）之外，此選項將列印一張您可以附加到館藏的清單（類似於保留單）。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>清單是 RECALL_REQUESTER_DET。您可以在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>訊息及清單工具&lt;notices-and-slips-label&gt;`修改內容</p>
+</div>
+</li>
+<li><p>忽略：此選項將還入館藏，但催還不會設定等待取件，也不會通知顧客。</p></li>
+</ul>
+<p>如果讀者要求在不同的圖書館取回他們催還的館藏， <a class="reference internal" href="#transfers-label"><span class="std std-ref">移轉</span></a> 將被觸發。</p>
+<p><img alt="Pop up indicating the checked in item has been recalled and needs to be transferred to a different library" src="_images/transferrecall.png" /></p>
+<ul class="simple">
+<li><p>確認催還和轉移：此選項會將催還設置“轉移中”。</p></li>
+<li><p>列印清單、轉移和確認：除了將催還設定為“轉移中”之外，此選項還將列印一張您可以附加到館藏的清單（類似於保留單）。</p></li>
+<li><p>忽略：此選項將還入館藏，但催還不會設置為“轉移中”</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>使用上述任何選項，都不會通知顧客他們的催還已準備就緒。</p>
+</div>
+</section>
+<section id="cancelling-recalls">
+<span id="recalls-cancel-label"></span><h4>取消催還<a class="headerlink" href="#cancelling-recalls" title="此标题的永久链接"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>只能取消請求或逾期的催還。</p>
+<p>無法取消當前正在等待取件的催還</p>
+</div>
+<p>館員可以在館員介面的螢幕上取消催還。</p>
+<ul>
+<li><p>通過點擊“操作”按鈕並選擇“取消”選項，從 <a class="reference internal" href="#recalls-queue-label"><span class="std std-ref">催還順序</span></a> 中單獨取消。</p>
+<p><img alt="Screenshot of the recalls queue, the Actions button is clicked and the mouse cursor is on the Cancel option." src="_images/cancelrecallsqueue.png" /></p>
+<p>或者選擇多個催還並點擊螢幕底部的“取消選定的催還”按鈕。</p>
+<p>如果被催還的館藏正在轉移中，取消選項也會觸發轉移回館藏的主圖書館。</p>
+<p><img alt="Screenshot of the recalls queue, the Actions button is clicked and the mouse cursor is on the Cancel recall and return to option." src="_images/canceltransferrecallsqueue.png" /></p>
+</li>
+<li><p>取消從 <a class="reference internal" href="#recalls-to-pull-label"><span class="std std-ref">催還召回</span></a>，藉由點擊右側的“取消催還”按鈕</p>
+<p><img alt="Recalls to pull table" src="_images/recallstopull.png" /></p>
+<p>如果被催還的館藏正在轉移中，取消選項也會觸發轉移回館藏的主圖書館。</p>
+<p><img alt="Recalls to pull table, the Cancel button is replaced by Cancel and return to if the item is in transit" src="_images/recallstopulltransfer.png" /></p>
+</li>
+<li><p>通過點擊“操作”按鈕並選擇“取消”選項，從 <a class="reference internal" href="#recalls-overdue-label"><span class="std std-ref">ˊ逾期催還清單</span></a> 中單獨取消。</p>
+<p><img alt="Screenshot of the overdue recalls, the Actions button is clicked and the mouse cursor is on the Cancel option." src="_images/canceloverduerecalls.png" /></p>
+<p>或者選擇多個催還並點擊螢幕底部的“取消選定的催還”按鈕。</p>
+</li>
+<li><p>透過點擊“操作”按鈕並選擇“取消”選項，從書目記錄的“催還”選項中取消。</p>
+<p><img alt="Recalls tab of a bibliographic record show all the existing recalls on this record, the Actions button is clicked and the mouse cursor is on the Cancel option." src="_images/existingrecallsbibliorecord.png" /></p>
+<p>或者選擇多個催還並點擊螢幕底部的“取消選定的催還”按鈕。</p>
+</li>
+<li><p>通過點擊“操作”按鈕並選擇“取消”選項，從讀者詳細資訊頁面的“催還”選項中取消。</p>
+<p><img alt="The recalls tab of a patron details page, the Actions button is clicked and the mouse cursor is on the Cancel option." src="_images/cancelrecallspatrondetails.png" /></p>
+</li>
+<li><p>通過點擊“操作”按鈕並選擇“取消”選項，從讀者檔案的“催還歷史”選項中取消。</p>
+<p><img alt="The Recalls history tab of a patron's file, the Actions button is clicked and the mouse cursor is on the Cancel option." src="_images/cancelrecallspatronhistory.png" /></p>
+</li>
+</ul>
+</section>
+<section id="changing-waiting-recalls-status">
+<span id="recalls-revert-waiting-label"></span><h4>更改等待催還的狀態<a class="headerlink" href="#changing-waiting-recalls-status" title="此标题的永久链接"></a></h4>
+<p>如果催還正在等待取件，並由於某種原因館員需要更改此狀態（例如，提出請求的讀者打電話但他們沒辦法取件），則可以恢復等待狀態。</p>
+<ul>
+<li><p>通過點擊“操作”按鈕並選擇“恢復等待”選項，從 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>催還順序&lt;recalls-queue-label&gt;`恢復狀態。</p>
+<p><img alt="Screenshot of the recalls queue, the Actions button is clicked and the mouse cursor is on the Revert waiting option." src="_images/revertwaitingrecallsqueue.png" /></p>
+</li>
+<li><p>通過點擊右側的“恢復等待狀態”按鈕，從 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>催還等候取件清單&lt;recalls-awaiting-pickup-label&gt;`恢復狀態。</p>
+<p><img alt="Recalls awaiting pickup list" src="_images/recallsawaitingpickup.png" /></p>
+</li>
+</ul>
+</section>
+<section id="marking-recalls-as-overdue">
+<span id="recalls-mark-overdue-label"></span><h4>將催還標記為逾期<a class="headerlink" href="#marking-recalls-as-overdue" title="此标题的永久链接"></a></h4>
+<p>如果催還未在新的截止日期前登記，則應將其標記為逾期由 <a class="reference internal" href="cron_jobs.html#cron-overdue-recalls-label"><span class="std std-ref">overdue_recalls cronjob</span></a>。但是，可以手動將催還標記為逾期。</p>
+<p>從 <a class="reference internal" href="#recalls-queue-label"><span class="std std-ref">催還順序</span></a>，點擊“行動”按鈕並選擇“標記為逾期”選項。</p>
+<p><img alt="Screenshot of the recalls queue, the Actions button is clicked and the mouse cursor is on the Mark as overdue option." src="_images/markoverduerecallsqueue.png" /></p>
+<p>逾期催還出現在 <a class="reference internal" href="#recalls-overdue-label"><span class="std std-ref">逾期催還請單</span></a>。</p>
+</section>
+<section id="expiring-recalls">
+<span id="recalls-expire-label"></span><h4>即將失效的催還<a class="headerlink" href="#expiring-recalls" title="此标题的永久链接"></a></h4>
+<p>If a recall as been awaiting pickup for longer than the allowed period defined
+in <a class="reference internal" href="circulationpreferences.html#recallsmaxpickupdelay-label"><span class="std std-ref">RecallsMaxPickUpDelay</span></a>, it should be expired automatically by the
+<a class="reference internal" href="cron_jobs.html#cron-expire-recalls-label"><span class="std std-ref">expire_recalls cronjob</span></a>. However, it is
+possible to expire recalls manually.</p>
+<p>從 <a class="reference internal" href="#recalls-awaiting-pickup-label"><span class="std std-ref">催還等待取件清單</span></a>，點擊右側的“失效催還”按鈕。</p>
+<p><img alt="Recalls awaiting pickup list" src="_images/recallsawaitingpickup.png" /></p>
+</section>
+</section>
+<section id="recalls-reports">
+<span id="recalls-reports-label"></span><h3>催還報告<a class="headerlink" href="#recalls-reports" title="此标题的永久链接"></a></h3>
+<p>一旦 <a class="reference internal" href="#recalls-setup-label"><span class="std std-ref">設立催還</span></a>，新的部分將出現在流通模組中。</p>
+<ul class="simple">
+<li><p><em>Get there</em>: Circulation &gt; Recalls</p></li>
+</ul>
+<section id="recalls-queue">
+<span id="recalls-queue-label"></span><h4>Recalls queue<a class="headerlink" href="#recalls-queue" title="此标题的永久链接"></a></h4>
+<p>The recalls queue shows all the current active recalls with their statuses.</p>
+<p><img alt="Recalls queue table" src="_images/recallsqueue.png" /></p>
+<p>From the recalls queue, staff can cancel active recalls either individually by
+clicking the ‘Actions’ button and selecting the ‘Cancel’ option.</p>
+<p><img alt="Screenshot of the recalls queue, the Actions button is clicked and the mouse cursor is on the Cancel option." src="_images/cancelrecallsqueue.png" /></p>
+<p>或者選擇多個催還並點擊螢幕底部的“取消選定的催還”按鈕。</p>
+<p>For recalls that are in transit, it is possible to cancel them and this will
+trigger a transfer back to their home library.</p>
+<p><img alt="Screenshot of the recalls queue, the Actions button is clicked and the mouse cursor is on the Cancel recall and return to option." src="_images/canceltransferrecallsqueue.png" /></p>
+<p>For recalls that are currently awaiting pickup, it is possible to revert the
+waiting status by clicking the ‘Actions’ button and selecting the ‘Revert
+waiting’ option.</p>
+<p><img alt="Screenshot of the recalls queue, the Actions button is clicked and the mouse cursor is on the Revert waiting option." src="_images/revertwaitingrecallsqueue.png" /></p>
+<p>For recalls that are overdue, it is possible to mark them as such from the
+recalls queue by clicking the ‘Actions’ button and selecting the ‘Mark as
+overdue’ option.</p>
+<p><img alt="Screenshot of the recalls queue, the Actions button is clicked and the mouse cursor is on the Mark as overdue option." src="_images/markoverduerecallsqueue.png" /></p>
+</section>
+<section id="recalls-to-pull">
+<span id="recalls-to-pull-label"></span><h4>Recalls to pull<a class="headerlink" href="#recalls-to-pull" title="此标题的永久链接"></a></h4>
+<p>The recalls to pull list shows all the records that have been recalled but that
+have available items that could fulfill the request.</p>
+<p><img alt="Recalls to pull table" src="_images/recallstopull.png" /></p>
+<p>Staff can pick up these items from the shelves and
+<a class="reference internal" href="#check-in-returning-label"><span class="std std-ref">check them in</span></a> to fulfill the requests.</p>
+<p>From the recalls to pull list, staff can cancel recalls if needed, by clicking
+the ‘Cancel recall’ button on the right.</p>
+<p>If the item is currently in transit, cancelling the recall will also trigger a
+transfer back the the item’s home library.</p>
+<p><img alt="Recalls to pull table, the Cancel button is replaced by Cancel and return to if the item is in transit" src="_images/recallstopulltransfer.png" /></p>
+</section>
+<section id="overdue-recalls">
+<span id="recalls-overdue-label"></span><h4>Overdue recalls<a class="headerlink" href="#overdue-recalls" title="此标题的永久链接"></a></h4>
+<p>This list shows the items that have been recalled but have not been returned
+by the new due date.</p>
+<p>Recalls can be marked as overdue automatically through the
+<a class="reference internal" href="cron_jobs.html#cron-overdue-recalls-label"><span class="std std-ref">overdue_recalls cronjob</span></a> or
+<a class="reference internal" href="#recalls-mark-overdue-label"><span class="std std-ref">manually</span></a>.</p>
+<p><img alt="Overdue recalls list" src="_images/overduerecalls.png" /></p>
+<p>From this list, staff can cancel active recalls either individually by
+clicking the ‘Actions’ button and selecting the ‘Cancel’ option.</p>
+<p><img alt="Screenshot of the overdue recalls, the Actions button is clicked and the mouse cursor is on the Cancel option." src="_images/canceloverduerecalls.png" /></p>
+<p>或者選擇多個催還並點擊螢幕底部的“取消選定的催還”按鈕。</p>
+</section>
+<section id="recalls-awaiting-pickup">
+<span id="recalls-awaiting-pickup-label"></span><h4>Recalls awaiting pickup<a class="headerlink" href="#recalls-awaiting-pickup" title="此标题的永久链接"></a></h4>
+<p>The recalls awaiting pickup list shows all the recalls that are currently
+waiting for the patron to come and get them.</p>
+<p><img alt="Recalls awaiting pickup list" src="_images/recallsawaitingpickup.png" /></p>
+<p>This list is divided in two tabs:</p>
+<ul class="simple">
+<li><p>Recalls waiting: shows all the recalls currently awaiting pickup.</p></li>
+<li><p>Recalls waiting over x days: shows the recalls that have been waiting for
+more than the number of days specified in the <a class="reference internal" href="circulationpreferences.html#recallsmaxpickupdelay-label"><span class="std std-ref">RecallsMaxPickUpDelay</span></a>
+system preference.</p></li>
+</ul>
+<p>From this list, staff can
+<a class="reference internal" href="#recalls-revert-waiting-label"><span class="std std-ref">revert waiting recalls</span></a> by clicking on the
+‘Revert waiting status’ button on the right.</p>
+<p>Staff can also manually <a class="reference internal" href="#recalls-expire-label"><span class="std std-ref">expire recalls</span></a> by clicking
+on the ‘Expire recall’ button on the far right.</p>
+</section>
+<section id="old-recalls">
+<span id="recalls-old-label"></span><h4>Old recalls<a class="headerlink" href="#old-recalls" title="此标题的永久链接"></a></h4>
+<p>The old recalls list shows all the inactive recalls (completed, cancelled and
+expired).</p>
+<p><img alt="Old recalls list" src="_images/oldrecalls.png" /></p>
+</section>
+</section>
+</section>
+<section id="transfers">
+<span id="transfers-label"></span><h2>轉移<a class="headerlink" href="#transfers" title="此标题的永久链接"></a></h2>
+<p>在多分館系統下，可以使用轉移工具，將館藏轉移至其他圖書館。</p>
+<ul class="simple">
+<li><p><a href="#id1"><span class="problematic" id="id2">*</span></a>到那裡：<a href="#id3"><span class="problematic" id="id4">*</span></a>流通 &gt; 轉移</p></li>
+</ul>
+<p>轉移館藏</p>
+<ul>
+<li><p>按流通頁面的 ‘轉移’</p>
+<p><img alt="image565" src="_images/transfer.png" /></p>
+<ul class="simple">
+<li><p>鍵入想要轉移館藏去的圖書館</p></li>
+<li><p>掃瞄或鍵入要轉移館藏的條碼</p></li>
+</ul>
+</li>
+<li><p>勾選 ‘送出’</p>
+<p><img alt="image566" src="_images/itemtransferred.png" /></p>
+</li>
+<li><p>該館藏應在轉移中</p>
+<p><img alt="image567" src="_images/itemintransit.png" /></p>
+</li>
+<li><p>館藏到達轉移圖書館後，館員必須還入該館藏以確認不再是轉移中</p></li>
+<li><p>館藏不會永久移置新館</p>
+<p><img alt="image568" src="_images/itemlocations.png" /></p>
+<ul class="simple">
+<li><p>該館藏顯示相同的 ‘所屬圖書館’ 但已更新其 ‘現在位置’ 顯示此刻的所在</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="set-library">
+<span id="set-library-label"></span><h2>設定圖書館<a class="headerlink" href="#set-library" title="此标题的永久链接"></a></h2>
+<p>By default, you will enter the staff interface as if you are at your home
+library. This library will appear in the top right of the staff interface.</p>
+<p><img alt="Menu and search bar at the top of the page in the staff interface" src="_images/searchbar-checkout.png" /></p>
+<p>This is the library where all circulation transactions will take place. If you
+are at another library (or on a bookmobile) you will need to set the library
+before you start circulating items. To do this, click on your username and
+logged in library at the top right and choose ‘Set library’ or click ‘Set
+library’ on the main circulation page.</p>
+<p><img alt="Main page of the circulation module" src="_images/circmenu.png" /></p>
+<p>This will bring you to a page where you can choose at which library you are.</p>
+<p><img alt="Dropdown menu with branches list in the Set library setting." src="_images/setlibrarydropdown.png" /></p>
+<p>Once you save your changes, your new library will appear in the top right.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Only staff with the loggedinlibrary (or superlibrarian)
+<a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">permission</span></a> will be able to change
+the library where they are logged in.</p>
+<p>Staff members who do not have this permission will only be able to log
+into their home library.</p>
+</div>
+</section>
+<section id="fast-add-cataloging">
+<span id="fast-add-cataloging-label"></span><h2>快速編目<a class="headerlink" href="#fast-add-cataloging" title="此标题的永久链接"></a></h2>
+<p>需臨時新增一筆記錄供辦理借出業務使用。稱為 ‘快速新增’。首先應設定 <a class="reference external" href="#fastaddpermissions">fast_cataloging</a> 權限。允許流通館員進入快速新增編目工具。經由快速新增有兩個方式新增題名。借出沒有書目紀錄的館藏時可從流通模組按 ‘快速編目’。</p>
+<p><img alt="Main page of the circulation module" src="_images/circmenu.png" /></p>
+<p>編目介面將打開簡略編目紀錄：</p>
+<p><img alt="image572" src="_images/fastadd.png" /></p>
+<p>新增編目資料後，接著詢問鍵入館藏資料。鍵入館藏條碼、館藏代碼等資料後，就可儲存它，以備借出。</p>
+<p>從借出畫面也可使用快速編目。鍵入條碼準備借出館藏時，若找不到該筆紀錄，Koha提示餔喣員使用快速編目新增該筆館藏，並借出它。</p>
+<p><img alt="image573" src="_images/barcodefastadd.png" /></p>
+<p>勾選 ‘快速編目’ 出現快速編目表單，讓您鍵入題名資訊</p>
+<p><img alt="image574" src="_images/fastaddbarcode.png" /></p>
+<p>點選 ‘儲存’ 後，進入館藏紀錄，條碼號已經有了。</p>
+<p><img alt="image575" src="_images/fastadditem.png" /></p>
+<p>勾選 ‘新增館藏’ 鈕後，自動借出原先打算借出的館藏。</p>
+<p><img alt="image576" src="_images/fastaddcheckedout.png" /></p>
+</section>
+<section id="circulation-reports">
+<span id="circulation-reports-label"></span><h2>流通報表<a class="headerlink" href="#circulation-reports" title="此标题的永久链接"></a></h2>
+<p>在報表模組可找到大部份的報表，但常用的流通報表可從流通模組右方找到。</p>
+<ul class="simple">
+<li><p><em>到那裡</em>： 流通 &gt; 流通報表</p></li>
+</ul>
+<section id="holds-queue">
+<span id="holds-queue-label"></span><h3>預約佇列<a class="headerlink" href="#holds-queue" title="此标题的永久链接"></a></h3>
+<p>此報表將列出所有待處理的預約。</p>
+<p>First, choose some filters for the report.</p>
+<p><img alt="Filters for the holds queue: library, item type, collection, and shelving location" src="_images/holdsqueuefilter.png" /></p>
+<p>Then, the report will be displayed.</p>
+<p><img alt="Holds queue for Centerville library" src="_images/holdsqueue.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holds-table).</p>
+</div>
+<p>To generate this report, you must either have the <a class="reference internal" href="cron_jobs.html#cron-holds-queue-report-label"><span class="std std-ref">Build holds queue cron
+job</span></a> running, or the
+<a class="reference internal" href="circulationpreferences.html#realtimeholdsqueue-label"><span class="std std-ref">RealTimeHoldsQueue</span></a> system preference must be
+set to ‘Enable’. Either of these will run a script that decides which library
+should be responsible for fulfilling a given hold request. This should
+be enabled if your library system allows borrowers to place on-shelf holds.</p>
+<p>The holds queue behavior is controlled by the system preferences
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">StaticHoldsQueueWeight</span></a>,
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">RandomizeHoldsQueueWeight</span></a> and
+<a class="reference internal" href="circulationpreferences.html#usetransportcostmatrix-label"><span class="std std-ref">UseTransportCostMatrix</span></a>.</p>
+<p>If you do not want all of your libraries to participate in the on-shelf
+holds fulfillment process, you should list the libraries that *do*
+participate in the process here by inputting all the participating
+library’s branchcodes, separated by commas (e.g. “MPL,CPL,SPL,BML” etc.).</p>
+<p>By default, the holds queue will be generated such that the system will
+first attempt to hold fulfillment using items already at the pickup
+library if possible. If there are no items available at the pickup
+library to fill a hold, the system will then use the list of
+libraries defined in
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">StaticHoldsQueueWeight</span></a>. If
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">RandomizeHoldsQueueWeight</span></a> is
+disabled (which it is by default), the script will assign fulfillment requests
+in the order the libraries are placed in the
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">StaticHoldsQueueWeight</span></a> system
+preference.</p>
+<p>For example, if your system has three libraries, of varying sizes (small,
+medium and large) and you want the burden of holds fulfillment
+to be on larger libraries before smaller libraries, you would want
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">StaticHoldsQueueWeight</span></a> to look
+something like “LRG,MED,SML”.</p>
+<p>If you want the burden of holds fulfillment to be spread out equally
+throughout your library system, simply enable
+<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">RandomizeHoldsQueueWeight</span></a>.
+When this system preference is enabled, the order in which libraries
+will be requested to fulfill an on-shelf hold will be randomized each
+time the list is regenerated.</p>
+<p>An alternative to static and randomized is using the
+<a class="reference internal" href="administration.html#transport-cost-matrix-label"><span class="std std-ref">Tansport cost matrix</span></a>.
+It takes precedence in controlling where holds are filled from and allows you
+to define the ‘cost’ of transport between any two libraries.
+To use the Transport cost matrix simply set your
+<a class="reference internal" href="circulationpreferences.html#usetransportcostmatrix-label"><span class="std std-ref">UseTransportCostMatrix</span></a> preference to ‘Use’.</p>
+</section>
+<section id="holds-to-pull">
+<span id="holds-to-pull-label"></span><h3>預約到館待提取<a class="headerlink" href="#holds-to-pull" title="此标题的永久链接"></a></h3>
+<p>This report will show you all of the items that have holds on them that
+are available at the library for pulling. If the items are available at
+multiple libraries then all libraries with that item available will see
+the hold to pull until one library <a class="reference internal" href="#receiving-holds-label"><span class="std std-ref">triggers the hold</span></a>.</p>
+<p><img alt="List of holds to pull" src="_images/holdstopull.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holds-to-pull).</p>
+</div>
+<p>Depending on the value of the <a class="reference internal" href="circulationpreferences.html#canmarkholdstopullaslost-label"><span class="std std-ref">CanMarkHoldsToPullAsLost</span></a>
+system preference, clicking the “Mark item as lost” button or “Mark item as lost
+and notify patron” button will mark item as lost and notify the requesting patron.</p>
+<p>You can choose which <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOST value</span></a> to set the
+item to with the <a class="reference internal" href="circulationpreferences.html#updateitemwhenlostfromholdlist-label"><span class="std std-ref">UpdateItemWhenLostFromHoldList</span></a>
+system preference.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>These buttons will only appear on item-level holds.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notification sent to the patron will use the CANCEL_HOLD_ON_LOST
+template. It can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>You can limit the results you see by using the Refine box on the left
+side of the page.</p>
+<p><img alt="Refine results filters on the holds to pull page, start date and end date" src="_images/refineholdstopull.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The default dates in the filters are determined by the
+<a class="reference internal" href="circulationpreferences.html#holdstopullstartdate-label"><span class="std std-ref">HoldsToPullStartDate</span></a> and
+<a class="reference internal" href="circulationpreferences.html#confirmfutureholds-label"><span class="std std-ref">ConfirmFutureHolds</span></a> system preferences.</p>
+</div>
+</section>
+<section id="holds-awaiting-pickup">
+<span id="holds-awaiting-pickup-label"></span><h3>預約到館待提取<a class="headerlink" href="#holds-awaiting-pickup" title="此标题的永久链接"></a></h3>
+<p>此報表將列出所有預約到館待提取的館藏。</p>
+<p><img alt="Holds awaiting pickup report" src="_images/holdspickup.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holdst).</p>
+</div>
+<p>You can cancel individual holds manually by clicking the ‘Cancel hold’ button
+to the right of each hold, or you can cancel selected holds using the button at
+the top of the list.</p>
+<p>Items that have been on the hold shelf longer than you normally allow
+(based on the <a class="reference internal" href="circulationpreferences.html#reservesmaxpickupdelay-label"><span class="std std-ref">ReservesMaxPickUpDelay</span></a>
+system preference value) will appear on the ‘Holds waiting over X days’ tab.</p>
+<p><img alt="Holds awaiting pickup report, the Holds waiting over 7 days tab is selected" src="_images/holdspickupover.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holdso).</p>
+</div>
+<p>These holds will not automatically be canceled unless the
+<a class="reference internal" href="circulationpreferences.html#expirereservesmaxpickupdelay-label"><span class="std std-ref">ExpireReservesMaxPickUpDelay</span></a> system
+preference is set to ‘Allow’ and the
+<a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">cancel_expired_holds.pl cron job</span></a> is
+scheduled to run regularly.</p>
+<p>You can cancel individual holds manually by clicking the ‘Cancel hold’ button
+to the right of each hold, or you can cancel selected holds using the button at
+the top of the list, or even cancel all holds.</p>
+<p>The ‘Holds with cancellation requests’ tab contains waiting holds that have been
+canceled by patrons through <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">their account on the OPAC</span></a>,
+if that is allowed by the
+<a class="reference internal" href="administration.html#defaultwaitingholdcancellationpolicy-label"><span class="std std-ref">waiting hold cancellation policy</span></a>.</p>
+<p>From this tab, staff can cancel the holds, and transfer them back to their home
+library, if that is the case.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><a class="reference internal" href="#check-in-returning-label"><span class="std std-ref">Checking in the items</span></a> will also cancel
+the holds with cancellation requests.</p>
+</div>
+</section>
+<section id="hold-ratios">
+<span id="hold-ratios-label"></span><h3>預約比率<a class="headerlink" href="#hold-ratios" title="此标题的永久链接"></a></h3>
+<p>預約比率有助於館藏發展。根據此報表可看出預約的讀者數以及該買的複本。此報表需要 3 本館藏才能滿足每個預約。此報告將告知應採購多少額外的館藏，以滿足此需求。</p>
+<p><img alt="image582" src="_images/holdratio.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: holds-ratios).</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="transfers-to-receive">
+<span id="transfers-to-receive-label"></span><h3>轉移至收到<a class="headerlink" href="#transfers-to-receive" title="此标题的永久链接"></a></h3>
+<p>此報表將列出所有轉移至您圖書館的館藏。</p>
+<p><img alt="image583" src="_images/transitreceive.png" /></p>
+<p>若轉移程序有拖延，將顯示拖延的時間。</p>
+<p><img alt="image584" src="_images/transferlate.png" /></p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>An item is considered late based on the number of days you have
+entered in the
+<a class="reference internal" href="circulationpreferences.html#transfersmaxdayswarning-label"><span class="std std-ref">TransfersMaxDaysWarning</span></a> system
+preference.</p>
+</div></blockquote>
+</section>
+<section id="article-requests">
+<span id="article-requests-circulation-label"></span><h3>請求論文<a class="headerlink" href="#article-requests" title="此标题的永久链接"></a></h3>
+<p>文章請求與預約請求有點像，但不是要求檢查項目的請求。相反，文章請求是針對連續發行的書的特定部分或文章的複印件的請求。這在大學圖書館很常見，研究人員可能會要求在期刊中找到一份文章的副本。</p>
+<section id="setting-up-article-requests">
+<span id="setting-up-article-requests-label"></span><h4>放置文章請求<a class="headerlink" href="#setting-up-article-requests" title="此标题的永久链接"></a></h4>
+<p>First, enable your system preference for <a class="reference internal" href="circulationpreferences.html#articlerequests-label"><span class="std std-ref">ArticleRequests</span></a>.</p>
+<p>設定「啟用」讀者使用文章請求.</p>
+<p>接著決定讀者請求論文的方式，記錄、館藏、或兩者兼顧。</p>
+<p>可以設定 3 個系統偏好做為請求論文的必備欄位。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfields-label"><span class="std std-ref">ArticleRequestsMandatoryFields</span></a>: make the following fields
+mandatory for records that are record level or item level requestable</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfieldsitemsonly-label"><span class="std std-ref">ArticleRequestsMandatoryFieldsItemsOnly</span></a> make the following
+fields mandatory for records that are only item level requestable</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfieldsrecordonly-label"><span class="std std-ref">ArticleRequestsMandatoryFieldsRecordOnly</span></a> make the
+following fields mandatory for records that are only record level
+requestable</p></li>
+</ul>
+</div></blockquote>
+<p>The <a class="reference internal" href="circulationpreferences.html#articlerequestsopachostredirection-label"><span class="std std-ref">ArticleRequestsOpacHostRedirection</span></a> system preference is used if you
+create analytical records. If enabled, it will redirect the patron from the
+child record to the host record in the OPAC.</p>
+<p>The <a class="reference internal" href="circulationpreferences.html#articlerequestssupportedformats-label"><span class="std std-ref">ArticleRequestsSupportedFormats</span></a> system preference determines the
+various formats patrons can request their articles in (either photocopy or
+scan).</p>
+<p>接著進入您的 <span class="xref std std-ref">流通與罰款規則模型</span> 並選擇允許請求的規則.</p>
+<p>您可以允許以紀錄層次、館藏層次、是的(兩者兼俱) 與無 (全部不要).</p>
+<p>You can also limit the number of open article requests a patron can have at one
+time by patron category in the
+<a class="reference internal" href="administration.html#default-open-article-requests-limit-label"><span class="std std-ref">Default open article requests limit</span></a>
+section of the circulation rules page.</p>
+<p>You can set up a fee for each article request in the
+<a class="reference internal" href="administration.html#default-article-request-fees-label"><span class="std std-ref">Default article request fees</span></a> section
+of the circulation rules page.</p>
+</section>
+<section id="placing-article-requests">
+<span id="placing-article-requests-label"></span><h4>放置請求論文<a class="headerlink" href="#placing-article-requests" title="此标题的永久链接"></a></h4>
+<p>接者可以從館員介面或 OPAC 提出請求。</p>
+<p>在館員客戶的細節紀錄頁面上，將在頂部看到’請求文章’鍵以及左手邊的’文章需求’鍵.兩個選項導引到同個頁面.</p>
+<p><img alt="Detailed record in the staff interface" src="_images/recorddetail.png" /></p>
+<p>就像預約一樣，系統會提示您輸入讀者的卡號或名稱。</p>
+<p><img alt="Patron search screen for an article request" src="_images/articlerequest-patronsearch.png" /></p>
+<p>If there is a fee, a message will appear to inform the staff member.</p>
+<p><img alt="Warning message in the staff interface indicating the patron will be charged 2.00 for every article request" src="_images/articlerequestfeewarningstaff.png" /></p>
+<p>填寫表格.</p>
+<p><img alt="Article request form in the staff interface" src="_images/articlerequestform.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The mandatory fields are set through the three system preferences
+<a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfields-label"><span class="std std-ref">ArticleRequestsMandatoryFields</span></a>,
+<a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfieldsitemsonly-label"><span class="std std-ref">ArticleRequestsMandatoryFieldsItemsOnly</span></a>, and
+<a class="reference internal" href="circulationpreferences.html#articlerequestsmandatoryfieldsrecordonly-label"><span class="std std-ref">ArticleRequestsMandatoryFieldsRecordOnly</span></a>.</p>
+</div>
+<ul>
+<li><p>Title: enter the title of the requested article or chapter</p></li>
+<li><p>Author: enter the author of the requested article or chapter</p></li>
+<li><p>Volume: enter the volume in which this article or chapter is found</p></li>
+<li><p>Issue: enter the issue in which this article is found</p></li>
+<li><p>Date: enter the date of the issue in which this article is found</p></li>
+<li><p>Table of contents: check to indicate the patron wants a copy of the table
+of contents</p></li>
+<li><p>Pages: enter the pages to photocopy or scan</p></li>
+<li><p>Chapters: enter the chapters to photocopy or scan</p></li>
+<li><p>Patron notes: enter any relevant notes</p></li>
+<li><p>Format: choose the format in which the patron wishes to receive this article
+or chapter</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The possible formats are defined in the
+<a class="reference internal" href="circulationpreferences.html#articlerequestssupportedformats-label"><span class="std std-ref">ArticleRequestsSupportedFormats</span></a> system preference.</p>
+</div>
+</li>
+<li><p>Pickup library: choose the library at which the patron wishes to pick up
+their photocopy</p></li>
+</ul>
+<p>如果允許，請選擇要請求的特定項目。</p>
+<p>然後，按下’放置請求’.</p>
+<p>在OPAC中，讀者可以從結果清單中自行提出請求</p>
+<p><img alt="Search results list in the OPAC, facets are on the left" src="_images/opacsearchresults.png" /></p>
+<p>或轉到詳細記錄</p>
+<p><img alt="Detailed record in the OPAC" src="_images/opacdetails.png" /></p>
+<p>與預約一樣，如果讀者未登入，則將要求他們登入.</p>
+<p>該表格與館員頁面中的表格相同.</p>
+<p><img alt="Article request form in the OPAC" src="_images/articlerequestopacform.png" /></p>
+<p>If there is a fee, a message will appear to inform the patron.</p>
+<p><img alt="Warning message in the OPAC indicating the patron will be charged 3.00 for every article request" src="_images/articlerequestfeewarningopac.png" /></p>
+<p>If allowed, the patron can choose the specific item to request.</p>
+<p>From their account, the patron will be able to follow the progress
+of their request from ‘new’</p>
+<p><img alt="The view of an article request in the patron's account in the OPAC, the status is set to new" src="_images/opacarticlerequestnew.png" /></p>
+<p>to ‘pending’, if necessary,</p>
+<p><img alt="The view of an article request in the patron's account in the OPAC, the status is set to pending" src="_images/opacarticlerequestpending.png" /></p>
+<p>進行’處理’.</p>
+<p><img alt="The view of an article request in the patron's account in the OPAC, the status is set to processing" src="_images/opacarticlerequestprocessing.png" /></p>
+<p>The patron will receive an email notification after placing the request to
+confirm it as well as when the status of the request changes.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>When placing an article request, the patron will receive a notification.
+The notice sent is based on the AR_REQUESTED template.</p>
+<p>Each status is also linked to a notification. See below, under
+<a class="reference internal" href="#managing-article-requests-label"><span class="std std-ref">Managing article requests</span></a> for
+the letter code for each status.</p>
+<p>The content of any notification can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</div></blockquote>
+<p>請求完成後，顧客將收到一封電子郵件通知，商品請求將不再出現在其帳戶中。</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>When staff <a class="reference internal" href="#managing-article-requests-label"><span class="std std-ref">marks the article request as ‘Completed’</span></a>,
+the patron will receive a notification. The notice sent is based on the
+AR_COMPLETED template. The content of this notification can be customized
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</div></blockquote>
+</section>
+<section id="managing-article-requests">
+<span id="managing-article-requests-label"></span><h4>管理文章請求<a class="headerlink" href="#managing-article-requests" title="此标题的永久链接"></a></h4>
+<p>提出論文請求後，可在館員介面首頁的下方看到該請求。(就是標籤、評論與修改的位置)。</p>
+<p><img alt="Pending article request notification at the bottom of the main page of the staff interface" src="_images/articlerequeststaffinterfacenotification.png" /></p>
+<p>館員可以選擇進入繼續執行的程序。</p>
+<p><img alt="Article requests table" src="_images/requestmanagement.png" /></p>
+<p>New requests are in the ‘New’ tab.</p>
+<p>第一步館員要處理請求 時，先把請求移至處理分頁並提醒其他館員該請求正在處理中.在操作列中，點撃選單並選擇’處理請求 ‘.請求將會移至處理分頁中。</p>
+<p><img alt="The actions menu next to a new article request has the following options, 'Set request as pending', 'Process request', 'Complete request', 'Cancel request', and 'Print slip'" src="_images/actionsmenu.png" /></p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Setting an article request to ‘Processing’ will send a notification to the
+patron. The notice sent is based on the AR_PROCESSING template. The
+content of this notification can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</div></blockquote>
+<p>If for any reason, a request cannot be processed right away (for example, if
+the title is currently checked out), the status can be changed to ‘Pending’.
+This will send a notice to the patron indicating the request has been received
+and seen, but has yet to be processed.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Setting an article request to ‘Pending’ will send a notification to the patron.
+The notice sent is based on the AR_PENDING template. The content of this
+notification can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</div></blockquote>
+<p>然後，館員到書架取出該被請求的論文。</p>
+<p>Once that is complete, staff can print the article request slip and staple or
+paper clip it to the article. In the actions column, you can select the dropdown
+and select print slip.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The slip used is based on the AR_SLIP template. The content of this
+slip can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</div></blockquote>
+<p>最後，從行動下拉選單點選論文請求完成，等同告知讀者到館提取。</p>
+<p>從處理分頁中自動移除該論文請求。</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Completing an article request will send a notification to the patron.
+The notice sent is based on the AR_COMPLETED template. The content of this
+notification can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</div></blockquote>
+<p>If, for any reason, an article request must be cancelled, staff can choose the
+‘Cancel request’ option from the ‘Actions’ button.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Cancelling an article request will send a notification to the patron.
+The notice sent is based on the AR_CANCELED template. The content of this
+notification can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>也可以通過選中要處理的請求旁邊的框或點擊’全選’來批量執行操作，然後從表格頂部的操作選單中選擇新狀態</p>
+<p><img alt="The actions button gives access to the option to complete the selected requests, cancel the selected requests or print the slip" src="_images/articlerequestbatchprocess.png" /></p>
+</div>
+</section>
+</section>
+<section id="overdues">
+<span id="overdues-report-label"></span><h3>逾期<a class="headerlink" href="#overdues" title="此标题的永久链接"></a></h3>
+<p>此報表將列出您圖書館所有的逾期館藏。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>對於讀者眾多的圖書館，此報表可能極為費時。</p>
+<p>Large libraries can choose to filter the report before it runs by
+setting the <a class="reference internal" href="circulationpreferences.html#filterbeforeoverduereport-label"><span class="std std-ref">FilterBeforeOverdueReport</span></a> system preference to ‘Require’.</p>
+</div>
+<p><img alt="View of the overdues report" src="_images/overdues.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: circ-overdues).</p>
+</div>
+<p>以報表左方找到的選單選項可以篩選報表。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>按 ‘顯示目前借出的館藏’ 盒，把逾期報表改為借出報表。將顯示所有的到期日的借出館藏。</p>
+</div>
+<p>The report result can be downloaded via the ‘Download file of displayed overdues’
+link or the ‘Export’ button at the top of the table.</p>
+</section>
+<section id="overdues-with-fines">
+<span id="overdues-with-fines-label"></span><h3>逾期罰款<a class="headerlink" href="#overdues-with-fines" title="此标题的永久链接"></a></h3>
+<p>此報表將列出被罰款的逾期館藏。</p>
+<p><img alt="image586" src="_images/overduewfines.png" /></p>
+<p>可使用上方的下拉式表單，限制表單的範圍為圖書館特定書架。<a class="reference internal" href="#set-library-label"><span class="std std-ref">改變您的圖書館</span></a> 或登入其他圖書館，就能看到其他圖書館的逾期罰款。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>若沒有罰款或未執行 <a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">罰款工作排程</span></a> 罰款排程，此報表就沒有資料。</p>
+</div></blockquote>
+</section>
+<section id="pending-on-site-checkouts">
+<span id="pending-on-site-checkouts-label"></span><h3>待決的現場借出<a class="headerlink" href="#pending-on-site-checkouts" title="此标题的永久链接"></a></h3>
+<p>If you are using the on site checkouts functionality
+(<a class="reference internal" href="circulationpreferences.html#onsitecheckouts-label"><span class="std std-ref">OnSiteCheckouts</span></a>) then you’ll have a report to
+view all items that are currently checked out on site.</p>
+<p><img alt="image1260" src="_images/pendingonsite.png" /></p>
+<p>此清單將列出到期日 (逾期則以紅色顯示)、借出者、館藏資訊與館藏所在地。</p>
+</section>
+</section>
+<section id="tracking-in-house-use">
+<span id="tracking-in-house-use-label"></span><h2>追蹤館內使用<a class="headerlink" href="#tracking-in-house-use" title="此标题的永久链接"></a></h2>
+<p>很多圖書館追蹤館藏在館內的使用情況。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>This is different from tracking on-site usage. In-house use is the
+use of items in the library by patrons without them having to check
+them out. On-site use is the use of items on site that must first be
+checked out. To learn more about on site usage please review the
+<a class="reference internal" href="circulationpreferences.html#onsitecheckouts-label"><span class="std std-ref">OnSiteCheckouts</span></a> preference.</p>
+</div></blockquote>
+<p>Koha 以兩種方式取得館內使用的資訊。新增 <a class="reference internal" href="patrons.html#add-a-statistical-patron-label"><span class="std std-ref">統計館員</span></a> 是其中一個選項。將移動過的館藏視為館內使用的館藏，借給統計館員：</p>
+<p><img alt="image587" src="_images/checkoutinhouse.png" /></p>
+<p>Koha 不會記錄其為 ‘借出’ 而把它們視館內使用：</p>
+<p><img alt="image588" src="_images/localuserecorded.png" /></p>
+<p>對所有在館內使用的館藏重複此步驟，確保正確統計館內使用。</p>
+<p>The other way to record local use of items is to set your
+<a class="reference internal" href="circulationpreferences.html#recordlocaluseonreturn-label"><span class="std std-ref">RecordLocalUseOnReturn</span></a> preference to
+‘Record.’ Then whenever you check an item in that is not checked out and
+not on hold a local use will be recorded.</p>
+<p><img alt="image589" src="_images/localusecheckin.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>If you have <a class="reference internal" href="circulationpreferences.html#recordlocaluseonreturn-label"><span class="std std-ref">RecordLocalUseOnReturn</span></a> set
+to ‘Record’ you can still use your statistical patrons to record
+local use as well.</p>
+</div></blockquote>
+</section>
+<section id="self-checkout">
+<span id="self-checkout-label"></span><h2>自助借出<a class="headerlink" href="#self-checkout" title="此标题的永久链接"></a></h2>
+<p>Koha comes with a very basic self checkout module. To enable this module
+you need to set the <a class="reference internal" href="circulationpreferences.html#webbasedselfcheck-label"><span class="std std-ref">WebBasedSelfCheck</span></a> system
+preference to ‘Enable.’ To use this module you have to log in as a
+<a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">staff member</span></a> with <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">self_check
+permissions</span></a>.</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>為自助借出模組新增一個專屬 <a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">館員</span></a> 就可以了，不必以真的館員身份登入一整天</p>
+</div></blockquote>
+<p>There is no link to the Self checkout module, but a simple addition to
+the <a class="reference internal" href="opacpreferences.html#opacuserjs-label"><span class="std std-ref">OPACUserJS</span></a> system preference can add one.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$(document).ready(function(){
+    $(&quot;#login .btn&quot;).parent().after(&quot;&lt;p&gt;&lt;a href=\&quot;http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sco/sco-main.pl\&quot; target=\&quot;_blank\&quot;&gt;Self-Checkout&lt;/a&gt;&lt;/p&gt;&quot;);
+});
+
+**Important**
+
+The code above has line breaks added to make it more readable,
+please be sure to enter the above as one line in when putting it in
+the system preference.
+</pre></div>
+</div>
+<p>在登入頁面下方，該連結看起來是這樣：</p>
+<p><img alt="image591" src="_images/selfcheckoutlink.png" /></p>
+<p>也可以 <a class="reference external" href="http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sco/sco-main.pl">http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sco/sco-main.pl</a> 進入該模組</p>
+<p>When on the self checkout page, depending on the value in your
+<a class="reference internal" href="circulationpreferences.html#selfcheckoutbylogin-label"><span class="std std-ref">SelfCheckoutByLogin</span></a> system preference
+you will be asked to enter your cardnumber</p>
+<p><img alt="image592" src="_images/selfcheckout.png" /></p>
+<p>或姓名與密碼：</p>
+<p><img alt="image593" src="_images/SelfCheckoutByLogin.png" /></p>
+<p>登入自助借出模組後，再要求掃瞄借出的館藏條碼</p>
+<p><img alt="image594" src="_images/selfcheckoutuser.png" /></p>
+<p>掃瞄館藏的條碼，將出現在條碼盒之下</p>
+<p><img alt="image595" src="_images/selfcheckoutsummary.png" /></p>
+<p>所有欲借的館藏都掃瞄完畢，按下 ‘完成’ 鈕。接著提示列印收條，再登出自助借出模組。</p>
+<p><img alt="image596" src="_images/selfreceiptprint.png" /></p>
+<p>出現錯誤時，螢幕指示讀者回到櫃台辦理借出手續。即使允許凌駕流通功能，亦可能發生錯誤。祗有館員才能凌駕流通的鎖定，讀者必須回到櫃台，由館員辦理借出手續。</p>
+<p><img alt="image597" src="_images/selfcheckoutfines.png" /></p>
+</section>
+<section id="self-check-in">
+<span id="self-checkin-label"></span><h2>自助借出<a class="headerlink" href="#self-check-in" title="此标题的永久链接"></a></h2>
+<p>必須先設定 :ref: <cite>SelfCheckInModule &lt;selfscheckinmodule-label&gt;</cite> 系統偏好為 ‘啟用’，才能使用自助借出模組。</p>
+<p>Then, you will have to <a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">create a patron</span></a>
+with the <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">self_checkin_module permission</span></a>.</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>Create a <a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">staff patron</span></a> specifically for this
+action so that you don’t leave a real staff client logged into a
+computer all day. You can give this patron only the aforementioned
+permission so it cannot be used for anything else.</p>
+</div></blockquote>
+<p>做好之後，就能進入自助借出頁面：<a class="reference external" href="http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sci/sci-main.pl">http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sci/sci-main.pl</a></p>
+<p>以具有自助借出權限的館員身份登入</p>
+<p>設定電腦或工作站，並以自助借出館員登入，讀者就能夠自行辦理借出工作。</p>
+<p><img alt="image1331" src="_images/selfcheckin.png" /></p>
+<p>讀者可以掃瞄或鍵入條碼，再按 ‘新增’ 或歸位鍵。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>大部份的條碼機自動加入歸位訊號。</p>
+</div></blockquote>
+<p>掃瞄或鍵入館藏條碼後，再按 ‘還入’ 鈕，就能即刻還入所有館藏。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>讀者未按 ‘還入’ 鈕，館藏仍在其帳號內，未還入。</p>
+<p><strong>重要</strong></p>
+<p>自助還入模組不會警示逾期有罰款的館藏、也不提示被別人預約的館藏、以及留存帳號內的訊息。</p>
+</div></blockquote>
+<p><img alt="image1332" src="_images/selfcheckinaddbarcode.png" /></p>
+<p>可以按 ‘完成’ 鈕，回到自助還入主畫面。</p>
+<p><img alt="image1333" src="_images/selfcheckincheckin.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>If the patron doesn’t click ‘Finish’, the screen will refresh after the
+timeout period specified in the <a class="reference internal" href="circulationpreferences.html#selfcheckintimeout-label"><span class="std std-ref">SelfCheckInTimeout</span></a> system preference.</p>
+<p><strong>說明</strong></p>
+<p>即使讀者未按 ‘完成’ 鈕，依然算是還入的館藏。</p>
+</div></blockquote>
+<p>You can customize the look of your self check-in screens by using the
+<a class="reference internal" href="circulationpreferences.html#selfcheckinusercss-label"><span class="std std-ref">SelfCheckInUserCSS</span></a> system preference or
+the <a class="reference internal" href="circulationpreferences.html#selfcheckinuserjs-label"><span class="std std-ref">SelfCheckInUserJS</span></a> system preference.</p>
+<p>You can add content, like instructions on how to use the self check-in system
+for example, by using the <a class="reference internal" href="circulationpreferences.html#selfcheckinmainuserblock-label"><span class="std std-ref">SelfCheckInMainUserBlock</span></a> system preference.</p>
+<p>登入 Koha 資料庫的 action_logs 表單，可以查看自助還入模組的交易資訊。可以從 <a class="reference internal" href="reports.html#custom-reports-label"><span class="std std-ref">建立客製化報表</span></a> 取得需要的統計資訊。</p>
+</section>
+<section id="offline-circulation-utilities">
+<span id="offline-circulation-utilities-label"></span><h2>離線流通公用程式<a class="headerlink" href="#offline-circulation-utilities" title="此标题的永久链接"></a></h2>
+<p>Koha 允許以下列三種方式辦理離線流通。</p>
+<section id="offline-circulation-in-koha">
+<span id="offline-circulation-in-koha-label"></span><h3>Koha 內的離線流通<a class="headerlink" href="#offline-circulation-in-koha" title="此标题的永久链接"></a></h3>
+<p>If the <a class="reference internal" href="circulationpreferences.html#allowofflinecirculation-label"><span class="std std-ref">AllowOfflineCirculation</span></a> preference
+is set to ‘Enable’ the library staff can continue to perform circulation
+actions within Koha when the system is offline. You will want to visit
+<a class="reference external" href="http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl">http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl</a> at least
+once while online and bookmark that page. That is the page you will go
+to when you are offline.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>此離線介面採用 HTML LocalStorage，依瀏覽器及使用者的設定，每個網域容量限制在 2.5MB 或 5MB 之內。大型圖書館無法以此方式同步其資料，建議使用:ref:<cite>Firefox &lt;firefox-plugin-label&gt;</cite> 或 <a class="reference internal" href="#offline-circ-tool-for-windows-label"><span class="std std-ref">Windows</span></a> 的離線流通外掛程式。</p>
+</div></blockquote>
+<section id="setup">
+<span id="setup-offline-circulation-label"></span><h4>設定<a class="headerlink" href="#setup" title="此标题的永久链接"></a></h4>
+<p>第一次使用離線流通功能前，先進入流通模組，點選 ‘建立離線流通介面’</p>
+<p><img alt="image598" src="_images/offlinecirc.png" /></p>
+<p>點選畫面右方的 ‘同步’ 連結，就能同步流通電腦與伺服器的資料。</p>
+<p><img alt="image599" src="_images/syncoffline.png" /></p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>此離線介面採用 HTML LocalStorage，依瀏覽器及使用者的設定，每個網域容量限制在 2.5MB 或 5MB 之內。大型圖書館無法以此方式同步其資料，建議使用:ref:<cite>Firefox &lt;firefox-plugin-label&gt;</cite> 或 <a class="reference internal" href="#offline-circ-tool-for-windows-label"><span class="std std-ref">Windows</span></a> 的離線流通外掛程式。</p>
+</div></blockquote>
+<p>允許您下載本地的讀者與流通資料。勾選頁面上方的 ‘下載記錄’ 連結，同步您的資料。</p>
+<p><img alt="image600" src="_images/downloadoffline.png" /></p>
+<p>資料下載之後，您將在資料集右方看到同步的最新日期。</p>
+<p><img alt="image1261" src="_images/syncedoffline.png" /></p>
+<p>定期執行此作業以備發生意外的斷線。</p>
+</section>
+<section id="circulating">
+<span id="circulating-label"></span><h4>流通<a class="headerlink" href="#circulating" title="此标题的永久链接"></a></h4>
+<p>離線時進入 Koha 的離線流通頁面 (<a class="reference external" href="http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl">http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl</a>) 並按 ‘借出’ 或 ‘還入’ 執行離線作業。</p>
+<p>在 ‘借出’ 頁面以條碼或名稱搜尋該讀者確認完成借出。點選讀者後，出現罰款與借出等讀者資訊。</p>
+<p><img alt="image601" src="_images/offlinecheckout.png" /></p>
+<p>借出時，掃瞄館藏的條碼，鍵入到期日。若未鍵入到期日，Koha會提醒您。</p>
+<p><img alt="image602" src="_images/offlineduedate.png" /></p>
+<p>館藏借出後將顯示在讀者資訊頁面。</p>
+<p><img alt="image603" src="_images/offlinecheckouts.png" /></p>
+</section>
+<section id="koha-offline-uploading">
+<span id="koha-offline-uploading-label"></span><h4>Koha 離線上傳<a class="headerlink" href="#koha-offline-uploading" title="此标题的永久链接"></a></h4>
+<p>系統恢復上線後，進入離線流通模組的同步頁面，並點選 ‘上傳交易’</p>
+<p><img alt="image604" src="_images/offlineupload.png" /></p>
+<p>上傳檔案後，按右方的 ‘檢視待處理離線流通作業’ 鈕。</p>
+<p><img alt="image605" src="_images/viewkohaoffline.png" /></p>
+<p>按 ‘檢視待處理離線流通作業’ 鈕後，進入上傳至 Koha 的 *.koc 檔案，檢視其摘要。</p>
+<p><img alt="image606" src="_images/offlinecirclog.png" /></p>
+<ul class="simple">
+<li><p>離線流通檔案上傳之後，再選擇全部或部份處理，把它們匯入Koha。</p></li>
+<li><p>按下「處理」鈕後，Koha 將逐一處理儲存的離線流通交易記錄。每個離線流通交易，其狀態可能為：</p>
+<ul>
+<li><p>“成功” 若正確轉移館藏</p></li>
+<li><p>“找不到借閱者” 若借閱者號碼不正確</p></li>
+<li><p>“找不到館藏” 若館藏條碼錯誤</p></li>
+<li><p>“館藏未借出” 若還入可借出的館藏</p></li>
+</ul>
+</li>
+</ul>
+<p>做好後，將出現所有交易的摘要</p>
+<p><img alt="image607" src="_images/offlinecircsuccess.png" /></p>
+</section>
+</section>
+<section id="firefox-plugin">
+<span id="firefox-plugin-label"></span><h3>Firefox 插件<a class="headerlink" href="#firefox-plugin" title="此标题的永久链接"></a></h3>
+<p>There is an offline circulation tool that you can add to your Firefox
+browser as an add-on. To do so, just go to
+<a class="reference external" href="https://addons.mozilla.org/en/firefox/addon/koct/">https://addons.mozilla.org/en/firefox/addon/koct/</a> page and click on the
+“install now” button. You may have to confirm the installation, just
+click on “install now” and then restart Firefox to complete the
+installation.</p>
+<p>Once you have installed the plugin and restarted Firefox, you will see
+the Koha logo in the download bar at the bottom right of Firefox.</p>
+<p><img alt="image608" src="_images/koctstatusbar.png" /></p>
+<p>按該商標將以自己的視窗開啟該工具。</p>
+<p><img alt="image609" src="_images/koct.png" /></p>
+<p>The plugin consists of three sections:</p>
+<ul>
+<li><p>The ‘Check out’ section is where you check out items</p></li>
+<li><p>The ‘Check in’ section is where you check in items</p></li>
+<li><p>The ‘Transactions’ section is where you can track the transactions done while in offline mode</p>
+<ul>
+<li><p>The transactions will keep information until you empty it.</p>
+<p><img alt="image610" src="_images/koctwarn.png" /></p>
+<p>If you’d like to clear the transactions, click the ‘Clear’
+box before hitting the ‘OK’ button.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The first thing you want to do then is to set up the plugin. Proceed to the settings page, linked in the top right of the page or under ‘Configuration page’ in the Transactions section.</p>
+<p><img alt="image611" src="_images/koctparam.png" /></p>
+<p>Answer the 5 questions presented:</p>
+<ul>
+<li><p>伺服器 = 館員介面的 URL</p></li>
+<li><p>使用者名稱 = 館員登入帳號</p></li>
+<li><p>密碼 = 館員帳號密碼</p></li>
+<li><p>分館代碼 = 館員所屬分館的代碼</p></li>
+<li><p>Commit Type = If you select ‘Send data to Koha’, your account will need to be approved by an administrator. If you select ‘Apply directly to Koha’, your account will not need to be approved.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>必須關閉外掛視窗，再按附加欄的 Koha 商標重新開啟外掛，就能儲存這些設定。</p>
+<p><strong>說明</strong></p>
+<p>可新增一個館員帳號，專門做離線流通的工作。不論誰輪值流通工作，都以同個帳號登入。在這個情況下，可以使用已經擔任流通的群組登入。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>設定完成後，就可以開始借出與還入作業。</p>
+<p>借出：</p>
+<p><img alt="A screenshot of the KOCT Checkout section" src="_images/koctcheckout.png" /></p>
+<ul class="simple">
+<li><p>Under the ‘Checkout’ heading</p></li>
+<li><p>掃瞄讀者條碼</p></li>
+<li><p>掃瞄館藏條碼</p></li>
+<li><p>Click ‘Checkout’</p></li>
+</ul>
+<p>還入：</p>
+<p><img alt="image613" src="_images/koctcheckin.png" /></p>
+<ul class="simple">
+<li><p>Under the ‘Checkin’ heading</p></li>
+<li><p>掃瞄館藏條碼</p></li>
+<li><p>Click ‘Checkin’</p></li>
+</ul>
+<p>Each time, you check out or check in an item, a new transaction is
+recorded in the local plugin database. This is recorded in the Transactions section bellow.</p>
+<p><img alt="image615" src="_images/koctlog.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>維持在離線且未把交易納入 Koha，其狀態就是 “在地”。</p>
+</div></blockquote>
+<p>恢復連線後，應立即將交易資料上傳至 Koha。在此之前，還有幾點事項該注意。</p>
+<p>因為沒有連結至 Koha 資料庫，預約需要再處理才會生效。若還入的館藏已被預約，預約仍掛在該館藏上。無法在還入時確認預約，預約仍在該館藏上，稍後才能處理。若還入少許館藏，還可以保留全部的紀錄。若還入館藏太多，可以使用預約佇列查看架上的預約情況。</p>
+<p>同樣的，若讀者證過期，離線流通工具不會知道它，仍可借出給被停權的讀者。</p>
+<p>有兩個選項處理這些資料</p>
+<p><img alt="A screenshot of the KOCT Checkout section" src="_images/koctcheckout.png" /></p>
+<ul>
+<li><p>Apply to Koha</p>
+<ul>
+<li><p>If you checked in/out on more than one computer at the same time,
+what you want is to process every transaction consistently. Let’s
+say for instance that one patron checked a book out on one
+computer and then checked the same book in on another computer. To
+be consistent, you need to record the check out first and then the
+check in. Not the opposite! To do so, you need to group every
+transaction in one place, sort them all and then, process
+everything. So, you need to use the “Apply to Koha” option from
+every plugin/computer you worked with. This way, the log will go
+to Koha and be accessible from the Offline Circulation page.</p>
+<p><img alt="image616" src="_images/offlinecirclink.png" /></p>
+</li>
+<li><p><em>到那裡：</em> 流通 &gt; 待處理離線流通內容</p>
+<p><img alt="image617" src="_images/offlinecirclog.png" /></p>
+</li>
+<li><p>離線流通檔案上傳之後，再選擇全部或部份處理，把它們匯入Koha。</p></li>
+<li><p>按處理鈕後，Koha 將逐一處理儲存的離線流通交易記錄。每個離線流通交易，其狀態可能為：</p>
+<ul class="simple">
+<li><p>“成功” 若正確轉移館藏</p></li>
+<li><p>“找不到借閱者” 若借閱者號碼不正確</p></li>
+<li><p>“找不到館藏” 若館藏條碼錯誤</p></li>
+<li><p>“館藏未借出” 若還入可借出的館藏</p></li>
+</ul>
+</li>
+<li><p>做好後，將出現所有交易的摘要</p>
+<p><img alt="image618" src="_images/offlinecircsuccess.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>直接應用</p>
+<ul class="simple">
+<li><p>若在同一部電腦執行所有的流通作業，所有的交易都已經排序好，可以選擇 “直接應用”</p></li>
+<li><p>狀態欄將更新，讓您知道交易是否已被應用</p>
+<ul>
+<li><p>“成功” 若正確轉移館藏</p></li>
+<li><p>“找不到借閱者” 若借閱者號碼不正確</p></li>
+<li><p>“找不到館藏” 若館藏條碼錯誤</p></li>
+<li><p>“館藏未借出” 若還入可借出的館藏</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="offline-circulation-tool-for-windows">
+<span id="offline-circ-tool-for-windows-label"></span><h3>Offline circulation tool for Windows<a class="headerlink" href="#offline-circulation-tool-for-windows" title="此标题的永久链接"></a></h3>
+<p>離線流通工具可從此下載：<a class="reference external" href="https://github.com/bywatersolutions/koha-offline-circulation/releases">https://github.com/bywatersolutions/koha-offline-circulation/releases</a></p>
+<p>必須執行 <a class="reference internal" href="cron_jobs.html#cron-generate-patron-file-for-offline-circulation-label"><span class="std std-ref">經由工作排程的檔案產生器</span></a> 才能生成 borrowers.db 檔案供上傳至視窗工具。</p>
+<section id="upload-offline-circulation-file">
+<span id="upload-offline-circ-file-label"></span><h4>Upload offline circulation file<a class="headerlink" href="#upload-offline-circulation-file" title="此标题的永久链接"></a></h4>
+<p>此 <a class="reference internal" href="#offline-circ-tool-for-windows-label"><span class="std std-ref">視窗版的離線流通工具</span></a> 將產生 KOC 檔案，恢復連線時上傳至 Koha。</p>
+<p>點選流通選單的 ‘上傳離線流通檔案(.koc)’</p>
+<p><img alt="image621" src="_images/offlinecirclink.png" /></p>
+<p>瀏覽電腦裡的 *.koc 檔案</p>
+<p><img alt="image622" src="_images/uploadofflinecirc.png" /></p>
+<p>檔案上傳後，勾選處理該檔案</p>
+<p><img alt="image623" src="_images/processoffline.png" /></p>
+<p>完成後，就能夠上傳另一個檔案或保留離線流通的工作。</p>
+<p><img alt="image624" src="_images/offlinesummary.png" /></p>
+<p>按 ‘檢視待處理離線流通作業’ 鈕後，進入上傳至 Koha 的 *.koc 檔案，檢視其摘要。</p>
+<p><img alt="image625" src="_images/offlinecirclog.png" /></p>
+<ul class="simple">
+<li><p>離線流通檔案上傳之後，再選擇全部或部份處理，把它們匯入Koha。</p></li>
+<li><p>按處理鈕後，Koha 將逐一處理儲存的離線流通交易記錄。每個離線流通交易，其狀態可能為：</p>
+<ul>
+<li><p>“成功” 若正確轉移館藏</p></li>
+<li><p>“找不到借閱者” 若借閱者號碼不正確</p></li>
+<li><p>“找不到館藏” 若館藏條碼錯誤</p></li>
+<li><p>“館藏未借出” 若還入可借出的館藏</p></li>
+</ul>
+</li>
+</ul>
+<p>做好後，將出現所有交易的摘要</p>
+<p><img alt="image626" src="_images/offlinecircsuccess.png" /></p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="cash_management.html" class="btn btn-neutral float-left" title="銷售點" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cataloging.html" class="btn btn-neutral float-right" title="编目" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

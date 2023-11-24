@@ -1,0 +1,3208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>讀者 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="銷售點" href="cash_management.html" />
+    <link rel="prev" title="工具" href="tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">讀者</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-a-new-patron">新增讀者</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quick-add-a-patron">快速新增讀者</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#add-a-staff-patron">新增館員讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-a-statistical-patron">新增統計讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#duplicate-a-patron">複製讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-patron-images">Adding patron images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-patrons">編輯讀者</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-patron-passwords">Modifying patron passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-patron-flags">Adding patron flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-notes-and-messages-to-a-patron-record">Adding notes and messages to a patron record</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#circulation-notes">Circulation notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circulation-messages">Circulation messages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-children-to-adults">Changing children to adults</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#renew-patron-account">延長讀者帳號的期限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deleting-a-patron-account">刪除讀者帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-patron-self-edits">管理讀者自助編輯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merging-patron-records">合併讀者紀錄</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#patron-permissions">讀者權限</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-patron-permissions">設定讀者權限</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-permissions-defined">設定讀者權限</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#patron-information">讀者資訊</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#check-out">借出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#details">詳情</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#circulation-summary">流通摘要</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#accounting">帳戶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#actions">動作</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#charging-fines-fees">收取罰款/費用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-manual-invoices">新增人工發票</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#paying-and-writing-off-charges">Paying and writing off charges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cancel-fines-or-fees">取消罰款或收費</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#void-payments">無效付款</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-manual-credits">新增人工額度</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#printing-invoices">列印收據</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#routing-lists">傳閱清單</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#circulation-history">流通紀錄</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-history">預約記錄</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modification-log">修改紀錄</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notices">通知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#statistics">統計</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files">檔案</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purchase-suggestions">採訪建議</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-discharges">讀者離館除籍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#emitting-a-discharge">Emitting a discharge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#approving-discharge-requests">Approving discharge requests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#housebound-patrons">居家讀者</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#chooser">選擇者</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deliverer">運送者</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#housebound-borrowers">居家借閱者</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coordinating-deliveries">配合運送</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#recalls-history">催還記錄</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#two-factor-authentication-in-the-staff-interface">館員介面的雙重認證</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#patron-search">搜尋讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#communicating-with-patrons">與讀者溝通</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opac-notes">OPAC 說明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opac-messages">OPAC 訊息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advance-notices-and-hold-notices">提前通知及預約通知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overdue-notices">逾期通知</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">讀者</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/patrons.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="tools.html" class="btn btn-neutral float-left" title="工具" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cash_management.html" class="btn btn-neutral float-right" title="銷售點" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="patrons">
+<span id="patrons-label"></span><h1>讀者<a class="headerlink" href="#patrons" title="此标题的永久链接"></a></h1>
+<p>匯入或新增讀者前，應先設定您的 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型</span></a>。</p>
+<section id="add-a-new-patron">
+<span id="add-a-new-patron-label"></span><h2>新增讀者<a class="headerlink" href="#add-a-new-patron" title="此标题的永久链接"></a></h2>
+<p>進入 ‘讀者’ 模組新增讀者。</p>
+<ul class="simple">
+<li><p><em>到那：</em> 讀者</p></li>
+</ul>
+<p>到了那裡後，就能新增讀者。</p>
+<ul>
+<li><p>按 ‘新增讀者’</p>
+<p><img alt="Drop down of patron categories when adding a new patron" src="_images/newpatron.png" /></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The fields that appear on the patron add form can be controlled by
+editing the <a class="reference internal" href="patronspreferences.html#borrowerunwantedfield-label"><span class="std std-ref">BorrowerUnwantedField</span></a>
+system preference.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Required fields are defined in the
+<a class="reference internal" href="patronspreferences.html#borrowermandatoryfield-label"><span class="std std-ref">BorrowerMandatoryField</span></a> system
+preference</p>
+</div>
+<ul>
+<li><p>首先，鍵入辨識讀者的資訊</p>
+<p><img alt="'Patron identity' section of the patron form" src="_images/patronidentity.png" /></p>
+<ul>
+<li><p>‘Salutation’ is populated by the
+<a class="reference internal" href="patronspreferences.html#borrowerstitles-label"><span class="std std-ref">BorrowersTitles</span></a> system preference</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>不想在 <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">收條</span></a> 使用全稱或縮寫或其他名稱欄位的內容，可以在收條使用簡稱。</p>
+<blockquote>
+<div><p>範例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Firstname</span><span class="p">:</span> <span class="n">Nicole</span> <span class="n">C</span><span class="o">.</span>
+<span class="n">Surname</span><span class="p">:</span> <span class="n">Engard</span>
+<span class="n">Initials</span><span class="p">:</span> <span class="n">NCE</span>
+</pre></div>
+</div>
+<p>然後可在收條列印 &lt;&lt;borrowers.initials&gt;&gt; 而不是全名 (NCE)。</p>
+<p>或您可以這麼做：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Firstname</span><span class="p">:</span> <span class="n">Nicole</span>
+<span class="n">Surname</span><span class="p">:</span> <span class="n">Engard</span>
+<span class="n">Initials</span><span class="p">:</span> <span class="n">E</span>
+</pre></div>
+</div>
+<p>然後可在收條列印 &lt;&lt;borrowers.initials&gt;&gt;, &lt;&lt;borrowers.firstname&gt;&gt; 而不是全名 (E, Nicole)。</p>
+</div></blockquote>
+</div>
+</li>
+</ul>
+</li>
+<li><p>兒童讀者必須附屬於成人讀者(擔保人)</p>
+<p><img alt="'Patron guarantor' and 'Non-patron guarantor' sections of the patron form" src="_images/addGuarantor.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Guarantors can only be attached to patrons whose <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">category</span></a>
+has ‘Can be guarantee’ set to ‘Yes’.</p>
+</div>
+<ul>
+<li><p>If the guarantor is a patron of the library, click ‘Add guarantor’ to
+search your system for an existing patron</p>
+<p><img alt="Search for patron pop up window" src="_images/addGuarantor2.png" /></p>
+</li>
+<li><p>點擊 ‘選擇’ 選擇讀者</p>
+<p><img alt="List of results from the patron search when searching for a guarantor" src="_images/addGuarantor3.png" /></p>
+</li>
+<li><p>The relationships are set using the
+<a class="reference internal" href="patronspreferences.html#borrowerrelationship-label"><span class="std std-ref">borrowerRelationship</span></a> system preference</p>
+<p><img alt="Patron guarantor section of the add new patron form with a patron selected as guarantor, the Relationship drop down menu is open, the options are father and mother" src="_images/addGuarantor4.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>可以在一個讀者帳戶上增加一個以上的擔保人（例如父母雙方）。</p>
+</div>
+</li>
+<li><p>如果擔保人不是讀者，你仍然可以在 ‘非讀者擔保人’ 部分新增他們的訊息。</p></li>
+</ul>
+</li>
+<li><p>接下來輸入主要地址和聯繫資訊</p>
+<p><img alt="Main address section of the add new patron form" src="_images/addmainaddress.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The street type drop-down menu is populated by the ROADTYPE
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized values</span></a></p>
+</div>
+<p><img alt="The Contact information section of the new patron form" src="_images/addcontact.png" /></p>
+<ul class="simple">
+<li><p>對聯絡資訊而言，主要電話號碼和主要電子郵件地址都出現在流通的印本通知與收條(包括轉移收條與預約收條)。主要電子郵件也是接收逾期通知與其他通知的管道。</p></li>
+<li><p>The ‘Main contact method’ can be used in reports and for staff to know
+which method to use first when trying to contact the patron.</p></li>
+</ul>
+</li>
+<li><p>你還可以為每個讀者記錄一個備用地址。例如，這可以在學術環境中用於儲存讀者的住家地址。</p>
+<p><img alt="'Alternate address' section of the patron form" src="_images/addaltaddress.png" /></p>
+</li>
+<li><p>每個讀者都可以有一個備用聯繫人。例如，備用聯繫人可以是父母或監護人。</p>
+<p><img alt="'Alternate contact' section of the patron form" src="_images/addaltcontact.png" /></p>
+</li>
+<li><p>圖書館管理區塊包括圖書館內部用的值</p>
+<p><img alt="'Library management' section of the patron form" src="_images/addlibmanagement.png" /></p>
+<ul>
+<li><p>The card number field is automatically calculated if you have the
+<a class="reference internal" href="patronspreferences.html#automembernum-label"><span class="std std-ref">autoMemberNum</span></a> system preference set that way</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For a newly installed system, this preference will start at 1 and
+increment by 1 each time after. To have it start with the starting
+number of your barcodes, enter the first barcode by hand in the patron
+record and save the patron. After that, the field will increment that
+number by 1.</p>
+</div>
+</li>
+<li><p>當初選錯讀者類型，可以在這裡修訂</p></li>
+<li><p>排序1與2用於圖書館的統計</p>
+<ul class="simple">
+<li><p>你可以通過在Bsort1和Bsort2 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>容許值類別&lt;existing-values-label&gt;`中新增數值來為這些欄段建立下拉式選單。</p></li>
+</ul>
+</li>
+<li><p>‘允許自動續借物品 ‘用於控制該讀者的借閱是否會根據流通規則進行續借。如果設置為 ‘是’，流通規則中啟用自動更新的物品將被自動更新。這就要求 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>自動_更新 工作排程 &lt;cron-automatic-renewal-label&gt;`每天運行。如果設置為 ‘否’，流通規則中啟用自動更新的館藏將不會被自動更新。</p></li>
+<li><p>Protected: protected patrons cannot be deleted either manually or by batch.
+Use this for system patrons such as
+<a class="reference internal" href="#add-a-statistical-patron-label"><span class="std std-ref">statistical patrons</span></a>,
+<a class="reference internal" href="apis_protocols.html#sip2-label"><span class="std std-ref">SIP2 patrons</span></a>, the
+<a class="reference internal" href="circulation.html#self-checkout-label"><span class="std std-ref">self checkout user</span></a>, or superadmins.</p>
+<div class="admonition-version admonition">
+<p class="admonition-title">Version</p>
+<p>The ‘Protected’ option is available from Koha version 23.11.</p>
+</div>
+</li>
+<li><p>‘Check for previous checkouts’ is used to set the patron’s personal
+preference regarding checking their circulation history to see if they
+have borrowed This item in the past. This overrides the setting of the
+<a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">patron category</span></a> and of the
+<a class="reference internal" href="patronspreferences.html#checkprevcheckout-label"><span class="std std-ref">CheckPrevCheckout</span></a> system preference.</p></li>
+</ul>
+</li>
+<li><p>接著，圖書館設定區塊包括其他的設定</p>
+<p><img alt="'Library set-up' and 'OPAC/Staff login' sections of the patron form" src="_images/addlibsetup.png" /></p>
+<ul>
+<li><p>自動填入今天為發證日</p></li>
+<li><p>過期日期將根據您的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者類別設置&lt;patron-categories-label&gt;`自動計算</p></li>
+<li><p>OPAC 說明是給讀者的說明 ，它將出現在讀者的OPAC線上帳號中</p>
+<p><img alt="'Messages for you' box in the patron's online account with a note saying 'This is an OPAC note'" src="_images/opacnote.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>參見 <a class="reference internal" href="#opac-messages-label"><span class="std std-ref">OPAC訊息</span></a></p>
+</div>
+</li>
+<li><p>流通說明係供館員使用，借出館藏時顯示在流通館員的螢幕</p>
+<p><img alt="Circulation note appearing in red to the right of the checkout box" src="_images/circnote.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>‘登入OPAC /館員介面時’部分要求使用者（或館員）使用使用者名稱和密碼登入他們在 OPAC 中的帳戶，並要求館員登入館員界面。</p>
+<ul class="simple">
+<li><p>館員只有在至少擁有 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>目錄權限&lt;patron-permissions-label&gt;`的情況下，才能使用這個登入訊息登錄到館員介面。</p></li>
+</ul>
+</li>
+<li><p>If you have enabled the housebound module (with the <a class="reference internal" href="circulationpreferences.html#houseboundmodule-label"><span class="std std-ref">HouseboundModule</span></a>
+system preference), you will be able to choose a
+<a class="reference internal" href="#housebound-patrons-label"><span class="std std-ref">housebound role</span></a> for this patron.</p>
+<p><img alt="'Housebound roles' section of the patron form" src="_images/addhouseboundroles.png" /></p>
+</li>
+<li><p>若你在管理模組中設定了 <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">其他讀者屬性</span></a>，接著會出現</p>
+<p><img alt="'Additional attributes' section of the patron form, there is one attribute called 'Department' with a drop-down menu, a subheading 'Additional ID', with another attribute called 'Employee #'" src="_images/addattributes.png" /></p>
+</li>
+<li><p>Finally, if you have the <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> system
+preference set to ‘allow,’ you can choose the messaging preferences for
+this patron.</p>
+<p><img alt="'Patron messaging preferences' section of the patron form" src="_images/addpatronmsg.png" /></p>
+<p>參見 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>預先通知和保留通知 &lt;advance-notices-and-hold-notices-label&gt;`部分中每個通知的定義</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>此偏好取代在 <a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">讀者類型</span></a> 的設定</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>These preferences can be altered by the patron via the OPAC if the
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+system preference is set to ‘show’.</p>
+</div>
+</li>
+<li><p>做好後，勾選 ‘儲存’</p></li>
+</ul>
+<p>若系統懷疑該讀者已重複，則提示。</p>
+<p><img alt="'Duplicate patron record' warning with options to view existing patron record, to edit existing record or to save as new record" src="_images/duplicatewarn.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>See the <a class="reference internal" href="patronspreferences.html#patronduplicatematchingaddfields-label"><span class="std std-ref">PatronDuplicateMatchingAddFIelds</span></a>
+system preference to see or change which fields are used to detect duplicate
+patrons. The default is the surname, the firstname and the date of birth.</p>
+</div>
+<p>已在讀者類型設定年齡的下限或上限，且要求填入生日，若年齡在此範圍外，Koha 將警示：</p>
+<p><img alt="Warning 'The following fields are wrong. Please fix them. Patron's age is incorrect for their category. Ages allowed are 5-17.'" src="_images/patronagelimit.png" /></p>
+<p>如果讀者的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>類別&lt;patron-categories-label&gt;`有註冊費，那麼在建立帳戶時，該費用將從該讀者的帳戶中扣除。然後你可以在讀者的 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>會計標籤 &lt;fines-label&gt;`中管理這筆費用。</p>
+<section id="quick-add-a-patron">
+<span id="quick-add-patron-label"></span><h3>快速新增讀者<a class="headerlink" href="#quick-add-a-patron" title="此标题的永久链接"></a></h3>
+<p>流通櫃台極為忙碌時，可以用 ‘快速新增’ 功能新增讀者。祗需填寫若干必要欄位，就能新增讀者。</p>
+<p>This feature uses two system preferences: <a class="reference internal" href="patronspreferences.html#borrowermandatoryfield-label"><span class="std std-ref">BorrowerMandatoryField</span></a>
+and <a class="reference internal" href="patronspreferences.html#patronquickaddfields-label"><span class="std std-ref">PatronQuickAddFields</span></a>. These are the two system preferences that
+control which fields are in the quick add form.</p>
+<p>進入 ‘讀者’ 模組，快速新增讀者</p>
+<ul class="simple">
+<li><p><em>到那：</em> 讀者</p></li>
+</ul>
+<p>按 ‘快速新增讀者’ 鈕。</p>
+<p>將被要求選定讀者屬性。</p>
+<p>然後，出現簡短表單。</p>
+<p><img alt="Add patron" src="_images/add_patron.png" /></p>
+<p>將表單填寫好後，按 ‘儲存’</p>
+<p>需要近用完整表單時，可以按 ‘儲存’ 鈕上方的 ‘顯示完整表單’。</p>
+</section>
+</section>
+<section id="add-a-staff-patron">
+<span id="add-a-staff-patron-label"></span><h2>新增館員讀者<a class="headerlink" href="#add-a-staff-patron" title="此标题的永久链接"></a></h2>
+<p>館員必須以 ‘Staff’ 類型的讀者登入 Koha。接著依照 <a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">新增讀者</span></a> 的程序新增館員。然後依照 <a class="reference internal" href="#patron-permissions-label"><span class="std std-ref">讀者權限</span></a> 的程序，給予進入館員介面的權限</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>記得給予館員安全的名稱與密碼，登入館員介面所需。</p>
+</div></blockquote>
+</section>
+<section id="add-a-statistical-patron">
+<span id="add-a-statistical-patron-label"></span><h2>新增統計讀者<a class="headerlink" href="#add-a-statistical-patron" title="此标题的永久链接"></a></h2>
+<p>館內使用的追蹤方式之一，是把該等館藏 “借出” 給統計讀者。此 “借出” 並不是真的借出，祗是追蹤館內使用的館藏。需先設定 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者屬性</span></a> 供統計讀者使用。</p>
+<p><img alt="image420" src="_images/statspatcat.png" /></p>
+<p>接著，新增一個統計屬性的讀者。</p>
+<p><img alt="Add statistical patron" src="_images/add_statistical_patron.png" /></p>
+<p>接著，照著本手冊 ‘<a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">新增讀者</span></a>’ 區塊的步驟。此類讀者不是真的讀者，祗需填入必備的欄位與正確的圖書館就夠了。</p>
+<p>本手冊的 <a class="reference internal" href="circulation.html#tracking-in-house-use-label"><span class="std std-ref">追蹤館內使用</span></a> 章節，還有其他追蹤館藏使用的方法。</p>
+</section>
+<section id="duplicate-a-patron">
+<span id="duplicate-a-patron-label"></span><h2>複製讀者<a class="headerlink" href="#duplicate-a-patron" title="此标题的永久链接"></a></h2>
+<p>讀者的家族成員新辦讀者證時不需重新鍵入連絡資訊。Koha 允許您複製讀者資料再修改 (需要的) 的。</p>
+<ul>
+<li><p>開啟讀者做為使用的基礎(做為複製之用)</p></li>
+<li><p>勾選紀錄上方的 ‘重複’ 鈕</p>
+<p><img alt="Row of action buttons at the top of the patron's detail page: Edit, Add guarantee, Change password, Duplicate, Print, Search to hold, Add message, Schedule pickup, and More" src="_images/patronedit.png" /></p>
+</li>
+<li><p>除了名、讀者號、姓與密碼外，其他欄位都是重複的。填入資料再按 ‘儲存’</p>
+<p><img alt="Duplicate patron" src="_images/duplicate.png" /></p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>點入已有資料的欄位，將清除其中的資訊(鍵入資料會容易些)</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>進入新讀者</p>
+<p><img alt="Duplicated patron" src="_images/duplicated_patron.png" /></p>
+</li>
+</ul>
+</section>
+<section id="adding-patron-images">
+<span id="add-patron-images-label"></span><h2>Adding patron images<a class="headerlink" href="#adding-patron-images" title="此标题的永久链接"></a></h2>
+<p>You can add patron pictures to help identify patrons. To enable this feature,
+you must first set the <a class="reference internal" href="patronspreferences.html#patronimages-label"><span class="std std-ref">patronimages</span></a> system
+preference to ‘Allow’.</p>
+<p>If the preference is set to ‘Allow’, you will see a placeholder image
+under the patron’s name on the left of the screen.</p>
+<p><img alt="Patron details page, the patron's image on the left of the screen is a placeholder represented by a silhouette with an interrogation mark" src="_images/patronimageempty.png" /></p>
+<p>Click the ‘Add’ button on the placeholder image.</p>
+<p><img alt="Patron photo pop-up modal, with options to upload an image or take a picture" src="_images/addpatronimage.png" /></p>
+<p>You have the option of either uploading an existing picture from the computer
+or taking a picture with the webcam.</p>
+<p>To upload an existing image, click ‘Browse’ or ‘Choose file’ to find the image
+on your computer and click ‘Upload’ to load the image in the patron’s file.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>每張照片的大小不能超過 100K，建議解析度不超過 200x300 圖素。</p>
+</div>
+<p>To take a picture with the webcam, click the ‘Take photo’ button once the webcam
+is facing the patron. The system will take a picture and present it to you for
+review. If you are satisfied, click ‘Upload’. If not, click ‘Retake photo’ to
+take a new picture. You can also download the picture by clicking ‘Download
+photo’.</p>
+<p>使用 <a class="reference internal" href="tools.html#upload-patron-images-label"><span class="std std-ref">上傳讀者照片</span></a> 工具，上傳大批讀者照片。</p>
+</section>
+<section id="editing-patrons">
+<span id="editing-patrons-label"></span><h2>編輯讀者<a class="headerlink" href="#editing-patrons" title="此标题的永久链接"></a></h2>
+<p>以任何一個編輯鈕就能編輯讀者。</p>
+<ul>
+<li><p>按下讀者紀錄上方的 ‘編輯’ 鈕，就能編輯整個讀者紀錄。</p>
+<p><img alt="Row of action buttons at the top of the patron's detail page: Edit, Add guarantee, Change password, Duplicate, Print, Search to hold, Add message, Schedule pickup, and More" src="_images/patronedit.png" /></p>
+</li>
+<li><p>勾選區塊 (如：’圖書館使用’) 裡的 ‘編輯’ 連結，就能編輯讀者紀錄的 特定區塊。</p>
+<p><img alt="Library use section of the patron's detail page" src="_images/libraryusesection.png" /></p>
+</li>
+</ul>
+<p>Edit the patron’s file and click ‘Save’.</p>
+<section id="modifying-patron-passwords">
+<span id="patron-password-label"></span><h3>Modifying patron passwords<a class="headerlink" href="#modifying-patron-passwords" title="此标题的永久链接"></a></h3>
+<p>Patron passwords are not recoverable.</p>
+<p>The stars on the patron details page next to the password label are always there
+even if a password isn’t set.</p>
+<p>If a patron forgets their password, the only option is to reset their password.</p>
+<p>This can be done from the staff interface. To change the patron’s password,
+click the ‘Change password’ button.</p>
+<p><img alt="Change username and/or password form" src="_images/patronpassword.png" /></p>
+<ul class="simple">
+<li><p>Koha不能顯示密碼，資料庫祗保留加密後的密碼。保留該欄位空白，即未改變密碼。</p></li>
+<li><p>若您點選標示為 “勾選將產生隨機建議。密碼以純文字顯示。” 此表單就能自動產生隨機密碼</p></li>
+</ul>
+<p>通過這個表格修改密碼，也會更新密碼的有效期，正如在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者類型&lt;patron-categories-label&gt;`中設置的那樣。</p>
+<p>If the <a class="reference internal" href="patronspreferences.html#notifypasswordchange-label"><span class="std std-ref">NotifyPasswordChange</span></a> system
+preference is enabled, the patron will receive a notification indicating their
+password was changed.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The content of this email can be customized with the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. The code of the letter
+is PASSWORD_CHANGE.</p>
+</div>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacresetpassword-label"><span class="std std-ref">OpacResetPassword</span></a> system preference is
+enabled, or if the <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category</span></a> allows it,
+you can also send a password reset email to the patron by clicking on ‘More’ and
+choosing ‘Send password reset’.</p>
+<p><img alt="More button in a patron's account is open, the options are renew patron, set permissions, send welcome email, send password reset, delete, update child to adult patron, and export today's checked in barcodes" src="_images/moremenu.png" /></p>
+<p>This will send a password reset email to the patron, similar to the one sent if
+they click on the <a class="reference internal" href="opac.html#resetting-your-password-label"><span class="std std-ref">‘Forgot your password?’</span></a>
+link on the OPAC. However, the reset link is set to expire after 5 days rather
+than 2 days when it is sent this way.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The content of the email can be customized with the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. The code of the
+letter is STAFF_PASSWORD_RESET.</p>
+</div>
+<p>只有擁有 ‘超級圖書館員’ 權限的館員才能看到並手動更改密碼的到期日。這個日期可以通過點擊讀者記錄頂端的 ‘編輯’ 按鈕，或 ‘圖書館使用’ 部分旁邊的 ‘編輯’ 按鈕來改變。</p>
+</section>
+<section id="adding-patron-flags">
+<span id="add-patron-flags-label"></span><h3>Adding patron flags<a class="headerlink" href="#adding-patron-flags" title="此标题的永久链接"></a></h3>
+<p><a class="reference internal" href="#patron-restrictions-label"><span class="std std-ref">Restrictions</span></a> are used to prevent patrons from
+checking out.</p>
+<p>Patrons can also be blocked from checking items out by setting patron flags.</p>
+<p><img alt="Patron account flags section of the patron edit form, options are Gone no address yes/no and lost card yes/no" src="_images/patronflags.png" /></p>
+<p>If you would like your circulation staff to confirm a patron’s address before
+checking items out to the patron, set the ‘Gone no address’ flag. This will
+create a warning when checking out.</p>
+<p><img alt="Warning Cannot check out Address: patron's address flagged as in doubt" src="_images/addresswarning.png" /></p>
+<p>If the patron reports that they have lost their card you can set the ‘Lost card’
+flag to prevent someone else from using that card to check items out.</p>
+<p><img alt="Warning Cannot check out Lost: patron's card is flagged as lost" src="_images/lostcardwarning.png" /></p>
+<p>If you would like to bar a patron from the library you can add a manual
+restriction.</p>
+<p><img alt="Patron restrictions section of the patron edit form, add a manual restriction with fields for comment and expiration date" src="_images/addpatronrestriction.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This is the same as the <a class="reference internal" href="#patron-restrictions-label"><span class="std std-ref">restrictions tab</span></a>
+at the bottom of the patrons details page.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>A patron can automatically be restricted with the
+<a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue/notice status triggers</span></a></p>
+</div>
+<p>If you enter in a date and/or note related to the restriction, you will see that
+in the restricted message as well.</p>
+<p><img alt="Checkout is blocked for this patron because the patron is restricted" src="_images/patronrestrictions-checkout.png" /></p>
+</section>
+<section id="adding-notes-and-messages-to-a-patron-record">
+<span id="internal-messages-label"></span><h3>Adding notes and messages to a patron record<a class="headerlink" href="#adding-notes-and-messages-to-a-patron-record" title="此标题的永久链接"></a></h3>
+<p>You can leave notes in a patron record. There are several ways to do this:
+you can either add a circulation note or an internal message. These will not
+show in the OPAC for the patron to see. If you want the patron to see the notes
+and messages, use <a class="reference internal" href="#opac-notes-label"><span class="std std-ref">OPAC notes</span></a> and
+<a class="reference internal" href="#opac-messages-label"><span class="std std-ref">OPAC messages</span></a>.</p>
+<section id="circulation-notes">
+<span id="circulation-notes-label"></span><h4>Circulation notes<a class="headerlink" href="#circulation-notes" title="此标题的永久链接"></a></h4>
+<p>Circulation notes are added to the patron’s file through the
+<a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">add patron form</span></a> or the
+<a class="reference internal" href="#editing-patrons-label"><span class="std std-ref">edit patron form</span></a>, in the ‘Library set-up’
+section.</p>
+<p><img alt="'Library set-up' and 'OPAC/Staff login' sections of the patron form" src="_images/addlibsetup.png" /></p>
+<p>In the staff interface, circulation notes will be in the ‘Library use’ section
+of the patron’s file.</p>
+<p><img alt="Library use section of the patron's detail page" src="_images/libraryusesection.png" /></p>
+</section>
+<section id="circulation-messages">
+<span id="circulation-messages-label"></span><h4>Circulation messages<a class="headerlink" href="#circulation-messages" title="此标题的永久链接"></a></h4>
+<p>Internal messages are added to the patron’s file using the ‘Add message’ button.</p>
+<p><img alt="Row of action buttons at the top of the patron's detail page: Edit, Add guarantee, Change password, Duplicate, Print, Search to hold, Add message, Schedule pickup, and More" src="_images/patronedit.png" /></p>
+<p>To leave an internal message, choose “Staff - Internal note” in the ‘Add a
+message for’ field. Enter your message in the box, or choose a predefined
+message in the drop-down menu.</p>
+<p><img alt="Pop-up modal for 'Add message' with the option 'Add a message for Staff - Internal note' chosen" src="_images/internalnote.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>預定義的訊息被新增到 BOR_NOTES :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>容許值價值類別&lt;existing-values-label&gt;`中</p>
+</div>
+<p>Once saved, the internal message is shown in bold red on the patron’s detail
+page in the staff interface, at the top of the page just under the row of action
+buttons.</p>
+<p><img alt="Internal message appearing in the patron's detail page in the staff interface just under the edit buttons" src="_images/internalnote2.png" /></p>
+<p>它也會出現在借出頁面，在借出箱的右邊。</p>
+<p><img alt="Internal message appearing in the patron's checkout page to the right of the checkout box" src="_images/internalnote3.png" /></p>
+<p>If you need to edit the message, click the ‘Edit’ button next to the message,
+edit the text and click ‘Save’.</p>
+</section>
+</section>
+<section id="changing-children-to-adults">
+<span id="change-child-to-adult-label"></span><h3>Changing children to adults<a class="headerlink" href="#changing-children-to-adults" title="此标题的永久链接"></a></h3>
+<p>Children patrons do not become adults automatically in Koha unless the
+<a class="reference internal" href="cron_jobs.html#cron-update-patron-categories-label"><span class="std std-ref">update patron categories</span></a> cron job
+is running.</p>
+<p>To upgrade a child patron to and adult patron category manually go to the ‘More’
+menu and choose ‘Update child to adult patron’.</p>
+<p><img alt="More button in a patron's account is open, the options are renew patron, set permissions, send welcome email, send password reset, delete, update child to adult patron, and export today's checked in barcodes" src="_images/moremenu.png" /></p>
+<p>You will then be presented with a pop up window asking which one of your adult
+patron categories this child should be updated to.</p>
+<p><img alt="Table to choose an adult category" src="_images/chooseadultcategory.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This list shows the <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron categories</span></a> that
+have the category type ‘adult’.</p>
+</div>
+</section>
+</section>
+<section id="renew-patron-account">
+<span id="renew-patron-account-label"></span><h2>延長讀者帳號的期限<a class="headerlink" href="#renew-patron-account" title="此标题的永久链接"></a></h2>
+<p>以人工方式編輯到期日，或以從上方工具選項的更多選單裡，點選 ‘更新讀者’ 選項，就能夠更新讀者帳號。</p>
+<p><img alt="image1393" src="_images/renew_account.png" /></p>
+<p>Using the latter the new expiry date will be calculated using the
+enrollment period configured for the patron category of the user.
+The system preference <a class="reference internal" href="patronspreferences.html#borrowerrenewalperiodbase-label"><span class="std std-ref">BorrowerRenewalPeriodBase</span></a> determines if
+the new expiry date will be calculated from the current date or from the
+old expiry date.</p>
+<p>使用 ‘更新讀者’ 選項，可以讀者身份在 action_logs 表單更新，並可從讀者帳號使用 <a class="reference internal" href="tools.html#log-viewer-label"><span class="std std-ref">記錄檔檢視器</span></a> 或 <a class="reference internal" href="#modification-log-label"><span class="std std-ref">修改記錄檔</span></a>。</p>
+<p>可在詳情分頁看到讀者帳號的更新日期。</p>
+<p><img alt="image1392" src="_images/account_renewal_date.png" /></p>
+<p>如果讀者在一個 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者類別 &lt;patron-categories-label&gt;`中，有會員費，續費時也會增加費用。然後，你可以在讀者的 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>會計標籤 &lt;fines-label&gt;`中管理該費用。</p>
+</section>
+<section id="deleting-a-patron-account">
+<span id="delete-patron-account-label"></span><h2>刪除讀者帳戶<a class="headerlink" href="#deleting-a-patron-account" title="此标题的永久链接"></a></h2>
+<p>從 ‘更多’ 下拉選單中，可以刪除讀者帳號。</p>
+<p><img alt="image1469" src="_images/deletepatron.png" /></p>
+<p>如果顧客有結帳、預約、罰款或積分，就會有提示。</p>
+<ul>
+<li><p>如果顧客目前有借出，則無法刪除。</p>
+<p><img alt="image1470" src="_images/deletepatroncheckout.png" /></p>
+</li>
+<li><p>如果讀者有未付的罰款，就不可能刪除。</p>
+<p><img alt="image1468" src="_images/deletepatronfines.png" /></p>
+</li>
+<li><p>如果一個讀者有未使用的積分，可以選擇刪除該讀者，但會有一個警告。</p>
+<p><img alt="image1471" src="_images/deletepatroncredit.png" /></p>
+</li>
+<li><p>If a patron has existing holds on their account, the option to delete the
+patron is possible. The hold will be cancelled and moved to the old_reserves
+table.</p>
+<p><img alt="image1462" src="_images/delete_with_holds.png" /></p>
+</li>
+<li><p>If a patron has public or shared <a class="reference internal" href="lists.html#lists-label"><span class="std std-ref">lists</span></a>, those will be
+deleted along with the patron, unless the
+<a class="reference internal" href="patronspreferences.html#listownershipuponpatrondeletion-label"><span class="std std-ref">ListOwnershipUponPatronDeletion</span></a>
+system preference is set to ‘change owner of these lists’.</p></li>
+<li><p>If a patron is protected, the ‘Delete’ option will be disabled. To delete the
+patron anyway, <a class="reference internal" href="#editing-patrons-label"><span class="std std-ref">edit the patron</span></a> and choose
+‘No’ under ‘Protected’ in the ‘Library management’ section, save, and
+then delete.</p>
+<p><img alt="The 'More' menu in a patron file is opened, the mouse cursor is on the greyed out 'Delete' option where a tip saying 'Patron is protected' is displayed." src="_images/deletepatronprotected.png" /></p>
+</li>
+</ul>
+</section>
+<section id="managing-patron-self-edits">
+<span id="managing-patron-self-edits-label"></span><h2>管理讀者自助編輯<a class="headerlink" href="#managing-patron-self-edits" title="此标题的永久链接"></a></h2>
+<p>If you are allowing patrons to edit their accounts via the OPAC with the
+<a class="reference internal" href="opacpreferences.html#opacpatrondetails-label"><span class="std std-ref">OPACPatronDetails</span></a> preference then you will need
+to approve all changes via the staff client before they’re applied. If
+there are patron edits awaiting action they will appear on the staff
+client dashboard below the modules list (along with other items awaiting
+action).</p>
+<p><img alt="image438" src="_images/pendingpatronrequest.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>超級圖書館員可看到所有分館的編修，其他館員祗能看到所屬圖書館讀者的編修。</p>
+</div></blockquote>
+<p>勾選 ‘讀者要求修改’ 連結後，進入要求修改的讀者清單。</p>
+<p><img alt="image439" src="_images/managepatronupdates.png" /></p>
+<p>從這裡，您可以 ‘批准’ 並採用此改變於讀者記錄；’刪除’ 並移除這些改變；或 ‘忽略’ 並維持此改變待來日再決定。</p>
+<p>可按右方的 ‘讀者詳情’ 鈕。就可在新分頁看到該讀者的完整內容。</p>
+</section>
+<section id="merging-patron-records">
+<h2>合併讀者紀錄<a class="headerlink" href="#merging-patron-records" title="此标题的永久链接"></a></h2>
+<p>同個讀者擁有兩張讀者證時，可以將其合併不必遺失任何借出與預約紀錄。</p>
+<ul class="simple">
+<li><p>選欲合併的紀錄再按 ‘合併選定的紀錄’ 鈕就可。</p></li>
+</ul>
+<p><img alt="image1326" src="_images/mergepatrons1.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>可以同時合併兩筆以上的紀錄。</p>
+</div></blockquote>
+<ul>
+<li><p>選擇你想保留的讀者記錄</p>
+<p><img alt="image1327" src="_images/mergepatrons2.png" /></p>
+</li>
+<li><p>如果有必要，點擊 ‘比較讀者’ 按鈕，看看不同帳戶之間的差異。</p>
+<p><img alt="The compare screen shows both patron files next to each other with differences highlighted" src="_images/mergepatrons-compare.png" /></p>
+</li>
+<li><p>按 ‘合併讀者’ 按鈕。</p></li>
+</ul>
+<p>借出與統計將轉移至正確的紀錄，並刪除另個紀錄。</p>
+<p><img alt="image1328" src="_images/mergepatrons3.png" /></p>
+</section>
+<section id="patron-permissions">
+<span id="patron-permissions-label"></span><h2>讀者權限<a class="headerlink" href="#patron-permissions" title="此标题的永久链接"></a></h2>
+<p>使用讀者權限讓館員讀者可以進入館員介面。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>館員必須有 (至少) ‘catalogue’ 權限，才能進入館員介面。</p>
+</div></blockquote>
+<section id="setting-patron-permissions">
+<span id="setting-patron-permissions-label"></span><h3>設定讀者權限<a class="headerlink" href="#setting-patron-permissions" title="此标题的永久链接"></a></h3>
+<ul>
+<li><p>從讀者紀錄裡勾選 ‘更多’，選擇 ‘設定權限’ 改變該讀者的權限</p>
+<p><img alt="image440" src="_images/editpatronpermissions.png" /></p>
+</li>
+<li><p>顯示偏好清單, 點擊標題右側的’顯示詳細’連結展開偏好.</p>
+<p><img alt="image441" src="_images/patronpermissions.png" /></p>
+</li>
+<li><p>在任何情況下, 如果勾選父權限, 使用者則擁有所有子權限. 如果您想要更詳細的設置權限, 展開選項然後僅勾選您想要使用者所擁有的權限.</p></li>
+</ul>
+</section>
+<section id="patron-permissions-defined">
+<span id="patron-permissions-defined-label"></span><h3>設定讀者權限<a class="headerlink" href="#patron-permissions-defined" title="此标题的永久链接"></a></h3>
+<ul>
+<li><p>存取所有圖書館館員職責的權限(超級圖書館館員)</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>選了它之後就不需再勾選其他權限</p>
+</div></blockquote>
+</li>
+<li><p>借出與還入館藏(流通)</p>
+<ul class="simple">
+<li><p>保持流通權限 (流通_保持_權限)</p>
+<ul>
+<li><p>這個權限准許所有流通權利除了以下列出權限涉及的權利</p></li>
+</ul>
+</li>
+<li><p>若有限制則強迫借出 (force_checkout)</p>
+<ul>
+<li><p>在以下情況根據權限允許員工撤銷借出的限制:</p>
+<ul>
+<li><p>年齡限制</p></li>
+<li><p>此館藏已被其他讀者借出</p></li>
+<li><p>此館藏不外借</p></li>
+<li><p>持有逾期館藏的讀者</p></li>
+<li><p>此館藏已遺失</p></li>
+<li><p>此館藏是熱門館藏</p></li>
+<li><p>此館館已被預約</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>將借出說明標記為已看/未看 (manage_checkout_notes)</p>
+<ul>
+<li><dl class="simple">
+<dt>使用者編輯管理借出說明的權限</dt><dd><p>透過OPAC</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>Manage curbside pickups (manage_curbside_pickups)</p>
+<ul>
+<li><p>The permission to manage patron curbside pickup appointments</p></li>
+</ul>
+</li>
+<li><p>管理帳號的限制 (manage_restrictions)</p>
+<ul>
+<li><p>授權館員移除讀者記錄裡的限制</p></li>
+</ul>
+</li>
+<li><p>執行逾期館藏報表 (overdues_report)</p>
+<ul>
+<li><p>執行流通下逾期報表的權限</p></li>
+</ul>
+</li>
+<li><p>取消禁止續借 (override_renewals)</p>
+<ul>
+<li><p>根據此權限, 如果有限制，員工可以撤銷續約</p></li>
+<li><p>館員需同時具有流通_其他_權限</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Staff access, allows viewing the catalogue in staff interface (catalogue)
+<strong>Required for staff login.</strong></p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>This permission must be given to all staff members to allow them to log
+into the staff interface</p>
+</div>
+<ul class="simple">
+<li><p>This will allow access to the staff interface, with the possibility of</p>
+<ul>
+<li><p>searching the catalogue (<a class="reference internal" href="searching.html#basic-searching-label"><span class="std std-ref">simple search</span></a>,
+<a class="reference internal" href="searching.html#advanced-searching-label"><span class="std std-ref">advanced search</span></a> and
+<a class="reference internal" href="searching.html#item-searching-label"><span class="std std-ref">item search</span></a>)</p></li>
+<li><p>searching the authorities</p></li>
+<li><p>viewing the checkout history of a title (no patron information is shown)</p></li>
+<li><p><a class="reference internal" href="lists.html#create-a-list-label"><span class="std std-ref">creating private or public lists</span></a>,
+<a class="reference internal" href="lists.html#add-to-a-list-label"><span class="std std-ref">adding items to private lists and public lists</span></a>,
+if the public list permission allows it, editing and deleting private
+lists</p></li>
+<li><p>using the <a class="reference internal" href="lists.html#cart-label"><span class="std std-ref">cart</span></a></p></li>
+<li><p>viewing <a class="reference internal" href="course_reserves.html#course-reserves-label"><span class="std std-ref">course reserves</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>管理Koha系統設置 (管理面板) (參數)</p>
+<ul>
+<li><p>管理帳戶借項和信用類型 (管理_帳戶)</p>
+<ul class="simple">
+<li><p>近用至 <a class="reference internal" href="administration.html#debit-types-label"><span class="std std-ref">借方類型區塊</span></a></p></li>
+</ul>
+</li>
+<li><p>管理購物籃或是訂閱費的額外欄位 (管理_額外的 _欄位)</p>
+<ul>
+<li><p>近用至 <span class="xref std std-ref">其他欄位區塊</span></p></li>
+<li><p><strong>重要</strong></p>
+<p>權限要求員工要有從’管理連續性訂閱費’部分的’編輯現有的訂閱費’權限以及從’收購和/或是提議管理’部分的’管理購物籃和訂單行’權限</p>
+</li>
+</ul>
+</li>
+<li><p>管理警示音效 (管理_音效_警示)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#audio-alerts-label"><span class="std std-ref">audio alerts</span></a> 的組態.</p></li>
+</ul>
+</li>
+<li><p>管理容許值類型及其值 (manage_auth_ values)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">auhorized values</span></a> 的組態.</p></li>
+</ul>
+</li>
+<li><p>Manage background jobs (manage_background_jobs)</p>
+<ul class="simple">
+<li><p>The ability to access the <a class="reference internal" href="administration.html#jobs-administration-label"><span class="std std-ref">jobs</span></a>
+management section of the administration module.</p></li>
+</ul>
+</li>
+<li><p>管理流通規則 (manage_circ_rules)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <span class="xref std std-ref">circulation and fines rules</span> 的組態.</p></li>
+</ul>
+</li>
+<li><p>從任意圖書館管理流通規則 (管理_流通_規則_從_ 任意_圖書館)</p>
+<ul class="simple">
+<li><p>若沒有設定，祗能從自己的圖書館登入編輯自己的流通規則</p></li>
+<li><p>員工還是要有上面’管理流通規則’的許可.</p></li>
+</ul>
+</li>
+<li><p>管理縣市與鄉鎮 (manage_cities)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#cities-and-towns-label"><span class="std std-ref">cities and towns</span></a> 的組態.</p></li>
+</ul>
+</li>
+<li><p>管理分類法來源與排序規則 (manage_classifications)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#classification-sources-label"><span class="std std-ref">classification sources</span></a> 的組態.</p></li>
+</ul>
+</li>
+<li><p>管理欄的組態 (manage_column_config)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">configure columns</span></a> 頁面的能力.</p></li>
+</ul>
+</li>
+<li><p>Manage curbside pickups (manage_curbside_pickups)</p>
+<ul class="simple">
+<li><p>The permission to
+<a class="reference internal" href="administration.html#curbside-pickup-configuration-label"><span class="std std-ref">manage curbside pickup slots and parameters</span></a>
+in the administration module.</p></li>
+</ul>
+</li>
+<li><p>管理您的意思是？組態 (manage_didyoumean)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#did-you-mean-label"><span class="std std-ref">您的意思是？</span></a> 的組態權限。</p></li>
+</ul>
+</li>
+<li><p>Manage authentication providers (manage_identity_providers)</p>
+<ul class="simple">
+<li><p>Grants access to the <a class="reference internal" href="administration.html#identity-providers-label"><span class="std std-ref">Identity providers</span></a>
+configuration in the administration module.</p></li>
+</ul>
+</li>
+<li><p>管理館藏流通提示 (manage_item_circ_alerts)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#item-circulation-alerts-label"><span class="std std-ref">item circulation alerts</span></a> 的組態.</p></li>
+</ul>
+</li>
+<li><p>管理館藏搜索欄位 (管理_館藏_搜索_欄位)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#item-search-fields-label"><span class="std std-ref">item search fields</span></a> 的組態.</p></li>
+</ul>
+</li>
+<li><p>管理館藏類型 (管理_館藏類型)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item types</span></a> 的組態.</p></li>
+</ul>
+</li>
+<li><p>管理高級編目編輯器的鍵盤快捷鍵 (管理_ 鍵盤_快捷鍵)</p>
+<ul class="simple">
+<li><p>在管理模組近用鍵盤熱鍵組態的能力</p></li>
+</ul>
+</li>
+<li><p>管理圖書館與圖書館群組 (manage_libraries)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">libraries</span></a> 與 <a class="reference internal" href="administration.html#library-groups-label"><span class="std std-ref">library groups</span></a> 的頁面組態.</p></li>
+</ul>
+</li>
+<li><p>管理Mana KB內容共享 (管理_mana)</p>
+<ul class="simple">
+<li><p>從管理模組近用 <span class="xref std std-ref">與 Mana KB &lt;share-with-mana-kb-label&gt; 共享內容</span></p></li>
+</ul>
+</li>
+<li><p>管理 MARC 書目與權威框架並測試之 (manage_marc_frameworks)</p></li>
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC bibliographic framework</span></a>, <a class="reference internal" href="administration.html#authority-types-label"><span class="std std-ref">authority types</span></a>, <a class="reference internal" href="administration.html#koha-to-marc-mapping-label"><span class="std std-ref">Koha to MARC mapping</span></a>, 以及 <a class="reference internal" href="administration.html#marc-bibliographic-framework-test-label"><span class="std std-ref">MARC Bibliographic framework test</span></a> 的區域組態.</p></li>
+<li><p>管理紀錄匹配規則 (manage_matching_rules)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#record-matching-rules-label"><span class="std std-ref">record matching rules</span></a> 的組態.</p></li>
+</ul>
+</li>
+<li><p>管理詮釋資料擷取開放檔案計畫協定設置 (管理_詮釋資料擷取開放檔案計畫協定_設置)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#oai-sets-configuration-label"><span class="std std-ref">OAI 集</span></a> 的組態權限。</p></li>
+</ul>
+</li>
+<li><p>管理讀者的延伸屬性 (manage_patron_attributes)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">patron attribute types</span></a> 的組態.</p></li>
+</ul>
+</li>
+<li><p>管理讀者目錄 (管理_讀者_目錄)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型</span></a> 的組態權限。</p></li>
+</ul>
+</li>
+<li><p>管理搜尋引擎組態 (manage_search_engine_config)</p>
+<ul class="simple">
+<li><p>The ability to access the Search engine configuration in the
+administration module. Note: This area will only be visible when
+the <a class="reference internal" href="administrationpreferences.html#searchengine-label"><span class="std std-ref">SearchEngine</span></a> system preference is set to ‘Elasticsearch’.</p></li>
+</ul>
+</li>
+<li><p>Manage saved search filters (manage_search_filters)</p>
+<ul class="simple">
+<li><p>The ability to access the
+<a class="reference internal" href="administration.html#search-filter-administration-label"><span class="std std-ref">search filters administration page</span></a>
+in the administration module.</p></li>
+</ul>
+</li>
+<li><p>管理 Z39.50 與 SRU 伺服器的組態 (manage_search_targets)</p>
+<ul class="simple">
+<li><p>在管理模組近用 <a class="reference internal" href="administration.html#z39-50-sru-servers-label"><span class="std std-ref">Z39.50/SRU 伺服器</span></a> 的組態權限。</p></li>
+</ul>
+</li>
+<li><p>管理 SMS 基地台供應商 (manage_sms_providers)</p>
+<ul class="simple">
+<li><p>The ability to access the <a class="reference internal" href="administration.html#sms-cellular-providers-label"><span class="std std-ref">SMS cellular providers</span></a> configuration in the administration
+module. Note: This area will only be visible when the
+<a class="reference internal" href="patronspreferences.html#smssenddriver-label"><span class="std std-ref">SMSSendDriver</span></a> system preference is set to ‘Email’.</p></li>
+</ul>
+</li>
+<li><p>Manage SMTP servers (manage_smtp_servers)</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>The ability to access the <a class="reference internal" href="administration.html#smtp-servers-label"><span class="std std-ref">SMTP servers</span></a>
+section of the administration to add new SMTP servers.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Manage system preferences (manage_sysprefs)</p>
+<ul>
+<li><p>The ability to access the <a class="reference internal" href="administrationpreferences.html#administration-system-preferences-label"><span class="std std-ref">system preferences</span></a> in the administration module.</p></li>
+</ul>
+</li>
+<li><p>管理圖書館轉移限制及轉移成本矩陣 (manage_transfers)</p>
+<ul>
+<li><p>近用管理模組組態頁面 <a class="reference internal" href="administration.html#library-transfer-limits-label"><span class="std std-ref">圖書館轉移限制</span></a> 與 <a class="reference internal" href="administration.html#transport-cost-matrix-label"><span class="std std-ref">轉移成本矩陣</span></a> 的權限。</p></li>
+</ul>
+</li>
+<li><p>管理使用情況統計資料設定 (管理_使用情況_統計資料)</p>
+<ul>
+<li><p>近用管理模組 <a class="reference internal" href="administrationpreferences.html#share-anonymous-usage-statistics-label"><span class="std std-ref">共享使用統計</span></a> 的組態權限。</p></li>
+</ul>
+</li>
+<li><p>其他系統參數權限 (parameters_remaining_permissions)</p>
+<ul>
+<li><p>在管理模組近用所有其餘區域的功能.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>增加, 修改和查看讀者資訊 (借閱者)</p>
+<ul class="simple">
+<li><p>新增、修改與檢視讀者資訊 (edit_borrowers)</p>
+<ul>
+<li><p>近用讀者模組檢視讀者檔案，以及新增讀者及編輯讀者檔案</p></li>
+</ul>
+</li>
+<li><p>從任意圖書館查看讀者資訊 (查看_借閱者_資訊_從_任意_圖書館)</p></li>
+<li><p>如果不設置登入使用者將只能從他們自己的圖書館或是圖書館群訪問讀者資訊.</p></li>
+</ul>
+</li>
+<li><p>設定使用者權限 (權限)</p>
+<ul class="simple">
+<li><p>為其他員工設定權限的能力</p></li>
+</ul>
+</li>
+<li><p>為讀者安排與修改預約 (為其他人預約)</p>
+<ul class="simple">
+<li><p>優先修改預約 (修改_預約_優先)</p>
+<ul>
+<li><p>允許館員優先修改預約 (移動讀者上下順序)</p></li>
+</ul>
+</li>
+<li><p>為讀者預約 (place_holds)</p>
+<ul>
+<li><p>允許館員在館員介面預約</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>編集目錄 (修改書目/預約資料) (編輯目錄)</p>
+<ul>
+<li><p>使用進階編目編輯器 (進階_編輯器)</p>
+<ul>
+<li><p>允許使用編目模組中的進階編目編輯器</p></li>
+<li><p><strong>說明</strong></p>
+<p>館員有此權限同樣必須有 ‘編輯編目 (修改書目/館藏資料)’ 權限</p>
+</li>
+</ul>
+</li>
+<li><p>立即刪除所有館藏 (delete_all_items)</p>
+<ul class="simple">
+<li><p>在編目的 ‘編輯’ 選單下使用 ‘刪除所有館藏’ 選項的能力</p></li>
+</ul>
+</li>
+<li><p>Edit any item including items that would otherwise be restricted
+(edit_any_item)</p>
+<ul class="simple">
+<li><p>Ability to edit items belonging to libraries from other
+<a class="reference internal" href="administration.html#library-groups-label"><span class="std std-ref">library groups</span></a>.</p></li>
+</ul>
+</li>
+<li><p>編輯編目 (修改書目/館藏資料) (edit_catalogue)</p>
+<ul class="simple">
+<li><p>經由 <a class="reference external" href="#cataloging">編目</a> 頁面近用所有編目功能的權限</p></li>
+</ul>
+</li>
+<li><p>編輯館藏 (edit_items)</p>
+<ul class="simple">
+<li><p>擁有 <a class="reference internal" href="cataloging.html#editing-items-label"><span class="std std-ref">編輯館藏/預約記錄</span></a> 的權限，但不包括書目記錄</p></li>
+</ul>
+</li>
+<li><p>Limit item modification to subfields defined in the
+<a class="reference internal" href="catalogingpreferences.html#subfieldstoallowforrestrictedediting-label"><span class="std std-ref">SubfieldsToAllowForRestrictedEditing</span></a> system preference
+(edit_items_restricted)</p>
+<ul>
+<li><p>點選後，館員將只能修改某些館藏分欄</p></li>
+<li><p><strong>說明</strong></p>
+<p>請注意仍需要 ‘編輯館藏’ 的權限</p>
+</li>
+</ul>
+</li>
+<li><p>快速編目 (fast_cataloging)</p>
+<ul class="simple">
+<li><p>編目權限祗使用於 <a class="reference internal" href="circulation.html#fast-add-cataloging-label"><span class="std std-ref">快速新增框架</span></a> 所在的 <cite>流通 &lt;#circulation&gt;</cite> 頁面</p></li>
+</ul>
+</li>
+<li><p>Create, update and delete item editor templates owned by others
+(manage_item_editor_templates)</p>
+<ul class="simple">
+<li><p>The ability to manage <a class="reference internal" href="cataloging.html#item-templates-label"><span class="std std-ref">item templates</span></a>
+created by other users</p></li>
+</ul>
+</li>
+<li><p>Create, update and delete item groups, add or remove items from an item
+group (manage_item_groups)</p>
+<ul class="simple">
+<li><p>The ability to manage <a class="reference internal" href="cataloging.html#item-groups-label"><span class="std std-ref">item groups</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>管理讀者罰款與費用(更新費用)</p>
+<ul class="simple">
+<li><p>讀者折扣款項 (折扣)</p>
+<ul>
+<li><p>發放補償額度給讀者的功能</p></li>
+</ul>
+</li>
+<li><p>Add manual credits to a patron account (manual_credit)</p>
+<ul>
+<li><p>The ability to <a class="reference internal" href="#creating-manual-credits-label"><span class="std std-ref">add manual credits to a patron’s account</span></a></p></li>
+</ul>
+</li>
+<li><p>Add manual invoices to a patron account (manual_invoice)</p>
+<ul>
+<li><p>The ability to <a class="reference internal" href="#creating-manual-invoices-label"><span class="std std-ref">create manual invoices in a patron’s account</span></a></p></li>
+</ul>
+</li>
+<li><p>支付給讀者的餘額 (payout)</p>
+<ul>
+<li><p>發放補償額度給讀者的功能</p></li>
+</ul>
+</li>
+<li><p>退還款項給讀者(退還)</p>
+<ul>
+<li><p>給予退還讀者已向圖書館支付款項的能力</p></li>
+</ul>
+</li>
+<li><p>管理罰款與費用的權限 (remaining_permissions)</p>
+<ul>
+<li><p>給予管理除了罰款和費用以外其他子權限內描述的操作(折扣、賠付、退款和註銷）</p></li>
+</ul>
+</li>
+<li><p>註銷罰款與費用 (writeoff)</p>
+<ul>
+<li><p>允許註銷讀者費用</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>採訪管理 (採訪)</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>所有的採訪子權限均允許近用採訪主頁。擁有以下一項或多項權限的館員可以查看預算，搜尋和檢視供應商訊息以及發票。</p>
+</div>
+<ul class="simple">
+<li><p>新增且刪除預算 (但不能修改預算) (budget_add_del)</p>
+<ul>
+<li><p>給予 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>新增資金&lt;add-a-fund-label&gt;`和刪除預算內資金的能力</p></li>
+<li><p>說明預算_管理和預算_為了正常運作需要修改權限</p></li>
+</ul>
+</li>
+<li><p>基金管理 (budget_manage)</p>
+<ul>
+<li><p>給予訪問 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>基金管理頁&lt;funds-label&gt;`的能力</p></li>
+<li><p>請注意，這裡僅提供查看頁面的權限，如果希望館員能夠更改基金需要給館員預算_新增_刪除和預算_更改</p></li>
+</ul>
+</li>
+<li><p>管理全部基金 (budget_manage_all)</p>
+<ul>
+<li><p>授予查看所有基金的權限，而不受其限制（擁有者，使用者或圖書館的限制）</p></li>
+<li><p>注意預算_需要管理權限</p></li>
+</ul>
+</li>
+<li><p>修改預算 (不能新增，但可以修改既有的) (budget_modify)</p>
+<ul>
+<li><p>授權編輯基金訊息和金額的功能</p></li>
+<li><p>說明預算_新增_刪除和預算_為了正常運作需要管理權限</p></li>
+</ul>
+</li>
+<li><p>管理合約 (contracts_manage)</p>
+<ul>
+<li><p>給予新增、編輯和刪除 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>與供應商的合約&lt;vendor-contracts-label&gt;`的能力</p></li>
+</ul>
+</li>
+<li><p>管理幣別與匯率 (currencies_manage)</p>
+<ul>
+<li><p>在近用 <a class="reference internal" href="administration.html#currencies-and-exchange-rates-label"><span class="std std-ref">幣別與匯率</span></a> 組態頁面的權限。</p></li>
+</ul>
+</li>
+<li><p>刪除籃（刪除_籃）</p>
+<ul>
+<li><p>給予刪除籃的能力</p></li>
+<li><p>該館員還必須有訂單_管理權限，以便能夠查看採購籃，從而刪除它們。</p></li>
+</ul>
+</li>
+<li><p>刪除發票 (delete_invoices)</p>
+<ul>
+<li><p>給予刪除發票的能力</p></li>
+</ul>
+</li>
+<li><p>管理 EDIFACT 傳輸 (edi_manage)</p>
+<ul>
+<li><p>授予近用 <a class="reference internal" href="administration.html#edi-accounts-label"><span class="std std-ref">EDI 帳戶的</span></a> 管理頁面, <a class="reference internal" href="administration.html#library-eans-label"><span class="std std-ref">圖書館 EANs</span></a> 的管理頁面和已發送存取權 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>EDI 訊息 &lt;edifact-messages-label&gt;`的權限</p></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div></div></blockquote>
+<ul class="simple">
+<li><p>編輯發票 (edit_invoices)</p>
+<ul>
+<li><p>授予編輯發票的能力（修改發票訊息，如發票號碼、開票或發貨日期、新增調整等）</p></li>
+<li><p>除非館員也有訂購_接收權限，否則他們將不能根據發票接收訂單</p></li>
+</ul>
+</li>
+<li><p>管理採購籃群組 (group_manage)</p>
+<ul>
+<li><p>授予 <a class="reference internal" href="acquisitions.html#create-a-basket-group-label"><span class="std std-ref">建立，編輯，關閉和刪除採購籃群組的功能</span></a></p></li>
+</ul>
+</li>
+<li><p>合併發票 (merge_invoices)</p>
+<ul>
+<li><p>授予 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>合併發票 &lt;merging-invoices-label&gt;`的能力</p></li>
+</ul>
+</li>
+<li><p>管理採購籃與訂購順序 (order_manage)</p>
+<ul>
+<li><p>授予 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>下訂單 &lt;placing-orders-label&gt;`的功能，包括建立採購籃，新增訂單列，關閉購物籃等。</p></li>
+</ul>
+</li>
+<li><p>管理所有訂購籃與訂購順序，不論有何限制 (order_manage_all)</p>
+<ul>
+<li><p>授予管理所有採購籃和訂單的功能，即使它們僅限於所有者，使用者或圖書館</p></li>
+<li><p>注意訂單_需要管理權限</p></li>
+</ul>
+</li>
+<li><p>簽收訂單與管理運送 (order_receive)</p>
+<ul>
+<li><p>授予建立發票，到館館藏和催缺逾期訂單的能力</p></li>
+</ul>
+</li>
+<li><p>管理預算 (period_manage)</p>
+<ul>
+<li><p>授予近用 <a class="reference internal" href="administration.html#budgets-label"><span class="std std-ref">預算管理頁面</span></a> 並具有建立，編輯和刪除預算的能力</p></li>
+<li><p>此權限不包括編輯預算基金的功能</p></li>
+</ul>
+</li>
+<li><p>管理預算規畫 (planning_manage)</p>
+<ul>
+<li><p>允許查看 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>規劃預算 &lt;budget-planning-label&gt;</p></li>
+<li><p>注意預算_管理和逾期_需有管理權限</p></li>
+</ul>
+</li>
+<li><p>重開已關閉的發票 (reopen_closed_invoices)</p>
+<ul>
+<li><p>授予重新開具已關閉發票的能力</p></li>
+</ul>
+</li>
+<li><p>管理供應商 (vendors_manage)</p>
+<ul>
+<li><p>授予 <a class="reference internal" href="acquisitions.html#vendors-label"><span class="std std-ref">新增，編輯和刪除供應商的功能</span></a></p></li>
+<li><p>注意供應商使用在採訪和期刊模組中。</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>建議管理</p>
+<ul class="simple">
+<li><p>管理採訪建議 (suggestions_manage)</p>
+<ul>
+<li><p>給予 <a class="reference internal" href="acquisitions.html#managing-purchase-suggestions-label"><span class="std std-ref">建立和管理購買建議</span></a> 權限，包括新增採訪建議與修改建議的狀態</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用所有工具 (tools)</p>
+<ul class="simple">
+<li><p>近用伺服器的檔案 (access_files)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#upload-label"><span class="std std-ref">上傳工具</span></a></p></li>
+</ul>
+</li>
+<li><p>批次或逐一上傳讀者照片 (batch_upload_patron_images)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#upload-patron-images-label"><span class="std std-ref">上傳照片工具</span></a></p></li>
+</ul>
+</li>
+<li><p>刪除舊讀者與匿名流通/閱讀記錄 (刪除借閱者的閱讀記錄) (delete_anonymize_patrons)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#patrons-anonymize-bulk-delete-label"><span class="std std-ref">匿名讀者工具</span></a></p></li>
+</ul>
+</li>
+<li><p>設定閉館時的天數 (edit_calendar)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">行事曆/假日工具</span></a></p></li>
+</ul>
+</li>
+<li><p>為 OPAC 與館員介面撰寫最新消息 (edit_news)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">最新消息工具</span></a></p></li>
+</ul>
+</li>
+<li><p>設定逾期館藏的通知/啟動狀態 (edit_notice_status_triggers)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">逾期通知機制/啟動工具</span></a></p></li>
+</ul>
+</li>
+<li><p>定義說明 (edit_notices)</p>
+<ul>
+<li><p>近用至 <span class="xref std std-ref">通知與收條工具</span></p></li>
+</ul>
+</li>
+<li><p>執行批次修改讀者 (edit_patrons)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#batch-patron-modification-label"><span class="std std-ref">批次修改讀者工具</span></a></p></li>
+</ul>
+</li>
+<li><p>編輯每日一句功能的引句 (edit_quotes)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#quote-of-the-day-qotd-editor-label"><span class="std std-ref">每日一句 (QOTD) 編輯器</span></a></p></li>
+</ul>
+</li>
+<li><p>匯出書目與館藏資料 (export_catalog)</p>
+<ul>
+<li><p>近用至 <span class="xref std std-ref">匯出資料工具</span></p></li>
+</ul>
+</li>
+<li><p>匯入讀者資料 (import_patrons)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#patron-import-label"><span class="std std-ref">匯入讀者工具</span></a></p></li>
+</ul>
+</li>
+<li><p>執行館藏目錄的盤點 (inventory)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="cataloging.html#inventory-tool-label"><span class="std std-ref">盤點工具</span></a></p></li>
+</ul>
+</li>
+<li><p>執行批次刪除館藏 (items_batchdel)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="cataloging.html#batch-item-deletion-label"><span class="std std-ref">批次刪除館藏工具</span></a></p></li>
+</ul>
+</li>
+<li><p>執行批次修改館藏 (items_batchmod)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="cataloging.html#batch-item-modification-label"><span class="std std-ref">批次修改館藏工具</span></a></p></li>
+</ul>
+</li>
+<li><p>限制祗能批次修改在 <span class="xref std std-ref">SubfieldsToAllowForRestrictedEditing</span> 偏好設定分欄內的館藏 (items_batchmod_restricted)</p>
+<ul>
+<li><p>Restricts the <a class="reference internal" href="cataloging.html#batch-item-modification-label"><span class="std std-ref">batch item modification</span></a> tool
+to modify only the subfields defined in the
+<a class="reference internal" href="catalogingpreferences.html#subfieldstoallowforrestrictedbatchmod-label"><span class="std std-ref">SubfieldsToAllowForRestrictedBatchmod</span></a> preference</p></li>
+<li><p>請注意仍需要館藏_批次模式授權</p></li>
+</ul>
+</li>
+<li><p>根據目錄與讀者資料建立可列印的標籤與條碼 (label_creator)</p>
+<ul>
+<li><p>近用至 <span class="xref std std-ref">讀者證産生器</span> 與 <a class="reference internal" href="cataloging.html#quick-spine-label-creator-label"><span class="std std-ref">快速書標產生器</span></a> 工具</p></li>
+</ul>
+</li>
+<li><p>管理CSV匯出設定檔 (manage_csv_profiles)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV 設定檔工具</span></a></p></li>
+</ul>
+</li>
+<li><p>新增、編輯與刪除讀者虛擬書架及其內容 (manage_patron_lists)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#patron-lists-label"><span class="std std-ref">讀者虛擬書架工具</span></a></p></li>
+</ul>
+</li>
+<li><p>管理待處理 MARC 紀錄，包括完成與反轉匯入 (manage_staged_marc)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="cataloging.html#staged-marc-record-management-label"><span class="std std-ref">管理待處理 MARC 記錄工具</span></a></p></li>
+</ul>
+</li>
+<li><p>管理 MARC 修改模板 (marc_modification_templates)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="cataloging.html#marc-modification-templates-label"><span class="std std-ref">MARC 修改模板工具</span></a></p></li>
+</ul>
+</li>
+<li><p>管理讀者的評論 (moderate_comments)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#comments-label"><span class="std std-ref">評論工具</span></a></p></li>
+</ul>
+</li>
+<li><p>審核讀者標籤 (moderate_tags)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#tag-moderation-label"><span class="std std-ref">標籤工具</span></a></p></li>
+</ul>
+</li>
+<li><p>執行批次刪除記錄 (書目或權威) (records_batchdel)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="cataloging.html#batch-record-deletion-label"><span class="std std-ref">批次紀錄刪除工具</span></a></p></li>
+</ul>
+</li>
+<li><p>執行批次刪除記錄 (書目或權威) (records_batchmod)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="cataloging.html#batch-record-modification-label"><span class="std std-ref">批次修改紀錄工具</span></a></p></li>
+</ul>
+</li>
+<li><p>管理巡迴館藏 (rotating_collections)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#rotating-collections-label"><span class="std std-ref">巡迴館藏工具</span></a></p></li>
+</ul>
+</li>
+<li><p>執行排定工作 (schedule_tasks)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#task-scheduler-label"><span class="std std-ref">工作排程工具</span></a></p></li>
+</ul>
+</li>
+<li><p>將 MARC 記錄納入儲存庫 (stage_marc_import)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="cataloging.html#stage-marc-records-for-import-label"><span class="std std-ref">待處理 MARC 記錄工具</span></a></p></li>
+</ul>
+</li>
+<li><p>上傳任何檔案 (upload_general_files)</p>
+<ul>
+<li><p>經由 <a class="reference internal" href="tools.html#upload-label"><span class="std std-ref">上傳工具</span></a> 近用至上傳檔案</p></li>
+</ul>
+</li>
+<li><p>上傳本地封面圖片 (upload_local_cover_images)</p>
+<ul>
+<li><p>Access to the <a class="reference internal" href="cataloging.html#adding-cover-images-label"><span class="std std-ref">Upload local cover image
+tool</span></a> as well as permission to add and
+delete local cover images from the record detail page</p></li>
+</ul>
+</li>
+<li><p>管理上傳檔案 (upload_manage)</p>
+<ul>
+<li><p>經由 <a class="reference internal" href="tools.html#upload-label"><span class="std std-ref">上傳工具</span></a> 近用上傳檔案</p></li>
+<li><p>請注意上傳_一般_檔案需要此授權</p></li>
+</ul>
+</li>
+<li><p>瀏覽系統紀錄 (view_system_logs)</p>
+<ul>
+<li><p>近用至 <a class="reference internal" href="tools.html#log-viewer-label"><span class="std std-ref">記錄檢視器工具</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>編輯權威 (editauthorities)</p>
+<ul class="simple">
+<li><p>授予新增，編輯和刪除權限記錄的功能</p></li>
+<li><p>請注意，僅有目錄權限才能搜尋權威記錄</p></li>
+</ul>
+</li>
+<li><p>管理期刊訂閱 (serials)</p>
+<ul class="simple">
+<li><p>勾選期刊到期日 (check_expiration)</p></li>
+<li><p>勾選 <a class="reference internal" href="serials.html#check-serial-expiration-label"><span class="std std-ref">期刊到期日</span></a></p></li>
+<li><p>催缺期刊 (催缺_期刊)</p>
+<ul>
+<li><p>授予 <a class="reference internal" href="serials.html#claim-late-serials-label"><span class="std std-ref">催缺遺失期數的權限</span></a></p></li>
+</ul>
+</li>
+<li><p>新增訂閱 (create_subscription)</p>
+<ul>
+<li><p>授予 <a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">新增訂閱的權限</span></a></p></li>
+</ul>
+</li>
+<li><p>刪除的訂閱 (delete_subscription)</p>
+<ul>
+<li><p>授予刪除期刊訂閱的權限</p></li>
+</ul>
+</li>
+<li><p>編輯既有的訂閱 (edit_subscription)</p>
+<ul>
+<li><p>給予 <a class="reference internal" href="serials.html#edit-subscription-label"><span class="std std-ref">編輯既有期刊訂閱</span></a> 的權限</p></li>
+<li><p>此權限不包括刪除與新增訂閱</p></li>
+</ul>
+</li>
+<li><p>簽收期刊 (receive_serials)</p>
+<ul>
+<li><p>授予 <a class="reference internal" href="serials.html#receive-issues-label"><span class="std std-ref">根據既有的訂閱簽收期刊的權限</span></a></p></li>
+</ul>
+</li>
+<li><p>續訂 (renew_subscription)</p>
+<ul>
+<li><p>授予 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>續訂期刊訂閱的權限 &lt;renewing-serials-label&gt;</p></li>
+</ul>
+</li>
+<li><p>傳閱 (routing)</p>
+<ul>
+<li><p>授予 <a class="reference internal" href="serials.html#create-a-routing-list-label"><span class="std std-ref">管理傳閱清單的權限</span></a></p></li>
+</ul>
+</li>
+<li><p>管理任何分館的訂閱 (superserials)</p>
+<ul>
+<li><p>This permission is only useful if the <a class="reference internal" href="administrationpreferences.html#independentbranches-label"><span class="std std-ref">IndependentBranches</span></a>
+system preference is used</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>允許近用至報表模組 (reports)</p>
+<ul class="simple">
+<li><p>在 <a class="reference internal" href="circulation.html#circulation-reports-label"><span class="std std-ref">流通頁面</span></a> 上的報表不受此權限的控制；這只控制對 :ref:報表模組 &lt;reports-label&gt;` 的權限</p></li>
+<li><p>在 <a class="reference internal" href="reports.html#statistics-reports-label"><span class="std std-ref">統計精靈</span></a> 的報表部分和其他在主要報表頁面上的報表可以使用以下任一權限執行。它們僅影響SQL報表。</p></li>
+<li><p>建立 SQL 報表 (create_reports)</p>
+<ul>
+<li><p>新增 <a class="reference internal" href="reports.html#guided-report-wizard-label"><span class="std std-ref">報表精靈</span></a> 或 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>SQL報表 &lt;report-from-sql-label&gt;`的功能，但不執行已儲存的</p></li>
+</ul>
+</li>
+<li><p>刪除 SQL 報表 (delete_reports)</p>
+<ul>
+<li><p>能夠刪除已儲存的 <a class="reference internal" href="reports.html#report-from-sql-label"><span class="std std-ref">SQL報表</span></a></p></li>
+<li><p>請注意，您需要執行_報表才能刪除它們</p></li>
+</ul>
+</li>
+<li><p>執行 SQL 報表 (execute_reports)</p>
+<ul>
+<li><p>能夠 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>執行客製化 SQL報表 &lt;running-custom-reports-label&gt;，但不能新增或編輯它們</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>允許館員修改其他館員的權限 (staffaccess)</p>
+<ul class="simple">
+<li><p>需要啟用借閱者以上的權限</p></li>
+</ul>
+</li>
+<li><p>課程指定用書 (coursereserves)</p>
+<ul class="simple">
+<li><p>近用至 <a class="reference internal" href="course_reserves.html#course-reserves-label"><span class="std std-ref">指定參考書模組</span></a></p></li>
+<li><p>Note that if the <a class="reference internal" href="circulationpreferences.html#usecoursereserves-label"><span class="std std-ref">UseCourseReserves</span></a> system preference is not enabled,
+these permissions will not have any effect</p></li>
+<li><p>新增課程指定用書 (add_reserves)</p>
+<ul>
+<li><p>授予 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>新增館藏至現有課程 &lt;adding-reserve-materials-label&gt;</p></li>
+</ul>
+</li>
+<li><p>移除課程指定用書 (delete_reserves)</p>
+<ul>
+<li><p>授予從現有課程中刪除館藏的功能</p></li>
+</ul>
+</li>
+<li><p>新增、編輯與刪除課程 (manage_courses)</p>
+<ul>
+<li><p>授予 <a class="reference internal" href="course_reserves.html#adding-courses-label"><span class="std std-ref">新增，編輯和刪除課程的能力</span></a>，但不管理館藏</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Koha 外掛 (plugins)</p>
+<ul class="simple">
+<li><p>組態外掛程式 (configure)</p>
+<ul>
+<li><p>如果有外掛，則可以運行外掛的 ‘組態’ 部分</p></li>
+<li><p>請注意，館員需要報表權限或工具權限（如下所示）才能近用外掛</p></li>
+</ul>
+</li>
+<li><p>管理外掛 (manage)</p>
+<ul>
+<li><p>安裝或移除外掛的能力</p></li>
+<li><p>請注意，館員需要報表權限或工具權限（如下所示）才能近用外掛</p></li>
+</ul>
+</li>
+<li><p>使用報表外掛程式 (report)</p>
+<ul>
+<li><p>使用外掛報表的能力</p></li>
+</ul>
+</li>
+<li><p>使用工具外掛程式 (tool)</p>
+<ul>
+<li><p>使用外掛工具的能力</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>虛擬書架 (lists)</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>All staff members have permission to create, modify and delete their own
+lists. These permissions are only necessary if you’d like to give
+a staff member permission to edit or delete public lists that they
+have not created.</p>
+</div>
+<ul class="simple">
+<li><p>刪除公開虛擬書架 (delete_public_lists)</p>
+<ul>
+<li><p>刪除他人建立公共虛擬書架的權限</p></li>
+</ul>
+</li>
+<li><p>Edit public lists contents (edit_public_list_contents)</p>
+<ul>
+<li><p>The ability to change the contents of public lists that have the
+“Permitted staff only” permission.</p></li>
+</ul>
+</li>
+<li><p>Edit public lists (edit_public_lists)</p>
+<ul>
+<li><p>The ability to edit the name, settings, and permissions of a public
+list owned by someone else.</p></li>
+<li><p>This does not give the staff member permission to change the contents
+of the list, unless the list permissions allow them to.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>讀者讀書會 (讀書會)</p>
+<ul class="simple">
+<li><p>新增與編輯讀書會 (edit_clubs)</p>
+<ul>
+<li><p>新增與編輯讀者讀書會使用 <a class="reference internal" href="tools.html#patron-clubs-label"><span class="std std-ref">讀者讀者會工具</span></a></p></li>
+</ul>
+</li>
+<li><p>新增與編輯讀書會模版 (edit_templates)</p>
+<ul>
+<li><p>新增且編輯讀書會模板使用 <a class="reference internal" href="tools.html#patron-clubs-label"><span class="std std-ref">讀者讀書會工具</span></a></p></li>
+</ul>
+</li>
+<li><p>在讀書會註冊的讀者 (enroll)</p>
+<ul>
+<li><p>從讀者檔案註冊讀者</p></li>
+<li><p>需要借閱者權限才能將讀者加入讀書會</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>新增與修改館際互借請求 (ill)</p>
+<ul class="simple">
+<li><p>給予近用至 <a class="reference internal" href="ILL_requests.html#ill-requests-label"><span class="std std-ref">館際互借 (ILL) 模組</span></a> 的權限</p></li>
+</ul>
+</li>
+<li><p>自助借還模組 (self_check)</p>
+<ul>
+<li><p>登入自助還入模組。 (self_checkin_module)</p>
+<p><strong>說明</strong></p>
+<p>此權限限制讀者使用 OPAC 的其他功能</p>
+</li>
+</ul>
+</li>
+<li><p>從 OPAC 執行自助借出 (self_checkout_module)</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>此權限應使用於匹配於 <a class="reference internal" href="circulationpreferences.html#autoselfcheck-preferences-label"><span class="std std-ref">AutoSelfCheckID</span></a> 系統偏好的讀者</p>
+</div></blockquote>
+</li>
+<li><p>管理 <a class="reference internal" href="cataloging.html#stock-rotation-label"><span class="std std-ref">巡迴館藏</span></a> 作業 (stockrotation)</p>
+<ul class="simple">
+<li><p>從巡迴館藏新增和刪除項目 (manage_rota_items)</p>
+<ul>
+<li><p>只有擁有此權限的館員才能管理巡迴中的館藏，但不能管理巡迴館藏本身</p></li>
+</ul>
+</li>
+<li><p>新增、編輯與刪除巡迴館藏 (manage_rotas)</p>
+<ul>
+<li><p>只有擁有此權限的館員才能管理巡迴中的館藏，但不能管理實際館藏</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>現金管理 (cash_management)</p>
+<ul class="simple">
+<li><p>新增，編輯與存檔收銀機 (manage_cash_registers)</p>
+<ul>
+<li><p>擁有此權限的館員將可以管理 <a class="reference internal" href="administration.html#cashregisters-label"><span class="std std-ref">管理模塊內的收銀機</span></a></p></li>
+</ul>
+</li>
+<li><p>進入銷售點頁面並付款 (takepayment)</p>
+<ul>
+<li><p>允許近用至銷售點模組</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>催還(recalls)</p>
+<ul class="simple">
+<li><p>管理對讀者的催還 (manage_recalls)</p>
+<ul>
+<li><p>允許進入催還管理頁面</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Manage the electronic resources module (erm)</p>
+<ul class="simple">
+<li><p>This permission serves two purposes</p>
+<ul>
+<li><p>Gives library staff access to ERM records (Agreements, Licenses, eHoldings etc.)</p></li>
+<li><p>Library staff MUST have this permission in order to be attached as Agreement and
+License Users on Agreement and License records</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Allow staff to change logged in library (loggedinlibrary)</p>
+<ul class="simple">
+<li><p>The ability to change the library when
+<a class="reference internal" href="installation.html#login-staff-label"><span class="std std-ref">logging into the staff interface</span></a>.</p></li>
+<li><p>The ability to <a class="reference internal" href="circulation.html#set-library-label"><span class="std std-ref">set the library</span></a> in the staff
+interface.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Staff members who do not have this permission will only be able to log
+into their home library.</p>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="patron-information">
+<span id="patron-information-label"></span><h2>讀者資訊<a class="headerlink" href="#patron-information" title="此标题的永久链接"></a></h2>
+<p>進入讀者紀錄後，在左手邊有多個分頁可檢視不同的資訊。</p>
+<ul class="simple">
+<li><p><em>到那：</em> 讀者 &gt; 瀏覽或搜尋讀者 &gt; 點選讀者姓名</p></li>
+</ul>
+<section id="check-out">
+<span id="check-out-label"></span><h3>借出<a class="headerlink" href="#check-out" title="此标题的永久链接"></a></h3>
+<p>檢視本手冊的 <a class="reference internal" href="circulation.html#check-out-issuing-label"><span class="std std-ref">借出</span></a> 章節，瞭解借出館藏的詳情。</p>
+<p>點選館員介面右上角的姓名並選擇 ‘我的借出’ 就能近用其借出畫面</p>
+<p><img alt="image1178" src="_images/mycheckouts.png" /></p>
+</section>
+<section id="details">
+<span id="details-label"></span><h3>詳情<a class="headerlink" href="#details" title="此标题的永久链接"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>點選館員介面右上角的姓名並選擇 ‘我的帳戶’ 就能近用其帳戶詳情</p>
+<p><img alt="The user menu at the top of the page in the staff interface, the cursor is on the 'My account' option." src="_images/myaccount.png" /></p>
+</div>
+<p>完整的讀者資訊顯示在詳情分頁。包括新增讀者時鍵入的所有連絡資訊、說明、客製化讀者屬性、訊息偏好等。</p>
+<p><img alt="image1359" src="_images/patrondetails.png" /></p>
+<p>被標記為 ‘兒童’ 或 ‘專業’ 的讀者，其保證人資訊將顯示在其記錄內。</p>
+<ul>
+<li><p>兒童讀者將列出其保證人</p>
+<p><img alt="image443" src="_images/child.png" /></p>
+</li>
+<li><p>在保證人紀錄裡，列出所有的兒童與專業讀者</p>
+<p><img alt="image444" src="_images/parent.png" /></p>
+</li>
+</ul>
+<p>若讀者的年齡超出其讀者類別中定義的年齡範圍，他們的記錄中將出現警示。</p>
+<blockquote>
+<div><p><img alt="image1461" src="_images/patronagecategory.png" /></p>
+</div></blockquote>
+<section id="circulation-summary">
+<span id="circulation-summary-label"></span><h4>流通摘要<a class="headerlink" href="#circulation-summary" title="此标题的永久链接"></a></h4>
+<p>Below the patron’s information on the details screen is a tabbed display
+of the items they have checked out, overdue, and on hold, among other things.</p>
+<section id="checkouts">
+<h5>借出<a class="headerlink" href="#checkouts" title="此标题的永久链接"></a></h5>
+<p>The first tab shows the items the patron currently has checked out. The number
+of current checkouts will be displayed in the tab title.</p>
+<p><img alt="List of checkouts in a patron's record" src="_images/checkoutsummary.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: issues-table, under Patrons).</p>
+<p>Click ‘Configure’ at the top right of the table to access the administration
+module directly.</p>
+</div>
+</section>
+<section id="relatives-checkouts">
+<h5>相關的借出<a class="headerlink" href="#relatives-checkouts" title="此标题的永久链接"></a></h5>
+<p>If the patron has family at the library, staff can see what the other family
+members have checked out. The total number of checkouts among all family members
+will be displayed in the tab title.</p>
+<p><img alt="The Relatives' checkouts tab in a patron's summary page on the OPAC" src="_images/relativecheckouts.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: relatives-issues-table, under Patrons).</p>
+<p>Click ‘Configure’ at the top right of the table to access the administration
+module directly.</p>
+</div>
+</section>
+<section id="charges">
+<h5>待付費用<a class="headerlink" href="#charges" title="此标题的永久链接"></a></h5>
+<p>The Charges tab will only show in the patron accounts that have unpaid amounts
+or unused credits. The total amount of unpaid charges or unused credits will be
+displayed in the tab title.</p>
+<p>該標籤將顯示總金額，不含詳情。要查看詳情，請到 <a class="reference internal" href="#fines-label"><span class="std std-ref">會計標籤</span></a>。</p>
+<p><img alt="Charges tab showing the total owed" src="_images/finescharges.png" /></p>
+</section>
+<section id="guarantees-charges">
+<h5>Guarantees’ charges<a class="headerlink" href="#guarantees-charges" title="此标题的永久链接"></a></h5>
+<p>This tab will appear if the patron has guarantees and those guarantees have
+unpaid charges in their account. The total amount owed by guarantees will be
+displayed in the tab title.</p>
+<p>The tab will show the guarantee’s name and the total unpaid amount, without
+any details. To see details, go to the guarantee’s
+<a class="reference internal" href="#fines-label"><span class="std std-ref">accounting tab</span></a>.</p>
+<p><img alt="Guarantees' charges tab showing the patrons guarantees who have unpaid amounts, with links to their records" src="_images/guaranteecharges.png" /></p>
+</section>
+<section id="holds">
+<span id="holds-summary-label"></span><h5>預約<a class="headerlink" href="#holds" title="此标题的永久链接"></a></h5>
+<p>如果讀者擁有預約，則預約數量將顯示在此頁面的標題上，詳細訊息將顯示在頁面中。</p>
+<p><img alt="Table of patron's current holds" src="_images/holdssummary.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>條碼號和索書號僅出現在館藏層次的預約或已確認的預約中。無需等待提取的書目層級預約將不會有條碼號或索書號。</p>
+</div>
+<p>這裡可以管理讀者的預約：更改取件圖書館，取消或暫停預約。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You will only be able to suspend holds if the <a class="reference internal" href="circulationpreferences.html#suspendholdsintranet-label"><span class="std std-ref">SuspendHoldsIntranet</span></a>
+system preference is set to “Allow”.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If, when suspending a hold, you want to be able to set a date at which to
+automatically resume the hold, set the <a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds-label"><span class="std std-ref">AutoResumeSuspendedHolds</span></a>
+system preference to “Allow” and make sure the <a class="reference internal" href="cron_jobs.html#cron-unsuspend-holds-label"><span class="std std-ref">unsuspend_holds cron
+job</span></a> is activated.</p>
+</div>
+</section>
+<section id="recalls">
+<span id="patron-recalls-label"></span><h5>催還<a class="headerlink" href="#recalls" title="此标题的永久链接"></a></h5>
+<p>If <a class="reference internal" href="circulation.html#recalls-label"><span class="std std-ref">recalls are enabled</span></a>, currently active
+<a class="reference internal" href="opac.html#request-recalls-opac-label"><span class="std std-ref">recalls requested by the patron</span></a> will appear
+in this tab. The number of active recalls will be displayed in the tab title.</p>
+<p><img alt="The Recalls tab in a patron's detail page shows all the recalls placed by this patron" src="_images/patronrecalls.png" /></p>
+<p>館員在這裡可以看到每個催還的狀態，並 <a class="reference internal" href="circulation.html#recalls-manage-label"><span class="std std-ref">管理它們</span></a>。</p>
+</section>
+<section id="article-requests">
+<span id="article-requests-label"></span><h5>論文請求<a class="headerlink" href="#article-requests" title="此标题的永久链接"></a></h5>
+<p>If the <a class="reference internal" href="circulationpreferences.html#articlerequests-label"><span class="std std-ref">ArticleRequests</span></a> system preference is enabled, and the circulation
+rules allow it, the patrons will be able to request articles, either through the
+OPAC or in the staff interface. The number of active requests will be displayed
+in the tab title.</p>
+<p>讀者請求的詳情及其狀態可在此頁面查看。</p>
+<p><img alt="Article request tab in the patron record" src="_images/articlerequests.png" /></p>
+</section>
+<section id="claims">
+<span id="patron-return-claims-label"></span><h5>Claims<a class="headerlink" href="#claims" title="此标题的永久链接"></a></h5>
+<p>If the patron has <a class="reference internal" href="circulation.html#return-claim-label"><span class="std std-ref">claimed they returned items</span></a>, but
+those were not checked in, the claims will be shown in this tab. The number
+of resolved and unresolved claims will be displayed in the tab title. The first
+number, in green (or in gray if it’s 0), represents the number of resolved
+claims and the second number, in yellow (or in gray if it’s 0), represents the
+number of unresolved claims.</p>
+<p><img alt="Patron's claims tab" src="_images/claims.png" /></p>
+<p>From this tab, staff can edit claim notes and
+<a class="reference internal" href="circulation.html#resolve-return-claim-label"><span class="std std-ref">resolve claims</span></a>.</p>
+</section>
+<section id="restrictions">
+<span id="patron-restrictions-label"></span><h5>限制<a class="headerlink" href="#restrictions" title="此标题的永久链接"></a></h5>
+<p>所有的讀者都有限制分頁。未被限制的讀者在此分頁可見到該訊息。</p>
+<p><img alt="Restrictions tab of the patron's file says &quot;Patron is currently unrestricted&quot; and there is an option to add a manual restriction" src="_images/patronrestrictions-none.png" /></p>
+<p>被限制的讀者將在此顯示其讀者號及限制的事項。</p>
+<dl class="simple">
+<dt>There are at least four kinds of restrictions:</dt><dd><ul class="simple">
+<li><p>手冊</p></li>
+<li><p>逾期</p></li>
+<li><p>停權</p></li>
+<li><p>離館除籍</p></li>
+</ul>
+</dd>
+</dl>
+<p>使用 ‘新增人工限制’ 連結，您可新增限制於讀者的記錄內。這適用於需要在讀者記錄上手動設置任何類型的限制。</p>
+<p><img alt="Form to add a restriction on the patron's file" src="_images/addrestriction.png" /></p>
+<ul class="simple">
+<li><p>Type: if the <a class="reference internal" href="circulationpreferences.html#patronrestrictiontypes-label"><span class="std std-ref">PatronRestrictionTypes</span></a>
+system preference is enabled, you will have a choice of restriction types.
+This list can be managed from the
+<a class="reference internal" href="administration.html#patron-restriction-types-label"><span class="std std-ref">patron restriction types administration page</span></a></p></li>
+<li><p>評論：輸入一個評論以解釋該限制</p></li>
+<li><p>過期：可選擇輸入該限制的到期日期。如果沒有過期日期，該限制將留在文件上，直到它被刪除。如果有一個到期日，該限制將自動被刪除。</p></li>
+</ul>
+<p><img alt="List of restrictions currently on the patron's file, with the type of restriction, the comment, the expiration date and the date it was added" src="_images/patronrestrictions.png" /></p>
+<p>如果想要在發送逾期通知時限制讀者，可以按照 <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">逾期通知/狀態啟動器</span></a> 的設定，自動設置逾期限制。</p>
+<p>This restriction will not be removed automatically when the overdue items are
+returned unless the <a class="reference internal" href="circulationpreferences.html#autoremoveoverduesrestrictions-label"><span class="std std-ref">AutoRemoveOverduesRestrictions</span></a> system preference
+is set to ‘Do’.</p>
+<p>在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>流通規則 &lt;circulation-and-fines-rules-label&gt;`中，除了罰款外，也可以選擇停用讀者以罰款。在這種情況下，還入逾期的文件將觸發停用限制。</p>
+<p>如果已經為讀者發出了 <a class="reference internal" href="#patron-discharges-label"><span class="std std-ref">離館</span></a> ，可能會限制他們。離館一旦確認，讀者將自動被限制。</p>
+<p>Patrons can also be restricted by
+<a class="reference internal" href="#add-patron-flags-label"><span class="std std-ref">setting flags in their accounts</span></a>.</p>
+<p>限鄅讀者記錄會阻止借出。事實上，會在借出時出現紅色訊息。</p>
+<p><img alt="Checkout is blocked for this patron because the patron is restricted" src="_images/patronrestrictions-checkout.png" /></p>
+<p>Restrictions may also prevent renewing items if the <a class="reference internal" href="circulationpreferences.html#restrictionblockrenewing-label"><span class="std std-ref">RestrictionBlockRenewing</span></a>
+system preference is set to ‘block’.</p>
+<p>在OPAC, 讀者會收到訊息得知他們的帳號已凍結。他們不能再從OPAC進行預約.</p>
+<p><img alt="Message in the patron's account that says 'Please note: Your account has been frozen. Comment: Vandalism in study room 3 End date: 08/15/2022 Usually the reason for freezing an account is old overdues or damage fees. If your account shows to be clear, please contact the library. Go to your account page'" src="_images/frozenaccount.png" /></p>
+<p>If you have patrons that have more than one restriction, you can choose to
+cumulate their restriction periods or not through the
+<a class="reference internal" href="circulationpreferences.html#cumulativerestrictionperiods-label"><span class="std std-ref">CumulativeRestrictionPeriods</span></a> system preference.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果您想限制讀者進行多項活動, 因為他們的記錄不佳, 請確認以下系統偏好:</p>
+<ul class="simple">
+<li><p>Set the <a class="reference internal" href="circulationpreferences.html#overduesblockcirc-label"><span class="std std-ref">OverduesBlockCirc</span></a> system preference to ‘Block’ to prevent
+patrons who have overdue materials from checking out other materials.</p></li>
+<li><p>Set the <a class="reference internal" href="circulationpreferences.html#overduesblockrenewing-label"><span class="std std-ref">OverduesBlockRenewing</span></a> system preference to ‘block renewing
+for all the patron’s items’ or ‘block renewing only for this item’ to prevent
+patrons who have overdue materials from renewing their loans.</p></li>
+<li><p>Enter values in the <a class="reference internal" href="circulationpreferences.html#noissuescharge-label"><span class="std std-ref">noissuescharge</span></a> and <a class="reference internal" href="circulationpreferences.html#noissueschargeguarantees-label"><span class="std std-ref">NoIssuesChargeGuarantees</span></a>
+system preferences in order to block checking out to patrons who have more
+than a certain amount in fines or to patrons whose guarantees owe more than
+a certain amount.</p></li>
+<li><p>Enter a value in the <a class="reference internal" href="circulationpreferences.html#maxoutstanding-label"><span class="std std-ref">maxoutstanding</span></a> system preference to prevent
+patron from placing holds on the OPAC if they owe more than a certain amount.</p></li>
+<li><p>Enter a value in the <a class="reference internal" href="opacpreferences.html#opacfinenorenewals-label"><span class="std std-ref">OPACFineNoRenewals</span></a> system preference to prevent
+patron who owe more than a certain amount to renew their loans from the OPAC.</p></li>
+<li><p>Set the <a class="reference internal" href="opacpreferences.html#blockexpiredpatronopacactions-label"><span class="std std-ref">BlockExpiredPatronOpacActions</span></a> system preference to ‘Block’ if
+you want to prevent patron whose membership has expired to place hold or
+renew their loans from the OPAC.</p></li>
+</ul>
+</div>
+</section>
+<section id="clubs">
+<h5>讀書會<a class="headerlink" href="#clubs" title="此标题的永久链接"></a></h5>
+<p>If you use <a class="reference internal" href="tools.html#patron-clubs-label"><span class="std std-ref">patron clubs</span></a>, patrons will have a tab
+in their record indicating which club they are enrolled in, if any. The first
+number in the tab title is the number of clubs in which the patron is enrolled,
+and the second number is the number of clubs the patron is not enrolled in.</p>
+<p><img alt="Clubs tab in the patron's record" src="_images/clubstab.png" /></p>
+</section>
+</section>
+</section>
+<section id="accounting">
+<span id="fines-label"></span><h3>帳戶<a class="headerlink" href="#accounting" title="此标题的永久链接"></a></h3>
+<p>The patron’s complete accounting history will appear on the Accounting tab.
+The Accounting tab will show all types of charges and credits: overdue fines,
+membership fees, rental fees, hold fees and any other charge you may have
+for patrons.</p>
+<p><img alt="Transactions tab in the patron's accounting tab in the staff interface" src="_images/patronaccount.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>您可以在管理模組的 <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> 部份, 在OPAC項目中自定義此表的列（table id：帳戶-罰款）。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>It’s possible to print a summary of outstanding charges and unused credits
+in the patron’s account by clicking ‘Print’ at the top of the page and
+choosing the ‘Print account balance’.</p>
+<p><img alt="Menu at the top of a patron's account, the 'Print' button is pressed and the options are Print summary, Print slip, Print quick slip, Print account balance, Print overdues, and Print checkin slip" src="_images/printslip.png" /></p>
+<p>‘Print summary’ will print a full summary of the patron’s account, including
+outstanding charges.</p>
+</div>
+<p>此交易表格將顯示以下的欄：</p>
+<ul>
+<li><p>日期：收費，付款或還款的日期</p>
+<ul class="simple">
+<li><p>罰款顯示的是最後一天累積的罰款</p></li>
+</ul>
+</li>
+<li><p>帳戶類型：是什麼類型的收費、付款或還款</p>
+<ul class="simple">
+<li><p>如果帳戶類型可能具有隨附的 <cite>狀態</cite>，它將與帳戶類型一起顯示在括弧中。</p></li>
+</ul>
+</li>
+<li><p>收費說明：包括逾期罰款的逾期日以及連結至該館藏記錄</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For overdue fines, the default is the title and the due date. You can
+customize this by editing the OVERDUE_FINE_DESC template in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+<li><p>條碼：如果費用連結到特定館藏，則顯示的條碼</p></li>
+<li><p>Call number: if the charge is linked to a particular item, the item’s call
+number is displayed</p></li>
+<li><p>到期日：如果收費是逾期罰款，將顯示到期日</p></li>
+<li><p>還入日期：如果費用是逾期罰款，則顯示還入日期</p></li>
+<li><p>借出日期：如果該費用是逾期罰款，則顯示借出日期</p></li>
+<li><p>所屬圖書館：如果費用連結到特定館藏，則顯示所屬圖書館</p></li>
+<li><p>說明：與此收取/支付有關的說明</p>
+<ul class="simple">
+<li><p>若允許讀者從 OPAC 使用 PayPal (<span class="xref std std-ref">EnablePayPalOpacPayments</span>) 支付罰款，可從說明看到 以 ‘PayPal’ 支付其館藏的罰款</p></li>
+</ul>
+</li>
+<li><p>金額：支付或收取的總額</p></li>
+<li><p>待結清：仍未結清的金額</p></li>
+<li><p>動作：</p>
+<ul class="simple">
+<li><p>在帳戶線上可執行的一系列操作，詳見下文</p></li>
+</ul>
+</li>
+</ul>
+<p>點選表單上方的 ‘篩選已付交易’ 隱藏所有已完成的交易且可從搜尋盒找尋特定的支付或交易。</p>
+<section id="actions">
+<span id="charging-fines-actions-label"></span><h4>動作<a class="headerlink" href="#actions" title="此标题的永久链接"></a></h4>
+<p>Action buttons will be available for the different account lines depending on
+the user’s permissions and the account type and status.</p>
+<ul>
+<li><p>A button to print or email a receipt or invoice for that line item</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the line item is a credit (payment, writeoff or other credit), the
+receipt that will be printed will be the ACCOUNT_CREDIT notice. It can be
+customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+<p>If the line item is a debit (a charge), the invoice that will be printed
+will be the ACCOUNT_DEBIT notice. It can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+<li><p>按鈕會顯示有關費用和已付款的更多詳細訊息</p></li>
+<li><p>取消（撤銷）付款/信用的按鈕</p>
+<ul class="simple">
+<li><p>這個按鈕只出現在付款/還款項目上。當該行作廢時，它將撤銷付款過程，恢復付款/還款可能先前被用來抵消的任何債務/還款的金額。這個動作最常用於糾正那些記錄了付款但實際上從未收到的情況。信用額度將被設定為零，並更新為 <cite>VOID</cite>。</p></li>
+</ul>
+</li>
+<li><p>一個取消 (移除) 收費/付款的按鈕</p>
+<ul class="simple">
+<li><p>這個按鈕只出現在尚未有任何付款/還款應用的收費/付款項目上。在取消該行時，它將被標記為 ‘取消’，並將增加一個 ‘取消 ‘行，以抵消它。這一操作最常用於糾正錯誤收費的情況。</p></li>
+</ul>
+</li>
+<li><p>用於支付未結金額的費用/付款的按鈕</p>
+<ul class="simple">
+<li><p>This button will appear against any charge/debit with an outstanding
+amount. The subsequent page can be used to pay or writeoff the line
+partially or in full with a <cite>PAYMENT</cite> or <cite>WRITEOFF</cite> line will being added.</p></li>
+</ul>
+</li>
+<li><p>發放信用支付的一個按鈕</p>
+<ul class="simple">
+<li><p>這個按鈕將出現在任何有未償金額的信用額度上，並且你有 <a class="reference internal" href="#patron-permissions-defined-label"><span class="std std-ref">付款許可權</span></a>。它允許圖書館員將未償還的信用額度返還給讀者，並以 <a href="#id1"><span class="problematic" id="id2">`</span></a>付款`行來記錄這一行動。</p></li>
+</ul>
+</li>
+<li><p>針對收費/付款發放退款的按鈕</p>
+<ul class="simple">
+<li><p>這個按鈕將出現在任何已經支付或部分支付的收費/付款項目上，並且你有 <a class="reference internal" href="#patron-permissions-defined-label"><span class="std std-ref">退款許可</span></a>。隨後的模式對話將允許您部分或全部退還抵消的債務，或是以`現金`的方式。</p></li>
+</ul>
+</li>
+<li><p>將折扣應用於收費/付款的按鈕</p>
+<ul class="simple">
+<li><p>這個按鈕將出現在任何尚未被還款/付款所抵消的費用/付款，並且你擁有 <a class="reference internal" href="#patron-permissions-defined-label"><span class="std std-ref">折扣許可</span></a>。隨後的模式對話將允許你在收費時增加折扣。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="charging-fines-fees">
+<span id="charging-fines-fees-label"></span><h4>收取罰款/費用<a class="headerlink" href="#charging-fines-fees" title="此标题的永久链接"></a></h4>
+<p>Most fees and fines will be charged automatically if the <a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">fines cron
+job</span></a> is running. Fines will also be charged when an overdue item is checked
+in if the <a class="reference internal" href="circulationpreferences.html#calculatefinesonreturn-label"><span class="std std-ref">CalculateFinesOnReturn</span></a> system preference is enabled.</p>
+<ul class="simple">
+<li><p>罰款將依照您的 <span class="xref std std-ref">流通與罰款規則</span> 計算</p></li>
+<li><p>根據 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型與類別</span></a> 管理區塊的規則，將收取預約費用</p></li>
+<li><p>根據您在 <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">館藏類型</span></a> 管理區塊的設定，將收取租金</p></li>
+<li><p>經由編目模組標記館藏為 ‘遺失’ 將自動向讀者收取重置費用</p></li>
+<li><p>在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>類型 &lt;patron-categories-label&gt;`中建立具有註冊費的讀者。</p></li>
+<li><p>在 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">類型</span></a> 中續訂讀者帳戶，並支付註冊費。</p></li>
+<li><p>文章請求費將根據流通規則頁的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>文章請求費&lt;default-article-request-fees-label&gt;`部分收取。</p></li>
+</ul>
+</section>
+<section id="creating-manual-invoices">
+<span id="creating-manual-invoices-label"></span><h4>新增人工發票<a class="headerlink" href="#creating-manual-invoices" title="此标题的永久链接"></a></h4>
+<p>For fees that are not automatically charged, staff can create a manual invoice.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Staff need the manual_invoice (or superlibrarian)
+<a class="reference internal" href="#patron-permissions-label"><span class="std std-ref">permission</span></a> in order to add manual credits
+to a patron’s account.</p>
+</div>
+<ul>
+<li><p>Click on the ‘Create manual invoice’ tab</p>
+<p><img alt="Create manual invoice form" src="_images/manualinvoice.png" /></p>
+<ul>
+<li><p>Type: choose the type of invoice to create.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>加入管理模組的 <a class="reference internal" href="administration.html#add-debit-type-label"><span class="std std-ref">借方類型</span></a>，就能把新增的值納入下拉選單的人工發票項目中。</p>
+</div>
+</li>
+<li><p>Barcode: if the fee is associated with an item you can enter its barcode so
+that the line item shows a link to that item.</p></li>
+<li><p>Description: enter the description of the charge.</p></li>
+<li><p>Note: if needed, add a note about this charge.</p></li>
+<li><p>Amount: enter the amount of the charge, do not enter currency symbols, only
+numbers and decimals</p></li>
+<li><p>If any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> were set up for
+account line debits, they will appear here.</p></li>
+</ul>
+</li>
+<li><p>Click ‘Save’ to charge the amount to the patron’s account, or</p></li>
+<li><p>Click ‘Save and pay’ to charge the amount to the patron’s account and go
+directly to the <a class="reference internal" href="#pay-fine-in-full-label"><span class="std std-ref">payment page</span></a>.</p></li>
+</ul>
+</section>
+<section id="paying-and-writing-off-charges">
+<span id="pay-and-writeoff-fines-label"></span><h4>Paying and writing off charges<a class="headerlink" href="#paying-and-writing-off-charges" title="此标题的永久链接"></a></h4>
+<p>Each account line can be paid in full or written off using the ‘Make a payment’
+tab.</p>
+<p><img alt="Make a payment tab in the patron's accounting section" src="_images/makepayment.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 自定義此表的列(table id: pay-fines-table)。</p>
+</div>
+<p>Each account line can be paid in full, partially paid, or written off.</p>
+<section id="paying-an-individual-charge-in-full">
+<span id="pay-fine-in-full-label"></span><h5>Paying an individual charge in full<a class="headerlink" href="#paying-an-individual-charge-in-full" title="此标题的永久链接"></a></h5>
+<p>To pay an individual charge in full:</p>
+<ul>
+<li><p>If you need to add a note about the payment, click ‘Add note’ and type in
+the note before proceeding.</p></li>
+<li><p>Click the ‘Pay’ button next to the charge to be paid in full.</p>
+<p><img alt="Make a payment tab in the patron's accounting section" src="_images/makepayment.png" /></p>
+</li>
+</ul>
+<p>A table will show the details of the charge being paid, the full amount of the
+charge will be populated for you in the ‘Amount being paid’ and the ‘Amount
+tendered’ fields.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you made a mistake and this charge should be written off instead, you can
+switch between ‘Pay’ and ‘Write off’ mode using the buttons located at the top
+of this tab. See <a class="reference internal" href="#writeoff-single-fine-label"><span class="std std-ref">Writing off an individual charge</span></a>
+below.</p>
+</div>
+<p><img alt="Form to pay an individual charge" src="_images/payfine.png" /></p>
+<blockquote>
+<div><ul>
+<li><p>Amount being paid: this is the amount that will be debited from the
+charge. When paying a charge in full, this should be the full amount.</p></li>
+<li><p>Amount tendered: this is the actual amount handed to you by the patron,
+it will be used to calculate the change. For example, if a patron has a
+2.75$ fine to pay, and they pay with a 5$ bill, enter 5 in ‘Amount
+tendered’.</p></li>
+<li><p>Change to give: if the amount being paid and the amount tendered are
+different (i.e. more money was collected) the amount of change to be
+given will be displayed.</p></li>
+<li><p>Payment type: choose the type of payment.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will only appear if one or more values are defined under
+the <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">PAYMENT_TYPE authorized value</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will be required if either the
+<a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system preference
+or the <a class="reference internal" href="accountspreferences.html#requirepaymenttype-label"><span class="std std-ref">RequirePaymentType</span></a> system
+preference is enabled.</p>
+</div>
+</li>
+<li><p>Cash register: if the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a>
+system preference is enabled, you will have a choice of cash register in
+which to enter the transaction.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system
+preference is enabled, and the CASH payment type is chosen above,
+you will be required to choose a cash register for the payment.</p>
+<p>Whether or not this field is required when another payment type is
+chosen is determined by the
+<a class="reference internal" href="accountspreferences.html#requirecashregister-label"><span class="std std-ref">RequireCashRegister</span></a> system
+preference.</p>
+</div>
+</li>
+<li><p>If any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> were set up for
+account line credits, they will appear here.</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>Click ‘Confirm’.</p></li>
+<li><p>If change was to be given back to the patron, a pop-up window will appear to
+remind you, click ‘Yes’ to confirm that you gave back the correct amount and
+confirm the payment.</p>
+<p><img alt="Pop-up window saying 'The amount collected is more than the outstanding charge The amount collected from the patron is higher than the amount to be paid. The change to give is 2.25. Confirm this payment?' with Yes and No buttons" src="_images/changetogive.png" /></p>
+</li>
+</ul>
+<p>The charge’s outstanding amount will be set to zero (fully paid), and a payment
+line will be added in the patron’s transactions.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#finepaymentautopopup-label"><span class="std std-ref">FinePaymentAutoPopup</span></a> system
+preference is enabled, a print dialogue window will display. The receipt
+printed uses the letter ACCOUNT_CREDIT, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. If change was
+given for this transaction the details will be included when using this
+system preference.</p>
+<p>In addition to printing receipts you can enable email receipts for payment
+and writeoff transactions with the
+<a class="reference internal" href="patronspreferences.html#useemailreceipts-label"><span class="std std-ref">UseEmailReceipts</span></a> system preference.
+The email sent uses the ACCOUNT_PAYMENT letter, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="partially-paying-an-individual-charge">
+<span id="partial-pay-fine-label"></span><h5>Partially paying an individual charge<a class="headerlink" href="#partially-paying-an-individual-charge" title="此标题的永久链接"></a></h5>
+<p>To partially pay an individual charge:</p>
+<ul>
+<li><p>Click the ‘Pay’ button next to the charge to be partially paid.</p>
+<p><img alt="Make a payment tab in the patron's accounting section" src="_images/makepayment.png" /></p>
+</li>
+</ul>
+<p>A table will show the details of the charge being paid, the full amount of the
+charge will be populated for you in the ‘Amount being paid’ and the ‘Amount
+tendered’ fields.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you made a mistake and this charge should be written off instead, you can
+switch between ‘Pay’ and ‘Write off’ mode using the buttons located at the top
+of this tab. See
+<a class="reference internal" href="#partial-writeoff-single-fine-label"><span class="std std-ref">Partially writing off an individual charge</span></a>
+below.</p>
+</div>
+<p><img alt="Form to pay an individual charge, the amount of the charge is 6.75$, the amount to be paid is 5$ and the amount tendered is 5$" src="_images/paypartial.png" /></p>
+<blockquote>
+<div><ul>
+<li><p>Amount being paid: this is the amount that will be debited from the
+charge. When partially paying a charge, enter the amount that should be
+paid.</p></li>
+<li><p>Amount tendered: this is the actual amount handed to you by the patron,
+it will be used to calculate the change. For example, if a patron has a
+2.75$ fine to pay, and they pay with a 5$ bill, enter 5 in ‘Amount
+tendered’.</p></li>
+<li><p>Change to give: if the amount being paid and the amount tendered are
+different (i.e. more money was collected) the amount of change to be
+given will be displayed.</p></li>
+<li><p>Payment type: choose the type of payment.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will only appear if one or more values are defined under
+the <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">PAYMENT_TYPE authorized value</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will be required if either the
+<a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system preference
+or the <a class="reference internal" href="accountspreferences.html#requirepaymenttype-label"><span class="std std-ref">RequirePaymentType</span></a> system
+preference is enabled.</p>
+</div>
+</li>
+<li><p>Cash register: if the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a>
+system preference is enabled, you will have a choice of cash register in
+which to enter the transaction.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system
+preference is enabled, and the CASH payment type is chosen above,
+you will be required to choose a cash register for the payment.</p>
+<p>Whether or not this field is required when another payment type is
+chosen is determined by the
+<a class="reference internal" href="accountspreferences.html#requirecashregister-label"><span class="std std-ref">RequireCashRegister</span></a> system
+preference.</p>
+</div>
+</li>
+<li><p>If any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> were set up for
+account line credits, they will appear here.</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>Click ‘Confirm’.</p></li>
+<li><p>If change was to be given back to the patron, a pop-up window will appear to
+remind you, click ‘Yes’ to confirm that you gave back the correct amount and
+confirm the payment.</p>
+<p><img alt="Pop-up window saying 'The amount collected is more than the outstanding charge The amount collected from the patron is higher than the amount to be paid. The change to give is 2.25. Confirm this payment?' with Yes and No buttons" src="_images/changetogive.png" /></p>
+</li>
+</ul>
+<p>The charge will be updated to show the original amount and the current amount
+outstanding, and a payment line will be added in the patron’s transactions.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#finepaymentautopopup-label"><span class="std std-ref">FinePaymentAutoPopup</span></a> system
+preference is enabled, a print dialogue window will display. The receipt
+printed uses the letter ACCOUNT_CREDIT, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. If change was
+given for this transaction the details will be included when using this
+system preference.</p>
+<p>In addition to printing receipts you can enable email receipts for payment
+and writeoff transactions with the
+<a class="reference internal" href="patronspreferences.html#useemailreceipts-label"><span class="std std-ref">UseEmailReceipts</span></a> system preference.
+The email sent uses the ACCOUNT_PAYMENT letter, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="paying-an-amount-towards-all-charges">
+<span id="pay-amount-label"></span><h5>Paying an amount towards all charges<a class="headerlink" href="#paying-an-amount-towards-all-charges" title="此标题的永久链接"></a></h5>
+<p>To pay an amount towards all charges:</p>
+<ul>
+<li><p>Click the ‘Pay amount’ button.</p>
+<p><img alt="Make a payment tab in the patron's accounting section" src="_images/makepayment.png" /></p>
+</li>
+</ul>
+<p>The total amount outstanding in the patron’s account will be displayed, and
+populated for you in the ‘Amount being paid’ and the ‘Amount tendered’ fields.</p>
+<p><img alt="Form to pay an amount towards all charges" src="_images/payamount.png" /></p>
+<blockquote>
+<div><ul>
+<li><p>Total amount outstanding: this is the total unpaid charges in the patron’s
+account.</p></li>
+<li><p>Amount being paid: this is the amount that will be debited from the
+outstanding amount. Enter the amount that will be paid.</p></li>
+<li><p>Amount tendered: this is the actual amount handed to you by the patron,
+it will be used to calculate the change. For example, if a patron has a
+2.75$ fine to pay, and they pay with a 5$ bill, enter 5 in ‘Amount
+tendered’.</p></li>
+<li><p>Change to give: if the amount being paid and the amount tendered are
+different (i.e. more money was collected) the amount of change to be
+given will be displayed.</p></li>
+<li><p>Payment type: choose the type of payment.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will only appear if one or more values are defined under
+the <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">PAYMENT_TYPE authorized value</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will be required if either the
+<a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system preference
+or the <a class="reference internal" href="accountspreferences.html#requirepaymenttype-label"><span class="std std-ref">RequirePaymentType</span></a> system
+preference is enabled.</p>
+</div>
+</li>
+<li><p>Cash register: if the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a>
+system preference is enabled, you will have a choice of cash register in
+which to enter the transaction.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system
+preference is enabled, and the CASH payment type is chosen above,
+you will be required to choose a cash register for the payment.</p>
+<p>Whether or not this field is required when another payment type is
+chosen is determined by the
+<a class="reference internal" href="accountspreferences.html#requirecashregister-label"><span class="std std-ref">RequireCashRegister</span></a> system
+preference.</p>
+</div>
+</li>
+<li><p>Note: if needed, add a note about this payment.</p></li>
+<li><p>If any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> were set up for
+account line credits, they will appear here.</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>Click ‘Confirm’.</p></li>
+<li><p>If change was to be given back to the patron, a pop-up window will appear to
+remind you, click ‘Yes’ to confirm that you gave back the correct amount and
+confirm the payment.</p>
+<p><img alt="Pop-up window saying 'The amount collected is more than the outstanding charge The amount collected from the patron is higher than the amount to be paid. The change to give is 2.25. Confirm this payment?' with Yes and No buttons" src="_images/changetogive.png" /></p>
+</li>
+</ul>
+<p>The charges’ outstanding amounts will be updated, with the payment applied to
+oldest charges first, and a payment line will be added in the patron’s transactions.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#finepaymentautopopup-label"><span class="std std-ref">FinePaymentAutoPopup</span></a> system
+preference is enabled, a print dialogue window will display. The receipt
+printed uses the letter ACCOUNT_CREDIT, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. If change was
+given for this transaction the details will be included when using this
+system preference.</p>
+<p>In addition to printing receipts you can enable email receipts for payment
+and writeoff transactions with the
+<a class="reference internal" href="patronspreferences.html#useemailreceipts-label"><span class="std std-ref">UseEmailReceipts</span></a> system preference.
+The email sent uses the ACCOUNT_PAYMENT letter, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="paying-selected-charges">
+<span id="pay-selected-label"></span><h5>Paying selected charges<a class="headerlink" href="#paying-selected-charges" title="此标题的永久链接"></a></h5>
+<p>To pay only some charges:</p>
+<ul>
+<li><p>Check the selection boxes next to the charges to be paid.</p>
+<p><img alt="Make a payment tab in the patron's accounting section, two of the three charges are selected" src="_images/payselected-select.png" /></p>
+</li>
+<li><p>Click the ‘Pay selected’ button.</p></li>
+</ul>
+<p>The total outstanding amount for the selected charges will be displayed, and
+populated for you in the ‘Amount being paid’ and the ‘Amount tendered’ fields.</p>
+<p><img alt="Form to pay an amount towards selected charges" src="_images/payselected.png" /></p>
+<blockquote>
+<div><ul>
+<li><p>Total amount outstanding: this is the total unpaid amount for the selected
+charges.</p></li>
+<li><p>Amount being paid: this is the amount that will be debited from the
+total outstanding amount of the selected charges. Enter the amount that
+will be paid.</p></li>
+<li><p>Amount tendered: this is the actual amount handed to you by the patron,
+it will be used to calculate the change. For example, if a patron has a
+2.75$ fine to pay, and they pay with a 5$ bill, enter 5 in ‘Amount
+tendered’.</p></li>
+<li><p>Change to give: if the amount being paid and the amount tendered are
+different (i.e. more money was collected) the amount of change to be
+given will be displayed.</p></li>
+<li><p>Payment type: choose the type of payment.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will only appear if one or more values are defined under
+the <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">PAYMENT_TYPE authorized value</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will be required if either the
+<a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system preference
+or the <a class="reference internal" href="accountspreferences.html#requirepaymenttype-label"><span class="std std-ref">RequirePaymentType</span></a> system
+preference is enabled.</p>
+</div>
+</li>
+<li><p>Cash register: if the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a>
+system preference is enabled, you will have a choice of cash register in
+which to enter the transaction.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system
+preference is enabled, and the CASH payment type is chosen above,
+you will be required to choose a cash register for the payment.</p>
+<p>Whether or not this field is required when another payment type is
+chosen is determined by the
+<a class="reference internal" href="accountspreferences.html#requirecashregister-label"><span class="std std-ref">RequireCashRegister</span></a> system
+preference.</p>
+</div>
+</li>
+<li><p>Note: if needed, add a note about this payment.</p></li>
+<li><p>If any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> were set up for
+account line credits, they will appear here.</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>Click ‘Confirm’.</p></li>
+<li><p>If change was to be given back to the patron, a pop-up window will appear to
+remind you, click ‘Yes’ to confirm that you gave back the correct amount and
+confirm the payment.</p>
+<p><img alt="Pop-up window saying 'The amount collected is more than the outstanding charge The amount collected from the patron is higher than the amount to be paid. The change to give is 2.25. Confirm this payment?' with Yes and No buttons" src="_images/changetogive.png" /></p>
+</li>
+</ul>
+<p>The selected charges’ outstanding amounts will be updated, with the payment
+applied to oldest charges first, and a payment line will be added in the patron’s
+transactions.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#finepaymentautopopup-label"><span class="std std-ref">FinePaymentAutoPopup</span></a> system
+preference is enabled, a print dialogue window will display. The receipt
+printed uses the letter ACCOUNT_CREDIT, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. If change was
+given for this transaction the details will be included when using this
+system preference.</p>
+<p>In addition to printing receipts you can enable email receipts for payment
+and writeoff transactions with the
+<a class="reference internal" href="patronspreferences.html#useemailreceipts-label"><span class="std std-ref">UseEmailReceipts</span></a> system preference.
+The email sent uses the ACCOUNT_PAYMENT letter, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="writing-off-all-charges">
+<span id="writeoff-all-label"></span><h5>Writing off all charges<a class="headerlink" href="#writing-off-all-charges" title="此标题的永久链接"></a></h5>
+<p>To write off all charges in a patron’s account:</p>
+<ul>
+<li><p>Click the ‘Write off all’ button</p>
+<p><img alt="Make a payment tab in the patron's accounting section" src="_images/makepayment.png" /></p>
+</li>
+<li><p>Confirm the writeoff</p></li>
+</ul>
+<p>All charges’ outstanding amounts will be set to zero (fully paid/written off),
+and a writeoff line will be added in the patron’s transactions.</p>
+</section>
+<section id="writing-off-an-individual-charge">
+<span id="writeoff-single-fine-label"></span><h5>Writing off an individual charge<a class="headerlink" href="#writing-off-an-individual-charge" title="此标题的永久链接"></a></h5>
+<p>To write off a single charge:</p>
+<ul>
+<li><p>If you need to add a note about the writeoff, click ‘Add note’ and type in
+the note before proceeding</p></li>
+<li><p>Click the ‘Write off’ button next to the charge to be written off</p>
+<p><img alt="Make a payment tab in the patron's accounting section" src="_images/makepayment.png" /></p>
+</li>
+</ul>
+<p>A table will show the details of the charge being written off, the full amount
+of the charge will be populated for you in the ‘Writeoff amount’ field.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you made a mistake and this charge should be paid instead, you can
+switch between ‘Pay’ and ‘Write off’ mode using the buttons located at the top
+of this tab. See <a class="reference internal" href="#pay-fine-in-full-label"><span class="std std-ref">Paying an individual charge in full</span></a>
+above.</p>
+</div>
+<p><img alt="Form to write off an individual charge" src="_images/writeofffine.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Writeoff amount: this is the amount that will be debited from the
+charge. When writing off a charge completely, this should be the full
+amount.</p></li>
+<li><p>If any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> were set up for
+account line credits, they will appear here.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Click ‘Write off this charge’</p></li>
+</ul>
+<p>The charge’s outstanding amount will be set to zero (fully paid/written off),
+and a writeoff line will be added in the patron’s transactions.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#finepaymentautopopup-label"><span class="std std-ref">FinePaymentAutoPopup</span></a> system
+preference is enabled, a print dialogue window will display. The receipt
+printed uses the letter ACCOUNT_CREDIT, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. If change was
+given for this transaction the details will be included when using this
+system preference.</p>
+<p>In addition to printing receipts you can enable email receipts for payment
+and writeoff transactions with the
+<a class="reference internal" href="patronspreferences.html#useemailreceipts-label"><span class="std std-ref">UseEmailReceipts</span></a> system preference.
+The email sent uses the ACCOUNT_WRITEOFF letter, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="partially-writing-off-an-individual-charge">
+<span id="partial-writeoff-single-fine-label"></span><h5>Partially writing off an individual charge<a class="headerlink" href="#partially-writing-off-an-individual-charge" title="此标题的永久链接"></a></h5>
+<p>To partially write off a single charge:</p>
+<ul>
+<li><p>If you need to add a note about the writeoff, click ‘Add note’ and type in
+the note before proceeding</p></li>
+<li><p>Click the ‘Write off’ button next to the charge to be written off</p>
+<p><img alt="Make a payment tab in the patron's accounting section" src="_images/makepayment.png" /></p>
+</li>
+</ul>
+<p>A table will show the details of the charge being written off, the full amount
+of the charge will be populated for you in the ‘Writeoff amount’ field.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you made a mistake and this charge should be paid instead, you can
+switch between ‘Pay’ and ‘Write off’ mode using the buttons located at the top
+of this tab. See <a class="reference internal" href="#partial-pay-fine-label"><span class="std std-ref">Partially paying an individual charge</span></a>
+above.</p>
+</div>
+<p><img alt="Form to write off an individual charge" src="_images/writeofffine.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Writeoff amount: this is the amount that will be debited from the
+charge. When partially writing off a charge, enter the amount to be
+written off.</p></li>
+<li><p>If any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> were set up for
+account line credits, they will appear here.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Click ‘Write off this charge’</p></li>
+</ul>
+<p>The charge will be updated to show the original amount and the current amount
+outstanding, and a writeoff line will be added in the patron’s transactions.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#finepaymentautopopup-label"><span class="std std-ref">FinePaymentAutoPopup</span></a> system
+preference is enabled, a print dialogue window will display. The receipt
+printed uses the letter ACCOUNT_CREDIT, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. If change was
+given for this transaction the details will be included when using this
+system preference.</p>
+<p>In addition to printing receipts you can enable email receipts for payment
+and writeoff transactions with the
+<a class="reference internal" href="patronspreferences.html#useemailreceipts-label"><span class="std std-ref">UseEmailReceipts</span></a> system preference.
+The email sent uses the ACCOUNT_WRITEOFF letter, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="writing-off-selected-charges">
+<span id="writeoff-selected-fine-label"></span><h5>Writing off selected charges<a class="headerlink" href="#writing-off-selected-charges" title="此标题的永久链接"></a></h5>
+<p>To write off only some charges:</p>
+<ul>
+<li><p>If you need to add a note about the writeoff, click ‘Add note’ and type in
+the note before proceeding</p></li>
+<li><p>Check the selection boxes next to the fines to be written off</p>
+<p><img alt="Make a payment tab in the patron's accounting section, two of the three charges are selected" src="_images/payselected-select.png" /></p>
+</li>
+<li><p>Click the ‘Writeoff selected’ button</p></li>
+</ul>
+<p>The total outstanding amount for the selected charges will be displayed, and
+populated for you in the ‘Writeoff amount’ field.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you made a mistake and this charge should be paid instead, you can
+switch between ‘Pay’ and ‘Write off’ mode using the buttons located at the top
+of this tab. See <a class="reference internal" href="#pay-selected-label"><span class="std std-ref">Paying selected charges</span></a> above.</p>
+</div>
+<p><img alt="Form to write off selected charges" src="_images/writeoffselected.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Writeoff amount: this is the amount that will be debited from the
+charge. When writing off the charges completely, this should be the full
+amount.</p></li>
+<li><p>Note: if needed, enter a note about this writeoff.</p></li>
+<li><p>If any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> were set up for
+account line credits, they will appear here.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Click ‘Confirm’</p></li>
+</ul>
+<p>The selected charges’ outstanding amounts will be updated, with the writeoff
+applied to oldest charges first, and a writeoff line will be added in the patron’s
+transactions.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#finepaymentautopopup-label"><span class="std std-ref">FinePaymentAutoPopup</span></a> system
+preference is enabled, a print dialogue window will display. The receipt
+printed uses the letter ACCOUNT_CREDIT, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. If change was
+given for this transaction the details will be included when using this
+system preference.</p>
+<p>In addition to printing receipts you can enable email receipts for payment
+and writeoff transactions with the
+<a class="reference internal" href="patronspreferences.html#useemailreceipts-label"><span class="std std-ref">UseEmailReceipts</span></a> system preference.
+The email sent uses the ACCOUNT_WRITEOFF letter, which can be modified in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="cancel-fines-or-fees">
+<span id="cancel-charges-label"></span><h4>取消罰款或收費<a class="headerlink" href="#cancel-fines-or-fees" title="此标题的永久链接"></a></h4>
+<p>如果一個使用者被收取了費用，而且是錯誤的，你可以點擊執行欄中的 ‘取消收費’ 按鈕來取消該費用。</p>
+<p><img alt="A line in the patron's accounts for a manual fee, still unpaid. At the end of the line, there are buttons 'Print', 'Detail', 'Pay', 'Cancel charge', and 'Apply discount'" src="_images/cancelcharge.png" /></p>
+<p>一旦點擊一個新的館藏將被新增到帳戶中，其 ‘取消費用’ 與被取消的費用金額相同。被取消的費用現在將具有 ‘取消’ 狀態，未付金額為0。</p>
+<p><img alt="Two lines in the patron's account. The first is for a 'Cancelled charge', the amount is -5. The second is for a 'Manual fee (Cancelled)', the amount is 5 and the outstanding amount is 0." src="_images/cancelledcharge.png" /></p>
+<p>如果你錯誤地取消了一項收費，你可以使取消無效（參見 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>無效付款 &lt;void-payments-label&gt;`下面）。</p>
+</section>
+<section id="void-payments">
+<span id="void-payments-label"></span><h4>無效付款<a class="headerlink" href="#void-payments" title="此标题的永久链接"></a></h4>
+<p>若誤標記館藏為已支付，可點選右方的 ‘無效’ 恢復原狀</p>
+<blockquote>
+<div><p><img alt="image457" src="_images/reverselink.png" /></p>
+</div></blockquote>
+<ul>
+<li><p>Once clicked a new line item will be added to the account showing
+the payment as ‘Voided’. The payment line is added back to
+the Pay fines tab as an outstanding charge.</p>
+<p><img alt="image458" src="_images/reversed.png" /></p>
+</li>
+</ul>
+</section>
+<section id="creating-manual-credits">
+<span id="creating-manual-credits-label"></span><h4>新增人工額度<a class="headerlink" href="#creating-manual-credits" title="此标题的永久链接"></a></h4>
+<p>人工額度可以支付部份或豁免罰款。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Staff need the manual_credit (or superlibrarian)
+<a class="reference internal" href="#patron-permissions-label"><span class="std std-ref">permission</span></a> in order to add manual credits
+to a patron’s account.</p>
+</div>
+<ul>
+<li><p>Click ‘Create manual credit’.</p>
+<p><img alt="Create a manual credit form" src="_images/manualcredit.png" /></p>
+<ul>
+<li><p>Type: choose the type of credit to apply.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>To add additional values to the manual credit type drop-down
+menu, add them to the <a class="reference internal" href="administration.html#credit-types-label"><span class="std std-ref">credit types</span></a>
+in the Administration module.</p>
+</div>
+</li>
+<li><p>Barcode: if this credit is associated with an item you can enter that item’s
+barcode so that the line item links to the right item.</p></li>
+<li><p>Description: enter the description of the credit.</p></li>
+<li><p>Note: if needed, add a note about this credit.</p></li>
+<li><p>Amount: enter the credit’s amount, do not enter currency symbols, only
+numbers and decimals.</p></li>
+<li><p>Transaction type: choose the type of credit.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will only appear if one or more values are defined under
+the <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">PAYMENT_TYPE authorized value</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This field will be required if either the
+<a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system preference
+or the <a class="reference internal" href="accountspreferences.html#requirepaymenttype-label"><span class="std std-ref">RequirePaymentType</span></a> system
+preference is enabled.</p>
+</div>
+</li>
+<li><p>Cash register: if the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a>
+system preference is enabled, you will have a choice of cash register in
+which to enter the transaction.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a> system
+preference is enabled, and the CASH transaction type is chosen above,
+you will be required to choose a cash register for the payment.</p>
+<p>Whether or not this field is required when another transaction type is
+chosen is determined by the
+<a class="reference internal" href="accountspreferences.html#requirecashregister-label"><span class="std std-ref">RequireCashRegister</span></a> system
+preference.</p>
+</div>
+</li>
+<li><p>If any <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> were set up for
+account line credits, they will appear here.</p></li>
+</ul>
+</li>
+<li><p>Click ‘Add credit’.</p></li>
+</ul>
+<p>This will add a credit line to the patron’s account.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#accountautoreconcile-label"><span class="std std-ref">AccountAutoReconcile</span></a> system
+preference is set to ‘Do’, the credit will automatically be used to reduce
+the outstanding amounts in the patron’s account, starting with the oldest
+charges.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="accountspreferences.html#autocreditnumber-label"><span class="std std-ref">AutoCreditNumber</span></a> system preference
+is enabled, credits will be numbered.</p>
+</div>
+</section>
+<section id="printing-invoices">
+<span id="printing-invoices-label"></span><h4>列印收據<a class="headerlink" href="#printing-invoices" title="此标题的永久链接"></a></h4>
+<p>帳號右方有個列印連結。按下該連結印出包括日期與說明的館藏收據以及待付款。</p>
+<p><img alt="image461" src="_images/patroninvoice.png" /></p>
+</section>
+</section>
+<section id="routing-lists">
+<span id="routing-lists-label"></span><h3>傳閱清單<a class="headerlink" href="#routing-lists" title="此标题的永久链接"></a></h3>
+<p>可經由讀者紀錄的 ‘傳閱清單’ 分頁，查看該讀者訂閱的期刊傳閱清單。</p>
+<p><img alt="image462" src="_images/routinglisttab.png" /></p>
+<p>在此分頁可看到並編輯此讀者所屬的傳閱清單。</p>
+<p><img alt="image463" src="_images/patronroutinglists.png" /></p>
+</section>
+<section id="circulation-history">
+<span id="circulation-history-label"></span><h3>流通紀錄<a class="headerlink" href="#circulation-history" title="此标题的永久链接"></a></h3>
+<p>The circulation history tab will appear if you have set the
+<a class="reference internal" href="patronspreferences.html#intranetreadinghistory-label"><span class="std std-ref">intranetreadinghistory</span></a> preference to allow
+it to appear. If you have the <a class="reference internal" href="opacpreferences.html#opacprivacy-label"><span class="std std-ref">OPACPrivacy</span></a> system
+preference set to ‘Allow’ and the patron has decided that the library
+cannot keep this information this tab will only show currently checked
+out items.</p>
+<p><img alt="Table of patron's circulation history" src="_images/circHistory040123.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 自定義此表的列(table id: checkouthistory-table)。</p></li>
+</ul>
+</div></blockquote>
+<p>To see when an item was renewed and by whom, click ‘View’ in the Number of renewals column.</p>
+<p><img alt="Item renewals pop-up" src="_images/viewItemRenewals.png" /></p>
+<p>在頁面右上角的其他選單裡，可找到選項，匯出今天還入的條碼清單。</p>
+<p><img alt="image465" src="_images/readinghistory-export.png" /></p>
+<p>產生每列一個條碼的文字檔。</p>
+</section>
+<section id="holds-history">
+<span id="holds-history-label"></span><h3>預約記錄<a class="headerlink" href="#holds-history" title="此标题的永久链接"></a></h3>
+<p>預約紀錄選項顯示了讀者所做的所有預約，以及它們的狀態。</p>
+<p><img alt="image1496" src="_images/holdshistory.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 自定義此表的列(table id: holdshistory-table)。</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="modification-log">
+<span id="modification-log-label"></span><h3>修改紀錄<a class="headerlink" href="#modification-log" title="此标题的永久链接"></a></h3>
+<p>If you have set your <a class="reference internal" href="logspreferences.html#borrowerslog-label"><span class="std std-ref">BorrowersLog</span></a> to track changes
+to patron records, then this tab will appear. The Modification log will
+show when changes were made to the patron record. If you also have
+turned on the <a class="reference internal" href="logspreferences.html#issuelog-label"><span class="std std-ref">IssueLog</span></a> and <a class="reference internal" href="logspreferences.html#returnlog-label"><span class="std std-ref">ReturnLog</span></a>
+you will see checkins and outs on this screen as well.</p>
+<p><img alt="image466" src="_images/borrowerlog.png" /></p>
+<ul class="simple">
+<li><p>館員欄位顯示改變內容的館員讀者號</p></li>
+<li><p>此模組清單列出讀者模組的 ‘MEMBERS’</p></li>
+<li><p>此作業將告知將儲存的記錄</p></li>
+<li><p>Object 欄列列出修改過的 borrowernumber (如上例，我修改自己的記錄)</p></li>
+</ul>
+</section>
+<section id="notices">
+<span id="notices-label"></span><h3>通知<a class="headerlink" href="#notices" title="此标题的永久链接"></a></h3>
+<p>設定 <span class="xref std std-ref">讀者訊息偏好</span> 為 <a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">新增</span></a> 或 <a class="reference internal" href="#editing-patrons-label"><span class="std std-ref">編輯</span></a> 讀者。此分頁將顯示已送出及待送出的訊息：</p>
+<p><img alt="image467" src="_images/patnoticestab.png" /></p>
+<p>勾選題名訊息，將展開內容，顯示完整的訊息，以供送出。</p>
+<p><img alt="image468" src="_images/patnoticestab-full.png" /></p>
+<p>待送出或送出失敗的訊息，將出現 ‘重送’ 該訊息的選項，在其狀態下有重送鈕。</p>
+<p><img alt="image469" src="_images/resendnotice.png" /></p>
+</section>
+<section id="statistics">
+<span id="statistics-label"></span><h3>統計<a class="headerlink" href="#statistics" title="此标题的永久链接"></a></h3>
+<p>Depending on what you set for the values of your
+<a class="reference internal" href="patronspreferences.html#statisticsfields-label"><span class="std std-ref">StatisticsFields</span></a> system preference, you can see
+statistics for one patron’s circulation actions.</p>
+<p><img alt="image470" src="_images/patronstats.png" /></p>
+</section>
+<section id="files">
+<span id="files-label"></span><h3>檔案<a class="headerlink" href="#files" title="此标题的永久链接"></a></h3>
+<p>If you set the <a class="reference internal" href="patronspreferences.html#enableborrowerfiles-label"><span class="std std-ref">EnableBorrowerFiles</span></a> preference
+to ‘Do’ the Files tab will be visible on the patron information page.</p>
+<p><img alt="image471" src="_images/patronfilestab.png" /></p>
+<p>從此上傳附加於讀者紀錄的檔案。</p>
+<p><img alt="image472" src="_images/nopatronfiles.png" /></p>
+<p>已上傳所有的檔案，將顯示在表單裡，並可從該表單繼續上傳其他檔案。</p>
+<p><img alt="image473" src="_images/patronfileslist.png" /></p>
+</section>
+<section id="purchase-suggestions">
+<span id="purchase-suggestions-label"></span><h3>採訪建議<a class="headerlink" href="#purchase-suggestions" title="此标题的永久链接"></a></h3>
+<p>讀者提出採訪建議後，在讀者記錄裡將出現採訪建議分頁。</p>
+<p><img alt="Purchase suggestions page in the patron's account" src="_images/purchasesuggestions.png" /></p>
+<p>在此可看到所有的採訪建議及其現況，您也可以讀者身份點選上方的 ‘新增採訪建議’。</p>
+<p>Learn more about <a class="reference internal" href="acquisitions.html#managing-purchase-suggestions-label"><span class="std std-ref">managing purchase suggestions</span></a> in the
+Acquisitions chapter of this manual.</p>
+</section>
+<section id="patron-discharges">
+<span id="patron-discharges-label"></span><h3>讀者離館除籍<a class="headerlink" href="#patron-discharges" title="此标题的永久链接"></a></h3>
+<p>A discharge is a certificate that says the patron has no current
+checkouts and no holds. To enable this option on the patron record, set the
+<a class="reference internal" href="patronspreferences.html#usedischarge-label"><span class="std std-ref">useDischarge</span></a> system preference to ‘Allow’.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>In France, a “quitus” (“discharge”) is needed if you want to register for an
+account in a library or a university.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>學術圖書館多半要求讀者先結清借出才能畢業。</p>
+</div>
+<section id="emitting-a-discharge">
+<span id="emit-discharge-label"></span><h4>Emitting a discharge<a class="headerlink" href="#emitting-a-discharge" title="此标题的永久链接"></a></h4>
+<p>To generate a discharge for a specific patron, click the ‘Discharges’ tab
+on the left of the patron record.</p>
+<p><img alt="Tabs on the left of a patron record in the staff interface, the Discharges tab is selected" src="_images/dischargestab.png" /></p>
+<p>Or click on the ‘More’ button and choose ‘Discharge’.</p>
+<p><img alt="More button in a patron's account is open, the options are renew patron, set permissions, send welcome email, send password reset, delete, update child to adult patron, and export today's checked in barcodes" src="_images/moremenu.png" /></p>
+<p>If the patron can have a discharge generated, it will have a button
+that says ‘Generate discharge’</p>
+<p><img alt="Generate discharge button" src="_images/dischargegenerate.png" /></p>
+<p>If the patron has checkouts or holds, you’ll see a message explaining why the
+patron cannot be discharged.</p>
+<p><img alt="Message reading 'Cannot edit discharge: the patron has checked out items.'" src="_images/dischargeimpossible.png" /></p>
+<p>Once the letter is generated you will have a PDF to download.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize this message in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.
+The letter code is DISCHARGE.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can style the PDF using the <a class="reference internal" href="circulationpreferences.html#noticecss-label"><span class="std std-ref">NoticeCSS</span></a>
+preference, or add inline CSS in the DISCHARGE letter in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>The patron will have a <a class="reference internal" href="#patron-restrictions-label"><span class="std std-ref">restriction</span></a> added to
+their account.</p>
+<p><img alt="Restrictions tab in the patron's record showing a discharge restriction" src="_images/dischargerestrict.png" /></p>
+<p>A history of discharges will be added to the ‘Discharges’ tab.</p>
+<p><img alt="A list of discharges for this patron, with date requested and date validated" src="_images/dischargehistory.png" /></p>
+</section>
+<section id="approving-discharge-requests">
+<span id="approve-discharge-label"></span><h4>Approving discharge requests<a class="headerlink" href="#approving-discharge-requests" title="此标题的永久链接"></a></h4>
+<p>Patrons can <a class="reference internal" href="opac.html#ask-for-a-discharge-label"><span class="std std-ref">request discharges via the OPAC</span></a>.
+Any pending discharges will be listed below the menu buttons on the main
+staff interface page, with other pending requests.</p>
+<p><img alt="Prompt on staff interface homepage to view pending article requests, pending purchase suggestions, patrons requesting modifications, pending catalog concerns, pending checkout notes, and pending OPAC problem reports" src="_images/pendingrequests.png" /></p>
+<p>Clicking the pending discharge request link will open a screen where you can
+approve those discharges by clicking ‘Allow’.</p>
+<p><img alt="Table of pending discharge requests, with Allow button at the right of each" src="_images/dischargepending.png" /></p>
+</section>
+</section>
+<section id="housebound-patrons">
+<span id="housebound-patrons-label"></span><h3>居家讀者<a class="headerlink" href="#housebound-patrons" title="此标题的永久链接"></a></h3>
+<p>讀者在居家流通方面可以具有三種角色：借閱者，選擇者或運送者。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>In order to use the housebound module, the <a class="reference internal" href="circulationpreferences.html#houseboundmodule-label"><span class="std std-ref">HouseboundModule</span></a>
+and <a class="reference internal" href="patronspreferences.html#extendedpatronattributes-label"><span class="std std-ref">ExtendedPatronAttributes</span></a> system preferences must be
+enabled.</p>
+</div></blockquote>
+<section id="chooser">
+<span id="housebound-chooser-label"></span><h4>選擇者<a class="headerlink" href="#chooser" title="此标题的永久链接"></a></h4>
+<p>If you have enabled the housebound module, with the
+<a class="reference internal" href="circulationpreferences.html#houseboundmodule-label"><span class="std std-ref">HouseboundModule</span></a> system preference, you will see that
+patrons now have a new section in their record called ‘Housebound
+roles’.</p>
+<p><img alt="image1349" src="_images/houseboundroles.png" /></p>
+<p>點擊 ‘新增’ 鈕，將該讀者標記為 ‘選擇者’。</p>
+<p><img alt="image1350" src="_images/houseboundroleschooser.png" /></p>
+<p>選擇者負責為居家讀者選擇材料。</p>
+</section>
+<section id="deliverer">
+<span id="housebound-deliverer-label"></span><h4>運送者<a class="headerlink" href="#deliverer" title="此标题的永久链接"></a></h4>
+<p>在 ‘居家角色’ 中，點擊 ‘新增’ 鈕以將該讀者標記為 ‘運送者’。</p>
+<p><img alt="image1351" src="_images/houseboundrolesdeliverer.png" /></p>
+<p>運送者負責在特定的日期和時間將選定的物料運送到居家讀者。</p>
+</section>
+<section id="housebound-borrowers">
+<span id="housebound-borrower-label"></span><h4>居家借閱者<a class="headerlink" href="#housebound-borrowers" title="此标题的永久链接"></a></h4>
+<p>要為居家讀者建立居家檔案，請在其記錄中點擊 ‘居家’ 選項。</p>
+<p><img alt="image1347" src="_images/houseboundtab.png" /></p>
+<p>這裡可以編輯他們的居家資訊。</p>
+<p><img alt="image1348" src="_images/houseboundprofile.png" /></p>
+<ul>
+<li><p>交貨日期：選擇讀者希望的收貨日期（或 ‘隨時’）。</p></li>
+<li><p>頻率：選擇他們要收貨的頻率。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>頻率通過 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">授權值</span></a> 的 HSBND _FREQ 清單進行管理。</p>
+</div></blockquote>
+</li>
+<li><p>偏好材料：輸入說明，以幫助選擇者為居家的讀者選擇合適的文件。</p>
+<p>例如：書籍，DVD，雜誌等。</p>
+</li>
+<li><p>主題：如果居家讀者有偏愛的特定主題，請在此處輸入。這將幫助選擇者為讀者選擇有興趣的文件。</p>
+<p>例如：浪漫，食譜，驚悚片等。</p>
+</li>
+<li><p>著作：如果居家讀者有喜歡的作者，請在此處輸入。</p>
+<p>例如：Danielle Steel，James Patterson等。</p>
+</li>
+<li><p>推薦：如果居家讀者有推薦，請在此輸入。</p></li>
+<li><p>說明：輸入其他可能對選擇者或運送者有幫助的說明。</p></li>
+</ul>
+<p>點擊 ‘儲存變更’ 鈕以保存內部設定檔。</p>
+</section>
+<section id="coordinating-deliveries">
+<span id="housebound-deliveries-label"></span><h4>配合運送<a class="headerlink" href="#coordinating-deliveries" title="此标题的永久链接"></a></h4>
+<p>要計劃拜訪，請查看該居家讀者的記錄。</p>
+<p>在他們的居家表單中，可以建立運送。</p>
+<p><img alt="image1352" src="_images/housebounddeliveries.png" /></p>
+<p>點擊 ‘新增運送’。</p>
+<p><img alt="image1353" src="_images/housebounddeliveries1.png" /></p>
+<p>填寫資訊 ：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>日期：輸入運送日期。</p></li>
+<li><p>時間：選擇一天中的運送時間。早上，下午或晚上。</p></li>
+<li><p>選擇者：選擇一個負責該居家讀者材料的選擇者。</p></li>
+<li><p>運送者：選擇一個運送者，他將負責提取材料並將其帶到居家讀者那裡。</p></li>
+</ul>
+</div></blockquote>
+<p><img alt="image1354" src="_images/housebounddeliveries2.png" /></p>
+<p>通過報表將計劃的交付通知給選擇者和運送者。  可以在SQL報表庫中的範例報表中找到 <a class="reference external" href="https://wiki.koha-community.org/wiki/SQL_Reports_Patrons#Patron_Characteristics">https://wiki.koha-community.org/wiki/SQL_Reports_Patrons#Patron_Characteristics</a>.</p>
+</section>
+</section>
+<section id="recalls-history">
+<span id="patron-recall-history-label"></span><h3>催還記錄<a class="headerlink" href="#recalls-history" title="此标题的永久链接"></a></h3>
+<p>如果 <a class="reference internal" href="circulation.html#recalls-label"><span class="std std-ref">催還和啟用</span></a>, active and past :Ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者要求催還&lt;request-recalls-opac-label&gt;`會出現在這個選項裡。</p>
+<p><img alt="The Recalls history page in a patron's file" src="_images/patronrecallshistory.png" /></p>
+<p>館員在這裡可以看到每個催還的狀態，並 <a class="reference internal" href="circulation.html#recalls-manage-label"><span class="std std-ref">管理它們</span></a>。</p>
+</section>
+</section>
+<section id="two-factor-authentication-in-the-staff-interface">
+<span id="two-factor-authentication-staff-label"></span><h2>館員介面的雙重認證<a class="headerlink" href="#two-factor-authentication-in-the-staff-interface" title="此标题的永久链接"></a></h2>
+<p>Koha提供雙重認證（2FA）來登入館員介面。</p>
+<p>這種雙重驗證使用基於時間的一次性密碼（TOTP）。 TOTP是一個只能使用一次的密碼，並且只在有限時間內有效。</p>
+<p>想使用雙重驗證的使用者必須有一個應用程序來生成這些TOTP。任何認證器應用程序，如Google認證器、和OTP、免費OTP和許多其他應用程序都可以使用。建議使用能夠備份其2FA帳戶的應用程序（基於雲或自動）。</p>
+<p>Turn on the two-factor authentication with the <a class="reference internal" href="staffclientpreferences.html#twofactorauthentication-label"><span class="std std-ref">TwoFactorAuthentication</span></a>
+system preference.</p>
+<p>一旦這樣做了，館員使用者必須通過點擊頁面頂端的用戶名並點擊 ‘我的帳戶’ 進入他們的帳戶。</p>
+<p><img alt="The user menu at the top of the page in the staff interface, the cursor is on the 'My account' option." src="_images/myaccount.png" /></p>
+<p>使用者必須進入更多 &gt; 管理雙重驗證。</p>
+<p><img alt="When two-factor authentication is enabled, the current logged in user has access to a 'manage two-factor authentication' option from the 'More' menu" src="_images/manage2fa.png" /></p>
+<p>當第一次進入這個頁面時，狀態應該是 ‘已禁用’。</p>
+<p><img alt="The manage two-factor authentication page; the status is currently disabled; there is a button that says 'Enable two-factor authentication'" src="_images/manage2fa-disabled.png" /></p>
+<p>點擊 ‘啟用雙重身份驗證’</p>
+<p>將會出現一個二維碼。該代碼必須用認證器應用程序掃描（建議見上文）。</p>
+<p><img alt="The manage two-factor authentication page; a QR code is presented with a field for a pin code underneath" src="_images/manage2fa-qrcode.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果應用程序不允許掃描二維碼，頁面會給出可以手動輸入的憑證（帳戶、鑰匙、基於時間）。</p>
+</div>
+<p>一旦掃描了QR碼，該應用程序將返回一個基於時間的PIN碼。用戶必須在PIN碼欄位中輸入該PIN碼，並點擊 ‘用雙因素應用程序註冊’。</p>
+<p>現在雙重驗證的狀態將被啟用。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>An email will be sent to the user’s email address to alert them that the
+two-factor authentication has been enabled on their account.</p>
+<p>You can customize this message in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.
+The letter code is 2FA_ENABLE.</p>
+</div>
+<p>當這個使用者試圖登錄館員介面時，他們將像往常一樣輸入他們的用戶名稱和密碼，但也要輸入一個雙因素認證代碼。</p>
+<p><img alt="When two-factor authentication is enabled and a user has enabled it in their account, a two-factor authentication code field will appear after they have entered their username and password to log into the staff interface" src="_images/2falogincode.png" /></p>
+<p>使用者必須打開他們的認證器應用程序，生成一個基於時間的一次性密碼，並將其輸入該欄位以便登錄。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Alternatively, if the user doesn’t have the app handy, they can click on
+‘Send the code by email’, which will send them an email with a time-based
+one-time password for them to use.</p>
+<p>The email is based on the 2FA_OTP_TOKEN notice template, which can be
+customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>如果使用者希望禁用他們的雙因素認證，他們可以到館員介面的帳戶，點擊更多&gt;管理雙因素認證，然後點擊 ‘禁用雙因素認證’。</p>
+<p><img alt="The manage two-factor authentication page; the status is currently enabled; there is a button that says 'Disable two-factor authentication'" src="_images/manage2fa-enabled.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>An email will be sent to the user’s email address to alert them that the
+two-factor authentication has been disabled on their account.</p>
+<p>You can customize this message in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.
+The letter code is 2FA_DISABLE.</p>
+</div>
+</section>
+<section id="patron-search">
+<span id="patron-search-label"></span><h2>搜尋讀者<a class="headerlink" href="#patron-search" title="此标题的永久链接"></a></h2>
+<p>勾選讀者模組的連結進入搜尋/瀏覽讀者螢幕。從此可搜尋讀者。</p>
+<p><img alt="image477" src="_images/patronsearch.png" /></p>
+<p>勾選代理商搜尋盒右方的加號 [+] 打開進階讀者搜尋 包括讀者類型與圖書館的限制欄位。</p>
+<p><img alt="image478" src="_images/patronsearchexpand.png" /></p>
+<p>以頁面左方的選項限制顯示的結果數量。</p>
+<p><img alt="image1253" src="_images/patronsearchfilters.png" /></p>
+<p>依照從 ‘搜尋欄位’ 選擇的內容，您可從不同方式搜尋讀者。</p>
+<p><img alt="image479" src="_images/patronfieldsearch.png" /></p>
+<ul class="simple">
+<li><p>標準：</p>
+<ul>
+<li><p>鍵入姓、名、電子郵件或條碼的任何部份</p></li>
+</ul>
+</li>
+<li><p>電子郵件：</p>
+<ul>
+<li><p>鍵入電子郵件的任何部分並選擇 ‘包括’ 而不是 ‘開始’</p></li>
+</ul>
+</li>
+<li><p>讀者號：</p>
+<ul>
+<li><p>鍵入讀者號</p></li>
+</ul>
+</li>
+<li><p>電話號碼：</p>
+<ul>
+<li><p>鍵入系統內的電話號碼或以空格區分各段號碼。</p></li>
+<li><p>例如：可以完全一樣的搜尋(212) 555-1212，以212 555 1212搜尋，也可找到相同的結果</p></li>
+</ul>
+</li>
+<li><p>街路：</p>
+<ul>
+<li><p>鍵入讀者地址的任何片斷 (包括所有的地址欄位) 並選擇 ‘包括’ 不選 ‘開始’ 找尋地址裡的任何字串</p></li>
+</ul>
+</li>
+<li><p>生日</p>
+<ul>
+<li><p>Birth dates should be entered using the format set forth in the
+<a class="reference internal" href="i18npreferences.html#dateformat-label"><span class="std std-ref">dateformat</span></a> preference.</p></li>
+</ul>
+</li>
+<li><p>排序欄位1</p>
+<ul>
+<li><p>此為使用於圖書館讀者的客製化欄位。</p></li>
+</ul>
+</li>
+<li><p>排序欄位2</p>
+<ul>
+<li><p>此為使用於圖書館讀者的客製化欄位。</p></li>
+</ul>
+</li>
+</ul>
+<p>您可選擇搜尋欄位內的起始或包括的字串。選擇 ‘包括’ 就像是萬用字元搜尋。</p>
+<p><img alt="image480" src="_images/patronsearchcontains.png" /></p>
+<p>點選上方的連結文字，可以瀏覽讀者紀錄。</p>
+<p><img alt="image481" src="_images/patronbrowse.png" /></p>
+<p>如果你的搜尋只返回一個結果，你將直接被帶到該讀者的檔案。如果你的搜尋返回一個以上的結果，你將得到一個可供選擇的列表。</p>
+<p><img alt="Patron search results table" src="_images/patronsearchresults.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module, under the patrons tab (table id: memberresultst).</p>
+</div>
+</section>
+<section id="communicating-with-patrons">
+<span id="communication-with-patrons-label"></span><h2>與讀者溝通<a class="headerlink" href="#communicating-with-patrons" title="此标题的永久链接"></a></h2>
+<p>Koha提供了幾個與讀者溝通的選項，其中一些已經在本章中介紹過。</p>
+<section id="opac-notes">
+<span id="opac-notes-label"></span><h3>OPAC 說明<a class="headerlink" href="#opac-notes" title="此标题的永久链接"></a></h3>
+<p>OPAC說明是通過 <span class="xref std std-ref">新增讀者表格</span>，在 ‘圖書館設定’ 部分新增到讀者的文件中。</p>
+<p><img alt="'Library set-up' and 'OPAC/Staff login' sections of the patron form" src="_images/addlibsetup.png" /></p>
+<p>它們顯示在OPAC中讀者線上帳戶的 :ref:’你的摘要’部分&lt;your-summary-label&gt;`。</p>
+<p><img alt="'Messages for you' box in the patron's online account with a note saying 'This is an OPAC note'" src="_images/opacnote.png" /></p>
+<p>在館員介面，OPAC說明將在讀者檔案的 ‘圖書館使用’ 部分。</p>
+<p><img alt="Library use section of the patron's detail page" src="_images/libraryusesection.png" /></p>
+</section>
+<section id="opac-messages">
+<span id="opac-messages-label"></span><h3>OPAC 訊息<a class="headerlink" href="#opac-messages" title="此标题的永久链接"></a></h3>
+<p>使用 ‘新增訊息’ 按鈕將OPAC訊息新增到讀者的檔案中。</p>
+<p><img alt="Row of action buttons at the top of the patron's detail page: Edit, Add guarantee, Change password, Duplicate, Print, Search to hold, Add message, Schedule pickup, and More" src="_images/patronedit.png" /></p>
+<p>要給讀者留言，使其能夠在OPAC中看到，請在 ‘為其新增訊息’欄中選擇 “OPAC - 讀者的名字”。在框中輸入你的訊息，或在下拉選單中選擇一個預定義的訊息。</p>
+<p><img alt="Pop-up modal for 'Add message' with the option 'Add a message for OPAC - Patron's name' chosen" src="_images/opacmessage.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>預定義的訊息被新增到 BOR_NOTES :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>容許值價值類別&lt;existing-values-label&gt;`中</p>
+</div>
+<p>Once saved, the patron will be able to see the message in the
+<a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">‘Your summary’ section</span></a> of their online account.
+The patron will also be able to see the date on which the message was added as
+well as the name of the branch. They will have the option to dismiss the message.
+This will hide the message from their OPAC account and mark it as read, but it
+will not delete the message.</p>
+<p><img alt="'Messages for you' box in the patron's online account with a message reading &quot;'Please bring a proof of address on your next visit to the library.' Written on 15/05/2023 by Centerville&quot; and a dismiss button" src="_images/opacmessage2.png" /></p>
+<p>在館員介面，OPAC訊息顯示在讀者的詳細頁面上，在頁面的頂端，就在一排執行按鈕的下面。</p>
+<p><img alt="OPAC message appearing in the patron's detail page in the staff interface just under the edit buttons" src="_images/opacmessage3.png" /></p>
+<p>它也會出現在借出頁面，在借出箱的右邊。</p>
+<p><img alt="OPAC message appearing in the patron's checkout page to the right of the checkout box" src="_images/opacmessage4.png" /></p>
+<p>If you need to edit the message, click the ‘Edit’ button next to the message,
+edit the text and click ‘Save’.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If you edit a message that has been dismissed by the patron, it will stay
+as ‘Read’ and the patron will not see your edit.</p>
+</div>
+<p>If the patron dismisses the message, a ‘Read’ mention with the date will appear
+next to the message in the staff interface to inform staff members that this
+message was read by the patron.</p>
+<p><img alt="OPAC message appearing in the patron's detail page in the staff interface just under the edit buttons, 'Read: 15/05/2023' is displayed next to the message" src="_images/opacmessage-read.png" /></p>
+</section>
+<section id="advance-notices-and-hold-notices">
+<span id="advance-notices-and-hold-notices-label"></span><h3>提前通知及預約通知<a class="headerlink" href="#advance-notices-and-hold-notices" title="此标题的永久链接"></a></h3>
+<p>If you have enabled the <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> system preference,
+you cat set advance notices as well as hold notices when
+<a class="reference internal" href="#add-a-new-patron-label"><span class="std std-ref">adding a new patron</span></a> or
+<a class="reference internal" href="#editing-patrons-label"><span class="std std-ref">editing a patron</span></a>.</p>
+<p>If the <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a> system preference is set to
+‘show’, patrons will be able to modify their messaging preferences in their
+online account.</p>
+<p><img alt="'Patron messaging preferences' section of the patron form" src="_images/addpatronmsg.png" /></p>
+<ul>
+<li><p>到期通知：館藏到期當天的通知</p>
+<ul class="simple">
+<li><p>Customize this notice by editing the DUE or DUEDGST notices in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a></p></li>
+</ul>
+</li>
+<li><p>提早通知：用於通知讀者其借出的館藏即將到期 (讀者可指定提前的天數)</p>
+<ul class="simple">
+<li><p>Customize this notice by editing the PREDUE or PREDUEDGST notices
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a></p></li>
+</ul>
+</li>
+<li><p>Hold filled: A notice when you have confirmed the hold is waiting for the
+patron, and when a curbside pickup is scheduled.</p>
+<ul class="simple">
+<li><p>Customize the hold filled notice by editing the HOLD template in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p></li>
+<li><p>Customize the curbside pickup scheduled notice by editing the
+NEW_CURBSIDE_PICKUP template in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p></li>
+</ul>
+</li>
+<li><p>還入館藏：讀者剛還入的館藏清單</p>
+<ul class="simple">
+<li><p>通過在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>通知和單據工具&lt;notices-and-slips-label&gt;`中編輯CHECKIN 通知，自定義該通知</p></li>
+</ul>
+</li>
+<li><p>借出館藏：通知讀者剛借出或續借的館藏，就是電子版的借出收條</p>
+<ul class="simple">
+<li><p>Customize this notice by editing the CHECKOUT notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="circulationpreferences.html#renewalsendnotice-label"><span class="std std-ref">RenewalSendNotice</span></a> system preference
+is set to ‘Send’, this notice will be called ‘Item checkout and renewal’.</p>
+<p>For renewals, the notice sent is RENEWAL.</p>
+</div>
+</li>
+<li><p>Interlibrary loan ready: A notice that is sent when an inter-library loan the
+patron requested has been fulfilled and is now ready for pickup.</p>
+<ul class="simple">
+<li><p>Customize this notice by editing the ILL_PICKUP_READY notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a></p></li>
+<li><p>This option will only appear if the <a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a>
+system preference is enabled.</p></li>
+</ul>
+</li>
+<li><p>Interlibrary loan unavailable: A notice that is sent when an inter-library
+loan the patron requested has been cancelled because it was unavailable.</p>
+<ul class="simple">
+<li><p>Customize this notice by editing the ILL_REQUEST_UNAVAIL notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a></p></li>
+<li><p>This option will only appear if the <a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a>
+system preference is enabled.</p></li>
+</ul>
+</li>
+<li><p>自動更新。通知讀者他們的借出已經自動更新，或自動更新有問題的通知。</p>
+<ul class="simple">
+<li><p>通過編輯AUTO_RENEWAL 或 AUTO_RENEWAL_DGST 通知來自定義該通知，在 <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">通知 &amp; 單據工具</span></a></p></li>
+<li><p>This option will only appear if the <a class="reference internal" href="patronspreferences.html#autorenewalnotices-label"><span class="std std-ref">AutoRenewalNotices</span></a> is set to
+“according to patrons messaging preferences”</p></li>
+</ul>
+</li>
+<li><p>Hold reminder: A notice that is sent a certain number of days after the
+<a class="reference internal" href="circulation.html#receiving-holds-label"><span class="std std-ref">hold has been filled</span></a>, in order to remind the
+patron that they have to pick it up.</p>
+<ul class="simple">
+<li><p>Customize this notice by editing the HOLD_REMINDER
+notice in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p></li>
+<li><p>This notice requires the
+<a class="reference internal" href="cron_jobs.html#cron-holdsreminder-label"><span class="std std-ref">holds_reminder.pl</span></a> cron job.</p></li>
+</ul>
+</li>
+<li><p>Interlibrary loan updated: A notice that is sent when an inter-library
+loan the patron requested has been updated.</p>
+<ul class="simple">
+<li><p>Customize this notice by editing the ILL_REQUEST_UPDATE notice in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a></p></li>
+<li><p>This option will only appear if the <a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a>
+system preference is enabled.</p></li>
+</ul>
+</li>
+</ul>
+<p>按 ‘只有摘要’ 盒後讀者就只接收摘要式通知。把所有此類型 (3 天內到期的資訊置於一個電子郵件) 的訊息納入一個電子郵件寄出。</p>
+<p>目前支持的交付方式有：</p>
+<ul class="simple">
+<li><p>電子郵件</p></li>
+<li><p>SMS（文字簡訊）</p></li>
+<li><p>自動通話系統</p></li>
+<li><p>列印</p></li>
+</ul>
+<p>為了產生預先通知（預先通知和到期館藏），你需要運行 <a class="reference internal" href="cron_jobs.html#cron-advanced-notice-label"><span class="std std-ref">預先_通知.pl 工作排程</span></a>。然後， :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>預先_訊息_順序.pl 工作排程 &lt;cron-message-queue-label&gt;`將發送這些通知，或者 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>集合_影印_通知.pl 工作排程 &lt;cron-print-hold-notices-label&gt;`將把它們收集在一個不錯的檔案中，你可以影印出來，通過普通郵件發送。</p>
+</section>
+<section id="overdue-notices">
+<span id="overdue-notices-label"></span><h3>逾期通知<a class="headerlink" href="#overdue-notices" title="此标题的永久链接"></a></h3>
+<p>Overdue notices are managed in <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips</span></a>
+and when they are sent is managed in
+<a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue notice/status triggers</span></a>.</p>
+<p>讀者不能像其他通知（如 <a class="reference internal" href="#advance-notices-and-hold-notices-label"><span class="std std-ref">提前通知或保留通知</span></a>）那樣選擇不接收逾期通知</p>
+<p>為了生成逾期通知，你需要執行 <a class="reference internal" href="cron_jobs.html#cron-overdue-notice-label"><span class="std std-ref">逾期_通知.pl 工作排程</span></a>。然後， :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>過程_訊息_順序.pl 工作排程 &lt;cron-message-queue-label&gt;`將發送這些通知，或者 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>集合_影印_通知.pl 工作排程 &lt;cron-print-hold-notices-label&gt;`將把它們收集在一個不錯的文件中，你可以影印出來，通過普通郵件發送。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="tools.html" class="btn btn-neutral float-left" title="工具" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cash_management.html" class="btn btn-neutral float-right" title="銷售點" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

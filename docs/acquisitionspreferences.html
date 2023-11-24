@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>採訪 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="管理" href="administrationpreferences.html" />
+    <link rel="prev" title="帳戶" href="accountspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">採訪</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#edifact">編輯器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#edifact-syspref-label">編輯器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edifactinvoiceimport">EdifactInvoiceImport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edifactlsq">EdifactLSQ</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#policy">政策</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acqcreateitem">AcqCreateItem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqenablefiles">AcqEnableFiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqitemsetsubfieldswhenreceiptiscancelled">AcqItemSetSubfieldsWhenReceiptIsCancelled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqitemsetsubfieldswhenreceived">AcqItemSetSubfieldsWhenReceived</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqviewbaskets">AcqViewBaskets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acqwarnonduplicateinvoice">AcqWarnOnDuplicateInvoice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#basketconfirmations">BasketConfirmations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#claimsbcccopy">ClaimsBccCopy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#currencyformat">CurrencyFormat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emailpurchasesuggestions-and-emailaddressforsuggestions">EmailPurchaseSuggestions and EmailAddressForSuggestions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcfieldstoorder">MarcFieldsToOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcitemfieldstoorder">MarcItemFieldsToOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#orderpricerounding">OrderPriceRounding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#purgesuggestionsolderthan">PurgeSuggestionsOlderThan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#taxrates">稅率</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniqueitemfields">UniqueItemFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useacqframeworkforbibliorecords">UseACQFrameworkForBiblioRecords</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#printing">列印</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#orderpdfformat">OrderPdfFormat</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">採訪</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/acquisitionspreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="accountspreferences.html" class="btn btn-neutral float-left" title="帳戶" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administrationpreferences.html" class="btn btn-neutral float-right" title="管理" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="acquisitions">
+<span id="acquisitions-system-preferences-label"></span><h1>採訪<a class="headerlink" href="#acquisitions" title="此标题的永久链接"></a></h1>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>到此：<a href="#id3"><span class="problematic" id="id4">*</span></a>其他 &gt; 管理 &gt; 整體系統偏好&gt; 採訪</p>
+<section id="edifact">
+<span id="acquisitions-edifact-system-preferences-label"></span><h2>編輯器<a class="headerlink" href="#edifact" title="此标题的永久链接"></a></h2>
+<section id="edifact-syspref-label">
+<span id="id1"></span><h3>編輯器<a class="headerlink" href="#edifact-syspref-label" title="此标题的永久链接"></a></h3>
+<p>詢問： ___ 用於獲取電子數據的消息交換</p>
+<p>預設值：啟用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好是打開或關閉Koha中電子數據功能的主要開關。</p></li>
+</ul>
+</section>
+<section id="edifactinvoiceimport">
+<span id="edifactinvoiceimport-label"></span><h3>EdifactInvoiceImport<a class="headerlink" href="#edifactinvoiceimport" title="此标题的永久链接"></a></h3>
+<p>詢問: ___ 在下載電子數據發票訊息文件時，自動導入這些文件。</p>
+<p>預設值：要</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這項功能允許圖書館將EDI發票的匯入時間推遲到他們選擇的時間。如果系統偏好設置為 ‘不’，發票將被導入資料庫，但發票處理將被跳過。相反，在電子數據訊息中列出的任何狀態為 ‘新’ 的發票文件將有一個 ‘輸入’ 按鈕來手動處理發票。</p></li>
+</ul>
+</section>
+<section id="edifactlsq">
+<span id="edifactlsq-label"></span><h3>EdifactLSQ<a class="headerlink" href="#edifactlsq" title="此标题的永久链接"></a></h3>
+<p>詢問：將序列代碼 (GIR:LSQ) 欄段映射到館藏中的 ___。</p>
+<p>預設值：位置</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>館藏</p></li>
+<li><p>位置</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>EDItEUR將LSQ段描述為 “一個代碼或其他指定，用於識別要按特定順序或集合上架的庫存。” 在Koha中，這可以被解釋為物品的位置或收藏（ccode）。</p></li>
+<li><p>這個系統偏好是用來向Koha表明這應該被映射到哪個欄位。</p></li>
+</ul>
+</section>
+</section>
+<section id="policy">
+<span id="acquisitions-policy-label"></span><h2>政策<a class="headerlink" href="#policy" title="此标题的永久链接"></a></h2>
+<section id="acqcreateitem">
+<span id="acqcreateitem-label"></span><h3>AcqCreateItem<a class="headerlink" href="#acqcreateitem" title="此标题的永久链接"></a></h3>
+<p>詢問：當 ___ 時，新增館藏。</p>
+<p>預設值：下訂單</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>編目紀錄</p></li>
+<li><p>下訂單</p></li>
+<li><p>簽收訂單</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好讓你決定何時在Koha中建立一個館藏記錄。</p></li>
+<li><p>如果你在 ‘下訂單’ 時選擇新增商品記錄，你將在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>在你的籃子裡新增記錄&lt;create-a-basket-label&gt;`時輸入館藏訊息。</p></li>
+<li><p>如果您選擇在 ‘接收訂單’ 時新增館藏，當您 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>接收訂單&lt;receiving-orders-label&gt;`在收購時，您將被要求提供館藏記錄的訊息。</p></li>
+<li><p>如果你選擇在 ‘編目記錄’ 時新增館藏，那麼館藏記錄將不會在採訪中建立。你需要到 <span class="xref std std-ref">編目模組</span>。</p></li>
+<li><p>注意，當 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>建立一個籃子&lt;create-a-basket-label&gt;`時，這個設定可以被覆蓋。</p></li>
+</ul>
+</section>
+<section id="acqenablefiles">
+<span id="acqenablefiles-label"></span><h3>AcqEnableFiles<a class="headerlink" href="#acqenablefiles" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 啟用上傳與附加檔案至發票的功能。</p>
+<p>預設值：不</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制你是否允許通過收購模組上傳發票文件&lt;attaching-files-to-invoices-label&gt;`。</p></li>
+</ul>
+</section>
+<section id="acqitemsetsubfieldswhenreceiptiscancelled">
+<span id="acqitemsetsubfieldswhenreceiptiscancelled-label"></span><h3>AcqItemSetSubfieldsWhenReceiptIsCancelled<a class="headerlink" href="#acqitemsetsubfieldswhenreceiptiscancelled" title="此标题的永久链接"></a></h3>
+<p>詢問：取消在發出訂單時產生的收條 (如 o=5|a=”bar foo””)，則需更新館藏的分欄。___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference is used in conjunction with the
+<a class="reference internal" href="#acqitemsetsubfieldswhenreceived-label"><span class="std std-ref">AcqItemSetSubfieldsWhenReceived</span></a>
+preference. If you have the system set to enter default values when
+you receive you will want to have those values revert back if the
+receipt is canceled. This preference allows you to do that.</p></li>
+</ul>
+</section>
+<section id="acqitemsetsubfieldswhenreceived">
+<span id="acqitemsetsubfieldswhenreceived-label"></span><h3>AcqItemSetSubfieldsWhenReceived<a class="headerlink" href="#acqitemsetsubfieldswhenreceived" title="此标题的永久链接"></a></h3>
+<p>詢問：簽收在發出訂單時產生的館藏 (如 o=5|a=”foo bar”)，則需要更新其分欄。___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好設定經由採訪取得館藏的預設值。鍵入的格式為分欄=值並以直線 ( | ) 區隔多筆分欄。如：鍵入 7=0，表示收到館藏時，自動移除館藏的訂購狀態。將把不外借狀態 (分欄 7 ) 設為 0，表示可外借。</p></li>
+</ul>
+</section>
+<section id="acqviewbaskets">
+<span id="acqviewbaskets-label"></span><h3>AcqViewBaskets<a class="headerlink" href="#acqviewbaskets" title="此标题的永久链接"></a></h3>
+<p>詢問：顯示採訪籃 ___</p>
+<p>預設：由館員新增或管理</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>系統內新增，包括所有的擁有者</p></li>
+<li><p>來自館員的圖書館</p></li>
+<li><p>由館員建立或管理</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在採訪時，這個偏好允許你控制在查看供應商時可以看到誰的籃子。</p></li>
+<li><p>預設值 ‘由館員創建或管理’ 使你只能看到你建立的籃子。</p></li>
+<li><p>選擇查看 ‘來自館員圖書館’ 的籃子，將顯示你所登錄的分行機構的任何人所建立的籃子。</p></li>
+<li><p>最後，你可以選擇將此偏好設定為向你顯示所有的籃子，無論它是誰建立的（’在系統中，無論所有者是誰’）。</p></li>
+<li><p>無論你為這個偏好選擇哪個值，超級圖書館員都可以看到系統中建立的所有籃子。</p></li>
+</ul>
+</section>
+<section id="acqwarnonduplicateinvoice">
+<span id="acqwarnonduplicateinvoice-label"></span><h3>AcqWarnOnDuplicateInvoice<a class="headerlink" href="#acqwarnonduplicateinvoice" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 當圖書館員以重複的號碼新增收據。</p>
+<p>預設值：不警示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不警示</p></li>
+<li><p>警示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>當設置為 ‘警告’ 時，Koha會讓館員知道是否已經建立了相同號碼的發票。館員可以選擇在現有的發票上接收，或者用相同的號碼建立一個新的發票。</p></li>
+</ul>
+<p><img alt="Screenshot of a warning message that says 'This invoice number has already been used. Would you like to receive on an existing invoice?' with an option to receive on the existing invoice or 'Create new invoice anyway'." src="_images/acqwarnonduplicateinvoice.png" /></p>
+</section>
+<section id="basketconfirmations">
+<span id="basketconfirmations-label"></span><h3>BasketConfirmations<a class="headerlink" href="#basketconfirmations" title="此标题的永久链接"></a></h3>
+<p>詢問：關閉或再打開採購籃時，___。</p>
+<p>預設值：總是要求確認</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>總是要求確認</p></li>
+<li><p>不要求確認</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>關閉或再打開採購籃時由此偏好控制是否確認。若略過確認，則不能新增採購籃群組。</p></li>
+</ul>
+</section>
+<section id="claimsbcccopy">
+<span id="claimsbcccopy-label"></span><h3>ClaimsBccCopy<a class="headerlink" href="#claimsbcccopy" title="此标题的永久链接"></a></h3>
+<p>答：___ 以密件收件人 (BCC) 方式送出期刊或採旁通知。</p>
+<p>預設值：不送出</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不送出</p></li>
+<li><p>寄送</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好允許你選擇是否要在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>索賠延遲的連續期刊問題&lt;claim-ate-serials-label&gt;`或 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>索賠延遲的連續期刊問題&lt;claims-and-ate-orders-label&gt;`時向館員發送一份索賠電子郵件。</p></li>
+</ul>
+</section>
+<section id="currencyformat">
+<span id="currencyformat-label"></span><h3>CurrencyFormat<a class="headerlink" href="#currencyformat" title="此标题的永久链接"></a></h3>
+<p>詢問： 使用下列格式顯示金額 ___</p>
+<p>預設值：360,000.00 (美元)</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>360’000.00 (CH)</p></li>
+<li><p>360 000,00 (法國法郎)</p></li>
+<li><p>360,000.00 (美元)</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好控制價格在Koha中的顯示方式。</p></li>
+</ul>
+</section>
+<section id="emailpurchasesuggestions-and-emailaddressforsuggestions">
+<span id="emailpurchasesuggestions-and-emailaddressforsuggestions-label"></span><h3>EmailPurchaseSuggestions and EmailAddressForSuggestions<a class="headerlink" href="#emailpurchasesuggestions-and-emailaddressforsuggestions" title="此标题的永久链接"></a></h3>
+<p>詢問: 選擇新的購買建議將被發送到的電子郵件地址: ___。 如果您選擇EmailAddressForSuggestions，您必須輸入一個有效的電子郵件地址: ___</p>
+<p>預設值：無</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>沒有</p></li>
+<li><p>email address of library</p></li>
+<li><p>EmailAddressForSuggestions</p></li>
+<li><p>KohaAdminEmailAddress</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果你想讓Koha通過電子郵件寄送購買建議，請選擇它應該將建議寄送到哪個電子郵件地址</p>
+<ul>
+<li><p>沒有將停用該功能</p></li>
+<li><p>email address of library will use the email address entered in the
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">libraries settings</span></a></p></li>
+<li><p>如果您選擇EmailAddressForSuggestions，請在輸入欄中輸入電子郵件地址</p></li>
+<li><p>if you choose KohaAdminEmailAddress, the email will be sent to the main
+email address, as entered in <a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress-label"><span class="std std-ref">KohaAdminEmailAddress</span></a></p></li>
+</ul>
+</li>
+<li><p>你可以自定義用 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>通知和單據工具&lt;notices-and-slips-label&gt;`發送的訊息，字母代碼為NEW_SUGGESTION</p></li>
+</ul>
+</section>
+<section id="marcfieldstoorder">
+<span id="marcfieldstoorder-label"></span><h3>MarcFieldsToOrder<a class="headerlink" href="#marcfieldstoorder" title="此标题的永久链接"></a></h3>
+<p>詢問：於待處理檔案的 MARC 紀錄設定對映值供新增訂閱列使用。</p>
+<p>說明：</p>
+<ul>
+<li><p>這個偏好包括MARC欄位，當你 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>從新的.mrc文件訂購&lt;order-from-a-new-file-label&gt;`或當你 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>從採訪中的staged文件訂購&lt;order-from-a-staged-file-label&gt;`時，檢查訂購訊息的使用。你可以使用以下欄位:</p>
+<ul class="simple">
+<li><p>價格，</p></li>
+<li><p>數量，</p></li>
+<li><p>預算_代碼，</p></li>
+<li><p>折扣，</p></li>
+<li><p>排序1，和</p></li>
+<li><p>排序2。</p></li>
+</ul>
+<p>範例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>price: 947$a|947$c
+quantity: 969$h
+budget_code: 922$a
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>需要YAML語法才能執行</p>
+<p>這表示</p>
+<ul class="simple">
+<li><p>確保欄段名和冒號之間沒有空格</p></li>
+<li><p>請確保在冒號和數值之間有一個空格</p></li>
+<li><p>確認每組都在同一列中</p></li>
+</ul>
+</div>
+</section>
+<section id="marcitemfieldstoorder">
+<span id="marcitemfieldstoorder-label"></span><h3>MarcItemFieldsToOrder<a class="headerlink" href="#marcitemfieldstoorder" title="此标题的永久链接"></a></h3>
+<p>詢問：於待處理檔案的 MARC 紀錄設定對映值供新增訂閱列使用。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好在Koha中自動生成館藏，並根據9XX欄位和分欄填入訊息。你可以使用以下欄位:</p>
+<ul>
+<li><p>所屬分館，</p></li>
+<li><p>holdingbranch,</p></li>
+<li><p>類型，</p></li>
+<li><p>非公開_說明,</p></li>
+<li><p>公開_說明，</p></li>
+<li><p>loc,</p></li>
+<li><p>ccode,</p></li>
+<li><p>notforloan,</p></li>
+<li><p>uri,</p></li>
+<li><p>copyno,</p></li>
+<li><p>價格，</p></li>
+<li><p>replacementprice, 和</p></li>
+<li><p>itemcallnumber.</p></li>
+</ul>
+</li>
+<li><p>你也可以使用以下特殊欄位:</p>
+<ul>
+<li><p>數量, 和</p></li>
+<li><p>預算_代碼。</p></li>
+</ul>
+</li>
+</ul>
+<p>範例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>homebranch: 975$a
+holdingbranch: 975$b
+public_note: 975$z
+loc: 975$c
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>需要YAML語法才能執行</p>
+<p>這表示</p>
+<ul class="simple">
+<li><p>確保欄段名和冒號之間沒有空格</p></li>
+<li><p>請確保在冒號和數值之間有一個空格</p></li>
+<li><p>確認每組都在同一列中</p></li>
+</ul>
+</div>
+</section>
+<section id="orderpricerounding">
+<span id="orderpricerounding-label"></span><h3>OrderPriceRounding<a class="headerlink" href="#orderpricerounding" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 到最近的分值。</p>
+<p>預設值：不捨入</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不捨入</p></li>
+<li><p>捨入</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好計算價格時採用全值或進位。</p></li>
+<li><p>當你的稅率比你的貨幣有更多的小數時，這一點尤其重要</p></li>
+</ul>
+</section>
+<section id="purgesuggestionsolderthan">
+<span id="purgesuggestionsolderthan-label"></span><h3>PurgeSuggestionsOlderThan<a class="headerlink" href="#purgesuggestionsolderthan" title="此标题的永久链接"></a></h3>
+<p>詢問：在 ___ 日內持續接受或拒絕採訪建議。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>如果你不想啟用這個自動功能，就把這個欄位留空。</p>
+</div>
+<p>說明：</p>
+<ul class="simple">
+<li><p>輸入日數，就能在該期限內自動接受或拒絕採訪建議。</p></li>
+<li><p>例如：[30] 設定對超過 30 天的清除建議。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>天數是基於 ‘管理日’ 的日期。</p>
+</div>
+<ul class="simple">
+<li><p>這個系統偏好要求工作排程 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>清除_建議.pl &lt;cron-clean-up-old-suggestions-label&gt;`處於啟用狀態，並在沒有特定天數（’–天數’參數）的情況下調用。</p></li>
+</ul>
+</section>
+<section id="taxrates">
+<span id="taxrates-label"></span><h3>稅率<a class="headerlink" href="#taxrates" title="此标题的永久链接"></a></h3>
+<p>詢問：稅率是___</p>
+<p>預設值：0</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這一優惠政策允許圖書館定義採訪的商品和服務稅率。</p></li>
+<li><p>列表中的第一個館藏的選擇將被預設。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>以小數輸入此值 (.06)，不要用百分比符號 (6%)。</p>
+<p>對於多個值，用 | (豎槓)分隔 。</p>
+<p>範例</p>
+<p>0|0.05|0.1496</p>
+<p>你可以選擇0%、5%和14.96%的稅率</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>資料庫只接受4位小數以內的數值，更多的數值將被四捨五入。</p>
+</div>
+</section>
+<section id="uniqueitemfields">
+<span id="uniqueitemfields-label"></span><h3>UniqueItemFields<a class="headerlink" href="#uniqueitemfields" title="此标题的永久链接"></a></h3>
+<p>詢問：以下資料庫列在館藏中應該是唯一的：___</p>
+<p>預設值：條碼</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>若此偏好空白，採訪新增館藏時，將不檢查館藏的唯一性。也就是條碼號可能重複出現在多筆館藏記錄裡，將來借出與還入時，必然出現問題。</p></li>
+</ul>
+</section>
+<section id="useacqframeworkforbibliorecords">
+<span id="useacqframeworkforbibliorecords-label"></span><h3>UseACQFrameworkForBiblioRecords<a class="headerlink" href="#useacqframeworkforbibliorecords" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 供書目記錄欄位 ‘ACQ’ 框架使用</p>
+<p>預設值：不使用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好允許您使用 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>ACQ書目框架&lt;marc-bibliographic-frameworks-label&gt;`客製化採訪模組訂單的書目紀錄欄位</p></li>
+<li><p>請注意，這並不影響館藏欄位（在MARC21中，欄位952），無論這個系統的偏好如何，這些欄位總是取自ACQ框架</p></li>
+</ul>
+</section>
+</section>
+<section id="printing">
+<span id="acquisitions-printing-system-preferences-label"></span><h2>列印<a class="headerlink" href="#printing" title="此标题的永久链接"></a></h2>
+<section id="orderpdfformat">
+<span id="orderpdfformat-label"></span><h3>OrderPdfFormat<a class="headerlink" href="#orderpdfformat" title="此标题的永久链接"></a></h3>
+<p>詢問： 使用佈局 ___ 佈局列印採購籃群組。</p>
+<p>預設：英文 3-頁</p>
+<p>值：</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>值將取決於你的Koha安裝中所安裝的語言。</p>
+</div>
+<ul class="simple">
+<li><p>1-page</p></li>
+<li><p>2-頁</p></li>
+<li><p>3-頁</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好決定了在輸出PDFs時如何影印 <a class="reference internal" href="acquisitions.html#create-a-basket-group-label"><span class="std std-ref">購物籃組</span></a>。</p></li>
+<li><p>A 1-page layout will have vendor information and ordered titles on the same
+page</p></li>
+<li><p>2-頁的版面將在第一頁提供供應商訊息，在第二頁提供訂購的標題</p></li>
+<li><p>A 3-page layout will additionally have a page with basket information</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="accountspreferences.html" class="btn btn-neutral float-left" title="帳戶" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="administrationpreferences.html" class="btn btn-neutral float-right" title="管理" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koha | 版本 | 手册（简体中文） &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="概述" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Koha | 版本 | 手册（简体中文）</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="intro.html" class="btn btn-neutral float-right" title="概述" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="koha-release-manual-en">
+<h1>Koha | 版本 | 手册（简体中文）<a class="headerlink" href="#koha-release-manual-en" title="此标题的永久链接"></a></h1>
+<p>著者：Koha 社区；译者：Koha ILS 中文</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#koha-basics">Koha 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#koha-recommendations">Koha 推荐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#using-this-manual">使用本手册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#contributing-to-the-manual">参与修订本手册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#contributing-to-koha">此手册的贡献者</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#what-is-the-koha-web-installer">什麼是 Koha 網頁安裝器呢？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#what-is-the-koha-onboarding-tool">什麼是 Koha 使用者導引工具呢？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#web-installer-login">網頁安裝器-登入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#language-picker">語言選擇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installer-perl-modules-installed">安裝 perl 模組已安裝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#database-settings">資料庫設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#ready-to-fill-tables-with-data">準備於資料表單內填入資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#database-tables-created">新增資料庫表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#ready-for-basic-configurations">準備進行基本設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#select-marc-flavour">選擇您的 MARC 類型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#marc21-and-unimarc-setup">MARC21 與 UNIMARC 的設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#marc21-setup">MARC 21 設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#unimarc-setup">UNIMARC 設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#selected-data-added">選定新增的資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#redirect-to-onboarding-tool">進入新手工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-a-library">新增圖書館</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-a-patron-category">新增讀者屬性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-a-patron">新增讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-an-item-type">新增館藏類型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-a-circulation-rule">新增流通規則</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#onboarding-tool-complete">新手工具完成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#login-to-access-staff-interface">登入館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#staff-interface">館員介面</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#virtualhost-overrides">VirtualHost 覆蓋</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#basic-parameters">基本參數</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#patrons-and-circulation">讀者與流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#accounting">核算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#plugins">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#jobs">Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#catalog-administration">目錄管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#search-engine-configuration">搜尋引擎組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#acquisitions">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration.html#additional-parameters">新增參數</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#patrons-and-circulation">读者和流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#additional-tools">Additional tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#cash-management">現金管理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#add-a-new-patron">新增讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#add-a-staff-patron">新增館員讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#add-a-statistical-patron">新增統計讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#duplicate-a-patron">複製讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#adding-patron-images">Adding patron images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#editing-patrons">編輯讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#renew-patron-account">延長讀者帳號的期限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#deleting-a-patron-account">刪除讀者帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#managing-patron-self-edits">管理讀者自助編輯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#merging-patron-records">合併讀者紀錄</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#patron-permissions">讀者權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#patron-information">讀者資訊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#two-factor-authentication-in-the-staff-interface">館員介面的雙重認證</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#patron-search">搜尋讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrons.html#communicating-with-patrons">與讀者溝通</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cash_management.html#setup">設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cash_management.html#making-a-sale">進行銷售</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#check-out-issuing">借出 (送出)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#renewing">續借</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#check-in-returning">還入 (送回)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#circulating-bundles">Circulating bundles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#holds">預約</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#curbside-pickups">Curbside pickups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#recalls">催還</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#transfers">轉移</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#set-library">設定圖書館</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#fast-add-cataloging">快速編目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#circulation-reports">流通報表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#tracking-in-house-use">追蹤館內使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#self-checkout">自助借出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#self-check-in">自助借出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulation.html#offline-circulation-utilities">離線流通公用程式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#bibliographic-records">书目记录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#item-records">館藏紀錄</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#authorities">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#exporting-data">Exporting data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#inventory">Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cataloging.html#cataloging-guides">編目指南</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="course_reserves.html#course-reserves-setup">課程指定參考書設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_reserves.html#adding-courses">新增課程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_reserves.html#adding-reserve-materials">新增指定參考書教材</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_reserves.html#course-reserves-in-the-opac">顯示於 OPAC 的指定參考書課程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#managing-serial-frequencies">Managing serial frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#manage-serial-numbering-patterns">管理期刊編碼模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#adding-a-numbering-pattern">新增編碼模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#adding-a-subscription">新增訂閱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#editing-a-subscription">編輯訂閱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#receiving-issues">接收期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#serial-collection">期刊合集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#creating-a-routing-list">新增傳閱清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#subscriptions-in-the-staff-interface">館員介面的訂閱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#subscriptions-in-the-opac">OPAC 的訂閱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#claiming-late-issues">催缺延遲的期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#checking-serial-expiration">檢查期刊到期日</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#renewing-subscriptions">續借期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serials.html#searching-serials">搜尋期刊</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#setting-up-the-acquisitions-module">Setting up the acquisitions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#vendors">供應商</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#managing-purchase-suggestions">管理採訪建議</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#placing-orders">發出訂單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#searching-for-orders">Searching for orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#receiving-orders">收到訂單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#transferring-orders">發出訂單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#cancelling-orders">Cancelling orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#invoices">發票</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#claims-and-late-orders">採購建議及晚到的訂單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#budget-fund-tracking">預算/基金追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitions.html#edi-process">EDI 程序</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="erm.html#search-bar">检索条</a></li>
+<li class="toctree-l2"><a class="reference internal" href="erm.html#erm-home-page">电子资源管理主页</a></li>
+<li class="toctree-l2"><a class="reference internal" href="erm.html#agreements">协议</a></li>
+<li class="toctree-l2"><a class="reference internal" href="erm.html#licenses">Licenses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="erm.html#eholdings">eHoldings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#lists">虛擬書架</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#cart">借出籃</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#custom-reports">客製化報表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#statistics-reports">統計報表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#report-dictionary">報表字典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#report-plugins">Report plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#search-results">搜尋結果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#bibliographic-record">書目紀錄</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#lists-and-the-cart">虛擬書架與書目清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#placing-holds">預約</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#requesting-recalls">要求催還</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#enhanced-content">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#opac-self-registration">OPAC 自助註冊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#your-account">我的帳號</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#purchase-suggestions">採購建議</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opac.html#reporting-problems">Reporting problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#basic-searching">基本搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#advanced-searching">進階搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#opac-browse-search">Opac browse search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#search-results">搜尋結果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#search-history">搜尋紀錄</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#advanced-search-prefixes">進階搜尋文法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#guide-to-searching">搜尋指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html#koha-search-indexes">Koha 搜尋索引</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#set-up">設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#installing-a-plugin-repository">Installing a plugin repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#installing-and-using-plugins">Installing and using plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#server-information">服务器信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#perl-modules">Perl 模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#system-information">系统信息</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#set-up">設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#ill-email-notifications">ILL 電子郵件通知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#create-ill-requests">新增館際互借申請</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#viewing-ill-requests">檢視館際互借申請</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#managing-ill-requests">管理館際互借申請</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#place-request-with-partners">送出申請給合作的圖書館。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILL_requests.html#circulating-ill-materials">流通館際互借資料</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#data-migration">資料轉換</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#admin-configuration">管理組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#localization-configuration">本土化組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#circulation-configuration">流通組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#patron-configuration">讀者組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#cataloging-configuration">編目組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#authorities-configuration">權威組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#searching-configuration">搜尋組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#opac-configuration">OPAC 組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#enhanced-content-configuration">強化內容組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#acquisitions-configuration">採訪組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#serials-configuration">期刊組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation_checklist.html#planning-for-go-live">準備啟用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cron_jobs.html#crontab-example">Crontab 範例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron_jobs.html#cron-jobs">工作排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron_jobs.html#daemons">守護行程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cron_jobs.html#deprecated-scripts">不適用的腳本</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="valuebuilder.html#set-up">Set up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="valuebuilder.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#oai-pmh">OAI-PMH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#sru-server">SRU 伺服器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#ils-di">ILS-DI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#json-reports-services">JSON 報表服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#versioned-restful-api-effort">Versioned RESTful API effort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservices.html#barcode-image-generator">條碼影像產生器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis_protocols.html#sip2">SIP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis_protocols.html#ldap">LDAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#amazon-lookup-script-for-koha-libraries">Amazon 為 Koha 圖書館的查詢程式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#keyword-clouds">關鍵詞雲</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#newest-titles-pulldown">最新題名下拉</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#new-titles-slider-for-opac">OPAC 使用的新題名封面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#cataloging-and-searching-by-color">按顏色編目和搜索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_koha.html#koha-search-on-your-site">在您的網站搜尋 Koha</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="third_party_software.html#marcedit">MarcEdit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="third_party_software.html#oclc-connexion-gateway">OCLC Connexion Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="third_party_software.html#talking-tech">Talking Tech</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#for-epson-tm-t88iii-3-and-tm-t88iv-4-printers">供 Epson TM-T88III (3) &amp;amp; TM-T88IV (4) 印表機使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#for-epson-tm-t88ii-2-printers">For Epson TM-T88II (2) printers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#for-star-sp542-printers">For Star SP542 printers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#configuring-firefox-to-print-to-receipt-printer">Configuring Firefox to print to receipt printer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="links.html#koha-related">Koha related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#circulation-related">Circulation related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#cataloging-related">Cataloging related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#enhanced-content-related">Enhanced content related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#design-related">Design related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#reports-related">Reports related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#installation-guides">Installation guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#misc">其他</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#installation">安裝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#opac-and-staff-interface">OPAC 與館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#circulation-notices">Circulation/notices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#cataloging">編目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#acquisitions">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#serials">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#reports">報表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#searching">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#enhanced-content">增強內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#server-administration">伺服器管理人員</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#hardware">硬體</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="intro.html" class="btn btn-neutral float-right" title="概述" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

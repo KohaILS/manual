@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>讀者 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="搜尋" href="searchingpreferences.html" />
+    <link rel="prev" title="OPAC" href="opacpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">讀者</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general">一般</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowpatrontocontrolautorenewal">AllowPatronToControlAutoRenewal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checkprevcheckout">CheckPrevCheckout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checkprevcheckoutdelay">CheckPrevCheckoutDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultpatronsearchfields">DefaultPatronSearchFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enableborrowerfiles">EnableBorrowerFiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extendedpatronattributes">ExtendedPatronAttributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feeonchangepatroncategory">FeeOnChangePatronCategory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetreadinghistory">intranetreadinghistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#listownershipuponpatrondeletion">ListOwnershipUponPatronDeletion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#listownerdesignated">ListOwnerDesignated</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lockexpireddelay">LockExpiredDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxfine">MaxFine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronimages">patronimages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronsperpage">PatronsPerPage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#protectsuperlibrarianprivileges">ProtectSuperLibrarianPrivileges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#statisticsfields">StatisticsFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracklastpatronactivity">TrackLastPatronActivity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracklastpatronactivitytriggers">TrackLastPatronActivityTriggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usedischarge">useDischarge</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#membership-expiry">會員到期</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#borrowerrenewalperiodbase">BorrowerRenewalPeriodBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#membershipexpirydaysnotice">MembershipExpiryDaysNotice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notifyborrowerdeparture">NotifyBorrowerDeparture</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#notices-and-notifications">通知和通報</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autoemailnewuser">AutoEmailNewUser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autorenewalnotices">AutoRenewalNotices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emailfieldprecedence">EmailFieldPrecedence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emailfieldprimary">EmailFieldPrimary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enhancedmessagingpreferences">EnhancedMessagingPreferences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enhancedmessagingpreferencesopac">EnhancedMessagingPreferencesOPAC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fallbacktosmsifnoemail">FallbackToSMSIfNoEmail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notifypasswordchange">NotifyPasswordChange</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smssenddriver">SMSSendDriver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smssendusername-smssendpassword-and-emailsmssenddriverfromaddress">SMSSendUsername, SMSSendPassword, and EmailSMSSendDriverFromAddress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#talkingtechitivaphonenotification">TalkingTechItivaPhoneNotification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useemailreceipts">UseEmailReceipts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-forms">讀者表格</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#automembernum">autoMemberNum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#borrowermandatoryfield">BorrowerMandatoryField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#borrowerstitles">BorrowersTitles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#borrowerunwantedfield">BorrowerUnwantedField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cardnumberlength">CardnumberLength</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collapsefieldspatronaddform">CollapseFieldsPatronAddForm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronduplicatematchingaddfields">PatronDuplicateMatchingAddFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronquickaddfields">PatronQuickAddFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uppercasesurnames">uppercasesurnames</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-relationships">讀者關係</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowstafftosetcheckoutsvisibilityforguarantor">AllowStaffToSetCheckoutsVisibilityForGuarantor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowstafftosetfinesvisibilityforguarantor">AllowStaffToSetFinesVisibilityForGuarantor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#borrowerrelationship">borrowerRelationship</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prefillguaranteefield">PrefillGuaranteeField</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#privacy">隱私</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#privacypolicyconsent">PrivacyPolicyConsent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#privacypolicyurl">PrivacyPolicyURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unsubscribereflectiondelay-patronanonymizedelay-and-patronremovaldelay">UnsubscribeReflectionDelay, PatronAnonymizeDelay 和PatronRemovalDelay</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#security">安全</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enableexpiredpasswordreset">EnableExpiredPasswordReset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#failedloginattempts">FailedLoginAttempts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minpasswordlength">minPasswordLength</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pseudonymization-pseudonymizationpatronfields-and-pseudonymizationtransactionfields">Pseudonymization, PseudonymizationPatronFields and PseudonymizationTransactionFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirestrongpassword">RequireStrongPassword</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">讀者</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/patronspreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="opacpreferences.html" class="btn btn-neutral float-left" title="OPAC" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="searchingpreferences.html" class="btn btn-neutral float-right" title="搜尋" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="patrons">
+<span id="patrons-system-preferences-label"></span><h1>讀者<a class="headerlink" href="#patrons" title="此标题的永久链接"></a></h1>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>到此：<a href="#id3"><span class="problematic" id="id4">*</span></a>其他 &gt; 管理 &gt; 整體系統偏好&gt; 讀者</p>
+<section id="general">
+<span id="patronsgeneral-label"></span><h2>一般<a class="headerlink" href="#general" title="此标题的永久链接"></a></h2>
+<section id="allowpatrontocontrolautorenewal">
+<span id="allowpatrontocontrolautorenewal-label"></span><h3>AllowPatronToControlAutoRenewal<a class="headerlink" href="#allowpatrontocontrolautorenewal" title="此标题的永久链接"></a></h3>
+<p>詢問: ___ 允許/不允許帳戶自動續借。如果允許，讀者能夠更新他們的帳戶去允許/不允許自動續借。</p>
+<p>預設值：僅允許館員</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>僅允許館員</p></li>
+<li><p>允許讀者</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果設定為 ‘允許讀者’，讀者將能夠從 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>他們在OPAC &lt;your-summary-label&gt;上的線上帳戶啟用或禁用自動續借。只有在流通規則中啟用了自動更新館藏才會受到影響。</p></li>
+<li><p>在所有情況下，館員都能在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者的帳戶&lt;add-a-new-patron-label&gt;`中改變這一點。</p></li>
+</ul>
+</section>
+<section id="checkprevcheckout">
+<span id="checkprevcheckout-label"></span><h3>CheckPrevCheckout<a class="headerlink" href="#checkprevcheckout" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 檢查借閱者的借出紀錄查看此館藏是否被借過。</p>
+<p>預設值：不要</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+<li><p>除非被讀者類別覆蓋，否則</p></li>
+<li><p>除非被讀者類別覆蓋，否則不要</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>此系統偏好設為 ‘做’，Koha 將查看讀者的流通紀錄檢視該館藏是否被借過。若被借出則出現警示。館員仍可借出此館藏。</p>
+<p><img alt="Checkout warning message: Please confirm checkout Patron has previously checked out this title ... Check out anyway? Yes, check out (Y), No, don't check out (N)" src="_images/prevcheckout.png" /></p>
+</li>
+<li><p>若此值設定為 ‘不做’，Koha 將不會檢視讀者的流通紀錄。</p></li>
+<li><p>此值被設定為 ‘除非被讀者類別覆蓋，否則’，將檢查讀者的流通紀錄除非讀者的 <a class="reference internal" href="patrons.html#add-a-new-patron-label"><span class="std std-ref">個人設定</span></a> 或 <a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">讀者類別設定</span></a> 指明不可以。</p></li>
+<li><p>最後，若此值被設定為 ‘除非被讀者類別覆蓋，否則不要’，Koha 將不會檢查讀者的流通紀錄除非讀者的 <a class="reference internal" href="patrons.html#add-a-new-patron-label"><span class="std std-ref">個人設定</span></a> 或 <a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">讀者類別設定</span></a> 指明可以檢查。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>即使讀者選擇其設定匿名借出記錄，經由此偏好仍可儲存讀者最後一筆借出資訊。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The circulation history will be checked at record-level for most items,
+except if the item is on a serial record.</p>
+<p>This means that if a patron has checked out a copy of a book, the warning
+will show if they try to check out any item of the same record.</p>
+<p>However, if the record has ‘s’ in its leader, position 7, marking this
+record as a serial, the warning will only show if they try to check out the
+exact same item.</p>
+</div>
+</section>
+<section id="checkprevcheckoutdelay">
+<span id="checkprevcheckoutdelay-label"></span><h3>CheckPrevCheckoutDelay<a class="headerlink" href="#checkprevcheckoutdelay" title="此标题的永久链接"></a></h3>
+<p>詢問：如果目前館藏借出時間不超過 ___ 天前，則觸發警告。</p>
+<p>預設值：0</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference limits the behavior of <a class="reference internal" href="#checkprevcheckout-label"><span class="std std-ref">CheckPrevCheckout</span></a> to
+a number of days. If an item has been borrowed by a patron longer than the
+number of days, there will be no warning, as if the patron had never
+borrowed it.</p></li>
+<li><p>Requires <a class="reference internal" href="#checkprevcheckout-label"><span class="std std-ref">CheckPrevCheckout</span></a> to be enabled.</p></li>
+<li><p>如果設定為 0 或為空，則沒有時間限制。</p></li>
+</ul>
+</section>
+<section id="defaultpatronsearchfields">
+<span id="defaultpatronsearchfields-label"></span><h3>DefaultPatronSearchFields<a class="headerlink" href="#defaultpatronsearchfields" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 逗點區隔選單內的欄位</p>
+<p>預設值：surname,firstname,othernames,cardnumber,userid</p>
+<blockquote>
+<div><p><strong>重要</strong> 可以從位在 <a class="reference external" href="http://schema.koha-community.org/">http://schema.koha-community.org/</a> 的 Koha 綱要找到讀者表的可能值</p>
+</div></blockquote>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好使你能夠定義當你進行基本讀者搜尋時，哪些欄位會被搜尋到。</p></li>
+<li><p>這些欄位也會出現在讀者搜尋的下拉式選單中，因此你可以只搜尋特定欄位。</p></li>
+</ul>
+</section>
+<section id="enableborrowerfiles">
+<span id="enableborrowerfiles-label"></span><h3>EnableBorrowerFiles<a class="headerlink" href="#enableborrowerfiles" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 啟用上傳與附加檔案在讀者記錄裡的功能。</p>
+<p>預設值：不要</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>啟用此功能時將在讀者詳情頁面左方出現 ‘檔案’ 分頁，可檢視與上傳檔案至讀者紀錄。</p></li>
+</ul>
+</section>
+<section id="extendedpatronattributes">
+<span id="extendedpatronattributes-label"></span><h3>ExtendedPatronAttributes<a class="headerlink" href="#extendedpatronattributes" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 搜尋、編輯與顯示讀者的客製化屬性。</p>
+<p>預設值：啟用</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p>
+<ul>
+<li><p>於 Koha 管理設定屬性</p></li>
+<li><p>到那裡：更多 &amp;gt; 管理 &amp;gt; <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">讀者屬性類型</span></a></p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>讀者屬性為圖書館定義的客製化欄位供讀者記錄使用。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>以自定義欄位收納原來未包括的讀者記錄，如：身份證字號或學生證號碼等。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="feeonchangepatroncategory">
+<span id="feeonchangepatroncategory-label"></span><h3>FeeOnChangePatronCategory<a class="headerlink" href="#feeonchangepatroncategory" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 收取費用當讀者變更其類型為需收費。</p>
+<p>預設值：要</p>
+<p>值:</p>
+<ul>
+<li><p>做</p></li>
+<li><p>不要</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>您可以在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者類型 &lt;adding-a-patron-category-label&gt;`中設定註冊費</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="intranetreadinghistory">
+<span id="intranetreadinghistory-label"></span><h3>intranetreadinghistory<a class="headerlink" href="#intranetreadinghistory" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館員近用讀者借出與預約記錄。</p>
+<p>預設值：允許</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>If you have the <a class="reference internal" href="opacpreferences.html#opacprivacy-label"><span class="std std-ref">OPACPrivacy</span></a> preference set to
+‘Allow’ and the patron has decided to not have their history kept,
+staff will only see currently checked out items.</p>
+</div></blockquote>
+<p>值:</p>
+<ul>
+<li><p>允許</p></li>
+<li><p>不允許</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>除非讀者經由 <a class="reference internal" href="opac.html#your-privacy-label"><span class="std std-ref">隱私頁面</span></a>，匿名其借閱記錄，否則館員仍可近用其閱讀記錄。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="listownershipuponpatrondeletion">
+<span id="listownershipuponpatrondeletion-label"></span><h3>ListOwnershipUponPatronDeletion<a class="headerlink" href="#listownershipuponpatrondeletion" title="此标题的永久链接"></a></h3>
+<p>Asks: When deleting a patron who owns public or shared lists, ___ .</p>
+<p>Default: delete these lists</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>delete these lists</p></li>
+<li><p>change owner of these lists</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference lets you decide what happens to public or shared
+<a class="reference internal" href="lists.html#lists-label"><span class="std std-ref">lists</span></a> when their owner (creator) is deleted.</p></li>
+<li><p>For example, this is used to salvage public lists when a staff member is
+deleted.</p></li>
+<li><p>If ‘change owner of these lists’ is chosen, make sure to enter the new owner’s
+borrowernumber in the <a class="reference internal" href="#listownerdesignated-label"><span class="std std-ref">ListOwnerDesignated</span></a>
+system preference.</p></li>
+<li><p>This system preference does not affect private lists. Private lists will be
+deleted with the patron.</p></li>
+</ul>
+</section>
+<section id="listownerdesignated">
+<span id="listownerdesignated-label"></span><h3>ListOwnerDesignated<a class="headerlink" href="#listownerdesignated" title="此标题的永久链接"></a></h3>
+<p>Asks: When changing owner at patron deletion, use borrowernumber ___ as new
+list owner, or leave this field empty in order to change owner to the active
+staff member who deletes the patron.</p>
+<p>Default: (empty)</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used when
+<a class="reference internal" href="#listownershipuponpatrondeletion-label"><span class="std std-ref">ListOwnershipUponPatronDeletion</span></a>
+is set to ‘change owner of these lists’.</p></li>
+<li><p>The borrowernumber in this system preference will be the recipient of the
+public and shared lists of deleted patrons.</p></li>
+<li><p>If left empty, the user who deletes the patron will be the recipient of the
+patron’s public and shared lists</p></li>
+</ul>
+</section>
+<section id="lockexpireddelay">
+<span id="lockexpireddelay-label"></span><h3>LockExpiredDelay<a class="headerlink" href="#lockexpireddelay" title="此标题的永久链接"></a></h3>
+<p>要求：在 ___ 天後鎖定過期的讀者。 留空以禁用此行為。</p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>該系統偏好決定過期的讀者在多少天後被’管理鎖定’。</p></li>
+<li><p>管理鎖定可防止讀者登錄 OPAC。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>這個系統偏好需要 <a class="reference internal" href="cron_jobs.html#cron-clean-up-database-label"><span class="std std-ref">misc/cronjobs/cleanup_database.pl</span></a> 工作排程（除了–confirm以外沒有必要的參數）</p>
+</div>
+</section>
+<section id="maxfine">
+<span id="maxfine-label"></span><h3>MaxFine<a class="headerlink" href="#maxfine" title="此标题的永久链接"></a></h3>
+<p>詢問：罰款總額的上限是 ___[貨幣] 。</p>
+<p>預設值：空白（空值表示沒有限制）</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制每位讀者罰款的上限。若空白則無上限。可把個別館藏的罰款上限規定在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>流通規則矩陣 &lt;circulation-and-fine-rules-label&gt;`內。</p></li>
+</ul>
+</section>
+<section id="patronimages">
+<span id="patronimages-label"></span><h3>patronimages<a class="headerlink" href="#patronimages" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 於館員介面上傳並顯示讀者照片。</p>
+<p>預設值：允許</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If this preference is set to ‘Allow’ the staff will be able to upload
+images of patrons either <a class="reference internal" href="patrons.html#add-patron-images-label"><span class="std std-ref">one by one</span></a> or <a class="reference internal" href="tools.html#upload-patron-images-label"><span class="std std-ref">in
+bulk</span></a>. Patrons images will show on the detail
+page to the left of the patron information. They can also show in the
+OPAC if you set the <a class="reference internal" href="opacpreferences.html#opacpatronimages-label"><span class="std std-ref">OPACpatronimages</span></a> preference
+or in the self check out module if you set the
+<a class="reference internal" href="circulationpreferences.html#showpatronimageinwebbasedselfcheck-label"><span class="std std-ref">ShowPatronImageInWebBasedSelfCheck</span></a>
+preference.</p></li>
+</ul>
+</section>
+<section id="patronsperpage">
+<span id="patronsperpage-label"></span><h3>PatronsPerPage<a class="headerlink" href="#patronsperpage" title="此标题的永久链接"></a></h3>
+<p>詢問：預設，在館員介面每頁顯示 ___ 筆結果。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許您人設定在搜尋讀者後每個頁面顯示的讀者數。</p></li>
+</ul>
+</section>
+<section id="protectsuperlibrarianprivileges">
+<h3>ProtectSuperLibrarianPrivileges<a class="headerlink" href="#protectsuperlibrarianprivileges" title="此标题的永久链接"></a></h3>
+<dl class="simple">
+<dt>詢問：___ 近用/改變超級圖書館員的權限。說明：有權限的使用者</dt><dd><p>需要擁有 ‘授權’ 標示 (若不是超級圖書館員)</p>
+</dd>
+</dl>
+<p>預設值：只限超級圖書館員</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許所有被授權的使用者</p></li>
+<li><p>只允許超級圖書館員</p></li>
+</ul>
+</section>
+<section id="statisticsfields">
+<span id="statisticsfields-label"></span><h3>StatisticsFields<a class="headerlink" href="#statisticsfields" title="此标题的永久链接"></a></h3>
+<p>詢問：在讀者記錄的統計分頁裡顯示館藏資料庫的以下欄位：___</p>
+<p>預設值：location|itype|ccode</p>
+<p><img alt="image106" src="_images/StatisticsFields.png" /></p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>以直線 (|) 分隔其值</p>
+</div></blockquote>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許您設定哪些欄位將顯示在 <a class="reference internal" href="patrons.html#statistics-label"><span class="std std-ref">統計標籤</span></a> 上的讀者記錄中。</p></li>
+</ul>
+</section>
+<section id="tracklastpatronactivity">
+<span id="tracklastpatronactivity-label"></span><h3>TrackLastPatronActivity<a class="headerlink" href="#tracklastpatronactivity" title="此标题的永久链接"></a></h3>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>This system preference was replaced by
+<a class="reference internal" href="#tracklastpatronactivitytriggers-label"><span class="std std-ref">TrackLastPatronActivityTriggers</span></a>
+from version 23.11.</p>
+</div>
+<p>詢問：___ 追蹤讀者最後的活動。讀者登入後，更新 borrowers.lastseen 的時間。</p>
+<p>預設值：不要</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不要</p></li>
+<li><p>做</p></li>
+</ul>
+</section>
+<section id="tracklastpatronactivitytriggers">
+<span id="tracklastpatronactivitytriggers-label"></span><h3>TrackLastPatronActivityTriggers<a class="headerlink" href="#tracklastpatronactivitytriggers" title="此标题的永久链接"></a></h3>
+<div class="admonition-version-note admonition">
+<p class="admonition-title">Version note</p>
+<p>This system preference was added from version 23.11. It replaces
+<a class="reference internal" href="#tracklastpatronactivity-label"><span class="std std-ref">TrackLastPatronActivity</span></a>.</p>
+</div>
+<p>Asks: Select which patron activities should be tracked to signify patron
+activity. The first time each day that one of these activities occurs,
+borrowers.lastseen will update with the current date and time. ___</p>
+<p>Default: none</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>[Select all]</p></li>
+<li><p>Checking out an item</p></li>
+<li><p>Connection to Koha via SIP or ILSDI</p></li>
+<li><p>Login</p></li>
+<li><p>Places an article request</p></li>
+<li><p>Placing a hold on an item</p></li>
+<li><p>Renewing an item</p></li>
+<li><p>Returning an item</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows libraries to decide which action triggers an
+update of the patron’s “Date last seen”.</p>
+<ul>
+<li><p>Checking out an item: date last seen is updated when staff
+<a class="reference internal" href="circulation.html#check-out-issuing-label"><span class="std std-ref">checks out an item to the patron</span></a>.</p></li>
+<li><p>Connection to Koha via SIP or ILSDI: date last seen is updated when the
+patron logs into a third-party service using SIP or ILSDI (online
+resources, for example).</p></li>
+<li><p>Login: date last seen is updated when
+<a class="reference internal" href="opac.html#your-account-label"><span class="std std-ref">the patron logs into the OPAC</span></a> or when
+a staff member logs into the staff interface.</p></li>
+<li><p>Places an article request: date last seen is updated when the patron
+places an article request in the OPAC, or when a staff member
+<a class="reference internal" href="circulation.html#placing-article-requests-label"><span class="std std-ref">places an article request in the staff interface</span></a>
+on behalf of the patron.</p></li>
+<li><p>Renewing an item: date last seen is updated either when
+<a class="reference internal" href="circulation.html#renewing-label"><span class="std std-ref">staff renews a checked out item for the patron</span></a>, or
+<a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">the patron renews their checkout through their OPAC account</span></a>.</p></li>
+<li><p>Returning an item: date last seen is updated when
+<a class="reference internal" href="circulation.html#check-in-returning-label"><span class="std std-ref">staff checks in an item</span></a> for the patron.</p></li>
+</ul>
+</li>
+<li><p>If no activities are selected, patron activity is not tracked and the
+borrowers.lastseen field is not updated.</p></li>
+</ul>
+</section>
+<section id="usedischarge">
+<span id="usedischarge-label"></span><h3>useDischarge<a class="headerlink" href="#usedischarge" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 圖書館員主動退出讀者或同意讀者的退出要求。</p>
+<p>預設：不允許</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Enabling this system preference will add the possibility of
+<a class="reference internal" href="patrons.html#patron-discharges-label"><span class="std std-ref">emitting a discharge from the patron record</span></a>
+and <a class="reference internal" href="opac.html#ask-for-a-discharge-label"><span class="std std-ref">requesting a discharge from the OPAC</span></a>.</p></li>
+<li><p>A discharge is a certificate that says the patron has no current
+checkouts and no holds.</p></li>
+</ul>
+</section>
+</section>
+<section id="membership-expiry">
+<span id="patrons-membership-expiry-prefs-label"></span><h2>會員到期<a class="headerlink" href="#membership-expiry" title="此标题的永久链接"></a></h2>
+<section id="borrowerrenewalperiodbase">
+<span id="borrowerrenewalperiodbase-label"></span><h3>BorrowerRenewalPeriodBase<a class="headerlink" href="#borrowerrenewalperiodbase" title="此标题的永久链接"></a></h3>
+<p>詢問：更新讀者證時，以 ___ 為基礎</p>
+<p>預設值：今天</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>今天。</p></li>
+<li><p>原到期日。</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>當您 <a class="reference internal" href="patrons.html#renew-patron-account-label"><span class="std std-ref">更新讀者證</span></a> 時，此偏好控制讀者新的到期日期。設定為 ‘今天’ 將以今天為基礎計算新的到期日。設定 ‘原到期日’ 將以原到期為基礎計算新的到期日。</p></li>
+</ul>
+</section>
+<section id="membershipexpirydaysnotice">
+<span id="membershipexpirydaysnotice-label"></span><h3>MembershipExpiryDaysNotice<a class="headerlink" href="#membershipexpirydaysnotice" title="此标题的永久链接"></a></h3>
+<p>詢問：讀者證到期 ___ 天前，送出到期通知。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If you would like to notify patrons that their accounts are about to
+expire then you can enter a number of days before expiration in this
+preference. The notice text can be customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and
+slips</span></a> tool, the letter code is MEMBERSHIP_EXPIRY.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>可以啟用 <a class="reference internal" href="cron_jobs.html#cron-notify-patrons-of-expiration-label"><span class="std std-ref">會員到期排程工作</span></a> 送出此通知。</p>
+</div>
+</section>
+<section id="notifyborrowerdeparture">
+<span id="notifyborrowerdeparture-label"></span><h3>NotifyBorrowerDeparture<a class="headerlink" href="#notifyborrowerdeparture" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 天前通知讀者其讀者證即將到期。</p>
+<p>預設值：30</p>
+<p>說明：</p>
+<ul>
+<li><p>讀者在此期限內借出館藏時，在館員介面的借出視窗出現警示訊息告知圖書館員該讀者帳號即即將到期。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>此通知顯示在館員介面的讀者記錄。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="notices-and-notifications">
+<span id="patrons-notices-prefs-label"></span><h2>通知和通報<a class="headerlink" href="#notices-and-notifications" title="此标题的永久链接"></a></h2>
+<section id="autoemailnewuser">
+<span id="autoemailnewuser-label"></span><h3>AutoEmailNewUser<a class="headerlink" href="#autoemailnewuser" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ an email to newly created patrons.</p>
+<p>預設值：不寄送</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不寄送</p></li>
+<li><p>寄送</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines if library users are sent a welcome email</p></li>
+<li><p>The notice used is the WELCOME, it can be edited in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">notices and slips</span></a></p></li>
+<li><p>The welcome notice is sent to the email address specified in the
+<a class="reference internal" href="#emailfieldprimary-label"><span class="std std-ref">EmailFieldPrimary</span></a> system preference.</p></li>
+</ul>
+</section>
+<section id="autorenewalnotices">
+<span id="autorenewalnotices-label"></span><h3>AutoRenewalNotices<a class="headerlink" href="#autorenewalnotices" title="此标题的永久链接"></a></h3>
+<p>詢問：發送自動續借通知：___</p>
+<p>預設值：（已棄用）根據 –寄送-通知工作排程開關</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>（已棄用）根據 –發送-通知工作排程開關</p></li>
+<li><p>不曾</p></li>
+<li><p>根據讀者訊息偏好</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference determines whether automatic renewal notices are sent
+to patrons to inform them their checkouts have been renewed.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notice sent is based on the AUTO_RENEWALS or AUTO_RENEWALS_DGST
+templates. The content of these notifications can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="emailfieldprecedence">
+<span id="emailfieldprecedence-label"></span><h3>EmailFieldPrecedence<a class="headerlink" href="#emailfieldprecedence" title="此标题的永久链接"></a></h3>
+<p>Asks: When <a class="reference internal" href="#emailfieldprimary-label"><span class="std std-ref">EmailFieldPrimary</span></a> is set to ‘first
+valid’, check the patron email address fields in the following order and use
+the first valid email address found: ___</p>
+<p>Default: email|emailpro|B_email</p>
+<p>Values: any database field from the borrowers table, separated by pipes (|).</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to force the order in which email addresses
+are checked when the <a class="reference internal" href="#emailfieldprimary-label"><span class="std std-ref">EmailFieldPrimary</span></a>
+system preference is set to ‘first valid’.</p></li>
+<li><p>Any field from the borrowers table in the database can be used, as long as
+it contains an email address or is empty. Find the database columns in the
+database schema: <a class="reference external" href="https://schema.koha-community.org/">https://schema.koha-community.org/</a></p></li>
+</ul>
+</section>
+<section id="emailfieldprimary">
+<span id="emailfieldprimary-label"></span><h3>EmailFieldPrimary<a class="headerlink" href="#emailfieldprimary" title="此标题的永久链接"></a></h3>
+<p>Asks: Use the patron’s ___ for sending out email notices.</p>
+<p>Default: first valid email address</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>alternate email</p></li>
+<li><p>cardnumber</p></li>
+<li><p>primary email</p></li>
+<li><p>secondary email</p></li>
+<li><p>first valid email address</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If you choose ‘first valid’ as the value for this system preference,
+the system will check the email fields in the order specified in the
+<a class="reference internal" href="#emailfieldprecedence-label"><span class="std std-ref">EmailFieldPrecedence</span></a> system preference.
+Otherwise, the system will use the email address you specify.</p></li>
+<li><p>This is used for all email notices, including
+<a class="reference internal" href="#autoemailnewuser-label"><span class="std std-ref">welcome messages</span></a>),
+<a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">overdue notices</span></a>, and
+<a class="reference internal" href="#enhancedmessagingpreferences-label"><span class="std std-ref">advance notices</span></a>, among others.</p></li>
+</ul>
+</section>
+<section id="enhancedmessagingpreferences">
+<span id="enhancedmessagingpreferences-label"></span><h3>EnhancedMessagingPreferences<a class="headerlink" href="#enhancedmessagingpreferences" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者選擇是否與何時收取通知。</p>
+<p>預設值：允許</p>
+<p>值:</p>
+<ul>
+<li><p>允許</p></li>
+<li><p>不允許</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>只偏好適用部份通知，逾期通知依照 <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">圖書館的規定</span></a>，讀者沒有選擇權。</p>
+<p><strong>說明</strong></p>
+<p>To manage if patrons have also access to these settings, use
+<a class="reference internal" href="#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>指的是逾期通知以外的通知。讀者可以選擇收取或不收取逾期通知以外的通知。設定為 ‘允許’ 後，讀者可以選擇收取或不收以下的通知：</p>
+<ul>
+<li><p>借出館藏：每次借出或續借就通知，算是電子借出收條</p></li>
+<li><p>到期通知：館藏到期當天的通知</p></li>
+<li><p>預約可取：讀者預約書籍已在館可取</p></li>
+<li><p>還入館藏：讀者剛還入的館藏清單</p></li>
+<li><p>提早通知：用於通知讀者其借出的館藏即將到期 (館員可指定提前的天數)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="enhancedmessagingpreferencesopac">
+<span id="enhancedmessagingpreferencesopac-label"></span><h3>EnhancedMessagingPreferencesOPAC<a class="headerlink" href="#enhancedmessagingpreferencesopac" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者經由 OPAC 設定</p>
+<p>預設值：顯示</p>
+<p>值:</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p><a class="reference internal" href="#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+must be enabled for messaging options to show in the OPAC</p>
+</div></blockquote>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>指的是逾期通知以外的通知。讀者可以選擇收取或不收取逾期通知以外的通知。設定為 ‘允許’ 後讀者可以選擇收取或不收以下的通知：</p>
+<ul>
+<li><p>借出館藏：每次借出或續借就通知，算是電子借出收條</p></li>
+<li><p>到期通知：館藏到期當天的通知</p></li>
+<li><p>預約可取：讀者預約書籍已在館可取</p></li>
+<li><p>還入館藏：讀者剛還入的館藏清單</p></li>
+<li><p>提早通知：用於通知讀者其借出的館藏即將到期 (讀者可指定提前的天數)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="fallbacktosmsifnoemail">
+<span id="fallbacktosmsifnoemail-label"></span><h3>FallbackToSMSIfNoEmail<a class="headerlink" href="#fallbacktosmsifnoemail" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 如果未定義讀者電子郵件，則通過 SMS 寄送購買建議消息。</p>
+<p>預設值：停用</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好只適用於與建議有關的通知。如果讀者沒有電子郵件地址，但有一個短信提醒號碼，建議通知將被發送到他們的短信號碼。</p></li>
+</ul>
+</section>
+<section id="notifypasswordchange">
+<span id="notifypasswordchange-label"></span><h3>NotifyPasswordChange<a class="headerlink" href="#notifypasswordchange" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ patrons whenever their password is changed.</p>
+<p>Default: Don’t notify</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>Don’t notify</p></li>
+<li><p>Notify</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to send a notification to a patron whose
+password has been changed, either
+<a class="reference internal" href="patrons.html#editing-patrons-label"><span class="std std-ref">changing the password in the patron’s account in the staff interface</span></a>,
+<a class="reference internal" href="opac.html#resetting-your-password-label"><span class="std std-ref">resetting the password from the OPAC</span></a>,
+or <a class="reference internal" href="opac.html#change-your-password-label"><span class="std std-ref">changing the password through the OPAC</span></a>.</p></li>
+<li><p>The notification sent is based on the PASSWORD_CHANGE template. It can be
+customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p></li>
+</ul>
+</section>
+<section id="smssenddriver">
+<span id="smssenddriver-label"></span><h3>SMSSendDriver<a class="headerlink" href="#smssenddriver" title="此标题的永久链接"></a></h3>
+<p>詢問：以 SMS::Send:: ___ 驅動程式送出 SMS 訊息。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>可能無法與全部供應商使用。</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>啟用此功能前請先確認整批傳送簡訊的法律規定。</p>
+</div>
+<p>說明：</p>
+<ul>
+<li><p>Koha 使用 SMS 時，有兩個選項。輸入 ‘Email’ 做為 SMSSendDriver 使用 Email 通信協定，或付費使用 SMS 驅動程式。範例如下：</p>
+<ul class="simple">
+<li><p>SMS::Send::Us::Ipipi</p></li>
+<li><p>SMS::Send::US::TMobile</p></li>
+<li><p>SMS::Send::US::Verizon</p></li>
+<li><p>SMS::Send::IN::Unicel</p></li>
+</ul>
+<p>其他的值可從這裡找到：<a class="reference external" href="http://search.cpan.org/search?query=sms%3A%3Asend&amp;mode=all">http://search.cpan.org/search?query=sms%3A%3Asend&amp;mode=all</a></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Many mobile providers have deprecated support for the SMS::Send::Email feature. It is not recommended for use unless you have a dedicated SMS to Email gateway.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<dl class="simple">
+<dt>Only drivers available as Perl modules will work in this</dt><dd><p>preference, so make sure a Perl module is available before
+choosing an SMS service.</p>
+</dd>
+</dl>
+<p>在此偏好設定驅動程式後將在館員介面與 OPAC 出現讀者訊息表單供選擇接收簡訊</p>
+<p><img alt="image105" src="_images/SMSSendDriver.png" /></p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>You must allow
+<a class="reference internal" href="#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> for
+this to work.</p>
+</div></blockquote>
+</div>
+</section>
+<section id="smssendusername-smssendpassword-and-emailsmssenddriverfromaddress">
+<span id="smssenduserdetails-label"></span><h3>SMSSendUsername, SMSSendPassword, and EmailSMSSendDriverFromAddress<a class="headerlink" href="#smssendusername-smssendpassword-and-emailsmssenddriverfromaddress" title="此标题的永久链接"></a></h3>
+<p>Asks: Define a username/login ___ and a password ___. Override
+from address with ___ for emails sent using “Email” send driver.</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Some SMS gateway providers require username and password credentials
+and these can be entered here. Additionally, one specific email address
+may be required as sender (from address) for all emails sent by the
+Email SMS send driver.</p></li>
+</ul>
+</section>
+<section id="talkingtechitivaphonenotification">
+<span id="talkingtechitivaphonenotification-label"></span><h3>TalkingTechItivaPhoneNotification<a class="headerlink" href="#talkingtechitivaphonenotification" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 以 Talking Tech i-tiva 電話通知讀者 (目前支援逾期通知、提前通知與預約通知)。</p>
+<p>預設值：停用</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>有關第三方產品的安裝詳情見 <a class="reference internal" href="third_party_software.html#talking-tech-label"><span class="std std-ref">Talking Tech</span></a>。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>Requires that you have
+<a class="reference internal" href="#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> set
+to Allow to use.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="useemailreceipts">
+<span id="useemailreceipts-label"></span><h3>UseEmailReceipts<a class="headerlink" href="#useemailreceipts" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 把收條以電子郵件寄給讀者，要求付款或申請豁免。</p>
+<p>預設值：不寄送</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不寄送</p></li>
+<li><p>寄送</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>若設定為 ‘寄送’，Koha 將把每筆付款或註銷以電子郵件寄給讀者。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>此等信件使用於 ACCOUNT_PAYMENT 與 ACCOUNT_WRITEOFF</p></li>
+<li><p>您可以在 <span class="xref std std-ref">說明與收條</span> 工具中編輯它。</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="patron-forms">
+<span id="patrons-patron-forms-prefs-label"></span><h2>讀者表格<a class="headerlink" href="#patron-forms" title="此标题的永久链接"></a></h2>
+<section id="automembernum">
+<span id="automembernum-label"></span><h3>autoMemberNum<a class="headerlink" href="#automembernum" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 自動給定下個可用的讀者號</p>
+<p>預設值：要</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>做</p>
+<ul>
+<li><p>現在最大讀者號為 26345000012941，則下個讀者號為 26345000012942</p></li>
+</ul>
+</li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好自動給定下個讀者證的條碼。主要功能為避免重號。若設為 ‘要’ 系統就最大的讀者證號再加 1 做為新的讀者證號。</p></li>
+</ul>
+</section>
+<section id="borrowermandatoryfield">
+<span id="borrowermandatoryfield-label"></span><h3>BorrowerMandatoryField<a class="headerlink" href="#borrowermandatoryfield" title="此标题的永久链接"></a></h3>
+<p>詢問：讀者必須在進入畫面填寫以下資料庫欄位 ：___</p>
+<p>Default: surname|cardnumber</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference enables the system administrator to choose which
+fields staff is required to fill in when creating or editing patron accounts.</p></li>
+<li><p>This ensures that basic information is included in each patron record. If a
+staff member leaves one of the required fields blank, an error message will
+appear and the account will not be created or saved.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For help with field names, ask your system administrator or <a class="reference external" href="http://schema.koha-community.org/">view the
+database structure</a>
+associated with the borrowers table.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If either <a class="reference internal" href="#patronquickaddfields-label"><span class="std std-ref">PatronQuickAddFields</span></a> or
+<a class="reference internal" href="#borrowermandatoryfield-label"><span class="std std-ref">BorrowerMandatoryField</span></a>
+(or both) is set, a button labeled
+<a class="reference internal" href="patrons.html#quick-add-patron-label"><span class="std std-ref">“Quick add new patron”</span></a> will be displayed
+in the <a class="reference internal" href="patrons.html#patrons-label"><span class="std std-ref">patrons toolbar</span></a>.</p>
+</div>
+</section>
+<section id="borrowerstitles">
+<span id="borrowerstitles-label"></span><h3>BorrowersTitles<a class="headerlink" href="#borrowerstitles" title="此标题的永久链接"></a></h3>
+<p>詢問：讀者的敬稱為 ___</p>
+<p>預設值：Mr|Mrs|Miss|Ms</p>
+<p>說明：</p>
+<ul>
+<li><p>此偏好讓館員選擇讀者的敬稱。新增讀者紀錄時產生下拉選單。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>以直線 | 分隔多種保證人</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="borrowerunwantedfield">
+<span id="borrowerunwantedfield-label"></span><h3>BorrowerUnwantedField<a class="headerlink" href="#borrowerunwantedfield" title="此标题的永久链接"></a></h3>
+<p>詢問：以下的資料庫欄將不顯示在讀者進入畫面：___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference enables the system administrator to choose which
+fields staff doesn’t need to see on the patron entry form.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For help with field names, ask your system administrator or <a class="reference external" href="http://schema.koha-community.org/">view the
+database structure</a>
+associated with the borrowers table.</p>
+</div>
+</section>
+<section id="cardnumberlength">
+<span id="cardnumberlength-label"></span><h3>CardnumberLength<a class="headerlink" href="#cardnumberlength" title="此标题的永久链接"></a></h3>
+<p>詢問：讀者證號碼的長度必須是 ___ 字元。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>The length can be a single number to specify an exact length, a range
+separated by a comma (i.e., ‘Min,Max’), or a maximum with no minimum
+(i.e., ^,Max’). If ‘cardnumber’ is included in the
+<a class="reference internal" href="#borrowermandatoryfield-label"><span class="std std-ref">BorrowerMandatoryField</span></a> list, the
+minimum length, if not specified here, defaults to one.</p></li>
+</ul>
+</section>
+<section id="collapsefieldspatronaddform">
+<span id="collapsefieldspatronaddform-label"></span><h3>CollapseFieldsPatronAddForm<a class="headerlink" href="#collapsefieldspatronaddform" title="此标题的永久链接"></a></h3>
+<p>詢問: 新增讀者或編輯現有讀者時，請從完整表單中隱藏以下欄位 (仍可展開)：</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>其他屬性與辨識碼</p></li>
+<li><p>備用地址</p></li>
+<li><p>備用聯絡</p></li>
+<li><p>聯絡資訊</p></li>
+<li><p>擔保人資訊</p></li>
+<li><p>Housebound 角色</p></li>
+<li><p>圖書館管理</p></li>
+<li><p>圖書館設定</p></li>
+<li><p>主要地址</p></li>
+<li><p>OPAC/館員介面</p></li>
+<li><p>組織/讀者身份</p></li>
+<li><p>讀者帳戶標誌（現有讀者）</p></li>
+<li><p>讀者訊息偏好</p></li>
+<li><p>讀者限制（現有讀者）</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好允許你暫時隱藏讀者新增表格和讀者編輯表格中的部分。這些部分將被折疊，如果需要，館員將能夠展開它們。</p></li>
+<li><p>If you would rather completely hide sections, without the possibility of
+expanding them, enter the field names in <a class="reference internal" href="#borrowerunwantedfield-label"><span class="std std-ref">BorrowerUnwantedField</span></a>.</p></li>
+</ul>
+</section>
+<section id="patronduplicatematchingaddfields">
+<span id="patronduplicatematchingaddfields-label"></span><h3>PatronDuplicateMatchingAddFields<a class="headerlink" href="#patronduplicatematchingaddfields" title="此标题的永久链接"></a></h3>
+<p>詢問：以下資料庫列：___ 將用於在新增新讀者時檢測可能的重複項。</p>
+<p>預設值：surname|firstname|dateofbirth</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好允許您選擇將使用哪些欄位來偵測重複讀者。</p></li>
+</ul>
+</section>
+<section id="patronquickaddfields">
+<span id="patronquickaddfields-label"></span><h3>PatronQuickAddFields<a class="headerlink" href="#patronquickaddfields" title="此标题的永久链接"></a></h3>
+<p>Asks: The following database columns ___ will be added to the patron
+quick add form when entering a new patron. Displays only mandatory fields
+and fields specified here. If applicable, the guarantor form will be shown
+as well, individual fields in that form will be ignored.</p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference can be used to add fields to the
+<a class="reference internal" href="patrons.html#quick-add-patron-label"><span class="std std-ref">“Quick add new patron” form</span></a>.</p></li>
+<li><p>The <a class="reference internal" href="patrons.html#quick-add-patron-label"><span class="std std-ref">“Quick add new patron” form</span></a> only shows
+fields specified in this system preference and in
+<a class="reference internal" href="#borrowermandatoryfield-label"><span class="std std-ref">BorrowerMandatoryField</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For help with field names, ask your system administrator or <a class="reference external" href="http://schema.koha-community.org/">view the
+database structure</a>
+associated with the borrowers table.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If either <a class="reference internal" href="#patronquickaddfields-label"><span class="std std-ref">PatronQuickAddFields</span></a> or
+<a class="reference internal" href="#borrowermandatoryfield-label"><span class="std std-ref">BorrowerMandatoryField</span></a>
+(or both) is set, a button labeled
+<a class="reference internal" href="patrons.html#quick-add-patron-label"><span class="std std-ref">“Quick add new patron”</span></a> will be displayed
+in the <a class="reference internal" href="patrons.html#patrons-label"><span class="std std-ref">patrons toolbar</span></a>.</p>
+</div>
+</section>
+<section id="uppercasesurnames">
+<span id="uppercasesurnames-label"></span><h3>uppercasesurnames<a class="headerlink" href="#uppercasesurnames" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 以大寫字母儲存及顯示姓。</p>
+<p>預設值：不要</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+</section>
+</section>
+<section id="patron-relationships">
+<span id="patrons-patron-relationships-prefs-label"></span><h2>讀者關係<a class="headerlink" href="#patron-relationships" title="此标题的永久链接"></a></h2>
+<section id="allowstafftosetcheckoutsvisibilityforguarantor">
+<span id="allowstafftosetcheckoutsvisibilityforguarantor-label"></span><h3>AllowStaffToSetCheckoutsVisibilityForGuarantor<a class="headerlink" href="#allowstafftosetcheckoutsvisibilityforguarantor" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC 的詳情頁面 ___ 借出館藏讀者的姓名。</p>
+<p>預設：不允許</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>此系統偏好控制館員是否可以看到向 OPAC 中關聯的讀者顯示結帳的選項。</p>
+<p><img alt="image1472" src="_images/allowstafftosetvisibilityforguarantor.png" /></p>
+</li>
+</ul>
+</section>
+<section id="allowstafftosetfinesvisibilityforguarantor">
+<span id="allowstafftosetfinesvisibilityforguarantor-label"></span><h3>AllowStaffToSetFinesVisibilityForGuarantor<a class="headerlink" href="#allowstafftosetfinesvisibilityforguarantor" title="此标题的永久链接"></a></h3>
+<p>詢問：在___ 館員設置的 OPAC 連結中，讀者可以查看罰款能力。</p>
+<p>預設：不允許</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>此系統偏好控制館員是否可以看到向 OPAC 中關聯的讀者顯示罰款的選項。</p>
+<p><img alt="image1472" src="_images/allowstafftosetvisibilityforguarantor.png" /></p>
+</li>
+</ul>
+</section>
+<section id="borrowerrelationship">
+<span id="borrowerrelationship-label"></span><h3>borrowerRelationship<a class="headerlink" href="#borrowerrelationship" title="此标题的永久链接"></a></h3>
+<p>詢問：擔保人可以是他們擔保的以下那些___</p>
+<p>預設值：父親|母親</p>
+<p>說明：</p>
+<ul>
+<li><p>此偏好讓系統管理者設定擔保人 (通常是父母) 與被擔保人(通常是孩子) 的關係。設定此欄位的值並不會成為新增被擔保人讀者類型的必備欄位。此偏好新增下拉選單，辨識擔保人與被擔保人的關係。空白則停用兒童類型讀者。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>以直線 | 分隔多種保證人</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="prefillguaranteefield">
+<span id="prefillguaranteefield-label"></span><h3>PrefillGuaranteeField<a class="headerlink" href="#prefillguaranteefield" title="此标题的永久链接"></a></h3>
+<p>詢問: 向擔保人讀者新增擔保時，請根據擔保人的記錄填寫擔保成員輸入表中的以下欄位：___</p>
+<p>預設：</p>
+<ul class="simple">
+<li><p>聯繫人 - 主要電子郵件</p></li>
+<li><p>聯繫人 - 主要電話</p></li>
+<li><p>主要地址 - 地址</p></li>
+<li><p>主要地址 - 城市</p></li>
+<li><p>主要地址 - 國家</p></li>
+<li><p>主要地址 - 國家</p></li>
+<li><p>主要地址 - 壓縮/郵政編碼</p></li>
+<li><p>主要地址 - 門牌號</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在使用 ‘新增擔保’ 按鈕時，該系統偏好用於將訊息從擔保人帳戶複製到擔保帳戶。</p></li>
+</ul>
+</section>
+</section>
+<section id="privacy">
+<span id="patronsprivacy-label"></span><h2>隱私<a class="headerlink" href="#privacy" title="此标题的永久链接"></a></h2>
+<section id="privacypolicyconsent">
+<span id="privacypolicyconsent-label"></span><h3>PrivacyPolicyConsent<a class="headerlink" href="#privacypolicyconsent" title="此标题的永久链接"></a></h3>
+<p>Asks: Set data privacy policy consent to ___</p>
+<p>預設值：停用</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>執行</p></li>
+<li><p>寬容的</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference makes a privacy policy consent form appear on the OPAC
+when a patron attempts to login. This can be used for GDPR or any other
+legal requirement concerning obtaining user consent for data collection.</p></li>
+<li><p>If this system preference is set to ‘Enforced’, when a patron attempts to
+log into the OPAC a privacy policy consent form will be presented to them.
+The patron will have to provide consent to the library’s privacy policy before
+they can gain access to their account details. If the patron does not consent
+to the privacy policy they will be logged out of their account.</p></li>
+<li><p>If this system preference is set to ‘Permissive’, the patron will see the
+privacy policy consent form, but they will not be required to give consent to
+access their patron account.</p></li>
+<li><p>If this system preference is set to ‘Disabled’, no privacy policy consent
+form will appear when a patron logs into the OPAC.</p></li>
+<li><p>When set to ‘Enforced’ or ‘Permissive’, <a class="reference internal" href="#privacy-policy-url-label"><span class="std std-ref">PrivacyPolicyURL</span></a>
+should contain a URL to the privacy policy.</p></li>
+</ul>
+</section>
+<section id="privacypolicyurl">
+<span id="privacy-policy-url-label"></span><h3>PrivacyPolicyURL<a class="headerlink" href="#privacypolicyurl" title="此标题的永久链接"></a></h3>
+<p>要求：在有關隱私和數據保護的訊息中，使用以下 URL ___來參考你的本地隱私政策。</p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used when
+<a class="reference internal" href="#privacypolicyconsent-label"><span class="std std-ref">PrivacyPolicyConsent</span></a> is set to either
+‘Enforced’ or ‘Permissive’. It will add a link to your privacy policy to which
+the patrons must consent.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If you enforce privacy policy, make sure that this page is not blocked.</p>
+</div>
+</section>
+<section id="unsubscribereflectiondelay-patronanonymizedelay-and-patronremovaldelay">
+<span id="unsubscribereflectiondelay-label"></span><h3>UnsubscribeReflectionDelay, PatronAnonymizeDelay 和PatronRemovalDelay<a class="headerlink" href="#unsubscribereflectiondelay-patronanonymizedelay-and-patronremovaldelay" title="此标题的永久链接"></a></h3>
+<p>要求：在 ___ 天後鎖定/終止提交取消訂閱請求（拒絕同意）的讀者，在 ___ 天後匿名鎖定/過期帳號並在 ___ 天後刪除匿名讀者帳號。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to purge accounts of patrons who have opted
+out/refused consent in the privacy policy consent form (see the
+<a class="reference internal" href="#privacypolicyconsent-label"><span class="std std-ref">PrivacyPolicy</span></a> system preference).</p></li>
+<li><p>第一個方框是選擇退出的讀者帳號應被鎖定的天數（相當於輸入錯誤密碼太多次）</p></li>
+<li><p>第二個方框是鎖定帳號應匿名的天數</p></li>
+<li><p>第三個方框是刪除匿名帳號後的天數</p></li>
+</ul>
+</section>
+</section>
+<section id="security">
+<span id="patrons-security-prefs-label"></span><h2>安全<a class="headerlink" href="#security" title="此标题的永久链接"></a></h2>
+<section id="enableexpiredpasswordreset">
+<span id="enableexpiredpasswordreset-label"></span><h3>EnableExpiredPasswordReset<a class="headerlink" href="#enableexpiredpasswordreset" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ the ability for patrons to directly reset their password when it
+is expired.</p>
+<p>預設值：不啟用</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>當使用密碼過期功能時，讀者必須在密碼過期後重新設定密碼。預設情況下，這是透過電子郵件完成的，與 “忘記密碼？”功能類似。</p></li>
+<li><p>此系統偏好允許讀者直接重新設定密碼。</p>
+<p><img alt="The reset password form" src="_images/passwordreset.png" /></p>
+</li>
+</ul>
+</section>
+<section id="failedloginattempts">
+<span id="failedloginattempts-label"></span><h3>FailedLoginAttempts<a class="headerlink" href="#failedloginattempts" title="此标题的永久链接"></a></h3>
+<p>詢問：如果達到 ___ 登入嘗試失敗，則阻止讀者的帳戶。</p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這是在讀者輸入錯誤的密碼太多次後，用來封鎖他們的帳號</p></li>
+</ul>
+</section>
+<section id="minpasswordlength">
+<span id="minpasswordlength-label"></span><h3>minPasswordLength<a class="headerlink" href="#minpasswordlength" title="此标题的永久链接"></a></h3>
+<p>詢問： 館員與讀者的密碼長度至少為 ___ 字元長。</p>
+<p>預設值：8</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>同時影響館員登入與讀者從 OPAC 的登入。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>密碼長度也可以透過 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者類別&lt;patron-categories-label&gt;`設定。</p>
+</div>
+</section>
+<section id="pseudonymization-pseudonymizationpatronfields-and-pseudonymizationtransactionfields">
+<span id="pseudonymization-prefs"></span><h3>Pseudonymization, PseudonymizationPatronFields and PseudonymizationTransactionFields<a class="headerlink" href="#pseudonymization-pseudonymizationpatronfields-and-pseudonymizationtransactionfields" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ pseudonymization to comply with data privacy policies and
+regulations like GDPR for managing personal information. Patrons and transactions
+will be copied to a separate table for statistics purpose.
+Use the following fields for patrons: ___
+And the following fields for the transactions: ___</p>
+<p>Pseudonymization values:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>Pseudonymization default: Disable</p>
+<p>PseudonymizationPatronFields values:</p>
+<ul class="simple">
+<li><p>[Select all]</p></li>
+<li><p>City</p></li>
+<li><p>Country</p></li>
+<li><p>Date the patron was added to Koha</p></li>
+<li><p>Patron’s category</p></li>
+<li><p>Patron’s gender</p></li>
+<li><p>Patron’s library</p></li>
+<li><p>Patron’s title</p></li>
+<li><p>Sort1</p></li>
+<li><p>Sort2</p></li>
+<li><p>State</p></li>
+<li><p>Zipcode</p></li>
+</ul>
+<p>PseudonymizationPatronFields default: none selected</p>
+<p>PseudonymizationTransactionFields values:</p>
+<ul class="simple">
+<li><p>[Select all]</p></li>
+<li><p>Collection</p></li>
+<li><p>Date and time of the transaction</p></li>
+<li><p>Holding library</p></li>
+<li><p>Home library</p></li>
+<li><p>Item type</p></li>
+<li><p>Item’s callnumber</p></li>
+<li><p>Itemnumber</p></li>
+<li><p>Library where the transaction occurred</p></li>
+<li><p>Location</p></li>
+<li><p>Transaction type</p></li>
+</ul>
+<p>PseudonymizationTransactionFields default: none selected</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>These system preferences add a way to pseudonymize patron data while keeping useful transaction information for reporting. Pseudonymization can be part of the library’s security and data protection practices, enabling the librarians to shorten the time they retain personal data in other Koha tables.</p></li>
+<li><p>Pseudonymized data is stored in database tables pseudonymized_transactions (for transactions and patron data) and pseudonymized_borrower_attributes (for patron attributes).</p></li>
+<li><p>No direct identifiers for the patron are recorded; the pseudonymized_transactions table uses an encrypted version of the borrowernumber.</p></li>
+<li><p>After enabling the Pseudonymization system preference, edit the <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">patron attribute types</span></a> you want to record in the pseudonymized_borrower_attributes table. Mark those attributes as “Keep for pseudonymization”.</p></li>
+<li><p>When Pseudonymization is enabled, data from fields selected in PseudonymizationPatronFields and PseudonymizationTransactionFields is recorded in the pseudonymized_transactions and pseudonymized_borrower_attributes tables. Entries are added for each new transaction (checkout, checkin, renew, on-site checkout). This is on top of transactions data being recorded in the usual database tables, e.g., issues and statistics.</p></li>
+<li><p>Values in the pseudonymization tables are recorded “as they are” at the time of the transaction. These tables are not affected by the deletion of patrons or items.</p></li>
+<li><p>Older entries in the pseudonymization tables can be deleted using the <a class="reference internal" href="cron_jobs.html#cron-clean-up-database-label"><span class="std std-ref">clean up database script</span></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Data is not retrospectively added to the tables: only new transactions performed after Pseudonymization is enabled are recorded.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>For pseudonymization to work, <a class="reference internal" href="faq.html#bcrypt-settings-faq"><span class="std std-ref">Bcrypt_settings</span></a> must be filled in the Koha configuration file.</p>
+</div>
+</section>
+<section id="requirestrongpassword">
+<span id="requirestrongpassword-label"></span><h3>RequireStrongPassword<a class="headerlink" href="#requirestrongpassword" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館員及讀者的強密碼</p>
+<p>預設值：允許</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不要求</p></li>
+<li><p>要求</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>若設為 ‘要求’，此系統偏好要求讀者與館員的密碼至少含一個數字、一個小寫與一個大寫字母。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>密碼強度也可以通過 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者類別&lt;patron-categories-label&gt;`設定。</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="opacpreferences.html" class="btn btn-neutral float-left" title="OPAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="searchingpreferences.html" class="btn btn-neutral float-right" title="搜尋" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1581 @@
+.. include:: images.rst
+
+.. _patrons-system-preferences-label:
+
+Patrons
+-------------------------------------------------------------------------------
+
+*Get there:* More > Administration > Global system preferences > Patrons
+
+.. _patronsgeneral-label:
+
+General
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _allowpatrontocontrolautorenewal-label:
+
+AllowPatronToControlAutoRenewal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks : \_\_\_ to allow/disallow auto-renewal for account. If allowed a patron 
+will be able to update their own account to allow/disallow auto-renewal.
+
+Default: Allow only staff
+
+Values:
+
+-  Allow only staff
+
+-  Allow patrons
+
+Description:
+
+-  If set to 'Allow patrons', patrons will be able to enable or disable 
+   automatic renewals from :ref:`their online account on the OPAC <your-summary-label>`. Only items for which automatic renewal is enabled in the circulation rules will be affected.
+
+-  In all cases, staff is able to change this in the :ref:`patron's account <add-a-new-patron-label>`.
+
+.. _checkprevcheckout-label:
+
+CheckPrevCheckout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ check borrower checkout history to see if the current item has 
+been checked out before.
+
+Default: Do not
+
+Values:
+
+-  Do
+
+-  Do not
+
+-  Unless overridden by patron category, do
+
+-  Unless overridden by patron category, do not
+
+Description:
+
+-  When the value of this system preference is set to 'do', Koha will look at the
+   patron's circulation history to see if they have checked this item out before.
+   An alert will show up on the screen indicating that patron has indeed checked
+   this item out. Staff will be prompted to allow the checkout to occur.
+
+   |prevcheckout|
+
+-  If the value is set to 'do not', Koha will not check the patron's circulation
+   history.
+
+-  When the value is set to 'Unless overridden by patron category, do', this will
+   check the patron's circulation history unless the patron's
+   :ref:`personal setting <add-a-new-patron-label>` or the
+   :ref:`patron category setting <adding-a-patron-category-label>` specifically
+   say not to.
+
+-  Lastly, if the value is set to 'Unless overridden by patron category, do not',
+   Koha will not check circulation history unless the patron's
+   :ref:`personal setting <add-a-new-patron-label>` or the
+   :ref:`patron category setting <adding-a-patron-category-label>` specifically
+   say to check.
+
+.. Note::
+
+   This system preference will not work for patrons that have chosen to anonymize
+   their reading history.
+
+.. Note::
+
+   The circulation history will be checked at record-level for most items,
+   except if the item is on a serial record.
+
+   This means that if a patron has checked out a copy of a book, the warning
+   will show if they try to check out any item of the same record.
+
+   However, if the record has 's' in its leader, position 7, marking this
+   record as a serial, the warning will only show if they try to check out the
+   exact same item.
+
+.. _checkprevcheckoutdelay-label:
+
+CheckPrevCheckoutDelay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Trigger a warning if the current item has been checked out no longer than 
+\_\_\_ days ago. 
+
+Default: 0
+
+Description:
+
+-  This system preference limits the behavior of :ref:`CheckPrevCheckout <CheckPrevCheckout-label>` to 
+   a number of days. If an item has been borrowed by a patron longer than the 
+   number of days, there will be no warning, as if the patron had never 
+   borrowed it.
+
+-  Requires :ref:`CheckPrevCheckout <CheckPrevCheckout-label>` to be enabled.
+
+-  There is no time limit if this is set to 0 or is empty. 
+
+.. _defaultpatronsearchfields-label:
+
+DefaultPatronSearchFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ Comma separated list defining the default fields to be used during 
+a patron search
+
+Default: surname,firstname,othernames,cardnumber,userid
+
+    **Important** possible values can be found in the borrowers table of Koha's schema
+    located at http://schema.koha-community.org/
+
+Description: 
+
+-  This system preference enables you to define which fields are searched when 
+   you do a basic patron search.
+
+-  These fields will also appear in the drop down menu in the patron search, so 
+   you can search only the specific field.
+
+.. _enableborrowerfiles-label:
+
+EnableBorrowerFiles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ enable the ability to upload and attach arbitrary files to
+a borrower record.
+
+Default: Don't
+
+Values:
+
+-  Do
+
+-  Don't
+
+Description:
+
+-  When enabled this will add a 'Files' tab to the left of the patron
+   detail page where you can view and upload files to the patron record.
+
+.. _extendedpatronattributes-label:
+
+ExtendedPatronAttributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ searching, editing and display of custom attributes on
+patrons.
+
+Default: Enable
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+   -  Define attributes in Koha administration
+
+   -  Get there: More > Administration > :ref:`Patron Attribute
+      Types <patron-attribute-types-label>`
+
+Description:
+
+-  Patron attributes are library-defined custom fields that can be
+   applied to patron records.
+
+    **Note**
+
+    Use custom attributes for fields that the default patron record does
+    not support such as driver's license number or student ID number.
+
+.. _feeonchangepatroncategory-label:
+
+FeeOnChangePatronCategory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ charge a fee when a patron changes to a category with an
+enrollment fee.
+
+Default: Do
+
+Values:
+
+-  Do
+
+-  Don't
+
+    **Note**
+
+    You can set enrollment fees in the :ref:`patron categories <adding-a-patron-category-label>`
+
+.. _intranetreadinghistory-label:
+
+intranetreadinghistory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ staff to access a patron's checkout and hold history.
+
+Default: Allow
+
+    **Important**
+
+    If you have the :ref:`OPACPrivacy <OPACPrivacy-label>` preference set to
+    'Allow' and the patron has decided to not have their history kept,
+    staff will only see currently checked out items.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+    **Important**
+
+    Reading history is still stored, regardless of staff being allowed
+    access or not unless the patron has chosen to have their history
+    anonymized via their :ref:`privacy page <your-privacy-label>`.
+
+.. _listownershipuponpatrondeletion-label:
+
+ListOwnershipUponPatronDeletion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When deleting a patron who owns public or shared lists, \_\_\_ .
+
+Default: delete these lists
+
+Values:
+
+-  delete these lists
+
+-  change owner of these lists
+
+Description:
+
+-  This system preference lets you decide what happens to public or shared
+   :ref:`lists <lists-label>` when their owner (creator) is deleted.
+
+-  For example, this is used to salvage public lists when a staff member is
+   deleted.
+
+-  If 'change owner of these lists' is chosen, make sure to enter the new owner's
+   borrowernumber in the :ref:`ListOwnerDesignated <listownerdesignated-label>`
+   system preference.
+
+-  This system preference does not affect private lists. Private lists will be
+   deleted with the patron.
+
+.. _listownerdesignated-label:
+
+ListOwnerDesignated
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When changing owner at patron deletion, use borrowernumber \_\_\_ as new
+list owner, or leave this field empty in order to change owner to the active
+staff member who deletes the patron.
+
+Default: (empty)
+
+Description:
+
+-  This system preference is used when
+   :ref:`ListOwnershipUponPatronDeletion <listownershipuponpatrondeletion-label>`
+   is set to 'change owner of these lists'.
+
+-  The borrowernumber in this system preference will be the recipient of the
+   public and shared lists of deleted patrons.
+
+-  If left empty, the user who deletes the patron will be the recipient of the
+   patron's public and shared lists
+
+.. _lockexpireddelay-label:
+
+LockExpiredDelay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Lock expired patrons after \_\_\_ days. Leave empty to disable this 
+behavior. 
+
+Default: empty
+
+Description:
+
+-  This system preference determines after how many days expired patrons are 
+   'administratively locked'. 
+
+-  Administrative lock prevents patrons from logging into the OPAC.
+
+.. Note ::
+
+   This system preference requires the 
+   :ref:`misc/cronjobs/cleanup_database.pl<cron-clean-up-database-label>` 
+   cronjob (no parameter necessary other than --confirm)
+
+.. _maxfine-label:
+
+MaxFine
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The late fine for all checkouts will only go up to \_\_\_ [currency].
+
+Default: empty (empty value means no limit)
+
+Description:
+
+-  This preference controls the default cap on fines accrued by the
+   patron. Leaving this preference blank means that there is no cap on
+   the amount of fines a patron can accrue. If you'd like, single item
+   caps can be specified in the
+   :ref:`circulation rules matrix <circulation-and-fines-rules-label>`.
+
+.. _patronimages-label:
+
+patronimages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ images to be uploaded and shown for patrons on the staff
+client.
+
+Default: Allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  If this preference is set to 'Allow' the staff will be able to upload
+   images of patrons either :ref:`one by one <add-patron-images-label>` or :ref:`in
+   bulk <upload-patron-images-label>`. Patrons images will show on the detail
+   page to the left of the patron information. They can also show in the
+   OPAC if you set the :ref:`OPACpatronimages <OPACpatronimages-label>` preference
+   or in the self check out module if you set the
+   :ref:`ShowPatronImageInWebBasedSelfCheck <ShowPatronImageInWebBasedSelfCheck-label>`
+   preference.
+
+.. _patronsperpage-label:
+
+PatronsPerPage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: By default, show \_\_\_ results per page in the staff client.
+
+Default: 20
+
+Description:
+
+-  This preference will let you define how many patrons to show on
+   patron search results pages.
+
+.. protectsuperlibrarianprivileges-label:
+
+ProtectSuperLibrarianPrivileges
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ to access/change superlibrarian privileges. Note: A permitted user
+      needs to have the 'permissions' flag (if no superlibrarian)
+
+Default: Allow only superlibrarians
+
+Values:
+
+-  Allow all permitted users
+
+-  Allow only superlibrarians
+
+.. _statisticsfields-label:
+
+StatisticsFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show the following fields from the items database table as columns
+on the statistics tab on the patron record: \_\_\_
+
+Default: location\|itype\|ccode
+
+|image106|
+
+    **Important**
+
+    Enter the values separated by bars (\|)
+
+Description:
+
+-  This preference lets you set which fields will show on the patron
+   record on the :ref:`Statistics tab <statistics-label>`.
+
+.. _tracklastpatronactivity-label:
+
+TrackLastPatronActivity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Attention::
+  
+  This system preference was replaced by
+  :ref:`TrackLastPatronActivityTriggers <tracklastpatronactivitytriggers-label>`
+  from version 23.11.
+
+Asks: \_\_\_ track last patron activity. Everytime a patron will connect,
+the borrowers.lastseen will be updated with the current time.
+
+Default: Don't
+
+Values:
+
+-  Don't
+
+-  Do
+
+.. _tracklastpatronactivitytriggers-label:
+
+TrackLastPatronActivityTriggers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Admonition:: Version note
+
+   This system preference was added from version 23.11. It replaces
+   :ref:`TrackLastPatronActivity <tracklastpatronactivity-label>`.
+
+Asks: Select which patron activities should be tracked to signify patron
+activity. The first time each day that one of these activities occurs,
+borrowers.lastseen will update with the current date and time. \_\_\_
+
+Default: none
+
+Values:
+
+-  [Select all]
+
+-  Checking out an item
+
+-  Connection to Koha via SIP or ILSDI
+
+-  Login
+
+-  Places an article request
+
+-  Placing a hold on an item
+
+-  Renewing an item
+
+-  Returning an item
+
+Description:
+
+-  This system preference allows libraries to decide which action triggers an
+   update of the patron's "Date last seen".
+
+   -  Checking out an item: date last seen is updated when staff
+      :ref:`checks out an item to the patron <check-out-(issuing)-label>`.
+
+   -  Connection to Koha via SIP or ILSDI: date last seen is updated when the
+      patron logs into a third-party service using SIP or ILSDI (online
+      resources, for example).
+
+   -  Login: date last seen is updated when
+      :ref:`the patron logs into the OPAC <your-account-label>` or when
+      a staff member logs into the staff interface.
+
+   -  Places an article request: date last seen is updated when the patron
+      places an article request in the OPAC, or when a staff member
+      :ref:`places an article request in the staff interface <placing-article-requests-label>`
+      on behalf of the patron.
+
+   -  Renewing an item: date last seen is updated either when
+      :ref:`staff renews a checked out item for the patron <renewing-label>`, or
+      :ref:`the patron renews their checkout through their OPAC account <your-summary-label>`.
+
+   -  Returning an item: date last seen is updated when
+      :ref:`staff checks in an item <check-in-(returning)-label>` for the patron.
+
+-  If no activities are selected, patron activity is not tracked and the
+   borrowers.lastseen field is not updated.
+
+.. _usedischarge-label:
+
+useDischarge
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ librarians to discharge borrowers and borrowers to request
+a discharge.
+
+Default: Don't allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  Enabling this system preference will add the possibility of
+   :ref:`emitting a discharge from the patron record <patron-discharges-label>`
+   and :ref:`requesting a discharge from the OPAC <ask-for-a-discharge-label>`.
+
+-  A discharge is a certificate that says the patron has no current
+   checkouts and no holds.
+
+.. _patrons-membership-expiry-prefs-label:
+
+Membership expiry
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _borrowerrenewalperiodbase-label:
+
+BorrowerRenewalPeriodBase
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When renewing borrowers, base the new expiry date on \_\_\_
+
+Default: current date
+
+Values:
+
+-  current date.
+
+-  current membership expiry date.
+
+Description:
+
+-  This preference controls what the patron's new expiration date will
+   be when you :ref:`renew their card <renew-patron-account-label>`. Using 
+   the 'current date' will add the subscription period to today's date when 
+   calculating the new expiration date. Using 'current membership expiry date' 
+   will add the subscription period to the old expiration date for the patron 
+   when renewing their account.
+
+.. _membershipexpirydaysnotice-label:
+
+MembershipExpiryDaysNotice
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Send an account expiration notice when a patron's card will expire
+in \_\_\_ days.
+
+Description:
+
+-  If you would like to notify patrons that their accounts are about to
+   expire then you can enter a number of days before expiration in this
+   preference. The notice text can be customized in the :ref:`Notices and
+   slips <notices-and-slips-label>` tool, the letter code is MEMBERSHIP\_EXPIRY.
+
+.. Important::
+
+   You will need to enable the
+   :ref:`membership expiry cron job <cron-notify-patrons-of-expiration-label>`
+   for this notice to be sent.
+
+.. _notifyborrowerdeparture-label:
+
+NotifyBorrowerDeparture
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show a notice that a patron is about to expire \_\_\_ days
+beforehand.
+
+Default: 30
+
+Description:
+
+-  When the patron attempts to check out materials, a warning will
+   appear in the check out screen of the staff client telling the
+   librarian that the patron's account is about to expire.
+
+    **Important**
+
+    This notice will appear on the patron's record in the staff client.
+
+.. _patrons-notices-prefs-label:
+
+Notices and notifications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _autoemailnewuser-label:
+
+AutoEmailNewUser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ an email to newly created patrons.
+
+Default: Don't send
+
+Values:
+
+-  Don't send
+
+-  Send
+
+Description:
+
+-  This system preference determines if library users are sent a welcome email 
+
+-  The notice used is the WELCOME, it can be edited in the 
+   :ref:`notices and slips<notices-and-slips-label>`
+
+-  The welcome notice is sent to the email address specified in the
+   :ref:`EmailFieldPrimary <emailfieldprimary-label>` system preference.
+
+.. _autorenewalnotices-label:
+
+AutoRenewalNotices
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Send automatic renewal notices: \_\_\_
+
+Default: (Deprecated) according to --send-notices cron switch
+
+Values:
+
+-  (Deprecated) according to --send-notices cron switch
+
+-  never
+
+-  according to patron messaging preferences
+
+Description:
+
+-  This system preference determines whether automatic renewal notices are sent
+   to patrons to inform them their checkouts have been renewed.
+
+   .. Note::
+
+      The notice sent is based on the AUTO\_RENEWALS or AUTO\_RENEWALS\_DGST
+      templates. The content of these notifications can be customized in the
+      :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _emailfieldprecedence-label:
+
+EmailFieldPrecedence
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When :ref:`EmailFieldPrimary <emailfieldprimary-label>` is set to 'first
+valid', check the patron email address fields in the following order and use
+the first valid email address found: \_\_\_
+
+Default: email\|emailpro\|B_email
+
+Values: any database field from the borrowers table, separated by pipes (\|).
+
+Description:
+
+-  This system preference is used to force the order in which email addresses
+   are checked when the :ref:`EmailFieldPrimary <emailfieldprimary-label>`
+   system preference is set to 'first valid'.
+
+-  Any field from the borrowers table in the database can be used, as long as
+   it contains an email address or is empty. Find the database columns in the
+   database schema: https://schema.koha-community.org/
+
+.. _emailfieldprimary-label:
+
+EmailFieldPrimary
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the patron's \_\_\_ for sending out email notices.
+
+Default: first valid email address
+
+Values:
+
+-  alternate email
+
+-  cardnumber
+
+-  primary email
+
+-  secondary email
+
+-  first valid email address
+
+Description:
+
+-  If you choose 'first valid' as the value for this system preference,
+   the system will check the email fields in the order specified in the
+   :ref:`EmailFieldPrecedence <emailfieldprecedence-label>` system preference.
+   Otherwise, the system will use the email address you specify.
+
+-  This is used for all email notices, including
+   :ref:`welcome messages <autoemailnewuser-label>`),
+   :ref:`overdue notices <overdue-notice/status-triggers-label>`, and
+   :ref:`advance notices <enhancedmessagingpreferences-label>`, among others.
+
+.. _enhancedmessagingpreferences-label:
+
+EnhancedMessagingPreferences
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ staff to manage which notices patrons will receive and when
+they will receive them.
+
+Default: Allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+    **Important**
+
+    This only applies to certain kinds of notices, overdue notices will
+    be sent based on the :ref:`library's rules <overdue-notice/status-triggers-label>`, 
+    not the patron's choice.
+
+    **Note**
+
+    To manage if patrons have also access to these settings, use
+    :ref:`EnhancedMessagingPreferencesOPAC <EnhancedMessagingPreferencesOPAC-label>`.
+
+Description:
+
+-  These messages are in addition to the overdue notices that the
+   library sends. The difference between these notices and overdues is
+   that the patron can opt-in and out of these. Setting this preference
+   to 'Allow' will allow staff to choose for patrons to receive any one
+   of the following messages:
+
+   -  Item checkout: A notice that lists all the of the items the
+      patron has just checked out and/or renewed, this is an electronic
+      form of the checkout receipt
+
+   -  Item due: A notice on the day and item is due back at the library
+
+   -  Hold filled: A notice when you have confirmed the hold is waiting
+      for the patron
+
+   -  Item checkin: A notice that lists all the of the items the patron
+      has just checked in
+
+   -  Advanced notice: A notice in advance of the patron's items being
+      due (staff can choose the number of days in advance)
+
+.. _enhancedmessagingpreferencesopac-label:
+
+EnhancedMessagingPreferencesOPAC
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patron messaging setting on the OPAC
+
+Default: Show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+    **Important**
+
+    :ref:`EnhancedMessagingPreferences <EnhancedMessagingPreferences-label>`
+    must be enabled for messaging options to show in the OPAC
+
+Description:
+
+-  These messages are in addition to the overdue notices that the
+   library sends. The difference between these notices and overdues is
+   that the patron can opt-in and out of these. Setting this preference
+   to 'Allow' will allow patrons to choose to receive any one of the
+   following messages:
+
+   -  Item checkout: A notice that lists all the of the items the
+      patron has just checked out and/or renewed, this is an electronic
+      form of the checkout receipt
+
+   -  Item due: A notice on the day and item is due back at the library
+
+   -  Hold filled: A notice when you have confirmed the hold is waiting
+      for the patron
+
+   -  Item checkin: A notice that lists all the of the items the patron
+      has just checked in
+
+   -  Advanced notice: A notice in advance of the patron's items being
+      due (The patron can choose the number of days in advance)
+
+.. _fallbacktosmsifnoemail-label:
+
+FallbackToSMSIfNoEmail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ Send purchase suggestion messages by SMS if no patron email is 
+defined.
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  This system preference only applies to notices related to suggestions. If a 
+   patron has no email address and has an SMS alert number, the suggestions 
+   notices will be sent to their SMS number.
+
+.. _notifypasswordchange-label:
+
+NotifyPasswordChange
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patrons whenever their password is changed.
+
+Default: Don't notify
+
+Values:
+
+-  Don't notify
+
+-  Notify
+
+Description:
+
+-  This system preference is used to send a notification to a patron whose
+   password has been changed, either
+   :ref:`changing the password in the patron's account in the staff interface <editing-patrons-label>`,
+   :ref:`resetting the password from the OPAC <resetting-your-password-label>`,
+   or :ref:`changing the password through the OPAC <change-your-password-label>`.
+
+-  The notification sent is based on the PASSWORD\_CHANGE template. It can be
+   customized in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _smssenddriver-label:
+
+SMSSendDriver
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the SMS::Send:: \_\_\_ driver to send SMS messages.
+
+.. Note::
+
+    This may not work with all providers.
+
+.. Important::
+
+    Please refer to your national laws concerning the sending of bulk
+    SMS messages before enabling this feature.
+
+Description:
+
+-  There are two options for using SMS in Koha. You can use the Email
+   protocol for free by entering 'Email' as the SMSSendDriver or you can
+   pay for a SMS driver. Some examples of values for the driver are:
+
+   -  SMS::Send::Us::Ipipi
+
+   -  SMS::Send::US::TMobile
+
+   -  SMS::Send::US::Verizon
+
+   -  SMS::Send::IN::Unicel
+
+   Additional values can be found here:
+   http://search.cpan.org/search?query=sms%3A%3Asend&mode=all
+
+.. Note::
+
+   Many mobile providers have deprecated support for the SMS::Send::Email feature. It is not recommended for use unless you have a dedicated SMS to Email gateway. 
+
+.. Important::
+
+   Only drivers available as Perl modules will work in this
+       preference, so make sure a Perl module is available before
+       choosing an SMS service.
+
+   Once a driver is entered in the preference an option will appear in
+   the staff client and the OPAC on the patron messaging form to choose
+   to receive messages as SMS
+
+   |image105|
+
+    **Important**
+
+    You must allow
+    :ref:`EnhancedMessagingPreferences <EnhancedMessagingPreferences-label>` for
+    this to work.
+
+.. _smssenduserdetails-label:
+
+SMSSendUsername, SMSSendPassword, and EmailSMSSendDriverFromAddress
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Define a username/login \_\_\_ and a password \_\_\_. Override
+from address with \_\_\_ for emails sent using "Email" send driver.
+
+Description:
+
+-  Some SMS gateway providers require username and password credentials
+   and these can be entered here. Additionally, one specific email address
+   may be required as sender (from address) for all emails sent by the
+   Email SMS send driver.
+
+.. _talkingtechitivaphonenotification-label:
+
+TalkingTechItivaPhoneNotification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patron phone notifications using Talking Tech i-tiva
+(overdue notices, advance notices and holds notices are currently supported).
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  To learn more about setting up this third party product view the
+   :ref:`Talking Tech <talking-tech-label>` chapter.
+
+    **Important**
+
+    Requires that you have
+    :ref:`EnhancedMessagingPreferences <EnhancedMessagingPreferences-label>` set
+    to Allow to use.
+
+.. _useemailreceipts-label:
+
+UseEmailReceipts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ email receipts to patrons for payments and writeoffs.
+
+Default: Don't send
+
+Values:
+
+-  Don't send
+
+-  Send
+
+Description:
+
+-  If set to 'Send', Koha will send emails to the patrons for each
+   payment or writeoff done in their account.
+
+     **Note**
+
+     -  The letters used are ACCOUNT\_PAYMENT and ACCOUNT\_WRITEOFF
+
+     -  You can edit them in the :ref:`Notices & slips <notices-and-slips-label>` tool.
+
+.. _patrons-patron-forms-prefs-label:
+
+Patron forms
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _automembernum-label:
+
+autoMemberNum
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ default the card number field on the patron addition screen
+to the next available card number
+
+Default: Do
+
+Values:
+
+-  Do
+
+   -  If the largest currently used card number is 26345000012941, then
+      this field will default to 26345000012942 for the next patron
+
+-  Don't
+
+Description:
+
+-  This preference determines if the patron's barcode is automatically
+   calculated. This prevents the person setting up the library card
+   account from having to assign a number to the new card. If set to
+   'Do' the system will calculate a new patron barcode by adding 1 to
+   the maximum barcode already present in the database.
+
+.. _borrowermandatoryfield-label:
+
+BorrowerMandatoryField
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following database columns must be filled in on the patron
+entry screen: \_\_\_
+
+Default: surname\|cardnumber
+
+Description:
+
+-  This system preference enables the system administrator to choose which
+   fields staff is required to fill in when creating or editing patron accounts.
+
+-  This ensures that basic information is included in each patron record. If a
+   staff member leaves one of the required fields blank, an error message will
+   appear and the account will not be created or saved.
+
+.. Note::
+
+   For help with field names, ask your system administrator or `view the
+   database structure <http://schema.koha-community.org/>`__
+   associated with the borrowers table.
+
+.. Note::
+
+   If either :ref:`PatronQuickAddFields <PatronQuickAddFields-label>` or 
+   :ref:`BorrowerMandatoryField <BorrowerMandatoryField-label>`
+   (or both) is set, a button labeled 
+   :ref:`"Quick add new patron"<quick-add-patron-label>` will be displayed
+   in the :ref:`patrons toolbar <patrons-label>`.
+
+.. _borrowerstitles-label:
+
+BorrowersTitles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Borrowers can have the following titles \_\_\_
+
+Default: Mr\|Mrs\|Miss\|Ms
+
+Description:
+
+-  This preference allows the staff to choose the titles that can be
+   assigned to patrons. The choices present as a drop down list when
+   creating a patron record.
+
+    **Important**
+
+    Input multiple choices separated by \|
+
+.. _borrowerunwantedfield-label:
+
+BorrowerUnwantedField
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following database columns will not appear on the patron entry
+screen: \_\_\_
+
+Description:
+
+-  This system preference enables the system administrator to choose which
+   fields staff doesn't need to see on the patron entry form.
+
+.. Note::
+
+   For help with field names, ask your system administrator or `view the
+   database structure <http://schema.koha-community.org/>`__
+   associated with the borrowers table.
+
+.. _cardnumberlength-label:
+
+CardnumberLength
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Card numbers for patrons must be \_\_\_ characters long.
+
+Description:
+
+-  The length can be a single number to specify an exact length, a range
+   separated by a comma (i.e., 'Min,Max'), or a maximum with no minimum
+   (i.e., ^,Max'). If 'cardnumber' is included in the
+   :ref:`BorrowerMandatoryField <BorrowerMandatoryField-label>` list, the
+   minimum length, if not specified here, defaults to one.
+
+.. _collapsefieldspatronaddform-label:
+
+CollapseFieldsPatronAddForm
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When adding new patrons or editing existing patrons, collapse the 
+following fields from the full form (can still be expanded later)
+
+Values:
+
+-  Additional attributes and identifiers
+
+-  Alternate address
+
+-  Alternate contact
+
+-  Contact information
+
+-  Guarantor information
+
+-  Housebound roles
+
+-  Library management
+
+-  Library setup
+
+-  Main address
+
+-  OPAC/Staff login
+
+-  Organization/Patron identity
+
+-  Patron account flags (existing patrons)
+
+-  Patron messaging preferences
+
+-  Patron restrictions (existing patrons)
+
+Description:
+
+-  This system preference allows you to temporarily hide sections from the 
+   patron add form and the patron editing form. The sections will be collapsed 
+   and staff will be able to expand them if needed.
+
+-  If you would rather completely hide sections, without the possibility of 
+   expanding them, enter the field names in :ref:`BorrowerUnwantedField <BorrowerUnwantedField-label>`.
+
+.. _patronduplicatematchingaddfields-label:
+
+PatronDuplicateMatchingAddFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following database columns: \_\_\_ will be used to detect possible 
+duplicates when adding a new patron.
+
+Default: surname\|firstname\|dateofbirth
+
+Description:
+
+-  This system preference allows you to choose which fields will be used to 
+   detect duplicate patrons.
+
+
+.. _patronquickaddfields-label:
+
+PatronQuickAddFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following database columns \_\_\_ will be added to the patron
+quick add form when entering a new patron. Displays only mandatory fields
+and fields specified here. If applicable, the guarantor form will be shown
+as well, individual fields in that form will be ignored.
+
+Default: blank
+
+Description:
+
+-  This system preference can be used to add fields to the
+   :ref:`"Quick add new patron" form<quick-add-patron-label>`.
+
+-  The :ref:`"Quick add new patron" form<quick-add-patron-label>` only shows
+   fields specified in this system preference and in 
+   :ref:`BorrowerMandatoryField <borrowermandatoryfield-label>`
+
+.. Note::
+
+   For help with field names, ask your system administrator or `view the
+   database structure <http://schema.koha-community.org/>`__
+   associated with the borrowers table.
+
+.. Note::
+
+   If either :ref:`PatronQuickAddFields <PatronQuickAddFields-label>` or 
+   :ref:`BorrowerMandatoryField <BorrowerMandatoryField-label>`
+   (or both) is set, a button labeled 
+   :ref:`"Quick add new patron"<quick-add-patron-label>` will be displayed
+   in the :ref:`patrons toolbar <patrons-label>`.
+
+.. _uppercasesurnames-label:
+
+uppercasesurnames
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ store and display surnames (last names) in upper case.
+
+Default: Don't
+
+Values:
+
+-  Do
+
+-  Don't
+
+.. _patrons-patron-relationships-prefs-label:
+
+Patron relationships
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _allowstafftosetcheckoutsvisibilityforguarantor-label:
+
+AllowStaffToSetCheckoutsVisibilityForGuarantor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ staff to set the ability for a patron's checkouts to be
+viewed by linked patrons in the OPAC.
+
+Default: Don't allow
+
+Values:
+
+-  Don't allow
+
+-  Allow
+
+Description:
+
+-  This system preference controls whether the staff can see the option to show 
+   the checkouts to linked patrons in the OPAC.
+
+   |image1472|
+
+.. _allowstafftosetfinesvisibilityforguarantor-label:
+
+AllowStaffToSetFinesVisibilityForGuarantor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ staff to set the ability for a patron's fines to be
+viewed by linked patrons in the OPAC.
+
+Default: Don't allow
+
+Values:
+
+-  Don't allow
+
+-  Allow
+
+Description:
+
+-  This system preference controls whether the staff can see the option to show 
+   the fines to linked patrons in the OPAC.
+
+   |image1472|
+
+.. _borrowerrelationship-label:
+
+borrowerRelationship
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Guarantors can be the following of those they guarantee \_\_\_
+
+Default: father\|mother
+
+Description:
+
+-  This preference enables the system administrator to define valid
+   relationships between a guarantor (usually a parent) and a guarantee
+   (usually a child). Defining values for this field does not make the
+   guarantor field required when adding a guarantee type patron. This
+   preference creates a drop down list identifying the relationship of
+   the guarantor to the guarantee. To disable the ability to add
+   children types in Koha you can leave this field blank.
+
+    **Important**
+
+    Input multiple choices separated by \|
+
+.. _prefillguaranteefield-label:
+
+PrefillGuaranteeField
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When adding a guarantee to a guarantor patron fill the following fields 
+in the guarantee's member entry form from the guarantor's record: \_\_\_
+
+Default:
+
+-  Contact - Primary email
+
+-  Contact - Primary phone
+
+-  Main address - Address
+
+-  Main address - City
+
+-  Main address - Country
+
+-  Main address - State
+
+-  Main address - ZIP/Postal code
+
+-  Main address - street number
+
+Description:
+
+-  This system preference is used to copy information from a guarantor account 
+   to a guarantee account when using the 'Add guarantee' button
+
+.. _patronsprivacy-label:
+
+Privacy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _privacypolicyconsent-label:
+
+PrivacyPolicyConsent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Set data privacy policy consent to \_\_\_
+
+Default: Disabled
+
+Values:
+
+- Disabled
+
+- Enforced
+
+- Permissive
+
+Description:
+
+-  This system preference makes a privacy policy consent form appear on the OPAC
+   when a patron attempts to login. This can be used for GDPR or any other
+   legal requirement concerning obtaining user consent for data collection.
+
+-  If this system preference is set to 'Enforced', when a patron attempts to
+   log into the OPAC a privacy policy consent form will be presented to them.
+   The patron will have to provide consent to the library's privacy policy before
+   they can gain access to their account details. If the patron does not consent
+   to the privacy policy they will be logged out of their account.
+
+-  If this system preference is set to 'Permissive', the patron will see the
+   privacy policy consent form, but they will not be required to give consent to
+   access their patron account.
+
+-  If this system preference is set to 'Disabled', no privacy policy consent
+   form will appear when a patron logs into the OPAC.
+
+-  When set to 'Enforced' or 'Permissive', :ref:`PrivacyPolicyURL <privacy-policy-url-label>`
+   should contain a URL to the privacy policy.
+
+.. _privacy-policy-url-label:
+
+PrivacyPolicyURL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the following URL \_\_\_ to refer to your local privacy policy in
+messages about privacy and data protection.
+
+Default: blank
+
+Description:
+
+-  This system preference is used when
+   :ref:`PrivacyPolicyConsent <privacypolicyconsent-label>` is set to either
+   'Enforced' or 'Permissive'. It will add a link to your privacy policy to which
+   the patrons must consent.
+
+.. Warning::
+
+   If you enforce privacy policy, make sure that this page is not blocked.
+
+.. _unsubscribereflectiondelay-label:
+
+UnsubscribeReflectionDelay, PatronAnonymizeDelay and PatronRemovalDelay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Lock/expire patrons that submitted an unsubscribe request (refused consent) 
+after \_\_\_ days, anonymize locked/expired accounts after \_\_\_ days and 
+remove anonymized patron accounts after \_\_\_ days.
+
+Description:
+
+-  This system preference is used to purge accounts of patrons who have opted 
+   out/refused consent in the privacy policy consent form (see the
+   :ref:`PrivacyPolicy <privacypolicyconsent-label>` system preference).
+
+-  The first box is the number of days after which an opt-out patron's account 
+   should be locked (equivalent of having entered the wrong password too many 
+   times)
+
+-  The second box is the number of days after which locked account should be 
+   anonymized 
+
+-  The third box is the number of days after which anonymized accounts are 
+   deleted
+
+.. _patrons-security-prefs-label:
+
+Security
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _enableexpiredpasswordreset-label:
+
+EnableExpiredPasswordReset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the ability for patrons to directly reset their password when it
+is expired.
+
+Default: Don't enable
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Description:
+
+-  When using the password expiry functionality, patrons must reset their
+   password once it is expired. By default, this is done through email, similarly
+   to the "Forgot your password?" functionality.
+
+-  This system preference lets patrons reset their password directly.
+
+   |passwordreset|
+
+.. _failedloginattempts-label:
+
+FailedLoginAttempts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Block a patron's account if it reaches \_\_\_ failed login attempts.
+
+Default: blank
+
+Description:
+
+-  This is used to block a patron's account after they entered the wrong password 
+   too many times
+
+.. _minpasswordlength-label:
+
+minPasswordLength
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Login passwords for staff and patrons must be at least \_\_\_
+characters long.
+
+Default: 8
+
+.. Warning ::
+
+    This applies to both the staff login and the patron OPAC login.
+
+.. Note ::
+
+   Password length can also be set by 
+   :ref:`patron category<patron-categories-label>`.
+
+.. _pseudonymization-prefs:
+
+Pseudonymization, PseudonymizationPatronFields and PseudonymizationTransactionFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ pseudonymization to comply with data privacy policies and
+regulations like GDPR for managing personal information. Patrons and transactions
+will be copied to a separate table for statistics purpose.
+Use the following fields for patrons: \_\_\_
+And the following fields for the transactions: \_\_\_
+
+Pseudonymization values:
+
+-  Disable
+
+-  Enable
+
+Pseudonymization default: Disable
+
+PseudonymizationPatronFields values:
+
+-  [Select all]
+
+-  City
+
+-  Country
+
+-  Date the patron was added to Koha
+
+-  Patron's category
+
+-  Patron's gender
+
+-  Patron's library
+
+-  Patron's title
+
+-  Sort1
+
+-  Sort2
+
+-  State
+
+-  Zipcode
+
+PseudonymizationPatronFields default: none selected
+
+PseudonymizationTransactionFields values:
+
+-  [Select all]
+
+-  Collection
+
+-  Date and time of the transaction
+
+-  Holding library
+
+-  Home library
+
+-  Item type
+
+-  Item's callnumber
+
+-  Itemnumber
+
+-  Library where the transaction occurred
+
+-  Location
+
+-  Transaction type
+
+PseudonymizationTransactionFields default: none selected
+
+Description:
+
+-  These system preferences add a way to pseudonymize patron data while keeping useful transaction information for reporting. Pseudonymization can be part of the library's security and data protection practices, enabling the librarians to shorten the time they retain personal data in other Koha tables.
+
+-  Pseudonymized data is stored in database tables pseudonymized_transactions (for transactions and patron data) and pseudonymized_borrower_attributes (for patron attributes).
+
+-  No direct identifiers for the patron are recorded; the pseudonymized_transactions table uses an encrypted version of the borrowernumber.
+
+-  After enabling the Pseudonymization system preference, edit the :ref:`patron attribute types <patron-attribute-types-label>` you want to record in the pseudonymized_borrower_attributes table. Mark those attributes as "Keep for pseudonymization".
+
+-  When Pseudonymization is enabled, data from fields selected in PseudonymizationPatronFields and PseudonymizationTransactionFields is recorded in the pseudonymized_transactions and pseudonymized_borrower_attributes tables. Entries are added for each new transaction (checkout, checkin, renew, on-site checkout). This is on top of transactions data being recorded in the usual database tables, e.g., issues and statistics.
+
+-  Values in the pseudonymization tables are recorded "as they are" at the time of the transaction. These tables are not affected by the deletion of patrons or items.
+
+-  Older entries in the pseudonymization tables can be deleted using the :ref:`clean up database script<cron-clean-up-database-label>`.
+
+.. Note ::
+
+	Data is not retrospectively added to the tables: only new transactions performed after Pseudonymization is enabled are recorded.
+	
+.. Warning ::
+
+   For pseudonymization to work, :ref:`Bcrypt_settings <bcrypt-settings-faq>` must be filled in the Koha configuration file.
+
+.. _requirestrongpassword-label:
+
+RequireStrongPassword
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ a strong password for staff and patrons
+
+Default: Require
+
+Values:
+
+-  Don't require
+
+-  Require
+
+Description:
+
+-  If set to 'require' this system preference will require patron and staff 
+   passwords to contain at least one digit, one lowercase and one uppercase.
+
+.. Note ::
+
+   Password strength can also be set by 
+   :ref:`patron category<patron-categories-label>`.

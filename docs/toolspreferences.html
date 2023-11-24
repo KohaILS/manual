@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>工具 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="網頁服務" href="webservicespreferences.html" />
+    <link rel="prev" title="館員介面" href="staffclientpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#barcodes">條碼</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#barcodeseparators">BarcodeSeparators</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-item">批次館藏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#maxitemstodisplayforbatchdel">MaxItemsToDisplayForBatchDel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxitemstodisplayforbatchmod">MaxItemsToDisplayForBatchMod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxitemstoprocessforbatchmod">MaxItemsToProcessForBatchMod</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#news">新聞</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#additionalcontentseditor">AdditionalContentsEditor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#newsauthordisplay">NewsAuthorDisplay</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-cards">Patron cards</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#imagelimit">ImageLimit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reports">報表</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#numsavedreports">NumSavedReports</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#upload">上傳</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uploadpurgetemporaryfilesdays">UploadPurgeTemporaryFilesDays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">工具</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/toolspreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="staffclientpreferences.html" class="btn btn-neutral float-left" title="館員介面" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="webservicespreferences.html" class="btn btn-neutral float-right" title="網頁服務" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tools">
+<span id="tools-system-preferences-label"></span><h1>工具<a class="headerlink" href="#tools" title="此标题的永久链接"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt; Tools</p>
+<section id="barcodes">
+<span id="barcodes-label"></span><h2>條碼<a class="headerlink" href="#barcodes" title="此标题的永久链接"></a></h2>
+<section id="barcodeseparators">
+<span id="barcodeseparators-label"></span><h3>BarcodeSeparators<a class="headerlink" href="#barcodeseparators" title="此标题的永久链接"></a></h3>
+<p>詢問：分隔條碼用以下的分隔符號 ___在批次館藏修改和庫存。</p>
+<p>預設值：\s\r\n</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>從 <a class="reference internal" href="cataloging.html#inventory-tool-label"><span class="std std-ref">登入工具</span></a> 或 <a class="reference internal" href="cataloging.html#batch-item-modification-label"><span class="std std-ref">批次館藏編修工具</span></a> 匯入條碼檔時，可以選擇區隔條碼的字元。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>您必需使用正規表達式代碼於這些字符中。</p>
+<ul class="simple">
+<li><p>\S 代表空格</p></li>
+<li><p>\r 表示回車符</p></li>
+<li><p>\n 用於換行</p></li>
+<li><p>\t is used for a tab</p></li>
+</ul>
+<p>請確認您透過在其他字符前面加上反斜線來避免其他字符</p>
+<ul class="simple">
+<li><p>\. 表示一點</p></li>
+<li><p>\\ 表示反斜線</p></li>
+<li><p>\- 表示連字號</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="batch-item">
+<span id="batch-item-label"></span><h2>批次館藏<a class="headerlink" href="#batch-item" title="此标题的永久链接"></a></h2>
+<p>這些偏好指向 <a class="reference internal" href="cataloging.html#batch-item-modification-label"><span class="std std-ref">批次館藏修改</span></a> 與 <a class="reference internal" href="cataloging.html#batch-item-deletion-label"><span class="std std-ref">批次刪除館藏</span></a> 工具。</p>
+<section id="maxitemstodisplayforbatchdel">
+<span id="maxitemstodisplayforbatchdel-label"></span><h3>MaxItemsToDisplayForBatchDel<a class="headerlink" href="#maxitemstodisplayforbatchdel" title="此标题的永久链接"></a></h3>
+<p>詢問：批次刪除最多 ___ 筆館藏。</p>
+<p>預設值：1000</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在 <a class="reference internal" href="cataloging.html#batch-item-deletion-label"><span class="std std-ref">批次刪除館藏工具</span></a> 裡禁止顯示超過此設定的館藏量，但可以刪除超過此設定的館藏。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>顯示大量館藏可能會減慢顯示速度。</p>
+</div>
+</section>
+<section id="maxitemstodisplayforbatchmod">
+<span id="maxitemstodisplayforbatchmod-label"></span><h3>MaxItemsToDisplayForBatchMod<a class="headerlink" href="#maxitemstodisplayforbatchmod" title="此标题的永久链接"></a></h3>
+<p>詢問：顯示修改或刪除最多 ___ 筆館藏。</p>
+<p>預設值：1000</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>In the <a class="reference internal" href="cataloging.html#batch-item-modification-label"><span class="std std-ref">batch item modification tool</span></a>
+this will prevent the display of more than the items you entered in this
+preference, but you will be able to modify more than the number you
+enter here (see <a class="reference internal" href="#maxitemsforbatchmod-label"><span class="std std-ref">MaxItemsToProcessForBatchMod</span></a>).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>顯示大量館藏可能會減慢顯示速度。</p>
+</div>
+</section>
+<section id="maxitemstoprocessforbatchmod">
+<span id="maxitemsforbatchmod-label"></span><h3>MaxItemsToProcessForBatchMod<a class="headerlink" href="#maxitemstoprocessforbatchmod" title="此标题的永久链接"></a></h3>
+<p>詢問：批次修改或刪除最多 ___ 筆館藏。</p>
+<p>預設值：1000</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此 <a class="reference internal" href="cataloging.html#batch-item-modification-label"><span class="std std-ref">批次館藏修改工具</span></a> 偏好將避免在此編輯多個數字。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>處理大量館藏可能會減慢進度，甚至可能會超時。</p>
+</div>
+</section>
+</section>
+<section id="news">
+<span id="news-system-preferences-label"></span><h2>新聞<a class="headerlink" href="#news" title="此标题的永久链接"></a></h2>
+<section id="additionalcontentseditor">
+<span id="additionalcontentseditor-label"></span><h3>AdditionalContentsEditor<a class="headerlink" href="#additionalcontentseditor" title="此标题的永久链接"></a></h3>
+<p>詢問：預設編輯附加內容和新聞館藏</p>
+<p>預設值：WYSIWYG 編輯器 (TinyMCE)</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>文字編輯器 (CodeMirror)</p></li>
+<li><p>WYSIWYG 編輯器 (TinyMCE)</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好允許您選擇在 <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">新聞工具</span></a> 和 <a class="reference internal" href="tools.html#html-customizations-label"><span class="std std-ref">HTML 定製化工具</span></a> 中使用哪個編輯器。</p></li>
+<li><p>文字編輯器可讓您直接編寫 HTML。 如果您想更好地控制內容的顯示方式，請使用此選項。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can use CSS id’s and classes in your HTML and format them with the
+<a class="reference internal" href="opacpreferences.html#opacusercss-label"><span class="std std-ref">OPACUserCSS</span></a> or
+<a class="reference internal" href="staffclientpreferences.html#intranetusercss-label"><span class="std std-ref">IntranetUserCSS</span></a> system preferences.</p>
+</div>
+<ul class="simple">
+<li><p>WYSIWYG（你所看到的就是你得到的）編輯器是一個對使用者友善的編輯器，其功能類似於文字處理軟件。如果你對HTML不熟悉，可以使用這個編輯器。</p></li>
+</ul>
+</section>
+<section id="newsauthordisplay">
+<span id="newsauthordisplay-label"></span><h3>NewsAuthorDisplay<a class="headerlink" href="#newsauthordisplay" title="此标题的永久链接"></a></h3>
+<p>詢問：在最新消息顯示著者名：___</p>
+<p>預設值：不用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>OPAC 和員工介面</p></li>
+<li><p>一點也不</p></li>
+<li><p>只限 OPAC</p></li>
+<li><p>僅員工介面</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好允許您選擇是否顯示新聞館藏作者的姓名以及在何處顯示。</p></li>
+</ul>
+</section>
+</section>
+<section id="patron-cards">
+<span id="patron-cards-label"></span><h2>Patron cards<a class="headerlink" href="#patron-cards" title="此标题的永久链接"></a></h2>
+<p>這些偏好與 <a class="reference internal" href="tools.html#patron-card-creator-label"><span class="std std-ref">新增讀者證</span></a> 工具有關。</p>
+<section id="imagelimit">
+<span id="imagelimit-label"></span><h3>ImageLimit<a class="headerlink" href="#imagelimit" title="此标题的永久链接"></a></h3>
+<p>詢問：限制讀者在資料庫內最多儲存 ___ 張照片。</p>
+<p>預設值：5</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好決定了可以在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者卡建立工具 &lt;patron-card-creator-label&gt;`中使用的圖片數量。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>大量影像可能會佔用大量存儲空間。</p>
+</div>
+</section>
+</section>
+<section id="reports">
+<span id="reports-system-preferences-label"></span><h2>報表<a class="headerlink" href="#reports" title="此标题的永久链接"></a></h2>
+<p>這些偏好參考 <a class="reference internal" href="reports.html#reports-label"><span class="std std-ref">報表模組</span></a>。</p>
+<section id="numsavedreports">
+<span id="numsavedreports-label"></span><h3>NumSavedReports<a class="headerlink" href="#numsavedreports" title="此标题的永久链接"></a></h3>
+<p>詢問：預設，在館員介面每頁顯示 ___ 筆結果。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好讓你決定在儲存的報告頁中，每頁應該顯示的報告數量。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>顯示大量報告可能會減慢顯示速度。</p>
+</div>
+</section>
+</section>
+<section id="upload">
+<span id="upload-system-preferences-label"></span><h2>上傳<a class="headerlink" href="#upload" title="此标题的永久链接"></a></h2>
+<section id="uploadpurgetemporaryfilesdays">
+<span id="uploadpurgetemporaryfilesdays-label"></span><h3>UploadPurgeTemporaryFilesDays<a class="headerlink" href="#uploadpurgetemporaryfilesdays" title="此标题的永久链接"></a></h3>
+<p>詢問：自動刪除在 cleanup_database 工作排程內最於 ___ 天的暫存檔。</p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好讓你決定臨時上傳的文件（通過 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>上傳工具 &lt;upload-label&gt;`上傳的文件，沒有任何類別）的儲存時間</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果將此欄位留空，則工作排程作業將不會刪除任何文件。</p>
+<p>另一方面，值為 0 表示 ‘刪除所有臨時文件’。</p>
+</div>
+<ul class="simple">
+<li><p>這個值可以通過清理_資料庫腳本的 –臨時-上傳-天數選項來覆蓋。</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="staffclientpreferences.html" class="btn btn-neutral float-left" title="館員介面" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="webservicespreferences.html" class="btn btn-neutral float-right" title="網頁服務" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

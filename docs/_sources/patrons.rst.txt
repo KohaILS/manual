@@ -1,0 +1,3760 @@
+.. include:: images.rst
+
+.. _patrons-label:
+
+Patrons
+===============================================================================
+
+Before importing or adding patrons be sure to set up your 
+:ref:`patron categories <patron-categories-label>`.
+
+.. _add-a-new-patron-label:
+
+Add a new patron
+-------------------------------------------------------------------------------
+
+Patrons are added by going to the 'Patrons' module.
+
+-  *Get there:* Patrons
+
+Once there you can add a new patron.
+
+-  Click 'New patron'
+
+   |newpatron|
+
+.. Note::
+
+   The fields that appear on the patron add form can be controlled by
+   editing the :ref:`BorrowerUnwantedField <BorrowerUnwantedField-label>`
+   system preference.
+
+.. Note::
+
+   Required fields are defined in the
+   :ref:`BorrowerMandatoryField <BorrowerMandatoryField-label>` system
+   preference
+
+-  First, enter the identifying information regarding your patron
+
+   |patronidentity|
+
+   -  'Salutation' is populated by the
+      :ref:`BorrowersTitles <BorrowersTitles-label>` system preference
+
+      .. Note::
+
+         If you'd like to prevent full names from printing on
+         :ref:`slips <notices-and-slips-label>` and you're not using the Initials or
+         Other name fields for anything else, you can use them for
+         shortened versions of the name to then be printed on the slip.
+
+          For example:
+
+          ::
+
+              Firstname: Nicole C.
+              Surname: Engard
+              Initials: NCE
+
+          Then on the slip you can have it print the
+          <<borrowers.initials>> instead of the full name (NCE).
+
+          Or you could do something like this:
+
+          ::
+
+              Firstname: Nicole
+              Surname: Engard
+              Initials: E
+
+          Then on the slip you can have it print the
+          <<borrowers.initials>>, <<borrowers.firstname>> instead of the
+          full name (E, Nicole).
+
+-  If this patron is a child, you will be asked to attach the child
+   patron to an adult patron (guarantor)
+
+   |addGuarantor|
+
+   .. Note::
+
+      Guarantors can only be attached to patrons whose :ref:`category <patron-categories-label>`
+      has 'Can be guarantee' set to 'Yes'.
+
+   -  If the guarantor is a patron of the library, click 'Add guarantor' to 
+      search your system for an existing patron
+
+      |addGuarantor2|
+
+   -  Click 'Select' to choose the patron
+
+      |addGuarantor3|
+
+   -  The relationships are set using the
+      :ref:`borrowerRelationship <borrowerRelationship-label>` system preference
+
+      |addGuarantor4|
+
+      .. Note::
+
+         It is possible to add more than one guarantor to a patron account
+         (both parents for example).
+
+   -  If the guarantor is not a patron, you can still add their information in 
+      the 'Non-patron guarantor' section.
+
+-  Next enter the main address and contact information
+
+   |addmainaddress|
+
+   .. Note::
+
+      The street type drop-down menu is populated by the ROADTYPE
+      :ref:`authorized values <existing-values-label>`
+
+   |addcontact|
+
+   -  For contact information, note that the primary phone number and primary 
+      email address are the ones that appear on notices and slips printed
+      during circulation (receipts, transfer slips and hold slips). The
+      primary email is also the one that overdue notices and other
+      messages go to.
+
+   -  The 'Main contact method' can be used in reports and for staff to know
+      which method to use first when trying to contact the patron.
+
+-  You can also record an alternate address for each patron. This could be used 
+   in an academic setting to store the patron's home address for example.
+
+   |addaltaddress|
+
+-  Each patron can have an alternate contact. An alternate contact could be a 
+   parent or guardian, for example.
+
+   |addaltcontact|
+
+-  The library management section includes values that are used within
+   the library
+
+   |addlibmanagement|
+
+   -  The card number field is automatically calculated if you have the
+      :ref:`autoMemberNum <autoMemberNum-label>` system preference set that way
+
+      .. Note::
+
+         For a newly installed system, this preference will start at 1 and
+         increment by 1 each time after. To have it start with the starting
+         number of your barcodes, enter the first barcode by hand in the patron
+         record and save the patron. After that, the field will increment that
+         number by 1.
+
+   -  If you accidentally chose the wrong patron category at the
+      beginning you can fix that here
+
+   -  Sort 1 and 2 are used for statistical purposes within your library
+
+      -  You can create drop-down menus for these fields by adding values 
+         in the Bsort1 and Bsort2 :ref:`authorized values categories <existing-values-label>`
+
+   -  'Allow auto-renewal of items' is used to control whether this patron’s
+      checkouts will be renewed according to the circulation rules. If set to
+      ‘Yes’, items for which automatic renewal is enabled in the circulation
+      rules will be automatically renewed. This requires the
+      :ref:`automatic_renewal cronjob <cron-automatic-renewal-label>` to run
+      daily. If set to ‘No’, items for which automatic renewal is enabled in the
+      circulation rules will not be automatically renewed.
+
+   -  Protected: protected patrons cannot be deleted either manually or by batch.
+      Use this for system patrons such as
+      :ref:`statistical patrons <add-a-statistical-patron-label>`,
+      :ref:`SIP2 patrons <sip2-label>`, the
+      :ref:`self checkout user <self-checkout-label>`, or superadmins.
+
+      .. Admonition:: Version
+
+         The 'Protected' option is available from Koha version 23.11.
+
+   -  'Check for previous checkouts' is used to set the patron's personal 
+      preference regarding checking their circulation history to see if they 
+      have borrowed This item in the past. This overrides the setting of the 
+      :ref:`patron category <adding-a-patron-category-label>` and of the 
+      :ref:`CheckPrevCheckout <CheckPrevCheckout-label>` system preference.
+
+-  Next, the library set-up section includes additional library settings
+
+   |addlibsetup|
+
+   -  The registration date will automatically be filled in with today's
+      date
+
+   -  The expiry date will automatically be calculated based on your 
+      :ref:`patron category settings <patron-categories-label>`
+
+   -  The OPAC note is a note for the patron, it will appear in the patron's 
+      online account on the OPAC
+
+      |opacnote|
+
+      .. Note::
+
+         See also :ref:`OPAC messages <opac-messages-label>`
+
+   -  The Circulation note is meant solely for your library staff and
+      will appear when the circulation staff goes to check an item out
+      to the patron
+
+      |circnote|
+
+-  The 'OPAC/Staff interface login' section asks for the username and 
+   password to be used by the patron (or staff member) to log into their 
+   account in the OPAC and for staff to log in to the staff interface.
+
+   -  Staff will only be able to use this login information to log in to
+      the staff interface if they have at least the 
+      :ref:`catalogue permission <patron-permissions-label>`.
+
+-  If you have enabled the housebound module (with the :ref:`HouseboundModule <HouseboundModule-label>` 
+   system preference), you will be able to choose a 
+   :ref:`housebound role <housebound-patrons-label>` for this patron.
+
+   |addhouseboundroles|
+
+-  If you have set :ref:`additional patron attributes <patron-attribute-types-label>` 
+   in the administration module, these will appear next
+
+   |addattributes|
+
+-  Finally, if you have the :ref:`EnhancedMessagingPreferences <EnhancedMessagingPreferences-label>` system 
+   preference set to 'allow,' you can choose the messaging preferences for 
+   this patron.
+
+   |addpatronmsg|
+
+   See the definition of each notice in the 
+   :ref:`advance notices and hold notices <advance-notices-and-hold-notices-label>`
+   section
+
+   .. Warning::
+
+      These preferences will override any you set via the
+      :ref:`patron categories <adding-a-patron-category-label>`
+
+   .. Warning::
+
+      These preferences can be altered by the patron via the OPAC if the
+      :ref:`EnhancedMessagingPreferencesOPAC <EnhancedMessagingPreferencesOPAC-label>`
+      system preference is set to 'show'.
+
+-  Once finished, click 'Save'
+
+If the system suspects this patron is a duplicate of another it will warn you.
+
+|duplicatewarn|
+
+.. Note::
+
+   See the :ref:`PatronDuplicateMatchingAddFIelds <PatronDuplicateMatchingAddFIelds-label>`
+   system preference to see or change which fields are used to detect duplicate
+   patrons. The default is the surname, the firstname and the date of birth.
+
+If you have set a minimum or upper age limit on the patron category and
+are requiring that the birth date be filled in, Koha will warn you if
+the patron you're adding is too old or young for the patron category you
+have selected:
+
+|patronagelimit|
+
+If the patron's :ref:`category <patron-categories-label>` has an enrollment 
+fee, the fee will be charged to the patron's account when the account is 
+created. You can then manage the charge in the patron's :ref:`accounting tab <fines-label>`.
+
+.. _quick-add-patron-label:
+
+Quick add a patron
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your circulation desk is very busy and you want to register patron quickly,
+you can use the 'quick add' feature. It's a shortened version of the add
+patron form with only a couple of necessary fields to fill out.
+
+This feature uses two system preferences: :ref:`BorrowerMandatoryField <BorrowerMandatoryField-label>`
+and :ref:`PatronQuickAddFields <PatronQuickAddFields-label>`. These are the two system preferences that
+control which fields are in the quick add form.
+
+To quick add a patron, go to the Patrons module
+
+-  *Get there:* Patrons
+
+Click on the 'Quick add new patron' button.
+
+You will be asked to choose a patron category.
+
+Then, you will be presented with a shortened form.
+
+|add_patron|
+
+Once the form is filled out, click on 'Save'.
+
+If you need to access the full form, you can click on 'Show full form'
+above the 'Save' button.
+
+.. _add-a-staff-patron-label:
+
+Add a staff patron
+----------------------------------------
+
+All staff members must be entered into Koha as patrons of the 'Staff'
+type. Follow the steps in :ref:`Add a Patron <add-a-new-patron-label>` to add a
+staff member. To give the staff member permissions to access the staff
+client, follow the steps in :ref:`patron permissions <patron-permissions-label>`
+
+    **Important**
+
+    Remember to assign your staff secure usernames and passwords since
+    these will be used to log into the staff client.
+
+.. _add-a-statistical-patron-label:
+
+Add a statistical patron
+----------------------------------------------
+
+One way to track use of in house items is to "check out" the materials
+to a statistical patron. The "check out" process doesn’t check the book
+out, but instead tracks an in house use of the item. To use this method
+for tracking in house use you first will need a :ref:`patron
+category <patron-categories-label>` set up for your statistical patron.
+
+|image420|
+
+Next, you will need to create a new patron of the statistical type.
+
+|add_statistical_patron|
+
+Next, follow the steps put forth in the ':ref:`Add a new
+patron <add-a-new-patron-label>`' section of this manual. Since this patron is
+not a real person, simply fill in the required fields, the correct
+library and nothing else.
+
+To learn about other methods of tracking in house use visit the
+:ref:`tracking inhouse use <tracking-in-house-use-label>` section of this manual.
+
+.. _duplicate-a-patron-label:
+
+Duplicate a patron
+-----------------------------------------
+
+Sometimes when you're adding a new family to your system you don't want
+to type the contact information over and over. Koha allows for you to
+duplicate a patron and change only the parts you want to (or need to)
+change.
+
+-  Open the patron you want to use as your base (the patron you want to
+   duplicate information from)
+
+-  Click the 'Duplicate' button at the top of their record
+
+   |patronedit|
+
+-  All of the fields with the exception of first name, card number,
+   username and password have been duplicated. Fill in the missing
+   pieces and click 'Save'
+
+   |duplicate|
+
+   -  **Note**
+
+          Clicking in a field that is already populated with data will
+          clear that field of all information (making it easier for you
+          to type in something different)
+
+-  You will be brought to your new patron
+
+   |duplicated_patron|
+
+.. _add-patron-images-label:
+
+Adding patron images
+-------------------------------------------------------------------------------
+
+You can add patron pictures to help identify patrons. To enable this feature,
+you must first set the :ref:`patronimages <patronimages-label>` system
+preference to 'Allow'.
+
+If the preference is set to 'Allow', you will see a placeholder image
+under the patron's name on the left of the screen.
+
+|patronimageempty|
+
+Click the 'Add' button on the placeholder image.
+
+|addpatronimage|
+
+You have the option of either uploading an existing picture from the computer
+or taking a picture with the webcam.
+
+To upload an existing image, click 'Browse' or 'Choose file' to find the image
+on your computer and click 'Upload' to load the image in the patron's file.
+
+.. Warning::
+
+   There is a limit of 100K on the size of the picture uploaded and it
+   is recommended that the image be 200x300 pixels, but smaller images
+   will work as well.
+
+To take a picture with the webcam, click the 'Take photo' button once the webcam
+is facing the patron. The system will take a picture and present it to you for
+review. If you are satisfied, click 'Upload'. If not, click 'Retake photo' to
+take a new picture. You can also download the picture by clicking 'Download
+photo'.
+
+To add patron images in bulk, use the
+:ref:`Upload patron images <upload-patron-images-label>` tool.
+
+.. _editing-patrons-label:
+
+Editing patrons
+-------------------------------------------------------------------------------
+
+Patrons in Koha can be edited using one of many edit buttons.
+
+-  To edit the entire patron record simply click the 'Edit' button at
+   the top of the patron record.
+
+   |patronedit|
+
+-  To edit a specific section of the patron record (for example the
+   'Library use' section) click the 'Edit' button beside the section.
+
+   |libraryusesection|
+
+Edit the patron's file and click 'Save'.
+
+.. _patron-password-label:
+
+Modifying patron passwords
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Patron passwords are not recoverable.
+
+The stars on the patron details page next to the password label are always there
+even if a password isn't set.
+
+If a patron forgets their password, the only option is to reset their password.
+
+This can be done from the staff interface. To change the patron's password,
+click the 'Change password' button.
+
+|patronpassword|
+
+-  Koha cannot display existing passwords as they are encrypted in the database.
+   Leave the field blank to leave password unchanged.
+
+-  This form can automatically generate a random password if you click the link
+   labeled "Click to fill with a randomly generated suggestion. Passwords will
+   be displayed as text."
+
+Changing the password through this form will also update the password expiry
+date, as set in the :ref:`patron category<patron-categories-label>`.
+
+If the :ref:`NotifyPasswordChange <notifypasswordchange-label>` system
+preference is enabled, the patron will receive a notification indicating their
+password was changed.
+
+.. Note::
+
+   The content of this email can be customized with the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. The code of the letter
+   is PASSWORD\_CHANGE.
+
+If the :ref:`OpacResetPassword <opacresetpassword-label>` system preference is
+enabled, or if the :ref:`patron category <patron-categories-label>` allows it,
+you can also send a password reset email to the patron by clicking on 'More' and
+choosing 'Send password reset'.
+
+|moremenu|
+
+This will send a password reset email to the patron, similar to the one sent if
+they click on the :ref:`'Forgot your password?' <resetting-your-password-label>`
+link on the OPAC. However, the reset link is set to expire after 5 days rather
+than 2 days when it is sent this way.
+
+.. Note::
+
+   The content of the email can be customized with the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. The code of the
+   letter is STAFF\_PASSWORD\_RESET.
+
+Only staff members with 'superlibrarian' permissions can see and change the
+password expiry date manually. This date can be changed by clicking the 'Edit'
+button at the top of the patron's record, or the 'Edit' button next to the
+'Library use' section.
+
+.. _add-patron-flags-label:
+
+Adding patron flags
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`Restrictions <patron-restrictions-label>` are used to prevent patrons from
+checking out.
+
+Patrons can also be blocked from checking items out by setting patron flags.
+
+|patronflags|
+
+If you would like your circulation staff to confirm a patron's address before
+checking items out to the patron, set the 'Gone no address' flag. This will
+create a warning when checking out.
+
+|addresswarning|
+
+If the patron reports that they have lost their card you can set the 'Lost card'
+flag to prevent someone else from using that card to check items out.
+
+|lostcardwarning|
+
+If you would like to bar a patron from the library you can add a manual
+restriction.
+
+|addpatronrestriction|
+
+.. Note::
+
+   This is the same as the :ref:`restrictions tab <patron-restrictions-label>`
+   at the bottom of the patrons details page.
+
+.. Note::
+
+   A patron can automatically be restricted with the
+   :ref:`Overdue/notice status triggers <overdue-notice/status-triggers-label>`
+
+If you enter in a date and/or note related to the restriction, you will see that
+in the restricted message as well.
+
+|patronrestrictions-checkout|
+
+.. _internal-messages-label:
+
+Adding notes and messages to a patron record
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can leave notes in a patron record. There are several ways to do this:
+you can either add a circulation note or an internal message. These will not
+show in the OPAC for the patron to see. If you want the patron to see the notes
+and messages, use :ref:`OPAC notes <opac-notes-label>` and
+:ref:`OPAC messages <opac-messages-label>`.
+
+.. _circulation-notes-label:
+
+Circulation notes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Circulation notes are added to the patron's file through the
+:ref:`add patron form<add-a-new-patron-label>` or the
+:ref:`edit patron form <editing-patrons-label>`, in the 'Library set-up'
+section.
+
+|addlibsetup|
+
+In the staff interface, circulation notes will be in the 'Library use' section
+of the patron's file.
+
+|libraryusesection|
+
+.. _circulation-messages-label:
+
+Circulation messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Internal messages are added to the patron's file using the 'Add message' button.
+
+|patronedit|
+
+To leave an internal message, choose "Staff - Internal note" in the 'Add a
+message for' field. Enter your message in the box, or choose a predefined
+message in the drop-down menu.
+
+|internalnote|
+
+.. Note::
+
+   Predefined messages are added in the BOR\_NOTES
+   :ref:`authorized value category <existing-values-label>`
+
+Once saved, the internal message is shown in bold red on the patron's detail
+page in the staff interface, at the top of the page just under the row of action
+buttons.
+
+|internalnote2|
+
+It will also appear on the checkout page, to the right of the checkout box.
+
+|internalnote3|
+
+If you need to edit the message, click the 'Edit' button next to the message,
+edit the text and click 'Save'.
+
+.. _change-child-to-adult-label:
+
+Changing children to adults
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Children patrons do not become adults automatically in Koha unless the
+:ref:`update patron categories <cron-update-patron-categories-label>` cron job
+is running.
+
+To upgrade a child patron to and adult patron category manually go to the 'More'
+menu and choose 'Update child to adult patron'.
+
+|moremenu|
+
+You will then be presented with a pop up window asking which one of your adult
+patron categories this child should be updated to.
+
+|chooseadultcategory|
+
+.. Note::
+
+   This list shows the :ref:`patron categories <patron-categories-label>` that
+   have the category type 'adult'.
+
+.. _renew-patron-account-label:
+
+Renew patron account
+----------------------------------
+
+When renewing a patron account you can either edit the the expiry date
+manually in the patron record or use the 'Renew patron' option from the
+More menu in the toolbar at the top.
+
+|image1393|
+
+Using the latter the new expiry date will be calculated using the
+enrollment period configured for the patron category of the user.
+The system preference :ref:`BorrowerRenewalPeriodBase <BorrowerRenewalPeriodBase-label>` determines if
+the new expiry date will be calculated from the current date or from the
+old expiry date.
+
+One advantage of using the 'Renew patron' option is that it will be logged
+as a membership renewal in the action_logs table and be visible as such
+when using the :ref:`Log viewer <log-viewer-label>` or the
+:ref:`Modificaton log <modification-log-label>` from the patron account.
+
+The renewal date of the patron account will be visible on the details tab.
+
+|image1392|
+
+If the patron is in a :ref:`patron category <patron-categories-label>` with a 
+membership fee, the charge will also be added upon renewal. You can then manage 
+the charge in the patron's :ref:`accounting tab <fines-label>`.
+
+.. _delete-patron-account-label:
+
+Deleting a patron account
+----------------------------------
+
+From the 'More' drop-down, the patron account can be deleted. 
+
+|image1469|
+
+There will be an alert if the patron has checkouts, holds, fines or credits. 
+
+-  If a patron has current checkouts, the deletion will not be possible. 
+
+   |image1470|
+
+-  If a patron has outstanding fines, the deletion will not be possible.
+
+   |image1468|
+
+-  If a patron has unused credits, the option to delete the patron is possible 
+   but there will be a warning.
+
+   |image1471|
+
+-  If a patron has existing holds on their account, the option to delete the 
+   patron is possible. The hold will be cancelled and moved to the old\_reserves 
+   table. 
+
+   |image1462|
+
+-  If a patron has public or shared :ref:`lists <lists-label>`, those will be
+   deleted along with the patron, unless the
+   :ref:`ListOwnershipUponPatronDeletion <listownershipuponpatrondeletion-label>`
+   system preference is set to 'change owner of these lists'.
+
+-  If a patron is protected, the 'Delete' option will be disabled. To delete the
+   patron anyway, :ref:`edit the patron <editing-patrons-label>` and choose
+   'No' under 'Protected' in the 'Library management' section, save, and
+   then delete.
+
+   |deletepatronprotected|
+
+.. _managing-patron-self-edits-label:
+
+Managing patron self edits
+--------------------------------------------------
+
+If you are allowing patrons to edit their accounts via the OPAC with the
+:ref:`OPACPatronDetails <OPACPatronDetails-label>` preference then you will need
+to approve all changes via the staff client before they're applied. If
+there are patron edits awaiting action they will appear on the staff
+client dashboard below the modules list (along with other items awaiting
+action).
+
+|image438|
+
+    **Note**
+
+    Superlibrarians will see modifications for any branch, other staff
+    will only see modifications for patrons who belong to their logged
+    in branch.
+
+When you click the 'Patrons requesting modifications' link you will be
+brought to a list of patrons with requested changes.
+
+|image439|
+
+From here you can 'Approve' and apply the changes to the patron record,
+'Delete' and remove the changes or 'Ignore' and keep the changes pending
+to review later.
+
+If you would like to see the entire patron record you can click the
+'Patron details' links to the right of the buttons. This will open in a
+new tab.
+
+Merging patron records
+-----------------------------------
+
+If you accidentally end up with one patron with two cards it is possible
+to merge their records together so that you don't lose their loan history
+or holds.
+
+-  In the patron list, check the boxes next to the records you want to
+   merge and click on the 'Merge selected patrons' button.
+
+|image1326|
+
+    **Note**
+
+    It is possible to merge more than two records at a time.
+
+-  Select the patron record you want to keep
+
+   |image1327|
+
+
+-  If necessary, click the 'Compare patrons' button to see the differences 
+   between the different accounts.
+
+   |mergepatrons-compare|
+
+-  Click the 'Merge patrons' button.
+
+The checkouts and statistics will be transferred to the right record and
+the other one will be deleted.
+
+|image1328|
+
+.. _patron-permissions-label:
+
+Patron permissions
+-------------------------------------------
+
+Patron permissions are used to allow staff members access to the staff
+client.
+
+    **Important**
+
+    In order for a staff member to log into the staff interface they
+    must have (at the very least) 'catalogue' permissions which allow
+    them to view the staff interface.
+
+.. _setting-patron-permissions-label:
+
+Setting patron permissions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  On the patron record click 'More' and choose 'Set permissions' to alter
+   patron permissions
+
+   |image440|
+
+-  You will be presented with a list of preferences, some of which can
+   be expanded by clicking the 'Show details' link on the right
+   title.
+
+   |image441|
+
+-  In all cases, if the parent permission is checked, the user has all the
+   child permissions. If you want to set permissions on a more granular level,
+   expand the section and only check the permissions you want that user to
+   have.
+
+
+.. _patron-permissions-defined-label:
+
+Patron permissions defined
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Access to all librarian functions (superlibrarian)
+
+      **Note**
+
+      With this selected there is no need to choose any other
+      permissions
+
+-  Check out and check in items (circulate)
+
+   -  Remaining circulation permissions (circulate\_remaining\_permissions)
+
+      -  This permission grants all circulation rights except those covered by
+         permissions listed below
+
+   -  Force checkout if a limitation exists (force\_checkout)
+
+      -  With this permission a staff member will be allowed to override a
+         check out restriction in the following cases:
+
+         -  age restriction
+
+         -  the item is issued to another patron
+
+         -  the item is not for loan
+
+         -  the patron has overdue items
+
+         -  the item is lost
+
+         -  the item is a high demand item
+
+         -  the item is on hold
+
+   -  Mark checkout notes as seen\/not seen (manage\_checkout\_notes)
+
+      -  The permission to manage the checkout notes written by users
+          through the OPAC
+
+   -  Manage curbside pickups (manage\_curbside\_pickups)
+
+      -  The permission to manage patron curbside pickup appointments
+
+   -  Manage restrictions for accounts (manage\_restrictions)
+
+      -  Grants permission to the staff member to lift a restriction that
+         might be on the patron's record
+
+   -  Execute overdue items report (overdues\_report)
+
+      -  The permission to run the overdues reports found under Circulation
+
+   -  Override blocked renewals (override\_renewals)
+
+      -  With this permission, a staff member can override renewals if there
+         is a restriction
+
+      -  Requires that the staff member also has
+         circulate\_remaining\_permissions
+
+-  Staff access, allows viewing the catalogue in staff interface (catalogue)
+   **Required for staff login.**
+
+   .. Important::
+
+      This permission must be given to all staff members to allow them to log
+      into the staff interface
+
+   -  This will allow access to the staff interface, with the possibility of
+
+      -  searching the catalogue (:ref:`simple search <basic-searching-label>`,
+         :ref:`advanced search <advanced-searching-label>` and
+         :ref:`item search <item-searching-label>`)
+
+      -  searching the authorities
+
+      -  viewing the checkout history of a title (no patron information is shown)
+
+      -  :ref:`creating private or public lists <create-a-list-label>`,
+         :ref:`adding items to private lists and public lists <add-to-a-list-label>`,
+         if the public list permission allows it, editing and deleting private
+         lists
+
+      -  using the :ref:`cart <cart-label>`
+
+      -  viewing :ref:`course reserves <course-reserves-label>`
+
+-  Manage Koha system settings (Administration panel) (parameters)
+
+   -  Manage account debit and credit types (manage\_accounts)
+
+      -  This gives access to the :ref:`debit types section <debit-types-label>`
+
+   -  Manage additional fields for baskets or subscriptions (manage\_additional
+      \_fields)
+
+      -  This gives access to the 
+         :ref:`additional fields section <additional-fields-label>`
+
+      -  **Important**
+
+         This permission requires that the staff member also have the 'Edit
+         an existing subscription' permission from the 'Manage serial
+         subscriptions' section and the 'Manage basket and order lines'
+         permission from the 'Acquisition and\/or suggestion management' section
+
+   -  Manage audio alerts (manage\_audio\_alerts)
+
+      - The ability to access the :ref:`audio alerts <audio-alerts-label>`
+        configuration in the administration module.
+
+   -  Manage authorized value categories and authorised values (manage\_auth\_
+      values)
+
+      - The ability to access the :ref:`auhorized values <authorized-values-label>`
+        configuration in the administration module.
+
+   -  Manage background jobs (manage\_background\_jobs)
+
+      -  The ability to access the :ref:`jobs <jobs-administration-label>`
+         management section of the administration module.
+
+   -  Manage circulation rules (manage\_circ\_rules)
+
+      -  The ability to access the :ref:`circulation and fines rules
+         <circulation-and-fines-rules-label>` configuration in the
+         administration module.
+
+   -  Manage circulation rules form any library (manage\_circ\_rules\_from\_
+      any\_libraries)
+
+      -  If not set the logged in user can only edit circulation rules from
+         their own library
+
+      -  The staff member still has to have the 'Manage circulation rules'
+         permission above.
+
+   -  Manage cities and towns (manage\_cities)
+
+      -  The ability to access the :ref:`cities and towns <cities-and-towns-label>`
+         configuration in the administration module.
+
+   -  Manage classification sources and filing rules (manage\_classifications)
+
+      -  The ability to access the :ref:`classification sources
+         <classification-sources-label>` configuration in the administration
+         module.
+
+   -  Manage column configuration (manage\_column\_config)
+
+      -  The ability the access the :ref:`configure columns <column-settings-label>`
+         page in the administration module.
+
+   -  Manage curbside pickups (manage\_curbside\_pickups)
+
+      -  The permission to
+         :ref:`manage curbside pickup slots and parameters<curbside-pickup-configuration-label>`
+         in the administration module.
+
+   -  Manage Did you mean? configuration (manage\_didyoumean)
+
+      -  The ability to access the :ref:`Did you mean? <did-you-mean?-label>`
+         configuration in the administration module.
+
+   -  Manage authentication providers (manage\_identity\_providers)
+
+      -  Grants access to the :ref:`Identity providers <identity-providers-label>`
+         configuration in the administration module.
+
+   -  Manage item circulation alerts (manage\_item\_circ\_alerts)
+
+      -  The ability to access the :ref:`item circulation alerts <item-circulation-alerts-label>`
+         configuration in the administration module.
+
+   -  Manage item search fields (manage\_item\_search\_fields)
+
+      -  The ability to access the :ref:`item search fields <item-search-fields-label>`
+         configuration in the administration module.
+
+   -  Manage item types (manage\_itemtypes)
+
+      -  The ability to access the :ref:`item types <item-types-label>`
+         configuration in the administration module.
+
+   -  Manage keyboard shortcuts for the advanced cataloging editor (manage\_
+      keyboard\_shortcuts)
+
+      -  The ability to access the keyboard shortcuts configuration in the
+         administration module
+
+   -  Manage libraries and library groups (manage\_libraries)
+
+      -  The ability to access the :ref:`libraries <libraries-label>` and
+         :ref:`library groups <library-groups-label>` configuration pages
+         in the administration module.
+
+   -  Manage Mana KB content sharing (manage\_mana)
+
+      -  The ability to access the :ref:`share content with Mana KB
+         <share-with-mana-kb-label>` in the administration module
+
+   -  Manage MARC bibliographic and authority frameworks and test them
+      (manage\_marc\_frameworks)
+
+   -  The ability to access the
+      :ref:`MARC bibliographic framework <marc-bibliographic-frameworks-label>`,
+      :ref:`authority types <authority-types-label>`,
+      :ref:`Koha to MARC mapping <koha-to-marc-mapping-label>`, and
+      :ref:`MARC Bibliographic framework test <marc-bibliographic-framework-test-label>`
+      configuration areas in the administration module.
+
+   -  Manage record matching rules (manage\_matching\_rules)
+
+      -  The ability to access the :ref:`record matching rules <record-matching-rules-label>`
+         configuration in the administration module.
+
+   -  Manage OAI sets (manage\_oai\_sets)
+
+      -  The ability to access the :ref:`OAI sets <oai-sets-configuration-label>`
+         configuration in the administration module.
+
+   -  Manage extended patron attributes (manage\_patron\_attributes)
+
+      -  The ability to access the :ref:`patron attribute types <patron-attribute-types-label>`
+         configuration in the administration module.
+
+   -  Manage patron categories (manage\_patron\_categories)
+
+      -  The ability to access the :ref:`Patron categories <patron-categories-label>`
+         configuration in the administration module.
+
+   -  Manage search engine configuration (manage\_search\_engine\_config)
+
+      -  The ability to access the Search engine configuration in the
+         administration module. Note: This area will only be visible when
+         the :ref:`SearchEngine <SearchEngine-label>` system preference is set to 'Elasticsearch'.
+
+   -  Manage saved search filters (manage\_search\_filters)
+
+      -  The ability to access the
+         :ref:`search filters administration page <search-filter-administration-label>`
+         in the administration module.
+
+   -  Manage Z39.50 and SRU server configuration (manage\_search\_targets)
+
+      -  The ability to access the :ref:`Z39.50/SRU servers <z39.50/sru-servers-label>`
+         configuration in the administration module.
+
+   -  Manage SMS cellular providers (manage\_sms_providers)
+
+      -  The ability to access the :ref:`SMS cellular providers
+         <sms-cellular-providers-label>` configuration in the administration
+         module. Note: This area will only be visible when the
+         :ref:`SMSSendDriver <SMSSendDriver-label>` system preference is set to 'Email'.
+
+   -  Manage SMTP servers (manage\_smtp\_servers)
+
+     -  The ability to access the :ref:`SMTP servers <smtp-servers-label>`
+        section of the administration to add new SMTP servers.
+
+   -  Manage system preferences (manage\_sysprefs)
+
+      -  The ability to access the :ref:`system preferences
+         <administration-system-preferences-label>` in the administration module.
+
+   -  Manage library transfer limits and transport cost matrix (manage\_transfers)
+
+      -  The ability to access the :ref:`library transfer limits <library-transfer-limits-label>`
+         and :ref:`transport cost matrix <transport-cost-matrix-label>`
+         configuration pages in the administration module.
+
+   -  Manage usage statistics settings (manage\_usage\_stats)
+
+      -  The ability to access the :ref:`share your usage statistics <share-anonymous-usage-statistics-label>`
+         configuration in the administration module.
+
+   -  Remaining system parameters permissions (parameters\_remaining\_permissions)
+
+      -  The ability to access all remaining areas in the administration module.
+
+-  Add, modify and view patron information (borrowers)
+
+   -  Add, modify and view patron information (edit\_borrowers)
+
+      -  The ability to access the Patrons module to view patron files,
+         as well as adding new patrons and editing patron files
+
+   -  View patron information from any libraries (view\_borrower\_infos\_from\_any\_libraries)
+
+   -  If not set the logged in user will only be able to access patron
+      information from their own library or group of libraries.
+
+-  Set user permissions (permissions)
+
+   -  The ability to set permissions for other staff members
+
+-  Place and modify holds for patrons (reserveforothers)
+
+   -  Modify holds priority (modify\_holds\_priority)
+
+      -  Allows staff members to alter the holds priority (moving patrons up
+         and down the queue)
+
+   -  Place holds for patrons (place\_holds)
+
+      -  Allows staff members to place holds in the staff interface
+
+-  Edit catalog (Modify bibliographic/holdings data) (editcatalogue)
+
+   -  Use the advanced cataloging editor (advanced\_editor)
+
+      -  Grants the ability to use the advanced cataloging editor in the
+         cataloging module
+
+      -  **Note**
+
+         Staff members with this permission need to also have the 'Edit catalog
+         (Modify bibliographic/holdings data)' permission
+
+   -  Delete all items at once (delete\_all\_items)
+
+      -  Ability to use the 'Delete all items' option found under the
+         'Edit' menu in cataloging
+
+   -  Edit any item including items that would otherwise be restricted
+      (edit\_any\_item)
+
+      -  Ability to edit items belonging to libraries from other
+         :ref:`library groups <library-groups-label>`.
+
+   -  Edit catalog (Modify bibliographic/holdings data) (edit\_catalogue)
+
+      -  Ability to access all cataloging functions via the
+         `Cataloging <#cataloging>`__ page
+
+   -  Edit items (edit\_items)
+
+      -  Ability to make :ref:`edits to item/holdings
+         records <editing-items-label>`, but not bibliographic records
+
+   -  Limit item modification to subfields defined in the
+      :ref:`SubfieldsToAllowForRestrictedEditing <SubfieldsToAllowForRestrictedEditing-label>` system preference
+      (edit\_items\_restricted)
+
+      -  If checked, the staff member will only be able to modify some
+         item subfields
+
+      -  **Note**
+
+         Please note that the 'Edit items' permission is still required
+
+   -  Fast cataloging (fast\_cataloging)
+
+      -  The ability to catalog using only the :ref:`Fast add
+         framework <fast-add-cataloging-label>` found on the
+         `Circulation <#circulation>`__ page
+         
+   -  Create, update and delete item editor templates owned by others 
+      (manage\_item\_editor\_templates)
+      
+      -  The ability to manage :ref:`item templates <item-templates-label>` 
+         created by other users
+
+   -  Create, update and delete item groups, add or remove items from an item 
+      group (manage\_item\_groups)
+
+      -  The ability to manage :ref:`item groups <item-groups-label>`
+
+-  Manage patrons fines and fees (updatecharges)
+
+   -  Discount debits for patrons (discount)
+
+      -  Grant the ability to apply discounts to charges
+
+   -  Add manual credits to a patron account (manual\_credit)
+
+      -  The ability to :ref:`add manual credits to a patron's account <creating-manual-credits-label>`
+
+   -  Add manual invoices to a patron account (manual\_invoice)
+
+      -  The ability to :ref:`create manual invoices in a patron's account <creating-manual-invoices-label>`
+
+   -  Payout credits to patrons (payout)
+
+      -  Grant the ability to reimburse credits to patrons
+
+   -  Refund payments to patrons (refund)
+
+      -  Grant the ability to refund payments that patrons have already made to 
+         the library
+
+   -  Remaining permissions for managing fines and fees (remaining\_permissions)
+
+      -  Grant the ability to manage fines and fees other than the actions
+         described in the other sub-permissions (discounts, payouts, refunds and
+         writeoffs)
+
+   -  Write off fines and fees (writeoff)
+
+      -  Grants the ability to write off patron fees
+
+
+-  Acquisition management (acquisition)
+
+   .. Warning::
+
+      All the acquisitions sub-permissions give access to the acquisitions home
+      page. That means that staff who have one or more of the following permissions
+      will be able to view the budgets, search and view vendor information, and
+      view invoices.
+
+   -  Add and delete funds (but can't modify funds) (budget\_add\_del)
+
+      -  Grants the ability to :ref:`add funds<add-a-fund-label>` and delete 
+         funds within a budget
+
+      -  Note that the budget\_manage and budget\_modify permissions are
+         required for this one to work correctly
+
+   -  Manage funds (budget\_manage)
+
+      -  Grants the ability to access the :ref:`fund administration page <funds-label>`
+
+      -  Note that this only gives viewing access to the page, you will need
+         to give your staff budget\_add\_del and budget\_modify if you want
+         them to be able to make changes to the funds
+
+   -  Manage all funds (budget\_manage\_all)
+
+      -  Grants viewing access to all funds regardless of restrictions on
+         them (owner, user or library restrictions)
+
+      -  Note that the budget\_manage permission is required
+
+   -  Modify funds (can't create lines, but can modify existing ones) (budget\_modify)
+
+      -  Grants the ability to edit fund information and amounts
+
+      -  Note that the budget\_add\_del and budget\_manage permissions are
+         required for this one to work correctly
+
+   -  Manage contracts (contracts\_manage)
+
+      -  Grants the ability to add, edit and delete 
+         :ref:`contracts with vendors<vendor-contracts-label>`
+
+   -  Manage currencies and exchange rates (currencies\_manage)
+
+      -  The ability to access the :ref:`Currencies and exchange rates
+         <currencies-and-exchange-rates-label>` configuration page.
+
+   -  Delete baskets (delete\_baskets)
+
+      -  Grants the ability to delete baskets
+
+      -  The staff member must also have the order\_manage permission to be 
+         able to view the baskets in order to delete them.
+
+   -  Delete invoices (delete\_invoices)
+
+      -  Grants the ability to delete invoices
+
+   -  Manage EDIFACT transmissions (edi\_manage)
+
+      -  Grants the ability to access the :ref:`EDI account <edi-accounts-label>`
+         administration page, the :ref:`library EANs <library-eans-label>`
+         administration page and access sent :ref:`EDI messages <edifact-messages-label>`
+
+    ..
+       This sentence was left unfinished, but I'm not sure what other permission
+       is needed (CCLR 2022-06-20)
+       In order to be able to send orders via EDI, your staff member also needs the 
+
+   -  Edit invoices (edit\_invoices)
+
+      -  Grants the ability to edit invoices (modify invoice information such 
+         as the invoice number, billing or shipping date, add adjustments, etc.)
+
+      -  The staff member will not be able to receive orders against an invoice 
+         unless they have the order\_receive permission as well
+
+   -  Manage basket groups (group\_manage)
+
+      -  Grants the ability to :ref:`create, edit, close and delete basket
+         groups <create-a-basket-group-label>`
+
+   -  Merge invoices (merge\_invoices)
+
+      -  Grants the ability to :ref:`merge invoices <merging-invoices-label>`
+
+   -  Manage baskets and order lines (order\_manage)
+
+      -  Grants the ability to :ref:`place orders <placing-orders-label>`,
+         including creating baskets, adding order lines, closing baskets, etc.
+
+   -  Manage all baskets and order lines, regardless of restrictions on them
+      (order\_manage\_all)
+
+      -  Grants the ability to manage all baskets and orders even if they are
+         restricted to the owner, users or library
+
+      -  Note that the order\_manage permission is required
+
+   -  Receive orders and manage shipments (order\_receive)
+
+      -  Grants the ability to create invoices, receive items and claim late
+         orders
+
+   -  Manage budgets (period\_manage)
+
+      -  Grants access to the :ref:`budget administration page <budgets-label>`
+         and the ability to create, edit and delete budgets
+
+      -  This permission does not give the ability to edit budget funds.
+
+   -  Manage budget plannings (planning\_manage)
+
+      -  Grants the ability to view :ref:`budget planning <budget-planning-label>`
+
+      -  Note that the budget\_manage and the period\_manage permissions are
+         required for this one to work
+
+   -  Reopen closed invoices (reopen\_closed\_invoices)
+
+      -  Grants the ability to reopen closed invoices
+
+   -  Manage vendors (vendors\_manage)
+
+      -  Grants the ability to :ref:`add, edit and delete vendors <vendors-label>`
+
+      -  Note that vendors are used in the acquisition and the serials module.
+
+-  Suggestions management
+
+   -  Manage purchase suggestions (suggestions\_manage)
+
+      -  Grants the ability to 
+         :ref:`create and manage purchase suggestions  <managing-purchase-suggestions-label>`, 
+         including creating new suggestions and changing the suggestions' 
+         statuses
+
+-  Use all tools (tools)
+
+   -  Access to the files stored on the server (access\_files)
+
+      -  Access to the :ref:`Upload tool <upload-label>`
+
+   -  Upload patron images in batch or one at a time (batch\_upload\_patron\_images)
+
+      -  Access to the :ref:`Image upload tool <upload-patron-images-label>`
+
+   -  Delete old borrowers and anonymize circulation/reading history
+      (deletes borrower reading history) (delete\_anonymize\_patrons)
+
+      -  Access to the :ref:`Anonymize patron tool <patrons-anonymize-bulk-delete-label>`
+
+   -  Define days when the library is closed (edit\_calendar)
+
+      -  Access to the :ref:`Calendar/holidays tool <calendar-label>`
+
+   -  Write news for the OPAC and staff interfaces (edit\_news)
+
+      -  Access to the :ref:`News tool <news-label>`
+
+   -  Set notice/status triggers for overdue items (edit\_notice\_status\_triggers)
+
+      -  Access to the :ref:`Overdue notice status/triggers
+         tool <overdue-notice/status-triggers-label>`
+
+   -  Define notices (edit\_notices)
+
+      -  Access to the :ref:`Notices and slips tool <notices-and-slips-label>`
+
+   -  Perform batch modification of patrons (edit\_patrons)
+
+      -  Access to the :ref:`Batch patron modification tool <batch-patron-modification-label>`
+
+   -  Edit quotes for the quote-of-the-day feature (edit\_quotes)
+
+      -  Access to the :ref:`Quote of the Day (QOTD) Editor <quote-of-the-day-(qotd)-editor-label>`
+
+   -  Export bibliographic and holdings data (export\_catalog)
+
+      -  Access to the :ref:`Export data tool <export-data-(marc-and-authorities)-label>`
+
+   -  Import patron data (import\_patrons)
+
+      -  Access to the :ref:`Import patrons tool <patron-import-label>`
+
+   -  Perform inventory of your catalog (inventory)
+
+      -  Access to the :ref:`Inventory tool <inventory-tool-label>`
+
+   -  Perform batch deletion of items (items\_batchdel)
+
+      -  Access to the :ref:`Batch item deletion tool <batch-item-deletion-label>`
+
+   -  Perform batch modification of items (items\_batchmod)
+
+      -  Access to the :ref:`Batch item modification tool <batch-item-modification-label>`
+
+   -  Limit batch item modification to subfields defined in the
+      SubfieldsToAllowForRestrictedBatchmod preference (items\_batchmod\_restricted)
+
+      -  Restricts the :ref:`batch item modification <batch-item-modification-label>` tool
+         to modify only the subfields defined in the
+         :ref:`SubfieldsToAllowForRestrictedBatchmod <SubfieldsToAllowForRestrictedBatchmod-label>` preference
+
+      -  Please note that items\_batchmod permission is still required
+
+   -  Create printable labels and barcodes from catalog and patron data
+      (label\_creator)
+
+      -  Access to the :ref:`Patron card creator <patron-card-creator-label>`,
+         the :ref:`Label creator <label-creator-label>` and the
+         :ref:`Quick label creator <quick-spine-label-creator-label>` tools
+
+   -  Manage CSV export profiles (manage\_csv\_profiles)
+
+      -  Access to the :ref:`CSV profiles tool <csv-profiles-label>`
+
+   -  Add, edit and delete patron lists and their contents (manage\_patron\_lists)
+
+      -  Access to the :ref:`Patron lists tool <patron-lists-label>`
+
+   -  Manage staged MARC records, including completing and reversing imports
+      (manage\_staged\_marc)
+
+      -  Access to the :ref:`Manage staged MARC records tool <staged-marc-record-management-label>`
+
+   -  Manage MARC modification templates (marc\_modification\_templates)
+
+      -  Access to the :ref:`MARC modification templates tool <marc-modification-templates-label>`
+
+   -  Moderate patron comments (moderate\_comments)
+
+      -  Access to the :ref:`Comments tool <comments-label>`
+
+   -  Moderate patron tags (moderate\_tags)
+
+      -  Access to the :ref:`Tags tool <tag-moderation-label>`
+
+   -  Perform batch deletion of records (bibliographic or authority)
+      (records\_batchdel)
+
+      -  Access to the :ref:`Batch record deletion tool <batch-record-deletion-label>`
+
+   -  Perform batch modification of records (bibliographic or authorities)
+      (records\_batchmod)
+
+      -  Access to the :ref:`Batch record modification tool <batch-record-modification-label>`
+
+   -  Manage rotating collections (rotating\_collections)
+
+      -  Access to the :ref:`Rotating collections tool <rotating-collections-label>`
+
+   -  Schedule tasks to run (schedule\_tasks)
+
+      -  Access to the :ref:`Task scheduler tool <task-scheduler-label>`
+
+   -  Stage MARC records into the reservoir (stage\_marc\_import)
+
+      -  Access to the :ref:`Stage MARC records tool <stage-marc-records-for-import-label>`
+
+   -  Upload any file (upload\_general\_files)
+
+      -  Access to upload files via the :ref:`Upload tool <upload-label>`
+
+   -  Upload local cover images (upload\_local\_cover\_images)
+
+      -  Access to the :ref:`Upload local cover image
+         tool <adding-cover-images-label>` as well as permission to add and
+         delete local cover images from the record detail page
+
+   -  Manage uploaded files (upload\_manage)
+
+      -  Access to uploaded files via the :ref:`Upload tool <upload-label>`
+
+      -  Note that the upload\_general\_files permission is required for this
+         permission to work
+
+   -  Browse the system logs (view\_system\_logs)
+
+      -  Access to the :ref:`Log viewer tool <log-viewer-label>`
+
+-  Edit authorities (editauthorities)
+
+   -  Grants the ability to create, edit and delete authority records
+
+   -  Note that it is possible to search authority records with only the
+      catalogue permission
+
+-  Manage serial subscriptions (serials)
+
+   -  Check the expiration of a serial (check\_expiration)
+
+   -  Gives ability to check the :ref:`expiration date of serials
+      <check-serial-expiration-label>`
+
+   -  Claim missing serials (claim\_serials)
+
+      -  Gives the ability to :ref:`claim missing issues <claim-late-serials-label>`
+
+   -  Create a new subscription (create\_subscription)
+
+      -  Gives the ability to :ref:`add new subscriptions <add-a-subscription-label>`
+
+   -  Delete an existing subscription (delete\_subscription)
+
+      -  Gives the ability to delete serial subscriptions
+
+   -  Edit an existing subscription (edit\_subscription)
+
+      -  Gives the ability to :ref:`edit existing serial subscriptions
+         <edit-subscription-label>`
+
+      -  This permission does not include the ability to delete or create a
+         subscription
+
+   -  Serials receiving (receive\_serials)
+
+      -  Gives the ability to :ref:`receive issues <receive-issues-label>` of
+         existing subscriptions
+
+   -  Renew a subscription (renew\_subscription)
+
+      -  Gives the ability to :ref:`renew serial subscriptions <renewing-serials-label>`
+
+   -  Routing (routing)
+
+      -  Gives the ability to manage :ref:`routing lists <create-a-routing-list-label>`
+
+   -  Manage subscriptions from any branch (superserials)
+
+      -  This permission is only useful if the :ref:`IndependentBranches <IndependentBranches-label>`
+         system preference is used
+
+-  Allow access to the reports module (reports)
+
+   -  Reports found on the :ref:`Circulation page <circulation-reports-label>`
+      are not controlled by this permission; this only controls access to the
+      :ref:Reports module <reports-label>`
+
+   -  Reports in the :ref:`Statistics wizard <statistics-reports-label>` section
+      and the other reports on the main reports page can be run with any one
+      of the following permissions. They only affect the SQL reports.
+
+   -  Create SQL reports (create\_reports)
+
+      -  The ability to create :ref:`guided reports <guided-report-wizard-label>`
+         or :ref:`SQL reports <report-from-sql-label>`, but not run saved ones
+
+   -  Delete SQL reports (delete\_reports)
+
+      -  The ability to delete saved :ref:`SQL reports <report-from-sql-label>`
+
+      -  Note that you need execute\_reports in order to be able to delete them
+
+   -  Execute SQL reports (execute\_reports)
+
+      -  The ability to :ref:`run custom SQL reports <running-custom-reports-label>`,
+         but not create or edit them
+
+-  Allow staff members to modify permissions for other staff members (staffaccess)
+
+   -  This permission requires the borrowers permission above
+
+-  Course reserves (coursereserves)
+
+   -  Allow access to the :ref:`course reserves module <course-reserves-label>`
+
+   -  Note that if the :ref:`UseCourseReserves <UseCourseReserves-label>` system preference is not enabled,
+      these permissions will not have any effect
+
+   -  Add course reserves (add\_reserves)
+
+      -  Grants the ability to :ref:`add items to existing courses
+         <adding-reserve-materials-label>`
+
+   -  Remove course reserves (delete\_reserves)
+
+      -  Grant the ability to remove items from existing courses
+
+   -  Add, edit and delete courses (manage\_courses)
+
+      -  Grants the ability to :ref:`create, edit and delete courses
+         <adding-courses-label>`, but not manage the items
+
+-  Koha plugins (plugins)
+
+   -  Configure plugins (configure)
+
+      -  Gives the ability to run the 'configure' section of a plugin if it has
+         one
+
+      -  Note that the staff member needs either the report permission or the
+         tool permission (below) in order to be able to access the plugins
+
+   -  Manage plugins (manage)
+
+      -  The ability to install or uninstall plugins
+
+      -  Note that the staff member needs either the report permission or the
+         tool permission (below) in order to be able to access the plugins
+
+   -  Use report plugins (report)
+
+      -  The ability to use report plugins
+
+   -  Use tool plugins (tool)
+
+      -  The ability to use tool plugins
+
+-  Lists (lists)
+
+   .. Important::
+
+      All staff members have permission to create, modify and delete their own
+      lists. These permissions are only necessary if you'd like to give
+      a staff member permission to edit or delete public lists that they
+      have not created.
+
+   -  Delete public lists (delete\_public\_lists)
+
+      -  The ability to delete public lists created by someone else
+
+   -  Edit public lists contents (edit\_public\_list\_contents)
+
+      -  The ability to change the contents of public lists that have the
+         "Permitted staff only" permission.
+
+   -  Edit public lists (edit\_public\_lists)
+
+      -  The ability to edit the name, settings, and permissions of a public
+         list owned by someone else.
+
+      -  This does not give the staff member permission to change the contents
+         of the list, unless the list permissions allow them to.
+
+-  Patron clubs (clubs)
+
+   -  Create and edit clubs (edit\_clubs)
+
+      -  Create and edit patron clubs using the :ref:`Patron clubs tool <patron-clubs-label>`
+
+   -  Create and edit club templates (edit\_templates)
+
+      -  Create and edit club templates using the :ref:`Patron clubs tool <patron-clubs-label>`
+
+   -  Enroll patrons in clubs (enroll)
+
+      -  Enroll patrons from the patron file
+
+      -  The borrowers permissions is required in order to enroll patrons in
+         clubs
+
+-  Create and modify interlibrary loan requests (ill)
+
+   -  Gives access to the :ref:`Interlibrary loan (ILL) module <ill-requests-label>`
+
+-  Self check modules (self\_check)
+
+   -  Log into the self check-in module (self\_checkin\_module)
+
+      **Note**
+
+      This permission prevents the patron from using any other OPAC
+      functionality
+
+-  Perform self checkout at the OPAC (self\_checkout\_module)
+
+      **Note**
+
+      This permission should be used for the patron matching the
+      :ref:`AutoSelfCheckID <autoselfcheck-preferences-label>`
+      system preference
+
+-  Manage :ref:`stockrotation <stock-rotation-label>` operations (stockrotation)
+
+   -  Add and remove items from rotas (manage_rota_items)
+
+      -  Staff with only this permission will be able to manage the items in the
+         rotas, but not the rotas themselves
+
+   -  Create, edit and delete rotas (manage_rotas)
+
+      -  Staff with only this permission will be able to manage the rotas, but not
+         the actual items
+
+-  Cash management (cash_management)
+
+   -  Add, edit and archive cash registers (manage_cash_registers)
+
+      -  Staff with this permissions will be able to manage the :ref:`cash
+         registers in the administration module <cashregisters-label>`
+
+   -  Access the point of sale page and take payments (takepayment)
+
+      -  Grants access to the point of sale module
+
+-  Recalls (recalls)
+
+   -  Manage recalls for patrons (manage_recalls)
+
+      -  Grants access to the recall management page
+
+-  Manage the electronic resources module (erm)
+
+   -  This permission serves two purposes
+
+      -  Gives library staff access to ERM records (Agreements, Licenses, eHoldings etc.)
+
+      -  Library staff MUST have this permission in order to be attached as Agreement and 
+         License Users on Agreement and License records
+
+-  Allow staff to change logged in library (loggedinlibrary)
+
+   -  The ability to change the library when
+      :ref:`logging into the staff interface <login-staff-label>`.
+
+   -  The ability to :ref:`set the library <set-library-label>` in the staff
+      interface.
+
+   .. Note::
+
+      Staff members who do not have this permission will only be able to log
+      into their home library.
+
+.. _patron-information-label:
+
+Patron information
+-------------------------------------------
+
+When viewing a patron record you have the option to view information
+from one of many tabs found on the left hand side of the record.
+
+-  *Get there:* Patrons > Browse or search for patron > Click patron
+   name
+
+.. _check-out-label:
+
+Check out
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For instruction on checking items out, view the :ref:`Checking
+out <check-out-(issuing)-label>` section of this manual.
+
+Staff members can access their own check out screen by clicking their
+username in the top right of the staff client and choosing 'My
+checkouts'
+
+|image1178|
+
+.. _details-label:
+
+Details
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Note::
+
+   Staff members can access their own account details by clicking their
+   username in the top right of the staff client and choosing 'My account'
+
+   |myaccount|
+
+All patron information will appear in the Details tab. This includes all
+the contact information, notes, custom patron attributes, messaging
+preferences, etc. entered when adding the patron.
+
+|image1359|
+
+In the case of patrons who are marked as 'Child' or 'Professional' and
+their guarantors additional information will appear on their record.
+
+-  A child patron will list their guarantor
+
+   |image443|
+
+-  On the guarantor's record, all children and/or professionals will be
+   listed
+
+   |image444|
+
+If the age of the patron is outside the age range defined in their patron
+category a warning will appear on their record.
+
+   |image1461|
+
+.. _circulation-summary-label:
+
+Circulation summary
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Below the patron's information on the details screen is a tabbed display
+of the items they have checked out, overdue, and on hold, among other things.
+
+Checkouts
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+The first tab shows the items the patron currently has checked out. The number
+of current checkouts will be displayed in the tab title.
+
+|checkoutsummary|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: issues-table, under Patrons).
+
+   Click 'Configure' at the top right of the table to access the administration
+   module directly.
+
+Relatives' checkouts
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+If the patron has family at the library, staff can see what the other family
+members have checked out. The total number of checkouts among all family members
+will be displayed in the tab title.
+
+|relativecheckouts|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: relatives-issues-table, under Patrons).
+
+   Click 'Configure' at the top right of the table to access the administration
+   module directly.
+
+Charges
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+The Charges tab will only show in the patron accounts that have unpaid amounts 
+or unused credits. The total amount of unpaid charges or unused credits will be
+displayed in the tab title.
+
+The tab will show the total amount, without any details. To see the details, 
+go to the :ref:`accounting tab <fines-label>`.
+
+|finescharges|
+
+Guarantees' charges
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+This tab will appear if the patron has guarantees and those guarantees have
+unpaid charges in their account. The total amount owed by guarantees will be
+displayed in the tab title.
+
+The tab will show the guarantee's name and the total unpaid amount, without
+any details. To see details, go to the guarantee's
+:ref:`accounting tab <fines-label>`.
+
+|guaranteecharges|
+
+.. _holds-summary-label:
+
+Holds
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+If the patron has holds, the number of holds will appear on this tab's
+title and the details will appear in the tab.
+
+|holdssummary|
+
+.. Note::
+
+   The barcode and call number will only appear on item-level holds or
+   holds that have been confirmed. Record-level holds that are not
+   waiting to be picked up will not have barcodes or call numbers.
+
+From here you can manage the patron's holds: change the pickup library,
+cancel or suspend holds.
+
+.. Note::
+
+   You will only be able to suspend holds if the :ref:`SuspendHoldsIntranet <SuspendHoldsIntranet-label>`
+   system preference is set to "Allow".
+
+.. Note::
+
+   If, when suspending a hold, you want to be able to set a date at which to
+   automatically resume the hold, set the :ref:`AutoResumeSuspendedHolds <AutoResumeSuspendedHolds-label>`
+   system preference to "Allow" and make sure the :ref:`unsuspend_holds cron
+   job <cron-unsuspend-holds-label>` is activated.
+
+.. _patron-recalls-label:
+
+Recalls
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+If :ref:`recalls are enabled<recalls-label>`, currently active
+:ref:`recalls requested by the patron<request-recalls-opac-label>` will appear
+in this tab. The number of active recalls will be displayed in the tab title.
+
+|patronrecalls|
+
+From here staff members can see the status of each recall and
+:ref:`manage them<recalls-manage-label>`.
+
+.. _article-requests-label:
+
+Article requests
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+If the :ref:`ArticleRequests <ArticleRequests-label>` system preference is enabled, and the circulation
+rules allow it, the patrons will be able to request articles, either through the
+OPAC or in the staff interface. The number of active requests will be displayed
+in the tab title.
+
+The details of the patron's request, and its status, are visible in this
+tab.
+
+|articlerequests|
+
+.. _patron-return-claims-label:
+
+Claims
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+If the patron has :ref:`claimed they returned items <return-claim-label>`, but
+those were not checked in, the claims will be shown in this tab. The number
+of resolved and unresolved claims will be displayed in the tab title. The first
+number, in green (or in gray if it's 0), represents the number of resolved
+claims and the second number, in yellow (or in gray if it's 0), represents the
+number of unresolved claims.
+
+|claims|
+
+From this tab, staff can edit claim notes and
+:ref:`resolve claims <resolve-return-claim-label>`.
+
+.. _patron-restrictions-label:
+
+Restrictions
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+The Restrictions tab will show for all patrons. If the patron has no
+restrictions you will see that on the tab.
+
+|patronrestrictions-none|
+
+If the patron has restrictions on their account the tab will show the
+number and the description.
+
+There are at least four kinds of restrictions:
+  - Manual
+  - Overdues
+  - Suspension
+  - Discharge
+
+Using the 'Add manual restriction' link you can add a restriction to
+the patron record from here. This can be used for any type of restriction
+you need to put manually on a patron record.
+
+|addrestriction|
+
+-  Type: if the :ref:`PatronRestrictionTypes <patronrestrictiontypes-label>`
+   system preference is enabled, you will have a choice of restriction types.
+   This list can be managed from the 
+   :ref:`patron restriction types administration page <patron-restriction-types-label>`
+
+-  Comment: enter a comment to explain the restriction
+
+-  Expiration: optionally enter an expiration date for this restriction. If
+   there is no expiration date, the restriction will stay on the file until it
+   is removed. If there is an expiration date, the restriction will
+   automatically be removed.
+
+|patronrestrictions|
+
+The overdues restrictions are automatically set when overdue notices are sent
+if you specified you wanted the patron restricted in the
+:ref:`overdue notice/status triggers tool <overdue-notice/status-triggers-label>`.
+
+This restriction will not be removed automatically when the overdue items are
+returned unless the :ref:`AutoRemoveOverduesRestrictions <AutoRemoveOverduesRestrictions-label>` system preference
+is set to 'Do'.
+
+In the :ref:`circulation rules <circulation-and-fines-rules-label>`, you can choose
+to fine users by suspending them instead of (or in addition to) fining them money.
+In that case, returning an overdue document will trigger a suspension restriction.
+
+Patrons may also be restricted if you have issued a
+:ref:`discharge <patron-discharges-label>` for them. Once the discharge is
+validated, the patron is automatically restricted.
+
+Patrons can also be restricted by
+:ref:`setting flags in their accounts <add-patron-flags-label>`.
+
+Restrictions on a patron record will block checkouts. In fact,
+a message will appear in red when going to the checkout page.
+
+|patronrestrictions-checkout|
+
+Restrictions may also prevent renewing items if the :ref:`RestrictionBlockRenewing <RestrictionBlockRenewing-label>`
+system preference is set to 'block'.
+
+On the OPAC, patrons will get a message saying their account is frozen. They will
+not be able to place holds from the OPAC.
+
+|frozenaccount|
+
+If you have patrons that have more than one restriction, you can choose to
+cumulate their restriction periods or not through the
+:ref:`CumulativeRestrictionPeriods <CumulativeRestrictionPeriods-label>` system preference.
+
+.. Note::
+
+   If you want to restrict patrons from doing various actions if their record
+   is not pristine, check the following system preferences:
+
+   - Set the :ref:`OverduesBlockCirc <OverduesBlockCirc-label>` system preference to 'Block' to prevent
+     patrons who have overdue materials from checking out other materials.
+   - Set the :ref:`OverduesBlockRenewing <OverduesBlockRenewing-label>` system preference to 'block renewing
+     for all the patron's items' or 'block renewing only for this item' to prevent
+     patrons who have overdue materials from renewing their loans.
+   - Enter values in the :ref:`noissuescharge <noissuescharge-label>` and :ref:`NoIssuesChargeGuarantees <NoIssuesChargeGuarantees-label>`
+     system preferences in order to block checking out to patrons who have more
+     than a certain amount in fines or to patrons whose guarantees owe more than
+     a certain amount.
+   - Enter a value in the :ref:`maxoutstanding <maxoutstanding-label>` system preference to prevent
+     patron from placing holds on the OPAC if they owe more than a certain amount.
+   - Enter a value in the :ref:`OPACFineNoRenewals <OPACFineNoRenewals-label>` system preference to prevent
+     patron who owe more than a certain amount to renew their loans from the OPAC.
+   - Set the :ref:`BlockExpiredPatronOpacActions <BlockExpiredPatronOpacActions-label>` system preference to 'Block' if
+     you want to prevent patron whose membership has expired to place hold or
+     renew their loans from the OPAC.
+
+Clubs
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+If you use :ref:`patron clubs <patron-clubs-label>`, patrons will have a tab
+in their record indicating which club they are enrolled in, if any. The first
+number in the tab title is the number of clubs in which the patron is enrolled,
+and the second number is the number of clubs the patron is not enrolled in.
+
+|clubstab|
+
+.. _fines-label:
+
+Accounting
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The patron's complete accounting history will appear on the Accounting tab.
+The Accounting tab will show all types of charges and credits: overdue fines, 
+membership fees, rental fees, hold fees and any other charge you may have 
+for patrons.
+
+|patronaccount|
+
+.. Note::
+
+   You can customize the columns of this table in the 
+   :ref:`'Table settings'<column-settings-label>` section of the 
+   Administration module (table id: account-fines).
+
+.. Note::
+
+   It's possible to print a summary of outstanding charges and unused credits
+   in the patron's account by clicking 'Print' at the top of the page and
+   choosing the 'Print account balance'.
+
+   |printslip|
+
+   'Print summary' will print a full summary of the patron's account, including
+   outstanding charges.
+
+The Transactions tab will show you the following columns:
+
+-  Date: the date the charge, payment or credit was posted
+
+   -  In the case of fines this will be the last day that the fine was
+      accrued
+
+-  Account type: what type of charge, payment or credit it is
+
+   -  In cases where an account type may have an accompanying `status` it will be
+      displayed alongside the accounttype in brackets.
+
+-  Description of charges: a description of the charges including the due date for
+   overdue items and a link to the item record where one is available
+
+   .. Note::
+
+      For overdue fines, the default is the title and the due date. You can
+      customize this by editing the OVERDUE\_FINE\_DESC template in the
+      :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+-  Barcode: if the charge is linked to a particular item, the barcode is 
+   displayed
+
+-  Call number: if the charge is linked to a particular item, the item's call
+   number is displayed
+
+-  Due date: if the charge is an overdue fine, the due date is displayed
+
+-  Checkin date: if the charge is an overdue fine, the checkin date is displayed
+
+-  Checkout date: if the charge is an overdue fine, the check out date is displayed
+
+-  Home library: if the charge is linked to a particular item the home library
+   is displayed
+
+-  Note: any notes about this charge/payment
+
+   -  If you're allowing patrons to pay fines via the OPAC with PayPal
+      (:ref:`EnablePayPalOpacPayments <enablepaypalopacpayments-and-paypalsandboxmode-label>`) you
+      will see a Note that says 'PayPal' for items paid this way
+
+-  Amount: the total amount of the payment or charge
+
+-  Outstanding: the amount still due on charge
+
+-  Actions:
+
+   - A selection of actions available to take upon the account line as detailed below
+
+At the top of the table you can click the 'Filter paid transaction' to
+hide all completed transaction and above that you can use the search box
+to find a specific charge or payment.
+
+.. _charging-fines/actions-label:
+
+Actions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Action buttons will be available for the different account lines depending on 
+the user's permissions and the account type and status.
+
+-  A button to print or email a receipt or invoice for that line item
+
+   .. Note::
+
+      If the line item is a credit (payment, writeoff or other credit), the
+      receipt that will be printed will be the ACCOUNT\_CREDIT notice. It can be
+      customized in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+      If the line item is a debit (a charge), the invoice that will be printed
+      will be the ACCOUNT\_DEBIT notice. It can be customized in the
+      :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+-  A button to show further details about the charge and any payments that have been made
+
+-  A button to void (reverse) a payment/credit
+
+   -  This button will only appear on a payment/credit line. Upon voiding the
+      line it will reverse the payment process restoring the amountoutstanding
+      for any debts/debits which the payment/credit may have previously been
+      used to offset. This action is most commonly used to correct cases where
+      a payment was recorded but never actually received. The credit line will be
+      set to a zero amount and updated to `VOID`.
+
+-  A button to cancel (remove) a charge/debit
+
+   -  This button will only appear on a charge/debit line that has not already
+      had any payment/credits applied to it. Upon cancelling the line it will
+      be marked as 'Cancelled' and a `CANCELLATION` line will be added and offset
+      against it. This action is most commonly used to correct cases where a
+      charge was made mistakenly.
+
+-  A button to pay against charges/debits with outstanding amounts
+
+   -  This button will appear against any charge/debit with an outstanding
+      amount. The subsequent page can be used to pay or writeoff the line
+      partially or in full with a `PAYMENT` or `WRITEOFF` line will being added.
+
+-  A button to issue a payout of credit
+
+   -  This button will appear against any credit line that has an amount
+      outstanding and you have the :ref:`payout permission <patron-permissions-defined-label>`.
+      It allows the librarian to return outstanding credit to the patron and
+      record the action with a `PAYOUT` line.
+
+-  A button to issue a refund against a charge/debit
+
+   -  This button will appear against any charge/debit line that has been paid or
+      partially paid and you have the :ref:`refund permission <patron-permissions-defined-label>`.
+      The subsequent modal dialogue will allow you to partially or fully refund
+      the offset debt, either in `CASH` or by means of a credit added to the
+      account.
+
+-  A button to apply a discount to a charge/debit
+
+   -  This button will appear against any charge/debit which has not already been
+      offset by a credit/payment and you have the
+      :ref:`discount permission <patron-permissions-defined-label>`.
+      The subsequent modal dialogue will allow you to add a discount upon the
+      charge.
+
+.. _charging-fines/fees-label:
+
+Charging fines/fees
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Most fees and fines will be charged automatically if the :ref:`fines cron
+job <cron-fines-label>` is running. Fines will also be charged when an overdue item is checked
+in if the :ref:`CalculateFinesOnReturn <CalculateFinesOnReturn-label>` system preference is enabled. 
+
+-  Fines will be charged based on your :ref:`circulation and fines
+   rules <circulation-and-fines-rules-label>`
+
+-  Hold fees will be charged based on the rules you set in the :ref:`Patron
+   types and categories <patron-categories-label>` administration area
+
+-  Rental fees will be charged based on the settings in your :ref:`Item
+   iypes <item-types-label>` administration area
+
+-  Marking an item 'Lost' via the cataloging module will automatically
+   charge the patron the replacement cost for that item
+
+-  Creating a patron in a :ref:`category <patron-categories-label>` 
+   with an enrollment fee.
+
+-  Renewing a patron account in a :ref:`category <patron-categories-label>` 
+   with an enrollment fee.
+
+-  Article request fees will be charged based on the
+   :ref:`article request fees <default-article-request-fees-label>` section of
+   the circulation rules page.
+
+.. _creating-manual-invoices-label:
+
+Creating manual invoices
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For fees that are not automatically charged, staff can create a manual invoice.
+
+.. Note::
+
+   Staff need the manual\_invoice (or superlibrarian)
+   :ref:`permission <patron-permissions-label>` in order to add manual credits
+   to a patron's account.
+
+-  Click on the 'Create manual invoice' tab
+
+   |manualinvoice|
+
+   -  Type: choose the type of invoice to create.
+
+      .. Note::
+
+         To add additional values to the manual invoice type pull down
+         menu, add them to the :ref:`debit types <add-debit-type-label>`
+         in the Administration module.
+
+   -  Barcode: if the fee is associated with an item you can enter its barcode so
+      that the line item shows a link to that item.
+
+   -  Description: enter the description of the charge.
+
+   -  Note: if needed, add a note about this charge.
+
+   -  Amount: enter the amount of the charge, do not enter currency symbols, only
+      numbers and decimals
+
+   -  If any :ref:`additional fields <additional-fields-label>` were set up for
+      account line debits, they will appear here.
+
+-  Click 'Save' to charge the amount to the patron's account, or
+
+-  Click 'Save and pay' to charge the amount to the patron's account and go
+   directly to the :ref:`payment page <pay-fine-in-full-label>`.
+
+.. _pay-and-writeoff-fines-label:
+
+Paying and writing off charges
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each account line can be paid in full or written off using the 'Make a payment'
+tab.
+
+|makepayment|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: pay-fines-table).
+
+Each account line can be paid in full, partially paid, or written off.
+
+.. _pay-fine-in-full-label:
+
+Paying an individual charge in full
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+To pay an individual charge in full:
+
+-  If you need to add a note about the payment, click 'Add note' and type in
+   the note before proceeding.
+
+-  Click the 'Pay' button next to the charge to be paid in full.
+
+   |makepayment|
+
+A table will show the details of the charge being paid, the full amount of the
+charge will be populated for you in the 'Amount being paid' and the 'Amount
+tendered' fields.
+
+.. Note::
+
+  If you made a mistake and this charge should be written off instead, you can
+  switch between 'Pay' and 'Write off' mode using the buttons located at the top
+  of this tab. See :ref:`Writing off an individual charge <writeoff-single-fine-label>`
+  below.
+
+|payfine|
+
+   -  Amount being paid: this is the amount that will be debited from the
+      charge. When paying a charge in full, this should be the full amount.
+
+   -  Amount tendered: this is the actual amount handed to you by the patron,
+      it will be used to calculate the change. For example, if a patron has a
+      2.75$ fine to pay, and they pay with a 5$ bill, enter 5 in 'Amount
+      tendered'.
+
+   -  Change to give: if the amount being paid and the amount tendered are
+      different (i.e. more money was collected) the amount of change to be
+      given will be displayed.
+
+   -  Payment type: choose the type of payment.
+
+      .. Note::
+
+         This field will only appear if one or more values are defined under
+         the :ref:`PAYMENT\_TYPE authorized value <existing-values-label>`.
+
+      .. Note::
+
+         This field will be required if either the
+         :ref:`UseCashRegisters <UseCashRegisters-label>` system preference
+         or the :ref:`RequirePaymentType <requirepaymenttype-label>` system
+         preference is enabled.
+
+   -  Cash register: if the :ref:`UseCashRegisters <UseCashRegisters-label>`
+      system preference is enabled, you will have a choice of cash register in
+      which to enter the transaction.
+
+      .. Note::
+
+         If the :ref:`UseCashRegisters <UseCashRegisters-label>` system
+         preference is enabled, and the CASH payment type is chosen above,
+         you will be required to choose a cash register for the payment.
+
+         Whether or not this field is required when another payment type is
+         chosen is determined by the
+         :ref:`RequireCashRegister <requirecashregister-label>` system
+         preference.
+
+   -  If any :ref:`additional fields <additional-fields-label>` were set up for
+      account line credits, they will appear here.
+
+-  Click 'Confirm'.
+
+-  If change was to be given back to the patron, a pop-up window will appear to
+   remind you, click 'Yes' to confirm that you gave back the correct amount and
+   confirm the payment.
+
+   |changetogive|
+
+The charge's outstanding amount will be set to zero (fully paid), and a payment
+line will be added in the patron's transactions.
+ 
+.. Note::
+
+   If the :ref:`FinePaymentAutoPopup <FinePaymentAutoPopup-label>` system
+   preference is enabled, a print dialogue window will display. The receipt
+   printed uses the letter ACCOUNT\_CREDIT, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. If change was
+   given for this transaction the details will be included when using this
+   system preference.
+
+   In addition to printing receipts you can enable email receipts for payment
+   and writeoff transactions with the
+   :ref:`UseEmailReceipts <UseEmailReceipts-label>` system preference.
+   The email sent uses the ACCOUNT\_PAYMENT letter, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _partial-pay-fine-label:
+
+Partially paying an individual charge
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+To partially pay an individual charge:
+
+-  Click the 'Pay' button next to the charge to be partially paid.
+
+   |makepayment|
+
+A table will show the details of the charge being paid, the full amount of the
+charge will be populated for you in the 'Amount being paid' and the 'Amount
+tendered' fields.
+
+.. Note::
+
+  If you made a mistake and this charge should be written off instead, you can
+  switch between 'Pay' and 'Write off' mode using the buttons located at the top
+  of this tab. See
+  :ref:`Partially writing off an individual charge <partial-writeoff-single-fine-label>`
+  below.
+
+|paypartial|
+
+   -  Amount being paid: this is the amount that will be debited from the
+      charge. When partially paying a charge, enter the amount that should be
+      paid.
+
+   -  Amount tendered: this is the actual amount handed to you by the patron,
+      it will be used to calculate the change. For example, if a patron has a
+      2.75$ fine to pay, and they pay with a 5$ bill, enter 5 in 'Amount
+      tendered'.
+
+   -  Change to give: if the amount being paid and the amount tendered are
+      different (i.e. more money was collected) the amount of change to be
+      given will be displayed.
+
+   -  Payment type: choose the type of payment.
+
+      .. Note::
+
+         This field will only appear if one or more values are defined under
+         the :ref:`PAYMENT\_TYPE authorized value <existing-values-label>`.
+
+      .. Note::
+
+        This field will be required if either the
+        :ref:`UseCashRegisters <UseCashRegisters-label>` system preference
+        or the :ref:`RequirePaymentType <requirepaymenttype-label>` system
+        preference is enabled.
+
+   -  Cash register: if the :ref:`UseCashRegisters <UseCashRegisters-label>`
+      system preference is enabled, you will have a choice of cash register in
+      which to enter the transaction.
+
+      .. Note::
+
+         If the :ref:`UseCashRegisters <UseCashRegisters-label>` system
+         preference is enabled, and the CASH payment type is chosen above,
+         you will be required to choose a cash register for the payment.
+
+         Whether or not this field is required when another payment type is
+         chosen is determined by the
+         :ref:`RequireCashRegister <requirecashregister-label>` system
+         preference.
+
+   -  If any :ref:`additional fields <additional-fields-label>` were set up for
+      account line credits, they will appear here.
+
+-  Click 'Confirm'.
+
+-  If change was to be given back to the patron, a pop-up window will appear to
+   remind you, click 'Yes' to confirm that you gave back the correct amount and
+   confirm the payment.
+
+   |changetogive|
+
+The charge will be updated to show the original amount and the current amount
+outstanding, and a payment line will be added in the patron's transactions.
+
+.. Note::
+
+   If the :ref:`FinePaymentAutoPopup <FinePaymentAutoPopup-label>` system
+   preference is enabled, a print dialogue window will display. The receipt
+   printed uses the letter ACCOUNT\_CREDIT, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. If change was
+   given for this transaction the details will be included when using this
+   system preference.
+
+   In addition to printing receipts you can enable email receipts for payment
+   and writeoff transactions with the
+   :ref:`UseEmailReceipts <UseEmailReceipts-label>` system preference.
+   The email sent uses the ACCOUNT\_PAYMENT letter, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _pay-amount-label:
+
+Paying an amount towards all charges
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+To pay an amount towards all charges:
+
+-  Click the 'Pay amount' button.
+
+   |makepayment|
+
+The total amount outstanding in the patron's account will be displayed, and
+populated for you in the 'Amount being paid' and the 'Amount tendered' fields.
+
+|payamount|
+
+   -  Total amount outstanding: this is the total unpaid charges in the patron's
+      account.
+
+   -  Amount being paid: this is the amount that will be debited from the
+      outstanding amount. Enter the amount that will be paid.
+
+   -  Amount tendered: this is the actual amount handed to you by the patron,
+      it will be used to calculate the change. For example, if a patron has a
+      2.75$ fine to pay, and they pay with a 5$ bill, enter 5 in 'Amount
+      tendered'.
+
+   -  Change to give: if the amount being paid and the amount tendered are
+      different (i.e. more money was collected) the amount of change to be
+      given will be displayed.
+
+   -  Payment type: choose the type of payment.
+
+      .. Note::
+
+         This field will only appear if one or more values are defined under
+         the :ref:`PAYMENT\_TYPE authorized value <existing-values-label>`.
+
+      .. Note::
+
+        This field will be required if either the
+        :ref:`UseCashRegisters <UseCashRegisters-label>` system preference
+        or the :ref:`RequirePaymentType <requirepaymenttype-label>` system
+        preference is enabled.
+
+   -  Cash register: if the :ref:`UseCashRegisters <UseCashRegisters-label>`
+      system preference is enabled, you will have a choice of cash register in
+      which to enter the transaction.
+
+      .. Note::
+
+         If the :ref:`UseCashRegisters <UseCashRegisters-label>` system
+         preference is enabled, and the CASH payment type is chosen above,
+         you will be required to choose a cash register for the payment.
+
+         Whether or not this field is required when another payment type is
+         chosen is determined by the
+         :ref:`RequireCashRegister <requirecashregister-label>` system
+         preference.
+
+   -  Note: if needed, add a note about this payment.
+
+   -  If any :ref:`additional fields <additional-fields-label>` were set up for
+      account line credits, they will appear here.
+
+-  Click 'Confirm'.
+
+-  If change was to be given back to the patron, a pop-up window will appear to
+   remind you, click 'Yes' to confirm that you gave back the correct amount and
+   confirm the payment.
+
+   |changetogive|
+
+The charges' outstanding amounts will be updated, with the payment applied to
+oldest charges first, and a payment line will be added in the patron's transactions.
+
+.. Note::
+
+   If the :ref:`FinePaymentAutoPopup <FinePaymentAutoPopup-label>` system
+   preference is enabled, a print dialogue window will display. The receipt
+   printed uses the letter ACCOUNT\_CREDIT, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. If change was
+   given for this transaction the details will be included when using this
+   system preference.
+
+   In addition to printing receipts you can enable email receipts for payment
+   and writeoff transactions with the
+   :ref:`UseEmailReceipts <UseEmailReceipts-label>` system preference.
+   The email sent uses the ACCOUNT\_PAYMENT letter, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _pay-selected-label:
+
+Paying selected charges
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+To pay only some charges:
+
+-  Check the selection boxes next to the charges to be paid.
+
+   |payselected-select|
+
+-  Click the 'Pay selected' button.
+
+The total outstanding amount for the selected charges will be displayed, and
+populated for you in the 'Amount being paid' and the 'Amount tendered' fields.
+
+|payselected|
+
+   -  Total amount outstanding: this is the total unpaid amount for the selected
+      charges.
+
+   -  Amount being paid: this is the amount that will be debited from the
+      total outstanding amount of the selected charges. Enter the amount that
+      will be paid.
+
+   -  Amount tendered: this is the actual amount handed to you by the patron,
+      it will be used to calculate the change. For example, if a patron has a
+      2.75$ fine to pay, and they pay with a 5$ bill, enter 5 in 'Amount
+      tendered'.
+
+   -  Change to give: if the amount being paid and the amount tendered are
+      different (i.e. more money was collected) the amount of change to be
+      given will be displayed.
+
+   -  Payment type: choose the type of payment.
+
+      .. Note::
+
+         This field will only appear if one or more values are defined under
+         the :ref:`PAYMENT\_TYPE authorized value <existing-values-label>`.
+
+      .. Note::
+
+        This field will be required if either the
+        :ref:`UseCashRegisters <UseCashRegisters-label>` system preference
+        or the :ref:`RequirePaymentType <requirepaymenttype-label>` system
+        preference is enabled.
+
+   -  Cash register: if the :ref:`UseCashRegisters <UseCashRegisters-label>`
+      system preference is enabled, you will have a choice of cash register in
+      which to enter the transaction.
+
+      .. Note::
+
+         If the :ref:`UseCashRegisters <UseCashRegisters-label>` system
+         preference is enabled, and the CASH payment type is chosen above,
+         you will be required to choose a cash register for the payment.
+
+         Whether or not this field is required when another payment type is
+         chosen is determined by the
+         :ref:`RequireCashRegister <requirecashregister-label>` system
+         preference.
+
+   -  Note: if needed, add a note about this payment.
+
+   -  If any :ref:`additional fields <additional-fields-label>` were set up for
+      account line credits, they will appear here.
+
+-  Click 'Confirm'.
+
+-  If change was to be given back to the patron, a pop-up window will appear to
+   remind you, click 'Yes' to confirm that you gave back the correct amount and
+   confirm the payment.
+
+   |changetogive|
+
+The selected charges' outstanding amounts will be updated, with the payment
+applied to oldest charges first, and a payment line will be added in the patron's
+transactions.
+
+.. Note::
+
+   If the :ref:`FinePaymentAutoPopup <FinePaymentAutoPopup-label>` system
+   preference is enabled, a print dialogue window will display. The receipt
+   printed uses the letter ACCOUNT\_CREDIT, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. If change was
+   given for this transaction the details will be included when using this
+   system preference.
+
+   In addition to printing receipts you can enable email receipts for payment
+   and writeoff transactions with the
+   :ref:`UseEmailReceipts <UseEmailReceipts-label>` system preference.
+   The email sent uses the ACCOUNT\_PAYMENT letter, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _writeoff-all-label:
+
+Writing off all charges
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+To write off all charges in a patron's account:
+
+-  Click the 'Write off all' button
+
+   |makepayment|
+
+-  Confirm the writeoff
+
+All charges' outstanding amounts will be set to zero (fully paid/written off),
+and a writeoff line will be added in the patron's transactions.
+
+.. _writeoff-single-fine-label:
+
+Writing off an individual charge
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+To write off a single charge:
+
+-  If you need to add a note about the writeoff, click 'Add note' and type in
+   the note before proceeding
+
+-  Click the 'Write off' button next to the charge to be written off
+
+   |makepayment|
+
+A table will show the details of the charge being written off, the full amount
+of the charge will be populated for you in the 'Writeoff amount' field.
+
+.. Note::
+
+  If you made a mistake and this charge should be paid instead, you can
+  switch between 'Pay' and 'Write off' mode using the buttons located at the top
+  of this tab. See :ref:`Paying an individual charge in full <pay-fine-in-full-label>`
+  above.
+
+|writeofffine|
+
+   -  Writeoff amount: this is the amount that will be debited from the
+      charge. When writing off a charge completely, this should be the full
+      amount.
+
+   -  If any :ref:`additional fields <additional-fields-label>` were set up for
+      account line credits, they will appear here.
+
+-  Click 'Write off this charge'
+
+The charge's outstanding amount will be set to zero (fully paid/written off),
+and a writeoff line will be added in the patron's transactions.
+
+.. Note::
+
+   If the :ref:`FinePaymentAutoPopup <FinePaymentAutoPopup-label>` system
+   preference is enabled, a print dialogue window will display. The receipt
+   printed uses the letter ACCOUNT\_CREDIT, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. If change was
+   given for this transaction the details will be included when using this
+   system preference.
+
+   In addition to printing receipts you can enable email receipts for payment
+   and writeoff transactions with the
+   :ref:`UseEmailReceipts <UseEmailReceipts-label>` system preference.
+   The email sent uses the ACCOUNT\_WRITEOFF letter, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _partial-writeoff-single-fine-label:
+
+Partially writing off an individual charge
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+To partially write off a single charge:
+
+-  If you need to add a note about the writeoff, click 'Add note' and type in
+   the note before proceeding
+
+-  Click the 'Write off' button next to the charge to be written off
+
+   |makepayment|
+
+A table will show the details of the charge being written off, the full amount
+of the charge will be populated for you in the 'Writeoff amount' field.
+
+.. Note::
+
+  If you made a mistake and this charge should be paid instead, you can
+  switch between 'Pay' and 'Write off' mode using the buttons located at the top
+  of this tab. See :ref:`Partially paying an individual charge <partial-pay-fine-label>`
+  above.
+
+|writeofffine|
+
+   -  Writeoff amount: this is the amount that will be debited from the
+      charge. When partially writing off a charge, enter the amount to be
+      written off.
+
+   -  If any :ref:`additional fields <additional-fields-label>` were set up for
+      account line credits, they will appear here.
+
+-  Click 'Write off this charge'
+
+The charge will be updated to show the original amount and the current amount
+outstanding, and a writeoff line will be added in the patron's transactions.
+
+.. Note::
+
+   If the :ref:`FinePaymentAutoPopup <FinePaymentAutoPopup-label>` system
+   preference is enabled, a print dialogue window will display. The receipt
+   printed uses the letter ACCOUNT\_CREDIT, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. If change was
+   given for this transaction the details will be included when using this
+   system preference.
+
+   In addition to printing receipts you can enable email receipts for payment
+   and writeoff transactions with the
+   :ref:`UseEmailReceipts <UseEmailReceipts-label>` system preference.
+   The email sent uses the ACCOUNT\_WRITEOFF letter, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _writeoff-selected-fine-label:
+
+Writing off selected charges
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+To write off only some charges:
+
+-  If you need to add a note about the writeoff, click 'Add note' and type in
+   the note before proceeding
+
+-  Check the selection boxes next to the fines to be written off
+
+   |payselected-select|
+
+-  Click the 'Writeoff selected' button
+
+The total outstanding amount for the selected charges will be displayed, and
+populated for you in the 'Writeoff amount' field.
+
+.. Note::
+
+  If you made a mistake and this charge should be paid instead, you can
+  switch between 'Pay' and 'Write off' mode using the buttons located at the top
+  of this tab. See :ref:`Paying selected charges <pay-selected-label>` above.
+
+|writeoffselected|
+
+   -  Writeoff amount: this is the amount that will be debited from the
+      charge. When writing off the charges completely, this should be the full
+      amount.
+
+   -  Note: if needed, enter a note about this writeoff.
+
+   -  If any :ref:`additional fields <additional-fields-label>` were set up for
+      account line credits, they will appear here.
+
+-  Click 'Confirm'
+
+The selected charges' outstanding amounts will be updated, with the writeoff
+applied to oldest charges first, and a writeoff line will be added in the patron's
+transactions.
+
+.. Note::
+
+   If the :ref:`FinePaymentAutoPopup <FinePaymentAutoPopup-label>` system
+   preference is enabled, a print dialogue window will display. The receipt
+   printed uses the letter ACCOUNT\_CREDIT, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`. If change was
+   given for this transaction the details will be included when using this
+   system preference.
+
+   In addition to printing receipts you can enable email receipts for payment
+   and writeoff transactions with the
+   :ref:`UseEmailReceipts <UseEmailReceipts-label>` system preference.
+   The email sent uses the ACCOUNT\_WRITEOFF letter, which can be modified in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _cancel-charges-label:
+
+Cancel fines or fees
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If a user was charged for something and it's an error, you can cancel the fee 
+by clicking the 'Cancel charge' button in the Actions column.
+
+|cancelcharge|
+
+Once clicked a new line will be added to the account for a 'Cancelled charge' 
+of the same amount as the cancelled charge. The charge that was cancelled will 
+now have the 'Cancelled' status and the amount outstanding will be 0.
+
+|cancelledcharge|
+
+If you cancelled a charge by mistake, you can void the cancellation (see
+:ref:`Void payments <void-payments-label>` below).
+
+.. _void-payments-label:
+
+Void payments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you accidentally mark and item as paid, you can reverse that line item 
+by clicking 'Void' to the right of the line
+
+   |image457|
+
+-  Once clicked a new line item will be added to the account showing
+   the payment as ‘Voided’. The payment line is added back to
+   the Pay fines tab as an outstanding charge.
+
+   |image458|
+
+.. _creating-manual-credits-label:
+
+Creating manual credits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Manual credits can be used to pay off parts of fines, or to forgive a
+fine amount.
+
+.. Note::
+
+   Staff need the manual\_credit (or superlibrarian)
+   :ref:`permission <patron-permissions-label>` in order to add manual credits
+   to a patron's account.
+
+-  Click 'Create manual credit'.
+
+   |manualcredit|
+
+   -  Type: choose the type of credit to apply.
+
+      .. Note::
+
+         To add additional values to the manual credit type drop-down
+         menu, add them to the :ref:`credit types <credit-types-label>`
+         in the Administration module.
+
+   -  Barcode: if this credit is associated with an item you can enter that item's
+      barcode so that the line item links to the right item.
+
+   -  Description: enter the description of the credit.
+
+   -  Note: if needed, add a note about this credit.
+
+   -  Amount: enter the credit's amount, do not enter currency symbols, only
+      numbers and decimals.
+
+   -  Transaction type: choose the type of credit.
+
+      .. Note::
+
+         This field will only appear if one or more values are defined under
+         the :ref:`PAYMENT\_TYPE authorized value <existing-values-label>`.
+
+      .. Note::
+
+        This field will be required if either the
+        :ref:`UseCashRegisters <UseCashRegisters-label>` system preference
+        or the :ref:`RequirePaymentType <requirepaymenttype-label>` system
+        preference is enabled.
+
+   -  Cash register: if the :ref:`UseCashRegisters <UseCashRegisters-label>`
+      system preference is enabled, you will have a choice of cash register in
+      which to enter the transaction.
+
+      .. Note::
+
+         If the :ref:`UseCashRegisters <UseCashRegisters-label>` system
+         preference is enabled, and the CASH transaction type is chosen above,
+         you will be required to choose a cash register for the payment.
+
+         Whether or not this field is required when another transaction type is
+         chosen is determined by the
+         :ref:`RequireCashRegister <requirecashregister-label>` system
+         preference.
+
+   -  If any :ref:`additional fields <additional-fields-label>` were set up for
+      account line credits, they will appear here.
+
+-  Click 'Add credit'.
+
+This will add a credit line to the patron's account.
+
+.. Note::
+
+   If the :ref:`AccountAutoReconcile <accountautoreconcile-label>` system
+   preference is set to 'Do', the credit will automatically be used to reduce
+   the outstanding amounts in the patron's account, starting with the oldest
+   charges.
+
+.. Note::
+
+   If the :ref:`AutoCreditNumber <autocreditnumber-label>` system preference
+   is enabled, credits will be numbered.
+
+.. _printing-invoices-label:
+
+Printing invoices
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To the right of each account line there is a print link. Clicking that
+link will print an invoice for the line item that includes the date and
+description of the line item along with the total outstanding on the
+account.
+
+|image461|
+
+.. _routing-lists-label:
+
+Routing lists
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A list of all of the serial routing lists the patron belongs to will be
+accessible via the 'Routing lists' tab on the patron record.
+
+|image462|
+
+On this tab you will be able to see and edit all of the routing lists
+that this patron is on.
+
+|image463|
+
+.. _circulation-history-label:
+
+Circulation history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The circulation history tab will appear if you have set the
+:ref:`intranetreadinghistory <intranetreadinghistory-label>` preference to allow
+it to appear. If you have the :ref:`OPACPrivacy <OPACPrivacy-label>` system
+preference set to 'Allow' and the patron has decided that the library
+cannot keep this information this tab will only show currently checked
+out items.
+
+|circulationhistory|
+
+     **Note**
+
+     -  You can customize the columns of this table in the 
+        :ref:`'Table settings'<column-settings-label>` section of the 
+        Administration module (table id: checkouthistory-table).
+
+To see when an item was renewed and by whom, click ‘View’ in the Number of renewals column.
+
+|viewItemRenewals|
+
+If you would like to export a list of barcodes for the items checked in
+today you can find that option under the More menu on the top right of
+the page.
+
+|image465|
+
+This will generate a text file with one barcode per line.
+
+.. _holds-history-label:
+
+Holds history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The holds history tab shows all the holds the patron has made, with their status.
+
+|image1496|
+
+     **Note**
+
+     -  You can customize the columns of this table in the 
+        :ref:`'Table settings'<column-settings-label>` section of the 
+        Administration module (table id: holdshistory-table).
+
+.. _modification-log-label:
+
+Modification log
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you have set your :ref:`BorrowersLog <BorrowersLog-label>` to track changes
+to patron records, then this tab will appear. The Modification log will
+show when changes were made to the patron record. If you also have
+turned on the :ref:`IssueLog <IssueLog-label>` and :ref:`ReturnLog <ReturnLog-label>`
+you will see checkins and outs on this screen as well.
+
+|image466|
+
+-  The Librarian field shows the patron number for the librarian who
+   made the changes
+
+-  The module lists 'MEMBERS' for the patron module
+
+-  The action will tell you what action was being logged
+
+-  The Object field lists the borrowernumber that is being modified (in
+   the example above, it was my changing my own record)
+
+.. _notices-label:
+
+Notices
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The `patron's messaging preferences <#setpatronmessaging>`__ are set
+when :ref:`adding <add-a-new-patron-label>` or :ref:`editing <editing-patrons-label>` the
+patron. This tab will show the messages that have been sent and those
+that are queued to be sent:
+
+|image467|
+
+Clicking on the message title will expand the view to show you the full
+text of the message that was sent.
+
+|image468|
+
+If the message has a status of sent or failed you will have the option
+to 'resend' the message to the patron by clicking the 'resend' button
+found under the status.
+
+|image469|
+
+.. _statistics-label:
+
+Statistics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Depending on what you set for the values of your
+:ref:`StatisticsFields <StatisticsFields-label>` system preference, you can see
+statistics for one patron's circulation actions.
+
+|image470|
+
+.. _files-label:
+
+Files
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you set the :ref:`EnableBorrowerFiles <EnableBorrowerFiles-label>` preference
+to 'Do' the Files tab will be visible on the patron information page.
+
+|image471|
+
+From here you can upload files to attach to the patron record.
+
+|image472|
+
+All files that are uploaded will appear above a form where additional
+files can be uploaded from.
+
+|image473|
+
+.. _purchase-suggestions-label:
+
+Purchase suggestions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the patron has made any purchase suggestions you will see a purchase
+suggestions tab on the patron record.
+
+|purchasesuggestions|
+
+From here you can see all suggestions made by the patron and their
+status, you can also create a purchase suggestion on the patron's behalf
+by clicking the 'New purchase suggestion' button at the top.
+
+Learn more about :ref:`managing purchase suggestions <managing-purchase-suggestions-label>` in the
+Acquisitions chapter of this manual.
+
+.. _patron-discharges-label:
+
+Patron discharges
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A discharge is a certificate that says the patron has no current
+checkouts and no holds. To enable this option on the patron record, set the
+:ref:`useDischarge <useDischarge-label>` system preference to 'Allow'.
+
+.. Note::
+
+   In France, a "quitus" ("discharge") is needed if you want to register for an
+   account in a library or a university.
+
+.. Note::
+
+   Academic libraries often require that you have a clear record at the library
+   before you can graduate.
+
+.. _emit-discharge-label:
+
+Emitting a discharge
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To generate a discharge for a specific patron, click the 'Discharges' tab
+on the left of the patron record.
+
+|dischargestab|
+
+Or click on the 'More' button and choose 'Discharge'.
+
+|moremenu|
+
+If the patron can have a discharge generated, it will have a button
+that says 'Generate discharge'
+
+|dischargegenerate|
+
+If the patron has checkouts or holds, you'll see a message explaining why the
+patron cannot be discharged.
+
+|dischargeimpossible|
+
+Once the letter is generated you will have a PDF to download.
+
+.. Note::
+
+   You can customize this message in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+   The letter code is DISCHARGE.
+
+.. Note::
+
+   You can style the PDF using the :ref:`NoticeCSS <NoticeCSS-label>`
+   preference, or add inline CSS in the DISCHARGE letter in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+The patron will have a :ref:`restriction <patron-restrictions-label>` added to
+their account.
+
+|dischargerestrict|
+
+A history of discharges will be added to the 'Discharges' tab.
+
+|dischargehistory|
+
+.. _approve-discharge-label:
+
+Approving discharge requests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Patrons can :ref:`request discharges via the OPAC <ask-for-a-discharge-label>`.
+Any pending discharges will be listed below the menu buttons on the main
+staff interface page, with other pending requests.
+
+|pendingrequests|
+
+Clicking the pending discharge request link will open a screen where you can
+approve those discharges by clicking 'Allow'.
+
+|dischargepending|
+
+.. _housebound-patrons-label:
+
+Housebound patrons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are three roles a patron can have in regard to housebound
+circulation: borrower, chooser or deliverer.
+
+    **Important**
+
+    In order to use the housebound module, the :ref:`HouseboundModule <HouseboundModule-label>`
+    and :ref:`ExtendedPatronAttributes <ExtendedPatronAttributes-label>` system preferences must be
+    enabled.
+
+.. _housebound-chooser-label:
+
+Chooser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have enabled the housebound module, with the
+:ref:`HouseboundModule <HouseboundModule-label>` system preference, you will see that
+patrons now have a new section in their record called 'Housebound
+roles'.
+
+|image1349|
+
+Click the 'Add' button to mark this
+patron as a 'Chooser'.
+
+|image1350|
+
+The chooser is in charge of choosing the materials for the
+housebound patron.
+
+.. _housebound-deliverer-label:
+
+Deliverer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the 'Housebound roles', click the 'Add' button to mark
+this patron as a 'Deliverer'.
+
+|image1351|
+
+The deliverer is in charge of delivering the chosen materials
+to the housebound patron on a specific day at a specific time.
+
+.. _housebound-borrower-label:
+
+Housebound borrowers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To create a housebound profile for an housebound patron, click on
+the 'Housebound' tab in their record.
+
+|image1347|
+
+From there, you can edit their housebound profile information.
+
+|image1348|
+
+- Delivery day: choose which day (or 'Any') the patron prefers to
+  receive their delivery.
+
+- Frequency: choose the frequency at which they want to receive
+  their deliveries.
+
+    **Note**
+
+    The frequencies are managed through the HSBND\_FREQ list of
+    :ref:`authorized values <existing-values-label>`.
+
+- Preferred materials: enter notes that will help the chooser
+  choose appropriate documents for the housebound patron.
+
+  For example: books, dvds, magazines, etc.
+
+- Subjects: if the housebound patron has a preference for
+  particular subjects, enter it here. This will help the
+  chooser choose interesting documents for the patron.
+
+  For example: romance, cookbooks, thrillers, etc.
+
+- Authors: if the housebound patron has favorite authors,
+  enter them here.
+
+  For example: Danielle Steel, James Patterson, etc.
+
+- Referral: if the housebound patron has a referral, enter
+  it here.
+
+- Notes: enter any other notes that may help the chooser or
+  the deliverer.
+
+Click the 'Save changes' button to save the housebound profile.
+
+.. _housebound-deliveries-label:
+
+Coordinating deliveries
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To plan visits, go to the housebound patron's record.
+
+In their housebound tab, you will be able to create deliveries.
+
+|image1352|
+
+Click on 'Add a new delivery'.
+
+|image1353|
+
+Fill out the information :
+
+  - Date: Enter the date of the delivery.
+
+  - Time: Select a time of day for the delivery. The choices are
+    morning, afternoon, or evening.
+
+  - Chooser: Select a chooser who will be in charge of selecting
+    the materials for this housebound patron.
+
+  - Deliverer: Select a deliverer who will be in charge of picking
+    up the materials and bringing them over to the housebound
+    patron.
+
+|image1354|
+
+Choosers and Deliverers can be notified of planned deliveries via reports.  Example reports be found in the SQL Reports Library at https://wiki.koha-community.org/wiki/SQL_Reports_Patrons#Patron_Characteristics.
+
+.. _patron-recall-history-label:
+
+Recalls history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If :ref:`recalls are enabled<recalls-label>`, active and past
+:ref:`recalls requested by the patron<request-recalls-opac-label>` will appear
+in this tab.
+
+|patronrecallshistory|
+
+From here staff members can see the status of each recall and
+:ref:`manage them<recalls-manage-label>`.
+
+.. _two-factor-authentication-staff-label:
+
+Two factor authentication in the staff interface
+-------------------------------------------------------------------------------
+
+Koha offers two-factor authentication (2FA) for logging into the staff interface.
+
+This two-factor authentication uses a time-based one-time password (TOTP). A
+TOTP is a password can only be used once and is only valid for a limited time.
+
+Users wanting to use the two-factor authentication must have an app to generate
+these TOTPs. Any authenticator app, such as Google Authenticator, andOTP,
+FreeOTP and many others can be used. Applications that enable backup of their
+2FA accounts (either cloud-based or automatic) are recommended.
+
+Turn on the two-factor authentication with the :ref:`TwoFactorAuthentication <TwoFactorAuthentication-label>`
+system preference.
+
+Once this is done, the staff user must go to their account by clicking their
+username at the top of the page and clicking 'My account'.
+
+|myaccount|
+
+The user must then go to More > Manage two-factor authentication.
+
+|manage2fa|
+
+The status should be 'Disabled' when first going to this page.
+
+|manage2fa-disabled|
+
+Click on 'Enable two-factor authentication'.
+
+A QR code will be presented. This code must be scanned with an authenticator
+app (see above for suggestions).
+
+|manage2fa-qrcode|
+
+.. Note::
+
+   If the app doesn't allow to scan QR codes, the page gives the credentials
+   that can be entered manually (account, key, time-based).
+
+Once the QR code is scanned, the app will return a time-based PIN code. The user
+must enter this PIN code in the PIN code field and click 'Register with
+two-factor app'.
+
+The status of the two-factor authentication will now be enabled.
+
+.. Note::
+
+   An email will be sent to the user's email address to alert them that the
+   two-factor authentication has been enabled on their account.
+
+   You can customize this message in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+   The letter code is 2FA\_ENABLE.
+
+When this user tries to log in to the staff interface, they will have to enter
+their username and password, like always, but also a two-factor authentication
+code.
+
+|2falogincode|
+
+The user must then open their authenticator app, generate a time-based
+one-time password and enter it in the field in order to log in.
+
+.. Note::
+
+   Alternatively, if the user doesn't have the app handy, they can click on
+   'Send the code by email', which will send them an email with a time-based
+   one-time password for them to use.
+
+   The email is based on the 2FA\_OTP\_TOKEN notice template, which can be
+   customized in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+Should the user wish to disable their two-factor authentication, they can go to
+their account in the staff interface, click More > Manage two-factor
+authentication and click 'Disable two-factor authentication'.
+
+|manage2fa-enabled|
+
+.. Note::
+
+   An email will be sent to the user's email address to alert them that the
+   two-factor authentication has been disabled on their account.
+
+   You can customize this message in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+   The letter code is 2FA\_DISABLE.
+
+.. _patron-search-label:
+
+Patron search
+---------------------------------
+
+Clicking on the link to the Patron module will bring you to a
+search/browse screen for patrons. From here you can search for a patron
+by any part of their name or their card number.
+
+|image477|
+
+Clicking the small plus sign [+] to the right of the search box will
+open up an advanced patron search with more filters including the
+ability to limit to a specific category and/or library.
+
+|image478|
+
+You can also filter your patron results using the search options on the
+left hand side of the page.
+
+|image1253|
+
+Depending on what you have chosen for the 'Search fields' you can search
+for patrons in various different ways.
+
+|image479|
+
+-  Standard:
+
+   -  Enter any part of their name, username, email address or barcode
+
+-  Email:
+
+   -  Enter any part of their email address and choose 'Contains'
+      instead of 'Starts with'
+
+-  Borrower number:
+
+   -  Enter the Koha borrower number
+
+-  Phone number:
+
+   -  Enter the phone number exactly as it is in the system or by using
+      spaces between each batch of numbers.
+
+   -  Example: To find (212) 555-1212 you can search for it exactly as
+      it was entered or by searching for 212 555 1212
+
+-  Street address:
+
+   -  Enter any part of the patron's address (includes all address
+      fields) and choose 'Contains' instead of 'Starts with' to find the
+      string anywhere in the address
+
+-  Date of birth
+
+   -  Birth dates should be entered using the format set forth in the
+      :ref:`dateformat <dateformat-label>` preference.
+
+-  Sort field 1
+
+   -  This is a custom field that libraries can use for any type of data
+      about the patron.
+
+-  Sort field 2
+
+   -  This is a custom field that libraries can use for any type of data
+      about the patron.
+
+You can also choose to either search for fields that start with the
+string you entered or contain the string. Choosing 'Contains' will work
+like a wildcard search.
+
+|image480|
+
+You can also browse through the patron records by clicking on the linked
+letters across the top.
+
+|image481|
+
+If your search only returns one result, you will be taken directly to the 
+patron's file. If your search returns more than one result, you will be given 
+a list from which to choose.
+
+|patronsearchresults|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module, under the patrons tab (table id: memberresultst).
+
+.. _communication-with-patrons-label:
+
+Communicating with patrons
+-------------------------------------------------------------------------------
+
+Koha offers several options for communicating with patrons, some of which have 
+already been covered in this chapter.
+
+.. _opac-notes-label:
+
+OPAC notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OPAC notes are added to the patron's file through the 
+:ref:`add patron form<add-a-new-patron-label>` or the 
+:ref:`edit patron form <editing-patrons-label>`, in the 'Library set-up' 
+section.
+
+|addlibsetup|
+
+They show up in the :ref:`'Your summary' section <your-summary-label>` of the 
+patron's online account in the OPAC.
+
+|opacnote|
+
+In the staff interface, OPAC notes will be in the 'Library use' section of the 
+patron's file.
+
+|libraryusesection|
+
+.. _opac-messages-label:
+
+OPAC messages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OPAC messages are added to the patron's file using the 'Add message' button.
+
+|patronedit|
+
+To leave a message that the patron will be able to see in the OPAC, choose 
+"OPAC - Patron's name" in the 'Add a message for' field. Enter your message 
+in the box, or choose a predefined message in the drop-down menu.
+
+|opacmessage|
+
+.. Note::
+
+   Predefined messages are added in the BOR\_NOTES
+   :ref:`authorized value category <existing-values-label>`
+
+Once saved, the patron will be able to see the message in the 
+:ref:`'Your summary' section <your-summary-label>` of their online account.
+The patron will also be able to see the date on which the message was added as 
+well as the name of the branch. They will have the option to dismiss the message.
+This will hide the message from their OPAC account and mark it as read, but it
+will not delete the message.
+
+|opacmessage2|
+
+In the staff interface, OPAC messages are shown on the patron's detail page, 
+at the top of the page just under the row of action buttons.
+
+|opacmessage3|
+
+It will also appear on the checkout page, to the right of the checkout box.
+
+|opacmessage4|
+
+If you need to edit the message, click the 'Edit' button next to the message,
+edit the text and click 'Save'.
+
+.. Warning::
+
+   If you edit a message that has been dismissed by the patron, it will stay
+   as 'Read' and the patron will not see your edit.
+
+If the patron dismisses the message, a 'Read' mention with the date will appear
+next to the message in the staff interface to inform staff members that this
+message was read by the patron.
+
+|opacmessage-read|
+
+.. _advance-notices-and-hold-notices-label:
+
+Advance notices and hold notices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you have enabled the :ref:`EnhancedMessagingPreferences <EnhancedMessagingPreferences-label>` system preference, 
+you cat set advance notices as well as hold notices when 
+:ref:`adding a new patron <add-a-new-patron-label>` or 
+:ref:`editing a patron <editing-patrons-label>`.
+
+If the :ref:`EnhancedMessagingPreferencesOPAC <EnhancedMessagingPreferencesOPAC-label>` system preference is set to 
+'show', patrons will be able to modify their messaging preferences in their 
+online account.
+
+|addpatronmsg|
+
+-  Item due: A notice on the day and item is due back at the library
+
+   -  Customize this notice by editing the DUE or DUEDGST notices in the 
+      :ref:`Notices and slips tool <notices-and-slips-label>`
+
+-  Advance notice: A notice in advance of the patron's items being due (the 
+   patron can choose the number of days in advance)
+
+   -  Customize this notice by editing the PREDUE or PREDUEDGST notices 
+      in the :ref:`Notices and slips tool <notices-and-slips-label>`
+
+-  Hold filled: A notice when you have confirmed the hold is waiting for the 
+   patron, and when a curbside pickup is scheduled.
+
+   -  Customize the hold filled notice by editing the HOLD template in the
+      :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+   -  Customize the curbside pickup scheduled notice by editing the
+      NEW\_CURBSIDE\_PICKUP template in the
+      :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+-  Item check-in: A notice that lists all the of the items the patron has just 
+   checked in
+
+   -  Customize this notice by editing the CHECKIN notice in the 
+      :ref:`Notices & slips tool <notices-and-slips-label>`
+
+-  Item checkout: A notice that lists all the of the items the patron has just 
+   checked out and/or renewed, this is an electronic form of the checkout 
+   receipt
+
+   -  Customize this notice by editing the CHECKOUT notice in the 
+      :ref:`Notices and slips tool <notices-and-slips-label>`
+
+   .. Note::
+
+      If the :ref:`RenewalSendNotice <renewalsendnotice-label>` system preference
+      is set to 'Send', this notice will be called 'Item checkout and renewal'.
+
+      For renewals, the notice sent is RENEWAL.
+
+-  Interlibrary loan ready: A notice that is sent when an inter-library loan the
+   patron requested has been fulfilled and is now ready for pickup.
+
+   -  Customize this notice by editing the ILL\_PICKUP\_READY notice in the
+      :ref:`Notices and slips tool <notices-and-slips-label>`
+
+   -  This option will only appear if the :ref:`ILLModule <illmodule-label>`
+      system preference is enabled.
+
+-  Interlibrary loan unavailable: A notice that is sent when an inter-library
+   loan the patron requested has been cancelled because it was unavailable.
+
+   -  Customize this notice by editing the ILL\_REQUEST\_UNAVAIL notice in the
+      :ref:`Notices and slips tool <notices-and-slips-label>`
+
+   -  This option will only appear if the :ref:`ILLModule <illmodule-label>`
+      system preference is enabled.
+
+-  Auto renewal: A notice that notifies the patron that their checkouts have 
+   been automatically renewed, or if there was a problem with their automatic 
+   renewal.
+
+   -  Customize this notice by editing the AUTO\_RENEWAL or AUTO\_RENEWAL\_DGST 
+      notice in the :ref:`Notices & slips tool <notices-and-slips-label>`
+
+   -  This option will only appear if the :ref:`AutoRenewalNotices <AutoRenewalNotices-label>` is set to 
+      "according to patrons messaging preferences"
+
+-  Hold reminder: A notice that is sent a certain number of days after the
+   :ref:`hold has been filled <receiving-holds-label>`, in order to remind the
+   patron that they have to pick it up.
+
+   -  Customize this notice by editing the HOLD\_REMINDER
+      notice in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+   -  This notice requires the
+      :ref:`holds\_reminder.pl <cron-holdsreminder-label>` cron job.
+
+-  Interlibrary loan updated: A notice that is sent when an inter-library
+   loan the patron requested has been updated.
+
+   -  Customize this notice by editing the ILL\_REQUEST\_UPDATE notice in the
+      :ref:`Notices and slips tool <notices-and-slips-label>`
+
+   -  This option will only appear if the :ref:`ILLModule <illmodule-label>`
+      system preference is enabled.
+
+Patrons can choose to receive their notices as a digest by checking the 
+'Digest only' box along with the delivery method. A digest is a combination of 
+all the messages of that type (so all items due in 3 days in one email) in to 
+one email instead of multiple emails for each alert.
+
+The delivery methods currently supported are: 
+
+-  Email
+-  SMS (text messages)
+-  Automated phone call system
+-  Print
+
+To generate the advance notices (advance notice and item due), you need to run the 
+:ref:`advance\_notices.pl cronjob <cron-advanced-notice-label>`. Then, the 
+:ref:`process\_message\_queue.pl cronjob <cron-message-queue-label>` will send 
+the notices or the :ref:`gather\_print\_notices.pl cronjob <cron-print-hold-notices-label>` 
+will gather them in a nice file you can print out and send out via regular mail.
+
+.. _overdue-notices-label:
+
+Overdue notices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Overdue notices are managed in :ref:`Notices & slips <notices-and-slips-label>` 
+and when they are sent is managed in 
+:ref:`Overdue notice/status triggers <overdue-notice/status-triggers-label>`.
+
+Patrons cannot opt out of receiving overdue notices like they can other 
+notices (such as :ref:`advance notices or hold notices <advance-notices-and-hold-notices-label>`)
+
+To generate the overdue notices , you need to run the 
+:ref:`overdue\_notices.pl cronjob <cron-overdue-notice-label>`. Then, the 
+:ref:`process\_message\_queue.pl cronjob <cron-message-queue-label>` will send 
+the notices or the :ref:`gather\_print\_notices.pl cronjob <cron-print-hold-notices-label>` 
+will gather them in a nice file you can print out and send out via regular mail.
+
+..
+ .. _patron-emailer-label:
+
+ Custom emails
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

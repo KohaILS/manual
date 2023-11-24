@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>館員介面 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="工具" href="toolspreferences.html" />
+    <link rel="prev" title="期刊" href="serialspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">館員介面</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#appearance">外觀</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#authorityxsltresultsdisplay">AuthorityXSLTResultsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display856uasimage">Display856uAsImage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displayiconsxslt">DisplayIconsXSLT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranet-includes">intranet_includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetcirculationhomehtml">IntranetCirculationHomeHTML</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetcolorstylesheet">intranetcolorstylesheet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetfavicon">IntranetFavicon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetmainuserblock">IntranetmainUserblock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetnav">IntranetNav</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetreportshomehtml">IntranetReportsHomeHTML</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetslipprinterjs">IntranetSlipPrinterJS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetstylesheet">intranetstylesheet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetusercss">IntranetUserCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetuserjs">IntranetUserJS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slipcss">SlipCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staffclientbaseurl">staffClientBaseURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staffhighlightedwords">StaffHighlightedWords</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stafflangselectormode">StaffLangSelectorMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stafflogininstructions">StaffLoginInstructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template">模板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xsltdetailsdisplay">XSLTDetailsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xsltlistsdisplay">XSLTListsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xsltresultsdisplay">XSLTResultsDisplay</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">認證</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#staffshibonly">staffShibOnly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#twofactorauthentication">TwoFactorAuthentication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#options">選項</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#audioalerts">AudioAlerts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hidepatronname">HidePatronName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetaddmastheadlibrarypulldown">IntranetAddMastheadLibraryPulldown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetbookbag">intranetbookbag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetcatalogsearchpulldown">IntranetCatalogSearchPulldown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showlastpatron">showLastPatron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staffdetailitemselection">StaffDetailItemSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usewysiwyginsystempreferences">UseWYSIWYGinSystemPreferences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewisbd">viewISBD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewlabeledmarc">viewLabeledMARC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewmarc">viewMARC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">館員介面</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/staffclientpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="serialspreferences.html" class="btn btn-neutral float-left" title="期刊" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="toolspreferences.html" class="btn btn-neutral float-right" title="工具" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="staff-interface">
+<span id="staff-client-preferences-label"></span><h1>館員介面<a class="headerlink" href="#staff-interface" title="此标题的永久链接"></a></h1>
+<p><em>到此：</em> 其他 &gt; 管理 &gt; 整體系統偏好 &gt; 館員介面</p>
+<section id="appearance">
+<span id="staff-appearance-preferences-label"></span><h2>外觀<a class="headerlink" href="#appearance" title="此标题的永久链接"></a></h2>
+<section id="authorityxsltresultsdisplay">
+<span id="authorityxsltresultsdisplay-label"></span><h3>AuthorityXSLTResultsDisplay<a class="headerlink" href="#authorityxsltresultsdisplay" title="此标题的永久链接"></a></h3>
+<p>要求：使用 XSLT 樣式表在館員介面中顯示權威結果：___</p>
+<p>預設：空白（使用預設的非XSLT顯示）</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>輸入一個XSLT文件的路徑</p>
+<ul>
+<li><p>例如，/path/to/koha/and/your/stylesheet.xsl</p></li>
+<li><p>在多語系環境下可在路徑裡輸入 {langcode} 告知 Koha 取用正確的資料夾</p>
+<ul>
+<li><p>例如，/home/koha/src/koha-tmpl/intranet-tmpl/prog/{langcode}/xslt/intranetDetail.xsl</p></li>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org">http://mykohaopac.org</a>/{langcode}/stylesheet.xsl</p></li>
+</ul>
+</li>
+<li><p>如果不同的權威類型有不同的樣式表，則可以使用 {authtypecode} 占位符</p></li>
+</ul>
+</li>
+<li><p>輸入一個外部樣式表的URL</p>
+<ul>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org/stylesheet.xsl">http://mykohaopac.org/stylesheet.xsl</a></p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>XSLT 樣式表允許客製化檢視權威搜尋結果的詳情。此偏好允許您使用 Koha 的預設值或設計自己的樣式表。</p></li>
+<li><p>這個系統偏好控制了館員介面中權威搜尋結果中的記錄顯示。</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a></p></li>
+</ul>
+</section>
+<section id="display856uasimage">
+<span id="display856uasimage-label"></span><h3>Display856uAsImage<a class="headerlink" href="#display856uasimage" title="此标题的永久链接"></a></h3>
+<p>詢問：將 856u 欄位的 URI 以圖片形式顯示於：___</p>
+<p>預設值：既不在詳情頁面也不在結果頁面</p>
+<p>值:</p>
+<ul>
+<li><p>同在搜尋結果與書目詳情頁面</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Both <a class="reference internal" href="#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a> and <a class="reference internal" href="#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a> need to have
+values in order for this option to work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>此選項只適用於 MARC21。</p>
+</div>
+</li>
+<li><p>詳情頁面</p>
+<p><img alt="Detailed record page in the staff interface, one of the 856 field is displayed as an image in the record" src="_images/Display856uAsImage-detail.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><a class="reference internal" href="#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a> needs to have a value in it for this option to
+work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>只適用於MARC21 與 UNIMARC。</p>
+</div>
+</li>
+<li><p>既不在詳情頁面也不在結果頁面</p></li>
+<li><p>只限結果頁面</p>
+<p><img alt="Search results in the staff interface, one of the 856 field is displayed as an image in the listing" src="_images/Display856uAsImage-results.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><a class="reference internal" href="#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a> needs to have a value in it for this option to
+work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>只適用於 MARC21。</p>
+</div>
+</li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>除了這個選項被設定外，相應的XSLT選項必須被打開。</p>
+<p>參見</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a></p></li>
+</ul>
+</li>
+<li><p>此外，相應的 856q 欄位必須有一個有效的MIME圖像延伸名（例如，”jpg”）或MIME圖像類型（即以 “image/”開頭），或在該欄位中輸入通用指標 “img”。</p>
+<p><img alt="856 field in the cataloging form; 856q contains img and 856u contains a link to an image" src="_images/856imagemarc.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><strong>常見的圖像MIME類型</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>檔案類型</p></th>
+<th class="head"><p>圖片 MIME 類型</p></th>
+<th class="head"><p>檔案延伸</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>點陣圖</p></td>
+<td><p>圖片/bmp</p></td>
+<td><p>bmp</p></td>
+</tr>
+<tr class="row-odd"><td><p>圖像互換格式 (gif)</p></td>
+<td><p>圖片/gif</p></td>
+<td><p>gif</p></td>
+</tr>
+<tr class="row-even"><td><p>JPEG 影像</p></td>
+<td><p>影像/jpeg</p></td>
+<td><p>jpg</p></td>
+</tr>
+<tr class="row-odd"><td><p>JPEG 影像</p></td>
+<td><p>影像/jpeg</p></td>
+<td><p>jpeg</p></td>
+</tr>
+<tr class="row-even"><td><p>可縮放向量圖形</p></td>
+<td><p>影像/svg+xml</p></td>
+<td><p>svg</p></td>
+</tr>
+<tr class="row-odd"><td><p>TIF 影像</p></td>
+<td><p>影像/tiff</p></td>
+<td><p>tiff</p></td>
+</tr>
+<tr class="row-even"><td><p>TIF 影像</p></td>
+<td><p>影像/tiff</p></td>
+<td><p>tif</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><p>當滿足所有要求時，將顯示圖像檔案而不是標準文字連結。點擊圖像將以與點擊文字連結打開它的方式相同。當您點擊圖像時，它應該在當前窗口中以全尺寸打開。</p></li>
+</ul>
+<p>參見</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacdisplay856uasimage-label"><span class="std std-ref">OPACDisplay856uAsImage</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a></p></li>
+</ul>
+</section>
+<section id="displayiconsxslt">
+<span id="displayiconsxslt-label"></span><h3>DisplayIconsXSLT<a class="headerlink" href="#displayiconsxslt" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 在館員介面 XSLT MARC21 結果與詳情頁面裡的格式、預期讀者及資料類型圖示和說明。</p>
+<p>預設值：顯示</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>該偏好的啟用或停用基於書目記錄前導中編碼值的顯示圖示。</p>
+<p><img alt="Screenshot of the XSLT icons in the search results in the staff interface" src="_images/DisplayIconsXSLT.png" /></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>這些圖示的資訊見 <a class="reference internal" href="cataloging.html#material-type-cataloging-guide-label"><span class="std std-ref">XSLT 資料類型圖示</span></a>。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This is only used in XSLT displays, so <a class="reference internal" href="#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a> and/or
+<a class="reference internal" href="#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a> must be set to use an XSLT stylesheet for
+this to show (default or custom)</p>
+</div>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#displayopaciconsxslt-label"><span class="std std-ref">DisplayOPACiconsXSLT</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a></p></li>
+</ul>
+</section>
+<section id="intranet-includes">
+<span id="intranet-includes-label"></span><h3>intranet_includes<a class="headerlink" href="#intranet-includes" title="此标题的永久链接"></a></h3>
+<p>詢問：使用模板資料夾裡的 ___ 資料夾內的檔案，不用/。(空白則不用)</p>
+<p>預設值：包括</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果你想使用非標準的檔案，這個系統偏好可以讓你修改包含檔案的目錄。</p></li>
+</ul>
+</section>
+<section id="intranetcirculationhomehtml">
+<span id="intranetcirculationhomehtml-label"></span><h3>IntranetCirculationHomeHTML<a class="headerlink" href="#intranetcirculationhomehtml" title="此标题的永久链接"></a></h3>
+<p>詢問：在流通模組首頁最下方顯示以下的 HTML</p>
+<p>說明：</p>
+<ul>
+<li><p>這個系統偏好可以讓你向 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>流通主頁 &lt;circulation-label&gt;`新增內容。你可以新增連結、備忘錄或任何其他內容。</p>
+<p><img alt="The HTML code entered in IntranetCirculationHomeHTML" src="_images/IntranetCirculationHomeHTML-html.png" /></p>
+<p><img alt="Screenshot that shows where the content of IntranetCirculationHomeHTML appears on the circulation home page, under the circulation action buttons and above the offline circulation links" src="_images/IntranetCirculationHomeHTML.png" /></p>
+</li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetmainuserblock-label"><span class="std std-ref">IntranetmainUserblock</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetnav-label"><span class="std std-ref">IntranetNav</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetreportshomehtml-label"><span class="std std-ref">IntranetReportsHomeHTML</span></a></p></li>
+<li><p><a class="reference internal" href="#stafflogininstructions-label"><span class="std std-ref">StaffLoginInstructions</span></a></p></li>
+</ul>
+</section>
+<section id="intranetcolorstylesheet">
+<span id="intranetcolorstylesheet-label"></span><h3>intranetcolorstylesheet<a class="headerlink" href="#intranetcolorstylesheet" title="此标题的永久链接"></a></h3>
+<p>詢問：使用新增的 CSS 樣式表 ___ 取代預設樣式表的設定</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>該偏好用於為館員介面設定自定義CSS設置。</p></li>
+<li><p>The value is a .css file. If you only need to add some directives, not
+necessarily a whole file, use <a class="reference internal" href="#intranetusercss-label"><span class="std std-ref">IntranetUserCSS</span></a></p></li>
+<li><p>以預設的樣式表(空白即停用)取代現有的設定。輸入檔案名稱，以及完整路徑或完整的 URL <a class="reference external" href="http:/">http:/</a>/(若該檔案在外部的伺服器裡)。只輸入檔名，表示該檔案應在樣式表的資料夾裡，包括每個佈景、語言包都在 Koha 版面的資料夾裡。建議使用完整的路徑，即 HTTP 的網址。</p></li>
+<li><p>空白則表示不使用。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>此處輸入的樣式表將用於**除了**預設館員介面CSS樣式表之外。</p>
+</div>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetstylesheet-label"><span class="std std-ref">intranetstylesheet</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetusercss-label"><span class="std std-ref">IntranetUserCSS</span></a></p></li>
+</ul>
+</section>
+<section id="intranetfavicon">
+<span id="intranetfavicon-label"></span><h3>IntranetFavicon<a class="headerlink" href="#intranetfavicon" title="此标题的永久链接"></a></h3>
+<p>詢問：在館員介面使用 ___ 做為喜愛的圖示。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>應該是完整的 URL，以 <a class="reference external" href="http://">http://</a> 或 <a class="reference external" href="https://">https://</a> 開頭</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>以網頁圖示產生器 <a href="#id1"><span class="problematic" id="id2">:ref:`Favicon Generator &lt;http://antifavicon.com/&gt;`__</span></a> 將標識轉換為網頁圖示。</p>
+</div>
+<p>說明：</p>
+<ul>
+<li><p>圖示是大多數瀏覽器中瀏覽器選項卡上頁面名稱旁邊顯示的小圖示。此欄位的預設值 (若空白) 是小小的 ‘K’ 當成 Koha 的標識。</p>
+<p><img alt="The small green 'k' on the browser tab is the default favicon" src="_images/stafffavicon.png" /></p>
+</li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacfavicon-label"><span class="std std-ref">OpacFavicon</span></a></p></li>
+</ul>
+</section>
+<section id="intranetmainuserblock">
+<span id="intranetmainuserblock-label"></span><h3>IntranetmainUserblock<a class="headerlink" href="#intranetmainuserblock" title="此标题的永久链接"></a></h3>
+<p>詢問： 在館員介面OPAC 的首頁顯示以下的 HTML 內容</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好允許您將內容新增到館員主介面頁面。您可以新增連結、備忘錄或任何其他內容。</p></li>
+</ul>
+<p><img alt="Screenshot that shows where the content of IntranetmainUserBlock appears on the staff interface's main page, under the module buttons" src="_images/IntranetmainUserblock.png" /></p>
+<p><img alt="The HTML code entered in IntranetmainUserBlock" src="_images/IntranetmainUserblock-html.png" /></p>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetcirculationhomehtml-label"><span class="std std-ref">IntranetCirculationHomeHTML</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetnav-label"><span class="std std-ref">IntranetNav</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetreportshomehtml-label"><span class="std std-ref">IntranetReportsHomeHTML</span></a></p></li>
+<li><p><a class="reference internal" href="#stafflogininstructions-label"><span class="std std-ref">StaffLoginInstructions</span></a></p></li>
+</ul>
+</section>
+<section id="intranetnav">
+<span id="intranetnav-label"></span><h3>IntranetNav<a class="headerlink" href="#intranetnav" title="此标题的永久链接"></a></h3>
+<p>詢問：在館員介面的所有頁面的上端顯示以下 HTML 的內容(應是一串連結或空白)</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好讓你在館員介面頁面的頂部新增連結。</p></li>
+</ul>
+<p><img alt="Screenshot that shows where the content of IntranetNav is displayed at the top of the staff interface pages, to the right of the More menu" src="_images/IntranetNav.png" /></p>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetcirculationhomehtml-label"><span class="std std-ref">IntranetCirculationHomeHTML</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetmainuserblock-label"><span class="std std-ref">IntranetmainUserblock</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetreportshomehtml-label"><span class="std std-ref">IntranetReportsHomeHTML</span></a></p></li>
+<li><p><a class="reference internal" href="#stafflogininstructions-label"><span class="std std-ref">StaffLoginInstructions</span></a></p></li>
+</ul>
+</section>
+<section id="intranetreportshomehtml">
+<span id="intranetreportshomehtml-label"></span><h3>IntranetReportsHomeHTML<a class="headerlink" href="#intranetreportshomehtml" title="此标题的永久链接"></a></h3>
+<p>詢問：在報表模組首頁最下方顯示以下的 HTML</p>
+<p>說明：</p>
+<ul>
+<li><p>這個系統偏好可以讓你在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>報表主頁 &lt;reports-label&gt;`中新增內容。你可以新增連結、備忘錄或任何其他內容。</p>
+<p><img alt="Screenshot that shows where the content of IntranetReportsHomeHTML appears on the reports module main page, under the report links" src="_images/IntranetReportsHomeHTML.png" /></p>
+</li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetcirculationhomehtml-label"><span class="std std-ref">IntranetCirculationHomeHTML</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetmainuserblock-label"><span class="std std-ref">IntranetmainUserblock</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetnav-label"><span class="std std-ref">IntranetNav</span></a></p></li>
+<li><p><a class="reference internal" href="#stafflogininstructions-label"><span class="std std-ref">StaffLoginInstructions</span></a></p></li>
+</ul>
+</section>
+<section id="intranetslipprinterjs">
+<span id="intranetslipprinterjs-label"></span><h3>IntranetSlipPrinterJS<a class="headerlink" href="#intranetslipprinterjs" title="此标题的永久链接"></a></h3>
+<p>詢問：使用以下的 JavaScript 列印收條。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在Koha 維基上了解更多關於這個偏好和附加組件設置的訊息，網址是http://wiki.koha-community.org/wiki/Setting_up_slip_printer_to_print_silently。</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#slipcss-label"><span class="std std-ref">SlipCSS</span></a></p></li>
+</ul>
+</section>
+<section id="intranetstylesheet">
+<span id="intranetstylesheet-label"></span><h3>intranetstylesheet<a class="headerlink" href="#intranetstylesheet" title="此标题的永久链接"></a></h3>
+<p>詢問： 使用 CSS 樣式表 ___ 於館員介面的所有頁面，取代預設的樣式表 (空白則使用預設的樣式表)。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好允許圖書館定制館員介面的外觀。</p></li>
+<li><p>該值是一個.css檔案。這個新檔案將覆蓋預設的樣式表。</p></li>
+<li><p>以預設的樣式表(空白即停用)取代現有的設定。輸入檔案名稱，以及完整路徑或完整的 URL <a class="reference external" href="http:/">http:/</a>/(若該檔案在外部的伺服器裡)。只輸入檔名，表示該檔案應在樣式表的資料夾裡，包括每個佈景、語言包都在 Koha 版面的資料夾裡。建議使用完整的路徑，即 HTTP 的網址。</p></li>
+<li><p>空白則表示不使用。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>這裡輸入的樣式表將被用來**代替**預設的館員介面CSS樣式表。</p>
+<p>If you’d rather use the default staff interface CSS, but add your own
+personal touch, see <a class="reference internal" href="#intranetcolorstylesheet-label"><span class="std std-ref">intranetcolorstylesheet</span></a>.</p>
+</div>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetcolorstylesheet-label"><span class="std std-ref">intranetcolorstylesheet</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetusercss-label"><span class="std std-ref">IntranetUserCSS</span></a></p></li>
+</ul>
+</section>
+<section id="intranetusercss">
+<span id="intranetusercss-label"></span><h3>IntranetUserCSS<a class="headerlink" href="#intranetusercss" title="此标题的永久链接"></a></h3>
+<p>要求：在館員介面的所有頁面上包括以下CSS</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好讓你新增一些CSS指令來訂製館員介面的外觀。</p></li>
+<li><p>The value is CSS code. If you have a .css file ready, use
+<a class="reference internal" href="#intranetcolorstylesheet-label"><span class="std std-ref">intranetcolorstylesheet</span></a> or <a class="reference internal" href="#intranetstylesheet-label"><span class="std std-ref">intranetstylesheet</span></a> instead.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在這裡輸入的CSS代碼將被用於預設的館員介面CSS樣式表**之外**。</p>
+</div>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetcolorstylesheet-label"><span class="std std-ref">intranetcolorstylesheet</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetstylesheet-label"><span class="std std-ref">intranetstylesheet</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetuserjs-label"><span class="std std-ref">IntranetUserJS</span></a></p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacusercss-label"><span class="std std-ref">OPACUserCSS</span></a></p></li>
+</ul>
+</section>
+<section id="intranetuserjs">
+<span id="intranetuserjs-label"></span><h3>IntranetUserJS<a class="headerlink" href="#intranetuserjs" title="此标题的永久链接"></a></h3>
+<p>詢問： 在館員介面的各頁面包括以下的 JavaScript</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好允許管理員輸入JavaScript或JQuery，它將被嵌入到館員介面的所有頁面中。</p></li>
+<li><p>管理員可以使用這個偏好來訂製Koha的一些互動部分，例如，訂製登入提示的文字。</p></li>
+<li><p>可以在 wiki 上找到 Koha 圖書館使用的樣本 JQuery 文字：<a class="reference external" href="http://wiki.koha-community.org/wiki/JQuery_Library">http://wiki.koha-community.org/wiki/JQuery_Library</a>。</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetusercss-label"><span class="std std-ref">IntranetUserCSS</span></a></p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacuserjs-label"><span class="std std-ref">OPACUserJS</span></a></p></li>
+</ul>
+</section>
+<section id="slipcss">
+<span id="slipcss-label"></span><h3>SlipCSS<a class="headerlink" href="#slipcss" title="此标题的永久链接"></a></h3>
+<p>詢問：在借出與預約收條裡加入樣式表 ___。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>可用此偏好在收條使用指定的字型或顏色。</p></li>
+<li><p>應該是完整的 URL，以 <a class="reference external" href="http://">http://</a> 起頭</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetslipprinterjs-label"><span class="std std-ref">IntranetSlipPrinterJS</span></a></p></li>
+</ul>
+</section>
+<section id="staffclientbaseurl">
+<span id="staffclientbaseurl-label"></span><h3>staffClientBaseURL<a class="headerlink" href="#staffclientbaseurl" title="此标题的永久链接"></a></h3>
+<p>詢問： 館員介面在 ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>輸入館員介面的URL</p></li>
+<li><p>應該是完整的 URL，以 <a class="reference external" href="http://">http://</a> 或 <a class="reference external" href="https://">https://</a> 起頭。不要在結尾加入斜線。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>必須填入正確的資料供 CAS、svc 與 load_testing 使用。</p>
+</div>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacbaseurl-label"><span class="std std-ref">OPACBaseURL</span></a></p></li>
+</ul>
+</section>
+<section id="staffhighlightedwords">
+<span id="staffhighlightedwords-label"></span><h3>StaffHighlightedWords<a class="headerlink" href="#staffhighlightedwords" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 在館員介面搜尋結果頁面中搜尋到的單詞。</p>
+<p>預設值：強調</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不強調</p></li>
+<li><p>重點</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>當設置為’突出顯示’時，搜尋館藏將在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>搜尋結果&lt;search-results-label&gt;`中以紅色和黃色突出顯示。館員可以在每次搜尋期間按兩下’取消突出顯示’以手動刪除突出顯示。</p></li>
+<li><p>當設定為”不突出顯示”時，搜尋詞將不會突出顯示，並且館員將無法在每次搜尋期間手動打開突出顯示。</p></li>
+</ul>
+</section>
+<section id="stafflangselectormode">
+<span id="stafflangselectormode-label"></span><h3>StaffLangSelectorMode<a class="headerlink" href="#stafflangselectormode" title="此标题的永久链接"></a></h3>
+<p>詢問： 在 ___ 顯示語文選擇器</p>
+<p>預設值：只有頁尾</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>頁首與頁尾</p></li>
+<li><p>只限頁尾</p></li>
+<li><p>頂端</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果你的館員介面有一種以上的語言，你可以選擇語言開關的位置</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="i18npreferences.html#language-label"><span class="std std-ref">language</span></a></p></li>
+</ul>
+</section>
+<section id="stafflogininstructions">
+<span id="stafflogininstructions-label"></span><h3>StaffLoginInstructions<a class="headerlink" href="#stafflogininstructions" title="此标题的永久链接"></a></h3>
+<p>詢問：在館員介面登入頁面上顯示以下HTML</p>
+<p>說明：</p>
+<ul>
+<li><p>在此欄位輸入的 HTML 將出現在館員介面登入表單的上方</p>
+<p><img alt="Screenshot that shows where the content of StaffLoginInstructions appears on the staff login page, above the login fields" src="_images/stafflogininstructions.png" /></p>
+</li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetcirculationhomehtml-label"><span class="std std-ref">IntranetCirculationHomeHTML</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetmainuserblock-label"><span class="std std-ref">IntranetmainUserblock</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetnav-label"><span class="std std-ref">IntranetNav</span></a></p></li>
+<li><p><a class="reference internal" href="#intranetreportshomehtml-label"><span class="std std-ref">IntranetReportsHomeHTML</span></a></p></li>
+</ul>
+</section>
+<section id="template">
+<span id="template-label"></span><h3>模板<a class="headerlink" href="#template" title="此标题的永久链接"></a></h3>
+<p>詢問：館員介面使用 ___ 模版。</p>
+<p>預設值：prog</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>prog</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好用於選擇館員介面的主題。</p></li>
+<li><p>目前只有一個與Koha配套的主題，即Prog。</p></li>
+</ul>
+</section>
+<section id="xsltdetailsdisplay">
+<span id="xsltdetailsdisplay-label"></span><h3>XSLTDetailsDisplay<a class="headerlink" href="#xsltdetailsdisplay" title="此标题的永久链接"></a></h3>
+<p>詢問：在館員介面的詳情頁面使用 ___ 做為XSLT樣式表</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>輸入 “預設”來使用預設的樣式表</p></li>
+<li><p>輸入一個XSLT文件的路徑</p>
+<ul>
+<li><p>例如，/path/to/koha/and/your/stylesheet.xsl</p></li>
+<li><p>在多語系環境下可在路徑裡輸入 {langcode} 告知 Koha 取用正確的資料夾</p>
+<ul>
+<li><p>例如，/home/koha/src/koha-tmpl/intranet-tmpl/prog/{langcode}/xslt/intranetDetail.xsl</p></li>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org">http://mykohaopac.org</a>/{langcode}/stylesheet.xsl</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>輸入一個外部樣式表的URL</p>
+<ul>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org/stylesheet.xsl">http://mykohaopac.org/stylesheet.xsl</a></p></li>
+</ul>
+</li>
+</ul>
+<p>預設: 預設</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>XSLT 樣式表允許客製化檢視書目記錄詳情。此偏好允許您使用 Koha 的預設值或設計自己的樣式表。</p></li>
+<li><p>這個系統偏好控制了館員介面中詳細書目記錄的顯示。</p></li>
+<li><p>If using a custom stylesheet that uses item MARC fields, enable the
+<a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a> system preference. Otherwise, item fields are
+not available for use in XSLT stylesheets.</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltlistsdisplay-label"><span class="std std-ref">XSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#displayiconsxslt-label"><span class="std std-ref">DisplayIconsXSLT</span></a></p></li>
+<li><p><a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a></p></li>
+</ul>
+</section>
+<section id="xsltlistsdisplay">
+<span id="xsltlistsdisplay-label"></span><h3>XSLTListsDisplay<a class="headerlink" href="#xsltlistsdisplay" title="此标题的永久链接"></a></h3>
+<p>詢問：在館員介面的結果頁面使用 ___ 做為 XSLT 樣式表</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>輸入 “預設”來使用預設的樣式表</p></li>
+<li><p>輸入一個XSLT文件的路徑</p>
+<ul>
+<li><p>例如，/path/to/koha/and/your/stylesheet.xsl</p></li>
+<li><p>在多語系環境下可在路徑裡輸入 {langcode} 告知 Koha 取用正確的資料夾</p>
+<ul>
+<li><p>例如，/home/koha/src/koha-tmpl/intranet-tmpl/prog/{langcode}/xslt/intranetDetail.xsl</p></li>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org">http://mykohaopac.org</a>/{langcode}/stylesheet.xsl</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>輸入一個外部樣式表的URL</p>
+<ul>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org/stylesheet.xsl">http://mykohaopac.org/stylesheet.xsl</a></p></li>
+</ul>
+</li>
+</ul>
+<p>預設: 預設</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>XSLT 樣式表允許客製化檢視書目記錄詳情。此偏好允許您使用 Koha 的預設值或設計自己的樣式表。</p></li>
+<li><p>這個系統偏好控制館員介面中a :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>清單 &lt;lists-label&gt;`中記錄的顯示。</p></li>
+<li><p>If using a custom stylesheet that uses item MARC fields, enable the
+<a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a> system preference. Otherwise, item fields are
+not available for use in XSLT stylesheets.</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltlistsdisplay-label"><span class="std std-ref">OPACXSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a></p></li>
+</ul>
+</section>
+<section id="xsltresultsdisplay">
+<span id="xsltresultsdisplay-label"></span><h3>XSLTResultsDisplay<a class="headerlink" href="#xsltresultsdisplay" title="此标题的永久链接"></a></h3>
+<p>詢問：在館員介面中使用 XSLT 樣式表在 ___ 處顯示結果</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>輸入 “預設”來使用預設的樣式表</p></li>
+<li><p>輸入一個XSLT文件的路徑</p>
+<ul>
+<li><p>例如，/path/to/koha/and/your/stylesheet.xsl</p></li>
+<li><p>在多語系環境下可在路徑裡輸入 {langcode} 告知 Koha 取用正確的資料夾</p>
+<ul>
+<li><p>例如，/home/koha/src/koha-tmpl/intranet-tmpl/prog/{langcode}/xslt/intranetDetail.xsl</p></li>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org">http://mykohaopac.org</a>/{langcode}/stylesheet.xsl</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>輸入一個外部樣式表的URL</p>
+<ul>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org/stylesheet.xsl">http://mykohaopac.org/stylesheet.xsl</a></p></li>
+</ul>
+</li>
+</ul>
+<p>預設: 預設</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>XSLT 樣式表允許客製化檢視搜尋結果的詳情。此偏好允許您使用 Koha 的預設值或設計自己的樣式表。</p></li>
+<li><p>這個系統偏好控制館員介面中 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>搜尋結果&lt;search-results-label&gt;`中記錄的顯示。</p></li>
+<li><p>If using a custom stylesheet that uses item MARC fields, enable the
+<a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a> system preference. Otherwise, item fields are
+not available for use in XSLT stylesheets.</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#authorityxsltresultsdisplay-label"><span class="std std-ref">AuthorityXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#xsltlistsdisplay-label"><span class="std std-ref">XSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#displayiconsxslt-label"><span class="std std-ref">DisplayIconsXSLT</span></a></p></li>
+<li><p><a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="authentication">
+<span id="staff-client-authentication-preferences-label"></span><h2>認證<a class="headerlink" href="#authentication" title="此标题的永久链接"></a></h2>
+<section id="staffshibonly">
+<span id="staffshibonly-label"></span><h3>staffShibOnly<a class="headerlink" href="#staffshibonly" title="此标题的永久链接"></a></h3>
+<p>要求：___館員通過shibboleth以外的方式登錄。</p>
+<p>預設值：允許</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好允許你限制通過shibboleth登入到館員介面。</p></li>
+</ul>
+</section>
+<section id="twofactorauthentication">
+<span id="twofactorauthentication-label"></span><h3>TwoFactorAuthentication<a class="headerlink" href="#twofactorauthentication" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 雙因素身份驗證 （2FA）。</p>
+<p>預設: 不啟用</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+<li><p>Enforce</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好可用於打開雙因素認證（2FA），以提高登錄館員介面時的安全性。</p></li>
+<li><p>雙因素認證使用基於時間的一次性密碼（TOTP）作為第二因素。</p></li>
+<li><p>一但這個系統偏好被啟用，館員必須 <a class="reference internal" href="patrons.html#two-factor-authentication-staff-label"><span class="std std-ref">在他們的帳戶中啟用雙因素認證</span></a>，使用第三方認證器應用。</p></li>
+<li><p>在他們 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>在他們的帳戶中啟用了雙因素認證&lt;two-factor-authentication-staff-label&gt;`後，館員每次需要登入到館員介面時，都需要生成一個基於時間的一次性密碼。</p></li>
+<li><p>更多訊息請參見 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>館員介面的雙因素認證&lt;two-factor-authentication-staff-label&gt;`部分。</p></li>
+<li><p>If this system preference is set to ‘Enforce’, staff will no longer be able
+to log into the staff interface without setting up and using two-factor
+authentication.</p></li>
+</ul>
+</section>
+</section>
+<section id="options">
+<span id="staff-client-options-preferences-label"></span><h2>選項<a class="headerlink" href="#options" title="此标题的永久链接"></a></h2>
+<section id="audioalerts">
+<span id="audioalerts-label"></span><h3>AudioAlerts<a class="headerlink" href="#audioalerts" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 定義在 <a class="reference internal" href="administration.html#audio-alerts-label"><span class="std std-ref">管理的音頻警報部分</span></a> 中的事件的音頻警報。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>預設: 不啟用</p>
+<p>說明 :</p>
+<ul class="simple">
+<li><p>這個系統偏好能使 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>聲音警報 &lt;audio-alerts-label&gt;`功能。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>此功能不支援所有的瀏覽器。必須是與 HTML5 相容的瀏覽器。</p>
+</div>
+</section>
+<section id="hidepatronname">
+<span id="hidepatronname-label"></span><h3>HidePatronName<a class="headerlink" href="#hidepatronname" title="此标题的永久链接"></a></h3>
+<p>詢問：在詳情頁面或 “預約” 畫面 ___ 借出該館藏的讀者姓名。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>預設值：顯示</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好允許您隱藏當前已借出館藏的讀者姓名。</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacshowcheckoutname-label"><span class="std std-ref">OPACShowCheckoutName</span></a></p></li>
+</ul>
+</section>
+<section id="intranetaddmastheadlibrarypulldown">
+<span id="intranetaddmastheadlibrarypulldown-label"></span><h3>IntranetAddMastheadLibraryPulldown<a class="headerlink" href="#intranetaddmastheadlibrarypulldown" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ a library select pulldown menu on the staff header search.</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>預設值：不顯示</p>
+<p>說明：</p>
+<ul>
+<li><p>When set to ‘Show’, there will a settings icon in the catalog search bar that,
+when clicked, will give the option of choosing a specific library.</p>
+<p><img alt="Menu and search bar at the top of the page in the staff interface, the Search catalog option is selected, the mouse cursor is on  the settings icon and there is a library drop-down menu" src="_images/searchbar-catalog-librarypulldown.png" /></p>
+</li>
+<li><p>This will search for records that have items whose home library is the
+selected library. It’s the same as the
+<a class="reference internal" href="searching.html#advanced-search-location-availability-label"><span class="std std-ref">library limit on the advanced search page</span></a>.</p></li>
+</ul>
+</section>
+<section id="intranetbookbag">
+<span id="intranetbookbag-label"></span><h3>intranetbookbag<a class="headerlink" href="#intranetbookbag" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館員介面中的購物車選項。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>預設值：顯示</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好允許您在館員介面中啟用或禁用 <a class="reference internal" href="lists.html#cart-label"><span class="std std-ref">購物車功能</span></a></p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacbookbag-label"><span class="std std-ref">opacbookbag</span></a></p></li>
+</ul>
+</section>
+<section id="intranetcatalogsearchpulldown">
+<span id="intranetcatalogsearchpulldown-label"></span><h3>IntranetCatalogSearchPulldown<a class="headerlink" href="#intranetcatalogsearchpulldown" title="此标题的永久链接"></a></h3>
+<p>詢問：___搜尋欄位下拉選單的 ‘搜尋目錄’ 框。</p>
+<p>值:</p>
+<ul>
+<li><p>不顯示</p>
+<p><img alt="The default look of the Search the catalog tab, without the index drop-down list" src="_images/IntranetCatalogSearchPulldown-hide.png" /></p>
+</li>
+<li><p>顯示</p>
+<p><img alt="When IntranetCatalogSearchPulldown is set to Show, a drop-down list of indexes appears next to the search box" src="_images/IntranetCatalogSearchPulldown-show.png" /></p>
+</li>
+</ul>
+<p>預設值：不顯示</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好允許你為館員介面頁面頂端的 ‘搜尋目錄’ 選項卡中顯示索引下拉清單</p></li>
+</ul>
+</section>
+<section id="showlastpatron">
+<span id="showlastpatron-label"></span><h3>showLastPatron<a class="headerlink" href="#showlastpatron" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館員介面中最後搜尋的讀者連結。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>預設值：不顯示</p>
+<p>說明</p>
+<ul>
+<li><p>如果此偏好設定’顯示’，您最後查詢的讀者帳號會出現一個連結在Koha館員介面的右上角。當您登出時該鏈接將被清除。</p>
+<p><img alt="A small 'Last patron' button appears on the right side of the screen" src="_images/lastpatron.png" /></p>
+</li>
+</ul>
+</section>
+<section id="staffdetailitemselection">
+<span id="staffdetailitemselection-label"></span><h3>StaffDetailItemSelection<a class="headerlink" href="#staffdetailitemselection" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 在紀錄詳情頁面裡的館藏選項。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>預設值：啟用</p>
+<p>說明：</p>
+<ul>
+<li><p>此偏好讓您在館員介面的每個館藏紀錄的左方出現 (或不出現) 預約用的勾選框。允許館員勾選後立即編輯或刪除多筆館藏。</p>
+<p><img alt="Checkboxes are displayed next to every item in the holdings tab of a detailed bibliographic record" src="_images/StaffDetailItemSelection.png" /></p>
+</li>
+</ul>
+</section>
+<section id="usewysiwyginsystempreferences">
+<span id="usewysiwyginsystempreferences-label"></span><h3>UseWYSIWYGinSystemPreferences<a class="headerlink" href="#usewysiwyginsystempreferences" title="此标题的永久链接"></a></h3>
+<p>詢問：編輯部份 HTML 系統偏好時 ___ WYSIWYG 編輯器。</p>
+<p>值:</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<blockquote>
+<div><p><img alt="Example of a system preference using a WYSIWYG editor (TinyMCE) instead of a plain text editor" src="_images/UseWYSIWYGinSystemPreferences.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+<p>預設值：不顯示</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許您使用 WYSIWYG 編輯器以 HTML 格式變更系統偏好。</p></li>
+</ul>
+</section>
+<section id="viewisbd">
+<span id="viewisbd-label"></span><h3>viewISBD<a class="headerlink" href="#viewisbd" title="此标题的永久链接"></a></h3>
+<p>要求：___ 館員在館員介面上以 ISBD 形式查看記錄。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>預設值：允許</p>
+<p>說明：</p>
+<ul>
+<li><p>該系統偏好在詳細記錄檢視中顯示或隱藏ISBD欄標。</p>
+<p><img alt="The ISDB tab and record view" src="_images/viewISBD.png" /></p>
+</li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#viewlabeledmarc-label"><span class="std std-ref">viewLabeledMARC</span></a></p></li>
+<li><p><a class="reference internal" href="#viewmarc-label"><span class="std std-ref">viewMARC</span></a></p></li>
+</ul>
+</section>
+<section id="viewlabeledmarc">
+<span id="viewlabeledmarc-label"></span><h3>viewLabeledMARC<a class="headerlink" href="#viewlabeledmarc" title="此标题的永久链接"></a></h3>
+<p>要求：___ 館員在館員介面上以標記的 MARC 形式查看記錄。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>預設值：允許</p>
+<p>說明：</p>
+<ul>
+<li><p>這個系統偏好在詳細記錄檢視中顯示或隱藏標記的MARC標籤</p>
+<p><img alt="The Labeled MARC tab and record view" src="_images/viewLabeledMARC.png" /></p>
+</li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#viewisbd-label"><span class="std std-ref">viewISBD</span></a></p></li>
+<li><p><a class="reference internal" href="#viewmarc-label"><span class="std std-ref">viewMARC</span></a></p></li>
+</ul>
+</section>
+<section id="viewmarc">
+<span id="viewmarc-label"></span><h3>viewMARC<a class="headerlink" href="#viewmarc" title="此标题的永久链接"></a></h3>
+<p>要求：___ 館員在館員介面上以純 MARC 形式查看記錄。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>預設值：允許</p>
+<p>說明：</p>
+<ul>
+<li><p>該系統偏好在詳細記錄檢視中顯示或隱藏MARC欄標。</p>
+<p><img alt="The MARC tab and record view" src="_images/viewMARC.png" /></p>
+</li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#viewisbd-label"><span class="std std-ref">viewISBD</span></a></p></li>
+<li><p><a class="reference internal" href="#viewlabeledmarc-label"><span class="std std-ref">viewLabeledMARC</span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="serialspreferences.html" class="btn btn-neutral float-left" title="期刊" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="toolspreferences.html" class="btn btn-neutral float-right" title="工具" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

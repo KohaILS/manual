@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>期刊 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="採訪" href="acquisitions.html" />
+    <link rel="prev" title="課程指定參考書" href="course_reserves.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">期刊</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#managing-serial-frequencies">Managing serial frequencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-frequency">新增刊期</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-serial-numbering-patterns">管理期刊編碼模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-numbering-pattern">新增編碼模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-subscription">新增訂閱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-a-subscription">編輯訂閱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#receiving-issues">接收期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serial-collection">期刊合集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-routing-list">新增傳閱清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subscriptions-in-the-staff-interface">館員介面的訂閱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subscriptions-in-the-opac">OPAC 的訂閱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#claiming-late-issues">催缺延遲的期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-serial-expiration">檢查期刊到期日</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#renewing-subscriptions">續借期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#searching-serials">搜尋期刊</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">期刊</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/serials.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="course_reserves.html" class="btn btn-neutral float-left" title="課程指定參考書" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="acquisitions.html" class="btn btn-neutral float-right" title="採訪" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="serials">
+<span id="serials-label"></span><h1>期刊<a class="headerlink" href="#serials" title="此标题的永久链接"></a></h1>
+<p>進入螢幕上方的 ‘更多’ 選單，選擇 ‘期刊’ 或點擊Koha館員主介面上的 ‘期刊’，就可以進入序列操作。 Koha的期刊模組用於追蹤期刊、報紙和其他定期到來的館藏。</p>
+<p>與所有模組一樣，在使用串行模組之前，請確保仔細閱讀相關的 :<cite>實施借出清單&lt;serials-configuration-label&gt;`和 :`系統偏好&lt;serials-系統偏好-label&gt;</cite>。</p>
+<ul class="simple">
+<li><p><em>到那：</em> 其他 &gt; 期刊</p></li>
+</ul>
+<section id="managing-serial-frequencies">
+<span id="manage-serial-frequencies-label"></span><h2>Managing serial frequencies<a class="headerlink" href="#managing-serial-frequencies" title="此标题的永久链接"></a></h2>
+<p>Koha保留出版刊期的記錄，供管理與複製之用。</p>
+<ul class="simple">
+<li><p><em>到那：</em> 其他 &gt; 期刊 &gt; 管理刊期</p></li>
+</ul>
+<p>從此頁面您可以檢視系統內現有的刊期。</p>
+<p><img alt="Table of serial frequencies" src="_images/frequencies.png" /></p>
+<p>您可以編輯、刪除和建立新的。</p>
+<section id="adding-a-frequency">
+<span id="adding-serial-frequency-label"></span><h3>新增刊期<a class="headerlink" href="#adding-a-frequency" title="此标题的永久链接"></a></h3>
+<p>要新增新刊期，請點擊 ‘新刊期’ 按鈕。</p>
+<p><img alt="New frequency form" src="_images/newfrequency.png" /></p>
+<ul class="simple">
+<li><p>說明：這是建立新的期刊訂閱時將出現在下拉選單中的名稱；確保它是說明性的</p></li>
+<li><p>單位：這是用於計算出版週期的單位。可以選擇無（用於不定期的刊期）、日、週、月或年。</p></li>
+<li><p>每單元的問題：這是在上面選擇的單元期間出版的問題（這通常是1）。</p></li>
+<li><p>每期單位：這是我們必須計算多少單位，直到下一期出版。</p></li>
+<li><p>顯示順序：這是在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>建立一個新的訂閱&lt;add-a-subscription-label&gt;`時，在下拉選單中的顯示順序（你可能想把最常用的刊期放在最上面，把不常用的放在最下面；最上面的位置是0）。幾個頻率可以有相同的顯示順序值。如果是這種情況，它們將按照建立的順序出現。</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>為了理解 ‘每單位的問題’ 與 ‘每期的單位’，你可以把它理解為 ‘&lt;<em>issues</em> per unit&gt; 每 &lt;<em>units</em> per issues&gt; &lt;unit&gt;’。例如，雙週的刊期（每兩週）將是 ‘每兩週一期’。所以 ‘每單位的問題’ 將是1，’每期的單位’ 將是2。更多例子見下文。</p>
+</div>
+<p><strong>例子</strong></p>
+<p>下面是一些最常見的連續出版物刊期的例子。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>刊期</p></th>
+<th class="head"><p>單位</p></th>
+<th class="head"><p>每單位的期數</p></th>
+<th class="head"><p>每期的數量</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>日刊 (“1日1期”)</p></td>
+<td><p>天</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>每週三次(“每 1 週 3 期”)</p></td>
+<td><p>週</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>半周一次(“每 1 週 2 期”)</p></td>
+<td><p>週</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>每週(“每 1 週 1 期”)</p></td>
+<td><p>週</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>雙週刊(“每兩週一期”)</p></td>
+<td><p>週</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>月刊 (“每1個月一期”)</p></td>
+<td><p>月</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>雙月刊（“每 2 個月一期”）</p></td>
+<td><p>月</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>季度(“每 3 個月 1 期”)</p></td>
+<td><p>月</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>半年刊(“每 6 個月 1 期”)</p></td>
+<td><p>月</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>年度(“每 1 年 1 期”)</p></td>
+<td><p>年</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>兩年期(“每兩年一期”)</p></td>
+<td><p>年</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="manage-serial-numbering-patterns">
+<span id="manage-serial-numbering-patterns-label"></span><h2>管理期刊編碼模式<a class="headerlink" href="#manage-serial-numbering-patterns" title="此标题的永久链接"></a></h2>
+<p>新增期刊編碼模式後可以儲存供以後使用。可經由 ‘管理編碼模式’ 頁面取用它。</p>
+<ul class="simple">
+<li><p><em>到那：</em> 其他 &gt; 期刊 &gt; 管理編碼模式</p></li>
+</ul>
+<p>此頁面列出您製作的編碼模式，以及若干基本的模式。</p>
+<p><img alt="Numbering patterns table" src="_images/numpatterns.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果您從舊版本的 Koha（3.14 之前）升級，您將看到為模式列出的 ‘備份模式’。 這就是 Koha 保存舊編號模式的方式。 您可以從這裡編輯它們，為它們賦予更有意義的名稱。</p>
+</div>
+</section>
+<section id="adding-a-numbering-pattern">
+<span id="adding-serial-numbering-pattern-label"></span><h2>新增編碼模式<a class="headerlink" href="#adding-a-numbering-pattern" title="此标题的永久链接"></a></h2>
+<p>要新增新的模式，請點擊 ‘新的編號模式’ 按鈕。</p>
+<p><img alt="New numbering pattern form" src="_images/newnumpattern.png" /></p>
+<ul>
+<li><p>名稱：這是在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>建立新的期刊訂閱&lt;add-a-subscription-label&gt;`時將出現在下拉選單中的名稱； 確保它是描述性的。</p></li>
+<li><p>說明：這是進一步說明編號模式； 這在建立新訂閱時不會出現，它僅顯示在 <a class="reference internal" href="#manage-serial-numbering-patterns-label"><span class="std std-ref">編號模式表（見上文）</span></a>。</p></li>
+<li><p>編號公式：這是用來建立每期編號的內容。你可以使用最多三個變數{X}、{Y}和{Z}（見下文）。與變數一起，你可以輸入任何你想出現在問題編號中的文字。你還必須包括你想在刊號中看到的任何空格。每期的文字將保持不變，而變數將有所不同。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>變數必須是大寫字母並位於大括號之間。</p>
+<p><strong>例子</strong></p>
+<ul class="simple">
+<li><p>卷. {X} 編號 {Y}</p></li>
+<li><p>在期刊為期數 {X}</p></li>
+<li><p>{X} {Y}</p></li>
+</ul>
+</div>
+</li>
+<li><p>顯示順序：這是在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>建立一個新的訂閱&lt;add-a-subscription-label&gt;`時，在下拉選單中的顯示順序（你可能想把最常用的刊期放在最上面，把不常用的放在最下面；最上面的位置是0）。幾個頻率可以有相同的顯示順序值。如果是這種情況，它們將按照建立的順序出現。</p></li>
+</ul>
+<p>在表中，您需要為每個變量輸入參數。</p>
+<ul class="simple">
+<li><p>標籤：這僅僅是一個變數的名稱，它不用於其他任何地方，但它有助於識別該變數應該是什麼。</p></li>
+<li><p>新增：將多少個數字或單位新增到變數中。</p></li>
+<li><p>每個：新增到變數中的數字或每單位新增多少個問題。</p></li>
+<li><p>設定回：這用於流通編號；輸入起始編號。</p></li>
+<li><p>當超過：這個用於流通編號； 輸入最後一個數字。</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>在填寫這四個參數（’新增’、’每期’、’設回’ 和 ‘大於時’）時，要一欄一欄地工作，並把它看成一個句子。 “每1期加1，大於10時設為1”。</p>
+</div>
+<ul>
+<li><p>格式化：如果您希望單字出現在您的問題編號中而不是數字，則使用此選項。 你可以選擇</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>日期名稱（星期一、星期二、星期三等）</p></li>
+<li><p>日期名稱（縮寫）（週一、週二、週三等）</p></li>
+<li><p>月份名稱（一月、二月、三月等）</p></li>
+<li><p>月份名稱（縮寫）（一月、二月、三月等）</p></li>
+<li><p>季節名稱（春、夏、秋、冬）</p></li>
+<li><p>季節名稱（縮寫）（Spr、Sum、Fal、Win）</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>在填寫表格時，你必須始終使用數字，甚至代表日、月或季節的名稱。以下是每一個數字的對應關係</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td rowspan="7"><p>天</p></td>
+<td><p>星期日</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>星期一</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>星期二</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>星期三</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>星期四</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>星期五</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>星期六</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td rowspan="12"><p>月</p></td>
+<td><p>一月</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>二月</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>三月</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>四月</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>五月</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>六月</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>七月</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>八月</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>九月</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>十月</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>十一月</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>十二月</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>季節</p></td>
+<td><p>春季</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>夏天</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>秋季</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>冬季</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在保存編號模式之前，您可以對其進行測試以確保其行為符合您的預期。</p>
+<ul>
+<li><p>刊期: 選擇一個適合您編號模式的刊期</p></li>
+<li><p>首期發布日期：選擇您的測試開始的日期。</p></li>
+<li><p>訂閱時長：輸入期數、週數或月數來測試您的編號模式； 如果編號模式是循環的，建議至少嘗試兩次循環以查看循環的變化並確保其行為正確。</p></li>
+<li><p>區域設定：如果使用日期、月份或季節的名稱，您可以選擇顯示這些名稱的語言。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>區域設定目前不適用於季節名稱。</p>
+</div>
+</li>
+</ul>
+<p>接下來輸入變數的參數。</p>
+<ul class="simple">
+<li><p>開始於：為每個變數輸入第一個值，這些應該是上面 ‘首期出版日期’ 中輸入的問題值。</p></li>
+<li><p>內部計數器：輸入流通中已經過了多少期，以便Koha能計算出何時流通回來。</p></li>
+</ul>
+<p>點擊 ‘測試模式’ 以查看結果。 如果結果符合您的預期，您可以保存編號模式。 如果結果不符合您的預期，請返回並調整參數並再次測試。</p>
+<p><strong>例子</strong></p>
+<blockquote>
+<div><p>月刊的月份和年份</p>
+<blockquote>
+<div><p>編號公式：{X} {Y}</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>X</p></td>
+<td><p>Y</p></td>
+<td><p>Z</p></td>
+</tr>
+<tr class="row-even"><td><p>標籤</p></td>
+<td><p>月</p></td>
+<td><p>年</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>新增</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>每次</p></td>
+<td><p>1</p></td>
+<td><p>12</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>設定回</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>當更多</p></td>
+<td><p>11</p></td>
+<td><p>99999</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>正在格式化</p></td>
+<td><p>月份名稱</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>月刊的卷數</p>
+<blockquote>
+<div><p>編號公式：Vol.{X} No.{Y}</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>X</p></td>
+<td><p>Y</p></td>
+<td><p>Z</p></td>
+</tr>
+<tr class="row-even"><td><p>標籤</p></td>
+<td><p>卷</p></td>
+<td><p>數字</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>新增</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>每次</p></td>
+<td><p>12</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>設定回</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>當更多</p></td>
+<td><p>99999</p></td>
+<td><p>12</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>正在格式化</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>季刊的季節和年份</p>
+<blockquote>
+<div><p>編號公式：{X} {Y}</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>X</p></td>
+<td><p>Y</p></td>
+<td><p>Z</p></td>
+</tr>
+<tr class="row-even"><td><p>標籤</p></td>
+<td><p>季</p></td>
+<td><p>年</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>新增</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>每次</p></td>
+<td><p>1</p></td>
+<td><p>4</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>設定回</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>當更多</p></td>
+<td><p>3</p></td>
+<td><p>99999</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>正在格式化</p></td>
+<td><p>季節名稱</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>每周期刊的卷數和數量</p>
+<blockquote>
+<div><p>編號公式：Vol.{X} No.{Y}</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>X</p></td>
+<td><p>Y</p></td>
+<td><p>Z</p></td>
+</tr>
+<tr class="row-even"><td><p>標籤</p></td>
+<td><p>卷</p></td>
+<td><p>數字</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>新增</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>每次</p></td>
+<td><p>52</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>設定回</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>當更多</p></td>
+<td><p>99999</p></td>
+<td><p>52</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>正在格式化</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><a class="reference external" href="https://wiki.koha-community.org/wiki/Serial_Pattern_Library">在 Koha 的維基上找到更多編號模式</a>。</p>
+</div>
+</section>
+<section id="adding-a-subscription">
+<span id="add-a-subscription-label"></span><h2>新增訂閱<a class="headerlink" href="#adding-a-subscription" title="此标题的永久链接"></a></h2>
+<p>點選任何書目記錄的 ‘新增’ 鈕並選擇 ‘新建訂閱’ 就能新增訂閱</p>
+<p><img alt="Click on New and choose New subscription in a bibliographic record" src="_images/newsubfromrecord.png" /></p>
+<p>或點擊期刊模組中的 ‘新訂閱’ 按鈕</p>
+<p><img alt="Main page of the serials module with the left hand side menu and the New subscription button" src="_images/serialsmodule.png" /></p>
+<p>若從期刊模組輸入新的訂閱，將出現空白表單(若從書目紀錄新增表單，此表單將包括記錄號碼的資訊)。</p>
+<p><img alt="Add a new subscription form (1 of 2)" src="_images/addsub.png" /></p>
+<ul>
+<li><p>供應商：可以透過搜尋 <a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">採訪模組</span></a> 或手動輸入供應商 ID 號來找到供應商</p>
+<ul>
+<li><p>供應商資訊不是必備</p></li>
+<li><p>需鍵入供應商資訊，才能發出催缺資訊</p>
+<p><img alt="Warning pop up saying 'If you wish to claim late or missing issues you must link this subscription to a vendor. Click OK to ignore or Cancel to return and enter a vendor'" src="_images/vendorwarning.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>記錄：您希望將此訂閱連結到的 MARC 記錄的書目編號</p>
+<ul class="simple">
+<li><p>如果您從書目記錄建立新訂閱，則書目編號和標題將已填寫</p></li>
+<li><p>您可以通過點擊方框下方的 ‘搜尋記錄’ 連結來搜尋現有記錄</p></li>
+<li><p>如果此訂閱沒有現有的書目記錄，您可以通過點擊方框下面的 ‘建立記錄’ 連結來建立一個</p></li>
+<li><p>您也可以在第一個框中手動輸入記錄的書目編號</p></li>
+</ul>
+</li>
+<li><p>接下來你可以選擇是否在收到問題時建立一個新的館藏</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果您在期刊中新增條碼或流通條碼，請選擇在接收時建立館藏</p>
+</div>
+</li>
+<li><p>出現不規則問題時：選擇如何處理訂閱中的不規則問題，跳過問題編號或保留問題編號</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果數字始終是連續的，請選擇 ‘保留問題編號’</p>
+</div>
+</li>
+<li><p>手動歷史紀錄：如果選中，一旦訂閱被保存，你就可以輸入預測模式之外的序列。例如，’本館有1974年6月至1996年12月的期刊’。要這樣做，一旦訂閱被保存，就到訂閱詳情頁的’計劃’標籤，點擊’編輯歷史’。</p>
+<p><img alt="Subscription details page, Planning tab" src="_images/subscriptionplanning.png" /></p>
+</li>
+<li><p>索書號: 您館藏的索書號或索書號字首, 這會複製到館藏, 如果他們是在接收時產生的.</p></li>
+<li><p>圖書館: 是擁有該訂閱的分館。</p>
+<ul>
+<li><p>若多個圖書館訂閱此期刊，您需為每個圖書館新增訂閱</p></li>
+<li><p>使用訂閱資訊頁面的 ‘編輯新增(複製)’ 選項，或改變 ‘圖書館’ 欄位，都可以做到</p>
+<p><img alt="The Edit as new (duplicate) option under the Edit button in the subscription details page" src="_images/newasduplicate.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>公開說明: 顯示於 OPAC 供讀者使用</p></li>
+<li><p>不公開的說明: 只有提供館員通過館員介面才能看到的說明。</p></li>
+<li><p>讀者通知: 選項讓您把通知發給經由 OPAC 訂閱此期刊的讀者。</p>
+<ul class="simple">
+<li><p>要顯示此選項，您需要確保在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’通知和單據’ tool &lt;notices-and-slips-label&gt;`中設定了’期刊(新期刊)’-型通知</p></li>
+</ul>
+</li>
+<li><p>位置：上架位置，如果在接收時建立，這將被複製到館藏中。</p></li>
+<li><p>館藏類型：如果在接收時建立館藏，請選擇所建立館藏的類型。</p></li>
+<li><p>Item type for older issues: if creating items upon reception, choose the
+item type that will be assigned to previous issues when receiving new issues.
+This will only appear only if the <a class="reference internal" href="serialspreferences.html#makepreviousserialavailable-label"><span class="std std-ref">makePreviousSerialAvailable</span></a> is
+enabled.</p></li>
+<li><p>寬限期: 自動把期刊從 ‘預期’ 狀態轉移為 ‘逾期’之前的天數。需把 <a class="reference internal" href="cron_jobs.html#cron-serials-update-label"><span class="std std-ref">SerialsUpdate.pl 工作排程</span></a> 設定為定期執行。</p></li>
+<li><p>向館員顯示的期數：這允許您在書目記錄的 ‘訂閱’ 標籤中控制館員介面目錄中預設顯示的問題數量</p>
+<ul class="simple">
+<li><p>If this is left empty, the value of the <a class="reference internal" href="serialspreferences.html#staffserialissuedisplaycount-label"><span class="std std-ref">StaffSerialIssueDisplayCount</span></a>
+system preference will be used.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果你建立在期刊為期數的館藏，這個不會影響期刊數量顯示在預約分頁中。它只會影響期刊數量展示在期刊館藏分頁裡。</p>
+</div>
+</li>
+<li><p>公開顯示的期數：這允許您控制在 OPAC 中預設顯示的期數，在書目記錄的 ‘訂閱’ 標籤</p>
+<ul class="simple">
+<li><p>If this is left empty, the value of the <a class="reference internal" href="serialspreferences.html#opacserialissuedisplaycount-label"><span class="std std-ref">OPACSerialIssueDisplayCount</span></a>
+system preference will be used.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果你建立在期刊為期數的館藏，這個不會影響期刊數量顯示在預約分頁中。它只會影響期刊數量展示在期刊館藏分頁裡。</p>
+</div>
+</li>
+</ul>
+<p>填入資料後您可按 ‘下一步’ 進入預測模式資訊。</p>
+<p><img alt="Add a new subscription form (2 of 2), with additional fields at the bottom" src="_images/addsub2.png" /></p>
+<ul>
+<li><p>首期出版日: 輸入館藏首期的日期，預期的出版模式由此開始計算</p></li>
+<li><p>刊期: 選擇您期刊的刊期. 進入 ‘<a class="reference internal" href="#manage-serial-frequencies-label"><span class="std std-ref">管理刊期</span></a>’ 可看到客製化與預設的刊期. 如果您要的刊期不在這裡, 您可以 <a class="reference internal" href="#adding-serial-frequency-label"><span class="std std-ref">新增刊期</span></a>.</p></li>
+<li><p>訂閱期限: 即訂閱期數、週數或月數。也可用於續借警示。</p></li>
+<li><p>訂閱開始日期: 是開始訂閱的日期。用於續借警示。</p></li>
+<li><p>訂閱到期日期: 只供有到期日的訂閱使用(即過期期刊)。</p></li>
+<li><p>編碼模式：選擇問題的編號方式。 此處的選項是 <a class="reference internal" href="#manage-serial-numbering-patterns-label"><span class="std std-ref">管理編號模式</span></a> 部分中的選項。</p>
+<ul>
+<li><p>如果你需要的編號模式還沒有被建立，你可以透過點擊 ‘顯示進階模式’，然後點擊 ‘修改模式’ 來建立一個新的模式。這與 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>新增一個編號模式&lt;adding-serial-numbering-pattern-label&gt;`（見上節）是一樣的。</p>
+<p><img alt="Form to create a new numbering pattern from the subscription form" src="_images/advancedpattern.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>區域設定：如果使用日期、月份或季節的名稱，您可以選擇顯示這些名稱的語言。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>區域設定目前不適用於季節名稱。</p>
+</div>
+</li>
+<li><p>選定 ‘編碼模式’ 後即出現編號表單。</p>
+<p><img alt="Table to enter the starting numbers for the numbering pattern" src="_images/numberonly.png" /></p>
+<ul>
+<li><p>開始於：為每個變數輸入第一個值，這些應該是上面 ‘首期出版日期’ 中輸入的問題值。</p></li>
+<li><p>內部計數器：輸入流通中已經過了多少期，以便Koha能計算出何時流通回來。</p>
+<ul class="simple">
+<li><p>例如：若收到的第一期是 “vol. 4, no. 1, iss. 796”，您需設定為 “inner counter = 0” 若是 “vol. 4, no. 2, iss. 797”，則內部計數器應為 “1”。</p></li>
+</ul>
+</li>
+<li><p>填入資料後按 ‘測試預期模式’ 鈕檢視系統產生的卷期，若出現不規則卷期可從清單選擇不存在的卷期。</p>
+<p><img alt="Prediction of the numbering for each issue in the subscription" src="_images/predictionpattern.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>若已新增 <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">客製化欄位</span></a>，在螢幕下方的按鈕上將顯示為可編輯</p></li>
+</ul>
+<p>勾選 ‘儲存訂閱’ 以儲存輸入的資訊。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>在維基 &lt;<a class="reference external" href="https://wiki.koha-community.org/wiki/Serial_Pattern_Library">https://wiki.koha-community.org/wiki/Serial_Pattern_Library</a>&gt;`__上的期刊範例圖書館中找到樣本期刊範本。</p>
+</div>
+</section>
+<section id="editing-a-subscription">
+<span id="edit-subscription-label"></span><h2>編輯訂閱<a class="headerlink" href="#editing-a-subscription" title="此标题的永久链接"></a></h2>
+<p>從訂閱頁面按下 ‘編輯’ 與 ‘編輯訂閱’，就能編輯訂閱的內容。此作為將回至 <a class="reference internal" href="#add-a-subscription-label"><span class="std std-ref">creating a new subscription</span></a>。</p>
+<p><img alt="The Edit subscription option under the Edit button in the subscription details page" src="_images/editsubscription.png" /></p>
+<p>您也可以批次編輯訂閱。先搜尋想改變的訂閱。在結果頁面，勾選待編輯的訂閱選項。將出現 ‘編輯選定的期刊’ 連結。</p>
+<p><img alt="Subscription search results, two subscriptions are selected and the option Edit selected serials is available" src="_images/serialsearchresults.png" /></p>
+<p>從這裡，您可以改變：</p>
+<ul class="simple">
+<li><p>代理商</p></li>
+<li><p>書架位置</p></li>
+<li><p>圖書館</p></li>
+<li><p>館藏類型</p></li>
+<li><p>公開的說明</p></li>
+<li><p>不公開的說明</p></li>
+<li><p>簽收期刊時，是否新增館藏</p></li>
+<li><p>到期日</p></li>
+<li><p>任何 <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">定制欄位</span></a></p></li>
+</ul>
+<p><img alt="Subscription batch editing form" src="_images/editbatch.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>不變更欄位內容使用原來的值。</p>
+</div>
+</section>
+<section id="receiving-issues">
+<span id="receive-issues-label"></span><h2>接收期刊<a class="headerlink" href="#receiving-issues" title="此标题的永久链接"></a></h2>
+<p>可從多個地簽收期刊。找到訂閱後，使用期刊頁面上方的搜尋盒找到欲簽收的期刊：</p>
+<p><img alt="Search for serial subscriptions in the search bar at the top of the screen, and results" src="_images/subsearch.png" /></p>
+<p>從搜尋結果裡，可以點選 ‘簽收期刊’ 按鈕；或點選訂閱題名，再按下 ‘收到’ 鈕。</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Manage subscription fields, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>從 ‘期刊合集’ 頁面簽收期刊。在訂閱摘要頁面左方有個連結至 ‘期刊合集’ 的選單</p>
+<p>在打開的頁面中，勾選您要接收的期刊（預設情況下應勾選預期的期刊），然後點擊 ‘編輯期刊’。</p>
+<p><img alt="Serial collection page, the issues table shows three issues that have already been received and one issue still expected, the expected issue is checked" src="_images/serialcollection.png" /></p>
+<p>所有的三個選項將打開收到刊期表單：</p>
+<p><img alt="Issue receive form, the status drop-down menu is opened and the cursor points to Arrived" src="_images/receiveissue.png" /></p>
+<ul>
+<li><p>從狀態下拉選單選取 ‘到館’，標記已收到該期刊。</p></li>
+<li><p>若打算把每期都新增為一個館藏記錄，則於選取 ‘到館’ 之後將出現 <a class="reference internal" href="cataloging.html#adding-items-label"><span class="std std-ref">館藏新增表單</span></a>。可以使用表格底部的’此館藏要複製的份數’選項添加多個副本。</p>
+<p><img alt="Issue receive form with the item creation form opened" src="_images/serialitem.png" /></p>
+</li>
+<li><p>填寫補篇資訊，供補篇的刊期使用。</p>
+<ul class="simple">
+<li><p>在 “補篇” 之後的盒內鍵入完整編碼就不會從主編號取用/自動填入編號，祗取用從 “補篇” 之後的盒內完整編碼置於 [MARC21 952$h] (若您新增館藏紀錄)。</p>
+<ul>
+<li><p>例如，若希望顯示它則鍵入完整的內容：”v.69 no.3 (Mar. 2015) suppl.”</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>若打算把每期都新增為一個館藏記錄，則 <span class="xref std std-ref">新增館藏表單</span> 將出現供各期使用</p></li>
+<li><p>鍵入您的資訊後，可以勾選 ‘儲存’</p></li>
+</ul>
+</section>
+<section id="serial-collection">
+<span id="serial-collection-label"></span><h2>期刊合集<a class="headerlink" href="#serial-collection" title="此标题的永久链接"></a></h2>
+<p>從期刊選單可以看到每個訂閱期刊合集的管理頁面。</p>
+<blockquote>
+<div><p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Manage subscription fields, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+</div></blockquote>
+<p>在此頁面中，您可以管理與訂閱期刊相關的其他任務，例如接收多個期刊和編輯。</p>
+<blockquote>
+<div><p><img alt="Serial collection page, the issues table shows three issues that have already been received and one issue still expected, the expected issue is checked" src="_images/serialcollection.png" /></p>
+</div></blockquote>
+<p>按下產生鈕，產生下一期供館員標記並把稍早那期自動標記為 ‘遲到’。</p>
+<p>勾選編輯欄中一個或多個以前的期刊框，然後點擊編輯期刊按鈕。這將使你進入與你在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>接收問題&lt;receive-issues-label&gt;`時相同的螢幕。在那裡，你可以編輯編號、日期、狀態，並新增說明。</p>
+</section>
+<section id="creating-a-routing-list">
+<span id="create-a-routing-list-label"></span><h2>新增傳閱清單<a class="headerlink" href="#creating-a-routing-list" title="此标题的永久链接"></a></h2>
+<p>A routing list is a list of people who receive the serial before it goes
+to the shelf. To enable routing lists, set your <a class="reference internal" href="serialspreferences.html#routingserials-label"><span class="std std-ref">RoutingSerials</span></a> preference
+to ‘Use’.</p>
+<p>從訂閱頁面左方可見到 ‘新增傳閱清單’ 或 ‘編輯傳閱清單’ 連結</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Manage subscription fields, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>勾選連結，將進入新增傳閱清單的表。</p>
+<p><img alt="Create routing list form" src="_images/createroutinglist.png" /></p>
+<p>從此點選 ‘新增收件人’ 把讀者加入傳閱清單。從選單裡可以用部份讀者名稱、所屬圖書館與讀者類型篩選讀者。</p>
+<p><img alt="Patron search to add to routing list" src="_images/addtorouting.png" /></p>
+<p>勾選每個名稱右方的 ‘新增’ 將新增至傳閱清單。選定所有的人加入傳閱清單時，勾選 ‘關閉’ 按鈕，就轉入傳閱清單。</p>
+<p><img alt="Editing routing list form" src="_images/editroutinglist.png" /></p>
+<p>From this form, you can play with the order of the users and add notes.
+If you always add the same note, you can enter it in the
+<a class="reference internal" href="serialspreferences.html#routinglistnote-label"><span class="std std-ref">RoutingListNote</span></a> system preference.</p>
+<p>如果清單看起來像您期望的那樣，請點擊 ‘儲存’。</p>
+<p>接下來，您將看到傳閱清單的預覽。然後進入預覽階段。勾選 ‘儲存並預覽傳閱清單’。則開啟列印版本的傳閱清單。</p>
+<p><img alt="Routing list preview" src="_images/previewroutinglist.png" /></p>
+<p>If <a class="reference internal" href="serialspreferences.html#routinglistaddreserves-label"><span class="std std-ref">RoutingListAddReserves</span></a> is enabled, patrons listed in the routing list
+will automatically be added to the holds list for the issue.</p>
+<p>進入讀者記錄的 <a class="reference internal" href="patrons.html#routing-lists-label"><span class="std std-ref">傳閱清單分頁</span></a> 就能看到該讀者參加的傳閱清單。在 <span class="xref std std-ref">您的傳閱清單</span> 分頁登入 OPAC 就能看到自己的傳閱清單。</p>
+</section>
+<section id="subscriptions-in-the-staff-interface">
+<span id="subscriptions-in-staff-client-label"></span><h2>館員介面的訂閱<a class="headerlink" href="#subscriptions-in-the-staff-interface" title="此标题的永久链接"></a></h2>
+<p>訂閱資訊將顯示在書目記錄的 ‘訂閱’ 分頁</p>
+<p><img alt="The Subscriptions tab of a bibliographic record in the staff interface" src="_images/subinfoonbib.png" /></p>
+<p>按 ‘訂閱詳情’ 連結將進入館員介面的訂閱摘要頁面。</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Manage subscription fields, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>若您使用 <span class="xref std std-ref">採訪</span> 模組追蹤 <a class="reference internal" href="acquisitions.html#order-from-a-serial-subscription-label"><span class="std std-ref">期刊訂閱</span></a>，就能在訂閱詳情看到 ‘採訪詳情’ 分頁。</p>
+<p><img alt="Acquisitions details tab in a bibliographic record attached to a serial subscription" src="_images/subdetails.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>您可以在管理模組的 <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> 部份, 在OPAC項目中自定義此表的列（table id：orders）。</p>
+</div>
+</section>
+<section id="subscriptions-in-the-opac">
+<span id="subscriptions-in-opac-label"></span><h2>OPAC 的訂閱<a class="headerlink" href="#subscriptions-in-the-opac" title="此标题的永久链接"></a></h2>
+<p>When viewing the subscription in the OPAC there will be several options. You
+can choose which tab appears by default with the <a class="reference internal" href="serialspreferences.html#opacserialdefaulttab-label"><span class="std std-ref">opacSerialDefaultTab</span></a>
+system preference.</p>
+<p>館員介面的連結，在書目記錄將出現訂閱分頁。</p>
+<p><img alt="The Subscriptions tab of a bibliographic record in the OPAC" src="_images/subopac.png" /></p>
+<p>Under this tab will appear the number of issues you chose when
+<a class="reference internal" href="#add-a-subscription-label"><span class="std std-ref">setting up the subscription</span></a> or in your
+<a class="reference internal" href="serialspreferences.html#opacserialissuedisplaycount-label"><span class="std std-ref">OPACSerialIssueDisplayCount</span></a> system preference. Clicking the ‘More
+details’ link will provide you with additional information about the serial
+history. You can set the default view of the serial history in the OPAC with
+the <a class="reference internal" href="serialspreferences.html#subscriptionhistory-label"><span class="std std-ref">SubscriptionHistory</span></a> system preference.</p>
+<p>有兩種檢視：簡略與完整。簡略期刊訂閱歷史將顯示訂閱的基本資訊。</p>
+<p><img alt="Brief history of a subscription in the OPAC" src="_images/SubscriptionHistory-brief.png" /></p>
+<p>從簡略檢視讀者按下 ‘訂閱新到期刊電子郵件通知’ 鈕就能收取新到期刊的通知。必須選擇告知讀者 <a class="reference internal" href="#add-a-subscription-label"><span class="std std-ref">建立訂閱</span></a> 此連結才會生效。</p>
+<p>從館員介面的訂閱頁面右方的 ‘資訊’ 分頁，可以檢視訂閱期刊到館通知的內容。</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Manage subscription fields, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>完整檢視顯示詳情，依年分排列訂閱事宜</p>
+<p><img alt="Full history of a subscription in the OPAC" src="_images/SubscriptionHistory-full.png" /></p>
+</section>
+<section id="claiming-late-issues">
+<span id="claim-late-serials-label"></span><h2>催缺延遲的期刊<a class="headerlink" href="#claiming-late-issues" title="此标题的永久链接"></a></h2>
+<p>發生延遲期刊時，Koha 可寄送電子郵件給期刊供應商。在期刊首頁左方有個 ‘催缺’ 連結。</p>
+<p><img alt="Main page of the serials module with the left hand side menu and the New subscription button" src="_images/serialsmodule.png" /></p>
+<p>連結至催缺也顯示在訂閱詳情頁面的左方</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Manage subscription fields, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>沒有設定催缺通知，將看到警示訊息，應先設定該通知 <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">通知和單據工具</span></a>。</p>
+<p><img alt="Warning No claims notice defined. Please define one." src="_images/noclaimnotice.png" /></p>
+<p>勾選 ‘催缺’ 將開啟表單，詢問催缺的期刊供應商。</p>
+<p><img alt="Claims report result" src="_images/serialclaims.png" /></p>
+<p>從最新到館清單裡，可以選擇勾選遲到期刊、通知模版以及勾選 ‘送出通知’ 鈕，發送催缺電子郵件。</p>
+<p>您還可以透過選擇 a <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV 設定檔案</span></a> 並點擊 ‘下載選定的催缺’ 將結果匯出到 CSV 檔案。</p>
+</section>
+<section id="checking-serial-expiration">
+<span id="check-serial-expiration-label"></span><h2>檢查期刊到期日<a class="headerlink" href="#checking-serial-expiration" title="此标题的永久链接"></a></h2>
+<p>新增期刊時輸入訂閱期限，再使用檢查到期工具可以看到訂閱的到期日。從期刊選單裡勾選 ‘檢查到期日’ 就能使用該工具。</p>
+<p><img alt="Check subscription expiration search form" src="_images/subexpiresearch.png" /></p>
+<p>在出現的表格中，您至少需要輸入一個日期作為搜尋依據。 您還可以按書名、ISBN 或圖書館進行搜尋。</p>
+<p>可從結果裡看到所有在鍵入日期前將終止的訂購。從此可選擇檢視訂購詳情或更新內容。</p>
+<p><img alt="Check expiration search results" src="_images/subscriptionexpiration.png" /></p>
+<p>若有多個訂閱，可以勾選它們並按 ‘續訂勾選的訂閱’ 一次全部更新。將以同樣的期程續訂 (即，最後一次訂期為一年，將續訂一年；若最後一次訂期為16期，則續訂為16期)。</p>
+<p><img alt="Check expiration search results, two results are checked and the Renew selected subscription is available" src="_images/batchrenew.png" /></p>
+</section>
+<section id="renewing-subscriptions">
+<span id="renewing-serials-label"></span><h2>續借期刊<a class="headerlink" href="#renewing-subscriptions" title="此标题的永久链接"></a></h2>
+<p>若期刊已到期就不會收到新的期刊。可以從訂閱詳情頁面上方的 ‘續訂’ 鈕執行續訂工作。</p>
+<p><img alt="Subscription details page, Information tab, with buttons at the top (New subscription for this serial, Edit, Renew, Receive, Close) and menu on the left (Serial collection, Create routing list, Claims, Check expiration, Manage frequencies, Manage numbering patterns, Manage subscription fields, Serials statistics wizard)" src="_images/subscriptiondetails.png" /></p>
+<p>點選 ‘續借’ 按鈕將出現續借的選項。</p>
+<p><img alt="Subscription renewal form" src="_images/subscriptionrenewal.png" /></p>
+<ul class="simple">
+<li><p>開始日期: 輸入您的訂閱期開始的日期。</p></li>
+<li><p>訂閱時長：輸入訂閱持續的期數、週數或月數</p></li>
+<li><p>Library: enter the library for which this subscription is, this will only
+appear if <a class="reference internal" href="serialspreferences.html#renewserialaddssuggestion-label"><span class="std std-ref">RenewSerialAddsSuggestion</span></a> is set to ‘Add’</p></li>
+<li><p>Note for the librarian that will manage your renewal request: enter any
+notes you might have about this renewal. This will only appear if
+<a class="reference internal" href="serialspreferences.html#renewserialaddssuggestion-label"><span class="std std-ref">RenewSerialAddsSuggestion</span></a> is set to ‘Add’</p></li>
+</ul>
+<p>點擊 ‘提交’。</p>
+<p>If your <a class="reference internal" href="serialspreferences.html#renewserialaddssuggestion-label"><span class="std std-ref">RenewSerialAddsSuggestion</span></a> system preference is enabled, renewing
+a subscription will create a purchase suggestion in the
+<a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">acquisitions module</span></a> so that your acquisitions staff
+can manage it.</p>
+</section>
+<section id="searching-serials">
+<span id="searching-serials-label"></span><h2>搜尋期刊<a class="headerlink" href="#searching-serials" title="此标题的永久链接"></a></h2>
+<p>期刊模組上方有搜尋盒可以用 ISSN 或題名搜尋期刊的訂閱事宜。</p>
+<p><img alt="Search for serial subscriptions in the search bar at the top of the screen, and results" src="_images/subsearch.png" /></p>
+<p>點選 ‘送出’ 鈕右方的 ‘進階搜尋’ 連結，即可搜尋您的期刊。</p>
+<p><img alt="Serials advanced search form" src="_images/advancedserialsearch.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果您有可搜尋的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>其他欄位&lt;additional-fields-label&gt;，它們將顯示在此表單中。</p>
+</div>
+<p>可從結果頁面搜尋盒下方的欄位篩選結果，並且以結果上方的工具列調整顯示的結果數。</p>
+<p><img alt="Subscription search results, two subscriptions are selected and the option Edit selected serials is available" src="_images/serialsearchresults.png" /></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="course_reserves.html" class="btn btn-neutral float-left" title="課程指定參考書" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="acquisitions.html" class="btn btn-neutral float-right" title="採訪" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

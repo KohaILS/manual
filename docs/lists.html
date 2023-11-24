@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>虛擬書架與書目清單 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="報表" href="reports.html" />
+    <link rel="prev" title="电子资源管理" href="erm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">虛擬書架與書目清單</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lists">虛擬書架</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-list">新增虛擬書架</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-to-a-list">新增至虛擬書架</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-lists">檢視虛擬書架</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cart">借出籃</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-bibliographic-records-via-the-cart">經由採訪車修改書目紀錄</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">虛擬書架與書目清單</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lists.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="erm.html" class="btn btn-neutral float-left" title="电子资源管理" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="reports.html" class="btn btn-neutral float-right" title="報表" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lists-and-cart">
+<span id="lists-and-cart-label"></span><h1>虛擬書架與書目清單<a class="headerlink" href="#lists-and-cart" title="此标题的永久链接"></a></h1>
+<p>虛擬書架是供特定目的使用的特殊主題館藏。借出籃是暫時的儲存空間。</p>
+<ul class="simple">
+<li><p><em>到這：</em> 其他 &gt; 虛擬書架</p></li>
+</ul>
+<section id="lists">
+<span id="lists-label"></span><h2>虛擬書架<a class="headerlink" href="#lists" title="此标题的永久链接"></a></h2>
+<section id="create-a-list">
+<span id="create-a-list-label"></span><h3>新增虛擬書架<a class="headerlink" href="#create-a-list" title="此标题的永久链接"></a></h3>
+<p>進入虛擬書架頁面並點選 ‘新增虛擬書架’ 就能新增它</p>
+<p><img alt="Button to add a new list" src="_images/newlistbutton.png" /></p>
+<p>新增的虛擬書架表格提供若干選項：</p>
+<p><img alt="Form for creating a new list" src="_images/newlistform.png" /></p>
+<ul class="simple">
+<li><p>Name: the name is what will appear on the list of lists, it is the only
+required field</p></li>
+<li><p>Owner: this is the username of the owner of the list, the creator is the
+default owner, but that can be changed later</p></li>
+<li><p>Sort this list by: you can choose how to sort the list (by
+title, author, publication year, call number or date added to the list)</p></li>
+<li><p>Public: decide if the list is going to be private or public</p>
+<ul>
+<li><p>私人虛擬書架由您管理並祗能被您看到</p></li>
+<li><p>A public list can be seen by everybody, including OPAC users</p></li>
+</ul>
+</li>
+<li><p>Allow changes to contents from: decide who has permission to add or remove
+titles from the list</p>
+<ul>
+<li><p>無人：貢獻者不能修改</p></li>
+<li><p>Owner only: only you will be able to add or remove items from the list.
+If the list is public or shared, the OPAC users or sharers will not be
+able to change the list contents.</p></li>
+<li><p>Anyone seeing this list: everyone who has access to the list will be able
+to add or remove titles. If the list is public, this means everyone. If
+the list is private, only the owner will have the ability to change the
+contents. And if the list is shared, the owner and sharers will have this
+ability.</p></li>
+<li><p>Permitted staff only: this option will make the list content editable by
+staff members with the edit_public_list_contents
+<a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">permission</span></a>.</p></li>
+<li><p>Staff only: this option will make the list editable by all staff members
+(users with the catalogue
+<a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">permission</span></a>).</p></li>
+</ul>
+</li>
+</ul>
+<p>虛擬書架也可從目錄搜尋結果新增它</p>
+<p><img alt="Creating a new list from search results" src="_images/newlistsearch.png" /></p>
+<ul>
+<li><p>勾選題名左方的盒，新增至新的虛擬書架</p></li>
+<li><p>從 ‘新增至：’ 下接選單內選取 ‘新增虛擬書架’</p>
+<p><img alt="Adding items to a new list" src="_images/newlistfromsearch.png" /></p>
+<ul class="simple">
+<li><p>Name: the name is what will appear on the list of lists, it is the only
+required field</p></li>
+<li><p>Category: decide if the list is going to be private or public</p>
+<ul>
+<li><p>私人虛擬書架由您管理並祗能被您看到</p></li>
+<li><p>A public list can be seen by everybody, including OPAC users</p></li>
+</ul>
+</li>
+<li><p>虛擬書架的預設排序 (書名) 及預設修改權限 (祗限擁有者)。</p></li>
+</ul>
+</li>
+</ul>
+<p>儲存之後，虛擬書架就能從虛擬書架頁面與搜尋結果上方的 ‘新增至’ 選單進入該虛擬書架。</p>
+</section>
+<section id="add-to-a-list">
+<span id="add-to-a-list-label"></span><h3>新增至虛擬書架<a class="headerlink" href="#add-to-a-list" title="此标题的永久链接"></a></h3>
+<p>勾選虛擬書架頁面的書架名稱，就能新增題名入該書架</p>
+<p><img alt="List of public and private lists" src="_images/listslist.png" /></p>
+<p>To open a list, click the list name.</p>
+<p><img alt="View of contents of a list showing titles and functions" src="_images/listcontents.png" /></p>
+<p>From that page, click ‘Add items’ to add titles by scanning barcodes into the
+box, or entering biblionumbers.</p>
+<p><img alt="Window to add items to a list by barcode or biblionumber" src="_images/additemstolist.png" /></p>
+<p>題名可以新增至虛擬書架，勾選搜尋結果的題名，再從 ‘加入’ 選單裡把它加入虛擬書架</p>
+<p><img alt="Add titles to list from search results" src="_images/addtolist.png" /></p>
+</section>
+<section id="viewing-lists">
+<span id="viewing-lists-label"></span><h3>檢視虛擬書架<a class="headerlink" href="#viewing-lists" title="此标题的永久链接"></a></h3>
+<p>To see the contents of a list, visit the Lists page in the staff interface</p>
+<p><img alt="List of public and private lists" src="_images/listslist.png" /></p>
+<p>From this page, you can perform some actions on the lists.</p>
+<ul>
+<li><p>Edit: will allow you to edit the description and permissions for
+this list</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For public lists, this option will only appear to staff members with the
+edit_public_lists <a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">permission</span></a>.</p>
+</div>
+</li>
+<li><p>Delete: will delete the list</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For public lists, this option will only appear to staff members with the
+delete_public_lists <a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">permission</span></a>.</p>
+</div>
+</li>
+<li><p>Transfer: will allow you to change the owner of the list</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This option is only possible on public lists.</p>
+<p>This option will only appear to staff members with the
+edit_public_lists <a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">permission</span></a>.</p>
+</div>
+</li>
+</ul>
+<p>勾選 ‘虛擬書架名稱’ 將看到該虛擬書架的內容</p>
+<p><img alt="View of contents of a list showing titles and functions" src="_images/listcontents.png" /></p>
+<p>從此虛擬書架的館藏您可執行多項工作</p>
+<ul>
+<li><p>New list: will allow you to create another list</p></li>
+<li><p>Add items: will allow you to add items to the list with barcodes or
+biblionumbers</p></li>
+<li><p>Edit: will allow you to edit the description and permissions for
+this list, or delete this list</p></li>
+<li><p>Download list: will allow you to download the list using one of 3
+default formats or your <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV profiles</span></a></p></li>
+<li><p>Send list: will send the list to the email address you enter</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The message sent when emailing the list is LIST, which can be customized
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+<li><p>Print list: will present you with a printable version of the list</p></li>
+</ul>
+<p>按欄位標頭即可依該欄位排序。</p>
+</section>
+</section>
+<section id="cart">
+<span id="cart-label"></span><h2>借出籃<a class="headerlink" href="#cart" title="此标题的永久链接"></a></h2>
+<p>借出籃是在 OPAC 或館員介面裡暫存館藏資訊的地方。作業結束(關閉瀏覽器或登出)後借出籃內容將清空。借出籃適用於批次作業(館藏資訊、列印、電子郵件)或列印館藏清單或電郵給自己或讀者。</p>
+<p>The cart feature can be turned off in the OPAC using the <a class="reference internal" href="opacpreferences.html#opacbookbag-label"><span class="std std-ref">opacbookbag</span></a>
+system preference.</p>
+<p>If you would like to enable the cart in the staff interface, you need to
+set the <a class="reference internal" href="staffclientpreferences.html#intranetbookbag-label"><span class="std std-ref">intranetbookbag</span></a> system preference to
+‘Show.’ To add things to the cart, search the catalog and select the
+items you would like added to your cart and click on the ‘Add to cart’
+button.</p>
+<p><img alt="Add titles to cart from search results" src="_images/addtocart.png" /></p>
+<p>確認訊息將顯示在館員界面上方的借出籃鈕之下</p>
+<p><img alt="Message showing items added to your cart" src="_images/itemsaddedcart.png" /></p>
+<p>按借出籃圖示將顯示其內容</p>
+<p><img alt="View of 'Your cart' showing list of titles and functions" src="_images/cart.png" /></p>
+<p>從此虛擬書架的館藏您可執行多項工作</p>
+<ul>
+<li><p>‘其他詳情’ 將顯示借出籃館藏的詳細資訊</p></li>
+<li><p>‘送出’ 將把虛擬書架送至您鍵入的電子郵件信箱</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The message sent when emailing the cart is CART, which can be customized
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+<li><p>‘Download’ will allow you to download the cart using one of 3 default
+formats or your <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV profiles</span></a></p></li>
+<li><p>‘列印’ 將顯示此借出籃的列印版</p></li>
+<li><p>‘清空並關閉’ 將清空虛擬書架並關閉視窗</p></li>
+<li><p>‘隱藏視窗’ 將關閉該視窗</p></li>
+</ul>
+<section id="modifying-bibliographic-records-via-the-cart">
+<h3>經由採訪車修改書目紀錄<a class="headerlink" href="#modifying-bibliographic-records-via-the-cart" title="此标题的永久链接"></a></h3>
+<p>可以把書目紀錄加入書車，以批次方式修改。選定書車內的紀錄再按 ‘批次修改’ 就可以。</p>
+<p>將被帶至 ‘批次修改紀錄工具’，然後其程序等同於選定 <a class="reference internal" href="cataloging.html#batch-record-modification-label"><span class="std std-ref">經由工具修改</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="erm.html" class="btn btn-neutral float-left" title="电子资源管理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="reports.html" class="btn btn-neutral float-right" title="報表" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

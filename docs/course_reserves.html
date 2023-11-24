@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>課程指定參考書 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="期刊" href="serials.html" />
+    <link rel="prev" title="编目" href="cataloging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">課程指定參考書</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#course-reserves-setup">課程指定參考書設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-courses">新增課程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-reserve-materials">新增指定參考書教材</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#course-reserves-in-the-opac">顯示於 OPAC 的指定參考書課程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">課程指定參考書</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/course_reserves.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="cataloging.html" class="btn btn-neutral float-left" title="编目" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="serials.html" class="btn btn-neutral float-right" title="期刊" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="course-reserves">
+<span id="course-reserves-label"></span><h1>課程指定參考書<a class="headerlink" href="#course-reserves" title="此标题的永久链接"></a></h1>
+<p>Koha 的指定參考書模組可以把館藏暫時移入 ‘保留’ 區，並適用特別的流通規則，供指定的課程使用。</p>
+<section id="course-reserves-setup">
+<span id="course-reserves-setup-label"></span><h2>課程指定參考書設定<a class="headerlink" href="#course-reserves-setup" title="此标题的永久链接"></a></h2>
+<p>使用指定參考書前，您必須要做一些設定。</p>
+<p>First you will need to enable course reserves by setting the
+<a class="reference internal" href="circulationpreferences.html#usecoursereserves-label"><span class="std std-ref">UseCourseReserves</span></a> preference to ‘Use’.</p>
+<p>接著將使用指定參考書的老師新增為讀者 <a class="reference internal" href="patrons.html#add-a-new-patron-label"><span class="std std-ref">新增讀者</span></a>。</p>
+<p>接著新增系所與學期的 <a class="reference internal" href="administration.html#add-new-authorized-value-label"><span class="std std-ref">容許值</span></a>。</p>
+<p>或許需要新增 <a class="reference internal" href="administration.html#adding-item-types-label"><span class="std std-ref">館藏類型</span></a>、<a class="reference external" href="#ccode">館藏代碼</a> 與 <a class="reference external" href="#shelvelocvals">書架位置</a> 等資料，讓讀者容易提取該等指定館藏。也需要確認:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>流通與罰款規則 &lt;circulation-and-fine-rules-label&gt;`的正確性 (借出時數或天數)。</p>
+</section>
+<section id="adding-courses">
+<span id="adding-courses-label"></span><h2>新增課程<a class="headerlink" href="#adding-courses" title="此标题的永久链接"></a></h2>
+<p>設定指定參考書課程後，您可新增課程並新增標題到指定參考書清單。</p>
+<p><img alt="image726" src="_images/coursesblank.png" /></p>
+<p>從指定參考書的課程頁面, 您可以點選左下角的 ‘新課程’ 按鈕，新增課程。</p>
+<p><img alt="Add a new course" src="_images/NewCourse29032023.png" /></p>
+<p>您的新課程至少需要系所、代號及名稱。您還可以新增額外的資訊如課程區塊編號及要求等。要將教師連結到本課程，輸入教師名稱後 Koha 會搜尋讀者資料庫找到適當的人並與課程連結。</p>
+<p><img alt="Instructor search box with autocomplete" src="_images/Instructorsearch29032023.png" /></p>
+<p>教師名稱出現後，點選他們的名稱就能新增了。您可重複此步驟。每個教師都會出現在搜盒之上且點選其名稱右方的 ‘移除’ 連結，就能夠移除他。</p>
+<p><img alt="Instructor remove option" src="_images/Instructorremove29032023.png" /></p>
+<p>如果你想公開課程，您在儲存新課程前請選擇 ‘啟用?’ 選項。</p>
+<p>指定參考書課程儲存後，將顯示在課程頁面並可從任何欄位搜尋它。</p>
+<p><img alt="image730" src="_images/courses.png" /></p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的:ref:<cite>’欄組態’&lt;column-settings-label&gt;</cite> 部份, 自定義此表的列(table id: courses page, course_reserves_table)。</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="adding-reserve-materials">
+<span id="adding-reserve-materials-label"></span><h2>新增指定參考書教材<a class="headerlink" href="#adding-reserve-materials" title="此标题的永久链接"></a></h2>
+<p>新增指定參者書前，您至少要有一個課程才能加入它。請至指定參考書模組。</p>
+<p><img alt="image730" src="_images/courses.png" /></p>
+<p>勾選加入資料的課程名稱。</p>
+<p><img alt="image732" src="_images/courseadmin.png" /></p>
+<p>在課程說明上方，請點擊 ‘新增保留’ 鍵新增題名至此指定參考書清單中。您將會被要求提供條碼號給每個題名。</p>
+<p><img alt="image733" src="_images/addbarcode.png" /></p>
+<p>可以改變每個館藏的類型、館藏代碼、館藏位置或所屬圖書館。這些改變祗適用於開課中的課程。課程停開後，回覆原來的館藏狀態。</p>
+<p><img alt="image1357" src="_images/additem1.png" /></p>
+<p>掃瞄條碼並加入課程後，就能在課程頁面看到它們</p>
+<p><img alt="image734" src="_images/coursewithreserves.png" /></p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份，自定義此表的列(table id: reserves page, course_reserves_table)。</p></li>
+</ul>
+</div></blockquote>
+<p>可以同時加入多個館藏。勾選 ‘批次新增指定參考書’。</p>
+<p><img alt="image1358" src="_images/batchadditems.png" /></p>
+<p>掃描館藏的條碼，就能夠新增指定參考書，或改變類型、館藏代碼、館藏位置或所屬圖書館。</p>
+</section>
+<section id="course-reserves-in-the-opac">
+<span id="course-reserves-in-the-opac-label"></span><h2>顯示於 OPAC 的指定參考書課程<a class="headerlink" href="#course-reserves-in-the-opac" title="此标题的永久链接"></a></h2>
+<p>啟用指定參考書並新增課程後，您可以在 OPAC 搜尋框之中看到指定參考書課程連結。</p>
+<p><img alt="image735" src="_images/courselinkopac.png" /></p>
+<p>勾選上連結將顯示啟用課程的清單(若祗有一個課程則可看到其內容)。</p>
+<p><img alt="image736" src="_images/coursesopac.png" /></p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘欄組態’</span></a> 部份, 自定義此表的列(table id: course_reserves_table)。</p></li>
+</ul>
+</div></blockquote>
+<p>可以用指定參考書出現的欄位 (課程編號、課程名稱、教師姓名、開課系所) 搜尋。按課程名稱將顯示其館藏。</p>
+<p><img alt="image737" src="_images/courseopac.png" /></p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 自定義此表的列(table id: course-items-table)。</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="cataloging.html" class="btn btn-neutral float-left" title="编目" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="serials.html" class="btn btn-neutral float-right" title="期刊" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

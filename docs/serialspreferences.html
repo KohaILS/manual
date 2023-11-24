@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>期刊 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="館員介面" href="staffclientpreferences.html" />
+    <link rel="prev" title="搜尋" href="searchingpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">期刊</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#makepreviousserialavailable">makePreviousSerialAvailable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opacserialdefaulttab">opacSerialDefaultTab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opacserialissuedisplaycount">OPACSerialIssueDisplayCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preserveserialnotes">PreserveSerialNotes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renewserialaddssuggestion">RenewSerialAddsSuggestion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routinglistaddreserves">RoutingListAddReserves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routinglistnote">RoutingListNote</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routingserials">RoutingSerials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#staffserialissuedisplaycount">StaffSerialIssueDisplayCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subscriptionduplicatedroppedinput">SubscriptionDuplicateDroppedInput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subscriptionhistory">SubscriptionHistory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">期刊</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/serialspreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="searchingpreferences.html" class="btn btn-neutral float-left" title="搜尋" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="staffclientpreferences.html" class="btn btn-neutral float-right" title="館員介面" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="serials">
+<span id="serials-system-preferences-label"></span><h1>期刊<a class="headerlink" href="#serials" title="此标题的永久链接"></a></h1>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>到此：<a href="#id3"><span class="problematic" id="id4">*</span></a>其他 &gt; 管理 &gt; 整體系統偏好&gt; 期刊</p>
+<section id="makepreviousserialavailable">
+<span id="makepreviousserialavailable-label"></span><h2>makePreviousSerialAvailable<a class="headerlink" href="#makepreviousserialavailable" title="此标题的永久链接"></a></h2>
+<p>詢問:___收到新的期刊時，自動更新以前的到館期刊內容。收到新的期刊時，可設定為另個館藏類型。必須把 <a class="reference internal" href="catalogingpreferences.html#item-level-itypes-label"><span class="std std-ref">item-level_itypes</span></a> 系統偏好設為指定館藏。</p>
+<p>預設: 不要做</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不要做</p></li>
+<li><p>做</p></li>
+</ul>
+<p>說明:</p>
+<ul class="simple">
+<li><p>如果這個系統偏好已經被啟用，但不是為了借閱狀況和過去期刊的館藏類型，會被自動更改，當 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>收到新一期的期刊&lt;receive-issues-label&gt;。</p></li>
+<li><p>設置了新期刊的館藏類型和以前期刊的館藏類型，當 <a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">正在建立期刊訂閱</span></a>。</p></li>
+<li><p>不要流通最新一期的期刊，而是流通前幾期的刊期對圖書館員是有用的</p></li>
+</ul>
+</section>
+<section id="opacserialdefaulttab">
+<span id="opacserialdefaulttab-label"></span><h2>opacSerialDefaultTab<a class="headerlink" href="#opacserialdefaulttab" title="此标题的永久链接"></a></h2>
+<p>詢問：顯示 ___ 做為 OPAC 內期刊的預設分頁。</p>
+<p>預設：訂閱分頁</p>
+<p>值:</p>
+<ul>
+<li><p>預約分頁</p>
+<ul class="simple">
+<li><p>預約分頁是那個能夠表示館藏依附在書目紀錄上的。它是唯一表示沒有附加訂閱的紀錄。</p></li>
+</ul>
+</li>
+<li><p>期刊館藏分頁</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>請注意只有 UNIMARC 框架才可使用期刊館藏分頁。</p>
+</div>
+<p><img alt="Example of a Serial collection tab in the OPAC" src="_images/opacSerialDefaultTab-colltab.png" /></p>
+</li>
+<li><p>期刊館藏分頁</p>
+<p><img alt="Example of a Subscription tab in the OPAC" src="_images/opacSerialDefaultTab-subtab.png" /></p>
+</li>
+</ul>
+<p>說明:</p>
+<ul class="simple">
+<li><p>此系統偏好允許你可以選擇哪個標籤使用者可以第一個看到，當他們正在查看在 OPAC 中附加訂閱的書目記錄。</p></li>
+<li><p>When using the subscription tab, you can choose how many issues to show with
+the <a class="reference internal" href="#opacserialissuedisplaycount-label"><span class="std std-ref">OPACSerialIssueDisplayCount</span></a> system preference.</p></li>
+</ul>
+</section>
+<section id="opacserialissuedisplaycount">
+<span id="opacserialissuedisplaycount-label"></span><h2>OPACSerialIssueDisplayCount<a class="headerlink" href="#opacserialissuedisplaycount" title="此标题的永久链接"></a></h2>
+<p>詢問：在 OPAC 顯示期刊的 ___ 期舊刊。</p>
+<p>預設：3</p>
+<p>說明:</p>
+<ul class="simple">
+<li><p>此偏好允許管理者選擇顯示在 OPAC 裡的期刊到館期數。僅為預設值，讀者可點選看到該期刊的完整館藏。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果你建立在期刊為期數的館藏，這個不會影響期刊數量顯示在預約分頁中。它只會影響期刊數量展示在期刊館藏分頁裡。</p>
+</div>
+<ul class="simple">
+<li><p>You can choose which tab users see first with the <a class="reference internal" href="#opacserialdefaulttab-label"><span class="std std-ref">opacSerialDefaultTab</span></a>
+system preference.</p></li>
+<li><p>顯示在期刊為期數也可以設定獨立訂閱 <a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">建立或編輯期刊訂閱</span></a>。</p></li>
+</ul>
+</section>
+<section id="preserveserialnotes">
+<span id="preserveserialnotes-label"></span><h2>PreserveSerialNotes<a class="headerlink" href="#preserveserialnotes" title="此标题的永久链接"></a></h2>
+<p>詢問: ___ 產生下個 ‘預期’ 到館期刊時，從上個 ‘已到館’ 期刊預填說明。</p>
+<p>預設：做</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不要</p></li>
+<li><p>做</p></li>
+</ul>
+<p>說明</p>
+<ul class="simple">
+<li><p>此系統偏好允許你選擇是否你想要從過去到新一期的期刊中複製記錄，當 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>收到新的期刊&lt;receive-issues-label&gt;，為館員節省時間。</p></li>
+</ul>
+</section>
+<section id="renewserialaddssuggestion">
+<span id="renewserialaddssuggestion-label"></span><h2>RenewSerialAddsSuggestion<a class="headerlink" href="#renewserialaddssuggestion" title="此标题的永久链接"></a></h2>
+<p>詢問：當一個書目所附期刊被更新時， ___ 對其建議的書目資料。</p>
+<p>預設：不新增</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不新增</p></li>
+<li><p>新增</p></li>
+</ul>
+<p>說明:</p>
+<ul class="simple">
+<li><p>If set to ‘Add’, this preference will automatically add a serial to
+the <a class="reference internal" href="acquisitions.html#managing-purchase-suggestions-label"><span class="std std-ref">purchase suggestions page in the acquisitions module</span></a>
+when <a class="reference internal" href="serials.html#renewing-serials-label"><span class="std std-ref">clicking the ‘renew’ option on a serial subscription</span></a>.
+If you don’t use the <a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">acquisitions module</span></a> to
+manage serials purchases it’s best to leave this set as ‘Don’t add’.</p></li>
+</ul>
+</section>
+<section id="routinglistaddreserves">
+<span id="routinglistaddreserves-label"></span><h2>RoutingListAddReserves<a class="headerlink" href="#routinglistaddreserves" title="此标题的永久链接"></a></h2>
+<p>Asks: ___ received serials on hold if they are on a routing list.</p>
+<p>Default: Don’t place</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>Place</p></li>
+<li><p>Don’t place</p></li>
+</ul>
+<p>說明:</p>
+<ul class="simple">
+<li><p>When using the <a class="reference internal" href="#routingserials-label"><span class="std std-ref">routing list feature</span></a>, items for
+issues to be routed can be placed on hold for each user on the routing list.</p></li>
+</ul>
+</section>
+<section id="routinglistnote">
+<span id="routinglistnote-label"></span><h2>RoutingListNote<a class="headerlink" href="#routinglistnote" title="此标题的永久链接"></a></h2>
+<p>Asks: Include following note on all routing lists</p>
+<p>說明:</p>
+<ul class="simple">
+<li><p>Text entered in this box will appear below the
+<a class="reference internal" href="#routingserials-label"><span class="std std-ref">routing list information</span></a>.</p></li>
+</ul>
+</section>
+<section id="routingserials">
+<span id="routingserials-label"></span><h2>RoutingSerials<a class="headerlink" href="#routingserials" title="此标题的永久链接"></a></h2>
+<p>Asks: ___ the routing list feature in the serials module.</p>
+<p>Default: Use</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>Don’t use</p></li>
+<li><p>Use</p></li>
+</ul>
+<p>說明:</p>
+<ul class="simple">
+<li><p>This preference determines if serials routing lists are enabled or
+disabled for the library. When set to ‘Use’, serials routing is
+enabled and a serial can be directed through a list of people by
+identifying who should receive it next. The list of people can be
+established for each serial to be passed using the Serials module.
+This preference can be used to ensure each person who needs to see a
+serial when it arrives at the library will get it. Learn more in the
+<a class="reference internal" href="serials.html#create-a-routing-list-label"><span class="std std-ref">routing list</span></a> section of this manual.</p></li>
+</ul>
+</section>
+<section id="staffserialissuedisplaycount">
+<span id="staffserialissuedisplaycount-label"></span><h2>StaffSerialIssueDisplayCount<a class="headerlink" href="#staffserialissuedisplaycount" title="此标题的永久链接"></a></h2>
+<p>Asks: Show the ___ previous issues of a serial on the staff interface.</p>
+<p>預設：3</p>
+<p>說明:</p>
+<p>說明:</p>
+<ul class="simple">
+<li><p>This preference allows the administrator to select the number of
+recent issues for each serial which appear in the staff interface when the
+serial is accessed. This is just the default value, staff members can
+always click to see a full list of serials.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果你建立在期刊為期數的館藏，這個不會影響期刊數量顯示在預約分頁中。它只會影響期刊數量展示在期刊館藏分頁裡。</p>
+</div>
+<ul class="simple">
+<li><p>顯示在期刊為期數也可以設定獨立訂閱 <a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">建立或編輯期刊訂閱</span></a>。</p></li>
+</ul>
+</section>
+<section id="subscriptionduplicatedroppedinput">
+<span id="subscriptionduplicatedroppedinput-label"></span><h2>SubscriptionDuplicateDroppedInput<a class="headerlink" href="#subscriptionduplicatedroppedinput" title="此标题的永久链接"></a></h2>
+<p>Asks: List of fields which must not be rewritten when a subscription is
+duplicated (Separated by pipe |) ___</p>
+<p>說明:</p>
+<ul class="simple">
+<li><p>When duplicating a subscription (new as duplicate) sometimes you don’t want
+all of the fields duplicated. Using this preference you can list the fields
+thatyou don’t want to be duplicated. These field names come from the
+subscription table in the Koha database. Learn what fields are in
+that table on the <a class="reference external" href="http://schema.koha-community.org/master/tables/subscription.html">Koha DB
+Schema</a>
+site.</p></li>
+</ul>
+</section>
+<section id="subscriptionhistory">
+<span id="subscriptionhistory-label"></span><h2>SubscriptionHistory<a class="headerlink" href="#subscriptionhistory" title="此标题的永久链接"></a></h2>
+<p>Asks: When showing the subscription information for a bibliographic
+record, preselect ___ view of serial issues.</p>
+<p>Default: brief history</p>
+<p>值:</p>
+<ul>
+<li><p>brief history</p>
+<p><img alt="Brief history of a subscription in the OPAC" src="_images/SubscriptionHistory-brief.png" /></p>
+</li>
+<li><p>full history</p>
+<p><img alt="Full history of a subscription in the OPAC" src="_images/SubscriptionHistory-full.png" /></p>
+</li>
+</ul>
+<p>說明:</p>
+<ul class="simple">
+<li><p>This preference determines what information appears in the OPAC when
+the user clicks the ‘more details’ option. The ‘brief’ option displays
+a one-line summary of the volume and issue numbers of all issues of
+that serial held by the library. The ‘full’ option displays a more
+detailed breakdown of issues per year, including information such as
+the issue date and the status of each issue.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="searchingpreferences.html" class="btn btn-neutral float-left" title="搜尋" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="staffclientpreferences.html" class="btn btn-neutral float-right" title="館員介面" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

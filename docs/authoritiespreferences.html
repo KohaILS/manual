@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>權威 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="编目" href="catalogingpreferences.html" />
+    <link rel="prev" title="管理" href="administrationpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">權威</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general">一般</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#authdisplayhierarchy">AuthDisplayHierarchy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authoritycontrolledindicators">AuthorityControlledIndicators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authoritymergelimit">AuthorityMergeLimit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authoritymergemode">AuthorityMergeMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autocreateauthorities">AutoCreateAuthorities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generateauthorityfield667">GenerateAuthorityField667</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generateauthorityfield670">GenerateAuthorityField670</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcauthoritycontrolfield008">MARCAuthorityControlField008</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirechoosingexistingauthority">RequireChoosingExistingAuthority</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unimarcauthorityfield100">UNIMARCAuthorityField100</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useauthoritiesfortracings">UseAuthoritiesForTracings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linker">連結器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autolinkbiblios">AutoLinkBiblios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#catalogmodulerelink">CatalogModuleRelink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linkerconsiderthesaurus">LinkerConsiderThesaurus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linkerkeepstale">LinkerKeepStale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linkermodule">LinkerModule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linkeroptions">LinkerOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linkerrelink">LinkerRelink</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">權威</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/authoritiespreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="administrationpreferences.html" class="btn btn-neutral float-left" title="管理" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="catalogingpreferences.html" class="btn btn-neutral float-right" title="编目" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="authorities">
+<span id="authorities-system-preferences-label"></span><h1>權威<a class="headerlink" href="#authorities" title="此标题的永久链接"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt;
+Authorities</p>
+<section id="general">
+<span id="authoritiesgeneral-label"></span><h2>一般<a class="headerlink" href="#general" title="此标题的永久链接"></a></h2>
+<section id="authdisplayhierarchy">
+<span id="authdisplayhierarchy-label"></span><h3>AuthDisplayHierarchy<a class="headerlink" href="#authdisplayhierarchy" title="此标题的永久链接"></a></h3>
+<p>詢問：檢視權威記錄時，____ 廣義詞/狹義詞層級。</p>
+<p>Default: Don’t show</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>Don’t show</p></li>
+<li><p>Show</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>When set to ‘Show’ broader and narrower ‘See also’ references will be
+displayed in a tree at the top of the record in both the staff interface
+and the OPAC.</p>
+<p><img alt="In the authority record detail page in the staff interface, the broader and narrower terms are displayed in a tree" src="_images/AuthDisplayHierarchy.png" /></p>
+</li>
+<li><p>For MARC21, in order for this display to appear, the records must have 5XX
+with the relationship code in $w and the authority number (authid) in $9.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The relationship codes in $w can be found on the Library of Congress
+website under <a class="reference external" href="https://www.loc.gov/marc/authority/adtracing.html">Tracings and references-General information</a></p>
+<p>g - Broader term</p>
+<p>h - Narrower term</p>
+</div>
+<p>For example, the records in the above screenshot have the following
+information:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Authority #3
+001  3
+151  $a Germany
+551  $w h
+     $a Baden-Württemberg (Germany)
+     $9 4
+
+Authority #4
+001  4
+151  $a Baden-Württemberg (Germany)
+551  $w g
+     $a Germany
+     $9 3
+551  $w h
+     $a Konstanz (Germany)
+     $9 5
+
+Authority #5
+001  5
+151  $a Konstanz (Germany)
+551  $w g
+     $a Baden-Württemberg (Germany)
+     $9 4
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>The relationships must be bidirectional, meaning the broader term must
+reference the narrower term and the narrower term must reference the
+broader term.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="authoritycontrolledindicators">
+<span id="authoritycontrolledindicators-label"></span><h3>AuthorityControlledIndicators<a class="headerlink" href="#authoritycontrolledindicators" title="此标题的永久链接"></a></h3>
+<p>詢問：以下列的字元編輯權威紀錄控制書目欄位 (可能為分欄 $2) 的指標。將略過以井號開始 (#) 的內容。每列的格式應為：(marc21|unimarc)、tag、ind1:(auth1|auth2|some_value)、ind2:(auth1|auth2|thesaurus|some_value)。auth1 與 auth2 表示權威紀錄的兩個指標，tag是書目紀錄欄號或星號 (*)，some_value 是固定的值 (一個字元)。MARC21 選項的辭語典表示權威欄位 008/11 與 040$f 控制的指標。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>合併權威時使用。</p></li>
+<li><p>控制連結權威紀錄指標如何對書目指標影響。目前，MARC 21 的預設值微調值與 UNIMARC 權威指標的複本。</p></li>
+<li><p>例如，書目紀錄 MARC 21 欄號 100 應從連結權威紀錄中，挑選其第一個指標。第二個指標不是由權威控制。此報表支援該等 MARC。</p></li>
+</ul>
+</section>
+<section id="authoritymergelimit">
+<span id="authoritymergelimit-label"></span><h3>AuthorityMergeLimit<a class="headerlink" href="#authoritymergelimit" title="此标题的永久链接"></a></h3>
+<p>詢問：修改權威紀錄時，不要更新編號大於 ___ 的書目紀錄。(在此限制上，由 :ref:` merge_authority 工作排程&lt;cron-update-authorities-label&gt;` 更新它們。)</p>
+<p>預設值：50</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好決定了權威記錄更改時可以更新的書目記錄的最大數量。</p></li>
+<li><p>如果權威記錄連結到許多書目記錄有助於防止過度使用資源。</p></li>
+<li><p>確保啟用  <a class="reference internal" href="cron_jobs.html#cron-update-authorities-label"><span class="std std-ref">merge_authority cron job</span></a> 以抓取不會以其他方式傳輸到書目記錄的更新。</p></li>
+</ul>
+</section>
+<section id="authoritymergemode">
+<span id="authoritymergemode-label"></span><h3>AuthorityMergeMode<a class="headerlink" href="#authoritymergemode" title="此标题的永久链接"></a></h3>
+<p>預設值：鬆散</p>
+<p>詢問：從權威紀錄更新書目紀錄 (“合併”) 時，處理在 ___ 模式內相關書目紀錄的分欄。在嚴格模式下在權威紀錄找不到的分欄，會被刪除。鬆散模式則保留它們。鬆散模式是歷史行為仍為預設值。</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>鬆散</p></li>
+<li><p>嚴格</p></li>
+</ul>
+</section>
+<section id="autocreateauthorities">
+<span id="autocreateauthorities-label"></span><h3>AutoCreateAuthorities<a class="headerlink" href="#autocreateauthorities" title="此标题的永久链接"></a></h3>
+<p>詢問：編輯記錄時，___ 遺失的權威記錄。</p>
+<p>Default: don’t generate</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>don’t generate</p></li>
+<li><p>產生</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to decide if Koha automatically creates
+new authority records from the bibliographic records.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p><a class="reference internal" href="#requirechoosingexistingauthority-label"><span class="std std-ref">RequireChoosingExistingAuthority</span></a>
+must be set to “don’t require”, otherwise this system preference has no
+effect.</p>
+</div>
+<ul class="simple">
+<li><p>If this is set to “don’t generate”, and catalogers enter uncontrolled terms
+in controlled fields, Koha will not generate matching authority records.</p></li>
+<li><p>If set to “generate” (and
+<a class="reference internal" href="#requirechoosingexistingauthority-label"><span class="std std-ref">RequireChoosingExistingAuthority</span></a>
+is set to “don’t require”), Koha will automatically create authority records
+for headings that don’t have any authority link when saving a bibliographic
+record.</p></li>
+</ul>
+</section>
+<section id="generateauthorityfield667">
+<span id="generateauthorityfield667-label"></span><h3>GenerateAuthorityField667<a class="headerlink" href="#generateauthorityfield667" title="此标题的永久链接"></a></h3>
+<p>Asks: Use the following text as default value for the 667$a field of MARC21
+authority records: ___</p>
+<p>Default: Machine generated authority record</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used when Koha automatically creates authority
+records when
+<a class="reference internal" href="#requirechoosingexistingauthority-label"><span class="std std-ref">RequireChoosingExistingAuthority</span></a>
+is set to “don’t require” and
+<a class="reference internal" href="#autocreateauthorities-label"><span class="std std-ref">AutoCreateAuthorities</span></a> is set to
+“generate”.</p></li>
+<li><p>Enter the text you want to use in the 667$a field.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This system preference is only used when <a class="reference internal" href="catalogingpreferences.html#marcflavour-label"><span class="std std-ref">marcflavour</span></a>
+is set to MARC21.</p>
+</div>
+</section>
+<section id="generateauthorityfield670">
+<span id="generateauthorityfield670-label"></span><h3>GenerateAuthorityField670<a class="headerlink" href="#generateauthorityfield670" title="此标题的永久链接"></a></h3>
+<p>Asks: Use the following text as default value for the 670$a field of MARC21
+authority records: ___</p>
+<p>Default: Work cat.</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used when Koha automatically creates authority
+records when
+<a class="reference internal" href="#requirechoosingexistingauthority-label"><span class="std std-ref">RequireChoosingExistingAuthority</span></a>
+is set to “don’t require” and
+<a class="reference internal" href="#autocreateauthorities-label"><span class="std std-ref">AutoCreateAuthorities</span></a> is set to
+“generate”.</p></li>
+<li><p>Enter the text you want to use in the 670$a field.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This system preference is only used when <a class="reference internal" href="catalogingpreferences.html#marcflavour-label"><span class="std std-ref">marcflavour</span></a>
+is set to MARC21.</p>
+</div>
+</section>
+<section id="marcauthoritycontrolfield008">
+<span id="marcauthoritycontrolfield008-label"></span><h3>MARCAuthorityControlField008<a class="headerlink" href="#marcauthoritycontrolfield008" title="此标题的永久链接"></a></h3>
+<p>預設值：|| aca||aabn | a|a d</p>
+<p>詢問：在 MARC21 權威控制欄位 008 位置 06-39 (定長欄資料) 使用以下列文字。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>此偏好不包括日期 (位置 00-05)，Koha 將自動計算並將其放在此偏好的值之前。</p>
+</div></blockquote>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制權威記錄008欄位的預設值。不影響書目記錄。</p></li>
+</ul>
+</section>
+<section id="requirechoosingexistingauthority">
+<span id="requirechoosingexistingauthority-label"></span><h3>RequireChoosingExistingAuthority<a class="headerlink" href="#requirechoosingexistingauthority" title="此标题的永久链接"></a></h3>
+<p>Asks: When editing records, ___ catalogers to reference existing authorities.</p>
+<p>Default: don’t require</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>don’t require</p></li>
+<li><p>require</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines whether or not catalogers can type into
+authority controlled fields.</p></li>
+<li><p>If set to “don’t require”, catalogers can manually enter uncontrolled terms
+into controlled fields</p></li>
+<li><p>If set to “require”, authority controlled fields will be locked, forcing
+catalogers to search for an authority.</p></li>
+<li><p>If set to “require”, it will block
+<a class="reference internal" href="#autocreateauthorities-label"><span class="std std-ref">AutoCreateAuthorities</span></a>. Authorities will
+have to be catalogued manually (or imported).</p></li>
+</ul>
+</section>
+<section id="unimarcauthorityfield100">
+<span id="unimarcauthorityfield100-label"></span><h3>UNIMARCAuthorityField100<a class="headerlink" href="#unimarcauthorityfield100" title="此标题的永久链接"></a></h3>
+<p>預設值：afrey50 ba0</p>
+<p>Asks: Use the following text for the contents of UNIMARC authority field
+100 position 08-35 (fixed length data elements).</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>在此偏好內不含日期 (位址 00-07)，Koha 自動計算並置於此偏好之前。</p>
+</div></blockquote>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制 UNIMARC 權威記錄欄號 100 的預設值。它不影響書目記錄。</p></li>
+</ul>
+</section>
+<section id="useauthoritiesfortracings">
+<span id="useauthoritiesfortracings-label"></span><h3>UseAuthoritiesForTracings<a class="headerlink" href="#useauthoritiesfortracings" title="此标题的永久链接"></a></h3>
+<p>預設值：不使用</p>
+<p>詢問：___ 權威記錄號做為主題搜尋的字串。</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>不使用</p>
+<ul>
+<li><p>以主題/著者的關鍵字做為搜尋的連結(如：opac-search.pl?q=su:Business%20networks)</p></li>
+</ul>
+</li>
+<li><p>使用</p>
+<ul>
+<li><p>以權威記錄做為搜尋的連結(如：opac-search.pl?q=an:354)</p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>已使用權威檔案的圖書館，點選 OPAC 或館員介面的權威主題或著者時，連結至權威記錄，搜尋出完整的記錄。沒有完整權威檔案的圖書館，可以設定此偏好為 ‘不使用’，允許搜尋者點選連結至著者標目執行欄位的鍵詞搜尋，找出所有相關的結果。</p></li>
+</ul>
+</section>
+</section>
+<section id="linker">
+<span id="linker-label"></span><h2>連結器<a class="headerlink" href="#linker" title="此标题的永久链接"></a></h2>
+<p>這些偏好控制 Koha 書目記錄至權威記錄的連結。經過適當的設定後，新增至 Koha 的書目記錄都自動連結至權威記錄；設定之前已存在的書目記錄，系統管理者可執行腳本程式 (misc/link_bibs_to_authorities.pl) 將這些記錄連結入權威記錄。</p>
+<section id="autolinkbiblios">
+<span id="autolinkbiblios-label"></span><h3>AutoLinkBiblios<a class="headerlink" href="#autolinkbiblios" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ attempt to automatically link headings when saving records in the
+cataloging module.</p>
+<p>Default: Don’t</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>Don’t</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines whether or not Koha will attempt to link
+terms in authority controlled field to existing authority records upon saving
+a new bibliographic record.</p></li>
+<li><p>This system preference is used when creating new bibliographic records.
+<a class="reference internal" href="#catalogmodulerelink-label"><span class="std std-ref">CatalogModuleRelink</span></a> and
+<a class="reference internal" href="#linkerrelink-label"><span class="std std-ref">LinkerRelink</span></a> are used when editing bibliographic
+records.</p></li>
+<li><p>If set to “Do”, Koha will search in the thesaurus to find a matching
+authority record. If it finds one, it will link it. If it finds more than one,
+<a class="reference internal" href="#linkermodule-label"><span class="std std-ref">LinkerModule</span></a> will determine which one is linked.</p></li>
+<li><p>If set to “Don’t”, no linking attempt will be made when saving a new
+bibliographic record.</p></li>
+</ul>
+</section>
+<section id="catalogmodulerelink">
+<span id="catalogmodulerelink-label"></span><h3>CatalogModuleRelink<a class="headerlink" href="#catalogmodulerelink" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 自動再連結曾經於編目模組儲存的記錄。</p>
+<p>Default: Don’t</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>Don’t</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines whether or not authority links are checked
+and adjusted when saving a bibliographic record.</p></li>
+<li><p>When set to “Do”, Koha will automatically relink headings when a record is
+saved in the cataloging module when <a class="reference internal" href="#linkerrelink-label"><span class="std std-ref">LinkerRelink</span></a>
+is turned on, even if the headings were manually linked to a different
+authority by the cataloger.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This system preference requires that <a class="reference internal" href="#autolinkbiblios-label"><span class="std std-ref">AutoLinkBiblios</span></a>
+be set to “Do”.</p>
+</div>
+</section>
+<section id="linkerconsiderthesaurus">
+<span id="linkerconsiderthesaurus-label"></span><h3>LinkerConsiderThesaurus<a class="headerlink" href="#linkerconsiderthesaurus" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ compare the source for 6XX headings to the thesaurus source for
+authority records when linking.</p>
+<p>Default: Don’t</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>Don’t</p></li>
+<li><p>做</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference is used to enable multiple thesauri support for
+authorities.</p>
+<ul>
+<li><p>The thesaurus used for the term is added to the authority record using
+040$f.</p></li>
+<li><p>In the bibliographic record, set the second indicator to 7 for 650 and
+add the source to 650$2. For local terms, use 4 (Source not specified) as
+the indicator.</p>
+<p>Example for a bibliographic record:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>650 _ 0 $a Feminism
+650 _ 7 $a Feminism $2 sao
+650 _ 7 $a Feminism $2 barn
+</pre></div>
+</div>
+<p>The first example above is the LCSH term. The other two terms are from
+sao (controlled Swedish subject heading system) and barn (Swedish children
+subject heading system). These three are using the same TOPIC_TERM
+Feminism, but they belong to different thesauri.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>In existing systems, enabling this preference may require a reindex, and may
+generate new authority records if <a class="reference internal" href="#autocreateauthorities-label"><span class="std std-ref">AutoCreateAuthorities</span></a>
+is enabled.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Support for multiple authority thesauri currently only works with
+ElasticSearch.</p>
+</div>
+</section>
+<section id="linkerkeepstale">
+<span id="linkerkeepstale-label"></span><h3>LinkerKeepStale<a class="headerlink" href="#linkerkeepstale" title="此标题的永久链接"></a></h3>
+<p>預設值：不做</p>
+<p>詢問：當連結器找到不對照連結時 ___ 保留原來的標題連結至權威記錄。</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不做</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When set to ‘Do’, the linker will never remove a link to an authority
+record, though, depending on the value of
+<a class="reference internal" href="#linkerrelink-label"><span class="std std-ref">LinkerRelink</span></a>, it may change the link.</p></li>
+</ul>
+</section>
+<section id="linkermodule">
+<span id="linkermodule-label"></span><h3>LinkerModule<a class="headerlink" href="#linkermodule" title="此标题的永久链接"></a></h3>
+<p>預設：預設</p>
+<p>詢問：使用 ___ 連結器模組供標題對照至權威記錄之用。</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>預設</p>
+<ul>
+<li><p>Retains Koha’s previous behavior of only creating links when there
+is an exact match to one and only one authority record; if the
+<a class="reference internal" href="#linkeroptions-label"><span class="std std-ref">LinkerOptions</span></a> preference is set to
+‘broader_headings’, it will try to link headings to authority
+records for broader headings by removing subfields from the end of
+the heading</p></li>
+</ul>
+</li>
+<li><p>第一個對映</p>
+<ul>
+<li><p>即使有多筆權威記錄對映成功，只會新增連結至與指定標題對映的第一個權威記錄</p></li>
+</ul>
+</li>
+<li><p>最後對映</p>
+<ul>
+<li><p>即使有多筆權威記錄對映成功，只會新增連結至與指定標題對映的最後一個權威記錄</p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>儲存書目記錄時，此偏好告訴Koha使用指定的對應權威記錄。</p></li>
+</ul>
+</section>
+<section id="linkeroptions">
+<span id="linkeroptions-label"></span><h3>LinkerOptions<a class="headerlink" href="#linkeroptions" title="此标题的永久链接"></a></h3>
+<p>詢問： 權威連結器使用以下的選項 ___</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>此功能還在實驗中，在進一步擴充前不應使用於作業環境裡。</p>
+</div></blockquote>
+<p>說明：</p>
+<ul>
+<li><p>以直線 (|) 區隔的選項，目前只有 “broader_headings” 一個選項。設定”broader_headings” 之後，連結器將依下例對映標題：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>=600 10$aCamins-Esakov, Jared$xCoin collections$vCatalogs$vEarly works to 1800.
+</pre></div>
+</div>
+<p>首先：Camins-Esakov, Jared–Coin collections–Catalogs–Early works to 1800</p>
+<p>然後：Camins-Esakov, Jared–Coin collections–Catalogs</p>
+<p>然後：Camins-Esakov, Jared–Coin collections</p>
+<p>然後：Camins-Esakov, Jared (已對映！若之前的嘗試已對映，就不會嘗試這個)</p>
+</li>
+</ul>
+</section>
+<section id="linkerrelink">
+<span id="linkerrelink-label"></span><h3>LinkerRelink<a class="headerlink" href="#linkerrelink" title="此标题的永久链接"></a></h3>
+<p>預設值：做</p>
+<p>詢問：___ 再連結曾經連結至權威記錄的標題。</p>
+<p>預設值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不做</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>設定為 ‘做’ 時，連結器先確認曾經連結至權威記錄的標題，修正錯誤的連結。若設定為 ‘不做’，忽視既有的連結，即使既有連結失效或不正確。</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="administrationpreferences.html" class="btn btn-neutral float-left" title="管理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="catalogingpreferences.html" class="btn btn-neutral float-right" title="编目" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

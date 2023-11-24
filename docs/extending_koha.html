@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>擴展 Koha &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="在 Koha 使用第三方軟體" href="third_party_software.html" />
+    <link rel="prev" title="其他的 API 與通訊協定" href="apis_protocols.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">擴展 Koha</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#amazon-lookup-script-for-koha-libraries">Amazon 為 Koha 圖書館的查詢程式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keyword-clouds">關鍵詞雲</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#newest-titles-pulldown">最新題名下拉</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-titles-slider-for-opac">OPAC 使用的新題名封面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cataloging-and-searching-by-color">按顏色編目和搜索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#koha-search-on-your-site">在您的網站搜尋 Koha</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">擴展 Koha</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/extending_koha.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="apis_protocols.html" class="btn btn-neutral float-left" title="其他的 API 與通訊協定" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="third_party_software.html" class="btn btn-neutral float-right" title="在 Koha 使用第三方軟體" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="extending-koha">
+<span id="extending-koha-label"></span><h1>擴展 Koha<a class="headerlink" href="#extending-koha" title="此标题的永久链接"></a></h1>
+<p>本章顯示以既有的組態選項新增強化及客製化的功能。</p>
+<section id="amazon-lookup-script-for-koha-libraries">
+<span id="amazon-lookup-script-for-koha-libraries-label"></span><h2>Amazon 為 Koha 圖書館的查詢程式<a class="headerlink" href="#amazon-lookup-script-for-koha-libraries" title="此标题的永久链接"></a></h2>
+<p>我們向 Amazon 購買大部份的東西，所以我已經找到簡潔的方法若圖書已經在我們的目錄內。</p>
+<p>Greasemonkey &amp;amp; 會計適用的讀者程式：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://addons.mozilla.org/en-US/firefox/addon/748">https://addons.mozilla.org/en-US/firefox/addon/748</a></p></li>
+<li><p><a class="reference external" href="http://userscripts.org/scripts/show/56847">http://userscripts.org/scripts/show/56847</a></p></li>
+</ul>
+<p>幾個警示：</p>
+<ul class="simple">
+<li><p>如同大部份的程式，這個也是設計與 Firefox 共用；我還沒有把它擴展至其他的瀏覽器。</p></li>
+<li><p>我不是 JavaScript 程式設計師 – 這是別人的工作。祗改了幾行程式讓它與我的目錄共同工作。</p></li>
+<li><p>視作品是否有 ISBN，所以電影、舊書等就不適用。</p></li>
+</ul>
+<p>其他人曾加入各種花俏的東西：根據館藏狀態 (採購中、預約中等) 發送客製化訊息，… 祗要搜尋 Amazon + library 的 UserScripts 網站即可得知。供後續使用！</p>
+</section>
+<section id="keyword-clouds">
+<span id="keyword-clouds-label"></span><h2>關鍵詞雲<a class="headerlink" href="#keyword-clouds" title="此标题的永久链接"></a></h2>
+<p>除了傳統的標籤雲之外，Koha 還產生常用的主題雲。</p>
+<p>將 <a class="reference internal" href="cron_jobs.html#cron-subject-author-clouds-label"><span class="std std-ref">Author/Subject Cloud cron job</span></a> 用於說明此程序。此例行性工作排程送出其內容至檔案。</p>
+<ul class="simple">
+<li><p>/home/koha/mylibrary/koharoot/koha-tmpl/cloud-author.html</p></li>
+<li><p>/home/koha/yourlibrary/koharoot/koha-tmpl/cloud-subject.html</p></li>
+</ul>
+<p>這意味著您可以為作者、集體作者、所有類型的主題、分類等生成雲。由於它適用於Zebar索引，因此即使在大型數據庫上也很快。標籤雲被發送到文件。圖書館網站管理員負責處理這些文件，以便將它們包含在 <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">OPACMainUserBlock</span></a> 中，或將它們包含到他們的圖書館 CMS 中。</p>
+<p>有些圖書館甚至把檔案送網管掌控的 Samba 共享資料夾，將其整合入網頁之前還先清理它們。</p>
+</section>
+<section id="newest-titles-pulldown">
+<span id="newest-titles-pulldown-label"></span><h2>最新題名下拉<a class="headerlink" href="#newest-titles-pulldown" title="此标题的永久链接"></a></h2>
+<p>通常我們想讓讀者能夠搜尋最新的館藏。在此例裡依館藏類型建置最新館藏的下拉選單。這些秘訣 (再加上若干變化) 可供館藏代碼或排架之用。</p>
+<p>首先，Koha內 的所有連結都是永久性連結。把特定館藏類型依採訪日期排序並標記其 URL，下回再點選此網址就把最新的館藏列在前幾頁。</p>
+<p>我寫上這些內容做為以後之用。就是搜尋我的 Koha 目錄裡的特定館藏類型並依採訪日期排序。</p>
+<p>首要之事先寫一個 MySQL 敘述產生館藏類型清單 - 可以使用功能強大的 MySQL 時何必複製貼上呢？</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">concat</span><span class="p">(</span><span class="s1">&#39;&lt;option value=</span><span class="se">\&quot;</span><span class="s1">mc-itype:&#39;</span><span class="p">,</span> <span class="n">itemtype</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&gt;&#39;</span><span class="p">,</span><span class="n">description</span><span class="p">,</span><span class="s1">&#39;&lt;/option&gt;&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">itemtypes</span>
+</pre></div>
+</div>
+<p>以上的館藏類型表與其必要的 HTML 都很有用。接著匯出為 CSV 格式並在文字編輯器打開它再新增表格的其他部份。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="n">New</span> <span class="n">Items</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">form</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;searchform&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;get&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/cgi-bin/koha/opac-search.pl&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;idx&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;kw&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sort_by&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;acqdate_dsc&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;do&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;OK&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">select</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;limit&quot;</span> <span class="n">onchange</span><span class="o">=</span><span class="s2">&quot;this.form.submit()&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span><span class="o">&gt;--</span> <span class="n">Please</span> <span class="n">choose</span> <span class="o">--&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:BOOK&quot;</span><span class="o">&gt;</span><span class="n">Book</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:BOOKCD&quot;</span><span class="o">&gt;</span><span class="n">Book</span> <span class="n">on</span> <span class="n">CD</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:DVD&quot;</span><span class="o">&gt;</span><span class="n">DVD</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:LRG_PRINT&quot;</span><span class="o">&gt;</span><span class="n">Large</span> <span class="nb">print</span> <span class="n">book</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:MAGAZINE&quot;</span><span class="o">&gt;</span><span class="n">Magazine</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:NEWSPAPER&quot;</span><span class="o">&gt;</span><span class="n">Newspaper</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:VIDEO&quot;</span><span class="o">&gt;</span><span class="n">Videocassette</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>現在，究竟什麼意思呢？重要的是：</p>
+<p>首先從表單開始。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">form</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;searchform&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;get&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/cgi-bin/koha/opac-search.pl&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>告知瀏覽器提取選定的值，並把它放在 <a class="reference external" href="http://YOURSITE/cgi-bin/koha/opac-search.pl">http://YOURSITE/cgi-bin/koha/opac-search.pl</a> 最後面。若想把它嵌入您的網頁 (不是 OPAC)，可把完整的 OPAC URL 置於此。</p>
+<p>接著，有個隱藏值告知搜尋結果以採訪日期排序的降羃排序(最新的館藏在上面)：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sort_by&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;acqdate_dsc&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>最後您可指定讓讀者搜尋的館藏類型。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mc-itype:BOOK&quot;</span><span class="o">&gt;</span><span class="n">Book</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>每個選項包括字串 “mc-itype:” 告知 Koha 搜尋各館藏類型。</p>
+<p>全部就緒後就可以複製貼上表單至您的 OPAC 內。<span class="xref std std-ref">Farmington Public Libraries OPAC</span> 左方有若干範例。</p>
+</section>
+<section id="new-titles-slider-for-opac">
+<span id="new-titles-slider-for-opac-label"></span><h2>OPAC 使用的新題名封面<a class="headerlink" href="#new-titles-slider-for-opac" title="此标题的永久链接"></a></h2>
+<p>圖書館多半在其公共目錄頁面新增其他功能。可從其他服務取得 (多半需付費) 該等功能或者從 Koha 內 <a href="#id1"><span class="problematic" id="id2">:ref:`啟用外掛 &lt;#pluginsystem&gt;`__</span></a> 並使用 <a class="reference external" href="http://git.bywatersolutions.com/koha-plugins.git/shortlog/refs/heads/cover_flow">封面外掛</a> 係依照 <a class="reference external" href="https://github.com/drien/jquery-flipster">Flipster</a> 而來，一個 jQuery 的外掛。</p>
+<p>安裝外掛之後，依照下面的步驟取得封面：</p>
+<p>首先，新增封面的機制。讓外掛知道您的機制應包括的內容。每個報表祗需三個欄位；題名、書目號與國際標準書號。必須包括正確的國際標準書號，才能夠抓取到封面。英文封面的外掛中，我們最常用 Amazon 封面圖像，不過我相信以後可以建置抓取封面的組態檔讓我們從其他的來源抓取封面。</p>
+<p>第二，我們需組態外掛。外掛組態是使用 YAML 的純文字區塊 (實際上，它是 JSON，YAML 的子集合) 儲存組態選項。在此例中看來像這樣：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">42</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="c1">#coverflow</span>
+  <span class="n">options</span><span class="p">:</span>
+  <span class="n">style</span><span class="p">:</span> <span class="n">coverflow</span>
+</pre></div>
+</div>
+<p>在上例裡，於 id 42 的外掛裡使用報表，並以其新增封面取代 id 為 “封面”。把選單直接交給 Flipster，支援 Flipster 的選項就能夠納入外掛中！事實上，除了傳統的封面外，還有 “carousel” 模式更精簡地處理封面。還可從多個選項裡，組態指定的封面。</p>
+<p>儲存或更新外掛選項時，會產生自動儲存在 Koha 的 OpacUserJS 系統偏好內的 JavaScript 程式碼。以下是範例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/* JS for Koha coverflow plugin
+ This JS was added automatically by installing the coverflow plugin
+ Please do not modify */$(document).ready(function(){$.getScript(&quot;/plugin/Koha/Plugin/Com/ByWaterSolutions/CoverFlow/jquery-flipster/src/js/jquery.flipster.min.js&quot;,function(data,textStatus,jqxhr){$(&quot;head&quot;).append(&quot;&lt;link id=&#39;flipster-css&#39; href=&#39;/plugin/Koha/Plugin/Com/ByWaterSolutions/CoverFlow/jquery-flipster/src/css/jquery.flipster.min.css&#39; type=&#39;text/css&#39; rel=&#39;stylesheet&#39; /&gt;&quot;);$(&#39;#coverflow&#39;).load(&quot;/coverflow.pl?id=42&quot;,function(){var opt={&#39;items&#39;:&#39;.item&#39;,&#39;minfactor&#39;:15,&#39;distribution&#39;:1.5,&#39;scalethreshold&#39;:0,&#39;staticbelowthreshold&#39;:false,&#39;titleclass&#39;:&#39;itemTitle&#39;,&#39;selectedclass&#39;:&#39;selectedItem&#39;,&#39;scrollactive&#39;:true,&#39;step&#39;:{&#39;limit&#39;:4,&#39;width&#39;:10,&#39;scale&#39;:true}};$(&#39;#coverflow&#39;).flipster({style:&#39;coverflow&#39;,});});});});
+/* End of JS for Koha coverflow plugin */
+</pre></div>
+</div>
+<p>為什麼要做這個？速度！載入頁面時不必每次產生相同的程式碼，產生一次後，就能重複使用。</p>
+<p>仔細檢視程式碼，會發現它指向 “coverflow.pl” 腳本。此腳本包括外封面。需從 OPAC (我們不要關閉任何 XSS 攻擊警示) 近用它，我們需修改網頁伺服器組態供公共目錄使用並加入以下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScriptAlias</span> <span class="o">/</span><span class="n">coverflow</span><span class="o">.</span><span class="n">pl</span> <span class="s2">&quot;/var/lib/koha/mykoha/plugins/Koha/Plugin/Com/ByWaterSolutions/CoverFlow/coverflow.pl&quot;</span>
+</pre></div>
+</div>
+<p>這段外掛讓我們從 OPAC 近用 coverflow.pl 腳本。此腳本提取報表資料並交給公共目錄產生封面。支援 Koha::Cache 快速載入封面！</p>
+<p>最後一步是將選擇細目放在公共目錄中的某個位置。在這個例子中，我將以下內容放在顯示位置 OpacMainUserBlock 中（參見 <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">最新消息工具</span></a>）：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">span</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;coverflow&quot;</span><span class="o">&gt;</span><span class="n">Loading</span><span class="o">...&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>置入後，祗需刷新您的 OPAC 頁面，就能夠有它，非常個人化的封面！不祗是在電腦螢幕上看起來很酷，在行動裝置上也極佳，觸控螢幕也可以！</p>
+<p><img alt="image1316" src="_images/coverflow_2-300x170.png" /></p>
+</section>
+<section id="cataloging-and-searching-by-color">
+<span id="cataloging-and-searching-by-color-label"></span><h2>按顏色編目和搜索<a class="headerlink" href="#cataloging-and-searching-by-color" title="此标题的永久链接"></a></h2>
+<p>Koha 安裝的圖示集包括一組色塊。可以當成目錄與搜尋之用。本指南教您將 Koha 的館藏代碼變更為顏色以便使用它。</p>
+<p>以下的 SQL 可用於批次控制 CCODE 的顏色容許值。更改它們就能夠用於另個容許值了：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;000000&#39;</span><span class="p">,</span><span class="s1">&#39;Black&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/000000.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;66cc66&#39;</span><span class="p">,</span><span class="s1">&#39;Bright Green&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/66cc66.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;99cc33&#39;</span><span class="p">,</span><span class="s1">&#39;Olive&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/99cc33.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;3333cc&#39;</span><span class="p">,</span><span class="s1">&#39;Dark Blue&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/3333cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;006600&#39;</span> <span class="p">,</span><span class="s1">&#39;Dark Green&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/006600.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;6600cc&#39;</span><span class="p">,</span><span class="s1">&#39;Plum&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/6600cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;6666cc&#39;</span><span class="p">,</span><span class="s1">&#39;Purple&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/6666cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;9999cc&#39;</span><span class="p">,</span><span class="s1">&#39;Light Purple&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/9999cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;660000&#39;</span> <span class="p">,</span><span class="s1">&#39;Burgundy&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/660000.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;663333&#39;</span> <span class="p">,</span><span class="s1">&#39;Brown&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/663333.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;990000&#39;</span> <span class="p">,</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/990000.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;996633&#39;</span> <span class="p">,</span><span class="s1">&#39;Tan&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/996633.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;999999&#39;</span> <span class="p">,</span><span class="s1">&#39;Gray&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/999999.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc66cc&#39;</span><span class="p">,</span><span class="s1">&#39;Pink&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc66cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc99cc&#39;</span><span class="p">,</span><span class="s1">&#39;Bubble Gum&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc99cc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc3333&#39;</span> <span class="p">,</span><span class="s1">&#39;Orange&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc3333.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc6666&#39;</span> <span class="p">,</span><span class="s1">&#39;Peach&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc6666.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cc9999&#39;</span> <span class="p">,</span><span class="s1">&#39;Rose&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cc9999.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;cccc00&#39;</span> <span class="p">,</span><span class="s1">&#39;Gold&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/cccc00.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;ffff33&#39;</span> <span class="p">,</span><span class="s1">&#39;Yellow&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/ffff33.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;ffffcc&#39;</span><span class="p">,</span><span class="s1">&#39;Cream&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/ffffcc.png&#39;</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">authorised_values</span> <span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">authorised_value</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span>
+ <span class="n">lib_opac</span><span class="p">,</span> <span class="n">imageurl</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="s1">&#39;CCODE&#39;</span><span class="p">,</span><span class="s1">&#39;ffffff&#39;</span><span class="p">,</span><span class="s1">&#39;White&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;colors/ffffff.png&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you would like to choose the colors manually you can do that via the
+<a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">Authorized values</span></a> administration area.</p>
+<p><img alt="image1118" src="_images/colorccode.png" /></p>
+<p>接下來，您需要 <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">更新框架</span></a>，以便 952$8（如果您使用收藏代碼）標籤顯示“顏色”。</p>
+<p>就緒後就可以色塊編目館藏。</p>
+<p>最後您可新增以下的 JQuery 至偏好把 ‘合集’ 標示為 ‘彩色’</p>
+<p><a class="reference internal" href="staffclientpreferences.html#intranetuserjs-label"><span class="std std-ref">IntranetUserJS</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$(document).ready(function(){
+    $(&quot;#advsearch-tab-ccode a:contains(&#39;Collection&#39;)&quot;).text(&quot;Color&quot;);
+    $(&quot;#holdings th:contains(&#39;Collection&#39;)&quot;).text(&quot;Color&quot;);
+    });
+</pre></div>
+</div>
+<p><a class="reference internal" href="opacpreferences.html#opacuserjs-label"><span class="std std-ref">OPACUserJS</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$(document).ready(function(){
+    $(&quot;#advsearch-tab-ccode a:contains(&#39;Collection&#39;)&quot;).text(&quot;Color&quot;);
+    $(&#39;#item_ccode&#39;).text(&quot;Color&quot;);
+    });
+</pre></div>
+</div>
+</section>
+<section id="koha-search-on-your-site">
+<span id="koha-search-on-your-site-label"></span><h2>在您的網站搜尋 Koha<a class="headerlink" href="#koha-search-on-your-site" title="此标题的永久链接"></a></h2>
+<p>通常需要將 Koha 的搜尋盒納入您的網站，祗需將以下的程式碼置入您的圖書館網站，並更新其中的目錄網址即可。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;searchform&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;get&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;http://YOURCATLOG/cgi-bin/koha/opac-search.pl&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;searchform&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;transl1&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;q&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="o">&gt;&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">select</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;idx&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;masthead_search&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;kw&quot;</span><span class="o">&gt;</span><span class="n">Keyword</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;ti&quot;</span><span class="o">&gt;</span><span class="n">Title</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;au&quot;</span><span class="o">&gt;</span><span class="n">Author</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;su&quot;</span><span class="o">&gt;</span><span class="n">Subject</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;nb&quot;</span><span class="o">&gt;</span><span class="n">ISBN</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;se&quot;</span><span class="o">&gt;</span><span class="n">Series</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;callnum&quot;</span><span class="o">&gt;</span><span class="n">Call</span> <span class="n">Number</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Search&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;searchsubmit&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="apis_protocols.html" class="btn btn-neutral float-left" title="其他的 API 與通訊協定" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="third_party_software.html" class="btn btn-neutral float-right" title="在 Koha 使用第三方軟體" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

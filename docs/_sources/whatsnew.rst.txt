@@ -1,0 +1,66 @@
+.. include:: images.rst
+
+.. _whats-new-label:
+
+What's new in Koha
+===============================================================================
+
+This section highlights new features and enhancements in the latest Koha
+releases.
+
+This section is updated as the manual is updated. Therefore, it may not contain
+all the new features and enhancements in the release. Please consult the release
+notes to find an exhaustive list of all changes in Koha for each version.
+
+.. _whats-new-23-11-label:
+
+23.11
+-------------------------------------------------------------------------------
+
+.. Note::
+
+   Release notes will be available when Koha is released, in November 2023. 
+
+   .. Update with link when it is available.
+
+.. _whats-new-23-11-protected-patrons-label:
+
+Protected patrons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is now possible to protect patrons from deletion. When
+:ref:`adding <add-a-new-patron-label>` or
+:ref:`editing a patron <editing-patrons-label>`, a new 'Protected' flag can be
+set in the 'Library management' section. This will disable the 'Delete' option
+in the patron file. Furthermore, protected patrons cannot be deleted by batch
+deletion, cron jobs, or patron merging.
+
+Use this for your statistical patrons, SIP2 users, self checkout users and
+superadmins.
+
+.. _whats-new-23-11-vendor-issues-label:
+
+Vendor issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is now possible to :ref:`record problems with vendors <vendor-issues-label>`
+in the acquisitions module. It is a way to keep track of the various issues that
+might arise in the course of a contract, and it might be helpful when the time
+comes to renegociate.
+
+.. _whats-new-23-11-sysprefs-label:
+
+New system preferences
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**TrackLastPatronActivityTriggers**
+
+The new :ref:`TrackLastPatronActivityTriggers <tracklastpatronactivitytriggers-label>`
+system preference replaces the
+:ref:`TrackLastPatronActivity <tracklastpatronactivity-label>` system preference
+and allows a more granular control of which action triggers the update of the
+patron's "last seen" date (borrowers.lastseen). Previously, this database column
+was only updated when the patron logged into the OPAC or via SIP2. But this
+excluded patrons who might check out a lot of items from the library, but never
+log into the OPAC. The library can now decide which activities to track from a
+list.

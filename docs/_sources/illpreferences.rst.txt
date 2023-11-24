@@ -1,0 +1,211 @@
+.. include:: images.rst
+
+.. _ill-system-preferences-label:
+
+Interlibrary loans
+-------------------------------------------------------------------------------
+
+*Get there:* More > Administration > Global system preferences > Interlibrary
+loans
+
+.. _ill-features-label:
+
+Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _circulateill-label:
+
+CirculateILL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the circulation of ILL requested items.
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  This system preference controls whether you have the option to checkout ILL
+   items directly from an ILL request. More details can be found in the
+   :ref:`Circulating ILL materials <circulating-ILL-material-label>` section.
+
+.. _illcheckavailability-label:
+
+ILLCheckAvailability
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ external sources for availability during the request process.
+
+Default: Don't check
+
+Values:
+
+-  Don't check
+
+-  Check
+
+Description:
+
+-  This preference controls whether specific external resources will be searched
+   prior to a request being placed. The resources available are installed using
+   :ref:`plugins <plugin-system-label>`. These can be located on the Koha
+   plugins wiki page at https://wiki.koha-community.org/wiki/Koha_plugins.
+   Currently there are plugins for EDS (Ebsco Discovery Service), Z39.50
+   and Unpaywall. When a patron
+   :ref:`submits an ILL request <your-interlibrary-loan-requests-label>`, the
+   item metadata in the form is used to search the external resource. The patron
+   can then click on the title links in the displayed results. If they find the
+   item they were requesting the request can be abandoned. If not, the patron
+   can continue with the request in the normal way.
+
+.. _illhiddenrequeststatuses-label:
+
+ILLHiddenRequestStatuses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: ILL statuses that are considered finished and should not be displayed in
+the ILL module: \_\_\_ (separated with \|). If left empty, all ILL requests will
+be displayed.
+
+Description:
+
+-  This preference allows libraries to hide requests from the
+   :ref:`View ILL requests list <viewing-ILL-requests-label>` based on the status 
+   of the request. Available ILL statuses are configured in the ILL\_STATUS\_ALIAS 
+   :ref:`authorized value <authorized-values-label>` category and in the backends. 
+
+.. _illmodule-label:
+
+ILLModule
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the interlibrary loans module (master switch).
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  This preference is used to enable Koha's :ref:`ILL module <ill-requests-label>`
+   which is used to manage ILL requests.
+
+.. _illmodulecopyrightclearance-label:
+
+ILLModuleCopyrightClearance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Adding text will enable the copyright clearance stage in request creation.
+The text you enter will be the text displayed.
+
+Description:
+
+-  This system preference is used to turn on the copyright clearance step when
+   :ref:`creating an ILL request from the OPAC <your-interlibrary-loan-requests-label>`.
+   Patrons will need to accept the copyright clearance before they can proceed.
+
+-  The text entered here is the text they will need to agree to.
+
+.. _illmoduleunmediated-label:
+
+ILLModuleUnmediated
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ unmediated interlibrary loan requests. If enabled and the ILL backend 
+supports it, the newly created requests are immediately requested by backend.
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  When enabled, this system preference allows
+   :ref:`ILL requests placed by patrons on the OPAC <your-interlibrary-loan-requests-label>`
+   to be directly sent to ILL suppliers without mediation by library staff.
+
+-  If this system preference is disabled, staff members will need to
+   :ref:`manage all ILL requests <managing-ILL-requests-label>`.
+
+.. Warning::
+
+   Not all ILL backends can support this feature.
+
+.. _ill-notifications-label:
+
+Notifications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _illdefaultstaffemail-label:
+
+ILLDefaultStaffEmail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Fallback email address for staff ILL notices to be sent to in the absence
+of a library address: \_\_\_ .
+
+Description:
+
+-  By default, replies to ILL request emails will go to the
+   :ref:`library's <libraries-label>` ILL staff email address. If the library's
+   ILL staff email field is empty, the address entered here will be used.
+
+.. _illsendstaffnotices-label:
+
+ILLSendStaffNotices
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Send these ILL notices to staff when appropriate: \_\_\_
+
+Description:
+
+-  You can configure which ILL notices should be sent to staff. More details
+   can be found in the :ref:`ILL email notifications <ILL-email-notification-label>`
+   section.
+
+-  Enter the :ref:`letter codes <notices-and-slips-label>` for the notifications
+   to be sent, separated by pipes (\|). For example::
+
+    ILL_REQUEST_CANCEL|ILL_REQUEST_MODIFIED 
+
+-  If this system preference is left empty, no staff ILL notices will be sent.
+
+.. _ill-opac-label:
+
+OPAC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _illbpacbackends-label:
+
+ILLOpacbackends
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Enabled ILL backends for OPAC initiated requests: \_\_\_ .
+
+Description:
+
+-  This preference controls which ILL backend request forms are available for
+   :ref:`OPAC requests <your-interlibrary-loan-requests-label>`.
+
+-  Enter the backend codes, separated by pipes (\|). For example::
+
+    FreeForm|BLDSS
+
+-  Refer to the backend configuration guidance for the correct terminology
+   to enter here.
+
+-  If this system preference is left empty, all installed backends will be<
+   enabled for :ref:`OPAC requests <your-interlibrary-loan-requests-label>`.

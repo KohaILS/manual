@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>管理 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="權威" href="authoritiespreferences.html" />
+    <link rel="prev" title="採訪" href="acquisitionspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cas-authentication">CAS authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#casauthentication">casAuthentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#caslogout">casLogout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#casserverurl">casServerUrl</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#google-openid-connect">Google OpenID 連結</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#googleoauth2clientid">GoogleOAuth2ClientID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#googleoauth2clientsecret">GoogleOAuth2ClientSecret</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#googleopenidconnect">GoogleOpenIDConnect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#googleopenidconnectautoregister">GoogleOpenIDConnectAutoRegister</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#googleopenidconnectdefaultbranch">GoogleOpenIDConnectDefaultBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#googleopenidconnectdefaultcategory">GoogleOpenIDConnectDefaultCategory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#googleopenidconnectdomain">GoogleOpenIDConnectDomain</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interface-options">介面選項</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#addressforfailedoverduenotices">AddressForFailedOverdueNotices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debuglevel">DebugLevel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaulttologgedinlibrarycircrules">DefaultToLoggedInLibraryCircRules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaulttologgedinlibrarynoticesslips">DefaultToLoggedInLibraryNoticesSlips</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaulttologgedinlibraryoverduetriggers">DefaultToLoggedInLibraryOverdueTriggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csvdelimiter">CSVDelimiter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emailoverduesnoemail">EmailOverduesNoEmail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kohaadminemailaddress">KohaAdminEmailAddress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noitemtypeimages">noItemTypeImages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#replytodefault">ReplytoDefault</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#returnpathdefault">ReturnpathDefault</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sendallemailsto">SendAllEmailsTo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#virtualshelves">virtualshelves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#login-options">登入選項</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autolocation">AutoLocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#independentbranches">IndependentBranches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#independentbranchespatronmodifications">IndependentBranchesPatronModifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sessionrestrictionbyip">SessionRestrictionByIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sessionstorage">SessionStorage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#timeout">暫停</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ssl-client-certificate-authentication">SSL 客戶端認證欄位</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowpkiauth">AllowPKIAuth</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#system-preferences">System preferences</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#searchengine">SearchEngine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#share-anonymous-usage-statistics">共享匿名的使用統計</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usagestats">UsageStats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usagestatscountry">UsageStatsCountry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usagestatsgeolocation">UsageStatsGeolocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usagestatslibrariesinfo">UsageStatsLibrariesInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usagestatslibraryname">UsageStatsLibraryName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usagestatslibrarytype">UsageStatsLibraryType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usagestatslibraryurl">UsageStatsLibraryUrl</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">管理</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/administrationpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="acquisitionspreferences.html" class="btn btn-neutral float-left" title="採訪" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="authoritiespreferences.html" class="btn btn-neutral float-right" title="權威" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="administration">
+<span id="administration-system-preferences-label"></span><h1>管理<a class="headerlink" href="#administration" title="此标题的永久链接"></a></h1>
+<p>這些偏好適用於系統的一般設定。</p>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt;
+Administration</p>
+<p>OrderPriceRounding</p>
+<ul class="simple">
+<li><p>此系統偏好允許您在充電時選擇使用精確值或四捨五入值。</p></li>
+</ul>
+<section id="cas-authentication">
+<span id="cas-authentication-label"></span><h2>CAS authentication<a class="headerlink" href="#cas-authentication" title="此标题的永久链接"></a></h2>
+<p>中央認證系統 (Central Authentication Service, CAS) 是網頁的單一登入協定。若不明白其用途，則使用預設值即可。</p>
+<section id="casauthentication">
+<span id="casauthentication-label"></span><h3>casAuthentication<a class="headerlink" href="#casauthentication" title="此标题的永久链接"></a></h3>
+<p>預設值：不用</p>
+<p>詢問：採用 ___ CAS 中央認證系統登入。</p>
+</section>
+<section id="caslogout">
+<span id="caslogout-label"></span><h3>casLogout<a class="headerlink" href="#caslogout" title="此标题的永久链接"></a></h3>
+<p>詢問：登出 Koha 即登出 CAS：___</p>
+<p>預設值：否</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不</p></li>
+<li><p>是的</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>登出 CAS 或時間已到，不僅登出 CAS 伺服器也登出 CAS 所有的應用程式。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>必須設定 CAS 伺服器，才能允許單次登出，否則沒有任何改變</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="casserverurl">
+<span id="casserverurl-label"></span><h3>casServerUrl<a class="headerlink" href="#casserverurl" title="此标题的永久链接"></a></h3>
+<p>詢問：CAS 中央認證系統伺服器在 ___</p>
+</section>
+</section>
+<section id="google-openid-connect">
+<span id="google-openid-connect-label"></span><h2>Google OpenID 連結<a class="headerlink" href="#google-openid-connect" title="此标题的永久链接"></a></h2>
+<p>進入 <a class="reference external" href="https://console.developers.google.com/">Google Developers Console</a> 取得適用於 Google 與其他應用程式的 OAuth 2.0 客戶 ID 與安全等認證。</p>
+<blockquote>
+<div><p><img alt="image1179" src="_images/1project.png" /></p>
+</div></blockquote>
+<ul>
+<li><p>新增計畫時，給詳細的說明以便日後的辨識</p>
+<p><img alt="image5" src="_images/2newproject.png" /></p>
+</li>
+<li><p>接著搜尋 Google身份與訪問管理API</p>
+<p><img alt="image6" src="_images/3identity.png" /></p>
+</li>
+<li><p>啟用 Google身份及訪問管理API</p>
+<p><img alt="image7" src="_images/4enable.png" /></p>
+</li>
+<li><p>進入 ‘Credentials’ 且設定OAuth cosent螢幕數據</p>
+<p><img alt="image8" src="_images/5consent.png" /></p>
+</li>
+<li><p>接著選擇從 ‘Credentials’ 頁面選擇 ‘Create credentials’</p>
+<p><img alt="image9" src="_images/6credtype.png" /></p>
+</li>
+<li><p>從 ‘應用類型’ 選單中選取 ‘網頁應用’，再填入表單</p>
+<p><img alt="image10" src="_images/7creds.png" /></p>
+<ul class="simple">
+<li><p>在 OPACBaseURLSet 中設定 ‘授權JavaScript 來源’</p></li>
+<li><p>將 ‘被授權重新定向 URIs’ 設定為 <a class="reference external" href="http://YOUROPAC/cgi-bin/koha/svc/auth/googleopenidconnect">http://YOUROPAC/cgi-bin/koha/svc/auth/googleopenidconnect</a></p></li>
+</ul>
+</li>
+<li><p>儲存之後，顯示客戶 ID 與安全</p>
+<p><img alt="image11" src="_images/8oauth.png" /></p>
+</li>
+</ul>
+<section id="googleoauth2clientid">
+<span id="googleoauth2clientid-label"></span><h3>GoogleOAuth2ClientID<a class="headerlink" href="#googleoauth2clientid" title="此标题的永久链接"></a></h3>
+<p>詢問：Google OAuth2 Client ID: ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>輸入設定Google API時提供的客戶ID（見 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Google OpenID 連結&lt;google-openid-connect-label&gt;`以上）</p></li>
+<li><p>You will also need to enter the client secret in <a class="reference internal" href="#googleoauth2clientsecret-label"><span class="std std-ref">GoogleOAuth2ClientSecret</span></a>
+and enable <a class="reference internal" href="#googleopenidconnect-label"><span class="std std-ref">GoogleOpenIDConnect</span></a> to use Google Open ID in the OPAC.</p></li>
+</ul>
+</section>
+<section id="googleoauth2clientsecret">
+<span id="googleoauth2clientsecret-label"></span><h3>GoogleOAuth2ClientSecret<a class="headerlink" href="#googleoauth2clientsecret" title="此标题的永久链接"></a></h3>
+<p>詢問：Google OAuth2 Client Secret: ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>輸入設定Google API時提供的客戶ID（見 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Google OpenID 連結&lt;google-openid-connect-label&gt;`以上）</p></li>
+<li><p>You will also need to enter the client secret in <a class="reference internal" href="#googleoauth2clientid-label"><span class="std std-ref">GoogleOAuth2ClientID</span></a>
+and enable <a class="reference internal" href="#googleopenidconnect-label"><span class="std std-ref">GoogleOpenIDConnect</span></a> to use Google Open ID in the OPAC.</p></li>
+</ul>
+</section>
+<section id="googleopenidconnect">
+<span id="googleopenidconnect-label"></span><h3>GoogleOpenIDConnect<a class="headerlink" href="#googleopenidconnect" title="此标题的永久链接"></a></h3>
+<p>詢問：以 Google OpenID Connect 登入OPAC：___</p>
+<p>預設值：否</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在 Google 雲端新增應用程式，與設定啟始網頁給 your_opac_url 及轉址至 your_opac_url/cgi-bin/koha/svc/auth/googleopenidconnect 時，應選用 OAuth2。</p>
+<blockquote>
+<div><p><img alt="image12" src="_images/7creds.png" /></p>
+</div></blockquote>
+</div>
+<p>值:</p>
+<ul class="simple">
+<li><p>不</p></li>
+<li><p>是的</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好使人們能夠使用Google OpenID連接來連接到OPAC。</p></li>
+<li><p>Make sure to also configure <a class="reference internal" href="#googleoauth2clientid-label"><span class="std std-ref">GoogleOAuth2ClientID</span></a> and
+<a class="reference internal" href="#googleoauth2clientsecret-label"><span class="std std-ref">GoogleOAuth2ClientSecret</span></a></p></li>
+</ul>
+</section>
+<section id="googleopenidconnectautoregister">
+<span id="googleopenidconnectautoregister-label"></span><h3>GoogleOpenIDConnectAutoRegister<a class="headerlink" href="#googleopenidconnectautoregister" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者以Google Open ID 自動註冊登入。</p>
+<p>預設：不允許</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When <a class="reference internal" href="#googleopenidconnect-label"><span class="std std-ref">GoogleOpenIDConnect</span></a> is enabled, this system preference enables
+the automatic creation of patrons in Koha when they log in using Google
+OpenID Connect.</p></li>
+<li><p>Make sure to fill out <a class="reference internal" href="#googleopenidconnectdefaultbranch-label"><span class="std std-ref">GoogleOpenIDConnectDefaultBranch</span></a> and
+<a class="reference internal" href="#googleopenidconnectdefaultcategory-label"><span class="std std-ref">GoogleOpenIDConnectDefaultCategory</span></a> to set the default library and
+category code for those patrons created automatically.</p></li>
+</ul>
+</section>
+<section id="googleopenidconnectdefaultbranch">
+<span id="googleopenidconnectdefaultbranch-label"></span><h3>GoogleOpenIDConnectDefaultBranch<a class="headerlink" href="#googleopenidconnectdefaultbranch" title="此标题的永久链接"></a></h3>
+<p>詢問：以Google Open ID 讀者自動登入時使用此條碼: ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When <a class="reference internal" href="#googleopenidconnect-label"><span class="std std-ref">GoogleOpenIDConnect</span></a> and <a class="reference internal" href="#googleopenidconnectautoregister-label"><span class="std std-ref">GoogleOpenIDConnectAutoRegister</span></a>
+are enabled, this system preference determines the default home library for
+those patrons created automatically.</p></li>
+<li><p>輸入一個分行代碼。分行代碼可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>圖書館&lt;libraries-label&gt;`部分找到。</p></li>
+<li><p>Make sure to fill out <a class="reference internal" href="#googleopenidconnectdefaultcategory-label"><span class="std std-ref">GoogleOpenIDConnectDefaultCategory</span></a> also.</p></li>
+</ul>
+</section>
+<section id="googleopenidconnectdefaultcategory">
+<span id="googleopenidconnectdefaultcategory-label"></span><h3>GoogleOpenIDConnectDefaultCategory<a class="headerlink" href="#googleopenidconnectdefaultcategory" title="此标题的永久链接"></a></h3>
+<p>詢問：以Google Open ID讀者自動登入時使用此類型的代碼：___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When <a class="reference internal" href="#googleopenidconnect-label"><span class="std std-ref">GoogleOpenIDConnect</span></a> and <a class="reference internal" href="#googleopenidconnectautoregister-label"><span class="std std-ref">GoogleOpenIDConnectAutoRegister</span></a>
+are enabled, this system preference determines the default patron category for
+those patrons created automatically.</p></li>
+<li><p>Enter a category code. Category codes can be found in the
+<a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron categories</span></a> section of the
+administration module.</p></li>
+<li><p>Make sure to fill out <a class="reference internal" href="#googleopenidconnectdefaultbranch-label"><span class="std std-ref">GoogleOpenIDConnectDefaultBranch</span></a> also.</p></li>
+</ul>
+</section>
+<section id="googleopenidconnectdomain">
+<span id="googleopenidconnectdomain-label"></span><h3>GoogleOpenIDConnectDomain<a class="headerlink" href="#googleopenidconnectdomain" title="此标题的永久链接"></a></h3>
+<p>詢問：限制Google OpenID連接到此網域（或此網域的次網域）：___</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>所有的 google 網址均空白</p>
+</div>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好將讀者的登入限制在某些網域。</p></li>
+</ul>
+</section>
+</section>
+<section id="interface-options">
+<span id="interface-options-label"></span><h2>介面選項<a class="headerlink" href="#interface-options" title="此标题的永久链接"></a></h2>
+<p>這些偏好與 Koha 的介面有關</p>
+<section id="addressforfailedoverduenotices">
+<span id="addressforfailedoverduenotices-label"></span><h3>AddressForFailedOverdueNotices<a class="headerlink" href="#addressforfailedoverduenotices" title="此标题的永久链接"></a></h3>
+<p>預設值：空白</p>
+<p>詢問: 電子郵件地址失敗的逾期通知已寄送到: ___如果留空, 它會使用在下列清單中第一個定義的地址: 圖書館回信至, 圖書館電子信箱, ReplytoDefault及KohaAdminEmailAddress。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference controls where the summarized overdue email for patrons without
+email addresses is sent to.</p></li>
+</ul>
+</section>
+<section id="debuglevel">
+<span id="debuglevel-label"></span><h3>DebugLevel<a class="headerlink" href="#debuglevel" title="此标题的永久链接"></a></h3>
+<p>預設值：很多</p>
+<p>詢問：發生內部錯誤時瀏覽器顯示 ___ 除錯資訊。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>很多 - 儘量顯示資訊</p></li>
+<li><p>無 - 只顯示基本的錯誤資訊</p></li>
+<li><p>部份 - 只顯示部份可得的資訊</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines how much information will be sent to the
+user’s screen when the system encounters an error. The most detail
+will be sent when the value level is set at 2, some detail will be
+sent when the value is set at 1, and only a basic error message will
+display when the value is set at 0. This setting is especially
+important when a system is new and the administration is interested
+in working out the bugs (errors or problems) quickly. Having detailed
+error messages makes quick fixes more likely in problem areas.</p></li>
+</ul>
+</section>
+<section id="defaulttologgedinlibrarycircrules">
+<span id="defaulttologgedinlibrarycircrules-label"></span><h3>DefaultToLoggedInLibraryCircRules<a class="headerlink" href="#defaulttologgedinlibrarycircrules" title="此标题的永久链接"></a></h3>
+<p>預設值：所有圖書館</p>
+<p>詢問：編輯流通規則時，顯示 ___ 規則為預設值。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>所有圖書館</p></li>
+<li><p>登入圖書館的</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference controls the default value in the library pull down
+found at the top of the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a>.</p></li>
+</ul>
+</section>
+<section id="defaulttologgedinlibrarynoticesslips">
+<span id="defaulttologgedinlibrarynoticesslips-label"></span><h3>DefaultToLoggedInLibraryNoticesSlips<a class="headerlink" href="#defaulttologgedinlibrarynoticesslips" title="此标题的永久链接"></a></h3>
+<p>預設值：所有圖書館</p>
+<p>詢問：編輯通知與收條時，顯示 ___ 通知與收條做為預設值。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>所有圖書館</p></li>
+<li><p>登入圖書館的</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference controls the default value in the library pull down
+found at the top of the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">notices and slips</span></a> tool.</p></li>
+</ul>
+</section>
+<section id="defaulttologgedinlibraryoverduetriggers">
+<span id="defaulttologgedinlibraryoverduetriggers-label"></span><h3>DefaultToLoggedInLibraryOverdueTriggers<a class="headerlink" href="#defaulttologgedinlibraryoverduetriggers" title="此标题的永久链接"></a></h3>
+<p>預設值：所有圖書館</p>
+<p>詢問：編輯逾期通知/啟動狀態時，顯示 ___ 規則做為預設值。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>所有圖書館</p></li>
+<li><p>登入圖書館的</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference controls the default value in the library pull down
+found at the top of the <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">overdue notice/status triggers</span></a>.</p></li>
+</ul>
+</section>
+<section id="csvdelimiter">
+<span id="csvdelimiter-label"></span><h3>CSVDelimiter<a class="headerlink" href="#csvdelimiter" title="此标题的永久链接"></a></h3>
+<p>詢問：輸出的CSV文件中各列的預設分隔符: ___。</p>
+<p>預設值：分號</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>#’s</p></li>
+<li><p>反斜線</p></li>
+<li><p>逗號</p></li>
+<li><p>分號</p></li>
+<li><p>斜線</p></li>
+<li><p>定位點</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines how reports exported from Koha will
+separate data. In many cases you will be able to change this option
+when exporting if you’d like.</p></li>
+</ul>
+</section>
+<section id="emailoverduesnoemail">
+<span id="emailoverduesnoemail-label"></span><h3>EmailOverduesNoEmail<a class="headerlink" href="#emailoverduesnoemail" title="此标题的永久链接"></a></h3>
+<p>Default: don’t send</p>
+<p>Asks: ___  overdue notices for patrons without email address to staff.</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>Don’t send</p></li>
+<li><p>Send</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If this system preference is enabled, overdue notices for patrons without an email address will be sent to staff.</p></li>
+</ul>
+</section>
+<section id="kohaadminemailaddress">
+<span id="kohaadminemailaddress-label"></span><h3>KohaAdminEmailAddress<a class="headerlink" href="#kohaadminemailaddress" title="此标题的永久链接"></a></h3>
+<p>This is the default ‘From’ address for emails unless there is one for
+the particular library, and is referred to when an internal error occurs.</p>
+<p>詢問：以 ___ 為Koha管理者的電子郵件信箱。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows one email address to be used in warning
+messages set to the OPAC. If no email address is set for the library
+this address will receive messages from patrons regarding
+modification requests, purchase suggestions, and questions or
+information regarding overdue notices. It is recommended that a email
+address that can be accessed by multiple staff members be used for
+this purpose so that if one librarian is out the others can address
+these requests. This email address can be changed when needed.</p></li>
+</ul>
+</section>
+<section id="noitemtypeimages">
+<span id="noitemtypeimages-label"></span><h3>noItemTypeImages<a class="headerlink" href="#noitemtypeimages" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ itemtype icons in the staff interface.</p>
+<p>Default: Show</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>Don’t show</p></li>
+<li><p>Show</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows the system administrator to determine if users will
+be able to set and see an item type icon in the catalog in the staff interface.</p></li>
+<li><p>如果館藏類型的圖像被禁用，館藏類型的文字標籤仍會出現在館員介面。</p></li>
+<li><p>The <a class="reference internal" href="opacpreferences.html#opacnoitemtypeimages-label"><span class="std std-ref">OpacNoItemTypeImages</span></a> system preference is used to show or hide the
+itemtype images in the OPAC.</p></li>
+</ul>
+</section>
+<section id="replytodefault">
+<span id="replytodefault-label"></span><h3>ReplytoDefault<a class="headerlink" href="#replytodefault" title="此标题的永久链接"></a></h3>
+<p>詢問：使用 ___ 為電子郵件帳號做為回信之用</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>通知信的預設回覆電子郵件信箱是 <a class="reference external" href="#libraries-groups">圖書館電子郵件信箱</a>，可以在這裡設定回覆的電子郵件信箱。</p></li>
+</ul>
+</section>
+<section id="returnpathdefault">
+<span id="returnpathdefault-label"></span><h3>ReturnpathDefault<a class="headerlink" href="#returnpathdefault" title="此标题的永久链接"></a></h3>
+<p>詢問：使用 ___ 做為回覆的電子郵件，若空白則使用 KohaAdminEmailAddress。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>The return path is the email address that bounces will be delivered
+to. By default bounced notices will go to the <a class="reference external" href="#libraries-groups">library email
+address</a>, if you would like to specify a default
+email address for bounces to go to then fill in this system preference.</p></li>
+</ul>
+</section>
+<section id="sendallemailsto">
+<span id="sendallemailsto-label"></span><h3>SendAllEmailsTo<a class="headerlink" href="#sendallemailsto" title="此标题的永久链接"></a></h3>
+<p>詢問：所有訊息以電子郵件轉送至：___ (此欄位空白則送至正常的收件人)</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>以此系統偏好的設定取代讀者原來的電子郵件，發送各種通知。在測試環境中使用它，以免寄出垃圾郵件。</p></li>
+</ul>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>不在正式的環境中運作。否則，沒有讀者會收到預期的通知。</p>
+</div></blockquote>
+</section>
+<section id="virtualshelves">
+<span id="virtualshelves-label"></span><h3>virtualshelves<a class="headerlink" href="#virtualshelves" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問： ___ 館員與讀者新增與檢視儲存的虛擬書架。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference controls whether the lists functionality will be
+available in the staff interface and OPAC. If this is set to “Don’t
+allow” then no one will be able to save items to public or private
+lists.</p></li>
+</ul>
+</section>
+</section>
+<section id="login-options">
+<span id="login-options-label"></span><h2>登入選項<a class="headerlink" href="#login-options" title="此标题的永久链接"></a></h2>
+<p>此偏好與登入 Koha 系統有關</p>
+<section id="autolocation">
+<span id="autolocation-label"></span><h3>AutoLocation<a class="headerlink" href="#autolocation" title="此标题的永久链接"></a></h3>
+<p>預設值：非必須</p>
+<p>詢問：館員 ___ 由指定的 IP 位址範圍內登入。</p>
+<ul class="simple">
+<li><p>從圖書館管理區塊設定 IP 位址範圍</p>
+<ul>
+<li><p><em>到那裡：</em> 更多 &gt; 管理 &gt; 基本參數 &gt; <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">圖書館</span></a></p></li>
+</ul>
+</li>
+</ul>
+<p>值:</p>
+<ul class="simple">
+<li><p>非必須</p></li>
+<li><p>必須</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference protects the system by blocking unauthorized users
+from accessing the staff interface program and settings. Authorized and
+unauthorized users are determined by their computer’s IP addresses.
+When the preference is set to ‘Require’, IP authorization is in
+effect and unauthorized IP addresses will be blocked. This means that
+staff cannot work from home unless their IP address has been
+authorized. When set to ‘Don’t require’, anyone with a staff interface
+login will have access no matter which IP address they are using.</p></li>
+</ul>
+</section>
+<section id="independentbranches">
+<span id="independentbranches-label"></span><h3>IndependentBranches<a class="headerlink" href="#independentbranches" title="此标题的永久链接"></a></h3>
+<p>詢問: 避免館員 (不含超級館員) 修改屬於其他圖書館的物件 (預約、館藏、讀者等)：___</p>
+<p>預設值：否</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不</p></li>
+<li><p>是的</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference should only be used by library systems which are
+sharing a single Koha installation among multiple branches but are
+considered independent organizations, meaning they do not share
+material or patrons with other branches and do not plan to change
+that in the future. If set to ‘Yes’ it increases the security
+between library branches by:</p>
+<ul class="simple">
+<li><p>prohibiting staff users from logging into another library from within the
+staff interface,</p></li>
+<li><p>filtering out patrons from patron searches who are not a part of the
+login library conducting the search,</p></li>
+<li><p>limiting the location choices to the login library when adding or
+modifying an item record,</p></li>
+<li><p>preventing users from other library locations from placing holds or
+checking out materials from library branches other than their own, and</p></li>
+<li><p>防止館員編輯屬於其他圖書館分行機構的館藏記錄。</p></li>
+</ul>
+<p>所有這些安全保障措施只有超級圖書館員才能推翻，這是最高級別的特權。</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>重要的是，在上線之前設定此值，並且在生產過程中**不要**更改。</p>
+</div>
+</section>
+<section id="independentbranchespatronmodifications">
+<span id="independentbranchespatronmodifications-label"></span><h3>IndependentBranchesPatronModifications<a class="headerlink" href="#independentbranchespatronmodifications" title="此标题的永久链接"></a></h3>
+<p>預設值：否</p>
+<p>詢問：避免館員 (不含 superlibrarian) 檢視與認可/拒絕其他圖書館讀者編修的資料。___</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不</p></li>
+<li><p>是的</p></li>
+</ul>
+</section>
+<section id="sessionrestrictionbyip">
+<span id="sessionrestrictionbyip-label"></span><h3>SessionRestrictionByIP<a class="headerlink" href="#sessionrestrictionbyip" title="此标题的永久链接"></a></h3>
+<p>預設值：啟用</p>
+<p>詢問：基於安全理由 ___ 檢查遠端 IP 位址的改變。經常改變遠端 IP 位址時才停用它。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>When this system preference is set to ‘Enable’ Koha will log you out of the
+staff interface if your IP address changes as a security measure. For
+some systems the IP address changes frequently so you’ll want to set
+this system preference to ‘Disable’ to prevent Koha from logging you out of
+the staff interface every time that happens.</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>This is meant to help those whose IP address changes several times
+during the day, setting this system preference to ‘Disable’ is not
+recommended otherwise because it is removing important security
+features from your staff interface.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="sessionstorage">
+<span id="sessionstorage-label"></span><h3>SessionStorage<a class="headerlink" href="#sessionstorage" title="此标题的永久链接"></a></h3>
+<p>預設值：在 MySQL 資料庫裡</p>
+<p>詢問： 儲存登入資訊在 ___</p>
+<p>值:</p>
+<ul>
+<li><p>暫存檔</p></li>
+<li><p>在 MySQL 資料庫中</p></li>
+<li><p>在 PostgreSQL 資料庫中</p>
+<ul>
+<li><p><strong>重要的</strong></p>
+<blockquote>
+<div><p>Koha 還不支援 PostgreSQL</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows administrators to choose what format session
+data is stored in during web sessions.</p></li>
+</ul>
+</section>
+<section id="timeout">
+<span id="timeout-label"></span><h3>暫停<a class="headerlink" href="#timeout" title="此标题的永久链接"></a></h3>
+<p>預設值：12000000</p>
+<p>詢問： 經過 ___ 毫秒後沒有動靜後自動登出。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference sets the length of time the staff interface or OPAC
+accounts can be left inactive before re-logging in is necessary. The
+value of this system preference is in seconds. At this time, the amount of
+time before a session times out must be the same for both the Staff
+Client and the OPAC.</p></li>
+</ul>
+</section>
+</section>
+<section id="ssl-client-certificate-authentication">
+<span id="ssl-client-certificate-authentication-label"></span><h2>SSL 客戶端認證欄位<a class="headerlink" href="#ssl-client-certificate-authentication" title="此标题的永久链接"></a></h2>
+<section id="allowpkiauth">
+<span id="allowpkiauth-label"></span><h3>AllowPKIAuth<a class="headerlink" href="#allowpkiauth" title="此标题的永久链接"></a></h3>
+<p>預設值：否</p>
+<p>詢問： 使用 ___ SSL客戶端認證欄位</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>無</p></li>
+<li><p>共同名稱</p></li>
+<li><p>電子郵件</p></li>
+</ul>
+</section>
+</section>
+<section id="system-preferences">
+<h2>System preferences<a class="headerlink" href="#system-preferences" title="此标题的永久链接"></a></h2>
+<p>UnsubscribeReflectionDelay, PatronAnonymizeDelay 以及讀者移除延遲</p>
+<ul class="simple">
+<li><p>這是一個新功能，允許你在讀者提交退訂請求（拒絕同意）後設定一定的天數，對鎖定/過期的帳戶進行匿名處理，並刪除匿名的讀者。</p></li>
+</ul>
+<section id="searchengine">
+<span id="searchengine-label"></span><h3>SearchEngine<a class="headerlink" href="#searchengine" title="此标题的永久链接"></a></h3>
+<p>預設值：Zebra</p>
+<p>詢問：使用以下的搜尋引擎：___</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>Elasticsearch</p></li>
+<li><p>Zebra</p></li>
+</ul>
+</section>
+</section>
+<section id="share-anonymous-usage-statistics">
+<span id="share-anonymous-usage-statistics-label"></span><h2>共享匿名的使用統計<a class="headerlink" href="#share-anonymous-usage-statistics" title="此标题的永久链接"></a></h2>
+<p>As an open source project Koha is used all over the world. These
+preference will help us keep more accurate statistics on where Koha is
+being used. If you choose to share your information, it will be
+published on the <a class="reference external" href="http://hea.koha-community.org">Hea Koha community
+website</a>. You will need to enable the
+<a class="reference internal" href="cron_jobs.html#cron-share-usage-stats-label"><span class="std std-ref">share usage stats</span></a> cronjob to send this information at regular
+intervals to the community.</p>
+<section id="usagestats">
+<span id="usagestats-label"></span><h3>UsageStats<a class="headerlink" href="#usagestats" title="此标题的永久链接"></a></h3>
+<p>預設：不共享</p>
+<p>詢問：___ 匿名的 Koha 使用資料給 Koha 社群。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不共享</p></li>
+<li><p>分享</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This data is stored to help track usage of Koha around the world. If
+you choose to share your information, it will be published on the
+<a class="reference external" href="http://hea.koha-community.org">Hea Koha community website</a>. This
+information is sent using the <a class="reference internal" href="cron_jobs.html#cron-share-usage-stats-label"><span class="std std-ref">share usage stats</span></a> cronjob.</p></li>
+</ul>
+</section>
+<section id="usagestatscountry">
+<span id="usagestatscountry-label"></span><h3>UsageStatsCountry<a class="headerlink" href="#usagestatscountry" title="此标题的永久链接"></a></h3>
+<p>詢問：圖書館位於：___</p>
+<p>說明：</p>
+<ul>
+<li><p>This data is stored to help track usage of Koha around the world. If
+you choose to share your information, it will be published on the
+<a class="reference external" href="http://hea.koha-community.org">Hea Koha community website</a>. This
+information is sent using the <a class="reference internal" href="cron_jobs.html#cron-share-usage-stats-label"><span class="std std-ref">share usage stats</span></a> cronjob.</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>This system preference depends on the <a class="reference external" href="#usagestats">UsageStats</a>
+preference. Set that to ‘Share’ to share your information.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="usagestatsgeolocation">
+<span id="usagestatsgeolocation-label"></span><h3>UsageStatsGeolocation<a class="headerlink" href="#usagestatsgeolocation" title="此标题的永久链接"></a></h3>
+<p>詢問：主要圖書館的地理位置：___</p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Note that this value has no effect if the <a class="reference internal" href="#usagestats-label"><span class="std std-ref">UsageStats</span></a> system
+preference is set to ‘Don’t share’.</p></li>
+<li><p>這個系統偏好中的訊息是由 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>使用統計管理頁&lt;share-your-use-statistics-label&gt;`上的地理位置訊息來填充的。</p></li>
+</ul>
+</section>
+<section id="usagestatslibrariesinfo">
+<span id="usagestatslibrariesinfo-label"></span><h3>UsageStatsLibrariesInfo<a class="headerlink" href="#usagestatslibrariesinfo" title="此标题的永久链接"></a></h3>
+<p>預設值：不共享</p>
+<p>Asks: ___ libraries information (name, url, country) Note that this value
+has no effect if the <a class="reference internal" href="#usagestats-label"><span class="std std-ref">UsageStats</span></a> system preference is set to
+“Don’t share”</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不要共享</p></li>
+<li><p>分享</p></li>
+</ul>
+</section>
+<section id="usagestatslibraryname">
+<span id="usagestatslibraryname-label"></span><h3>UsageStatsLibraryName<a class="headerlink" href="#usagestatslibraryname" title="此标题的永久链接"></a></h3>
+<p>詢問：圖書館名稱 ___ 將顯示在 <a class="reference external" href="http://hea.koha-community.org">Hea Koha 社群網站</a>。</p>
+<p>說明：</p>
+<ul>
+<li><p>This data is stored to help track usage of Koha around the world. If
+you choose to share your information, it will be published on the
+<a class="reference external" href="http://hea.koha-community.org">Hea Koha community website</a>. This
+information is sent using the <a class="reference internal" href="cron_jobs.html#cron-share-usage-stats-label"><span class="std std-ref">share usage stats</span></a> cron job.</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>This system preference depends on the <a class="reference external" href="#usagestats">UsageStats</a>
+preference. Set that to ‘Share’ to share your information. If this
+field is empty data will be sent anonymously if you choose ‘Share’
+for the <a class="reference external" href="#usagestats">UsageStats</a> preference.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="usagestatslibrarytype">
+<span id="usagestatslibrarytype-label"></span><h3>UsageStatsLibraryType<a class="headerlink" href="#usagestatslibrarytype" title="此标题的永久链接"></a></h3>
+<p>預設：公開</p>
+<p>詢問：圖書館類型 ___ 將顯示在 <a class="reference external" href="http://hea.koha-community.org">Hea Koha 社群網站</a>。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>學術的</p></li>
+<li><p>合作</p></li>
+<li><p>政府</p></li>
+<li><p>私人</p></li>
+<li><p>公用</p></li>
+<li><p>宗教組織</p></li>
+<li><p>搜尋</p></li>
+<li><p>學校</p></li>
+<li><p>學會或社團</p></li>
+<li><p>訂閱</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This data is stored to help track usage of Koha around the world. If
+you choose to share your information, it will be published on the
+<a class="reference external" href="http://hea.koha-community.org">Hea Koha community website</a>. This
+information is sent using the <a class="reference internal" href="cron_jobs.html#cron-share-usage-stats-label"><span class="std std-ref">share usage stats</span></a> cronjob.</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>This system preference depends on the <a class="reference external" href="#usagestats">UsageStats</a>
+preference. Set that to ‘Share’ to share your information.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="usagestatslibraryurl">
+<span id="usagestatslibraryurl-label"></span><h3>UsageStatsLibraryUrl<a class="headerlink" href="#usagestatslibraryurl" title="此标题的永久链接"></a></h3>
+<p>詢問：圖書館 URL ___ 將顯示在 <a class="reference external" href="http://hea.koha-community.org">Hea Koha 社群網站</a>。</p>
+<p>說明：</p>
+<ul>
+<li><p>This data is stored to help track usage of Koha around the world. If
+you choose to share your information, it will be published on the
+<a class="reference external" href="http://hea.koha-community.org">Hea Koha community website</a>. This
+information is sent using the <a class="reference internal" href="cron_jobs.html#cron-share-usage-stats-label"><span class="std std-ref">share usage stats</span></a> cronjob.</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>This system preference depends on the <a class="reference external" href="#usagestats">UsageStats</a>
+preference. Set that to ‘Share’ to share your information.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="acquisitionspreferences.html" class="btn btn-neutral float-left" title="採訪" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="authoritiespreferences.html" class="btn btn-neutral float-right" title="權威" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>概述 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Koha 安裝過程介紹" href="installation.html" />
+    <link rel="prev" title="Koha | 版本 | 手册（简体中文）" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#koha-basics">Koha 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#koha-recommendations">Koha 推荐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-this-manual">使用本手册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-to-the-manual">参与修订本手册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-to-koha">此手册的贡献者</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intro.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="index.html" class="btn btn-neutral float-left" title="Koha | 版本 | 手册（简体中文）" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Koha 安裝過程介紹" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>概述<a class="headerlink" href="#introduction" title="此标题的永久链接"></a></h1>
+<section id="koha-basics">
+<span id="koha-basics-label"></span><h2>Koha 简介<a class="headerlink" href="#koha-basics" title="此标题的永久链接"></a></h2>
+<p>Koha 是第一款自由开源图书馆集成系统（ILS：Intergrated Library System）。该系统由来自世界各地的各类型图书馆、志愿者以及相关支持公司共同开发完成。</p>
+<p>想要了解更多 Koha 相关信息可访问 Koha 官方站点：<a class="reference external" href="http://koha-community.org">http://koha-community.org</a></p>
+</section>
+<section id="koha-recommendations">
+<span id="koha-recommendations-label"></span><h2>Koha 推荐<a class="headerlink" href="#koha-recommendations" title="此标题的永久链接"></a></h2>
+<p>所有系统推荐参数可参考 Koha 官方维基的开发者文档： <a class="reference external" href="http://wiki.koha-community.org">http://wiki.koha-community.org</a></p>
+<p>如果您使用 Koha 馆员端，那么强烈推荐使用最新版的 Mozilla Firefox 或者 Google Chrome 浏览器。Koha 社区不支持馆员端使用 Internet Explorer 浏览器。如果您所在组织机构使用微软产品，可以使用 Edge 浏览器替代 Internet Explorer。</p>
+</section>
+<section id="using-this-manual">
+<span id="using-this-manual-label"></span><h2>使用本手册<a class="headerlink" href="#using-this-manual" title="此标题的永久链接"></a></h2>
+<p>本手册在不断完善之中，如果您有编辑的建议可以通过 GitLab 或者`koha-docs 邮件列表 &lt;<a class="reference external" href="https://lists.koha-community.org/cgi-bin/mailman/listinfo/koha-docs">https://lists.koha-community.org/cgi-bin/mailman/listinfo/koha-docs</a>&gt;` __ 给 Koha 文档小组提交一个合并请求。</p>
+<p>如果如果您看到有错误或者其它问题，请在 <a class="reference external" href="https://bugs.koha-community.org">bugzilla</a> 的文档模块提交问题报告。您也可以发送邮件到 <a class="reference external" href="http://lists.koha-community.org/cgi-bin/mailman/listinfo/koha-docs">koha-docs 邮件列表</a>。</p>
+<p>手册是按照 Koha 的模块组织的。在每个部分的开始都会有“在这里”的提示。这告诉您在 Koha 系统中如何找到对应部分。</p>
+<p>例如：<a href="#id1"><span class="problematic" id="id2">*</span></a>在这里：<a href="#id3"><span class="problematic" id="id4">*</span></a>更多 &gt; 管理 &gt; 全局系统参数</p>
+<p>这会告诉您所要找的菜单选项在 Koha 馆员端顶部的哪里。</p>
+<p>手册中遍布可直达手册其它部分的链接和展示应看到屏幕现实内容的截屏。</p>
+</section>
+<section id="contributing-to-the-manual">
+<span id="contributing-to-the-manual-label"></span><h2>参与修订本手册<a class="headerlink" href="#contributing-to-the-manual" title="此标题的永久链接"></a></h2>
+<p>本手册是一个不断完善的文档，欢迎您参与编辑。</p>
+<p><a class="reference external" href="http://manual.koha-community.org/">Koha 手册</a> 由文档小组管理，但是这并不意味着我们其他人不能参与完善手册。</p>
+<p>手册通过 Git 存储在 <a class="reference external" href="https://gitlab.com/koha-community/koha-manual">https://gitlab.com/koha-community/koha-manual</a> （查看概要 <a class="reference external" href="http://git.koha-community.org/gitweb/?p=kohadocs.git;a=summary">在这里</a>）</p>
+<p>参与手册做贡献的说明在 Koha 维基 Koha wiki <a class="reference external" href="https://wiki.koha-community.org/wiki/Editing_the_Koha_Manual">https://wiki.koha-community.org/wiki/Editing_the_Koha_Manual</a></p>
+</section>
+<section id="contributing-to-koha">
+<span id="contributing-to-koha-label"></span><h2>此手册的贡献者<a class="headerlink" href="#contributing-to-koha" title="此标题的永久链接"></a></h2>
+<p>做為開放源碼的計畫，不以奉獻文獻為限，歡迎並鼓勵各層面的奉獻。</p>
+<p>貢獻新功能、修改錯誤或報告錯誤，都需要從下方的網頁熟悉 Koha 的釋出及發展程序：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://koha-community.org/about/policy/code-of-conduct/">行為準則</a></p></li>
+<li><p><a class="reference external" href="https://koha-community.org/about/release-schedule/">釋出週期</a></p></li>
+<li><p><a class="reference external" href="https://wiki.koha-community.org/wiki/Developer_handbook">發展者手冊</a></p></li>
+<li><p><a class="reference external" href="https://wiki.koha-community.org/wiki/Development_workflow">發展流程</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="Koha | 版本 | 手册（简体中文）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Koha 安裝過程介紹" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

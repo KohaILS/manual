@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>搜尋 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="期刊" href="serialspreferences.html" />
+    <link rel="prev" title="讀者" href="patronspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">搜尋</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#did-you-mean-spell-checking">你的意思是/拼寫檢查</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#libriskey">LibrisKey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#librisurl">LibrisURL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#features">特色</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#browseresultselection">BrowseResultSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#elasticsearchcrossfields">ElasticsearchCrossFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enablesearchhistory">EnableSearchHistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#includeseefrominsearches">IncludeSeeFromInSearches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queryautotruncate">QueryAutoTruncate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queryfuzzy">QueryFuzzy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queryregexescapeoptions">QueryRegexEscapeOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#querystemming">QueryStemming</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queryweightfields">QueryWeightFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#savedsearchfilters">SavedSearchFilters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracecompletesubfields">TraceCompleteSubfields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracesubjectsubdivisions">TraceSubjectSubdivisions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useicustylequotes">UseICUStyleQuotes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#results-display">Results display</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#biblioitemtypeinfo">BiblioItemtypeInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultsortfield-and-defaultsortorder">defaultSortField 及 defaultSortOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displayfacetcount">displayFacetCount</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displaylibraryfacets">DisplayLibraryFacets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#facetlabeltruncationlength">FacetLabelTruncationLength</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#facetmaxcount">FacetMaxCount</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#facetorder">FacetOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxitemsinsearchresults">maxItemsInSearchResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxrecordsforfacets">maxRecordsForFacets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxsearchresultsitemsperrecordstatuscheck">MaxSearchResultsItemsPerRecordStatusCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numsearchresults">numSearchResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numsearchresultsdropdown">numSearchResultsDropdown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacdefaultsortfield-and-opacdefaultsortorder">OPACdefaultSortField 及 OPACdefaultSortOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacnumsearchresults">OPACnumSearchResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacnumsearchresultsdropdown">OPACnumSearchResultsDropdown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#passitemmarctoxslt">PassItemMarcToXSLT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#retaincatalogsearchterms">RetainCatalogSearchTerms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#retainpatronssearchterms">RetainPatronsSearchTerms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#searchlimitlibrary">SearchLimitLibrary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#searchwithisbnvariations">SearchWithISBNVariations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#searchwithissnvariations">SearchWithISSNVariations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unimarcauthorsfacetsseparator">UNIMARCAuthorsFacetsSeparator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#search-form">搜尋表單</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advancedsearchlanguages">AdvancedSearchLanguages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advancedsearchtypes">AdvancedSearchTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expandedsearchoption">expandedSearchOption</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetnumberspreferphrase">IntranetNumbersPreferPhrase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loadsearchhistorytothefirstloggeduser">LoadSearchHistoryToTheFirstLoggedUser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacnumberspreferphrase">OPACNumbersPreferPhrase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">搜尋</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/searchingpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="patronspreferences.html" class="btn btn-neutral float-left" title="讀者" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="serialspreferences.html" class="btn btn-neutral float-right" title="期刊" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="searching">
+<span id="searchingsystem-preferences-label"></span><h1>搜尋<a class="headerlink" href="#searching" title="此标题的永久链接"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt;
+Searching</p>
+<section id="did-you-mean-spell-checking">
+<span id="didyoumean-spellchecking-prefs-label"></span><h2>你的意思是/拼寫檢查<a class="headerlink" href="#did-you-mean-spell-checking" title="此标题的永久链接"></a></h2>
+<section id="libriskey">
+<span id="libriskey-label"></span><h3>LibrisKey<a class="headerlink" href="#libriskey" title="此标题的永久链接"></a></h3>
+<p>詢問：瑞典的拼寫檢查服務。 LIBRIS拼寫檢查的API密鑰___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>使用這個系統偏好來啟用LIBRIS拼寫檢查服務。</p></li>
+<li><p>你可以從 <a class="reference external" href="http://api.libris.kb.se/bibspell">http://api.libris.kb.se/bibspell</a> 獲得你的API密鑰</p></li>
+</ul>
+</section>
+<section id="librisurl">
+<span id="librisurl-label"></span><h3>LibrisURL<a class="headerlink" href="#librisurl" title="此标题的永久链接"></a></h3>
+<p>詢問：LIBRIS的基本網址 ___</p>
+<p>預設值: <a class="reference external" href="http://api.libris.kb.se/bibspell/">http://api.libris.kb.se/bibspell/</a></p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好用於設定 LIBRIS 拼寫檢查服務 API 的基本 URL</p></li>
+<li><p>預設值應該是正確的。確保你只在確定需要改變時才改變它</p></li>
+</ul>
+</section>
+</section>
+<section id="features">
+<span id="searchingfeatures-label"></span><h2>特色<a class="headerlink" href="#features" title="此标题的永久链接"></a></h2>
+<section id="browseresultselection">
+<span id="browseresultselection-label"></span><h3>BrowseResultSelection<a class="headerlink" href="#browseresultselection" title="此标题的永久链接"></a></h3>
+<p>詢問: ___ 從館員介面的書目紀錄詳情頁面瀏覽搜尋結果。</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>啟用這個系統偏好，使館員介面 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>搜尋結果頁&lt;search-results-label&gt;`出現一個按鈕，以瀏覽選定的記錄。</p></li>
+</ul>
+</section>
+<section id="elasticsearchcrossfields">
+<span id="elasticsearchcrossfields-label"></span><h3>ElasticsearchCrossFields<a class="headerlink" href="#elasticsearchcrossfields" title="此标题的永久链接"></a></h3>
+<p>詢問：___ Elasticsearch 搜尋的 cross_fields 選項。</p>
+<p>預設值：啟用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>交叉_欄位選項在 Elasticsearch 6.X 及以上版本中被支持。</p>
+</div>
+<p>說明：</p>
+<ul>
+<li><p>這個系統偏好控制彈性搜尋的交叉_欄位選項是否被啟用。由於該選項僅適用於ES6及以上版本，如果使用舊版本，該系統偏好應被禁用。</p></li>
+<li><p>The cross_fields option is used in keyword searches to search across all
+fields. In Koha, keyword searches are not searches in a specific ‘keyword’
+index, but rather a search across all searchable indexes. With Elasticsearch
+6, if cross_fields is disabled, the keyword search will return results where
+the search terms all appear in the same index (for example, the ‘title’ index).
+If cross_fields is enabled, the keyword search will return results where the
+search terms appear in any index.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For example, a keyword search for “king grass” with Elasticsearch 6 will
+return the following results</p>
+<p>With ElasticsearchCrossFields disabled:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>The Island of the Grass King</em> by Nancy Willard (grass in title/king in title)</p></li>
+</ul>
+</div></blockquote>
+<p>With ElasticsearchCrossFields enabled:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>The Island of the Grass King</em> by Nancy Willard (grass in title/king in title)</p></li>
+<li><p><em>In the tall grass</em> by Stephen King (grass in title/king in author)</p></li>
+</ul>
+</div></blockquote>
+</div>
+</li>
+<li><p>有關此選項的更多訊息，請訪問 <a class="reference external" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html#type-cross-fields">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html#type-cross-fields</a>。</p></li>
+</ul>
+</section>
+<section id="enablesearchhistory">
+<span id="enablesearchhistory-label"></span><h3>EnableSearchHistory<a class="headerlink" href="#enablesearchhistory" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館員介面中的讀者搜尋紀錄。</p>
+<p>預設值：不保留</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不保留</p></li>
+<li><p>保留</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference controls whether the staff interface keeps
+<a class="reference internal" href="searching.html#search-history-label"><span class="std std-ref">search history</span></a> for logged in users.
+<a class="reference internal" href="searching.html#search-history-label"><span class="std std-ref">Search history</span></a> will be accessible under the
+link to your account at the top right of the staff interface.</p></li>
+</ul>
+<p><img alt="Search history option in the user menu at the top of the page" src="_images/searchhistory.png" /></p>
+</section>
+<section id="includeseefrominsearches">
+<span id="includeseefrominsearches-label"></span><h3>IncludeSeeFromInSearches<a class="headerlink" href="#includeseefrominsearches" title="此标题的永久链接"></a></h3>
+<p>詢問：書目搜尋時 ___ <em>見自</em> (不採用的格式) 標題。</p>
+<p>預設值：不包括</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不包括</p></li>
+<li><p>包括</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When this system preference is set to ‘include’, the search engine indexer
+will insert <em>see from</em> headings from authority records into bibliographic
+records when indexing, so that a search on an obsolete term will turn
+up relevant records. For example when you search for cookery (the old
+term) you get titles with the heading of cooking (the new term).</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>You will need to reindex your bibliographic database when changing
+this system preference.</p>
+</div>
+</section>
+<section id="queryautotruncate">
+<span id="queryautotruncate-label"></span><h3>QueryAutoTruncate<a class="headerlink" href="#queryautotruncate" title="此标题的永久链接"></a></h3>
+<p>詢問：執行萬用字元搜尋 (如，Har 可檢索 Harry 與 harp) ___ (* 字元當成萬用字元，如 Har* 或 *logging)。</p>
+<p>預設值：自動</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>自動</p></li>
+<li><p>必須加入 * 字元</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此項設定允許自動截斷搜尋或在搜尋字元串的末端新增額外的字元。當設定為 “自動” 時，搜尋字元串自動以通配符功能結束。例如，在啟用自動截斷功能的情況下搜尋 “發明” 一詞，也會檢尋到發明者、發明、庫存等的結果。</p></li>
+<li><p>如果你不希望這種情況自動發生，你仍然可以通過新增星號（*）手動執行通配符搜尋。輸入 “invent*”，即使禁用了自動截斷功能，也會搜尋到相同的發明人、發明、庫存結果。</p></li>
+<li><p>自動截斷繞過了完整輸入長搜尋字元串的必要性，但可能會返回很多不想要的結果。</p></li>
+</ul>
+</section>
+<section id="queryfuzzy">
+<span id="queryfuzzy-label"></span><h3>QueryFuzzy<a class="headerlink" href="#queryfuzzy" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 比對相似拼法的字(即，搜尋 <em>flang</em>，同時比對 <em>flange</em> 與 <em>fang</em>)</p>
+<p>預設值：試</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不試</p></li>
+<li><p>試</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference enables “fuzzy” searching, in which the search engine
+returns results that are similar to, but not exactly matching, the
+word or words entered by the user. This system preference enables the search
+function to compensate for slightly misspelled names or phrases.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>如果您的系統啟用了 ICU，這將起不了作用。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>這個系統偏好只適用於Zebra。當使用Elasticsearch時，可以透過在術語後面直接新增一個代字號（~）來進行模糊搜尋。例如，邊~。</p>
+</div>
+</section>
+<section id="queryregexescapeoptions">
+<span id="queryregexescapeoptions-label"></span><h3>QueryRegexEscapeOptions<a class="headerlink" href="#queryregexescapeoptions" title="此标题的永久链接"></a></h3>
+<p>問： ___ 字元串中的正規表示式。</p>
+<p>預設值：換碼</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要逸出</p></li>
+<li><p>逸出</p></li>
+<li><p>未轉義逸出</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果選擇了’逸出’，搜尋詞中出現的 ‘/’’ 將被自動轉義，而正規表達式將被解釋為正規字元串。換句話說，正規表達式被禁用，搜尋詞被按原樣搜尋（例如，’一個基本的語法 / William Z. Shetter’）。</p></li>
+<li><p>如果選擇 ‘未轉義逸出’，這將允許寫入正規表達式’/像這樣/”，而’/這樣/’，’或/這樣’ 將被轉義並解釋為正規字元串。換句話說，如果你希望能夠在你的搜尋查詢中使用正規表達式，請使用這個選項。</p></li>
+<li><p>如果選擇 ‘不逸出’，Elasticsearch搜尋引擎的預設行為將不被改變。有幾個字元將被解釋為正規表達式的一部分，比如正斜線(/)。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This system preference is used with Elasticsearch only. If you use Zebra as
+your <a class="reference internal" href="administrationpreferences.html#searchengine-label"><span class="std std-ref">SearchEngine</span></a>, it will not change anything.</p>
+</div>
+</section>
+<section id="querystemming">
+<span id="querystemming-label"></span><h3>QueryStemming<a class="headerlink" href="#querystemming" title="此标题的永久链接"></a></h3>
+<p>詢問：搜尋時 ___ 比對相同字根的字</p>
+<p>預設值：試</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不試</p></li>
+<li><p>試</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference enables word stemming. Stemming allows the search
+function to return multiple versions of the same word, as well as
+related terms (i.e., both fish and fishing would be returned).</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>此系統偏好僅用於 Zebra。 Elasticsearch 會自動進行詞幹搜尋。</p>
+</div>
+</section>
+<section id="queryweightfields">
+<span id="queryweightfields-label"></span><h3>QueryWeightFields<a class="headerlink" href="#queryweightfields" title="此标题的永久链接"></a></h3>
+<p>詢問：搜尋結果 ___ 相關排序</p>
+<p>預設值：啟用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好用於啟用或禁用按相關性對搜尋結果進行排序。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>該系統偏好僅用於Zebra。</p>
+</div>
+</section>
+<section id="savedsearchfilters">
+<span id="savedsearchfilters-label"></span><h3>SavedSearchFilters<a class="headerlink" href="#savedsearchfilters" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ the option for staff with permission to create/edit custom saved
+search filters.</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When enabled, this system preference will add the possibility to
+<a class="reference internal" href="searching.html#search-filters-label"><span class="std std-ref">save searches as search filters</span></a>.</p></li>
+</ul>
+</section>
+<section id="tracecompletesubfields">
+<span id="tracecompletesubfields-label"></span><h3>TraceCompleteSubfields<a class="headerlink" href="#tracecompletesubfields" title="此标题的永久链接"></a></h3>
+<p>詢問: ___ 在 OPAC 與館員介面檢索主題追尋，全面比對分欄的資料。</p>
+<p>預設值：強制</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不強制</p>
+<ul>
+<li><p>搜尋主題關鍵詞 (如：opac-search.pl?q=su:World%20Wide%20Web)</p></li>
+</ul>
+</li>
+<li><p>強制</p>
+<ul>
+<li><p>搜尋完整主題欄位 (example: opac-search.pl?q=su,complete-subfield:World%20Wide%20Web)</p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>把 TraceCompleteSubfields 設定為 ‘強制’ 時，點選非權威控制的主題追尋時，只找尋所有分欄皆吻合的記錄。設為 “不強制” 時就是主題索引的關鍵詞搜尋。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This system preference assumes that XSLT stylesheets are used, as set in the
+<a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a> or <a class="reference internal" href="staffclientpreferences.html#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a> system
+preferences.</p>
+</div>
+</section>
+<section id="tracesubjectsubdivisions">
+<span id="tracesubjectsubdivisions-label"></span><h3>TraceSubjectSubdivisions<a class="headerlink" href="#tracesubjectsubdivisions" title="此标题的永久链接"></a></h3>
+<p>詢問：點選主題追尋時 ___ 複分在內。</p>
+<p>預設值：包括</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不包括</p>
+<ul>
+<li><p>搜尋主題關鍵詞 (如：opac-search.pl?q=su,complete-subfield:%22Web%20sites%22)</p></li>
+</ul>
+</li>
+<li><p>包括</p>
+<ul>
+<li><p>搜尋完整主題關鍵詞欄位 (example: opac-search.pl?q=(su,complete-subfield:%22Web%20sites%22)%20and%20(su,complete-subfield:%22Design.%22))</p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When TraceSubjectSubdivisions is set to ‘Include’, if you click on a
+subject with subdivisions (subfields other than ‘a’) they will be
+searched along with the subject heading (subfield ‘a’). To have only
+the subject heading (subfield ‘a’) searched, set this system preference to
+“Don’t include.”</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This system preference assumes that XSLT stylesheets are used, as set in the
+<a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a> or <a class="reference internal" href="staffclientpreferences.html#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a> system
+preferences.</p>
+</div>
+</section>
+<section id="useicustylequotes">
+<span id="useicustylequotes-label"></span><h3>UseICUStyleQuotes<a class="headerlink" href="#useicustylequotes" title="此标题的永久链接"></a></h3>
+<p>詢問：___ ICU 樣式引號 ({}) 在追蹤主題時。</p>
+<p>預設值：不用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好讓你決定在追蹤主題時使用哪種風格的引句。</p></li>
+<li><p>如果設定為 “不使用”，將使用常規雙引號 (“”)</p></li>
+<li><p>如果設定為 “使用”，引號將替換為大括號 ({})</p></li>
+</ul>
+</section>
+</section>
+<section id="results-display">
+<span id="results-display-label"></span><h2>Results display<a class="headerlink" href="#results-display" title="此标题的永久链接"></a></h2>
+<section id="biblioitemtypeinfo">
+<span id="biblioitemtypeinfo-label"></span><h3>BiblioItemtypeInfo<a class="headerlink" href="#biblioitemtypeinfo" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ Koha record-level itemtype info on detail and result pages in the
+OPAC and staff interface.</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If enabled, the icons for the record item type (942$c) will be displayed on
+the record detail and search result pages in both the OPAC and staff interface.</p></li>
+<li><p>This information also displays if the
+<a class="reference internal" href="catalogingpreferences.html#item-level-itypes-label"><span class="std std-ref">item-level_itypes</span></a> system preference is set
+to bibliographic record.</p></li>
+</ul>
+</section>
+<section id="defaultsortfield-and-defaultsortorder">
+<span id="defaultsortfield-and-defaultsortorder-label"></span><h3>defaultSortField 及 defaultSortOrder<a class="headerlink" href="#defaultsortfield-and-defaultsortorder" title="此标题的永久链接"></a></h3>
+<p>詢問：預設情況下，館員介面搜尋結果按照___, ___排序</p>
+<p>預設值：相關性 (defaultSortField)、降序 (defaultSortOrder)</p>
+<p>值：</p>
+<p>defaultSortField</p>
+<ul class="simple">
+<li><p>新增日期</p></li>
+<li><p>作者</p></li>
+<li><p>索書號</p></li>
+<li><p>借出總次數</p></li>
+<li><p>出版年</p></li>
+<li><p>相關性</p></li>
+<li><p>題名</p></li>
+</ul>
+<p>defaultSortOrder</p>
+<ul class="simple">
+<li><p>升冪</p></li>
+<li><p>由 A 至 Z</p></li>
+<li><p>降冪</p></li>
+<li><p>由 Z 至 A</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這些偏好設定了館員介面中搜尋的預設排序欄位和排序順序。</p></li>
+<li><p>不管這個設定如何，其他的排序選項仍然可以在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>進階搜尋表單&lt;advanced-search-sort-label&gt;`和 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>搜尋結果頁面&lt;search-results-actions-labels&gt;`中使用。</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opacdefaultsortfield-and-opacdefaultsortorder-label"><span class="std std-ref">OPACdefaultSortField and OPACdefaultSortOrder</span></a></p></li>
+</ul>
+</section>
+<section id="displayfacetcount">
+<span id="displayfacetcount-label"></span><h3>displayFacetCount<a class="headerlink" href="#displayfacetcount" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 層面數。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference lets you decide if you show how many times a
+<a class="reference internal" href="searching.html#search-results-facets-label"><span class="std std-ref">facet</span></a> is used in your search results in
+the OPAC and the staff interface.</p>
+<p><img alt="Facets on the search results page" src="_images/searchresults-facets.png" /></p>
+</li>
+<li><p>The relevance of these numbers highly depends on the value of the
+<a class="reference internal" href="#maxrecordsforfacets-label"><span class="std std-ref">maxRecordsForFacets</span></a> preference.</p></li>
+<li><p>顯示這些數字有可能影響你的搜尋性能，所以用這個偏好的不同值來測試你的系統，看看什麼效果最好。</p></li>
+</ul>
+</section>
+<section id="displaylibraryfacets">
+<span id="displaylibraryfacets-label"></span><h3>DisplayLibraryFacets<a class="headerlink" href="#displaylibraryfacets" title="此标题的永久链接"></a></h3>
+<p>詢問：顯示層面給 ___</p>
+<p>預設值：典藏圖書館</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>所屬圖書館與典藏圖書館</p></li>
+<li><p>典藏圖書館</p></li>
+<li><p>所屬圖書館</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference controls the ‘libraries’ facet that displays on the
+<a class="reference internal" href="searching.html#search-results-facets-label"><span class="std std-ref">search results page</span></a> in the staff
+interface and the OPAC. The value selected here will determine
+which libraries show in the facets when a search is run.</p></li>
+</ul>
+</section>
+<section id="facetlabeltruncationlength">
+<span id="facetlabeltruncationlength-label"></span><h3>FacetLabelTruncationLength<a class="headerlink" href="#facetlabeltruncationlength" title="此标题的永久链接"></a></h3>
+<p>詢問：將 OPAC /館員介面的層面長度截切至 ___ 字元。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>In the OPAC and the staff interface, facets are cut off at 20 characters by
+default. Depending on the layout this may be too many or too few letters.
+This system preference lets you decide what number is best for your library’s
+design.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>這個偏好只適用於Zebra。當使用ElasticSearch時，分面不能被截斷，它們將被完整地顯示。</p>
+</div>
+</section>
+<section id="facetmaxcount">
+<span id="facetmaxcount-label"></span><h3>FacetMaxCount<a class="headerlink" href="#facetmaxcount" title="此标题的永久链接"></a></h3>
+<p>詢問：每個類型最多顯示 ___ 面向。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to control how many possible limits show
+under each heading (Author, Series, Topics, etc) in the
+<a class="reference internal" href="searching.html#search-results-facets-label"><span class="std std-ref">facets</span></a> in the staff interface and OPAC.</p></li>
+</ul>
+</section>
+<section id="facetorder">
+<span id="facetorder-label"></span><h3>FacetOrder<a class="headerlink" href="#facetorder" title="此标题的永久链接"></a></h3>
+<p>詢問：為每個類別對面 ___ 進行排序。</p>
+<p>預設值：按字母順序</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>按字母順序</p></li>
+<li><p>按使用次數</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好允許你控制每個類別（作者、系列、主題等）中的分面順序</p></li>
+<li><p>預設情況下，分面是按字母順序排列的。但也可以按照出現次數最多的分面和出現次數最少的分面來排序。</p></li>
+</ul>
+</section>
+<section id="maxitemsinsearchresults">
+<span id="maxitemsinsearchresults-label"></span><h3>maxItemsInSearchResults<a class="headerlink" href="#maxitemsinsearchresults" title="此标题的永久链接"></a></h3>
+<p>詢問：在搜尋結果中，每條書目記錄最多可以顯示 ___個館藏。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference will let you set how many items are displayed for each
+record in the <a class="reference internal" href="searching.html#search-results-label"><span class="std std-ref">search results</span></a> in the staff
+interface.</p></li>
+</ul>
+</section>
+<section id="maxrecordsforfacets">
+<span id="maxrecordsforfacets-label"></span><h3>maxRecordsForFacets<a class="headerlink" href="#maxrecordsforfacets" title="此标题的永久链接"></a></h3>
+<p>詢問：依照搜尋結果建立層面的 ___ 記錄數。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>By default, Koha only bases <a class="reference internal" href="searching.html#search-results-facets-label"><span class="std std-ref">facets</span></a> on the
+first twenty <a class="reference internal" href="searching.html#search-results-label"><span class="std std-ref">search results</span></a>. This system
+preference lets you tell Koha to base the facet descriptions and numbers on
+any number of search results returned.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>這個數字越大，您的搜尋結果返回所需的時間就越長，因此請使用各種不同的值進行測試，以根據您的資源找到最佳平衡點。</p>
+</div>
+</section>
+<section id="maxsearchresultsitemsperrecordstatuscheck">
+<span id="maxsearchresultsitemsperrecordstatuscheck-label"></span><h3>MaxSearchResultsItemsPerRecordStatusCheck<a class="headerlink" href="#maxsearchresultsitemsperrecordstatuscheck" title="此标题的永久链接"></a></h3>
+<p>詢問：多筆館藏的記錄，只檢查前面 ___ 筆的狀態。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>可用性狀態可能會在 <a class="reference internal" href="searching.html#search-results-label"><span class="std std-ref">搜尋結果</span></a> 中顯示不正確，如果記錄的館藏數超過限制集的話。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>狀態將在記錄詳細訊息中正確顯示。</p>
+</div>
+<ul class="simple">
+<li><p>留空表示沒有限制。</p></li>
+</ul>
+</section>
+<section id="numsearchresults">
+<span id="numsearchresults-label"></span><h3>numSearchResults<a class="headerlink" href="#numsearchresults" title="此标题的永久链接"></a></h3>
+<p>詢問：預設情況下，在館員介面中每頁顯示 ___ 結果。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好允許您在館員介面中的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>搜尋結果&lt;search-results-label&gt;`中選擇預設的每頁結果數。</p></li>
+<li><p>If you want users to be able to change that number, enable the
+<a class="reference internal" href="#numsearchresultsdropdown-label"><span class="std std-ref">numSearchResultsDropdown</span></a> system preference.</p></li>
+<li><p>Use <a class="reference internal" href="#opacnumsearchresults-label"><span class="std std-ref">OPACnumSearchResults</span></a> to define the default number of results per
+page in the OPAC.</p></li>
+</ul>
+</section>
+<section id="numsearchresultsdropdown">
+<span id="numsearchresultsdropdown-label"></span><h3>numSearchResultsDropdown<a class="headerlink" href="#numsearchresultsdropdown" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館員介面搜尋結果中每頁下拉列表的結果。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果設定為 ‘顯示’，這個系統偏好將使一個下拉選單出現在 <a class="reference internal" href="searching.html#search-results-label"><span class="std std-ref">搜尋結果</span></a>，允許使用者們選擇想在每頁看到多少結果。</p></li>
+<li><p>Use <a class="reference internal" href="#numsearchresults-label"><span class="std std-ref">numSearchResults</span></a> to determine what is the default value.</p></li>
+<li><p>Use <a class="reference internal" href="#opacnumsearchresultsdropdown-label"><span class="std std-ref">OPACnumSearchResultsDropdown</span></a> to define if the dropdown appears in
+the OPAC.</p></li>
+</ul>
+</section>
+<section id="opacdefaultsortfield-and-opacdefaultsortorder">
+<span id="opacdefaultsortfield-and-opacdefaultsortorder-label"></span><h3>OPACdefaultSortField 及 OPACdefaultSortOrder<a class="headerlink" href="#opacdefaultsortfield-and-opacdefaultsortorder" title="此标题的永久链接"></a></h3>
+<p>詢問：預設依照 OPAC 的搜尋結果，依 ___, ___ 排序</p>
+<p>預設值：相關性 (OPACdefaultSortField)，降冪 (OPACdefaultSortOrder)</p>
+<p>值：</p>
+<p>OPACdefaultSortField</p>
+<ul class="simple">
+<li><p>新增日期</p></li>
+<li><p>作者</p></li>
+<li><p>索書號</p></li>
+<li><p>借出總次數</p></li>
+<li><p>出版年</p></li>
+<li><p>相關性</p></li>
+<li><p>題名</p></li>
+</ul>
+<p>OPACdefaultSortOrder</p>
+<ul class="simple">
+<li><p>升冪</p></li>
+<li><p>由 A 至 Z</p></li>
+<li><p>降冪</p></li>
+<li><p>由 Z 至 A</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>These system preferences set the default sort field and sort order for
+searches on the OPAC. Regardless of your choice, the other sort
+options are still available in the drop down list on the advanced
+search page.</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#defaultsortfield-and-defaultsortorder-label"><span class="std std-ref">defaultSortField 和 defaultSortOrder</span></a></p></li>
+</ul>
+</section>
+<section id="opacnumsearchresults">
+<span id="opacnumsearchresults-label"></span><h3>OPACnumSearchResults<a class="headerlink" href="#opacnumsearchresults" title="此标题的永久链接"></a></h3>
+<p>詢問：預設，在 OPAC 的搜尋結果裡每頁顯示 ___ 筆。</p>
+<p>預設值：20</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好允許你在OPAC的搜尋結果中選擇每頁的預設結果數量。</p></li>
+<li><p>If you want users to be able to change that number, enable the
+<a class="reference internal" href="#opacnumsearchresultsdropdown-label"><span class="std std-ref">OPACnumSearchResultsDropdown</span></a> system preference.</p></li>
+<li><p>Use <a class="reference internal" href="#numsearchresults-label"><span class="std std-ref">numSearchResults</span></a> to define the default number of results per
+page in the staff interface.</p></li>
+</ul>
+</section>
+<section id="opacnumsearchresultsdropdown">
+<span id="opacnumsearchresultsdropdown-label"></span><h3>OPACnumSearchResultsDropdown<a class="headerlink" href="#opacnumsearchresultsdropdown" title="此标题的永久链接"></a></h3>
+<p>詢問：OPAC 搜尋結果中每頁下拉列表的 ___ 結果。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果設定為 ‘顯示’，這個系統偏好將使搜尋結果中出現一個下拉選單，允許使用者選擇他們想在每頁看到多少結果。</p></li>
+<li><p>Use <a class="reference internal" href="#opacnumsearchresults-label"><span class="std std-ref">OPACnumSearchResults</span></a> to determine what is the default value.</p></li>
+<li><p>Use <a class="reference internal" href="#numsearchresultsdropdown-label"><span class="std std-ref">numSearchResultsDropdown</span></a> to define if the dropdown appears in
+the staff interface.</p></li>
+</ul>
+</section>
+<section id="passitemmarctoxslt">
+<span id="passitemmarctoxslt-label"></span><h3>PassItemMarcToXSLT<a class="headerlink" href="#passitemmarctoxslt" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 使館藏 MARC 標籤可用於 XSLT 樣式表。</p>
+<p>預設值：不要</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要</p></li>
+<li><p>做</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>該系統偏好決定是否將館藏欄位傳遞給 XSLT 樣式表以供顯示。</p></li>
+<li><p>只在使用顯示館藏的自定義XSLT樣式表時啟用。</p>
+<ul>
+<li><p>如果使用預設的XSLT樣式表，館藏不是用這些樣式表顯示的，而是透過不同的方法（預約表格），所以沒有必要讓這些欄位對XSLT樣式表可用。</p></li>
+<li><p>對定製樣式表使用以下系統偏好：</p>
+<ul>
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltlistsdisplay-label"><span class="std std-ref">OPACXSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#xsltlistsdisplay-label"><span class="std std-ref">XSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如果禁用此系統偏好，則在使用預設 XSLT 樣式表時記錄會顯示得更快。</p></li>
+</ul>
+</section>
+<section id="retaincatalogsearchterms">
+<span id="retaincatalogsearchterms-label"></span><h3>RetainCatalogSearchTerms<a class="headerlink" href="#retaincatalogsearchterms" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ search terms between searches when searching from the ‘search the
+catalog’ tab in the staff interface header.</p>
+<p>Default: Retain</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>Don’t retain</p></li>
+<li><p>Retain</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to determine whether or not, for catalog
+searches in the staff interface, the search term entered in the search bar
+at the top of the page stays there once the search is launched.</p></li>
+<li><p>If set to “Don’t retain”, the search bar will be emptied after the search is
+launched.</p></li>
+<li><p>If set to “Retain”, the search term will stay in the search bar.</p></li>
+</ul>
+</section>
+<section id="retainpatronssearchterms">
+<span id="retainpatronssearchterms-label"></span><h3>RetainPatronsSearchTerms<a class="headerlink" href="#retainpatronssearchterms" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ search terms between searches when searching from the ‘checkout’
+and ‘search patrons’ tab in the staff interface header.</p>
+<p>Default: Retain</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>Don’t retain</p></li>
+<li><p>Retain</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to determine whether or not, for checkout and
+patron searches in the staff interface, the search term entered in the search
+bar at the top of the page stays there once the search is launched.</p></li>
+<li><p>If set to “Don’t retain”, the search bar will be emptied after the search is
+launched.</p></li>
+<li><p>If set to “Retain”, the search term will stay in the search bar.</p></li>
+</ul>
+</section>
+<section id="searchlimitlibrary">
+<span id="searchlimitlibrary-label"></span><h3>SearchLimitLibrary<a class="headerlink" href="#searchlimitlibrary" title="此标题的永久链接"></a></h3>
+<p>詢問：當用圖書館或圖書館組限制搜尋結果時，由館藏的 ___ 限制。</p>
+<p>預設值：所屬圖書館</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>所屬圖書館與所在圖書館</p></li>
+<li><p>典藏圖書館</p></li>
+<li><p>所屬圖書館</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好可讓您決定在何時使用哪個圖書館 <a class="reference internal" href="searching.html#advanced-search-location-availability-label"><span class="std std-ref">圖書館限制</span></a></p></li>
+</ul>
+</section>
+<section id="searchwithisbnvariations">
+<span id="searchwithisbnvariations-label"></span><h3>SearchWithISBNVariations<a class="headerlink" href="#searchwithisbnvariations" title="此标题的永久链接"></a></h3>
+<p>詢問：搜尋 ISBN 索引時，___ ISBN 的所有變型。</p>
+<p>預設值：不搜尋</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不搜尋</p></li>
+<li><p>搜尋</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>With this system preference set to search you’ll be able to search for ISBNs
+even if there are dashes or spaces in the field. So if you search for
+9781843345855 but the ISBN was cataloged as 978-1843345855 you’ll
+still be able to find it if this system preference is set to ‘search’.</p></li>
+</ul>
+</section>
+<section id="searchwithissnvariations">
+<span id="searchwithissnvariations-label"></span><h3>SearchWithISSNVariations<a class="headerlink" href="#searchwithissnvariations" title="此标题的永久链接"></a></h3>
+<p>Asks: When searching on the ISSN index, ___ on all variations of the ISSN.</p>
+<p>預設值：不搜尋</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不搜尋</p></li>
+<li><p>搜尋</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If this system preference is set to ‘search’ you’ll be able to search for
+ISSNs without the hyphen. For example, searching for 12345678 will find
+records that have the ISSN 1234-5678.</p></li>
+<li><p>This system preference currently works in the
+<a class="reference internal" href="searching.html#advanced-searching-label"><span class="std std-ref">advanced search</span></a>, when using the ISSN index,
+and in the <a class="reference internal" href="acquisitions.html#searching-orders-label"><span class="std std-ref">orders advanced search in acquisitions</span></a>.</p></li>
+</ul>
+</section>
+<section id="unimarcauthorsfacetsseparator">
+<span id="unimarcauthorsfacetsseparator-label"></span><h3>UNIMARCAuthorsFacetsSeparator<a class="headerlink" href="#unimarcauthorsfacetsseparator" title="此标题的永久链接"></a></h3>
+<p>詢問：以下列的文字做為區隔 UNIMARC 著者面向 ___</p>
+<p>預設值：，(逗點， 空)</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>使用 UNIMARC 時， <a class="reference internal" href="searching.html#search-results-facets-label"><span class="std std-ref">分面</span></a> 中作者姓氏和名字的預設分隔符是一個逗號後跟一個空格。</p></li>
+</ul>
+</section>
+</section>
+<section id="search-form">
+<span id="search-form-label"></span><h2>搜尋表單<a class="headerlink" href="#search-form" title="此标题的永久链接"></a></h2>
+<section id="advancedsearchlanguages">
+<span id="advancedsearchlanguages-label"></span><h3>AdvancedSearchLanguages<a class="headerlink" href="#advancedsearchlanguages" title="此标题的永久链接"></a></h3>
+<p>詢問：限制列在進階搜尋下拉選單裡的語系 ___￼ ISO 639-2 語系代碼 (以 | 或 , 區隔)。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference will allow you to decide which languages show in the
+drop down menu on the
+<a class="reference internal" href="searching.html#advanced-search-date-lang-limits-label"><span class="std std-ref">advanced search page</span></a> in the
+OPAC and the staff interface.</p></li>
+<li><p>如果此偏好留空，將顯示所有語言。 要限制顯示的語言，請輸入它們的 <a class="reference external" href="http://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-2 語言代碼</a> 用逗號 (,) 或豎線 ( |）。 例如，要將列表限制為法語和意大利語，請輸入 ita|fre。</p></li>
+</ul>
+</section>
+<section id="advancedsearchtypes">
+<span id="advancedsearchtypes-label"></span><h3>AdvancedSearchTypes<a class="headerlink" href="#advancedsearchtypes" title="此标题的永久链接"></a></h3>
+<p>詢問：在館員介面進階搜尋中顯示選項卡以限制對 ___ 欄位的搜尋。</p>
+<p>預設值：館藏類型</p>
+<p>說明：</p>
+<ul>
+<li><p>在館員介面的進階搜尋頁面上，您可以選擇允許對以下一項或全部進行篩選：館藏類型（itemtypes）、館藏代碼（ccode）和上架位置（loc）。</p>
+<p><img alt="Advanced search tabbed limits for item type, shelving location and collection" src="_images/advancedsearch-itypetabs.png" /></p>
+</li>
+<li><p>使用豎線 (|) 分隔多個值。 例如，輸入 itemtypes|loc 以允許限制對館藏類型和貨架位置的搜尋。</p></li>
+<li><p>在系統偏好中輸入選項的順序就是標籤出現的順序。 系統偏好中的第一個選項是選定的標籤。</p></li>
+<li><p>如果留空，則使用 “館藏類型”。</p></li>
+<li><p>搜尋類型中的值是被 OR’ 一起運算的，而每個不同的搜尋類型在查詢限制中是被 AND’ 一起的。</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacadvancedsearchtypes-label"><span class="std std-ref">OpacAdvancedSearchTypes</span></a></p></li>
+</ul>
+</section>
+<section id="expandedsearchoption">
+<span id="expandedsearchoption-label"></span><h3>expandedSearchOption<a class="headerlink" href="#expandedsearchoption" title="此标题的永久链接"></a></h3>
+<p>詢問：預設，在 OPAC 與館員介面進階搜尋頁面 ___ “更多選項”。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好可讓您決定是否預設顯示 ‘更多選項’ 搜尋選項（例如 <a class="reference internal" href="searching.html#advanced-search-date-lang-limits-label"><span class="std std-ref">日期和語言限制</span></a>） 點擊 ‘更多選項’ 以訪問它們。</p></li>
+</ul>
+</section>
+<section id="intranetnumberspreferphrase">
+<span id="intranetnumberspreferphrase-label"></span><h3>IntranetNumbersPreferPhrase<a class="headerlink" href="#intranetnumberspreferphrase" title="此标题的永久链接"></a></h3>
+<p>詢問：預設，___ 搜尋館員介面的索書號與標準號碼運算元 “phr”。</p>
+<p>預設值：不使用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>經由設定偏好為 ‘使用’ 就能在館員介面強迫以索書號與標準號碼 (書目編號) 搜尋。此種方式搜尋較為精確。</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opacnumberspreferphrase-label"><span class="std std-ref">OPACNumbersPreferPhrase</span></a></p></li>
+</ul>
+</section>
+<section id="loadsearchhistorytothefirstloggeduser">
+<span id="loadsearchhistorytothefirstloggeduser-label"></span><h3>LoadSearchHistoryToTheFirstLoggedUser<a class="headerlink" href="#loadsearchhistorytothefirstloggeduser" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 未登入使用者的搜尋歷史記錄到下一個登入的讀者。</p>
+<p>預設值：新增</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不新增</p></li>
+<li><p>新增</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在OPAC中，如果一個讀者沒有登入，他們所做的搜尋將不會被新增到他們的搜尋紀錄中。這個系統偏好決定了在未登入時進行的搜尋是否會被新增到下一個登入讀者的搜尋紀錄中。</p></li>
+</ul>
+</section>
+<section id="opacnumberspreferphrase">
+<span id="opacnumberspreferphrase-label"></span><h3>OPACNumbersPreferPhrase<a class="headerlink" href="#opacnumberspreferphrase" title="此标题的永久链接"></a></h3>
+<p>詢問：預設，___ 運算元 “phr” 於 OPAC 的索書號與標準號碼搜尋</p>
+<p>預設值：不使用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>經由設定偏好為 ‘使用’ 在 OPAC 以索書號與標準號碼 (書目編號) 搜尋。此種方式搜尋較為精確。</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#intranetnumberspreferphrase-label"><span class="std std-ref">IntranetNumbersPreferPhrase</span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="patronspreferences.html" class="btn btn-neutral float-left" title="讀者" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="serialspreferences.html" class="btn btn-neutral float-right" title="期刊" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

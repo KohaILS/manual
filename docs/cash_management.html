@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>銷售點 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="流通" href="circulation.html" />
+    <link rel="prev" title="讀者" href="patrons.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">銷售點</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-a-sale">進行銷售</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">銷售點</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cash_management.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="patrons.html" class="btn btn-neutral float-left" title="讀者" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulation.html" class="btn btn-neutral float-right" title="流通" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="point-of-sale">
+<span id="point-of-sale-label"></span><h1>銷售點<a class="headerlink" href="#point-of-sale" title="此标题的永久链接"></a></h1>
+<p>銷售點是一個模組，用於將館藏出售給未在圖書館註冊的人或進行不需要連接到讀者帳戶的銷售。</p>
+<p>例如，您可以出售舊書或促銷館藏。這些館藏可以出售給任何人而且無需聯繫特定讀者以進行銷售。</p>
+<p>對於需要連接到讀者帳戶的發票（例如丟失的館藏或新卡費用），請使用 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>人工發票&lt;creating-manual-invoices-label&gt;。</p>
+<ul class="simple">
+<li><p><a href="#id1"><span class="problematic" id="id2">*</span></a>到:<a href="#id3"><span class="problematic" id="id4">*</span></a>更多&gt;銷售點</p></li>
+</ul>
+<section id="setup">
+<span id="setup-point-of-sale-label"></span><h2>設定<a class="headerlink" href="#setup" title="此标题的永久链接"></a></h2>
+<p>To enable the point of sale module, you must turn on the <a class="reference internal" href="accountspreferences.html#enablepointofsale-label"><span class="std std-ref">EnablePointOfSale</span></a>
+system preference.</p>
+<p>If it’s not already done, you must also enable the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a>
+system preference.</p>
+<p>確認有在管理模組近用 <a class="reference internal" href="administration.html#cashregisters-label"><span class="std std-ref">配置現金列表</span></a></p>
+<p>最後，必須在管理模組 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>借方類型&lt;debit-types-label&gt;`中新增要出售的館藏</p>
+</section>
+<section id="making-a-sale">
+<span id="making-a-sale-label"></span><h2>進行銷售<a class="headerlink" href="#making-a-sale" title="此标题的永久链接"></a></h2>
+<p>首次進入銷售點模組時，左側將顯示所有待售館藏。這些是標記為’可出售’的 :ref:借方類型&lt;debit-types-label&gt;`。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 自定義此表的列(table id: invoices)。</p>
+</div>
+<p>右側是目前的銷售。</p>
+<p><img alt="Point of sale page, on the left is a list of items for purchase, on the right is a list of items in this transaction, followed by a payment form" src="_images/pointofsale.png" /></p>
+<p>點擊館藏旁邊的’新增’按鈕以新增到當前銷售中。</p>
+<p>如果需要更改成本或數量，點擊右側的數量，它將變成一個輸入框，並可以在其中輸入正確的數量。</p>
+<p><img alt="image1459" src="_images/changeamount.gif" /></p>
+<p>Once all the items have been added, quantities and prices adjusted if needed,
+fill out the ‘Collect payment’ form.</p>
+<ul>
+<li><p>Amount being paid: this is the total, it cannot be edited since it’s not
+attached to a patron file, it cannot be partially paid.</p></li>
+<li><p>Amount tendered: enter the actual amount handed to you by the patron. The
+amount tendered must be equal or greater than ‘Amoung being paid’.</p></li>
+<li><p>Change to give: if the amount tendered is greater than the amoung being paid,
+Koha will calculate how much change should be returned to the patron.</p></li>
+<li><p>Payment type: choose the type of payment.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The values are managed in the
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">PAYMENT_TYPE authorized value</span></a>.</p>
+</div>
+</li>
+<li><p>Cash register: choose the cash register in which to enter the transaction.</p></li>
+</ul>
+<p>Click ‘Confirm’ to finalize the sale.</p>
+<p>If change was to be given back to the patron, a pop-up window will appear to
+remind you, click ‘Yes’ to confirm that you gave back the correct amount and
+confirm the payment.</p>
+<p><img alt="Pop-up window saying 'The amount collected is more than the outstanding charge The amount collected from the patron is higher than the amount to be paid. The change to give is 2.25. Confirm this payment?' with Yes and No buttons" src="_images/changetogive.png" /></p>
+<p>You will have the choice to print or email the receipt for the sale.</p>
+<p><img alt="Payment received alert with two buttons Print receipt or Email receipt" src="_images/paymentreceived.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The receipts can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. The letter code is
+RECEIPT.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="patrons.html" class="btn btn-neutral float-left" title="讀者" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulation.html" class="btn btn-neutral float-right" title="流通" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

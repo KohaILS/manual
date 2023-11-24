@@ -1,0 +1,838 @@
+.. include:: images.rst
+
+.. _logs-label:
+
+Logs
+-------------------------------------------------------------------------------
+
+Logs keep track of transactions in the system. You can decide which
+actions you want to log and which you don't using these preferences.
+Logs can then be viewed in the :ref:`Log viewer tool<log-viewer-label>`.
+
+*Get there:* More > Administration > Global system preferences > Logs
+
+.. _debugging-label:
+
+Debugging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _actionlogstracedepth-label:
+
+ActionLogsTraceDepth
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When logging actions, store a stack trace that goes at most \_\_\_ levels
+deep.
+
+Default: 0
+
+Description:
+
+-  This system preference allows you to store in the action\_logs table the
+   information about where in Koha a particular :ref:`logged action <logging-label>`
+   was generated from, and how.
+
+-  Use 0 to deactivate this system preference.
+
+.. Note::
+
+   This information is only stored in the database, it is not visible in the
+   :ref:`log viewer tool <log-viewer-label>`.
+
+.. _dumpsearchquerytemplate-label:
+
+DumpSearchQueryTemplate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ dump search query as a template parameter.
+
+Default: Don't
+
+Value:
+
+-  Don't
+
+-  Do
+
+Description:
+
+-  This system preference allows you to view the search query used by Zebra or
+   Elasticsearch, to help with troubleshooting.
+
+-  Make sure to enable :ref:`DumpTemplateVarsIntranet <DumpTemplateVarsIntranet-label>` and/or 
+   :ref:`DumpTemplateVarsOpac <DumpTemplateVarsOpac-label>` otherwise this system preference will have no 
+   effect.
+
+-  The dumped query will be in the page source under 'search_query'.
+
+.. _dumptemplatevarsintranet-label:
+
+DumpTemplateVarsIntranet
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ dump all Template Toolkit variable to a comment in the HTML
+source for the staff interface.
+
+Default: Don't
+
+Value:
+
+-  Don't
+
+-  Do
+
+Description:
+
+-  This system preference allows you to view the Template Toolkit variables
+   used on a staff interface page, to help with troubleshooting.
+
+-  The dumped information will be in the page source, in a comment at the
+   beginning of the file.
+
+See also:
+
+-  :ref:`DumpTemplateVarsOpac <DumpTemplateVarsOpac-label>`
+
+.. _dumptemplatevarsopac-label:
+
+DumpTemplateVarsOpac
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ dump all Template Toolkit variable to a comment in the HTML
+source for the OPAC.
+
+Default: Don't
+
+Value:
+
+-  Don't
+
+-  Do
+
+Description:
+
+-  This system preference allows you to view the Template Toolkit variables
+   used on an OPAC page, to help with troubleshooting.
+
+-  The dumped information will be in the page source, in a comment at the
+   beginning of the file.
+
+See also:
+
+-  :ref:`DumpTemplateVarsIntranet <DumpTemplateVarsIntranet-label>`
+
+.. _logging-label:
+
+Logging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _acquisitionlog-label:
+
+AcquisitionLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when acquisition actions take place.
+
+Default: Don't log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha will log various actions
+   done in the :ref:`acquisitions module<acquisitions-label>`. These actions
+   include:
+
+   -  Adding new baskets
+
+   -  Re-opening closed baskets
+
+   -  Modifying baskets
+
+   -  Modifying basket headers
+
+   -  Modifying basket users
+
+   -  Closing baskets
+
+   -  Approving baskets
+
+   -  Creating a new order line
+
+   -  Cancelling an order line
+
+   -  Adding an invoice adjustment
+
+   -  Editing an invoice adjustment
+
+   -  Deleting an invoice adjustment
+
+   -  Receiving an order line against an invoice
+
+   -  Editing a budget
+
+   -  Editing a fund
+
+   -  Order release date (EDIFACT)
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'ACQUISITIONS'.
+
+   -  Possible actions are
+
+      -  ADD\_BASKET: a :ref:`new basket was created<create-a-basket-label>`
+
+      -  APPROVE\_BASKET: an EDI basket was approved
+
+      -  CANCEL\_ORDER: an order was cancelled
+
+      -  CLOSE\_BASKET: a :ref:`basket was closed<ordering-closing-basket-label>`
+
+      -  CREATE\_FUND: a :ref:`fund was created<add-a-fund-label>`
+
+      -  CREATE\_INVOICE\_ADJUSTMENT: an adjustment was added to an invoice
+
+      -  CREATE\_ORDER: an :ref:`order was added to a basket<add-to-basket-label>`
+
+      -  DELETE\_FUND: a fund was deleted
+
+      -  DELETE\_INVOICE\_ADJUSTMENT: an adjustment was deleted from an invoice
+
+      -  MODIFY\_BASKET: a :ref:`basket was edited<edit-basket-label>` (adding or modifying orders)
+
+      -  MODIFY\_BASKET\_HEADER: a basket's information (such as the basket
+         name or billing place) was edited
+
+      -  MODIFY\_BASKET\_USERS: a basket's users were edited
+
+      -  MODIFY\_BUDGET: a budget was edited (this does not include clo)
+
+      -  MODIFY\_FUND: a fund was edited
+
+      -  MODIFY\_ORDER: an order was edited
+
+      -  RECEIVE\_ORDER: an :ref:`order was received<receiving-orders-label>`
+
+      -  REOPEN\_BASKET: a closed basket was reopened
+
+      -  UPDATE\_INVOICE\_ADJUSTMENT: an adjustment to an invoice was edited
+
+.. _authfailurelog-label:
+
+AuthFailureLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ authentication failures.
+
+Default: Don't log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when a patron 
+   fails to successfully authenticate on the OPAC (or a staff member in the
+   staff interface).
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'AUTH'
+
+   -  The action is 'FAILURE'
+
+.. _authoritieslog-label:
+
+AuthoritiesLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ changes to authority records.
+
+Default: Log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when an
+   :ref:`authority record<authorities-label>` is created, modified or deleted.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'AUTHORITIES'.
+
+   -  Possible actions are
+
+      -  ADD: authority record was created
+
+      -  DELETE: authority record was deleted
+
+      -  MODIFY: authority record was modified
+
+.. _authsuccesslog-label:
+
+AuthSuccessLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ successful authentications.
+
+Default: Don't log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when a patron 
+   successfully authenticates on the OPAC (or a staff member in the staff 
+   interface)
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'AUTH'
+
+   -  The action is 'SUCCESS'
+
+.. _borrowerslog-label:
+
+BorrowersLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ changes to patron records.
+
+Default: Log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when a
+   patron's account is edited.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'MEMBERS'.
+
+   -  Possible actions are
+
+      -  ADDCIRCMESSAGE: an internal message or OPAC message was added to the
+         patron's account
+
+      -  CHANGE PASS: a patron's password was changed
+
+      -  CREATE: a :ref:`new patron was added<add-a-new-patron-label>`
+
+      -  DELCIRCMESSAGE: an internal message or OPAC message was deleted
+
+      -  DELETE: a :ref:`patron's account was deleted<delete-patron-account-label>`
+
+      -  MODIFY: a :ref:`patron's account was edited<editing-patrons-label>`
+
+      -  RENEW: a :ref:`patron's membership was renewed<renew-patron-account-label>`
+
+.. Note::
+
+   Enabling this system preference allows the tracking of cardnumber changes
+   for patrons.
+
+.. _cataloguinglog-label:
+
+CataloguingLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ any changes to bibliographic or item records.
+
+Default: Log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when a
+   bibliographic record or an item is created, modified or deleted.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'CATALOGUING'.
+
+   -  Possible actions are
+
+      -  ADD: bibliographic record or item was created
+
+      -  DELETE: bibliographic record or item was deleted
+
+      -  MODIFY: bibliographic record or item was modified, or a cover image
+         was added to the record
+
+.. Warning::
+
+   Since this occurs whenever a title is catalogued or edited, and the whole
+   record is saved in the action\_logs table, it can be very resource intensive,
+   thus slowing down your system or taking a lot of space.
+
+.. _claimslog-label:
+
+ClaimsLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\ when an acquisitions claim or a serials claim notice is sent.
+
+Default: Log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when a notice
+   is sent for a :ref:`late order<claims-and-late-orders-label>` or a
+   :ref:`late serial issue<claim-late-serials-label>`.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'CLAIMS'.
+
+   -  The action is 'ACQUISITION CLAIM'.
+
+.. _cronjoblog-label:
+
+CronjobLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ information from cron jobs.
+
+Default: Don't log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when a
+   :ref:`cron job<cron-jobs-label>` is run.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'CRONJOBS'.
+
+   -  The action is 'Run'.
+
+.. _fineslog-label:
+
+FinesLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when fines are charged, paid or forgiven.
+
+Default: Log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log actions done
+   on :ref:`charges<fines-label>` in patron's accounts.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'FINES'.
+
+   -  Possible actions are
+
+      -  CREATE: a charge was added to a patron's account (manually or
+         automatically)
+
+      -  MODIFY: a charge was modified (forgiven)
+
+      -  UPDATE: a charge was updated (only in the case of fines that are still
+         accruing)
+
+      -  VOID: a :ref:`payment was voided<void-payments-label>`
+
+.. _holdslog-label:
+
+HoldsLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ any actions on holds (create, cancel, suspend, resume, etc.).
+
+Default: Don't log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log actions done
+   on :ref:`holds<holds-circulation-label>`.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'HOLDS'.
+
+   -  Possible actions are
+
+      -  CANCEL: a hold was cancelled
+
+      -  CREATE: a hold was placed
+
+      -  DELETE: a hold was deleted, an item on hold was checked out by the
+         patron
+
+      -  FILL: a hold was :ref:`confirmed and put aside to await pickup<receiving-holds-label>`
+
+      -  MODIFY: a hold was modified (the priority was changed, the expiration
+         date changed, etc.)
+
+      -  RESUME: a suspended hold was resumed
+
+      -  SUSPEND: a hold was suspended
+
+.. _illlog-label:
+
+IllLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when changes to ILL requests take place.
+
+Default: Don't log
+
+Values:
+
+-  Don't log
+
+- Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log changes on
+   :ref:`ILL requests<ill-requests-label>`
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'ILL'.
+
+   -  Possible actions are
+
+      -  PATRON\_NOTICE: a notice was sent to a patron regarding their ILL request
+
+      -  STATUS\_CHANGE: the status of an ILL request was modified
+
+.. _issuelog-label:
+
+IssueLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when items are checked out.
+
+Default: Log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when
+   :ref:`an item is checked out<check-out-(issuing)-label>`.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'CIRCULATION'.
+
+   -  The action is 'ISSUE'.
+
+.. _newslog-label:
+
+NewsLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ changes to news entries and other contents managed in the news
+tool.
+
+Default: Don't log
+
+Values:
+
+-  Don't log
+
+- Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when a
+   :ref:`news item<news-label>` or
+   :ref:`HTML customization<html-customizations-label>` is created, modified or
+   deleted.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'NEWS'.
+
+   -  Possible actions are
+
+      -  ADD: a new news item or HTML customization was created
+
+      -  DELETE: a news item or HTML customization was deleted
+
+      -  MODIFY: a news item or HTML customization was edited
+
+.. _noticeslog-label:
+
+NoticesLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ changes to notice templates.
+
+Default: Don't log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log changes to
+   :ref:`notice or slip templates<notices-and-slips-label>`.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'NOTICES'.
+
+   -  Possible actions are
+
+      -  CREATE: a :ref:`new notice or slip template was created<adding-notices-and-slips-label>`
+
+      -  DELETE: a notice or slip template was deleted
+
+      -  MODIFY: a notice or slip template was edited
+
+.. _recallslog-label:
+
+RecallsLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ any actions on recalls (create, cancel, expire, fulfill).
+
+Default: Log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log actions
+   related to recalls.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'RECALLS'.
+
+   -  Possible actions are
+
+      -  CANCEL: a recall was cancelled
+
+      -  EXPIRE: a recall expired
+
+      -  FILL: a recall was filled (confirmed and set aside to wait for pickup)
+
+      -  OVERDUE: the status of a recall was set to 'overdue'
+
+.. _renewallog-label:
+
+RenewalLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when items are renewed.
+
+Default: Don't log
+
+Values:
+
+- Don't log
+
+- Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when a
+   :ref:`checkout is renewed<renewing-label>`.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'CIRCULATION'.
+
+   -  The action is 'RENEWAL'
+
+.. _reportslog-label:
+
+ReportsLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when reports are added, deleted or changed.
+
+Default: Don't log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log changes to
+   :ref:`reports<reports-label>`.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'REPORTS'.
+
+   -  Possible actions are
+
+      -  ADD: a new report was created
+
+      -  DELETE: a report was deleted
+
+      -  MODIFY: a report was edited
+
+.. _returnlog-label:
+
+ReturnLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when items are checked in.
+
+Default: Log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log when an
+   :ref:`item is checked in<check-in-(returning)-label>`
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'CIRCULATION'.
+
+   -  The action is 'RETURN'
+
+.. _subscriptionlog-label:
+
+SubscriptionLog
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ when serials are added, deleted or changed.
+
+Default: Log
+
+Values:
+
+-  Don't log
+
+-  Log
+
+Description:
+
+-  This system preference controls whether or not Koha should log changes to
+   :ref:`serial subscriptions<serials-label>`.
+
+-  These logs are searchable through the :ref:`log viewer tool <log-viewer-label>`.
+
+-  These logs are kept in the action\_logs table in the database.
+
+   -  The module is 'SERIAL'.
+
+   -  Possible actions are
+
+      -  ADD: a new :ref:`serial subscription was created<add-a-subscription-label>`
+
+      -  DELETE: a serial subscription was deleted
+
+      -  MODIFY: a :ref:`serial subscription was edited<edit-subscription-label>`
+
+      -  RENEW: a :ref:`serial subscription was renewed<renewing-serials-label>`

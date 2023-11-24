@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>其他的 API 與通訊協定 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="擴展 Koha" href="extending_koha.html" />
+    <link rel="prev" title="Web services" href="webservices.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">其他的 API 與通訊協定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sip2">SIP2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-sip2">設定 SIP2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-sip2">使用 SIP2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ldap">LDAP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">其他的 API 與通訊協定</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/apis_protocols.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="webservices.html" class="btn btn-neutral float-left" title="Web services" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="extending_koha.html" class="btn btn-neutral float-right" title="擴展 Koha" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="other-apis-and-protocols">
+<span id="other-apis-protocols-label"></span><h1>其他的 API 與通訊協定<a class="headerlink" href="#other-apis-and-protocols" title="此标题的永久链接"></a></h1>
+<section id="sip2">
+<span id="sip2-label"></span><h2>SIP2<a class="headerlink" href="#sip2" title="此标题的永久链接"></a></h2>
+<p>SIP2 (Session Initiation Protocol) 是設備間的通信協定。</p>
+<p>SIP2 使用於 Koha 與自助借出設備 (Self Check, SC) 以及自動流通系統 (Automated Circulation System, ACS 即執行 Koha 的伺服器)。</p>
+<p>SIP2 包括請求與回應兩部份。</p>
+<p>自助借出機器是 ‘笨的’，送出請求至 Koha 伺服器，運算後再回應給客戶端的自助借出機器，藉以協助使用者。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>使用 SIP2 的安全通知：為了確保 SIP2 流量通過網際網路的安全，需使用 VPN 或安全通道。</p>
+</div>
+<section id="setting-up-sip2">
+<span id="setting-up-sip2-label"></span><h3>設定 SIP2<a class="headerlink" href="#setting-up-sip2" title="此标题的永久链接"></a></h3>
+<p>以 Debian 套件方式安裝的 Koha，其 SIP2 的設定就簡單多，祗需幾個步驟：</p>
+<p>1. In your terminal (in the root Koha directory) write in:
+<em>sudo koha-enable-sip &lt;instancename&gt;</em></p>
+<p>2. Now you need to configure the SIP2 settings, to do this you need to edit the SIPconfig.xml file which exists in the /etc/koha/sites/&lt;instancename&gt;/ directory.
+You will need to edit this file as root because it contains passwords (to do so write ‘sudo’  at the start of your command).</p>
+<p>如：<em>sudo vi /etc/koha/sites/&lt;instancename&gt;/SIPconfig.xml</em></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>重要通知：有三個地方與 SIPconfig.xml 檔案有關。它們是：服務、帳號與機構。</p>
+</div>
+<p><strong>服務</strong></p>
+<blockquote>
+<div><p>2.1 變更 SIPconfig.xml 檔案前端的埠號值 (在以下的畫面以 1 識別)，同個 IP 位址可以 SIPconfig.xml 檔案識別 2 另個它用。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>確認使用不同的埠號，不同的服務不能使用相同的埠號。應使用高埠號 (如 1000 以上)，因為 1000 以上的埠號需要 root 權限。</p>
+</div>
+</div></blockquote>
+<p><img alt="image1122" src="_images/portnumberbig.png" /></p>
+<p><strong>帳號</strong></p>
+<p>在 SIPconfig.xml 檔案內設定的帳號權限僅供 SIP2 服務使用，即祗能發送及收取 SIP2 命令。</p>
+<blockquote>
+<div><div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>寫在此處的帳號資訊必須同時存在於 Koha 資料庫，也就是必須在 Koha 館員介面新增該使用者及密碼 (確認授予流通權限) 做為寫入 SIPconfig.xml 檔案的帳號。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>強烈建議祗給該 Koha 使用者帳號流通權限。</p>
+<p>把 SIP2 使用者的權限限制於流通而不是超級圖書館員的權限，係為了減少 SIP2 使用者查看讀者的隱私。</p>
+<p>若自動流通系統 ACS 或自助借出設備 SC 妥協後，所有的 SIP2 使用者祗有流通權限，限制闖入者祗能經由終端機進來，無法從網頁介面進來搗亂 (超級圖書館員的權限才能這麼做)。所以，就是保護使用者的一個措施。</p>
+</div>
+</div></blockquote>
+<p><img alt="image1119" src="_images/accounts.png" /></p>
+<p><strong>設定帳號值：</strong></p>
+<ol class="arabic simple">
+<li><p>登入帳號：這是帳號名稱。- 適度修改它</p></li>
+<li><p>密碼：帳號密碼 - 適度修改密碼</p></li>
+<li><p>分隔值：帳號資訊的分隔值 - 使用預設值</p></li>
+<li><p>error-detect - Leave as default</p></li>
+<li><p>機構：使用者所屬圖書館的分館代碼。說明：需在 SIPconfig.xml 檔案先設定該機構並且需存在於 Koha 資料庫。即從 Koha 館員介面新增該分館代碼的圖書館。</p></li>
+<li><p>編碼：這是編碼帳號資料的標準</p></li>
+<li><p>終止符號：必須符合 SIP2 伺服器的終止符號值。- 如果知道 SIP2 伺服器的終止符號值，修改它。</p></li>
+</ol>
+<p>以下面的格式可以客製化讀者屬性至 SIP2 設定檔：</p>
+<blockquote>
+<div><p>&lt;patron_attribute field=”XX” code=”CODE1” /&gt;
+&lt;patron_attribute field=”XY” code=”CODE2” /&gt;
+&lt;patron_attribute field=”XZ” code=”CODE3” /&gt;</p>
+</div></blockquote>
+<p><strong>機構</strong></p>
+<blockquote>
+<div><p>此處設定的機構資料必須與 Koha 館員介面的新增圖書館相符。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>設定的所有機構必須與 SIPconfig.xml 檔案相符也必須與同檔案的機構區塊內容一致。</p>
+</div>
+</div></blockquote>
+<p><img alt="image1120" src="_images/institution.png" /></p>
+<p><strong>設定機構值：</strong></p>
+<blockquote>
+<div><p>1. Institution id: The branchcode of the library. - Modify this accordingly.
+Must be the same as created in Koha and the account area.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>應用：定義執行的代碼。- 使用預設值</p></li>
+</ol>
+<blockquote>
+<div><p>3. Policy: Policy defines the permitted SIP2 commands allowed from SC’s in this institution.
+For example: renewal=”true” means that SC’s at that institution have permission to send renewal item SIP2 commands.</p>
+<p>4. Starting SIP2
+Simply write in the command:
+<em>sudo koha-start-sip &lt;instancename&gt;</em></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>現在可以執行 SIP2 伺服器。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Optionally, you can configure sorting bin behavior, using the
+<a class="reference internal" href="circulationpreferences.html#uselocationasaqisip-label"><span class="std std-ref">UseLocationAsAQInSIP</span></a> and
+<a class="reference internal" href="circulationpreferences.html#sip2sortbinmapping-label"><span class="std std-ref">SIP2SortBinMapping</span></a> system preferences.</p>
+</div>
+</section>
+<section id="using-sip2">
+<span id="using-sip2-label"></span><h3>使用 SIP2<a class="headerlink" href="#using-sip2" title="此标题的永久链接"></a></h3>
+<p>SIP2 是通訊協定。送給 SIP2 的訊息是請求或回應。SC 送出請求訊息給 ACS，執行若干邏輯並送回結果值給 SC 做為回應訊息。</p>
+<p>請求訊息包括參數，就是被 ACS 使用於其函數的資料，執行諸如續借的請求。</p>
+<p><strong>SIP2 命令</strong></p>
+<p>必須經由 Linux 終端機撰寫與接數訊息，才能以人工設定/測試 SIP2。</p>
+<p>為了對 SIP2 伺服器送出與接收訊息，需以 telnet 打開 SIP2 連結。需指定 telnet 連結的埠號。</p>
+<p>查詢 SIPconfig.xml 檔案服務區塊上方，即可找到該等資訊 (注意螢幕下方箭頭所示的埠號)。</p>
+<p><img alt="image1121" src="_images/portnumbersmall.png" /></p>
+<ol class="arabic">
+<li><p>寫入終端機</p>
+<p><em>telnet localhost &lt;portnumber&gt;</em></p>
+<p>如：<em>telnet localhost 8023</em></p>
+</li>
+<li><p>Now write in the username and password set in one of the accounts in the SIPconfig.xml file.</p></li>
+<li><p>現在你可以連結至 SIP2 伺服器，你可以開始撰寫並傳送指令當與 SIP2 服務器的連接超時，如果沒有完成寫入和接收命令，只需寫入：</p>
+<p><em>telnet localhost &lt;portnumber&gt;</em></p>
+<p>重新啟用 SIP2 連結。</p>
+</li>
+</ol>
+<p><strong>SIP2 命令語法</strong></p>
+<p>每個 SIP2 命令有 2 個數字前置告知命令的作用。</p>
+<p>例如，取得讀者資訊，必須加上前置數字：63。伺服器的回應也是前置數字。</p>
+<p>以下是請求讀者資訊的 SIP2 請求訊息樣本 (在樣本中是已經新增的 Koha 讀者，帳號是 ‘joe’、密碼是 ‘joes’、讀者證號碼是 ‘y76t5r43’)。</p>
+<p>此外，已經從 Koha 館員介面新增分館代號為‘WEL’的圖書館，也設定在 SIPconfig.xml 檔案的機構區)：</p>
+<p><img alt="image1123" src="_images/sipcommand1.png" /></p>
+<p>所以，SIP2 的請求訊息格式是：</p>
+<p><img alt="image1124" src="_images/sipcommand2.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>摘要值是 10 字元長度。若寫入 Y 則可以取得摘要與更詳細的資訊性輸出。</p>
+</div>
+<p>其值是 &lt;YYYYMMDD&gt; &lt;HHMMSS&gt; 格式，現在的時間與日期，在YYYYMMDD 與 HHMMSS 之間空 4 格，表示使用的是當地時間不是 UTC 時間。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>本手冊以欄位字母代碼表示 SIP2 的訊息欄位，如 AO&lt;institutionid&gt;。</p>
+<p>可以把字母代碼寫入 Linux 終端機的 SIP2 命令，但需確認取代值在欄位 (在 &lt;&gt; 內) 就不必寫入 &lt;&gt; 括號內。</p>
+</div>
+<p><strong>SIP2 訊息</strong></p>
+<p><strong>封鎖讀者</strong></p>
+<p>請求的訊息以前綴號 01 表示，而回應的訊息則以前綴號 24 表示。</p>
+<p>請求的訊息：</p>
+<p><img alt="image1125" src="_images/sipcommand3.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Card retained is a single character field of either ‘Y’ or ‘N’ which tells the ACS that a card has been retained by the self checkout machine.</p>
+</div>
+<p>回應的訊息：</p>
+<p><img alt="image1126" src="_images/sipcommand4.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>&lt;patronstatus&gt; 可以儲存 14 個字元的字串資料(第一個字元的位置為0)，此設定值的每一個字元位置之有效設定值包含 Y、N 兩種(字元)。</p>
+<p>舉例來說：若字元位置 1 (代表在該字串資料中的第 2 個字元)之值為 Y，其對應的設定結果為 拒絕讀者變更權限。</p>
+</div>
+<p><strong>還入的館藏</strong></p>
+<p>請求訊息 (傳送給 ACS 的訊息) 之前綴碼採用 09，而回應訊息 (傳送給 SC 的訊息) 之前綴碼為 10。</p>
+<p>請求的訊息：</p>
+<p><img alt="image1127" src="_images/sipcommand5.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>&lt;no block (Offline)&gt;  此項為單字元資料欄位，其設定值包含 ‘Y’ 或 ‘N’ 兩種(字元)，代表是否啟用離線流通。若您需要手動測試此訊息功能，又您的系統若不支援離線流通，則此欄位之設定值應為 ‘N’。</p></li>
+<li><p>&lt;transactiondate&gt; 此項為 18 個字元的資料欄位，其格式如下：YYYYMMDDZZZZHHMMSS。</p></li>
+</ul>
+<p>ZZZZ 代表時區，若要設定成當地時區，您必須以 4 個空白字元代表之，但如果要設定成 UTC (全球協調時間)，則必須以 3 個空格和一個 Z 代表之。</p>
+</div>
+<p>回應的訊息：</p>
+<p><img alt="image1128" src="_images/sipcommand6.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>其他類型可能為：00 : 不詳 01: 在地 02: 遠端 03: ILL 轉移 04: 轉移 99: 其他</p>
+</div>
+<p>如果一個館藏被重新感應，那麼 &lt;resensitize&gt; 的值應該是 Y 不然的話它應該是 N。對館藏進行重新感應以確保如果有人試圖竊取館藏，他們會被偵測到。</p>
+<p><strong>借出的館藏</strong></p>
+<p>請求訊息前置 11 且回應訊息前置為 12。類似還入命令的語法，除了前置之外是不同的。</p>
+<p><strong>預約</strong> – 有些系統可能不支援此功能。就是前置碼為 15 的請求訊息且回應訊息前置碼為 16。</p>
+<p>請求的訊息：</p>
+<p><img alt="image1129" src="_images/sipcommand7.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>&lt;holdmode&gt; 其值為一個字元。+ 表示新增預約，- 表示刪除預約 * 表示變更預約。</p>
+</div>
+<p>回應的訊息：</p>
+<p><img alt="image1130" src="_images/sipcommand8.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>&lt;ok&gt; 其值可能為 0 (不允許預約或預約失敗) 或 1 (允許預約或預約成功)。</p></li>
+<li><p>&lt;available&gt; 其值為 Y 或 N。Y 表示該館藏在館內，N 表示該館藏外借中/被預約。</p></li>
+</ul>
+</div>
+<p><strong>館藏資訊：請求命令的前置碼為 17，回應命令的前置碼為 18</strong></p>
+<p>請求的訊息：</p>
+<p><img alt="image1131" src="_images/sipcommand9.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>參見還入館藏命令 (如前所述) 找出 &lt;xact_date&gt; 的值。</p>
+<p>您可以自行決定是否設定終端機的密碼。</p>
+</div>
+<p>回應的訊息：</p>
+<p><img alt="image1132" src="_images/sipcommand10.png" /></p>
+<p><strong>館藏狀態更新以前綴號 19 表示請求的訊息，而以前綴號 20 表示回應的訊息</strong></p>
+<p>請求的訊息：</p>
+<p><img alt="image1133" src="_images/sipcommand11.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>&lt;itemproperties&gt; 不是固定長度的值，可以寫入館藏大小儲存在 Koha 資料庫內。</p>
+</div>
+<p>回應的訊息：</p>
+<p><img alt="image1134" src="_images/sipcommand12.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>&lt;itempropertiesok&gt; 的值是 0 或 1。1 表示設定館藏狀態更新的請求訊息 &lt;itemproperties&gt; 已經儲存在 Koha 資料庫。</p>
+</div>
+<p><strong>讀者狀態</strong></p>
+<p>以前綴號 23 表示請求的訊息，而用前綴號 24 表示回應的訊息。</p>
+<p>請求的訊息：</p>
+<p><img alt="image1135" src="_images/sipcommand13.png" /></p>
+<p>回應的訊息：</p>
+<p><img alt="image1136" src="_images/sipcommand14.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>顯示在 &lt;patronvalidity&gt; 的值是 Y (有效) 與 N (無效) 在 &lt;YYYYMMDD&gt;    &lt; HHMMSS&gt; 內的值是現在的日期/時間。</p>
+<p>兩個值之間的空格表示使用在地時間而不是 UTC 時間。</p>
+</div>
+<p><strong>啟用讀者 - 此功能尚未完備。使用前置碼 25 的請求訊息與前置碼為 26 的回應訊息</strong></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>這個指令可以取消封鎖讀者的指令。</p>
+</div>
+<p>請求的訊息：</p>
+<p><img alt="image1137" src="_images/sipcommand15.png" /></p>
+<p>回應的訊息：</p>
+<p><img alt="image1138" src="_images/sipcommand16.png" /></p>
+<p><strong>更新以前綴號 29 表示請求的訊息，而以前綴號 30 表示回應的訊息</strong></p>
+<p>請求的訊息：</p>
+<p><img alt="image1139" src="_images/sipcommand17.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>&lt;thirdpartyallowed&gt; 其值為 Y 或 N。Y 表示第三方可以更新該館藏。</p></li>
+<li><p>&lt;noblock&gt; 其值為 Y 或 N。Y 表示 ASC 離線時館藏被借出/還入。</p></li>
+<li><p>&lt;nbduedate&gt; 是 ACS 離線時還入/借出的日期。</p></li>
+<li><p>&lt;feeacknowledged&gt; 的值是 Y 或 N。表示讀者接受續借館藏的費用。</p></li>
+</ul>
+</div>
+<p>回應的訊息：</p>
+<p><img alt="image1140" src="_images/sipcommand18.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>&lt;ok&gt; 的值為 0 或 1。1 表示續借館藏成功，0 表示續借館藏失敗。</p></li>
+<li><p>&lt;renewalok&gt; 的值是 Y 或 N。把 &lt;renewalok&gt; 設為 Y 表示館藏已經被借出，續借時應消磁，設為 N 表示館藏未被借出，不可續借。</p></li>
+</ul>
+<p>換句話說，不要讓讀者在目前沒有借出該書籍的時候，更新其借閱狀態。</p>
+<ul class="simple">
+<li><p>&lt;magneticmedia&gt; 的值為 Y (表示 yes)、N (表示 no)、或 U (表示不詳 unknown)。</p></li>
+<li><p>&lt;mediatype&gt; 的值為三個數字。參見：<a class="reference external" href="http://multimedia.3m.com/mws/media/355361O/sip2-protocol.pdf">http://multimedia.3m.com/mws/media/355361O/sip2-protocol.pdf</a></p></li>
+</ul>
+</div>
+<p><strong>作業階段結束</strong></p>
+<p>此地的請求訊息前置碼為 35，回應訊息前置碼為 36</p>
+<p>請求的訊息：</p>
+<p><img alt="image1141" src="_images/sipcommand19.png" /></p>
+<p>回應的訊息：</p>
+<p><img alt="image1142" src="_images/sipcommand20.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>&lt;success_or_failure&gt; 的值是 Y 表示成功或 N 表示失敗。</p>
+</div>
+<p><strong>付款 – 可能尚未完成。需使用前置 37 的請求訊息及前置 38 的回應訊息</strong></p>
+<p>請求的訊息：</p>
+<p><img alt="image1143" src="_images/sipcommand21.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>&lt;feetype&gt; 的值是介於 01 與 99 之間的數值。參見：<a class="reference external" href="http://multimedia.3m.com/mws/media/355361O/sip2-protocol.pdf">http://multimedia.3m.com/mws/media/355361O/sip2-protocol.pdf</a></p></li>
+<li><p>&lt;paymenttype&gt; 的值是介於 00 與 99 之間的數值。00 表示現金、01 為 Visa、02 是信用卡。</p></li>
+<li><p>&lt;currencytype&gt; 的值為長度 3 的文數字用以識別付費的金額。</p></li>
+</ul>
+</div>
+<p>回應的訊息：</p>
+<p><img alt="image1144" src="_images/sipcommand22.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>&lt;paymentaccepted&gt; 的值是 Y (付費成功) 或 N (付費失敗)。</p>
+</div>
+<p><strong>讀者資訊</strong></p>
+<p>使用前綴號63表示請求的訊息，而以前綴號64表示回應的訊息</p>
+<p>請求的訊息：</p>
+<p><img alt="image1145" src="_images/sipcommand23.png" /></p>
+<p>回應的訊息：</p>
+<p><img alt="image1146" src="_images/sipcommand24.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>&lt;valid patron&gt; 的值是 Y 表示成功與 N 表示失敗。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>&lt;hold itemcount&gt;&lt;overdueitemcount&gt;&lt;chargeditemscount&gt;&lt;fienitemscount&gt;&lt;recallitemscount&gt;&lt;unavaliableholdscount&gt; 的值都是長度為 4 的文數字。</p>
+</div>
+<p><strong>更新全部</strong></p>
+<p>This uses the request message prefix of 65 and the response message prefix of 66.</p>
+<p>請求的訊息：</p>
+<p><img alt="image1147" src="_images/sipcommand25.png" /></p>
+<p>回應的訊息：</p>
+<p><img alt="image1148" src="_images/sipcommand26.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>&lt;renewedcount&gt; 的值是長度為 4 的數值表示允許續借的館藏數。</p></li>
+<li><p>&lt;unrenewedcount&gt; 的格式與 &lt;renewedcount&gt; 相同，但表示不能續借的館藏數。</p></li>
+</ul>
+</div>
+<p><strong>登入</strong></p>
+<p>請求訊息前置碼為 93 回應訊息前置碼為 94。</p>
+<p>請求的訊息：</p>
+<p><img alt="image1149" src="_images/sipcommand27.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>&lt;UIDalgorithm&gt; 與 &lt;PWDalgorithm&gt; 的值都是一個字元，表示加密 loginuserid 與 loginpassword 的演算法類型。</p>
+<p>寫入的值為 0 表示該值未加密。</p>
+</div>
+<p>回應訊息：<em>941</em> 表示登入成功。<em>940</em> 表示登入失敗 <em>[被不詳主機關閉連結。]</em> 表示登入失敗</p>
+<p><strong>重送</strong></p>
+<p>請求接收裝置重送最後收到的訊息。</p>
+<p>SC -&gt; ACS 重送請求是 <em>97</em></p>
+<p>ACS -&gt; SC 重送請求是 <em>96</em></p>
+<p><strong>ACS 與 SC 的狀態</strong></p>
+<p>請求訊息前置碼為 99 回應訊息前置碼為 98。</p>
+<p>請求的訊息：</p>
+<p><img alt="image1150" src="_images/sipcommand28.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>狀態代碼有 3 ：* 0: 表示 SC ok * 1: 表示 SC 沒有紙 * 2: 表示 SC 關機。列印最大寬度昰 3 個整數字元，使用 x.xx 格式時可以用到 4 個字元</p>
+</div>
+<p>回應的訊息：</p>
+<p><img alt="image1151" src="_images/sipcommand29.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>回應訊息 ‘96’ 表示請求訊息無效或無法理解。</p>
+</div>
+<p><strong>故障排除 SIP2</strong></p>
+<p>寫入 telnet localhost &lt;portnumber&gt; 命令時無法連結至遠端主機</p>
+<p>此問題有 3 個解決方式：</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>檢查命令的埠號是否在 SIPconfig.xml 檔案編號 1 的位置，即下例的埠號是 6001 時，正確的命令是：telnet localhost 6001。</p></li>
+<li><p>檢查 SIPconfig.xml 檔案內的 userid 是否寫了多次。SIPconfig.xml 內的 userid (就是 Koha 使用者名稱) 不能重複。在 SIPconfig.xml 內有多個 userid，就無法連結至 SIP2。</p></li>
+<li><p>檢查 SIPconfig.xml 檔案內的帳號是否以同名、同密碼、同樣的流通權限存在於 Koha 資料庫內。在 Koha 館員介面新增帳號後，曾退出並再新增 Koha 資料庫，SIPconfig.xml 檔案內的讀者帳號將不會在 Koha 資料庫內，必須於 Koha 館員介面重新建置該帳號。</p></li>
+</ol>
+</div></blockquote>
+<p>至以下的資料庫近用 SIP2 紀錄：/var/log/koha/&lt;instancename&gt;</p>
+<p>然後檢視 sip-error.log 與 sip-output.log 的輸出，可得到 SIP2 錯誤的詳情。</p>
+<ul class="simple">
+<li><p>cat sip-error.log</p></li>
+<li><p>cat sip-output.log</p></li>
+</ul>
+<p><strong>有用的 SIP2 命令連結：</strong></p>
+<p><a class="reference external" href="http://multimedia.3m.com/mws/media/355361O/sip2-protocol.pdf">http://multimedia.3m.com/mws/media/355361O/sip2-protocol.pdf</a></p>
+</section>
+</section>
+<section id="ldap">
+<span id="ldap-label"></span><h2>LDAP<a class="headerlink" href="#ldap" title="此标题的永久链接"></a></h2>
+<p>設定 Koha 的 LDAP (輕型目錄存取協定 Lightweight Directory Access Protocol) 就能夠把所有的讀者資訊儲存在中央資料庫內，供使用者於 Koha 及其他系統認證使用。</p>
+<p>LDAP 是跨網路及其認證的通訊協定。</p>
+<p>LDAP configurations are powerful allowing you to customise how Koha and LDAP interact. LDAP can be configured so that new accounts created in LDAP can be synced down into the Koha database, additionally updates to the LDAP user account are synced down to the Koha database.</p>
+<p>不過 Koha 不能同步更新 LDAP 伺服器，祗能單向地由 LDAP 傳往 Koha。</p>
+<p>在 LDAP 資料庫使用 Microsoft Windows Active Directory 系統時，Auth_By_Bind 設為 1。</p>
+<p><strong>組態 LDAP 前需從機構取得以下的資訊/作為</strong></p>
+<ul class="simple">
+<li><p>機構需開啟埠號供伺服器的 AD 近用。</p></li>
+<li><p>近用 AD 伺服器的資訊 (IP 位址/主機名稱、埠號、SSL 資訊)</p></li>
+<li><p>組態 AD 伺服器的資訊 (相關的 OU、DC、與使用者名稱有關的 CN 格式)</p></li>
+<li><p>對映包括預設值在內的 AD 與 Koha 欄位</p></li>
+<li><p>AD 不提供的預設值 (屬性代碼、分館代碼等)</p></li>
+<li><p>認證使用者採用綁定 (AD 常用的) 或以帳號登入並檢查嗎？若為後者，需要登入的詳情</p></li>
+<li><p>Koha 內的使用者名稱與 AD 的使用者名稱相符嗎？若然，很好。否則，如何處理重複的使用者？</p></li>
+</ul>
+<p><strong>設定 LDAP 於 Koha 實例</strong></p>
+<p>1 從 Linux 終端機進入含有 koha-conf.xml 檔案的目錄，可能在：* /etc/koha/sites/&lt;instance-name&gt;/ 或 * /etc/koha/</p>
+<p>2 以 root 權限開啟 koha-conf.xml 檔案：sudo vi koha-conf.xml</p>
+<p>3 找到 ‘&lt;useldapserver&gt;0&lt;/useldapserver&gt;’ 字樣並更改為：&lt;useldapserver&gt;1&lt;/useldapserver&gt;</p>
+<p>4 Then in the next line below write in the LDAP configurations below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      &lt;ldapserver id=&quot;&lt;ldapserverid&gt;&quot;&gt;
+
+      &lt;hostname&gt;&lt;hostname&gt;&lt;/hostname&gt;
+
+      &lt;base&gt;dc=&lt;domaincontroller&gt;,dc=&lt;domaincontroller&gt;&lt;/base&gt;
+
+      &lt;user&gt;cn=&lt;nameofuser&gt;, dc=&lt;domaincontroller&gt;,dc=&lt;domaincontroller&gt;&lt;/user&gt; &lt;!--This is the username of user account with permissions to query the LDAP server --&gt;
+
+      &lt;pass&gt;&lt;password&gt;&lt;/pass&gt; &lt;!-- This is password of the user account with permissions to query the LDAP server--&gt;
+
+      &lt;replicate&gt;&lt;either0or1&gt;&lt;/replicate&gt; &lt;!-- add new users from LDAP to Koha database --&gt;
+
+&lt;welcome&gt;&lt;either0or1&gt;&lt;/welcome&gt; &lt;!-- send new users the welcome email when added via replicate --&gt;
+
+      &lt;update&gt;&lt;either0or1&gt;&lt;/update&gt; &lt;!-- update existing users in Koha database --&gt;
+
+      &lt;auth_by_bind&gt;&lt;either0or1&gt;&lt;/auth_by_bind&gt; &lt;!-- set to 1 to authenticate by binding instead of password comparison, e.g., to use Active Directory --&gt;
+
+      &lt;principal_name&gt;&lt;principalname&gt;&lt;/principal_name&gt; &lt;!-- optional, for     auth_by_bind: a printf format to make userPrincipalName from koha userid        --&gt;
+
+      &lt;mapping&gt; &lt;!-- match koha SQL field names to your LDAP record field names--&gt;
+
+      &lt;firstname is=&quot;givenname&quot;&gt;&lt;/firstname&gt;
+
+      &lt;surname is=&quot;sn&quot;&gt;&lt;/surname&gt;
+
+      &lt;address is=&quot;postaladdress&quot;&gt;&lt;/address&gt;
+
+      &lt;city is=&quot;l&quot;&gt;Athens, OH&lt;/city&gt;    &lt;!-- Athens,OH is the default value for
+      city of all users logging into Koha --&gt;
+
+      &lt;zipcode is=&quot;postalcode&quot;&gt;&lt;/zipcode&gt;
+
+      &lt;branchcode is=&quot;branch&quot;&gt;Central&lt;/branchcode&gt;
+
+      &lt;userid is=&quot;uid&quot;&gt;&lt;/userid&gt;
+
+      &lt;password is=&quot;userpassword&quot;&gt;&lt;/password&gt;
+
+      &lt;email is=&quot;mail&quot;&gt;&lt;/email&gt;
+
+      &lt;categorycode is=&quot;employeetype&quot;&gt;EM&lt;/categorycode&gt;
+
+      &lt;phone is=&quot;telephonenumber&quot;&gt;&lt;/phone&gt;
+
+      &lt;/mapping&gt;
+
+      &lt;/ldapserver&gt;
+</pre></div>
+</div>
+<p>5 儲存共離開 koha-conf.xml 檔案</p>
+<p>6 寫入以下資料檢查 LDAP 的連結功能：</p>
+<p>ldapsearch -H ldaps://host.name  -s base -x  -w “” -d 1</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>主機名稱說明 可以是文木或 LDAP 伺服器的 IP 位址 (可包括寫入的埠號)。LDAP 的預設埠號為 636，實際上其埠號為 389</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Note about the replicate and update fields
+The replicate LDAP config field for LDAP in the koha-conf.xml file allow the Koha database to be added to with a new borrower account whenever a user logs into Koha (either the staff client or OPAC) with their LDAP username and password (assuming the same username and password does not already exist in the Koha database).</p>
+<p>更新 LDAP 組態欄位 (允許同檔案) 可以讓 LDAP 資料庫與 Koha 資料庫同步。例如，若已設定更新組態為 1，同步結婚後冠夫姓祗需更新 LDAP 資料庫就可，系統同步自行更新 Koha 資料庫。</p>
+</div>
+<p>關於對映欄位 (以高亮度綠色顯示的欄位) &lt;city is=”l”&gt;Athens, OH&lt;/city&gt;</p>
+<p>左邊的欄位名稱 (以高亮黃色顯示) 即是 LDAP 資料庫的同名欄。</p>
+<p>引號內的欄位名稱 (以高亮粉紅色顯示) 是 Koha 資料庫內的欄名。說明：若在 Koha 資料庫內沒有與 LDAP 資料庫同名的欄位，可以鍵入其他的值。</p>
+<p>高亮青色的值是 Koha 與 LDAP 的預設值。所以，前例 Koha 與 LDAP的讀者其預設縣市值都是 ‘Athens, OH’。</p>
+<p>LDAP 組態樣本：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;useldapserver&gt;1&lt;/useldapserver&gt;&lt;!-- see C4::Auth_with_ldap for extra configs you must add if you want to turn this on --&gt;
+
+&lt;ldapserver id=&quot;ldapserver&quot; listenref=&quot;ldapserver&quot;&gt;
+
+&lt;hostname&gt;ldaps://example.co.au&lt;/hostname&gt;
+
+&lt;base&gt;ou=employees,dc=companya,dc=com,dc=au&lt;/base&gt;
+
+&lt;user&gt;&lt;/user&gt; &lt;!-- DN, if not anonymous --&gt;
+
+&lt;pass&gt;&lt;/pass&gt; &lt;!-- password, if not anonymous --&gt;
+
+&lt;auth_by_bind&gt;1&lt;/auth_by_bind&gt;
+
+&lt;replicate&gt;1&lt;/replicate&gt; &lt;!-- add new users from LDAP to Koha database --&gt;
+
+&lt;update&gt;0&lt;/update&gt; &lt;!-- update existing users in Koha database --&gt;
+
+&lt;principal_name&gt;ou=employees,dc=companya,dc=com,dc=au&lt;/principal_name&gt;
+
+&lt;mapping&gt;
+
+&lt;userid       is=&quot;uid&quot;            &gt;&lt;/userid&gt;
+
+&lt;cardnumber   is=&quot;uid&quot;            &gt;&lt;/cardnumber&gt;
+
+&lt;email        is=&quot;mail&quot;           &gt;&lt;/email&gt;
+
+&lt;surname      is=&quot;sn&quot;             &gt;&lt;/surname&gt;
+
+&lt;firstname    is=&quot;givenname&quot;      &gt;&lt;/firstname&gt;
+
+&lt;categorycode is=&quot;1&quot;&gt;EM&lt;/categorycode&gt;
+
+&lt;branchcode   is=&quot;1&quot;&gt;SYD&lt;/branchcode&gt;
+
+&lt;/mapping&gt;
+
+&lt;/ldapserver&gt;
+</pre></div>
+</div>
+<p>對映區塊的值不見得都相同，需依機構的 LDAP 資料庫而定。有些機構不使用 &lt;userid&gt; 而使用 &lt;email&gt; 欄位所以沒有 &lt;userid&gt; 欄位。</p>
+<p><strong>故障排除 LDAP</strong></p>
+<p>多種因素影響列印 LDAP 錯誤紀錄：</p>
+<p>若沒有停用 plack，則將 LDAP 錯誤顯示在 plack-error.log 檔案；若已停用 plack，則把 LDDA 的錯誤顯示在 opac-error.log 檔案 (若使用者登錄於 OPAC) 或 intranet-error.log 檔案 (若使用者登錄於館員介面)。這三個檔案都儲存在以下目錄：</p>
+<p>/var/log/koha/&lt;instance&gt;/</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="webservices.html" class="btn btn-neutral float-left" title="Web services" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="extending_koha.html" class="btn btn-neutral float-right" title="擴展 Koha" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

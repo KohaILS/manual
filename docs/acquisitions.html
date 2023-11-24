@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>採訪 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="电子资源管理" href="erm.html" />
+    <link rel="prev" title="期刊" href="serials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">採訪</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-acquisitions-module">Setting up the acquisitions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vendors">供應商</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-vendor">Adding a vendor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#searching-for-vendors">Searching for vendors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-a-vendor">Viewing a vendor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-vendor-information">Editing vendor information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vendor-contracts">供應商合約</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-contract">Adding a contract</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#recording-issues-with-vendors">Recording issues with vendors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-purchase-suggestions">管理採訪建議</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#approving-or-rejecting-purchase-suggestions">Approving or rejecting purchase suggestions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-purchase-suggestions">Editing purchase suggestions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#archiving-purchase-suggestions">Archiving purchase suggestions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-purchase-suggestions">Deleting purchase suggestions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#placing-orders">發出訂單</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-basket">Creating a basket</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-materials-to-the-basket">Adding materials to the basket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-patron-notifications">Setting up patron notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-items-to-orders">Adding items to orders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-accounting-details-to-orders">Adding accounting details to orders</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-the-basket">Editing the basket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ordering-closing-the-basket">Ordering (closing the basket)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dealing-with-uncertain-prices">Dealing with uncertain prices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-basket-group">Creating a basket group</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#searching-for-orders">Searching for orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#receiving-orders">收到訂單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transferring-orders">發出訂單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cancelling-orders">Cancelling orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invoices">發票</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attaching-files-to-invoices">附加檔案到發票</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merging-invoices">Merging invoices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#claims-and-late-orders">採購建議及晚到的訂單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#budget-fund-tracking">預算/基金追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edi-process">EDI 程序</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-edi-in-koha">Setting up EDI in Koha</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#edi-questions-for-vendors">給供應商的 EDI 問卷</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ordering-via-edi">Ordering via EDI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-a-marc-file">Working with a MARC file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sending-the-edifact-order">Sending the EDIFACT order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-a-quote-file">Working with a QUOTE file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#edi-invoicing">EDI 發票</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edifact-messages">EDIFACT 訊息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">採訪</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/acquisitions.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="serials.html" class="btn btn-neutral float-left" title="期刊" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="erm.html" class="btn btn-neutral float-right" title="电子资源管理" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="acquisitions">
+<span id="acquisitions-label"></span><h1>採訪<a class="headerlink" href="#acquisitions" title="此标题的永久链接"></a></h1>
+<p>Koha’s acquisitions module provides a way for the library to record
+orders placed with vendors and manage purchase budgets.</p>
+<p><em>到這：</em> 其他 &gt; 虛擬書架</p>
+<section id="setting-up-the-acquisitions-module">
+<span id="setup-acquisitions-label"></span><h2>Setting up the acquisitions module<a class="headerlink" href="#setting-up-the-acquisitions-module" title="此标题的永久链接"></a></h2>
+<p>Before using the acquisitions module, you need to make sure that you
+have completed all of the set up.</p>
+<p>First, set your <a class="reference internal" href="acquisitionspreferences.html#acquisitions-system-preferences-label"><span class="std std-ref">acquisitions system preferences</span></a>
+and <a class="reference internal" href="administration.html#acquisitions-module-label"><span class="std std-ref">acquisitions administration</span></a> to match
+your library’s workflow. Before setting your
+<a class="reference internal" href="administration.html#edi-accounts-label"><span class="std std-ref">EDI accounts</span></a> and <a class="reference internal" href="administration.html#library-eans-label"><span class="std std-ref">library EANs</span></a>,
+you will need to have <a class="reference internal" href="#add-a-vendor-label"><span class="std std-ref">entered your vendors</span></a>.</p>
+<p>從採訪首頁可看到圖書館基金的清單。</p>
+<p><img alt="Funds table on the acquisitions module's main page" src="_images/acqfunds.png" /></p>
+<p>Learn more in the <a class="reference internal" href="#budget-fund-tracking-label"><span class="std std-ref">Budget/fund tracking</span></a>
+section.</p>
+</section>
+<section id="vendors">
+<span id="vendors-label"></span><h2>供應商<a class="headerlink" href="#vendors" title="此标题的永久链接"></a></h2>
+<p>必須先鍵入供應商才能送出訂單。</p>
+<section id="adding-a-vendor">
+<span id="add-a-vendor-label"></span><h3>Adding a vendor<a class="headerlink" href="#adding-a-vendor" title="此标题的永久链接"></a></h3>
+<p>To add a vendor click the ‘New vendor’ button on the acquisitions module main
+page.</p>
+<p><img alt="New vendor button on the main page of the acquisitions module" src="_images/newvendorbutton.png" /></p>
+<p>The new vendor form is broken into three sections: company information,
+contacts and ordering information.</p>
+<ul>
+<li><p>Company information: basic information about the vendor</p>
+<p><img alt="Company details section of the new vendor form" src="_images/newvendor1.png" /></p>
+<ul>
+<li><p>Name (required): this name is the name that will appear everywhere in Koha
+when referring to this vendor</p></li>
+<li><p>Postal address, physical address, phone, fax, website, account number:
+these fields are optional and should be filled to help with generating
+claim letters and invoices</p></li>
+<li><p>Vendor type: use this field as needed to categorize your vendors (for
+example, bookseller, donor, electronic resource provider)</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>By default, this field is a free text field. If you’d rather have a
+drop-down menu, <a class="reference internal" href="administration.html#add-new-authorized-value-label"><span class="std std-ref">add values</span></a> in
+the VENDOR_TYPE <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a>.</p>
+</div>
+</li>
+<li><p>Aliases: add one or more aliases to a vendor as additional keywords to
+search with in the <a class="reference internal" href="#vendor-search-label"><span class="std std-ref">vendor search</span></a>. For example,
+the vendor ‘American Library Association’ could have the alias ‘ALA’.</p></li>
+</ul>
+</li>
+<li><p>Contacts: information regarding your contact(s) at the vendor’s office</p>
+<p><img alt="Contacts section of the new vendor form" src="_images/newvendor2.png" /></p>
+<ul>
+<li><p>這些欄位都不是必備，祗對追蹤與供應商的連絡資訊有用</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>採訪主辦人：勾選此方框表示此人為對此採訪代理商的窗口</p></li>
+<li><p>期刊主辦人：勾選此方框表示此人為對此期刊採訪代理商的窗口</p></li>
+<li><p>Contact when ordering? check this box if you want to be able to
+send your orders by email directly to this person (see the
+<a class="reference internal" href="#edit-basket-label"><span class="std std-ref">editing baskets section below</span></a>)</p></li>
+<li><p>Contact about late orders? check this box if you want to be able to
+send your <a class="reference internal" href="#claims-and-late-orders-label"><span class="std std-ref">acquisitions claims</span></a>
+by email directly to this person</p></li>
+<li><p>Contact about late issues? check this box if you want to be able to
+send your <a class="reference internal" href="serials.html#claim-late-serials-label"><span class="std std-ref">serials claims</span></a> by email
+directly to this person</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>按 ‘新增連絡人’ 鈕，就能對代理商新增其他連絡人</p></li>
+</ul>
+</li>
+<li><p>Interfaces: information regarding the vendor’s website, software, or portal
+that you use to manage orders or gather statistics from this vendor or
+organisation. Entering an interface is not required, use this section only
+to keep track of the information within Koha. To add a vendor interface,
+click on ‘Add another interface’.</p>
+<p><img alt="Interfaces section of the new vendor form" src="_images/newvendor-interfaces.png" /></p>
+<ul>
+<li><p>Fill out the form (all fields are optional):</p>
+<ul>
+<li><p>Name: enter the name of the interface, this will be visible in Koha.</p></li>
+<li><p>Type: choose the interface type.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Values in this drop-down menu are managed in the
+VENDOR_INTERFACE_TYPE
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a>.</p>
+</div>
+</li>
+<li><p>URI: enter the interface’s URL address.</p></li>
+<li><p>Login: enter the username for the vendor interface.</p></li>
+<li><p>Password: enter the password for the vendor interface.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The password entered here will be encrypted in the database.
+It will not be shown by default in the vendor details page, there
+will be a ‘Show’ link in place of the password which can be clicked
+to display the password.</p>
+</div>
+</li>
+<li><p>Account email: enter the email used for the account on this interface.</p></li>
+<li><p>Notes: enter any notes regarding this interface.</p></li>
+</ul>
+</li>
+<li><p>Click ‘Add another interface’ if you need to add more than one interface
+for this vendor.</p></li>
+</ul>
+</li>
+<li><p>Ordering information: general billing information</p>
+<p><img alt="Ordering information section of the new vendor form" src="_images/newvendor3.png" /></p>
+<ul>
+<li><p>向供應商發出訂單前必須先 ‘啟用’ 它</p></li>
+<li><p>Choose the currency for list prices and invoice prices</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Currencies are set up in the
+<a class="reference internal" href="administration.html#currencies-and-exchange-rates-label"><span class="std std-ref">Currencies and exchange rates</span></a>
+administration section</p>
+</div>
+</li>
+<li><p>If your library is charged tax, mark your tax number as registered</p></li>
+<li><p>Note if your list prices and invoice prices include tax</p></li>
+<li><p>若圖書館稅額另計則鍵入稅率</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Tax rates are set in the <a class="reference internal" href="acquisitionspreferences.html#taxrates-label"><span class="std std-ref">TaxRates</span></a> system preferences</p>
+</div>
+</li>
+<li><p>若供應商提供固定折扣，鍵入於 ‘折扣’ 欄位</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can enter item specific discounts when
+<a class="reference internal" href="#accounting-details-orders-label"><span class="std std-ref">placing an order</span></a></p>
+</div>
+</li>
+<li><p>If you know how long it usually takes orders to arrive from
+this vendor you can enter a delivery time. This will allow Koha to
+estimate when orders will arrive at your library on the
+<a class="reference internal" href="#claims-and-late-orders-label"><span class="std std-ref">late orders report</span></a>.</p></li>
+<li><p>內部使用的通知</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="searching-for-vendors">
+<span id="vendor-search-label"></span><h3>Searching for vendors<a class="headerlink" href="#searching-for-vendors" title="此标题的永久链接"></a></h3>
+<p>Search for vendors either from the search bar at the top of the page</p>
+<p><img alt="The search bar at the top of the page has two options in the acquisitions module, Vendor search and Orders search, this show the vendor search option" src="_images/vendorsearchbar.png" /></p>
+<p>Or in the ‘Manage orders’ box on the main acquisitions page.</p>
+<p><img alt="The manage orders box on the acquisitions main page has a vendor search box" src="_images/manageorders.png" /></p>
+<p>You can search for any part of the vendor’s name, or their aliases.</p>
+<p><img alt="A vendor search for book returned two vendors, ABC Bookstore, KLMNOP Bookstore and XYZ Bookstore" src="_images/vendorsearch.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>An empty search will return all vendors.</p>
+</div>
+<p>If you have a lot of vendors, you can use the dropdown menu to jump directly
+to a result.</p>
+<p>By default, all vendors appear in the results, with inactive vendors in gray
+font and an ‘(inactive)’ note next to their name. You can click on ‘Show active
+vendors only’ to hide inactive vendors.</p>
+<p>In the results, you can see all the currently open baskets. You can click on
+‘Show all baskets’ to show closed baskets as well.</p>
+<p>There are action buttons under each vendor:</p>
+<ul class="simple">
+<li><p>‘New’ can be used to <a class="reference internal" href="#create-a-basket-label"><span class="std std-ref">create a new basket</span></a>, or
+<a class="reference internal" href="#add-a-contract-label"><span class="std std-ref">add a new contract</span></a> to that vendor.</p></li>
+<li><p>‘Edit vendor’ is used to <a class="reference internal" href="#edit-vendor-label"><span class="std std-ref">edit the vendor information</span></a>.</p></li>
+<li><p>‘Receive shipments’ will appear when a vendor has baskets with orders.</p></li>
+<li><p>‘Delete vendor’ will appear when a vendor has no baskets.</p></li>
+</ul>
+</section>
+<section id="viewing-a-vendor">
+<span id="view-vendor-label"></span><h3>Viewing a vendor<a class="headerlink" href="#viewing-a-vendor" title="此标题的永久链接"></a></h3>
+<p>To view a vendor’s information page,
+<a class="reference internal" href="#vendor-search-label"><span class="std std-ref">search for the vendor</span></a> from the acquisitions home
+page.</p>
+<p><img alt="A vendor search for book returned two vendors, ABC Bookstore, KLMNOP Bookstore and XYZ Bookstore" src="_images/vendorsearch.png" /></p>
+<p>From the results, click on the name of the vendor you want to view.</p>
+<p><img alt="Vendor information page" src="_images/vendorpage.png" /></p>
+</section>
+<section id="editing-vendor-information">
+<span id="edit-vendor-label"></span><h3>Editing vendor information<a class="headerlink" href="#editing-vendor-information" title="此标题的永久链接"></a></h3>
+<p>To make changes to a vendor <a class="reference internal" href="#vendor-search-label"><span class="std std-ref">search for the vendor</span></a>
+from the acquisitions home page.</p>
+<p>Click the ‘Edit vendor’ button on the results page</p>
+<p><img alt="A vendor search for book returned two vendors, ABC Bookstore, KLMNOP Bookstore and XYZ Bookstore" src="_images/vendorsearch.png" /></p>
+<p>or on the vendor information page.</p>
+<p><img alt="Vendor information page" src="_images/vendorpage.png" /></p>
+</section>
+<section id="vendor-contracts">
+<span id="vendor-contracts-label"></span><h3>供應商合約<a class="headerlink" href="#vendor-contracts" title="此标题的永久链接"></a></h3>
+<p>可設定合約 (含開始與結束日期) 給供應商。年度結束時才可看出該供應商用了多少合約。有的圖書館，指定合約每年的最低與最高金額。</p>
+<section id="adding-a-contract">
+<span id="add-a-contract-label"></span><h4>Adding a contract<a class="headerlink" href="#adding-a-contract" title="此标题的永久链接"></a></h4>
+<p>You can add a contract to a vendor by
+<a class="reference internal" href="#vendor-search-label"><span class="std std-ref">searching for the vendor</span></a>, clicking the ‘New’ button
+and choosing the ‘Contract’ option.</p>
+<p><img alt="The 'Contract' option in the 'New' button under the vendor's name in the vendor search results" src="_images/newcontractfromvendorresults.png" /></p>
+<p>Alternatively, you can <a class="reference internal" href="#view-vendor-label"><span class="std std-ref">access the vendor page</span></a> and
+click ‘New’ and choose ‘Contract’ from there.</p>
+<p><img alt="The 'Contract' option in the 'New' button on the vendor's page" src="_images/newcontractfromvendorpage.png" /></p>
+<p>合約表單將要求基本資訊</p>
+<p><img alt="New contract form" src="_images/newcontractform.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>不能鍵入過期合約的內容。結案日期不能早於今日。</p>
+</div>
+<p>Once the contract is saved it will appear on the
+<a class="reference internal" href="#view-vendor-label"><span class="std std-ref">vendor page</span></a>.</p>
+<p><img alt="Vendor information page" src="_images/vendorpage.png" /></p>
+<p>It will also be an option when <a class="reference internal" href="#create-a-basket-label"><span class="std std-ref">creating a basket</span></a>.</p>
+<p><img alt="New basket form" src="_images/addbasket.png" /></p>
+</section>
+</section>
+<section id="recording-issues-with-vendors">
+<span id="vendor-issues-label"></span><h3>Recording issues with vendors<a class="headerlink" href="#recording-issues-with-vendors" title="此标题的永久链接"></a></h3>
+<div class="admonition-version-note admonition">
+<p class="admonition-title">Version note</p>
+<p>This feature is available from version 23.11.</p>
+</div>
+<p>Vendor issues are a way to keep track of problems that might arise with vendors.
+This helps when comes the time to renegociate contracts.</p>
+<p>To access vendor issues, go to the vendor’s page and click on ‘Issues’ from the
+menu on the left side.</p>
+<p><img alt="Vendor information page" src="_images/vendorpage.png" /></p>
+<p>This page will show all the issues that have been recorded for this vendor.</p>
+<p><img alt="Table of vendor issues, showing the issue ID, the issue type, and the started on and ended on dates. Action buttons are Edit and Delete." src="_images/vendorissues.png" /></p>
+<p>To record a new issue,</p>
+<ul>
+<li><p>Click ‘New issue’</p></li>
+<li><p>Fill out the form with the issue information.</p>
+<p><img alt="New vendor issue form" src="_images/newvendorissue.png" /></p>
+<ul>
+<li><p>Type: choose the type of issue.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Values in this drop-down menu are managed in the VENDOR_ISSUE_TYPE
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a>.</p>
+</div>
+</li>
+<li><p>Started on: choose the date on which the issue started.</p></li>
+<li><p>Ended on: choose the date on which the issue ended, if that is the case.</p></li>
+<li><p>Notes: enter details about the issue.</p></li>
+</ul>
+</li>
+<li><p>Click ‘Submit’.</p></li>
+</ul>
+<p>To edit an existing issue, click the ‘Edit’ button in the table.</p>
+<p>If an issue is no longer relevant, you can delete it by clicking the ‘Delete’
+button in the table.</p>
+</section>
+</section>
+<section id="managing-purchase-suggestions">
+<span id="managing-purchase-suggestions-label"></span><h2>管理採訪建議<a class="headerlink" href="#managing-purchase-suggestions" title="此标题的永久链接"></a></h2>
+<p>You can create purchase suggestions via the staff interface either for the
+library or <a class="reference internal" href="patrons.html#purchase-suggestions-label"><span class="std std-ref">on the patron’s behalf</span></a> from
+their record. Depending on your settings in the <a class="reference internal" href="opacpreferences.html#suggestion-label"><span class="std std-ref">suggestion</span></a> system
+preference, patrons may also be able to
+<a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">make purchase suggestions via the OPAC</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You need to be logged in as a staff member with the suggestions_manage
+<a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">acquisitions permission</span></a> in order to view
+and work with purchase suggestions.</p>
+<p>If you have the suggestions_manage permission but not Acquisitions permissions
+you can access the suggestion management tool from Suggestions under the
+More menu in the header bar.</p>
+</div>
+<p>When a suggestion is waiting for library review, it will
+appear on the Acquisitions home page next to the vendor search. The suggestions
+for the branch where you are logged in will be separated from the rest of
+the suggestions. Clicking the library name will take you to the suggestion
+management tool.</p>
+<p><img alt="Pending suggestions section on the acquisitions module home page" src="_images/suggestionspendingacqhome.png" /></p>
+<p>It will also appear on the main staff dashboard under the module labels.</p>
+<p><img alt="Prompt on staff interface homepage to view pending article requests, pending purchase suggestions, patrons requesting modifications, pending catalog concerns, pending checkout notes, and pending OPAC problem reports" src="_images/pendingrequests.png" /></p>
+<p>If there are no pending suggestions you can access the suggestion
+management tool by going to the ‘More’ menu and choosing ‘Suggestions’ or by
+clicking the ‘Manage suggestions’ link on the menu on the left of the
+Acquisitions module home page.</p>
+<p><img alt="Suggestion management tool page" src="_images/suggestionmanagement.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: suggestions).</p>
+</div>
+<p>Your suggestions will be sorted into several tabs: Pending, Accepted, Checked,
+Ordered and Rejected.</p>
+<ul class="simple">
+<li><p>Pending: A ‘Pending’ suggestion is one that is awaiting action from the
+library.</p></li>
+<li><p>Accepted: An ‘Accepted’ suggestion is one that you have marked as ‘Accepted’
+using the form below the suggestions.</p></li>
+<li><p>Checked: A ‘Checked’ suggestion is one that has been marked as ‘Checked’
+using the form below the suggestions.</p></li>
+<li><p>Ordered: An ‘Ordered’ suggestion is one that has been ordered using the
+<a class="reference internal" href="#order-from-purchase-suggestion-label"><span class="std std-ref">From a purchase suggestion</span></a> link
+in an order basket.</p></li>
+<li><p>Rejected: A ‘Rejected’ suggestion is one that you have marked as ‘Rejected’
+using the form below the list of suggestions.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If your workflow requires more statuses for suggestion management, you can
+add more using the SUGGEST_STATUS
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized values category</span></a>.</p>
+</div>
+<p>Each suggestion will show the name of the staff member who managed the
+suggestion as well as the date when it was managed.</p>
+<p>Accepted and rejected suggestions will show the reason for accepting or
+rejecting it under ‘Status’.</p>
+<p>For libraries with a lot of suggestions, there are filters on the left
+hand side of the Manage Suggestions page to assist in limiting the
+number of titles displayed on the screen.</p>
+<p><img alt="Filters on bibliographic, suggestion or acquisition information for suggestions, and an option to include archived suggestions" src="_images/suggestionsfilters.png" /></p>
+<p>勾選藍色的標題，將擴展篩選的選項，勾選 ‘[清除]’ 後，將清除所有的篩選並顯示全部建議。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The suggestions page will automatically be limited to suggestions
+for your library. To see information for all (or any other)
+libraries change the library in the ‘Viewing suggestions for library’
+dropdown menu.</p>
+<p><img alt="Branch filter for suggestions" src="_images/suggestbranchfilter.png" /></p>
+</div>
+<section id="approving-or-rejecting-purchase-suggestions">
+<span id="approve-reject-suggestions-label"></span><h3>Approving or rejecting purchase suggestions<a class="headerlink" href="#approving-or-rejecting-purchase-suggestions" title="此标题的永久链接"></a></h3>
+<p>When changing the status of a purchase suggestion (pending, accepted, rejected,
+checked, or ordered), the suggestion will be moved to the matching tab. The
+status will also be updated on the
+<a class="reference internal" href="opac.html#your-purchase-suggestions-label"><span class="std std-ref">patron’s account in the OPAC</span></a> and an
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">email notice</span></a> will be sent to the patron
+using the template that matches the status you have chosen.</p>
+<p>When reviewing ‘Pending’ suggestions check the boxes next to the purchase
+suggestions you want to approve or reject and then choose the status and reason
+for your selection in the ‘Change selected suggestions’ section below.</p>
+<p><img alt="Pending suggestions page, one suggestion is checked and the cursor is choosing a new status in the Change selected suggestions section below" src="_images/suggestionschangestatus.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If your workflow requires more statuses for suggestion management, you can
+add more using the SUGGEST_STATUS
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized values category</span></a>.</p>
+</div>
+<p>Reasons for accepting and rejecting suggestions are defined by the
+SUGGEST <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a>.</p>
+<p><img alt="Dropdown menu for reasons of accepting or rejecting a purchase suggestion" src="_images/suggestionsreasons.png" /></p>
+<p>If you choose ‘Others…’ as your reason, you will be prompted to enter
+your reason in a text box. Clicking ‘Cancel’ to the right of the box
+will bring back the pull down menu with authorized reasons.</p>
+<p><img alt="Text field to enter a reason for accepting or rejecting a purchase suggestion" src="_images/suggestionsreasonsother.png" /></p>
+<p>It is also possible to approve or reject suggestions one by one by clicking on
+the title of the suggestion to open a summary of the suggestion.</p>
+<p><img alt="Details page of a purchase suggestion" src="_images/suggestiondetails.png" /></p>
+<p>Click ‘edit’ at the top of the suggestion detail page to open the suggestion
+editing page.</p>
+<p><img alt="Editable details page of a purchase suggestion" src="_images/suggestiondetailsedit.png" /></p>
+<p>From there, change the status in the ‘Suggestion management’ section and click
+‘Save’.</p>
+<p>A suggestion’s status change will trigger a notice to be sent to the patron who
+made the suggestion. The notices can be edited in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+<ul>
+<li><p>The ‘Accepted’ status will trigger the ACCEPTED notice</p></li>
+<li><p>The ‘Rejected’ status will trigger the REJECTED notice</p></li>
+<li><p>The ‘Ordered’ status will trigger the ORDERED notice</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The ‘Ordered’ status will automatically be set when
+<a class="reference internal" href="#order-from-purchase-suggestion-label"><span class="std std-ref">ordering from a suggestion</span></a>
+and the corresponding notice will also be sent at that time.</p>
+<p>Change to this status manually only if you don’t use the acquisitions
+module to enter your orders.</p>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you add custom statuses in the SUGGEST_STATUS
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized values</span></a>, you can
+<a class="reference internal" href="tools.html#adding-notices-and-slips-label"><span class="std std-ref">add corresponding notices</span></a> with the same
+names, taking care to choose the ‘Suggestions’ module when creating the new
+notices.</p>
+</div>
+</section>
+<section id="editing-purchase-suggestions">
+<span id="editing-suggestions-label"></span><h3>Editing purchase suggestions<a class="headerlink" href="#editing-purchase-suggestions" title="此标题的永久链接"></a></h3>
+<p>Other than changing the status to accept or reject the purchase suggestions,
+you can also change various attributes while managing the suggestions.</p>
+<p>Edits can be done in a batch by selecting the suggestions and choosing the
+new values in the ‘Change selected suggestions’ section at the bottom of the
+page.</p>
+<p>You can change the item type of the suggestions by selecting them
+and choosing the new item type in the ‘Update item types with’ drop down menu.</p>
+<p><img alt="Dropdown list of available item types for suggestions" src="_images/suggestionschangeitype.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The item types in this list are populated by the SUGGEST_FORMAT
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a>.</p>
+</div>
+<p>You can also change the manager of the selected suggestions by clicking the
+‘Select manager’ link and searching your user database. The new manager will
+receive the <a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">NOTIFY_MANAGER notice</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Only users who have the ‘superlibrarian’ or the ‘suggestions_manage’
+permission will show in the results.</p>
+</div>
+<p>It is also possible to edit suggestions one by one by clicking on the ‘Edit’
+button to the right of the suggestion or by clicking on the title of the
+suggestion.</p>
+<p><img alt="Details page of a purchase suggestion" src="_images/suggestiondetails.png" /></p>
+<p>Clicking ‘edit’ at the top of the suggestion detail page will open a suggestion
+editing page.</p>
+<p><img alt="Editable details page of a purchase suggestion" src="_images/suggestiondetailsedit.png" /></p>
+<p>從此表單您可編輯建議 (新增更多詳情或更新不正確的資料)。也能選擇接受或拒絕個別的建議。</p>
+<ul class="simple">
+<li><p>In the ‘Bibliographic information’ section, you can add missing information,
+such as the ISBN, publisher, etc. or correct wrong information provided by
+the patron.</p>
+<ul>
+<li><p>This information will be used to create a bibliographic record should you
+<a class="reference internal" href="#order-from-purchase-suggestion-label"><span class="std std-ref">order this title from the suggestion</span></a>.</p></li>
+</ul>
+</li>
+<li><p>In the ‘Suggestion management’ section, you can edit the status, add a
+reason for accepting or rejecting the suggestion, or adjust the dates if
+needed.</p>
+<ul>
+<li><p>Choosing to mark a suggestion as ‘Pending’ will move it back to
+the ‘Pending’ tab.</p></li>
+</ul>
+</li>
+<li><p>The ‘Notify manager’ checkbox can be used to send a notice to the staff
+member who previously managed the suggestion to inform them the suggestion
+was modified. The notice sent is
+<a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">NOTIFY_MANAGER notice</span></a>.</p></li>
+<li><p>In the ‘Acquisitions information’ section, you can edit the fund, price,
+currency, etc.</p>
+<ul>
+<li><p>Assigning the suggestion to a fund will trigger a notice to be sent to
+the fund owner to inform them that there is a suggestion ready for them
+to manage.</p>
+<ul>
+<li><p>The <a class="reference internal" href="cron_jobs.html#cron-email-suggestions-to-process-label"><span class="std std-ref">notice_unprocessed_suggestions.pl cronjob</span></a>
+is necessary to generate these notices.</p></li>
+<li><p>The notice used is <a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">TO_PROCESS</span></a>,
+it can be edited in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips tool</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="archiving-purchase-suggestions">
+<span id="archiving-suggestions-label"></span><h3>Archiving purchase suggestions<a class="headerlink" href="#archiving-purchase-suggestions" title="此标题的永久链接"></a></h3>
+<p>Once the suggestion has completed the acquisitions process, it is possible to
+archive them. If you have a lot of suggestions, and the page takes a long time
+to load, archiving old suggestions will improve the performance.</p>
+<p>Select the suggestions you want to archive and click the ‘Archive’ button in
+the ‘Archive selected’ box.</p>
+<p><img alt="Archive selected box and button from the suggestion management tool" src="_images/suggestionsarchiveselected.png" /></p>
+<p>You can also archive the purchase suggestion by clicking the small arrow next
+to the ‘Edit’ button and choosing ‘Archive’.</p>
+<p><img alt="The arrow next to the Edit button gives access to a Delete and an Archive option" src="_images/suggestionsarchive.png" /></p>
+<p>Archived suggestions will disappear from the list, but they can be viewed by
+checking the ‘Include archived’ checkbox in the filters.</p>
+<p><img alt="Filters on bibliographic, suggestion or acquisition information for suggestions, and an option to include archived suggestions" src="_images/suggestionsfilters.png" /></p>
+<p>Archived suggestions will have a the mention ‘Archived’ under the title
+information when they are viewed.</p>
+<p><img alt="Archived suggestion" src="_images/suggestionsarchived.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Archived suggestions will disappear from the
+<a class="reference internal" href="opac.html#your-purchase-suggestions-label"><span class="std std-ref">‘Your purchase suggestions’ section of the patron’s file on the OPAC</span></a>.</p>
+</div>
+</section>
+<section id="deleting-purchase-suggestions">
+<span id="deleting-suggestions-label"></span><h3>Deleting purchase suggestions<a class="headerlink" href="#deleting-purchase-suggestions" title="此标题的永久链接"></a></h3>
+<p>Once you no longer need the purchase suggestions, you can completely delete
+them from the system.</p>
+<p>To delete purchase suggestions in batch, select the suggestions you want to
+delete completely and click the ‘Delete’ button in the the ‘Delete selected’ box.</p>
+<p><img alt="Delete selected box and button from the suggestion management tool" src="_images/suggestionsdeleteselected.png" /></p>
+<p>You can also delete a purchase suggestion by clicking the small arrow next
+to the ‘Edit’ button and choosing ‘Delete’.</p>
+<p><img alt="The arrow next to the Edit button gives access to a Delete and an Archive option" src="_images/suggestionsdelete.png" /></p>
+<p>It is also possible to delete purchase suggestions by clicking on the title of
+the suggestion to access the suggestion detail page and clicking the ‘Delete’
+button from there.</p>
+<p><img alt="Details page of a purchase suggestion" src="_images/suggestiondetails.png" /></p>
+<p>Old purchase suggestions can be automatically deleted using the
+<a class="reference internal" href="cron_jobs.html#cron-clean-up-old-suggestions-label"><span class="std std-ref">purge_suggestions.pl cronjob</span></a>.</p>
+</section>
+</section>
+<section id="placing-orders">
+<span id="placing-orders-label"></span><h2>發出訂單<a class="headerlink" href="#placing-orders" title="此标题的永久链接"></a></h2>
+<p>To place an order you must first
+<a class="reference internal" href="#vendor-search-label"><span class="std std-ref">search for the vendor or bookseller</span></a> and
+<a class="reference internal" href="#create-a-basket-label"><span class="std std-ref">create a basket</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If you are planning on using EDIFACT to submit your order you will
+need to first set up your library’s <a class="reference internal" href="administration.html#edi-accounts-label"><span class="std std-ref">EDI accounts</span></a>
+and <a class="reference internal" href="administration.html#library-eans-label"><span class="std std-ref">EANs</span></a>.</p>
+</div>
+<section id="creating-a-basket">
+<span id="create-a-basket-label"></span><h3>Creating a basket<a class="headerlink" href="#creating-a-basket" title="此标题的永久链接"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>需在啟用 Koha 前先從代理商下載訂單表格，才能使用 EDI 採訪。</p>
+</div>
+<p>To create a basket you must first
+<a class="reference internal" href="#vendor-search-label"><span class="std std-ref">search for the vendor</span></a> you’re ordering from. From
+the vendor search results, click the ‘New’ button and choose ‘Basket’.</p>
+<p><img alt="The 'Basket' option in the 'New' button under the vendor's name in the vendor search results" src="_images/newbasketfromvendorresults.png" /></p>
+<p>Alternatively, you can click on the vendor’s name to access the vendor page and
+click ‘New’ and choose ‘Basket’ from there.</p>
+<p><img alt="The 'Basket' option in the 'New' button on the vendor's page" src="_images/newbasketfromvendorpage.png" /></p>
+<p>After clicking ‘New’ and ‘Basket’ you will be asked to enter some information
+about the order basket:</p>
+<p><img alt="New basket form" src="_images/addbasket.png" /></p>
+<ul>
+<li><p>Give the basket a name that will help you identify it later</p></li>
+<li><p>鍵入帳單地址與寄送地址(預設為登入的圖書館)</p></li>
+<li><p>從供應商下拉選單，可以改變訂單的供應商</p></li>
+<li><p>說明欄位是選項，可以鍵入任何資訊</p></li>
+<li><p>If you have <a class="reference internal" href="#add-a-contract-label"><span class="std std-ref">added contracts</span></a> to the vendor
+you’re ordering from, you will have an option to choose which contract
+you’re ordering these items under.</p></li>
+<li><p>If you’re ordering standing items (items which arrive regularly), check the
+‘Orders are standing’ box for this basket.</p>
+<ul class="simple">
+<li><p>Note that one basket cannot contain both firm and standing orders.</p></li>
+</ul>
+</li>
+<li><p>收到訂單或編目該館藏，都可以新增館藏。採用預設以外的方式，則祗適用於此採購籃。此偏好設定在 <a class="reference internal" href="acquisitionspreferences.html#acqcreateitem-label"><span class="std std-ref">AcqCreateItem</span></a> 系統偏好。</p></li>
+<li><p>If you have <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields for order baskets</span></a>,
+they will appear here.</p>
+<p><img alt="New basket form with additional fields at the bottom" src="_images/addfieldsorderbasket.png" /></p>
+</li>
+</ul>
+<p>做好後，按 ‘儲存’。</p>
+<p><img alt="Basket page" src="_images/basketempty.png" /></p>
+<section id="adding-materials-to-the-basket">
+<span id="add-to-basket-label"></span><h4>Adding materials to the basket<a class="headerlink" href="#adding-materials-to-the-basket" title="此标题的永久链接"></a></h4>
+<p>Once your basket is created, click on ‘Add to basket’ from the basket page.</p>
+<p><img alt="Basket page" src="_images/basketempty.png" /></p>
+<p>To add to an existing basket click ‘Add to basket’ to the right of an existing
+basket.</p>
+<p><img alt="Active baskets from a vendor" src="_images/showactivebaskets.png" /></p>
+<p>Several options for adding items to the order will be presented.</p>
+<p><img alt="The different options for adding materials to the basket" src="_images/addtobasketoptions.png" /></p>
+<section id="order-from-an-existing-record">
+<span id="order-from-existing-record-label"></span><h5>來自既有記錄的訂單<a class="headerlink" href="#order-from-an-existing-record" title="此标题的永久链接"></a></h5>
+<p>訂購館藏的複本時，祗需搜尋系統的紀錄。</p>
+<ul>
+<li><p>從結果裡，點選 ‘訂單’ 就能進入訂單表格。</p>
+<p><img alt="Search results from the catalog, there is an extra option 'Add order' at the bottom of each result" src="_images/orderfromexistingresults.png" /></p>
+</li>
+<li><p>檔案已列入待處理後，就可點選 ‘新增待處理檔案至採購籃’ 鈕。</p>
+<p><img alt="Detailed view of a bibliographic record, there is an extra button in the top bar called 'Add order'" src="_images/orderfromexistingrecord.png" /></p>
+</li>
+<li><p>您將會帶出訂單表格。</p>
+<p><img alt="When ordering from an existing record, the record part of the order form will be automatically filled in" src="_images/existingitemorder.png" /></p>
+<ul class="simple">
+<li><p>與館藏有關的詳情將列出 ‘目錄詳情’ 之下。</p></li>
+</ul>
+</li>
+<li><p>Fill out the rest of the order form, including
+<a class="reference internal" href="#order-patron-notifications-label"><span class="std std-ref">patron notifications</span></a>,
+<a class="reference internal" href="#add-item-orders-label"><span class="std std-ref">items</span></a>, and
+<a class="reference internal" href="#accounting-details-orders-label"><span class="std std-ref">accounting details</span></a>.</p></li>
+</ul>
+</section>
+<section id="order-from-a-purchase-suggestion">
+<span id="order-from-purchase-suggestion-label"></span><h5>來自採訪建議的訂單<a class="headerlink" href="#order-from-a-purchase-suggestion" title="此标题的永久链接"></a></h5>
+<p>If you allow patrons to make purchase suggestions (learn more in the
+<a class="reference internal" href="#managing-purchase-suggestions-label"><span class="std std-ref">managing purchase suggestions</span></a>
+section of this manual), you can place orders from those suggestions. In order
+to keep track of suggestions that have been ordered and received you must place
+the order using this link.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>祗能訂購被接受的採訪建議。</p>
+</div>
+<p><img alt="List of all accepted purchase suggestions not yet ordered" src="_images/orderfromsuggest.png" /></p>
+<ul>
+<li><p>從結果裡，點選欲採購的館藏旁 ‘訂單’ 鈕，出現包括連結至建議的訂單表單</p>
+<p><img alt="Order form with the patron's information in the suggestion section" src="_images/orderfromsuggestform.png" /></p>
+</li>
+<li><p>從此表單您可以改變必要的目錄詳情。</p></li>
+<li><p>顯示在購物籃的館藏，將包括連結至採訪建議。</p>
+<p><img alt="Order in a basket with suggestion information" src="_images/ordersuggestlink.png" /></p>
+</li>
+<li><p>Orders added to the basket in this way will notify the patron via email that
+their suggestion has been ordered (with the ‘ORDERED’ notice in Tools &gt;
+<a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">Notices and slips</span></a>) and will update
+the patron’s
+‘<a class="reference internal" href="opac.html#your-purchase-suggestions-label"><span class="std std-ref">your purchase suggestions</span></a>’ page in
+the OPAC.</p></li>
+</ul>
+</section>
+<section id="order-from-a-serial-subscription">
+<span id="order-from-a-serial-subscription-label"></span><h5>來自期刊訂購的訂單<a class="headerlink" href="#order-from-a-serial-subscription" title="此标题的永久链接"></a></h5>
+<p>If you are using the <a class="reference internal" href="serials.html#serials-label"><span class="std std-ref">Serials module</span></a> you can link your
+subscription order information to acquisitions by choosing to order
+‘From a subscription’.</p>
+<ul>
+<li><p>按了訂閱連結後您會被帶入搜尋頁面協助訂閱事宜</p>
+<p><img alt="Search form of serials subscriptions" src="_images/subordersearch.png" /></p>
+</li>
+<li><p>您的結果出現在表單右方且每筆訂閱的右方有 ‘訂單’ 連結</p>
+<p><img alt="Table of results of serials subscription search, the last column contains an Order button" src="_images/suborderresults.png" /></p>
+</li>
+<li><p>Clicking ‘Order’ will bring the subscription info in to the order form
+without an ‘Add item’ section since you are just ordering a subscription and
+an item is not needed</p>
+<p><img alt="Serial subscription order form" src="_images/suborder.png" /></p>
+</li>
+</ul>
+</section>
+<section id="order-from-a-new-empty-record">
+<span id="order-from-a-new-empty-record-label"></span><h5>來自新增 (空白) 記錄的訂購<a class="headerlink" href="#order-from-a-new-empty-record" title="此标题的永久链接"></a></h5>
+<p>訂閱別處找不到的紀錄時，選擇 ‘取自新增 (空白) 紀錄’。</p>
+<p><img alt="Order form with empty record fields" src="_images/orderfromnewemptyrecord.png" /></p>
+<ul>
+<li><p>顯示空白的表單，可鍵入訂購該館藏的必要詳情。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the default form does not have the necessary bibliographic fields to
+place an order, enable the <a class="reference internal" href="acquisitionspreferences.html#useacqframeworkforbibliorecords-label"><span class="std std-ref">UseACQFrameworkForBiblioRecords</span></a> preference
+which will allow the ACQ <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC framework</span></a>
+to customize the display of fields when ordering.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="duplicate-orders-order-from-existing-orders">
+<span id="duplicate-orders-label"></span><h5>重複訂購 (來自既有訂購)<a class="headerlink" href="#duplicate-orders-order-from-existing-orders" title="此标题的永久链接"></a></h5>
+<p>選擇 ‘來自既有訂購 (複製)’ 選項，就能複製既有的訂購。</p>
+<ul class="simple">
+<li><p>以搜尋表單，尋找既有的訂購。</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="Order search for duplicating orders" src="_images/duplicateorder.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>點選在訂購旁的盒子，就能複製它。</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="Order search results for duplicating orders" src="_images/duplicateorder2.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Click ‘Next’</p></li>
+<li><p>Check the boxes next to the values to copy from the original order or
+choose new values.</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="Form to copy or modify values from the original order" src="_images/duplicateorder3.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Click ‘Duplicate orders’</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="A table with the duplicated order information" src="_images/duplicateorder4.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Click ‘Return to the basket’</p></li>
+</ul>
+</section>
+<section id="order-from-an-external-source">
+<span id="order-from-an-external-source-label"></span><h5>取自外部來源的訂單<a class="headerlink" href="#order-from-an-external-source" title="此标题的永久链接"></a></h5>
+<p>You can search other library catalogs for the record of an item to purchase
+using the ‘From an external source’ option. This will allow you to order from
+a MARC record found via a Z39.50 search.</p>
+<p><img alt="Z39.50 search form to order from an external source" src="_images/orderfromz3950.png" /></p>
+<ul>
+<li><p>From the results, click anywhere in the row of the title you want to add to
+your basket and choose the ‘Order’ option.</p>
+<p><img alt="Z39.50 search results" src="_images/orderfromz3950results.png" /></p>
+</li>
+<li><p>經由外部資源訂購像這樣的館藏可能會重複時，Koha 將警示您並給您繼續作業的選項。</p>
+<p><img alt="Warning message 'Duplicate warning You selected a record from an external source that matches an existing record in your catalog' the options are 'Use existing record', 'Cancel and return to order' or 'Create new record'" src="_images/duplicatewarning.png" /></p>
+<ul class="simple">
+<li><p>Use existing record: order another copy on the existing bibliographic
+record</p></li>
+<li><p>Cancel and return to order: cancel the order</p></li>
+<li><p>Create new record: create a new bibliographic record, while keeping the
+existing one also</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="order-from-a-new-file">
+<span id="order-from-a-new-file-label"></span><h5>取自新檔案的訂單<a class="headerlink" href="#order-from-a-new-file" title="此标题的永久链接"></a></h5>
+<p>代理商送來記錄檔 (可能是 .mrc 檔)，可以訂購該檔案內的記錄。選擇 ‘來自新增檔案’ 選項。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Note that you need the
+<a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">stage_marc_import tool permission</span></a> in order
+to be able order from a new file.</p>
+</div>
+<ul class="simple">
+<li><p>您可從 <a class="reference internal" href="cataloging.html#stage-marc-records-for-import-label"><span class="std std-ref">待處理的可匯入 MARC 記錄</span></a> 工具取得。如該區所示待處理的檔案。</p></li>
+<li><p>檔案已列入待處理後，就可點選 ‘新增待處理檔案至採購籃’ 鈕。</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="Staged file summary with an added button to add staged records to basket" src="_images/stagedfilestobasket.png" /></p>
+</div></blockquote>
+<ul>
+<li><p>Next to each title is a checkbox, check the items you would like to order,
+or choose ‘Select all’ at the top. Depending on your settings in the
+<a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder-label"><span class="std std-ref">MarcFieldsToOrder</span></a> system preference, Koha will populate the next
+screen with with the relevant quantity, price, fund, statistic 1, and
+statistic 2 found within the staged file.</p>
+<p><img alt="List of titles in staged file, the first title is selected and a form for entering the quantity, price, replacement price, discount, fund and statistics is underneath" src="_images/selecttoimport.png" /></p>
+</li>
+<li><p>在 ‘館藏資訊’ 分頁裡，可以鍵入館藏類型、館藏代碼以及不可外借狀態等資訊，爾後被加入每個訂閱館藏內。</p>
+<p><img alt="Item form in the Item information tab" src="_images/itemfromstaged.png" /></p>
+</li>
+<li><p>If no information is imported in the fund information from the MARC with the
+<a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder-label"><span class="std std-ref">MarcFieldsToOrder</span></a> system preference, the ‘Default accounting details’
+tab can be used to apply values related to the accounting.</p>
+<p><img alt="Accounting details form in the Default accounting details tab" src="_images/stagedaccounting.png" /></p>
+</li>
+<li><p>Click ‘Save’ to add to the basket</p></li>
+</ul>
+</section>
+<section id="order-from-a-staged-file">
+<span id="order-from-a-staged-file-label"></span><h5>取自待處理檔案的訂單<a class="headerlink" href="#order-from-a-staged-file" title="此标题的永久链接"></a></h5>
+<p>此功能和前述功能相同, 但在此案例, 您的檔案已經:ref:<cite>staged &lt;stage-marc-records-for-import-label&gt;</cite>. 當您選擇 ‘order from a new file’或’order from a staged file’將倚賴您的採購流程或您的:ref:<cite>permissions &lt;patron-permissions-label&gt;</cite>.</p>
+<ul>
+<li><p>一旦您點擊 ‘From a staged file’。在您系統，您將會取得所有儲存檔案的清單。</p>
+<p><img alt="List of staged files that have not yet been imported" src="_images/stagedfiles.png" /></p>
+</li>
+<li><p>從檔案清單裡，您可選擇 ‘新增訂單’ 連結，將待處理檔案裡的記錄加入訂單。</p></li>
+<li><p>Next to each title is a checkbox, check the items you would like to order,
+or choose ‘Select all’ at the top. Depending on your settings in the
+<a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder-label"><span class="std std-ref">MarcFieldsToOrder</span></a> system preference, Koha will populate the next
+screen with with the relevant quantity, price, fund, statistic 1, and
+statistic 2 found within the staged file.</p>
+<p><img alt="List of titles in staged file, the first title is selected and a form for entering the quantity, price, replacement price, discount, fund and statistics is underneath" src="_images/selecttoimport.png" /></p>
+</li>
+<li><p>在 ‘館藏資訊’ 分頁裡，可以鍵入館藏類型、館藏代碼以及不可外借狀態等資訊，爾後被加入每個訂閱館藏內。</p>
+<p><img alt="Item form in the Item information tab" src="_images/itemfromstaged.png" /></p>
+</li>
+<li><p>If no information is imported in the fund information from the MARC with the
+<a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder-label"><span class="std std-ref">MarcFieldsToOrder</span></a> system preference, the ‘Default accounting details’
+tab can be used to apply values related to the accounting.</p>
+<p><img alt="Accounting details form in the Default accounting details tab" src="_images/stagedaccounting.png" /></p>
+</li>
+<li><p>Click ‘Save’ to add to the basket</p></li>
+</ul>
+</section>
+<section id="order-from-titles-with-highest-hold-ratios">
+<span id="order-from-titles-with-highest-holds-ratio-label"></span><h5>訂單從預約率最高的書籍來<a class="headerlink" href="#order-from-titles-with-highest-hold-ratios" title="此标题的永久链接"></a></h5>
+<p>The final option for ordering is to order from a list of titles with the
+highest hold ratios.</p>
+<ul>
+<li><p>此選項可進入預約比率報表，藉此找出預約率高的館藏以採購額外的複本。每個題名旁有個連結表示採購的館藏量，點選後可新增採購籃的館藏量。</p>
+<p><img alt="Report of high hold ratios, in the last column, there is a button to order the suggested quantity" src="_images/highestholdratio.png" /></p>
+</li>
+</ul>
+</section>
+</section>
+<section id="setting-up-patron-notifications">
+<span id="order-patron-notifications-label"></span><h4>Setting up patron notifications<a class="headerlink" href="#setting-up-patron-notifications" title="此标题的永久链接"></a></h4>
+<p>With any of the above ordering options you’re presented with an option
+to notify patrons of the new item when it’s received. The contents of
+that notification can be edited in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips</span></a>
+tool and will have the code of ACQ_NOTIF_ON_RECEIV. In the ‘Patrons’
+section you will see an option to ‘Add user’. Click that button to add
+patrons who will be notified of the new issue.</p>
+<p>搜尋讀者通知</p>
+<ul>
+<li><p>在彈出的視窗搜尋欲告知的讀者再點選 ‘新增’</p>
+<p><img alt="Pop up window for patron search" src="_images/patronsearchpopup.png" /></p>
+</li>
+<li><p>完成後可關閉視窗並在 ‘讀者’ 區看到讀者清單</p>
+<p><img alt="List of patrons to notify in order form" src="_images/patronstonotify.png" /></p>
+</li>
+</ul>
+</section>
+<section id="adding-items-to-orders">
+<span id="add-item-orders-label"></span><h4>Adding items to orders<a class="headerlink" href="#adding-items-to-orders" title="此标题的永久链接"></a></h4>
+<p>After bringing in the record information (for all order methods except for
+the staged files), if your <a class="reference internal" href="acquisitionspreferences.html#acqcreateitem-label"><span class="std std-ref">AcqCreateItem</span></a> system
+preference is set to add an item when ordering you will enter the item
+information next. You need to fill out at least one item record and then click
+the ‘Add item’ button at the bottom left of the item form.</p>
+<p><img alt="New item form within the order form" src="_images/itemonorder.png" /></p>
+<p>按下館藏記錄下方的 ‘新增館藏’ 鈕後，該館藏將出現在表單之上，您可以同樣方式再新增下筆館藏 (若採購多筆複本)。</p>
+<p><img alt="Table with added item information above an empty new item form" src="_images/itemonorderadded.png" /></p>
+<p>如果您訂了數項館藏，您可點選「新增多項館藏」而不用一項一項新增。系統會詢問您有多少館藏要新增。簡單地在空白欄中填入數字並按「新增」。</p>
+<p><img alt="Buttons at the bottom of the new item form, 'Add item', 'Clear', 'Add multiple items', next to Add multiple items, a text field says 'Number of items to add' Followed by 'Add' button. A message underneath says 'NOTE: Fields listed in the UniqueItemsFields system preference will not be copied'" src="_images/addmultipleitems.png" /></p>
+</section>
+<section id="adding-accounting-details-to-orders">
+<span id="accounting-details-orders-label"></span><h4>Adding accounting details to orders<a class="headerlink" href="#adding-accounting-details-to-orders" title="此标题的永久链接"></a></h4>
+<p>鍵入館藏的資訊後，還需要鍵入帳號資訊。</p>
+<p><img alt="Accounting details section of the order form" src="_images/accounting.png" /></p>
+<ul>
+<li><p>Quantity: enter the quantity of copies you want to order.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If the item is created upon ordering, you will not be able to edit the
+quantity manually, you must
+<a class="reference internal" href="#add-item-orders-label"><span class="std std-ref">add items to the order</span></a> by clicking ‘Add
+item’ below the item form to add as many items as you’re ordering.</p>
+</div>
+</li>
+<li><p>Fund: choose the fund that will be used to buy this title.</p>
+<ul class="simple">
+<li><p>The list of funds is populated by the <a class="reference internal" href="administration.html#funds-label"><span class="std std-ref">funds</span></a> you have
+created in the <a class="reference internal" href="administration.html#acquisitions-module-label"><span class="std std-ref">Acquisitions administration</span></a>
+area.</p></li>
+<li><p>If you have a lot of funds, you can start to type the fund name in the
+field and the list will be filtered for you.</p></li>
+<li><p>By default, only funds for active budgets will be available in the
+drop-down menu. If you need to also see your inactive funds, check the
+‘Show inactive’ box.</p></li>
+</ul>
+</li>
+<li><p>Currency: choose the currency of the price.</p>
+<ul class="simple">
+<li><p>幣別下拉選單有 <a class="reference internal" href="administration.html#currencies-and-exchange-rates-label"><span class="std std-ref">幣別</span></a> 設定於 <a class="reference internal" href="administration.html#acquisitions-module-label"><span class="std std-ref">採訪管理</span></a> 區塊。</p></li>
+</ul>
+</li>
+<li><p>Vendor price: enter the price before any taxes or discounts are applied.</p></li>
+<li><p>Uncertain price: if the price is uncertain, check the uncertain price box.
+You will be able to go back later to enter the right price.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>A basket with at least one uncertain price cannot be closed.</p>
+<p>See the section <a class="reference internal" href="#uncertain-prices-label"><span class="std std-ref">Dealing with uncertain prices</span></a>
+below to learn how to manage uncertain prices.</p>
+</div>
+</li>
+<li><p>Tax rate: if you are charged sales tax, choose the rate.</p>
+<ul class="simple">
+<li><p>This field is populated by the <a class="reference internal" href="acquisitionspreferences.html#taxrates-label"><span class="std std-ref">TaxRates</span></a> system preference.</p></li>
+</ul>
+</li>
+<li><p>Discount: enter the percentage discount you’re receiving on this order. Once
+you enter this, hit tab and Koha will populate the rest of the cost
+fields below.</p></li>
+<li><p>Retail price: enter the recommended retail price (RRP), the price set
+by the publisher or the manufacturer as a recommendation to booksellers.</p></li>
+<li><p>Replacement cost: enter the cost to replace the item. This is the
+price charged to the user when an item is declared lost (if the
+<a class="reference internal" href="circulationpreferences.html#whenlostchargereplacementfee-label"><span class="std std-ref">WhenLostChargeReplacementFee</span></a> system preference is set to ‘Charge’).</p></li>
+<li><p>預算成本是將從“已用”預算中刪除的金額。此數字是否包含稅款取決於您的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>供應商&lt;vendors-label&gt;`的“標價”設置。</p></li>
+<li><p>總額是預算成本乘以訂購的館藏數量。</p></li>
+<li><p>Actual cost: this field is usually left empty until receiving, when you can
+confirm the actual cost against the vendor’s packing slip or invoice.</p></li>
+<li><p>Internal note: this will only appear in the acquisitions module
+and in the staff interface catalog, under the ‘Acquisitions details’ tab
+in the detailed record.</p></li>
+<li><p>Vendor note: this will appear in the acquisitions module
+as well as on the order when exported as CSV.</p></li>
+<li><p>Estimated delivery date: you can specify an estimated delivery date for this
+specific order. If no date is entered here, the estimated delivery date will
+be calculated according to the ‘Delivery time’ in the
+<a class="reference internal" href="#vendors-label"><span class="std std-ref">vendor information</span></a>. This date is used when managing
+<a class="reference internal" href="#claims-and-late-orders-label"><span class="std std-ref">late orders</span></a></p></li>
+<li><p>If you added statistical categories when <a class="reference internal" href="administration.html#add-a-fund-label"><span class="std std-ref">creating the
+fund</span></a>, those values will appear in the two
+statistics fields.</p></li>
+<li><p>If you have <a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields for order lines</span></a>,
+they will appear here.</p></li>
+</ul>
+<p>所有欄位都填入資料後，按 ‘儲存’ 鈕，新增館藏至採購籃。若您的總價超過基金可以金額，則要求您確認。</p>
+<p><img alt="Warning message that says 'Warning! Order total amount exceeds allowed budget. Do you want to confirm this order'" src="_images/fundconfirmation.png" /></p>
+<p>確認警示將允許您使用其他基金額度。</p>
+<p>Once your order is entered you can search for it through acquisitions or
+view the information on the bibliographic record detail page in the staff
+interface, if the <a class="reference internal" href="catalogingpreferences.html#acquisitiondetails-label"><span class="std std-ref">AcquisitionDetails</span></a> system preference is set to
+‘Display’, or view the information on the bibliographic record detail page in
+the OPAC, if the <a class="reference internal" href="opacpreferences.html#opacacquisitiondetails-label"><span class="std std-ref">OPACAcquisitionDetails</span></a> system preference is set to
+‘Display’.</p>
+<p><img alt="Acquisition details tab in the detailed record" src="_images/AcquisitionDetails.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: acquisitiondetails-table).</p>
+</div>
+</section>
+</section>
+<section id="editing-the-basket">
+<span id="edit-basket-label"></span><h3>Editing the basket<a class="headerlink" href="#editing-the-basket" title="此标题的永久链接"></a></h3>
+<p>新增館藏入採購籃後，可在採購籃摘要看到它。</p>
+<p><img alt="A basket with orders" src="_images/finalbasket.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: orders).</p>
+</div>
+<p>From the basket, you can edit or remove the items that you have added.</p>
+<ul>
+<li><p>選擇 ‘刪除訂單’ 將刪除訂單但保留目錄裡的紀錄。</p></li>
+<li><p>選擇 ‘刪除採購與書目記錄’ 移除採購與書目記錄。</p>
+<ul>
+<li><p>目錄紀錄不一定能刪除。您需要查看紀錄其原因的說明。</p>
+<p><img alt="Cancel order link followed by a message Can't cancel order and delete catalog record 1 item(s) left" src="_images/cantdeleteorderline.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>在摘要頁面，在採購籃標頭，您有幾個選項。</p>
+<p><img alt="Buttons at the top of the basket page: Add to basket, Edit basket, Delete basket, Export as CSV, E-mail order" src="_images/basketbuttons.png" /></p>
+<blockquote>
+<div><ul>
+<li><p>Add to basket: <a class="reference internal" href="#add-to-basket-label"><span class="std std-ref">add orders to the basket</span></a></p></li>
+<li><p>編輯採購籃: 編輯採購籃資訊，像是名稱或是收費地址。</p></li>
+<li><p>Delete basket: if the basket is empty, you will get a simple confirmation
+message before deleting the basket. If the basket contains orders, you
+will get a confirmation message with several options.</p>
+<p><img alt="Delete basket confirmation message with options to delete basket and orders or delete basket, orders and records" src="_images/deletebasketconfirmation.png" /></p>
+<ul class="simple">
+<li><p>刪除採購籃及訂單：會刪除採購籃，刪除訂單， 退回經費以及刪除館藏（已訂或收到的）</p></li>
+<li><p>刪除採購籃、訂單及書目: 此會刪除包含書目的訂單資料 (一些無法被刪除是因為他們剩餘館藏、訂單或附加訂單)</p></li>
+</ul>
+</li>
+<li><p>Close basket: <a class="reference internal" href="#ordering-closing-basket-label"><span class="std std-ref">closing the basket</span></a> will
+enable you to <a class="reference internal" href="#create-a-basket-group-label"><span class="std std-ref">add it to a basket group</span></a>
+(this is optional) and <a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receive its items</span></a>.</p></li>
+<li><p>匯出csv: 這會從採購籃中您所有的訂單新增csv檔案。您可新增數個csv資料選項藉由 <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV 資料工具</span></a>.</p></li>
+<li><p>Create EDIFACT order: if you’re using EDI for your order you can click
+the ‘Create EDIFACT order’ button when you’re done to send the file to the
+vendor and close the basket.</p></li>
+<li><p>電子郵件訂單: 會寄送訂單資訊到廠商聯絡窗口。請確認您的聯絡窗口有提供電子郵件資訊在 <a class="reference internal" href="#vendors-label"><span class="std std-ref">廠商資訊</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The email sent is based on the ACQORDER notice template. It can be
+customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="ordering-closing-the-basket">
+<span id="ordering-closing-basket-label"></span><h3>Ordering (closing the basket)<a class="headerlink" href="#ordering-closing-the-basket" title="此标题的永久链接"></a></h3>
+<p>完成採購籃後，可以勾選 ‘關閉採購籃’ 鈕，表示採購籃已處理好，並送交代理商。</p>
+<p><img alt="Buttons at the top of the basket page: Add to basket, Edit basket, Delete basket, Export as CSV, E-mail order" src="_images/basketbuttons.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>館藏到館之後，必須選定採購籃才能 <a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">簽收館藏</span></a>。祗有在採購籃內的館藏才能被簽收。</p>
+</div>
+<p>If you have your <a class="reference internal" href="acquisitionspreferences.html#basketconfirmations-label"><span class="std std-ref">BasketConfirmations</span></a> system preference set to show a
+confirmation, you will be asked if you are sure about closing the basket.</p>
+<p><img alt="Close basket confirmation message" src="_images/closebasket.png" /></p>
+<p>When closing the basket you can choose to add the basket to a group for
+easy printing and retrieval. If you check the box to ‘Attach this basket to a
+new basket group with the same name’ you will be brought to the group list
+where you can export a PDF of the order.</p>
+<p><img alt="List of closed basket groups" src="_images/basketgroup.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>若至少有一筆館藏被標記為 ‘價格不確定’ 則不能關閉該採購籃。</p>
+<p>See the section <a class="reference internal" href="#uncertain-prices-label"><span class="std std-ref">Dealing with uncertain prices</span></a>
+below to learn how to manage uncertain prices.</p>
+</div>
+</section>
+<section id="dealing-with-uncertain-prices">
+<span id="uncertain-prices-label"></span><h3>Dealing with uncertain prices<a class="headerlink" href="#dealing-with-uncertain-prices" title="此标题的永久链接"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>若至少有一筆館藏被標記為 ‘價格不確定’ 則不能關閉該採購籃。</p>
+</div>
+<p><img alt="Basket with an order with an uncertain price" src="_images/basketuncertain.png" /></p>
+<p>按 ‘價格不確定’ 鈕將開啟價格不確定館藏清單供編輯之用。在此清單內，您可以鍵入新的價格與數量。</p>
+<p><img alt="Uncertain prices page" src="_images/uncertainprices.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>價格不定的頁面獨立於購物籃之外。它連結至代理商讓您看到該代理商所有價格未定的館藏。</p>
+</div>
+</section>
+<section id="creating-a-basket-group">
+<span id="create-a-basket-group-label"></span><h3>Creating a basket group<a class="headerlink" href="#creating-a-basket-group" title="此标题的永久链接"></a></h3>
+<p>A basket group is simply a group of baskets. In some libraries, several staff
+members create baskets, and, at the end of a period of time, someone groups
+them together to send to the vendor in bulk. Note that it is possible to have
+one basket in a basket group, or no basket groups at all if that’s the workflow
+used in your library.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You cannot re-open a basket that is attached to a basket group. The
+re-open basket button will be grayed out.</p>
+</div>
+<p>新增採購籃群組, 請至供應商詳情網頁並點擊在左方的 ‘採購籃群組’ 頁籤</p>
+<p><img alt="Vendor information page" src="_images/vendorpage.png" /></p>
+<p><img alt="List of open basket groups" src="_images/basketgroupopen.png" /></p>
+<p>點擊在 ‘新採購籃群組’ 按鈕.</p>
+<p><img alt="New basket group form" src="_images/newbasketgroup.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>採購籃群組名稱: Koha採購籃群組的名稱</p></li>
+<li><p>付款處: 這是採購籃訂單上顯示的付款地址</p></li>
+<li><p>運送處： 選擇一處做為寄出訂單的圖書館。這將顯示在採購籃群組在運送地址之下。您同樣可以填入不同的地址。</p></li>
+<li><p>運送備註：此備註會出現在採購籃群組訂單</p></li>
+<li><p>Close basket group: if you know that once you’re done with this basket
+group, you will not be modifying it anymore, you can check this box and
+the group will be closed upon saving</p></li>
+</ul>
+</div></blockquote>
+<p>Add baskets to the group by clicking the ‘Add to group’ button on the right.</p>
+<p>點擊 ‘儲存’ 以結束新增您的採購籃。</p>
+<p>從此，您可匯出您的訂單成PDF檔案以便寄給您的供應商。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The content of the PDF file is not editable, but it is possible to change its
+language and formatting with the <a class="reference internal" href="acquisitionspreferences.html#orderpdfformat-label"><span class="std std-ref">OrderPdfFormat</span></a> system preference.</p>
+</div>
+</section>
+</section>
+<section id="searching-for-orders">
+<span id="searching-orders-label"></span><h2>Searching for orders<a class="headerlink" href="#searching-for-orders" title="此标题的永久链接"></a></h2>
+<p>At the top of the various Acquisition pages there is a quick search box
+where you can perform either a <a class="reference internal" href="#vendor-search-label"><span class="std std-ref">Vendor search</span></a> or an
+Order search.</p>
+<p><img alt="The search bar at the top of the page has two options in the acquisitions module, Vendor search and Orders search, this show the vendor search option" src="_images/vendorsearchbar.png" /></p>
+<p>Using the Orders search you can search for items that have been ordered
+with the title or the vendor.</p>
+<p><img alt="The search bar at the top of the page has two options in the acquisitions module, Vendor search and Orders search, this show the order search option" src="_images/ordersearchbar.png" /></p>
+<p>You can enter info in one or both fields and you can enter any part of
+the title or vendor name.</p>
+<p><img alt="Search results for orders" src="_images/ordersearchresults.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: histsearcht).</p>
+</div>
+<p>Clicking the plus sign to the right of the vendor search box will expand
+the search and allow you to search for additional fields. In the basket search,
+you can enter any part of the basket name or its number. In the invoice number
+search, you can enter a part of the invoice number.</p>
+<p><img alt="The search bar at the top of the page has two options in the acquisitions module, Vendor search and Orders search, this show the order search option, expanded" src="_images/ordersearchbarexpanded.png" /></p>
+<p>勾選搜尋鈕右方的進階搜尋，將出現所有搜尋的選項。</p>
+<p><img alt="The advanced order search form" src="_images/ordersearchadvanced.png" /></p>
+</section>
+<section id="receiving-orders">
+<span id="receiving-orders-label"></span><h2>收到訂單<a class="headerlink" href="#receiving-orders" title="此标题的永久链接"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>You must <a class="reference internal" href="#ordering-closing-basket-label"><span class="std std-ref">close the basket</span></a> to be able
+to receive items when they arrive. Only items in closed baskets will show
+as ready to receive.</p>
+</div>
+<p>可從供應商資訊頁面取得訂單</p>
+<p><img alt="Vendor information page" src="_images/vendorpage.png" /></p>
+<p>或供應商搜尋結果頁面</p>
+<p><img alt="A vendor search for book returned two vendors, ABC Bookstore, KLMNOP Bookstore and XYZ Bookstore" src="_images/vendorsearch.png" /></p>
+<p>After clicking ‘Receive shipments’ you will be asked to enter a vendor
+invoice number, a shipment received date, a shipping cost and a fund
+to subtract that shipping amount from.</p>
+<p><img alt="Receive a new shipment form" src="_images/receive.png" /></p>
+<p>簽收頁面將列出所有該供應商訂閱中的館藏，包括任何採購項目。</p>
+<p><img alt="List of all pending orders (not yet received)" src="_images/receivependingorders.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Only items from closed baskets will appear in the pending orders list.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you have a lot of orders, you can filter the orders using the ‘Search’
+box just above the table, or the filter boxes at the top of each table
+column.</p>
+<p><img alt="At the top of the pending orders table, there are search fields" src="_images/filterorders.png" /></p>
+<p>您可以，比如說，掃瞄篩選過書的ISBN只會出現相應的訂單</p>
+<p>確認清除過濾器選項當您結束，否則另一項目不會出現。</p>
+</div>
+<p>勾選館藏右方的 ‘簽收’ 連結，就能簽收指定的館藏。</p>
+<p><img alt="Item receive page (the item is created at cataloging)" src="_images/receiveitem.png" /></p>
+<p>取決於您何時要增項目（或是:ref:<cite>AcqCreateItem &lt;acqcreateitem-label&gt;`系統偏好，或是 :ref:`creating your basket &lt;create-a-basket-label&gt;</cite>) 表單會看起來略為不同。</p>
+<p>如果您選擇新增您的項目當下單時， 您將取得您的項目資訊在上方及財務資右方</p>
+<p><img alt="Item receive page (the item is created when placing the order)" src="_images/receiveitem1.png" /></p>
+<p>您可以檢查項目旁查核區以取得它，或是填完’數量取得’ 欄位在左側。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can choose to mark only part of the order as received if the vendor
+did not send your entire order by checking only the boxes next to the
+items on the left that you want to receive or by entering the right
+amount in the ‘Quantity received’ field.</p>
+</div>
+<p>從此表單按下每個館藏的 ‘編輯’ 連結就能編輯館藏紀錄。從此鍵入正確的索書號與條碼，就能製作收條。做好 (訂單或館藏) 後，按下 ‘儲存’ 鈕，表示簽收該等館藏。</p>
+<p>You can also alter the cost information (replacement cost, actual cost, and
+currency of the actual cost). The values you enter there will automatically
+populate the <a class="reference internal" href="cataloging.html#v-replacement-cost-label"><span class="std std-ref">‘Cost, replacement price’ subfield</span></a>
+and the <a class="reference internal" href="cataloging.html#g-purchase-price-label"><span class="std std-ref">‘Cost, normal purchase price’ subfield</span></a>
+in the item record after saving.</p>
+<p>如果您選擇新增您的項目當收到訂單，您將會看到項目新增表單在左方以及財務資訊在右方。</p>
+<p><img alt="Item receive page (the item is created when receiving the order)" src="_images/receiveitem2.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>You must fill out the item form and click on ‘Add item’ or ‘Add multiple items’
+in order to receive the order. You will not be able to simply change the
+‘Quantity received’ amount.</p>
+</div>
+<p>You can alter the cost information (replacement cost, actual cost, and
+currency of the actual cost). The values you enter there will automatically
+populate the <a class="reference internal" href="cataloging.html#v-replacement-cost-label"><span class="std std-ref">‘Cost, replacement price’ subfield</span></a>
+and the <a class="reference internal" href="cataloging.html#g-purchase-price-label"><span class="std std-ref">‘Cost, normal purchase price’ subfield</span></a>
+in the item record after saving.</p>
+<p>最後，如果您選擇新增您的項目當編輯書目時，您將只能看到在右方的財務資訊</p>
+<p><img alt="Item receive page (the item is created at cataloging)" src="_images/receiveitem.png" /></p>
+<p>You can alter the cost information (replacement cost, actual cost, and
+currency of the actual cost).</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The financial information will not be transferred to the item if the
+item is created when cataloging.</p>
+</div>
+<p>一旦您已做了任何改變 (對於訂單及/或館藏，點擊’儲存’到標示的館藏以示取得</p>
+<p><img alt="Already received table in the receiving page" src="_images/receiveditems.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you have your <a class="reference internal" href="acquisitionspreferences.html#acqitemsetsubfieldswhenreceived-label"><span class="std std-ref">AcqItemSetSubfieldsWhenReceived</span></a> system
+preference set to add or change values on received items those
+changes will take place after you hit ‘Save’.</p>
+</div>
+<p>簽收館藏後，可離開此頁面，或按螢幕下方的 ‘完成簽收’ 鈕。</p>
+<p>Received orders will have ‘(received)’ before the title in the basket view.</p>
+<p><img alt="A received order in a basket" src="_images/basketwithreceived.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>When all the orders in a basket have been received, the basket will be removed
+from the list of baskets for that vendor. You can click ‘Show all baskets’
+to view the inactive baskets.</p>
+<p><img alt="Active baskets from a vendor" src="_images/showactivebaskets.png" /></p>
+<p><img alt="All baskets from a vendor, including inactive baskets" src="_images/showallbaskets.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If a patron was marked as
+<a class="reference internal" href="#order-patron-notifications-label"><span class="std std-ref">needing to be notified when the order is received</span></a>,
+they will receive the ACQ_NOTIF_ON_RECEIV notice.</p>
+<p>If a patron <a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">suggested the purchase</span></a>,
+they will receive the AVAILABLE notice.</p>
+<p>Both of these notices can be
+customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</section>
+<section id="transferring-orders">
+<span id="transferring-orders-label"></span><h2>發出訂單<a class="headerlink" href="#transferring-orders" title="此标题的永久链接"></a></h2>
+<p>If the item is no longer available from this vendor you can transfer the
+order to another vendor’s basket by clicking the ‘Transfer’ link to the
+right of the title on the <a class="reference internal" href="#edit-basket-label"><span class="std std-ref">basket page</span></a> or the
+<a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receiving page</span></a>. This will pop up a vendor search
+box.</p>
+<p><img alt="Vendor search box for transferring orders" src="_images/transfersearch.png" /></p>
+<p>從此搜尋的供應商右方的 ‘選擇’ 鈕您可以重新發出此館藏。</p>
+<p><img alt="List of vendors to transfer an order to" src="_images/transfervendor.png" /></p>
+<p>提出開放採購籃讓供應商從中挑選可以供應的館藏。點選採購籃右方的 ‘選擇’ 鈕就可以新增館藏。</p>
+<p><img alt="List of baskets to transfer an order to" src="_images/transferbasket.png" /></p>
+<p>選定後就出現確認訊息。</p>
+<p>You will see transferred orders with the canceled orders when viewing the
+basket.</p>
+<p><img alt="A list of canceled or transferred orders in a basket" src="_images/cancelledorders.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Whilst it is possible to re-open your basket (unless it is part of a
+<a class="reference internal" href="#create-a-basket-group-label"><span class="std std-ref">basket group</span></a>, in which case the basket
+cannot be reopened), transfer one or more orders and re-close the basket,
+this is not recommended. This procedure will update the ‘basket closed’ date,
+which in turn will cause your
+<a class="reference internal" href="#claims-and-late-orders-label"><span class="std std-ref">‘late order’ calculations</span></a> to be
+incorrect.</p>
+<p>It is preferable to transfer an order from the
+<a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receiving page</span></a>.</p>
+</div>
+</section>
+<section id="cancelling-orders">
+<span id="cancelling-an-order-label"></span><h2>Cancelling orders<a class="headerlink" href="#cancelling-orders" title="此标题的永久链接"></a></h2>
+<p>If the item cannot be found anywhere you can cancel the order by clicking
+‘Cancel order’ or ‘Cancel order and delete catalog record’ to the far right on
+the <a class="reference internal" href="#edit-basket-label"><span class="std std-ref">basket page</span></a> or the
+<a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receiving page</span></a>.</p>
+<p><img alt="A basket with orders" src="_images/finalbasket.png" /></p>
+<p>This will prompt you to enter your reason and confirm cancellation.</p>
+<p><img alt="Warning message that says 'Are you sure you want to cancel this order, Bibliographic record will not be deleted' followed by a drop down menu for cancelation reasons and the options are 'Yes, cancel (Y)' or 'No, don't cancel (N)'" src="_images/cancelorder.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The cancellation reasons drop-down menu are populated by the
+ORDER_CANCELLATION_REASON <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized values category</span></a>.
+If there aren’t any authorized values in that category, it will be a free
+text field instead of a drop-down menu.</p>
+</div>
+<p>You will also see that the item is cancelled if you view the basket.</p>
+<p><img alt="A list of canceled or transferred orders in a basket" src="_images/cancelledorders.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Whilst it is possible to re-open your basket (unless it is part of a
+<a class="reference internal" href="#create-a-basket-group-label"><span class="std std-ref">basket group</span></a>, in which case the basket
+cannot be reopened), cancel one or more orders and re-close the basket, this
+is not recommended. This procedure will update the ‘basket closed’ date,
+which in turn will cause your
+<a class="reference internal" href="#claims-and-late-orders-label"><span class="std std-ref">‘late order’ calculations</span></a> to be
+incorrect.</p>
+<p>It is preferable to cancel an order from the
+<a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receiving page</span></a>.</p>
+</div>
+</section>
+<section id="invoices">
+<span id="invoices-label"></span><h2>發票<a class="headerlink" href="#invoices" title="此标题的永久链接"></a></h2>
+<p>When <a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">orders are received</span></a> invoices are generated.
+Invoices can be searched by clicking on ‘Invoices’ in the left of the
+Acquisitions page.</p>
+<p><img alt="Invoice search form, additional fields that are searchable are available in this search" src="_images/invoicesearch.png" /></p>
+<p>After a search, the results will appear to the right of the search options.</p>
+<p><img alt="List of invoices, separated in tabs for open and closed invoices" src="_images/invoices.png" /></p>
+<p>At the bottom of the table, there is a button to
+<a class="reference internal" href="#merging-invoices-label"><span class="std std-ref">merge selected invoices</span></a> and a button to close
+selected invoices.</p>
+<p>The ‘Actions’ button on the right allows various actions on a single invoice:</p>
+<ul class="simple">
+<li><p>Details: show the full invoice</p></li>
+<li><p>Close: close the invoice to indicate that the invoice is paid for</p></li>
+<li><p>Delete: delete the invoice; this option is only available for invoices that
+have no items received on them</p></li>
+</ul>
+<p>The detailed invoice page presents all the information about the invoice.</p>
+<p><img alt="Detailed invoice page, with additional fields and AcqEnableFiles enabled" src="_images/invoice.png" /></p>
+<ul class="simple">
+<li><p>Invoice number: the invoice number entered upon
+<a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receiving</span></a> is editable here</p></li>
+<li><p>Shipment date: date entered upon <a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receiving</span></a> is
+editable here</p></li>
+<li><p>Billing date: enter the billing date of the invoice</p></li>
+<li><p>Shipping cost: the shipping cost entered upon
+<a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receiving</span></a> is editable here</p></li>
+<li><p>Shipping fund: the fund from which to subtract the shipping cost chosen
+upon <a class="reference internal" href="#receiving-orders-label"><span class="std std-ref">receiving</span></a> is editable here</p></li>
+<li><p>Status: the status of the invoice, either open or closed; if closed, the
+closing date will also appear</p></li>
+<li><p>Close: if the invoice is still open, it can be closed by checking this box</p></li>
+<li><p>Reopen: if the invoice is closed, it can be reopened by checking this box</p></li>
+<li><p>Additional fields: if there are
+<a class="reference internal" href="administration.html#additional-fields-label"><span class="std std-ref">additional fields</span></a> for invoices, they will
+appear here.</p></li>
+</ul>
+<p>In the Adjustments section, you can add adjustments to your invoices by
+clicking ‘Add an adjustment’.</p>
+<p>These adjustments can be for adjusting the price that is offset by rounding
+or adding a credit to the invoice, for example.</p>
+<p><img alt="Add adjustment form" src="_images/adjustments.png" /></p>
+<ul>
+<li><p>Amount: enter the amount of the adjustment (can be positive or negative)</p></li>
+<li><p>Reason: choose a reason, if needed</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The reasons are populated by the ADJ_REASON
+<a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized values category</span></a>.</p>
+</div>
+</li>
+<li><p>Note: enter a note, if needed</p></li>
+<li><p>Fund: choose the fund from which the adjustment amount should be taken</p></li>
+<li><p>Encumber while invoice open: if this is checked, the amount of the adjustment
+will be taken out of the fund immediately. If it is not checked, the amount
+will be subtracted only when the invoice is closed.</p></li>
+</ul>
+<p>Click on ‘Update adjustments’ to save your adjustments.</p>
+<p>以後需要調整時，可於此表單內按 ‘更新調整’ 鈕。</p>
+<p><img alt="List of adjustments on an invoice" src="_images/adjustments2.png" /></p>
+<p>In the ‘Invoice details’ section, you will see the details of each received
+title in this invoice.</p>
+<ul class="simple">
+<li><p>If needed, you can change the fund used for each title by clicking ‘Modify
+fund’ in the ‘Fund’ column.</p></li>
+</ul>
+<section id="attaching-files-to-invoices">
+<span id="attaching-files-to-invoices-label"></span><h3>附加檔案到發票<a class="headerlink" href="#attaching-files-to-invoices" title="此标题的永久链接"></a></h3>
+<p>If you’re allowing the uploading of acquisitions files with the
+<a class="reference internal" href="acquisitionspreferences.html#acqenablefiles-label"><span class="std std-ref">AcqEnableFiles</span></a> system preference you will see the option
+to manage invoice files next to the link to ‘Go to receipt
+page’</p>
+<p><img alt="Detailed invoice page, with additional fields and AcqEnableFiles enabled" src="_images/invoice.png" /></p>
+<p>按 ‘管理發票檔案’ 連結就可以看到或新增檔案</p>
+<p><img alt="A message says 'This invoice has no files attached.' above a form to upload files" src="_images/noinvoicefiles.png" /></p>
+<p>From here you can find a file to upload and see the files you have
+already attached.</p>
+<p><img alt="List of attached files to an invoice above the form to upload files" src="_images/invoicefiles.png" /></p>
+</section>
+<section id="merging-invoices">
+<span id="merging-invoices-label"></span><h3>Merging invoices<a class="headerlink" href="#merging-invoices" title="此标题的永久链接"></a></h3>
+<p>From the invoice search results you can also merge together two invoices or
+more, should you need to.</p>
+<p><img alt="List of invoices, separated in tabs for open and closed invoices" src="_images/invoices.png" /></p>
+<p>Simply click the checkbox to the left of the invoices you would like to merge
+and click the ‘Merge selected invoices’ button at the bottom of the page.
+You will be presented with a form to confirm the merge:</p>
+<p><img alt="Merge invoices form" src="_images/mergeinvoices.png" /></p>
+<p>Click on the row of the invoice number you would like to keep and it
+will be highlighted in yellow. Enter any different billing information
+in the fields provided and click ‘Merge’. The invoices will become
+one.</p>
+</section>
+</section>
+<section id="claims-and-late-orders">
+<span id="claims-and-late-orders-label"></span><h2>採購建議及晚到的訂單<a class="headerlink" href="#claims-and-late-orders" title="此标题的永久链接"></a></h2>
+<p>The ‘Late orders’ link on the acquisitions main page leads to a report where
+all orders can be filtered to find the late orders.</p>
+<p>從採訪頁面勾選連結至 ‘延遲訂單’ 於左手邊出現篩選過的選項。這些選項祗適用於關閉的採購籃。</p>
+<p><img alt="Late orders filters" src="_images/acqclaimfilter.png" /></p>
+<ul>
+<li><p>Order date: this filter limits the results to orders from baskets closed
+more than this number of days ago. This defaults to 0, meaning all orders
+from closed baskets are shown in the list.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The order date is the date the
+<a class="reference internal" href="#ordering-closing-basket-label"><span class="std std-ref">basket was closed</span></a>.</p>
+</div>
+</li>
+<li><p>Estimated delivery date from … to …: this filter limits the results to
+orders estimated to be delivered between two dates. The estimated delivery
+date is either the date entered in the ‘Estimated delivery date’ field in the
+<a class="reference internal" href="#accounting-details-orders-label"><span class="std std-ref">accounting details section of the order</span></a>,
+or it is calculated as order date (date the basket was closed) +
+delivery time entered when <a class="reference internal" href="#add-a-vendor-label"><span class="std std-ref">creating the vendor</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The estimated delivery date can be edited in the late orders table.</p>
+</div>
+</li>
+<li><p>Vendor: this filter limits the results to orders to a specific vendor.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The vendor drop-down menu only shows vendors with closed baskets.</p>
+</div>
+</li>
+</ul>
+<p>篩選訂單後將列出延遲的館藏。</p>
+<p><img alt="List of late orders" src="_images/lateorders.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: late_orders).</p>
+</div>
+<p>There are several options for claiming late orders.</p>
+<ul>
+<li><p>If you have entered in an email address for a
+<a class="reference internal" href="#add-a-vendor-label"><span class="std std-ref">contact at the vendor’s</span></a> in your system you can
+send them claim emails when an order is late.</p>
+<ul>
+<li><p>Choose the notice to be sent in the ‘Claim using notice’ drop down menu</p>
+<p><img alt="Claim using notice drop down menu" src="_images/claimletter.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The default notice is
+<a class="reference internal" href="tools.html#existing-notices-and-slips-label"><span class="std std-ref">‘Acquisition claim’ (code ACQCLAIM)</span></a>.
+It can be modified in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips tool</span></a>.</p>
+<p>You can <a class="reference internal" href="tools.html#adding-notices-and-slips-label"><span class="std std-ref">add different notices</span></a>.
+When creating a new notice, choose ‘Claim acquisition’.</p>
+</div>
+</li>
+<li><p>Check the box to the right of the late titles to claim</p></li>
+<li><p>Click ‘Claim order’ at the bottom right of the list.</p></li>
+</ul>
+</li>
+<li><p>If the vendor does not have a contact with an email address, you can
+download the list of title to claim as a CSV file</p>
+<ul>
+<li><p>Check the box to the right of the late titles to claim</p></li>
+<li><p>Click ‘Export as CSV’ at the bottom right of the list</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The default CSV profile used is ‘Late orders’. You can modify it or
+add new ones in the <a class="reference internal" href="tools.html#csv-profiles-label"><span class="std std-ref">CSV profiles tool</span></a>.</p>
+<p>If adding a new one, choose profile type: SQL and usage: Export late
+orders.</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="budget-fund-tracking">
+<span id="budget-fund-tracking-label"></span><h2>預算/基金追蹤<a class="headerlink" href="#budget-fund-tracking" title="此标题的永久链接"></a></h2>
+<p>在採訪首頁有個表單顯示所有使用中的基金與訂購中與使用中的內容。</p>
+<p><img alt="Funds table on the acquisitions module's main page" src="_images/acqfunds.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can customize the columns of this table in the
+<a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: accounts).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the total line is confusing for the funds you have set up you can
+hide it by adding this code to the <a class="reference internal" href="staffclientpreferences.html#intranetusercss-label"><span class="std std-ref">IntranetUserCSS</span></a> preference.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#funds_total {display:none;}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>The ‘Expand all’ link will show all funds and sub-funds.</p>
+<p>The ‘Collapse all’ link will show only first level funds.</p>
+<p>The ‘Hide inactive budgets’ will hide budgets that are not currently active
+(such as previous years’ budgets).</p>
+<p>The ‘Show inactive budgets’ will show budgets that are not currently active
+(such as previous years’ budgets).</p>
+<p>If you have several libraries in your system and have funds assigned to
+different libraries, you can filter the table to show only the funds for a
+specific library.</p>
+<p>點選連結金額就會搜尋基金內的所有訂單記錄。</p>
+<p><img alt="A table with all the ordered items in a fund" src="_images/fundbreakdown.png" /></p>
+</section>
+<section id="edi-process">
+<span id="edi-process-label"></span><h2>EDI 程序<a class="headerlink" href="#edi-process" title="此标题的永久链接"></a></h2>
+<p>Previous sections explain all ordering options, this section pulls out
+the parts related to EDI or EDIFACT ordering to help those who are using EDI for some or all of the ordering process.</p>
+<p>EDI allows order files to be sent between vendors and Koha.  When the files are processed the order information is loaded directly into Koha.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Libraries do not have to automate the full process and not all vendors support all functions.  For example
+a library might use QUOTE and ORDER files but carry out manual invoicing/receipting.  Or a library may
+create the basket on Koha either manually or from a file of MARC records but send the order back
+to the vendor via an ORDER file.  Speak to your vendors to establish which functions they support.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Koha uses the EDIFACT standard (EDItEUR and BiC) not the X12 standard for
+electronic ordering.</p>
+</div>
+<section id="setting-up-edi-in-koha">
+<span id="edi-setup-label"></span><h3>Setting up EDI in Koha<a class="headerlink" href="#setting-up-edi-in-koha" title="此标题的永久链接"></a></h3>
+<dl class="simple">
+<dt>In order to use EDIFACT in Koha, the</dt><dd><p><a class="reference internal" href="acquisitionspreferences.html#edifact-syspref-label"><span class="std std-ref">EDIFACT system preference</span></a> must be enabled.</p>
+</dd>
+</dl>
+<p>Before you begin ordering using EDI you will need to take the following steps:</p>
+<ul class="simple">
+<li><p>Ask your vendor/bookseller/jobber for their
+connection information. See <a class="reference internal" href="#edi-questions-for-vendors-label"><span class="std std-ref">EDI questions for vendors</span></a> below.</p>
+<ul>
+<li><p>不妨向代理商取得幾個 EDIFACT 檔案的範本</p></li>
+</ul>
+</li>
+<li><p>與代理商/書商/經銷商共享您的 <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">圖書館代碼</span></a>、<a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">館藏類型代碼</span></a>、<a class="reference internal" href="administration.html#funds-label"><span class="std std-ref">基金代碼</span></a>、其他代碼或 <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">容許值</span></a>，供其建立圖書館的 MARC 訂購記錄</p></li>
+<li><p>與圖書館的支持者或社群溝通，需依照代理商的請求加入外掛</p>
+<ul>
+<li><p>例如，ByWater Solutions 公司指定代理商的外掛程式：<a class="reference external" href="https://github.com/bywatersolutions/koha-plugin-edifact-enhanced">https://github.com/bywatersolutions/koha-plugin-edifact-enhanced</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#add-a-vendor-label"><span class="std std-ref">Create a vendor/bookseller/jobber record</span></a> in
+Acquisitions</p></li>
+<li><p>檢視您的 <a class="reference internal" href="acquisitionspreferences.html#acquisitions-system-preferences-label"><span class="std std-ref">採訪系統偏好</span></a></p>
+<ul>
+<li><p>Fill in the <a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder-label"><span class="std std-ref">MarcFieldsToOrder</span></a> system preference with
+values for order files (see the
+<a class="reference internal" href="#marc-order-fields-edi-label"><span class="std std-ref">MARC order fields</span></a> section below) if your vendor will be
+sending you files of MARC records for you to import manually.  If the vendor will be sending
+automated EDI QUOTE files the MarcFieldsToOrder system preference does not need to be filled.</p></li>
+</ul>
+</li>
+<li><p>Enter your <a class="reference internal" href="administration.html#edi-accounts-label"><span class="std std-ref">EDI Accounts</span></a></p></li>
+<li><p>Enter your <a class="reference internal" href="administration.html#library-eans-label"><span class="std std-ref">Library EANs</span></a></p></li>
+<li><p>Turn on the <a class="reference internal" href="cron_jobs.html#cron-edi-message-processing-label"><span class="std std-ref">EDI cron</span></a> so that EDI files can be processed.</p></li>
+</ul>
+<section id="edi-questions-for-vendors">
+<span id="edi-questions-for-vendors-label"></span><h4>給供應商的 EDI 問卷<a class="headerlink" href="#edi-questions-for-vendors" title="此标题的永久链接"></a></h4>
+<p>You will need to gather the following information from your vendors
+before beginning the set up process in Koha.</p>
+<section id="edi-accounts">
+<span id="edi-accounts-for-vendors-label"></span><h5>EDI accounts<a class="headerlink" href="#edi-accounts" title="此标题的永久链接"></a></h5>
+<p>EDI accounts: This is the basic connection information for your
+vendor. It will be used to fill in the <a class="reference internal" href="administration.html#edi-accounts-label"><span class="std std-ref">EDI accounts</span></a>
+section.</p>
+<ul class="simple">
+<li><p>Vendor: The name of the vendor</p></li>
+<li><p>Description: A short description if additional explanation is
+needed (especially if you have multiple accounts for one vendor).</p></li>
+<li><p>Transport: Does the vendor transmit EDI files via FTP, SFTP, or
+something else that requires special processing?</p>
+<ul>
+<li><p>Options:</p>
+<ul>
+<li><p>FTP</p></li>
+<li><p>SFTP</p></li>
+<li><p>FILE</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Remote host: The URL or IP address of the FTP/SFTP server</p></li>
+<li><p>Username: The username for the above server</p></li>
+<li><p>Password: The password for the above server</p></li>
+<li><p>Download directory: The path on the server that contains files
+for Koha to download and process</p></li>
+<li><p>Upload directory: The path on the server that Koha will upload
+files to for your vendor to process</p></li>
+<li><p>Qualifier: Who assigned the SAN below?</p>
+<ul>
+<li><p>Options:</p>
+<ul>
+<li><p>EAN International (14)</p></li>
+<li><p>US SAN Agency (31B)</p></li>
+<li><p>Assigned by supplier (91)</p></li>
+<li><p>Assigned by buyer (92)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>SAN: The identifier for the vendor</p></li>
+<li><p>Standard: Which standard is used by the vendor, this will change how the
+EDI messages are interpreted</p>
+<ul>
+<li><p>Options:</p>
+<ul>
+<li><p>BiC</p></li>
+<li><p>EDItEUR</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Quotes enabled: (yes or no) Does this vendor support sending and
+receiving quotes via EDIFACT and do you want to send and receive
+quotes via EDIFACT?</p></li>
+<li><p>Orders enabled: (yes or no) Does this vendor support sending and
+receiving orders via EDIFACT and do you want to send and receive
+orders via EDIFACT?</p></li>
+<li><p>Invoices enabled: (yes or no) Does this vendor support sending and
+receiving invoices via EDIFACT and do you want to send and receive
+invoices via EDIFACT?</p></li>
+<li><p>Responses enabled: (yes or no) Does this vendor support sending and
+receiving responses via EDIFACT and do you want to send and receive
+invoices via EDIFACT?</p></li>
+<li><p>Automatic ordering: (yes or no) Check this box if you want quotes to
+automatically generate orders.</p></li>
+</ul>
+</section>
+<section id="ean">
+<span id="library-ean-buyer-identifier-label"></span><h5>EAN<a class="headerlink" href="#ean" title="此标题的永久链接"></a></h5>
+<p>Each library using EDIFACT needs to specify a buyer identifier know as a SAN or
+EAN. This will fill in the <a class="reference internal" href="administration.html#library-eans-label"><span class="std std-ref">Library EANs</span></a> setting.</p>
+<ul class="simple">
+<li><p>Library: Choose the library this EAN represents</p></li>
+<li><p>Description: Add a description to this EAN, if needed</p></li>
+<li><p>EAN: Enter the EAN</p></li>
+<li><p>Qualifier: Choose who assigned the EAN above</p>
+<ul>
+<li><p>Options:</p>
+<ul>
+<li><p>EAN International (14)</p></li>
+<li><p>US SAN Agency (31B)</p></li>
+<li><p>Assigned by supplier (91)</p></li>
+<li><p>Assigned by buyer (92)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="marc-order-fields-or-grid-ordering">
+<span id="marc-order-fields-edi-label"></span><h5>MARC order fields or grid ordering<a class="headerlink" href="#marc-order-fields-or-grid-ordering" title="此标题的永久链接"></a></h5>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<dl class="simple">
+<dt>This is only necessary if your vendor will be sending you files of MARC records for you to import via the <a class="reference internal" href="cataloging.html#stage-marc-records-for-import-label"><span class="std std-ref">Stage MARC records for import</span></a></dt><dd><p>tool.   If your vendor will be sending automated EDI QUOTE files the MarcFieldsToOrder system preference does not need to be filled.</p>
+</dd>
+</dl>
+</div>
+<p>These values will fill in the <a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder-label"><span class="std std-ref">MarcFieldsToOrder</span></a> system preference.</p>
+<ul class="simple">
+<li><p>price: MARC21 field that contains the item price</p></li>
+<li><p>quantity: MARC21 field that contains the number of items for the given record</p></li>
+<li><p>budget_code: MARC21 field that contains the Koha budget code to be debited</p></li>
+<li><p>discount: MARC21 field the contains the discount as a percentage the the
+price will be discounted by</p></li>
+<li><p>sort1: MARC21 field that will populate custom field sort1</p></li>
+<li><p>sort2: MARC21 field that will populate custom field sort2</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="ordering-via-edi">
+<span id="edi-ordering-label"></span><h3>Ordering via EDI<a class="headerlink" href="#ordering-via-edi" title="此标题的永久链接"></a></h3>
+<p>The first step in ordering using EDI happens on the book vendor’s
+website. Each seller will use different language, but you will need to
+place your order on their site.  Some language that you might see included “basket”, “order”, “cart”,
+and/or “MARC order”.  THe vendor will then either send you a file of MARC records to import into Koha OR
+the vendor will send a QUOTE file if you have this enabled in your <a class="reference internal" href="administration.html#edi-accounts-label"><span class="std std-ref">EDI accounts</span></a> settings.</p>
+<section id="working-with-a-marc-file">
+<span id="working-with-a-marc-file-label"></span><h4>Working with a MARC file<a class="headerlink" href="#working-with-a-marc-file" title="此标题的永久链接"></a></h4>
+<p>Once you have this MARC file downloaded to your
+computer you will want to log in to Koha and continue the process there.</p>
+<p>In Acquisitions <a class="reference internal" href="#create-a-basket-label"><span class="std std-ref">create a basket</span></a> for the vendor
+you ordered from. Add your file to the basket by <a class="reference internal" href="#order-from-a-new-file-label"><span class="std std-ref">ordering from a new
+file</span></a>.</p>
+<p>From the confirmation screen you will see all of the data in the MARC
+file related to your order. If you are not seeing fields such as fund
+and quantity filled in then be sure to confirm that your
+<a class="reference internal" href="acquisitionspreferences.html#marcfieldstoorder-label"><span class="std std-ref">MarcFieldsToOrder</span></a> preference is set right.</p>
+<p>把館藏加入採購籃後，就能按 ‘新增 EDIFACT 訂單’ 鈕。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The ‘Create EDIFACT order’ button only displays is you have enabled the <a class="reference internal" href="acquisitionspreferences.html#edifact-syspref-label"><span class="std std-ref">EDIFACT system preference</span></a>.</p>
+</div>
+<p>You will be asked if you wish to create the EDI order and close the basket.</p>
+</section>
+<section id="sending-the-edifact-order">
+<span id="sending-the-edifact-order-label"></span><h4>Sending the EDIFACT order<a class="headerlink" href="#sending-the-edifact-order" title="此标题的永久链接"></a></h4>
+<p>This will generate an ORDER file with the status ‘Pending’in the
+<a class="reference internal" href="#edifact-messages-label"><span class="std std-ref">EDIFACT messages</span></a> in Koha.</p>
+<p>The pending files will be processed by the
+<a class="reference internal" href="cron_jobs.html#cron-edi-message-processing-label"><span class="std std-ref">EDI cron job</span></a> and sent to your vendor and the status
+in <a class="reference internal" href="#edifact-messages-label"><span class="std std-ref">EDIFACT messages</span></a> will be updated to ‘Sent’.</p>
+</section>
+<section id="working-with-a-quote-file">
+<span id="working-with-a-quote-file-label"></span><h4>Working with a QUOTE file<a class="headerlink" href="#working-with-a-quote-file" title="此标题的永久链接"></a></h4>
+<p>If you have QUOTE files enabled you can place the order on the bookseller’s
+website and a QUOTE file will be automatically generated and made available to
+be collected and loaded to Koha. You will see the file listed in the
+<a class="reference internal" href="#edifact-messages-label"><span class="std std-ref">EDIFACT messages</span></a> in Koha with a status of
+‘Received’. The basket will have been created and records and items added to
+the basket.</p>
+<p>Once you have checked that the basket is correct you can click the
+‘Create EDIFACT order’ button. The process then completes as
+for <a class="reference internal" href="#sending-the-edifact-order-label"><span class="std std-ref">Sending the EDIFACT order</span></a> above.</p>
+</section>
+</section>
+<section id="edi-invoicing">
+<span id="edi-invoicing-label"></span><h3>EDI 發票<a class="headerlink" href="#edi-invoicing" title="此标题的永久链接"></a></h3>
+<p>When the book vendor is done processing your files they can send an
+INVOICE file via EDI as well. The <a class="reference internal" href="cron_jobs.html#cron-edi-message-processing-label"><span class="std std-ref">EDI cron job</span></a> will grab
+invoice file, create an invoice on Koha and mark items found in the invoice as received and update your
+funds without any need for manual intervention. As a final check the invoice can be reviewed and closed if all items have
+been receipted correctly.</p>
+<p>INVOICE files can be viewed in the <a class="reference internal" href="#edifact-messages-label"><span class="std std-ref">EDIFACT messages</span></a>. Processed files have the status ‘Received’.</p>
+<p>If you set the <a class="reference internal" href="acquisitionspreferences.html#edifactinvoiceimport-label"><span class="std std-ref">EdifactInvoiceImport</span></a> preference to ‘Don’t’ you can load
+invoice files manually.</p>
+</section>
+<section id="edifact-messages">
+<span id="edifact-messages-label"></span><h3>EDIFACT 訊息<a class="headerlink" href="#edifact-messages" title="此标题的永久链接"></a></h3>
+<p>記錄所有訊息的日誌檔經由 EDIFACT 發送，可在 EDIFACT 訊息下找到。</p>
+<p><img alt="List of EDIFACT messages sent and received" src="_images/edifactmsg.png" /></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="serials.html" class="btn btn-neutral float-left" title="期刊" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="erm.html" class="btn btn-neutral float-right" title="电子资源管理" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

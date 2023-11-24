@@ -1,0 +1,1188 @@
+.. include:: images.rst
+
+.. _searchingsystem-preferences-label:
+
+Searching
+-------------------------------
+
+*Get there:* More > Administration > Global system preferences >
+Searching
+
+.. _didyoumean-spellchecking-prefs-label:
+
+Did you mean / Spell checking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _libriskey-label:
+
+LibrisKey
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Swedish service for spellchecking. LIBRIS spellchecking API key \_\_\_ 
+
+Description:
+
+-  Use this system preference to enable the LIBRIS spellchecking service.
+
+-  You can obtain you API key at http://api.libris.kb.se/bibspell
+
+.. _librisurl-label:
+
+LibrisURL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: LIBRIS base URL \_\_\_
+
+Default: http://api.libris.kb.se/bibspell/
+
+Description:
+
+-  This system preference is used to set the base URL for the LIBRIS 
+   spellchecking service API
+
+-  The default value should be the right one. Make sure you only change it if 
+   you are sure it needs to be changed
+
+.. _searchingfeatures-label:
+
+Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _browseresultselection-label:
+
+BrowseResultSelection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ browsing search results from the bibliographic record detail page
+in staff interface.
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  Enabling this system preference makes a button appear in the staff interface
+   :ref:`search results page<search-results-label>` to browse the selected records.
+
+.. _elasticsearchcrossfields-label:
+
+ElasticsearchCrossFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the cross\_fields option for Elasticsearch searches.
+
+Default: Enable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+.. Note::
+
+   The cross\_fields option is supported in Elasticsearch 6.X and above.
+
+Description:
+
+-  This system preference controls whether or not Elasticsearch's cross\_fields
+   option is enabled. As this option only works with ES6 and above, this system
+   preference should be disabled if using an older version.
+
+-  The cross_fields option is used in keyword searches to search across all
+   fields. In Koha, keyword searches are not searches in a specific 'keyword'
+   index, but rather a search across all searchable indexes. With Elasticsearch
+   6, if cross_fields is disabled, the keyword search will return results where
+   the search terms all appear in the same index (for example, the 'title' index).
+   If cross_fields is enabled, the keyword search will return results where the
+   search terms appear in any index.
+
+   .. Note::
+
+      For example, a keyword search for "king grass" with Elasticsearch 6 will
+      return the following results
+
+      With ElasticsearchCrossFields disabled:
+
+       - *The Island of the Grass King* by Nancy Willard (grass in title/king in title)
+
+      With ElasticsearchCrossFields enabled:
+
+       - *The Island of the Grass King* by Nancy Willard (grass in title/king in title)
+
+       - *In the tall grass* by Stephen King (grass in title/king in author)
+
+-  Visit https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html#type-cross-fields
+   for more information on this option.
+
+.. _enablesearchhistory-label:
+
+EnableSearchHistory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patron search history in the staff interface.
+
+Default: Don't keep
+
+Values:
+
+-  Don't keep
+
+-  Keep
+
+Description:
+
+-  This system preference controls whether the staff interface keeps
+   :ref:`search history<search-history-label>` for logged in users.
+   :ref:`Search history<search-history-label>` will be accessible under the
+   link to your account at the top right of the staff interface.
+
+|searchhistory|
+
+.. _includeseefrominsearches-label:
+
+IncludeSeeFromInSearches
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ *see from* (non-preferred form) headings in bibliographic searches.
+
+Default: Don't include
+
+Values:
+
+-  Don't include
+
+-  Include
+
+Description:
+
+-  When this system preference is set to 'include', the search engine indexer
+   will insert *see from* headings from authority records into bibliographic
+   records when indexing, so that a search on an obsolete term will turn
+   up relevant records. For example when you search for cookery (the old
+   term) you get titles with the heading of cooking (the new term).
+
+.. Warning::
+
+    You will need to reindex your bibliographic database when changing
+    this system preference.
+
+.. _queryautotruncate-label:
+
+QueryAutoTruncate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Perform wildcard searching (where, for example, Har would match
+Harry and harp) \_\_\_ (The \* character would be used like so: Har\* or
+\*logging.)
+
+Default: automatically
+
+Values:
+
+-  automatically
+
+-  only if \* is added
+
+Description:
+
+-  This setting allows for searches to be automatically truncated or for
+   additional characters to be added to the end of a search string. When
+   set to "automatically" the search string automatically ends with a
+   wildcard function. For example, a search for the word "invent" with
+   auto truncation enabled will also retrieve results for inventor,
+   invention, inventory, etc.
+
+-  If you don't want this to happen automatically you can still be perform
+   wildcard searches manually by adding an asterisk (\*). Typing "invent\*"
+   even with auto truncation disabled will retrieve the same inventor,
+   invention, inventory results.
+
+-  Auto truncation bypasses the necessity to type long search strings in their
+   entirety, but can return a lot of undesired results.
+
+.. _queryfuzzy-label:
+
+QueryFuzzy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ to match similarly spelled words in a search (for example,
+a search for *flang* would also match *flange* and *fang*)
+
+Default: Try
+
+Values:
+
+-  Don't try
+
+-  Try
+
+Description:
+
+-  This system preference enables "fuzzy" searching, in which the search engine
+   returns results that are similar to, but not exactly matching, the
+   word or words entered by the user. This system preference enables the search
+   function to compensate for slightly misspelled names or phrases.
+
+.. Warning::
+
+   This does not work if ICU is enabled in your system.
+
+.. Warning::
+
+   This system preference only works with Zebra. When using Elasticsearch,
+   a fuzzy search can be performed by adding a tilde (~) directly after the
+   term. For example, flang~.
+
+.. _queryregexescapeoptions-label:
+
+QueryRegexEscapeOptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ regular expressions within strings.
+
+Default: Escape
+
+Values:
+
+-  Don't escape
+
+-  Escape
+
+-  Unescaped escaped
+
+Description:
+
+-  If 'Escape' is selected occurrences of '/'' in search terms will be
+   automatically escaped, and regular expressions interpreted as regular 
+   strings. In other words, regular expressions are disabled and search 
+   terms are search as-is (for example, 'an essential grammar / William Z. 
+   Shetter').
+
+-  If 'Unescape escaped' is selected this will allow writing regular 
+   expressions '\/like this\/'' while '/this/', 'or/this' will be escaped 
+   and interpreted as regular strings. In other words, use this option if you 
+   want to be able to use regular expressions in your search queries.
+
+-  If 'Don't escape' is selected, the default behavior of the Elasticsearch
+   search engine will be left unaltered. Several characters will be interpreted 
+   as being part of a regular expression, such as the forward slash (/). 
+
+.. Warning::
+
+   This system preference is used with Elasticsearch only. If you use Zebra as
+   your :ref:`SearchEngine <SearchEngine-label>`, it will not change anything.
+
+.. _querystemming-label:
+
+QueryStemming
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ to match words of the same base in a search
+
+Default: Try
+
+Values:
+
+-  Don't try
+
+-  Try
+
+Description:
+
+-  This system preference enables word stemming. Stemming allows the search
+   function to return multiple versions of the same word, as well as
+   related terms (i.e., both fish and fishing would be returned).
+
+.. Warning::
+
+   This system preference is used with Zebra only. Elasticsearch does stemming
+   searches automatically.
+
+.. _queryweightfields-label:
+
+QueryWeightFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ ranking of search results by relevance
+
+Default: Enable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  This system preference is used to enable or disable the sorting of search
+   results by relevance.
+
+.. Warning::
+
+   This system preference is used with Zebra only.
+
+.. _savedsearchfilters-label:
+
+SavedSearchFilters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the option for staff with permission to create/edit custom saved
+search filters.
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  When enabled, this system preference will add the possibility to
+   :ref:`save searches as search filters <search-filters-label>`.
+
+.. _tracecompletesubfields-label:
+
+TraceCompleteSubfields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ subject tracings in the OPAC and staff interface to search
+only for complete-subfield matches.
+
+Default: Force
+
+Values:
+
+-  Don't force
+
+   -  Searches for subject keywords (example:
+      opac-search.pl?q=su:World%20Wide%20Web)
+
+-  Force
+
+   -  Searches for complete subject fields (example:
+      opac-search.pl?q=su,complete-subfield:World%20Wide%20Web)
+
+Description:
+
+-  When TraceCompleteSubfields is set to 'force', clicking on links in
+   non-authority controlled subject tracings will only find other
+   records where the entire subfields match. Leaving it at "don't force"
+   does a keyword search of the subject indexes.
+
+.. Warning::
+
+   This system preference assumes that XSLT stylesheets are used, as set in the
+   :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>` or :ref:`XSLTDetailsDisplay <XSLTDetailsDisplay-label>` system
+   preferences.
+
+.. _tracesubjectsubdivisions-label:
+
+TraceSubjectSubdivisions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ subdivisions for searches generated by clicking on subject
+tracings.
+
+Default: Include
+
+Values:
+
+-  Don't include
+
+   -  Searches for subject keywords (example:
+      opac-search.pl?q=su,complete-subfield:%22Web%20sites%22)
+
+-  Include
+
+   -  Searches for complete subject fields (example:
+      opac-search.pl?q=(su,complete-subfield:%22Web%20sites%22)%20and%20(su,complete-subfield:%22Design.%22))
+
+Description:
+
+-  When TraceSubjectSubdivisions is set to 'Include', if you click on a
+   subject with subdivisions (subfields other than 'a') they will be
+   searched along with the subject heading (subfield 'a'). To have only
+   the subject heading (subfield 'a') searched, set this system preference to
+   "Don't include."
+
+.. Warning::
+
+   This system preference assumes that XSLT stylesheets are used, as set in the
+   :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>` or :ref:`XSLTDetailsDisplay <XSLTDetailsDisplay-label>` system
+   preferences.
+
+.. _useicustylequotes-label:
+
+UseICUStyleQuotes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ ICU style quotes ({}) when tracing subjects.
+
+Default: Don't use
+
+Values:
+
+-  Don't use
+
+-  Use
+
+Description:
+
+-  This system preference lets you decide which style of quotes to use when
+   tracing subjects.
+
+-  If set to "Don't use", the regular double quotes ("") will be used 
+
+-  If set to "Use", the quotes will be replaced by curly brackets ({})
+
+.. _results-display-label:
+
+Results display
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _biblioitemtypeinfo-label:
+
+BiblioItemtypeInfo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ Koha record-level itemtype info on detail and result pages in the
+OPAC and staff interface.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If enabled, the icons for the record item type (942$c) will be displayed on
+   the record detail and search result pages in both the OPAC and staff interface.
+
+-  This information also displays if the
+   :ref:`item-level\_itypes <item-level_itypes-label>` system preference is set
+   to bibliographic record.
+
+.. _defaultsortfield-and-defaultsortorder-label:
+
+defaultSortField and defaultSortOrder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: By default, sort search results in the staff interface by \_\_\_,
+\_\_\_
+
+Default: relevance (defaultSortField), descending (defaultSortOrder)
+
+Values:
+
+defaultSortField
+
+-  date added
+
+-  author
+
+-  call number
+
+-  total number of checkouts
+
+-  date of publication
+
+-  relevance
+
+-  title
+
+defaultSortOrder
+
+-  ascending
+
+-  from A to Z
+
+-  descending
+
+-  from Z to A
+
+Description:
+
+-  These preferences set the default sort field and sort order for
+   searches in the staff interface.
+
+-  Regardless of this setting, the other sort options are still available in
+   the :ref:`advanced search form<advanced-search-sort-label>` and the
+   :ref:`search results page<search-results-actions-labels>`.
+
+See also:
+
+-  :ref:`OPACdefaultSortField and OPACdefaultSortOrder<opacdefaultsortfield-and-opacdefaultsortorder-label>`
+
+.. _displayfacetcount-label:
+
+displayFacetCount
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ facet counts.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  This system preference lets you decide if you show how many times a
+   :ref:`facet<search-results-facets-label>` is used in your search results in
+   the OPAC and the staff interface.
+
+   |searchresults-facets|
+
+-  The relevance of these numbers highly depends on the value of the
+   :ref:`maxRecordsForFacets <maxRecordsForFacets-label>` preference.
+
+-  Showing these numbers can potentially affect the performance of your
+   searching, so test your system with different values for this preference to
+   see what works best.
+
+.. _displaylibraryfacets-label:
+
+DisplayLibraryFacets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show facets for \_\_\_
+
+Default: holding library
+
+Values:
+
+-  both home and holding library
+
+-  holding library
+
+-  home library
+
+Description:
+
+-  This system preference controls the 'libraries' facet that displays on the
+   :ref:`search results page<search-results-facets-label>` in the staff
+   interface and the OPAC. The value selected here will determine
+   which libraries show in the facets when a search is run.
+
+.. _facetlabeltruncationlength-label:
+
+FacetLabelTruncationLength
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Truncate facets length to \_\_\_ characters, in OPAC/staff interface.
+
+Default: 20
+
+Description:
+
+-  In the OPAC and the staff interface, facets are cut off at 20 characters by 
+   default. Depending on the layout this may be too many or too few letters. 
+   This system preference lets you decide what number is best for your library's
+   design.
+
+.. Warning::
+
+   This preference only works with Zebra. When using ElasticSearch, facets 
+   cannot be truncated, they will be displayed in full.
+
+.. _facetmaxcount-label:
+
+FacetMaxCount
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show up \_\_\_ to facets for each category.
+
+Default: 20
+
+Description:
+
+-  This system preference allows you to control how many possible limits show
+   under each heading (Author, Series, Topics, etc) in the
+   :ref:`facets<search-results-facets-label>` in the staff interface and OPAC.
+
+.. _facetorder-label:
+
+FacetOrder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Sort facets \_\_\_ for each category.
+
+Default: alphabetically
+
+Values:
+
+-  alphabetically
+
+-  by usage count
+
+Description:
+
+-  This preference allows you to control the order of facets in each category
+   (Authors, Series, Topics, etc.)
+
+-  By default, facets are ordered alphabetically. But it is possible to order
+   them by the one with the most occurrences to the one with the least
+   occurrences.
+
+.. _maxitemsinsearchresults-label:
+
+maxItemsInSearchResults
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show up to \_\_\_ items per bibliographic record in the search results.
+
+Default: 20
+
+Description:
+
+-  This system preference will let you set how many items are displayed for each
+   record in the :ref:`search results<search-results-label>` in the staff
+   interface.
+
+.. _maxrecordsforfacets-label:
+
+maxRecordsForFacets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Build facets based on \_\_\_ records from the search results.
+
+Default: 20
+
+Description:
+
+-  By default, Koha only bases :ref:`facets<search-results-facets-label>` on the
+   first twenty :ref:`search results<search-results-label>`. This system
+   preference lets you tell Koha to base the facet descriptions and numbers on
+   any number of search results returned.
+
+.. Warning::
+
+   The higher this number the longer it will take for your search results to
+   return, so test with various different values to find the best balance
+   according to your resources.
+
+.. _maxsearchresultsitemsperrecordstatuscheck-label:
+
+MaxSearchResultsItemsPerRecordStatusCheck
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: For records with many items, only check the availability status
+for the first \_\_\_ items.
+
+Default: 20
+
+Description:
+
+-  Availability statuses may show incorrectly in
+   :ref:`search results<search-results-label>` if a record has more items than
+   the limit set.
+
+.. Note::
+
+   Statuses will display correctly in the record details.
+
+-  Leave empty for no limit.
+
+.. _numsearchresults-label:
+
+numSearchResults
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: By default, show \_\_\_ results per page in the staff interface.
+
+Default: 20
+
+Description: 
+
+-  This system preference allows you to choose the default number of results 
+   per page in :ref:`search results<search-results-label>` in the staff
+   interface.
+
+-  If you want users to be able to change that number, enable the 
+   :ref:`numSearchResultsDropdown <numSearchResultsDropdown-label>` system preference.
+
+-  Use :ref:`OPACnumSearchResults <OPACnumSearchResults-label>` to define the default number of results per 
+   page in the OPAC.
+
+.. _numsearchresultsdropdown-label:
+
+numSearchResultsDropdown
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ results per page dropdown on staff interface search results.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If set to 'Show' this system preference will make a drop down menu appear in 
+   the :ref:`search results<search-results-label>` allowing the user to choose
+   how many results they want to see per page.
+
+-  Use :ref:`numSearchResults <numSearchResults-label>` to determine what is the default value.
+
+-  Use :ref:`OPACnumSearchResultsDropdown <OPACnumSearchResultsDropdown-label>` to define if the dropdown appears in 
+   the OPAC.
+
+.. _opacdefaultsortfield-and-opacdefaultsortorder-label:
+
+OPACdefaultSortField and OPACdefaultSortOrder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: By default, sort search results in the OPAC by \_\_\_, \_\_\_
+
+Default: relevance (OPACdefaultSortField), descending (OPACdefaultSortOrder)
+
+Values:
+
+OPACdefaultSortField
+
+-  date added
+
+-  author
+
+-  call number
+
+-  total number of checkouts
+
+-  date of publication
+
+-  relevance
+
+-  title
+
+OPACdefaultSortOrder
+
+-  ascending
+
+-  from A to Z
+
+-  descending
+
+-  from Z to A
+
+Description:
+
+-  These system preferences set the default sort field and sort order for
+   searches on the OPAC. Regardless of your choice, the other sort
+   options are still available in the drop down list on the advanced
+   search page.
+
+See also:
+
+-  :ref:`defaultSortField and defaultSortOrder<defaultsortfield-and-defaultsortorder-label>`
+
+.. _opacnumsearchresults-label:
+
+OPACnumSearchResults
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: By default, show \_\_\_ results per page in the OPAC.
+
+Default: 20
+
+Description: 
+
+-  This system preference allows you to choose the default number of results 
+   per page in search results in the OPAC.
+
+-  If you want users to be able to change that number, enable the 
+   :ref:`OPACnumSearchResultsDropdown <OPACnumSearchResultsDropdown-label>` system preference.  
+
+-  Use :ref:`numSearchResults <numSearchResults-label>` to define the default number of results per 
+   page in the staff interface.
+
+.. _opacnumsearchresultsdropdown-label:
+
+OPACnumSearchResultsDropdown
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ results per page dropdown on OPAC search results.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If set to 'Show' this system preference will make a drop down menu appear in 
+   the search results allowing the user to choose how many results they want to 
+   see per page.
+
+-  Use :ref:`OPACnumSearchResults <OPACnumSearchResults-label>` to determine what is the default value.
+
+-  Use :ref:`numSearchResultsDropdown <numSearchResultsDropdown-label>` to define if the dropdown appears in 
+   the staff interface.
+
+.. _passitemmarctoxslt-label:
+
+PassItemMarcToXSLT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ make item MARC tags available to XSLT stylesheets.
+
+Default: Don't
+
+Values:
+
+-  Don't
+
+-  Do
+
+Description:
+
+-  This system preference determines whether or not the item fields are passed
+   to the XSLT stylesheets for display.
+
+-  Enable only if using custom XSLT stylesheets that display the items.
+
+   -  If using default XSLT stylesheets, items are not displayed using these
+      stylesheets but through different methods (holdings table), so it is not
+      necessary to make these fields available to the XSLT stylesheets.
+
+   -  Use the following system preferences for custom stylesheets:
+
+      -  :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>`
+
+      -  :ref:`OPACXSLTListsDisplay <OPACXSLTListsDisplay-label>`
+
+      -  :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>`
+
+      -  :ref:`XSLTDetailsDisplay <XSLTDetailsDisplay-label>`
+
+      -  :ref:`XSLTListsDisplay <XSLTListsDisplay-label>`
+
+      -  :ref:`XSLTResultsDisplay <XSLTResultsDisplay-label>`
+
+-  If this system preference is disabled, records are displayed faster when
+   using the default XSLT stylesheets.
+
+.. _retaincatalogsearchterms-label:
+
+RetainCatalogSearchTerms
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ search terms between searches when searching from the 'search the
+catalog' tab in the staff interface header.
+
+Default: Retain
+
+Values:
+
+-  Don't retain
+
+-  Retain
+
+Description:
+
+-  This system preference is used to determine whether or not, for catalog
+   searches in the staff interface, the search term entered in the search bar
+   at the top of the page stays there once the search is launched.
+
+-  If set to "Don't retain", the search bar will be emptied after the search is
+   launched.
+
+-  If set to "Retain", the search term will stay in the search bar.
+
+.. _retainpatronssearchterms-label:
+
+RetainPatronsSearchTerms
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ search terms between searches when searching from the 'checkout'
+and 'search patrons' tab in the staff interface header.
+
+Default: Retain
+
+Values:
+
+-  Don't retain
+
+-  Retain
+
+Description:
+
+-  This system preference is used to determine whether or not, for checkout and
+   patron searches in the staff interface, the search term entered in the search
+   bar at the top of the page stays there once the search is launched.
+
+-  If set to "Don't retain", the search bar will be emptied after the search is
+   launched.
+
+-  If set to "Retain", the search term will stay in the search bar.
+
+.. _searchlimitlibrary-label:
+
+SearchLimitLibrary
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When limiting search results with a library or library group, limit by
+the item's \_\_\_.
+
+Default: home library
+
+Values:
+
+-  home library and holding library
+
+-  holding library
+
+-  home library
+
+Description:
+
+-  This system preference lets you decide which library is used when
+   :ref:`limiting by library<advanced-search-location-availability-label>`
+
+.. _searchwithisbnvariations-label:
+
+SearchWithISBNVariations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When searching on the ISBN index, \_\_\_ on all variations of the
+ISBN.
+
+Default: don't search
+
+Values:
+
+-  don't search
+
+-  search
+
+Descriptions:
+
+-  With this system preference set to search you'll be able to search for ISBNs
+   even if there are dashes or spaces in the field. So if you search for
+   9781843345855 but the ISBN was cataloged as 978-1843345855 you'll
+   still be able to find it if this system preference is set to 'search'.
+
+.. _searchwithissnvariations-label:
+
+SearchWithISSNVariations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When searching on the ISSN index, \_\_\_ on all variations of the ISSN.
+
+Default: don't search
+
+Values:
+
+-  don't search
+
+-  search
+
+Descriptions:
+
+-  If this system preference is set to 'search' you'll be able to search for
+   ISSNs without the hyphen. For example, searching for 12345678 will find
+   records that have the ISSN 1234-5678.
+
+-  This system preference currently works in the
+   :ref:`advanced search <advanced-searching-label>`, when using the ISSN index,
+   and in the :ref:`orders advanced search in acquisitions <searching-orders-label>`.
+
+.. _unimarcauthorsfacetsseparator-label:
+
+UNIMARCAuthorsFacetsSeparator
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the following text as separator for UNIMARC authors facets \_\_\_
+
+Default: , (comma, space)
+
+Description:
+
+-  When using UNIMARC, the default separator for authors' last and first names
+   in the :ref:`facets<search-results-facets-label>` is a comma followed by a
+   space.
+
+.. _search-form-label:
+
+Search form
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _advancedsearchlanguages-label:
+
+AdvancedSearchLanguages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Limit the languages listed in the advanced search drop-down to the
+\_\_\_ ISO 639-2 language codes (separate values with \| or ,).
+
+Description:
+
+-  This system preference will allow you to decide which languages show in the
+   drop down menu on the
+   :ref:`advanced search page<advanced-search-date-lang-limits-label>` in the
+   OPAC and the staff interface.
+
+-  If this preference is left blank, all languages will show. To
+   limit the languages that are shown enter their `ISO 639-2 language
+   codes <http://www.loc.gov/standards/iso639-2/php/code_list.php>`__
+   separated by comma ( , ) or pipe ( \| ). For example to limit listing
+   to French and Italian, enter ita\|fre.
+
+.. _advancedsearchtypes-label:
+
+AdvancedSearchTypes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show tabs in the staff interface advanced search for limiting
+searches on the \_\_\_ fields.
+
+Default: itemtypes
+
+Description:
+
+-  On the advanced search page in the staff interface, you can choose to allow
+   filters on one or all of the following: item types (itemtypes), collection
+   codes (ccode) and shelving location (loc).
+
+   |advancedsearch-itypetabs|
+
+-  Separate multiple values with a pipe (\|). For example, enter itemtypes\|loc
+   to allow to limit searches on item type and shelving location.
+
+-  The order in which the options are entered in the system preference is the
+   order in which the tabs will appear. The first option in the system
+   preference is the selected tab.
+
+-  If left empty, "itemtypes" is used.
+
+-  Values within the search type are OR'ed together, while each different
+   search type is AND'ed together in the query limits.
+
+See also:
+
+-  :ref:`OpacAdvancedSearchTypes <OpacAdvancedSearchTypes-label>`
+
+..
+  This text was here, I think it refers to adding custom options? I'm not sure... CCLR 2022-07-18
+  For non-itemtype values, the value in AdvancedSearchTypes must match the
+  Authorised Value name, and must be indexed with 'mc-^ prefixing that name.
+
+.. _expandedsearchoption-label:
+
+expandedSearchOption
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: By default, \_\_\_ "More options" on the OPAC and staff interface advanced
+search pages.
+
+Default: don't show
+
+Values:
+
+-  don't show
+
+-  show
+
+Description:
+
+-  This system preference lets you decide if the 'More options' search options
+   (such as :ref:`date and language limits<advanced-search-date-lang-limits-label>`)
+   are displayed by default of if the user has to click 'More options' to access
+   them.
+
+.. _intranetnumberspreferphrase-label:
+
+IntranetNumbersPreferPhrase
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: By default, \_\_\_ the operator "phr" in the callnumber and standard
+number staff interface searches.
+
+Default: don't use
+
+Values:
+
+-  don't use
+
+-  use
+
+Description:
+
+-  When searching by call number and standard number (biblionumber) in
+   the staff interface, you can choose to force the search to be a phrase
+   search by setting this preference to 'use'. This will allow for more
+   accurate results over doing a general keyword field search.
+
+See also:
+
+-  :ref:`OPACNumbersPreferPhrase <OPACNumbersPreferPhrase-label>`
+
+.. _loadsearchhistorytothefirstloggeduser-label:
+
+LoadSearchHistoryToTheFirstLoggedUser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ search history of the unlogged user to the next patron logging in.
+
+Default: Add
+
+Values:
+
+-  Don't add
+
+-  Add
+
+Description:
+
+-  In the OPAC, if a patron is not logged in, the searches they do will not be
+   added to their search history. This system preference determines if the
+   searches done while not logged in are added to the search history of the
+   next patron who logs in.
+
+.. _opacnumberspreferphrase-label:
+
+OPACNumbersPreferPhrase
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: By default, \_\_\_ the operator "phr" in the callnumber and
+standard number OPAC searches
+
+Default: don't use
+
+Values:
+
+-  don't use
+
+-  use
+
+Description:
+
+-  When searching by call number and standard number (biblionumber) in
+   the OPAC you can choose to force the search to be a phrase
+   search by setting this preference to 'use'. This will allow for more
+   accurate results over doing a general keyword field search.
+
+See also:
+
+-  :ref:`IntranetNumbersPreferPhrase <IntranetNumbersPreferPhrase-label>`
+

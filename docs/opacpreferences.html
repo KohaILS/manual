@@ -1,0 +1,3293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPAC &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="讀者" href="patronspreferences.html" />
+    <link rel="prev" title="日誌" href="logspreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OPAC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-search-options">進階搜尋選項</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opacadvancedsearchtypes">OpacAdvancedSearchTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacadvsearchmoreoptions">OpacAdvSearchMoreOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacadvsearchoptions">OpacAdvSearchOptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#appearance">外觀</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#authorityxsltopacdetailsdisplay">AuthorityXSLTOpacDetailsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authorityxsltopacresultsdisplay">AuthorityXSLTOpacResultsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bibliodefaultview">BiblioDefaultView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coinsinopacresults">COinSinOPACResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displayopaciconsxslt">DisplayOPACiconsXSLT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hidelostitems">hidelostitems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlightownitemsonopac-and-highlightownitemsonopacwhich">HighlightOwnItemsOnOPAC 與 HighlightOwnItemsOnOPACWhich</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libraryname">LibraryName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacadditionalstylesheet">OpacAdditionalStylesheet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacaddmastheadlibrarypulldown">OpacAddMastheadLibraryPulldown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacbaseurl">OPACBaseURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacdisplay856uasimage">OPACDisplay856uAsImage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacexportoptions">OpacExportOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacfallback">OPACFallback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacfavicon">OpacFavicon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opachighlightedwords-and-nothighlightedwords">OpacHighlightedWords 與 NotHighlightedWords</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacholdingsdefaultsortfield">OPACHoldingsDefaultSortField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opackohaurl">OpacKohaUrl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaclangselectormode">OpacLangSelectorMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaclayoutstylesheet">opaclayoutstylesheet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaclocationbranchtodisplay">OpacLocationBranchToDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaclocationondetail">OpacLocationOnDetail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacmaintenance">OpacMaintenance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacmaintenancenotice">OpacMaintenanceNotice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacmaxitemstodisplay">OpacMaxItemsToDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacmetadescription">OpacMetaDescription</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacmysummaryhtml">OPACMySummaryHTML</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacnoitemtypeimages">OpacNoItemTypeImages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacnoresultsfound">OPACNoResultsFound</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacplaymusicalinscripts">OPACPlayMusicalInscripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacpublic">OpacPublic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacresultslibrary">OPACResultsLibrary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacresultsmaxitems">OPACResultsMaxItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacresultsmaxitemsunavailable">OPACResultsMaxItemsUnavailable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacresultsunavailablegroupingby">OPACResultsUnavailableGroupingBy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacresultssidebar">OPACResultsSidebar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacsearchfortitlein">OPACSearchForTitleIn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacseparateholdings-and-opacseparateholdingsbranch">OpacSeparateHoldings 與 OpacSeparateHoldingsBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacshowcheckoutname">OPACShowCheckoutName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacshowholdqueuedetails">OPACShowHoldQueueDetails</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacshowmusicalinscripts">OPACShowMusicalInscripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacshowrecentcomments">OpacShowRecentComments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacshowunusedauthorities">OPACShowUnusedAuthorities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacstarratings">OpacStarRatings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacthemes">opacthemes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacurlopeninnewwindow">OPACURLOpenInNewWindow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacusercss">OPACUserCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacuserjs">OPACUserJS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacusersummary">OPACUserSummary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacxsltdetailsdisplay">OPACXSLTDetailsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacxsltlistsdisplay">OPACXSLTListsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacxsltresultsdisplay">OPACXSLTResultsDisplay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference-nfl-statuses">參考資源_NFL_狀態</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#features">特色</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#numsearchrssresults">numSearchRSSResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacacquisitiondetails">OPACAcquisitionDetails</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacauthoridentifiers">OPACAuthorIdentifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacauthorities">OpacAuthorities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacbookbag">opacbookbag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacbrowser">OpacBrowser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacbrowseresults">OpacBrowseResults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacbrowsesearch">OpacBrowseSearch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaccatalogconcerns">OpacCatalogConcerns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaccloud">OpacCloud</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacdetailqrcode">OPACPatronDetails</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacfinestab">OPACFinesTab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacholdnotes">OpacHoldNotes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacisbd">OPACISBD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacitemlocation">OpacItemLocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacnewslibraryselect">OpacNewsLibrarySelect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacpasswordchange">OpacPasswordChange</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacpatronimages">OPACpatronimages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacpopupauthorssearch">OPACPopupAuthorsSearch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacreportproblem">OPACReportProblem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacresetpassword">OpacResetPassword</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacshowsavings">OPACShowSavings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opactopissue">OpacTopissue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacuserlogin">opacuserlogin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quoteoftheday">QuoteOfTheDay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacholdrequests">OPACHoldRequests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaccomments">OPACComments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showreviewer">ShowReviewer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showreviewerphoto">ShowReviewerPhoto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#socialnetworks">SocialNetworks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#payments">支付</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enablepaypalopacpayments-and-paypalsandboxmode">EnablePayPalOpacPayments 與 PayPalSandboxMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#paypalchargedescription">PayPalChargeDescription</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#paypalpwd">PayPalPwd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#paypalreturnurl">PayPalReturnURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#paypalsignature">PayPalSignature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#paypaluser">PayPalUser</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#policy">政策</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#blockexpiredpatronopacactions">BlockExpiredPatronOpacActions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacallowpubliclistcreation">OpacAllowPublicListCreation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacallowsharingprivatelists">OpacAllowSharingPrivateLists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacfinenorenewals">OPACFineNoRenewals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacfinenorenewalsincludecredits">OPACFineNoRenewalsIncludeCredits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opachiddenitems">OpacHiddenItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opachiddenitemsexceptions">OpacHiddenItemsExceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacrenewalallowed">OpacRenewalAllowed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacrenewalbranch">OpacRenewalBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#searchmylibraryfirst">SearchMyLibraryFirst</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#privacy">私人</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowpatrontosetcheckoutsvisibilityforguarantor">AllowPatronToSetCheckoutsVisibilityForGuarantor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#anonymouspatron">AnonymousPatron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enableopacsearchhistory">EnableOpacSearchHistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacholdshistory">OPACHoldsHistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacprivacy">OPACPrivacy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacreadinghistory">opacreadinghistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trackclicks">TrackClicks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#restricted-page">Restricted page</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#restrictedpagecontent">RestrictedPageContent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restrictedpagelocalips">RestrictedPageLocalIPs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restrictedpagetitle">RestrictedPageTitle</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#self-registration-and-modification">自行註冊及修改</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#emailpatronregistrations-and-emailaddressforpatronregistrations">EmailPatronRegistrations and EmailAddressForPatronRegistrations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacpatrondetails">OPACPatronDetails</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfmodificationborrowerunwantedfield">PatronSelfModificationBorrowerUnwantedField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfmodificationmandatoryfield">PatronSelfModificationMandatoryField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistration">PatronSelfRegistration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationadditionalinstructions">PatronSelfRegistrationAdditionalInstructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationborrowermandatoryfield">PatronSelfRegistrationBorrowerMandatoryField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationborrowerunwantedfield">PatronSelfRegistrationBorrowerUnwantedField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationconfirmemail">PatronSelfRegistrationConfirmEmail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationdefaultcategory">PatronSelfRegistrationDefaultCategory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationemailmustbeunique">PatronSelfRegistrationEmailMustBeUnique</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationexpiretemporaryaccountsdelay">PatronSelfRegistrationExpireTemporaryAccountsDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationlibrarylist">PatronSelfRegistrationLibraryList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationprefillform">PatronSelfRegistrationPrefillForm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronselfregistrationverifybyemail">PatronSelfRegistrationVerifyByEmail</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#shelf-browser">Shelf browser</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opacshelfbrowser">OPACShelfBrowser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shelfbrowserusesccode">ShelfBrowserUsesCcode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shelfbrowseruseshomebranch">ShelfBrowserUsesHomeBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shelfbrowseruseslocation">ShelfBrowserUsesLocation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#suggestions">Suggestions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#anonsuggestions">AnonSuggestions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxopensuggestions">MaxOpenSuggestions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxtotalsuggestions-and-numberofsuggestiondays">MaxTotalSuggestions 和 NumberOfSuggestionDays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacsuggestionautofill">OPACSuggestionAutoFill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacsuggestionmanagedby">OpacSuggestionManagedBy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacsuggestionmandatoryfields">OPACSuggestionMandatoryFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacsuggestionunwantedfields">OPACSuggestionUnwantedFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacviewotherssuggestions">OPACViewOthersSuggestions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suggestion">建議</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suggestionpatroncategoryexceptions">suggestionPatronCategoryExceptions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">OPAC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/opacpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="logspreferences.html" class="btn btn-neutral float-left" title="日誌" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="patronspreferences.html" class="btn btn-neutral float-right" title="讀者" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="opac">
+<span id="opac-system-preferences-label"></span><h1>OPAC<a class="headerlink" href="#opac" title="此标题的永久链接"></a></h1>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>到此：<a href="#id3"><span class="problematic" id="id4">*</span></a>其他 &gt; 管理 &gt; 整體系統偏好&gt; OPAC</p>
+<section id="advanced-search-options">
+<span id="advanced-search-options-label"></span><h2>進階搜尋選項<a class="headerlink" href="#advanced-search-options" title="此标题的永久链接"></a></h2>
+<section id="opacadvancedsearchtypes">
+<span id="opacadvancedsearchtypes-label"></span><h3>OpacAdvancedSearchTypes<a class="headerlink" href="#opacadvancedsearchtypes" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC 進階搜尋中顯示欄標，以限制對 ___ 欄位的搜尋。</p>
+<p>預設值：itemtype</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在OPAC的進階搜尋頁面上，你可以選擇允許對以下一項或全部進行篩選：館藏類型（itemtypes）、館藏代碼（ccode）和書架位置（loc）。</p></li>
+</ul>
+<p><img alt="Advanced search tabbed limits for item type, shelving location and collection" src="_images/opacadvancedsearch-itypetabs.png" /></p>
+<ul class="simple">
+<li><p>用豎線 （|） 分隔多個值。例如，輸入 itemtypes|loc 以允許限制對館藏類型和書架位置的搜尋。</p></li>
+<li><p>在系統偏好中輸入選項的順序就是欄標出現的順序。系統偏好中的第一個選項是選定的欄標。</p></li>
+<li><p>如果留空，則使用 “itemtypes”。</p></li>
+<li><p>搜尋類型中的值是被 OR’ 一起運算的，而每個不同的搜尋類型在查詢限制中是被 AND’ 一起的。</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="searchingpreferences.html#advancedsearchtypes-label"><span class="std std-ref">AdvancedSearchTypes</span></a></p></li>
+</ul>
+</section>
+<section id="opacadvsearchmoreoptions">
+<span id="opacadvsearchmoreoptions-label"></span><h3>OpacAdvSearchMoreOptions<a class="headerlink" href="#opacadvsearchmoreoptions" title="此标题的永久链接"></a></h3>
+<p>詢問：顯示搜尋選項供延伸檢視 ___</p>
+<p>預設：全選</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>館藏類型</p></li>
+<li><p>語言</p></li>
+<li><p>位置與可及性</p></li>
+<li><p>出版年</p></li>
+<li><p>排序</p></li>
+<li><p>次類型</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此設定決定在進階搜尋頁面使用 ‘更多選項’ 時可以顯示的搜尋欄位。</p></li>
+</ul>
+</section>
+<section id="opacadvsearchoptions">
+<span id="opacadvsearchoptions-label"></span><h3>OpacAdvSearchOptions<a class="headerlink" href="#opacadvsearchoptions" title="此标题的永久链接"></a></h3>
+<p>預設：館藏類型、語系、書架位置與可得性、出版日期、排序</p>
+<p>詢問：顯示搜尋選項 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>館藏類型</p></li>
+<li><p>語言</p></li>
+<li><p>位置與可及性</p></li>
+<li><p>出版年</p></li>
+<li><p>排序</p></li>
+<li><p>次類型</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好的設定將決定在進階搜尋頁面使用 ‘較少選項’ 時顯示的搜尋欄位。</p></li>
+</ul>
+</section>
+</section>
+<section id="appearance">
+<span id="appearance-label"></span><h2>外觀<a class="headerlink" href="#appearance" title="此标题的永久链接"></a></h2>
+<p>這些偏好控制 OPAC 顯示內容的外觀。</p>
+<section id="authorityxsltopacdetailsdisplay">
+<span id="authorityxsltopacdetailsdisplay-label"></span><h3>AuthorityXSLTOpacDetailsDisplay<a class="headerlink" href="#authorityxsltopacdetailsdisplay" title="此标题的永久链接"></a></h3>
+<p>Asks: Display authority details in the OPAC using the XSLT stylesheet at: ___</p>
+<p>Default: Empty</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>Leave empty to disable XSLT display</p></li>
+<li><p>輸入一個XSLT文件的路徑</p>
+<ul>
+<li><p>For example, <code class="code docutils literal notranslate"><span class="pre">/path/to/koha/and/your/stylesheet.xsl</span></code></p></li>
+</ul>
+</li>
+<li><p>輸入一個外部樣式表的URL</p>
+<ul>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org/stylesheet.xsl">http://mykohaopac.org/stylesheet.xsl</a></p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>XSLT stylesheets allow for the customization of the details shown on
+the screen when viewing an authority record. This system preference will
+allow you to either use the default look that comes with Koha (no XSLT) or
+design your own stylesheet.</p></li>
+<li><p>This system preference controls the display of the authority records
+in the OPAC.</p></li>
+<li><p>In a multi-language system, you can enter <code class="code docutils literal notranslate"><span class="pre">{langcode}</span></code> in the internal
+path or external URL to tell Koha to look in the right language folder</p>
+<ul>
+<li><p>For example, <code class="code docutils literal notranslate"><span class="pre">http://mykohaopac.org/{langcode}/stylesheet.xsl</span></code></p></li>
+</ul>
+</li>
+<li><p>If you have different stylesheets for different authority types, use the
+<code class="code docutils literal notranslate"><span class="pre">{authtypecode}</span></code> placeholder for the authority type code</p>
+<ul>
+<li><p>For example, <code class="code docutils literal notranslate"><span class="pre">http://mykohaopac.org/{authtypecode}/stylesheet.xsl</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#authorityxsltopacresultsdisplay-label"><span class="std std-ref">AuthorityXSLTOpacResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></p></li>
+</ul>
+</section>
+<section id="authorityxsltopacresultsdisplay">
+<span id="authorityxsltopacresultsdisplay-label"></span><h3>AuthorityXSLTOpacResultsDisplay<a class="headerlink" href="#authorityxsltopacresultsdisplay" title="此标题的永久链接"></a></h3>
+<p>Asks: Display authority results in the OPAC using the XSLT stylesheet at: ___</p>
+<p>Default: Empty</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>Leave empty to disable XSLT display</p></li>
+<li><p>輸入一個XSLT文件的路徑</p>
+<ul>
+<li><p>For example, <code class="code docutils literal notranslate"><span class="pre">/path/to/koha/and/your/stylesheet.xsl</span></code></p></li>
+</ul>
+</li>
+<li><p>輸入一個外部樣式表的URL</p>
+<ul>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org/stylesheet.xsl">http://mykohaopac.org/stylesheet.xsl</a></p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>XSLT stylesheets allow for the customization of the details shown on
+the screen when viewing an authority record. This system preference will
+allow you to either use the default look that comes with Koha (no XSLT) or
+design your own stylesheet.</p></li>
+<li><p>This system preference controls the display of the authority search results
+in the OPAC.</p></li>
+<li><p>In a multi-language system, you can enter <code class="code docutils literal notranslate"><span class="pre">{langcode}</span></code> in the internal
+path or external URL to tell Koha to look in the right language folder</p>
+<ul>
+<li><p>For example, <code class="code docutils literal notranslate"><span class="pre">http://mykohaopac.org/{langcode}/stylesheet.xsl</span></code></p></li>
+</ul>
+</li>
+<li><p>If you have different stylesheets for different authority types, use the
+<code class="code docutils literal notranslate"><span class="pre">{authtypecode}</span></code> placeholder for the authority type code</p>
+<ul>
+<li><p>For example, <code class="code docutils literal notranslate"><span class="pre">http://mykohaopac.org/{authtypecode}/stylesheet.xsl</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opacxsltlistsdisplay-label"><span class="std std-ref">OPACXSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#authorityxsltresultsdisplay-label"><span class="std std-ref">AuthorityXSLTResultsDisplay</span></a></p></li>
+</ul>
+</section>
+<section id="bibliodefaultview">
+<span id="bibliodefaultview-label"></span><h3>BiblioDefaultView<a class="headerlink" href="#bibliodefaultview" title="此标题的永久链接"></a></h3>
+<p>預設值：簡單格式</p>
+<p>Asks: By default, show bibliographic records ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>如 ISBD 模版所示。</p>
+<ul>
+<li><p>See <a class="reference internal" href="catalogingpreferences.html#isbd-label"><span class="std std-ref">ISBD</span></a> preference for more information</p></li>
+</ul>
+</li>
+<li><p>簡單格式。</p></li>
+<li><p>MARC 格式。</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines the level of bibliographic detail that the
+patron will see on the OPAC detail page. The simple form displays the
+graphical interface; MARC format displays the MARC21 cataloging view;
+ISBD displays the ISBD (International Standard Bibliographic
+Description, AACR2) view.</p></li>
+</ul>
+</section>
+<section id="coinsinopacresults">
+<span id="coinsinopacresults-label"></span><h3>COinSinOPACResults<a class="headerlink" href="#coinsinopacresults" title="此标题的永久链接"></a></h3>
+<p>預設值：包括</p>
+<p>詢問：OPAC 搜尋結果 ___ COinS / OpenURL / Z39.88。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不包括</p>
+<ul>
+<li><p>若選擇於搜尋結果內不包括 COinS，它仍儲存在個別的書目記錄裡。</p></li>
+</ul>
+</li>
+<li><p>包括</p>
+<ul>
+<li><p>啟用此功能將減慢 OPAC 的回應時間。</p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>COinS 是 ContextObjects in Spans 的縮寫。COinS 是把書目後設資料嵌入網頁 HTML 碼的方法。允許書目軟體出版機讀書目館藏與客戶參照管理軟體 (如 Zotero) 取用書目後設資料。同時可以送給 OpenURL 解析器。允許搜尋自己圖書館裡的複本館藏。</p></li>
+</ul>
+</section>
+<section id="displayopaciconsxslt">
+<span id="displayopaciconsxslt-label"></span><h3>DisplayOPACiconsXSLT<a class="headerlink" href="#displayopaciconsxslt" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 在OPAC的XSLT MARC21 結果與詳細頁面裡的格式、預期讀者及資料類型圖示。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>這個系統偏好用於顯示或隱藏從MARC 21書目記錄的控制欄段中提取的格式、預期讀者及資料類型圖示。</p>
+<p><img alt="Screenshot of the XSLT icons in the search results in the OPAC" src="_images/DisplayOPACiconsXSLT.png" /></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>這些圖示的詳情見 <a class="reference internal" href="cataloging.html#material-type-cataloging-guide-label"><span class="std std-ref">XSLT 資料類型圖示</span></a>。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This is only used in XSLT displays, so <a class="reference internal" href="#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a> and/or
+<a class="reference internal" href="#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a> must be set to use an XSLT stylesheet for
+this to show (default or custom)</p>
+</div>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#displayiconsxslt-label"><span class="std std-ref">DisplayIconsXSLT</span></a></p></li>
+</ul>
+</section>
+<section id="hidelostitems">
+<span id="hidelostitems-label"></span><h3>hidelostitems<a class="headerlink" href="#hidelostitems" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在搜尋與詳情頁面 ___ 遺失的館藏。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>被標記為遺失的館藏，可以顯示或不顯示於 OPAC。設定為 “不顯示”，則 OPAC 不顯示被標記為遺失的館。設定為 “顯示”，則 OPAC 顯示被標記為 ‘遺失^ 的館藏</p></li>
+</ul>
+<p>值：</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<p><img alt="image63" src="_images/hidelostitems.png" /></p>
+</li>
+</ul>
+</section>
+<section id="highlightownitemsonopac-and-highlightownitemsonopacwhich">
+<span id="highlightownitemsonopac-label"></span><h3>HighlightOwnItemsOnOPAC 與 HighlightOwnItemsOnOPACWhich<a class="headerlink" href="#highlightownitemsonopac-and-highlightownitemsonopacwhich" title="此标题的永久链接"></a></h3>
+<p>HighlightOwnItemsOnOPAC 預設值：不強調</p>
+<p>HighlightOwnItemsOnOPACWhich 預設值：讀者所屬圖書館</p>
+<p>詢問：___ 結果來自移動結果至 ___ 前方，並加大字型或強調結果列。</p>
+<p>HighlightOwnItemsOnOPAC 值：</p>
+<ul class="simple">
+<li><p>不強調</p></li>
+<li><p>強調</p></li>
+</ul>
+<p>HighlightOwnItemsOnOPACWhich 值：</p>
+<ul>
+<li><p>OPAC’s library based via the URL</p>
+<ul class="simple">
+<li><p>根據 Apache 環境裡的 BRANCHCODE 變數決定分館。如：在 koha-httpd.conf 的 OPAC 區塊裡，加入這列字 SetEnv BRANCHCODE “CPL”</p></li>
+</ul>
+</li>
+<li><p>讀者所屬分館</p>
+<ul class="simple">
+<li><p>只強調與讀者所屬分館相同的館藏。若沒有登入 OPAC，則不強調任何館藏。</p></li>
+</ul>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>This system preference will only effect sites that are not using an XSLT
+stylesheet. XSLT stylesheets are defined in the
+<a class="reference internal" href="#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a> and
+<a class="reference internal" href="#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a> preferences.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="libraryname">
+<span id="libraryname-label"></span><h3>LibraryName<a class="headerlink" href="#libraryname" title="此标题的永久链接"></a></h3>
+<p>詢問： 在 OPAC 顯示 ___ 做為圖書館的名稱。</p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>此內容將顯示在瀏覽器的題名區</p>
+<p><strong>註記</strong></p>
+<p>如果你想在OPAC上的搜尋框上方新增一個圖書館名稱，可以用 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>新聞工具 &lt;news-label&gt;`新增一個新聞館藏與opacheader顯示位置。</p>
+</div></blockquote>
+<p><img alt="image64" src="_images/LibraryName.png" /></p>
+</section>
+<section id="opacadditionalstylesheet">
+<span id="opacadditionalstylesheet-label"></span><h3>OpacAdditionalStylesheet<a class="headerlink" href="#opacadditionalstylesheet" title="此标题的永久链接"></a></h3>
+<p>詢問：使用新增的 CSS 樣式表 ___ 取代預設樣式表的設定。</p>
+<p>說明：</p>
+<ul>
+<li><p>此偏好從您的 OPAC 語系裡的模版資料夾找尋樣式表，如：/koha-tmpl/opac-tmpl/prog/en/css。若上傳客製化檔案，opac-mystyles.css 至此資料夾，就可在此偏好鍵入該檔名 opac-mystyles.css。與 OPAC 預設的 CSS 樣式檔併存。建議採用此方法畎為被讀者選用的樣式表，將保留在讀者瀏覽器的快取裡，下次再拜訪時，直接從快取內抓出，不需要重複載入。</p></li>
+<li><p>當然，也可以選用其他伺服器裡的 CSS 並鍵入完整的 URL 址 <a class="reference external" href="http://">http://</a></p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>空白表示不用它</p>
+<p><strong>註記</strong></p>
+<p>此檔案將新增連結的 CSS，不取代既有的預設 CSS。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opacaddmastheadlibrarypulldown">
+<span id="opacaddmastheadlibrarypulldown-label"></span><h3>OpacAddMastheadLibraryPulldown<a class="headerlink" href="#opacaddmastheadlibrarypulldown" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC 的刊頭 ___ 下拉式圖書館選單。</p>
+<p>預設：不新增</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>新增</p></li>
+<li><p>Don’t add</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>When set to ‘Add’ this system preference will add a dropdown menu of
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">libraries</span></a> and
+<a class="reference internal" href="administration.html#library-groups-label"><span class="std std-ref">library groups</span></a> in the simple search bar in the
+OPAC.</p>
+<p><img alt="Library and library group dropdown menu in the simple search bar in the OPAC" src="_images/OpacAddMastheadLibraryPulldown.png" /></p>
+</li>
+<li><p>This will search for records that have items whose home library is the
+selected library. It’s the same as the
+<a class="reference internal" href="searching.html#advanced-search-location-availability-label"><span class="std std-ref">library limit on the advanced search page</span></a>.</p></li>
+</ul>
+</section>
+<section id="opacbaseurl">
+<span id="opacbaseurl-label"></span><h3>OPACBaseURL<a class="headerlink" href="#opacbaseurl" title="此标题的永久链接"></a></h3>
+<p>詢問：OPAC 位於 ___</p>
+<p>說明：</p>
+<ul>
+<li><p>This system preference is looking for the URL of your public catalog (OPAC)
+with the <a class="reference external" href="http://">http://</a> in front of it (enter <a class="reference external" href="http://www.mycatalog.com">http://www.mycatalog.com</a>
+instead of www.mycatalog.com). Once it is filled in Koha will use it
+to generate permanent links in your RSS feeds, for your social
+network share buttons and in your staff interface when generating links
+to bibliographic records in the OPAC.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>不要加入 URL 最後的斜撇否則會打斷此 URL 的連結。(如：www.google.com 不要用 www.google.com/)</p>
+<p><strong>重要</strong></p>
+<p>必須鍵入公用目錄的 URL 供 RSS、unAPI、與搜尋外掛使用。</p>
+<p><strong>重要</strong></p>
+<p>This must be filled in with the URL of your public catalog to show
+‘OPAC View’ links from bibliographic records in the staff interface:</p>
+</div></blockquote>
+</li>
+</ul>
+<p><img alt="image67" src="_images/OPACBaseURL.png" /></p>
+</section>
+<section id="opacdisplay856uasimage">
+<span id="opacdisplay856uasimage-label"></span><h3>OPACDisplay856uAsImage<a class="headerlink" href="#opacdisplay856uasimage" title="此标题的永久链接"></a></h3>
+<p>詢問：將 856u 欄位的 URI 以圖片形式顯示於：___</p>
+<p>預設值：既不在詳情頁面也不在結果頁面</p>
+<p>值：</p>
+<ul>
+<li><p>同在搜尋結果與書目詳情頁面</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Both <a class="reference internal" href="#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a> and <a class="reference internal" href="#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a> need
+to have values in order for this preference to work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>只適用於 MARC21。</p>
+</div>
+</li>
+<li><p>詳情頁面</p>
+<p><img alt="Detailed record page in the OPAC, one of the 856 field is displayed as an image in the record" src="_images/OPACDisplay856uAsImage-detail.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><a class="reference internal" href="#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a> needs to have a value in it for this
+preference to work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>只適用於 MARC21。</p>
+</div>
+</li>
+<li><p>既不在詳情頁面也不在結果頁面</p></li>
+<li><p>只限結果頁面</p>
+<p><img alt="Search results in the OPAC, one of the 856 field is displayed as an image in the listing" src="_images/OPACDisplay856uAsImage-results.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><a class="reference internal" href="#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a> needs to have a value in it for this
+preference to work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>只適用於 MARC21。</p>
+</div>
+</li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>除了這個選項被設定外，相應的XSLT選項必須被打開。</p></li>
+<li><p>此外，相應的856q欄段必須有一個有效的MIME圖像擴展名（例如，”jpg”）或MIME圖像類型（即以 “image/”開頭），或在該欄段中輸入通用指標 “img”。</p>
+<p><img alt="856 field in the cataloging form; 856q contains img and 856u contains a link to an image" src="_images/856imagemarc.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><strong>常見圖片 MIME 類型</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>檔案類型</p></th>
+<th class="head"><p>圖片 MIME 類型</p></th>
+<th class="head"><p>檔案延伸</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>點陣圖</p></td>
+<td><p>影像/bmp</p></td>
+<td><p>bmp</p></td>
+</tr>
+<tr class="row-odd"><td><p>圖像互換格式 (gif)</p></td>
+<td><p>圖片/gif</p></td>
+<td><p>gif</p></td>
+</tr>
+<tr class="row-even"><td><p>JPEG 圖片</p></td>
+<td><p>圖片/jpeg</p></td>
+<td><p>jpg</p></td>
+</tr>
+<tr class="row-odd"><td><p>JPEG 圖片</p></td>
+<td><p>圖片/jpeg</p></td>
+<td><p>jpeg</p></td>
+</tr>
+<tr class="row-even"><td><p>可縮放向量圖形</p></td>
+<td><p>圖片/svg+xml</p></td>
+<td><p>svg</p></td>
+</tr>
+<tr class="row-odd"><td><p>TIF 圖片</p></td>
+<td><p>圖片/tiff</p></td>
+<td><p>tiff</p></td>
+</tr>
+<tr class="row-even"><td><p>TIF 圖片</p></td>
+<td><p>圖片/tiff</p></td>
+<td><p>tif</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><p>When all of the requirements are met, an image file will be displayed
+instead of the standard link text. Clicking on the image will open it in the
+same way as clicking on the link text. When you click on the image it should
+open to full size, in the current window or in a new window depending on the
+value in the system pref <a class="reference internal" href="#opacurlopeninnewwindow-label"><span class="std std-ref">OPACURLOpenInNewWindow</span></a>.</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="staffclientpreferences.html#display856uasimage-label"><span class="std std-ref">Display856uAsImage</span></a></p></li>
+<li><p><a class="reference internal" href="#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#opacurlopeninnewwindow-label"><span class="std std-ref">OPACURLOpenInNewWindow</span></a></p></li>
+</ul>
+</section>
+<section id="opacexportoptions">
+<span id="opacexportoptions-label"></span><h3>OpacExportOptions<a class="headerlink" href="#opacexportoptions" title="此标题的永久链接"></a></h3>
+<p>預設值：</p>
+<blockquote>
+<div><p><img alt="image1192" src="_images/OpacExportOptions.png" /></p>
+</div></blockquote>
+<p>詢問：選定出現在 OPAC 詳情頁面的選項：___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>In the OPAC on the right of each bibliographic record there is a menu that
+allows for saving the record in various formats. This patch will
+allow you to define which options are in the pull down menu.
+Available options are: BIBTEX (bibtex), Dublin Core (dc), MARCXML
+(marcxml), MARC-8 encoded MARC (marc8), Unicode/UTF-8 encoded MARC
+(utf8), Unicode/UTF-8 encoded MARC without local use -9xx, x9x, xx9-
+fields and subfields (marcstd), MODS (mods), and RIS (ris).</p></li>
+</ul>
+</section>
+<section id="opacfallback">
+<span id="opacfallback-label"></span><h3>OPACFallback<a class="headerlink" href="#opacfallback" title="此标题的永久链接"></a></h3>
+<p>預設：bootstrap</p>
+<p>問：使用 ___ 主題做為 OPAC 的預備主題。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好的目的是讓圖書館選擇自己的喜好主題。</p></li>
+</ul>
+</section>
+<section id="opacfavicon">
+<span id="opacfavicon-label"></span><h3>OpacFavicon<a class="headerlink" href="#opacfavicon" title="此标题的永久链接"></a></h3>
+<p>詢問： 選用 ___ 做為 OPAC 的網頁圖示。</p>
+<p>說明：</p>
+<ul>
+<li><p>圖標是大多數瀏覽器中出現在標籤頁標題旁邊的小圖標。這個欄位的預設值（如果留空）是白色背景上的Koha標誌的小 ‘K’。</p>
+<p><img alt="A browser tab opened to the OPAC's main page, there is the little 'K' favicon followed by the page title 'Koha online catalog'" src="_images/OpacFavicon.png" /></p>
+</li>
+<li><p>輸入一個完整的URL（以http:// 或https:// 開始），以顯示你的影像</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>以網頁圖示產生器 <a href="#id1"><span class="problematic" id="id2">:ref:`Favicon Generator &lt;http://antifavicon.com/&gt;`__</span></a> 將標識轉換為網頁圖示。</p>
+</div>
+</section>
+<section id="opachighlightedwords-and-nothighlightedwords">
+<span id="opachighlightedwords-and-nothighlightedwords-label"></span><h3>OpacHighlightedWords 與 NotHighlightedWords<a class="headerlink" href="#opachighlightedwords-and-nothighlightedwords" title="此标题的永久链接"></a></h3>
+<p>OpacHighlightedWords 預設：不突顯</p>
+<p>NotHighlightedWords 預設：與|或|否</p>
+<p>詢問：___ 顧客在搜尋結果和詳細資訊頁面中搜尋的單詞;為了防止某些單詞被突出顯示，請在這裡輸入非索引字清單 ___（用 | 分隔）</p>
+<p>OpacHighlightedWords 值：</p>
+<ul class="simple">
+<li><p>不強調</p></li>
+<li><p>重點</p></li>
+</ul>
+</section>
+<section id="opacholdingsdefaultsortfield">
+<span id="opacholdingsdefaultsortfield-label"></span><h3>OPACHoldingsDefaultSortField<a class="headerlink" href="#opacholdingsdefaultsortfield" title="此标题的永久链接"></a></h3>
+<p>預設值：表單的第一欄</p>
+<p>詢問：在館藏分頁 ___ 館藏條碼</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>表單的第一欄</p></li>
+<li><p>預約圖書館</p></li>
+<li><p>所屬圖書館</p></li>
+</ul>
+</section>
+<section id="opackohaurl">
+<span id="opackohaurl-label"></span><h3>OpacKohaUrl<a class="headerlink" href="#opackohaurl" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>當此偏好設置為 ‘顯示’ 時，OPAC頁腳的右下方將出現文字，說明 ‘由Koha提供’ 並連結到Koha官方網站。</p>
+<p><img alt="image75" src="_images/OpacKohaUrl.png" /></p>
+</li>
+</ul>
+</section>
+<section id="opaclangselectormode">
+<span id="opaclangselectormode-label"></span><h3>OpacLangSelectorMode<a class="headerlink" href="#opaclangselectormode" title="此标题的永久链接"></a></h3>
+<p>預設值：只有頁腳</p>
+<p>詢問： 在 ___ 顯示語文選擇器。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>頁首與頁尾</p></li>
+<li><p>只限頁尾</p></li>
+<li><p>頂端</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If you have the <a class="reference internal" href="i18npreferences.html#opaclanguagesdisplay-label"><span class="std std-ref">opaclanguagesdisplay</span></a>
+preference set to display language options in the public catalog,
+then this preference will allow you to control where the language
+selector shows. You can choose to show it only on the top or bottom
+or in both places.</p></li>
+</ul>
+</section>
+<section id="opaclayoutstylesheet">
+<span id="opaclayoutstylesheet-label"></span><h3>opaclayoutstylesheet<a class="headerlink" href="#opaclayoutstylesheet" title="此标题的永久链接"></a></h3>
+<p>預設值：opac.css</p>
+<p>詢問：在 OPAC 裡不用預設值，改用 /css/ ___ 做為 CSS 樣式表</p>
+<p>說明：</p>
+<ul>
+<li><p>此設定的功能是把 OPAC 預設的佈局指向 *.css。*.css 檔案是層疊樣式表，與 HTML 一起使用，做為設定 HTML 頁面的格式與顯示在 OPAC 的樣子。Koha 有兩個樣式表：opac.css 與 opac2.css。也可以使用客製化的樣式表。樣式表清單在 opaclayoutstylesheet 偏好儲存在 Koha 伺服器裡。</p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>空白則停用它改為使用 Koha 內建的檔案</p>
+<p><strong>重要</strong></p>
+<p>在此偏好使用客製化的值造成 Koha 完全忽視預設的樣式表佈局。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opaclocationbranchtodisplay">
+<span id="opaclocationbranchtodisplay-label"></span><h3>OpacLocationBranchToDisplay<a class="headerlink" href="#opaclocationbranchtodisplay" title="此标题的永久链接"></a></h3>
+<p>預設值：典藏圖書館</p>
+<p>詢問：在詳情頁面顯示 ___ 筆 OPAC 館藏記錄。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>典藏圖書館</p></li>
+<li><p>所屬圖書館與所在圖書館</p></li>
+<li><p>所屬圖書館</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>設定是否在 OPAC 詳情頁面顯示所在圖書館、所屬圖書館、或兩者同時顯示。</p></li>
+</ul>
+</section>
+<section id="opaclocationondetail">
+<span id="opaclocationondetail-label"></span><h3>OpacLocationOnDetail<a class="headerlink" href="#opaclocationondetail" title="此标题的永久链接"></a></h3>
+<p>預設值：位於典藏圖書館之下</p>
+<p>詢問：在 OPAC 詳情頁面顯示 ___ 筆館藏的書架位置。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>位於所屬圖書館與典藏圖書館之下</p></li>
+<li><p>位於獨立於欄位</p></li>
+<li><p>館藏圖書館之下</p></li>
+<li><p>所屬圖書館之下</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>設定顯示所屬圖書館、所在圖書館、或兩者的書架位置。</p></li>
+</ul>
+</section>
+<section id="opacmaintenance">
+<span id="opacmaintenance-label"></span><h3>OpacMaintenance<a class="headerlink" href="#opacmaintenance" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：Koha維修時 ___ 警示訊息，不使用 OPAC 本身。</p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>資料庫需要無條件更新時，顯示相同的警示訊息。</p>
+</div></blockquote>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows the system administrator to turn off the OPAC
+during maintenance and display a message to users. When this
+preference is switched to “Show” the OPAC is not usable. The text of
+this message is not editable at this time.</p></li>
+</ul>
+<p>值：</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<ul>
+<li><p>When this preference is set to show the maintenance message the
+ability to search the OPAC is disabled and a message appears. The
+default message can be altered by using the
+<a class="reference internal" href="#opacmaintenancenotice-label"><span class="std std-ref">OpacMaintenanceNotice</span></a> preference.</p>
+<p><img alt="image76" src="_images/opacmaintenance.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="opacmaintenancenotice">
+<span id="opacmaintenancenotice-label"></span><h3>OpacMaintenanceNotice<a class="headerlink" href="#opacmaintenancenotice" title="此标题的永久链接"></a></h3>
+<p>詢問：啟用 OpacMaintenance 時顯示以下的 HTML</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference will allow you to set the text the OPAC displays when
+the <a class="reference internal" href="#opacmaintenance-label"><span class="std std-ref">OpacMaintenance</span></a> preference is set to
+‘Show.^</p></li>
+</ul>
+</section>
+<section id="opacmaxitemstodisplay">
+<span id="opacmaxitemstodisplay-label"></span><h3>OpacMaxItemsToDisplay<a class="headerlink" href="#opacmaxitemstodisplay" title="此标题的永久链接"></a></h3>
+<p>預設值：50</p>
+<p>Asks: Display up to ___ items on the bibliographic record detail page</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference will help with slow load times on the bibliographic
+detail pages by limiting the number of items to display by default.
+If the bibliographic record has more items than this, a link is displayed instead
+that allows the user to choose to display all items.</p></li>
+</ul>
+</section>
+<section id="opacmetadescription">
+<span id="opacmetadescription-label"></span><h3>OpacMetaDescription<a class="headerlink" href="#opacmetadescription" title="此标题的永久链接"></a></h3>
+<p>詢問：此說明將顯示在搜尋引擎結果中（160個字元）。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference adds functionality to add a meta description tag with content (up to 160 characters).
+This is used by search engines to add a description to the library in search results.</p></li>
+</ul>
+</section>
+<section id="opacmysummaryhtml">
+<span id="opacmysummaryhtml-label"></span><h3>OPACMySummaryHTML<a class="headerlink" href="#opacmysummaryhtml" title="此标题的永久链接"></a></h3>
+<p>詢問：讀者登入 OPAC 使用以下的 HTML 時 (空白則停用)，在 “我的摘要” 分頁裡包括 “連結” 欄位。</p>
+<p>說明：</p>
+<ul>
+<li><p>從此偏好鍵入的 HTML 將顯示在 OPAC ‘我的摘要’ 區塊內的 ‘借出’ 分頁。原來的 {BIBLIONUMBER}、{TITLE}、{ISBN} 與 {AUTHOR} 都以顯示的記錄取代之。可以放在社交網站或搜尋裡當成 ‘共享’ 連結。</p>
+<p><img alt="image78" src="_images/OPACMySummaryHTML.png" /></p>
+</li>
+</ul>
+<p>範例資料：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;http://www.facebook.com/sharer.php?u=http://YOUROPAC.ORG/cgi-bin/koha/opac-detail.pl?biblionumber=</span><span class="si">{BIBLIONUMBER}</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="n">Share</span> <span class="n">on</span> <span class="n">Facebook</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span><span class="n">TITLE</span><span class="p">:</span> <span class="p">{</span><span class="n">TITLE</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span><span class="n">AUTHOR</span><span class="p">:</span> <span class="p">{</span><span class="n">AUTHOR</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span><span class="n">ISBN</span><span class="p">:</span> <span class="p">{</span><span class="n">ISBN</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span><span class="n">BIBLIONUMBER</span><span class="p">:</span> <span class="p">{</span><span class="n">BIBLIONUMBER</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="opacnoitemtypeimages">
+<span id="opacnoitemtypeimages-label"></span><h3>OpacNoItemTypeImages<a class="headerlink" href="#opacnoitemtypeimages" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ itemtype icons in the OPAC.</p>
+<p>預設值：顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows the system administrator to determine if users will
+be able to set and see an item type icon in the catalog in the OPAC.</p></li>
+<li><p>If images of item types are disabled, text labels for item types will still
+appear in the OPAC.</p></li>
+<li><p>The <a class="reference internal" href="administrationpreferences.html#noitemtypeimages-label"><span class="std std-ref">noItemTypeImages</span></a> system preference is used to show or hide the
+itemtype images in the staff interface.</p></li>
+</ul>
+</section>
+<section id="opacnoresultsfound">
+<span id="opacnoresultsfound-label"></span><h3>OPACNoResultsFound<a class="headerlink" href="#opacnoresultsfound" title="此标题的永久链接"></a></h3>
+<p>無預設值</p>
+<p>詢問：在 OPAC 未找到結果時顯示此 HTML</p>
+<p>搜尋無結果時在現有說明之下顯示此 HTML。</p>
+<p><img alt="image82" src="_images/OPACNoResultsFound.png" /></p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>可插入 {QUERY_KW} 取代詢問的關鍵詞。</p>
+</div></blockquote>
+</section>
+<section id="opacplaymusicalinscripts">
+<span id="opacplaymusicalinscripts-label"></span><h3>OPACPlayMusicalInscripts<a class="headerlink" href="#opacplaymusicalinscripts" title="此标题的永久链接"></a></h3>
+<p>預設值：不播放</p>
+<p>詢問：在詳情頁面顯示 ___ MIDI音樂詞譜。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不播放</p></li>
+<li><p>播放</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference controls whether a short audio clip is available to play
+when musical inscripts are added to the detailed view of a bibliographic
+record.</p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>The <a class="reference internal" href="#opacshowmusicalinscripts-label"><span class="std std-ref">OPACShowMusicalInscripts</span></a> preference must be set to ‘Show’
+for these clips to display.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opacpublic">
+<span id="opacpublic-label"></span><h3>OpacPublic<a class="headerlink" href="#opacpublic" title="此标题的永久链接"></a></h3>
+<p>預設值：啟用</p>
+<p>詢問：___ Koha OPAC 為公開的。若為私用 OPAC 則需帳號密碼才能使用 OPAC。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines if your OPAC is accessible and searchable
+by anyone or only by members of the library. If set to ‘Don’t enable’
+only members who are logged into the OPAC can search. Most libraries
+will leave this setting at its default of ‘Enable’ to allow their
+OPAC to be searched by anyone and only require login for access to
+personalized content.</p></li>
+</ul>
+</section>
+<section id="opacresultslibrary">
+<span id="opacresultslibrary-label"></span><h3>OPACResultsLibrary<a class="headerlink" href="#opacresultslibrary" title="此标题的永久链接"></a></h3>
+<p>預設值：所屬圖書館</p>
+<p>詢問：OPAC 的搜尋結果，顯示在館藏的 ___。此功能只限 MARC21 與 UNIMARC。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>現在位置</p></li>
+<li><p>所屬圖書館</p></li>
+</ul>
+</section>
+<section id="opacresultsmaxitems">
+<span id="opacresultsmaxitems-label"></span><h3>OPACResultsMaxItems<a class="headerlink" href="#opacresultsmaxitems" title="此标题的永久链接"></a></h3>
+<p>Asks: Show no more than ___ individual (available) items on the OPAC XSLT
+search results</p>
+<p>Default: 1</p>
+<p>說明：</p>
+<ul>
+<li><p>This system preference is used to limit the number of available items shown
+in the search results in the OPAC.</p></li>
+<li><p>If you show a lot of information in <a class="reference internal" href="#opacitemlocation-label"><span class="std std-ref">OpacItemLocation</span></a>
+and have a lot of items, the view can get cluttered or overwhelming for
+patrons. Use this system preference to show only the information for a limited
+number of individual items. By default, the details (such as location, call
+number, etc.) of only one item are displayed in the search results.</p>
+<ul class="simple">
+<li><p>Patrons can still click through to the detailed record to see the details
+of each individual item.</p></li>
+</ul>
+</li>
+<li><p>This system preference affects the display for ‘available’ and ‘available for
+reference’ items</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Statuses that are ‘available for reference’ are managed in the
+<a class="reference internal" href="#reference-nfl-statuses-label"><span class="std std-ref">Reference_NFL_Statuses</span></a>.</p>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><a class="reference internal" href="#opacresultsmaxitemsunavailable-label"><span class="std std-ref">OPACResultsMaxItemsUnavailable</span></a>
+does the same as this preference for unavailable items.</p>
+</div>
+</section>
+<section id="opacresultsmaxitemsunavailable">
+<span id="opacresultsmaxitemsunavailable-label"></span><h3>OPACResultsMaxItemsUnavailable<a class="headerlink" href="#opacresultsmaxitemsunavailable" title="此标题的永久链接"></a></h3>
+<p>Asks: If OPACResultsUnavailableGroupingBy is set to “library and substatus”,
+show no more than ___ individual (unavailable) items per library and category
+(like Checked out, Damaged, On hold, etc.)</p>
+<p>預設值：0</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to limit the number of unavailable items shown
+in the search results in the OPAC.</p></li>
+<li><p>By default, no individual information (such as location, call number, etc.)
+is shown for unavailable items.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This preference only works if
+<a class="reference internal" href="#opacresultsunavailablegroupingby-label"><span class="std std-ref">OPACResultsUnavailableGroupingBy</span></a>
+is set to ‘library and substatus’.</p>
+<p>If <a class="reference internal" href="#opacresultsunavailablegroupingby-label"><span class="std std-ref">OPACResultsUnavailableGroupingBy</span></a>
+is set to ‘library and substatus’, and this preference is set to a value higher
+than 0, you will see the details specified in
+<a class="reference internal" href="#opacitemlocation-label"><span class="std std-ref">OpacItemLocation</span></a> for the number of items set.</p>
+<p>If <a class="reference internal" href="#opacresultsunavailablegroupingby-label"><span class="std std-ref">OPACResultsUnavailableGroupingBy</span></a>
+is set to ‘library only’, it will only show the library name with the number
+of unavailable items for this library in parentheses.</p>
+<p>And if <a class="reference internal" href="#opacresultsunavailablegroupingby-label"><span class="std std-ref">OPACResultsUnavailableGroupingBy</span></a>
+is set to ‘substatus only’, it will only show the status (‘checked out’,
+‘withdrawn’, ‘on hold’, or ‘damaged’) with the number of unavailable items
+with this status in parentheses, across all libraries.</p>
+</div>
+</section>
+<section id="opacresultsunavailablegroupingby">
+<span id="opacresultsunavailablegroupingby-label"></span><h3>OPACResultsUnavailableGroupingBy<a class="headerlink" href="#opacresultsunavailablegroupingby" title="此标题的永久链接"></a></h3>
+<p>Asks: […] Group unavailable items by ___.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>library and substatus</p></li>
+<li><p>library only</p></li>
+<li><p>substatus only</p></li>
+</ul>
+<p>Default: library and substatus</p>
+<p>說明：</p>
+<ul>
+<li><p>This system preference is used to group unavailable items in the OPAC search
+results.</p></li>
+<li><p>In this context, ‘substatus’ refers to the nature of the unavailability (for
+example, ‘Checked out’, ‘withdrawn’, or ‘on hold’)</p></li>
+<li><p>If set to ‘library and substatus’ the OPAC search results will show the
+number of items for each substatus in each library.</p>
+<ul class="simple">
+<li><p>If <a class="reference internal" href="#opacresultsmaxitemsunavailable-label"><span class="std std-ref">OPACResultsMaxItemsUnavailable</span></a>
+is set to a value higher than 0, it will also show the information
+specified in <a class="reference internal" href="#opacitemlocation-label"><span class="std std-ref">OpacItemLocation</span></a> for the
+number of items set in
+<a class="reference internal" href="#opacresultsmaxitemsunavailable-label"><span class="std std-ref">OPACResultsMaxItemsUnavailable</span></a></p></li>
+</ul>
+</li>
+<li><p>If set to ‘library only’, the OPAC search results will show the number of
+unavailable items for each library, regardless of their substatus.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This option will disable
+<a class="reference internal" href="#opacresultsmaxitemsunavailable-label"><span class="std std-ref">OPACResultsMaxItemsUnavailable</span></a></p>
+</div>
+</li>
+<li><p>If set to ‘substatus only’, the OPAC search results will show the number of
+unavailable items by substatus, across all the libraries.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This option will disable
+<a class="reference internal" href="#opacresultsmaxitemsunavailable-label"><span class="std std-ref">OPACResultsMaxItemsUnavailable</span></a></p>
+</div>
+</li>
+</ul>
+</section>
+<section id="opacresultssidebar">
+<span id="opacresultssidebar-label"></span><h3>OPACResultsSidebar<a class="headerlink" href="#opacresultssidebar" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC 搜尋結果顯示該等 HTML 內容</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好的 HTML 將顯示在螢幕左側的搜尋結果項下。</p></li>
+</ul>
+</section>
+<section id="opacsearchfortitlein">
+<span id="opacsearchfortitlein-label"></span><h3>OPACSearchForTitleIn<a class="headerlink" href="#opacsearchfortitlein" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC 詳情頁面的 “更多搜尋” 盒裡，加入以下的 HTML (空白則停用)</p>
+<p>Default:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://worldcat.org/search?q=</span><span class="si">{TITLE}</span><span class="s2">&quot;</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">&gt;</span><span class="n">Other</span> <span class="n">Libraries</span> <span class="p">(</span><span class="n">WorldCat</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://scholar.google.com/scholar?q=</span><span class="si">{TITLE}</span><span class="s2">&quot;</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">&gt;</span><span class="n">Other</span> <span class="n">Databases</span> <span class="p">(</span><span class="n">Google</span> <span class="n">Scholar</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://www.bookfinder.com/search/?author=</span><span class="si">{AUTHOR}</span><span class="s2">&amp;amp;title=</span><span class="si">{TITLE}</span><span class="s2">&amp;amp;st=xl&amp;amp;ac=qr&quot;</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">&gt;</span><span class="n">Online</span> <span class="n">Stores</span> <span class="p">(</span><span class="n">Bookfinder</span><span class="o">.</span><span class="n">com</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://openlibrary.org/search?author=(</span><span class="si">{AUTHOR}</span><span class="s2">)&amp;title=(</span><span class="si">{TITLE}</span><span class="s2">)&quot;</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">&gt;</span><span class="n">Open</span> <span class="n">Library</span> <span class="p">(</span><span class="n">openlibrary</span><span class="o">.</span><span class="n">org</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>說明：</p>
+<ul>
+<li><p>Enter search links to other catalogs, these will appear in the ‘More searches’
+option in the detailed record in the OPAC.</p>
+<p><img alt="The detailed view of a bibliographic record, in the options on the left, the 'More searches' option is open and options to search for this title in various external catalogs are displayed" src="_images/bibmoresearch.png" /></p>
+</li>
+<li><p>The placeholders <code class="code docutils literal notranslate"><span class="pre">{BIBLIONUMBER}</span></code>, <code class="code docutils literal notranslate"><span class="pre">{CONTROLNUMBER}</span></code>,
+<code class="code docutils literal notranslate"><span class="pre">{OCLC_NO}</span></code>, <code class="code docutils literal notranslate"><span class="pre">{TITLE}</span></code>, <code class="code docutils literal notranslate"><span class="pre">{ISBN}</span></code>, <code class="code docutils literal notranslate"><span class="pre">{ISSN}</span></code> and
+<code class="code docutils literal notranslate"><span class="pre">{AUTHOR}</span></code> will be replaced with information from the displayed record.</p></li>
+<li><p>To search by OCLC number in Worldcat,</p>
+<ul>
+<li><p>the record must have the OCLC number in 035$a, with the (OCoLC) prefix,
+for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">035</span>    <span class="n">_a</span><span class="p">(</span><span class="n">OCoLC</span><span class="p">)</span><span class="mi">62385712</span>
+</pre></div>
+</div>
+</li>
+<li><p>the link to add in the preference is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://worldcat.org/search?q=</span><span class="si">{OCLC_NO}</span><span class="s2">&quot;</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">&gt;</span><span class="n">WorldCat</span> <span class="p">(</span><span class="n">via</span> <span class="n">OCLC</span> <span class="n">number</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="opacseparateholdings-and-opacseparateholdingsbranch">
+<span id="opacseparateholdings-and-opacseparateholdingsbranch-label"></span><h3>OpacSeparateHoldings 與 OpacSeparateHoldingsBranch<a class="headerlink" href="#opacseparateholdings-and-opacseparateholdingsbranch" title="此标题的永久链接"></a></h3>
+<p>OpacSeparateHoldings 預設值：不區隔</p>
+<p>OpacSeparateHoldingsBranch 預設值：所屬圖書館</p>
+<p>詢問：___ 館藏顯示為兩個分頁，第一分頁包括館藏是 ___ 登入讀者的圖書館。第二分頁將包括所有的其他館藏。</p>
+<p>OpacSeparateHoldings 值：</p>
+<ul class="simple">
+<li><p>不區隔</p></li>
+<li><p>區隔</p></li>
+</ul>
+<p>OpacSeparateHoldingsBranch 值：</p>
+<ul class="simple">
+<li><p>典藏圖書館</p></li>
+<li><p>所屬圖書館</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference lets you decide if you would like to have the holding
+information on the bibliographic detail page in the OPAC split in to
+multiple tabs. The default is to show all holdings on one tab.</p>
+<p><img alt="image83" src="_images/OpacSeparateHoldings.png" /></p>
+</li>
+</ul>
+</section>
+<section id="opacshowcheckoutname">
+<span id="opacshowcheckoutname-label"></span><h3>OPACShowCheckoutName<a class="headerlink" href="#opacshowcheckoutname" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC 的詳情頁面 ___ 借出館藏讀者的姓名。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows all patrons to see who has the item checked
+out if it is checked out. In small corporate libraries (where the
+OPAC is behind a firewall and not publicly available) this can be
+helpful so coworkers can just contact the patron with the book
+themselves. In larger public and academic libraries setting this to
+‘Show’ would pose serious privacy issues.</p></li>
+</ul>
+</section>
+<section id="opacshowholdqueuedetails">
+<span id="opacshowholdqueuedetails-label"></span><h3>OPACShowHoldQueueDetails<a class="headerlink" href="#opacshowholdqueuedetails" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示任何預約細節</p>
+<p>詢問：在 OPAC ___ 給讀者看。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示任何預約細節</p></li>
+<li><p>顯示預約</p></li>
+<li><p>顯示預約與優先順位</p></li>
+<li><p>顯示優先順位</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to choose the type of hold information to
+make available to patrons when logged in to their account on the OPAC. If
+you select to include hold priority information the list of holds will
+initially be sorted by priority.</p></li>
+</ul>
+</section>
+<section id="opacshowmusicalinscripts">
+<span id="opacshowmusicalinscripts-label"></span><h3>OPACShowMusicalInscripts<a class="headerlink" href="#opacshowmusicalinscripts" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在詳情頁面顯示 ___ 音樂詞譜。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows musical inscripts to be displayed in the detailed
+view of a bibliographic record on the OPAC. MARC data for the inscripts is
+added to the 031 MARC21 tag of the record. Audio clips can also be displayed
+if the <a class="reference internal" href="#opacplaymusicalinscripts-label"><span class="std std-ref">OPACPlayMusicalInscripts</span></a> preference set to ‘Play’.</p></li>
+</ul>
+</section>
+<section id="opacshowrecentcomments">
+<span id="opacshowrecentcomments-label"></span><h3>OpacShowRecentComments<a class="headerlink" href="#opacshowrecentcomments" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC 的標頭 ___ 最新的評論。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>If you have chosen to allow comments in your OPAC by setting
+<a class="reference internal" href="#opaccomments-label"><span class="std std-ref">OPACComments</span></a> to ‘Allow’ you can include a link to the
+recent comments under the search box at the top of your OPAC with
+this preference.</p>
+<p><img alt="image88" src="_images/OpacShowRecentComments.png" /></p>
+</li>
+</ul>
+</section>
+<section id="opacshowunusedauthorities">
+<span id="opacshowunusedauthorities-label"></span><h3>OPACShowUnusedAuthorities<a class="headerlink" href="#opacshowunusedauthorities" title="此标题的永久链接"></a></h3>
+<p>預設值：顯示</p>
+<p>詢問：在 OPAC ___ 未使用的權威記錄。</p>
+<p>值：</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<ul>
+<li><p><strong>重要</strong></p>
+<blockquote>
+<div><p>Requires that the <a class="reference internal" href="#opacauthorities-label"><span class="std std-ref">OpacAuthorities</span></a>
+preference is set to ‘Allow’</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When patrons search your authority file via the OPAC they will see
+all authorities in your system even if you don’t have them linked to
+any bibliographic records. This system preference lets you determine what
+the default behavior is when searching authorities via the OPAC. If
+you choose ‘Do not show’ it will only show patrons authority records
+that are linked to bibliographic records in the search results. Otherwise the
+system will show all authority records even if they aren’t linked to
+records.</p></li>
+</ul>
+</section>
+<section id="opacstarratings">
+<span id="opacstarratings-label"></span><h3>OpacStarRatings<a class="headerlink" href="#opacstarratings" title="此标题的永久链接"></a></h3>
+<p>詢問：在 ___ 頁面顯示星級評鑑。</p>
+<p>預設值：否</p>
+<p>值：</p>
+<ul>
+<li><p>結果、細節和讀者</p>
+<ul>
+<li><p>星級評分出現在</p>
+<ul>
+<li><p>結果清單</p>
+<p><img alt="Search results list in the OPAC, facets are on the left" src="_images/opacsearchresults.png" /></p>
+</li>
+<li><p>書目記錄詳情頁</p>
+<p><img alt="Bibliographic record details page in the OPAC" src="_images/opacrecorddetails.png" /></p>
+</li>
+<li><p>讀者的借出清單</p>
+<p><img alt="View of the account summary on the OPAC" src="_images/yoursummary.png" /></p>
+</li>
+<li><p>讀者的借出的歷史清單</p>
+<p><img alt="View of the patron's checkout history on the OPAC" src="_images/yourcheckouthistory.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>只有詳情</p>
+<ul class="simple">
+<li><p>星級評分出現在書目記錄詳情頁中</p></li>
+</ul>
+</li>
+<li><p>無</p>
+<ul class="simple">
+<li><p>星級評分被停用</p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>星級評價是一種讓你的讀者留下評價的方式，而不需要留下完整的評論。</p></li>
+<li><p>沒有登錄的讀者只能看到星評和平均評分。</p></li>
+<li><p>已登錄的讀者可以點擊書目記錄詳情頁上的星星，在他們目前的借出清單或借出歷史清單中，留下自己的評價。</p></li>
+<li><p>點擊搜尋結果中的星星不會提交評級。</p></li>
+</ul>
+</section>
+<section id="opacthemes">
+<span id="opacthemes-label"></span><h3>opacthemes<a class="headerlink" href="#opacthemes" title="此标题的永久链接"></a></h3>
+<p>預設：bootstrap</p>
+<p>詢問： 在 OPAC 裡，使用 ___ 主題。</p>
+<p>值：</p>
+<ul>
+<li><p>bootstrap</p>
+<p>Bootstrap Theme</p>
+<p>此主題已完成</p>
+</li>
+</ul>
+</section>
+<section id="opacurlopeninnewwindow">
+<span id="opacurlopeninnewwindow-label"></span><h3>OPACURLOpenInNewWindow<a class="headerlink" href="#opacurlopeninnewwindow" title="此标题的永久链接"></a></h3>
+<p>預設值：不使用</p>
+<p>詢問：從 OPAC 點選連結至其他網站(如：博客來或 OCLC)時，___ 在新視窗打開它。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>要</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines if URLs in the OPAC will open in a new
+window or not. When clicking on a link in the OPAC, a patron does not
+need to worry about navigating away from their search results.</p></li>
+</ul>
+</section>
+<section id="opacusercss">
+<span id="opacusercss-label"></span><h3>OPACUserCSS<a class="headerlink" href="#opacusercss" title="此标题的永久链接"></a></h3>
+<p>詢問： 在 OPAC 各頁面使用以下的 CSS</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>OPACUserCSS allows the administrator to enter styles that will
+overwrite the OPAC’s default CSS as defined in ‘opaclayoutstylesheet’
+or ‘opacstylesheet’. Styles may be entered for any of the selectors
+found in the default style sheet. The default stylesheet will likely
+be found at
+<a class="reference external" href="http://your_koha_address/opac-tmpl/bootstrap/css/opac.css">http://your_koha_address/opac-tmpl/bootstrap/css/opac.css</a>. Unlike
+<a class="reference internal" href="#opacadditionalstylesheet-label"><span class="std std-ref">OpacAdditionalStylesheet</span></a> and
+<a class="reference internal" href="#opaclayoutstylesheet-label"><span class="std std-ref">opaclayoutstylesheet</span></a> this preference will
+embed the CSS directly on your OPAC pages.</p></li>
+</ul>
+</section>
+<section id="opacuserjs">
+<span id="opacuserjs-label"></span><h3>OPACUserJS<a class="headerlink" href="#opacuserjs" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC 各頁面使用以下的 JavaScript</p>
+<p><img alt="image91" src="_images/opacuserjs-before.png" /></p>
+<p><img alt="image92" src="_images/opacuserjs.png" /></p>
+<p><img alt="image93" src="_images/opacuserjs-after.png" /></p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows the administrator to enter JavaScript or
+JQuery that will be embedded across all pages of the OPAC.
+Administrators may use this preference to customize some of the
+interactive sections of Koha, customizing the text for the login
+prompts, for example. Sample JQuery scripts used by Koha libraries
+can be found on the wiki:
+<a class="reference external" href="http://wiki.koha-community.org/wiki/JQuery_Library">http://wiki.koha-community.org/wiki/JQuery_Library</a>.</p></li>
+</ul>
+</section>
+<section id="opacusersummary">
+<span id="opacusersummary-label"></span><h3>OPACUserSummary<a class="headerlink" href="#opacusersummary" title="此标题的永久链接"></a></h3>
+<p>預設值：顯示</p>
+<p>詢問：___ 在首頁顯示使用者的借出、逾期、預約與罰款</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>啟用後，讀者登入時，本系統偏好取代 OPAC 主頁的登入表單。</p></li>
+</ul>
+</section>
+<section id="opacxsltdetailsdisplay">
+<span id="opacxsltdetailsdisplay-label"></span><h3>OPACXSLTDetailsDisplay<a class="headerlink" href="#opacxsltdetailsdisplay" title="此标题的永久链接"></a></h3>
+<p>詢問：以 ___ 的 XSLT 樣式表顯示 OPAC 詳情</p>
+<p>預設：預設值</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>輸入 “預設” 來使用預設的樣式表</p></li>
+<li><p>輸入一個XSLT文件的路徑</p>
+<ul>
+<li><p>例如，/path/to/koha/and/your/stylesheet.xsl</p></li>
+<li><p>在多語系環境下可在路徑裡輸入 {langcode} 告知 Koha 取用正確的資料夾</p>
+<ul>
+<li><p>例如，/home/koha/src/koha-tmpl/opac-tmpl/bootstrap/{langcode}/xslt/MARC21slim2OPACDetail.xsl</p></li>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org">http://mykohaopac.org</a>/{langcode}/stylesheet.xsl</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>輸入一個外部樣式表的URL</p>
+<ul>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org/stylesheet.xsl">http://mykohaopac.org/stylesheet.xsl</a></p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>XSLT stylesheets allow for the customization of the details shows on
+the screen when viewing a bibliographic record. This system preference will allow you
+either use the default look that comes with Koha or design your own
+stylesheet.</p></li>
+<li><p>該系統偏好控制OPAC中詳細書目記錄的顯示。</p></li>
+<li><p>If using a custom stylesheet that uses item MARC fields, enable the
+<a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a> system preference. Otherwise, item fields are
+not available for use in XSLT stylesheets.</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opacxsltlistsdisplay-label"><span class="std std-ref">OPACXSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#displayopaciconsxslt-label"><span class="std std-ref">DisplayOPACiconsXSLT</span></a></p></li>
+<li><p><a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a></p></li>
+</ul>
+</section>
+<section id="opacxsltlistsdisplay">
+<span id="opacxsltlistsdisplay-label"></span><h3>OPACXSLTListsDisplay<a class="headerlink" href="#opacxsltlistsdisplay" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC 的結果頁面使用 ___ 做為 XSLT 樣式表</p>
+<p>預設：預設值</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>輸入 “預設” 來使用預設的樣式表</p></li>
+<li><p>輸入一個XSLT文件的路徑</p>
+<ul>
+<li><p>例如，/path/to/koha/and/your/stylesheet.xsl</p></li>
+<li><p>在多語系環境下可在路徑裡輸入 {langcode} 告知 Koha 取用正確的資料夾</p>
+<ul>
+<li><p>例如，/home/koha/src/koha-tmpl/opac-tmpl/bootstrap/{langcode}/xslt/MARC21slim2OPACResults.xsl</p></li>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org">http://mykohaopac.org</a>/{langcode}/stylesheet.xsl</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>輸入一個外部樣式表的URL</p>
+<ul>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org/stylesheet.xsl">http://mykohaopac.org/stylesheet.xsl</a></p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>XSLT stylesheets allow for the customization of the details shows on
+the screen when viewing lists. This system preference will
+allow you either use the default look that comes with Koha or design
+your own stylesheet.</p></li>
+<li><p>這個系統偏好控制OPAC中a :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>清單 &lt;lists-label&gt;`的記錄顯示。</p></li>
+<li><p>If using a custom stylesheet that uses item MARC fields, enable the
+<a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a> system preference. Otherwise, item fields are
+not available for use in XSLT stylesheets.</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#xsltlistsdisplay-label"><span class="std std-ref">XSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a></p></li>
+</ul>
+</section>
+<section id="opacxsltresultsdisplay">
+<span id="opacxsltresultsdisplay-label"></span><h3>OPACXSLTResultsDisplay<a class="headerlink" href="#opacxsltresultsdisplay" title="此标题的永久链接"></a></h3>
+<p>詢問：顯示 OPAC 結果時使用 ___ 的 XSLT 樣式表</p>
+<p>預設：預設值</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>輸入 “預設” 來使用預設的樣式表</p></li>
+<li><p>輸入一個XSLT文件的路徑</p>
+<ul>
+<li><p>例如，/path/to/koha/and/your/stylesheet.xsl</p></li>
+<li><p>在多語系環境下可在路徑裡輸入 {langcode} 告知 Koha 取用正確的資料夾</p>
+<ul>
+<li><p>例如，/home/koha/src/koha-tmpl/opac-tmpl/bootstrap/{langcode}/xslt/MARC21slim2OPACResults.xsl</p></li>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org">http://mykohaopac.org</a>/{langcode}/stylesheet.xsl</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>輸入一個外部樣式表的URL</p>
+<ul>
+<li><p>例如，<a class="reference external" href="http://mykohaopac.org/stylesheet.xsl">http://mykohaopac.org/stylesheet.xsl</a></p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>XSLT stylesheets allow for the customization of the details shows on
+the screen when viewing the search results. This system preference will
+allow you either use the default look that comes with Koha or design
+your own stylesheet.</p></li>
+<li><p>這個系統偏好控制著OPAC中 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>搜尋結果&lt;search-results-label&gt;`中的記錄顯示。</p></li>
+<li><p>If using a custom stylesheet that uses item MARC fields, enable the
+<a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a> system preference. Otherwise, item fields are
+not available for use in XSLT stylesheets.</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#opacxsltlistsdisplay-label"><span class="std std-ref">OPACXSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="#displayopaciconsxslt-label"><span class="std std-ref">DisplayOPACiconsXSLT</span></a></p></li>
+<li><p><a class="reference internal" href="searchingpreferences.html#passitemmarctoxslt-label"><span class="std std-ref">PassItemMarcToXSLT</span></a></p></li>
+</ul>
+</section>
+<section id="reference-nfl-statuses">
+<span id="reference-nfl-statuses-label"></span><h3>參考資源_NFL_狀態<a class="headerlink" href="#reference-nfl-statuses" title="此标题的永久链接"></a></h3>
+<p>要求：在OPAC搜尋結果中列出以下可供參考的非借出狀態。 ___</p>
+<p>預設值：1|2</p>
+<p>說明：</p>
+<ul>
+<li><p>該系統偏好用於指定哪些不外借狀態應顯示為 ‘可供參考’</p>
+<p><img alt="When the not for loan status is in the Reference_NFL_Statuses list, it will appear as 'Available for reference' in the OPAC. The image shows a search result in the OPAC with one item 'Available for reference' (in green text)" src="_images/Reference_NFL_Statuses-Available-for-reference.png" /></p>
+<p>當非借出狀態出現在 Reference_NFL_Statuses 清單中時，它將在OPAC中以綠色文字顯示 ‘可供參考’。</p>
+<ul>
+<li><p>其不外借狀態將顯示為 ‘不可用’</p>
+<p><img alt="When the not for loan status is NOT in the Reference_NFL_Statuses list, it will appear as 'Not available' in the OPAC. The image shows a search result in the OPAC with one item 'Not available' (in red text)" src="_images/Reference_NFL_Statuses-Not-available.png" /></p>
+<p>當不外借狀態不在Reference_NFL_Statuses 清單中時，它將在OPAC中以紅色文字顯示為 ‘不可用’。</p>
+</li>
+</ul>
+</li>
+<li><p>不外借的值在NOT_LOAN :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>容許值類別&lt;existing-values-label&gt;`中找到。</p></li>
+<li><p>值必須用豎線 （|） 分隔。</p></li>
+</ul>
+</section>
+</section>
+<section id="features">
+<span id="opacfeatures-label"></span><h2>特色<a class="headerlink" href="#features" title="此标题的永久链接"></a></h2>
+<section id="numsearchrssresults">
+<span id="numsearchrssresults-label"></span><h3>numSearchRSSResults<a class="headerlink" href="#numsearchrssresults" title="此标题的永久链接"></a></h3>
+<p>預設值：50</p>
+<p>詢問： 在 RSS 裡，顯示 ___ 筆搜尋結果。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>By default the RSS feed that is automatically generated for every
+search results page will list 50 items. This can sometimes be too
+much for some RSS feed readers and for some people this isn’t enough.
+This system preference allows you to adjust this number to show the best
+number of results for your patrons.</p></li>
+</ul>
+</section>
+<section id="opacacquisitiondetails">
+<span id="opacacquisitiondetails-label"></span><h3>OPACAcquisitionDetails<a class="headerlink" href="#opacacquisitiondetails" title="此标题的永久链接"></a></h3>
+<p>詢問：___ OPAC 詳情頁面的採訪詳情。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>If set to ‘Show’ this preference shows patrons how many items are on order
+in the Holdings tab of the detailed record in the OPAC.</p>
+<p><img alt="The holdings tab in the OPAC only says 1 item is on order." src="_images/OPACAcquisitionDetails.png" /></p>
+<ul class="simple">
+<li><p>If the items are created when placing the order, it will show how many
+items are on order and the individual items will have an ‘On order’ note
+under the status.</p></li>
+<li><p>If the item is created when receiving the order, or when cataloging the
+record, it will only show how many items are on order.</p></li>
+</ul>
+</li>
+<li><p>If set to “Don’t show”, the holdings tab will say “No physical items for
+this record” if the items are created on receiving or when cataloging the
+record. Items will be displayed without any special note if they are created
+when placing the order.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Note that items are considered ordered when the
+<a class="reference internal" href="acquisitions.html#ordering-closing-basket-label"><span class="std std-ref">basket is closed</span></a>. This preference has
+no effect while the basket is still open.</p>
+</div>
+</section>
+<section id="opacauthoridentifiers">
+<span id="opacauthoridentifiers-label"></span><h3>OPACAuthorIdentifiers<a class="headerlink" href="#opacauthoridentifiers" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ identifiers for authors and contributors to the detail pages in
+the OPAC.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>顯示</p></li>
+<li><p>不顯示</p></li>
+</ul>
+<p>預設值：不顯示</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This is currently only available for MARC21.</p>
+</div>
+<p>說明：</p>
+<ul>
+<li><p>This system preference is used to display an ‘Author identifiers’ tab in
+the OPAC bibliographic record details page that contains the authors’
+identifier numbers with a link to the author’s record on the source website.</p>
+<p><img alt="The detailed view of a bibliographic record, the selected tab at the bottom is Author identifiers, both authors are listed with their Scopus ID" src="_images/authoridentifiersopac.png" /></p>
+</li>
+<li><p>In order to have the IDs display, the authors’ authority records must have
+identifying information in 024.</p>
+<p><img alt="024 field in an authority record, first indicator contains 7, second indicator is empty, subfield 2 contains 'scopus' and subfield a contains a number" src="_images/authority024.png" /></p>
+<ul>
+<li><p>Subfield 2 must contain the source of the identifier.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Valid source codes in $2 are currently:</p>
+<ul class="simple">
+<li><p>loop</p></li>
+<li><p>orcid</p></li>
+<li><p>rid</p></li>
+<li><p>scopus</p></li>
+<li><p>viaf</p></li>
+</ul>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Subfield a must contain the identifier</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opacauthorities">
+<span id="opacauthorities-label"></span><h3>OpacAuthorities<a class="headerlink" href="#opacauthorities" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者搜尋您的權威記錄。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference displays the link on the OPAC for the authority
+search. By setting the preference to “Allow” patrons can use this
+search link of the OPAC.</p></li>
+</ul>
+<p>值：</p>
+<ul>
+<li><p>允許</p>
+<ul>
+<li><p>標示為 ‘權威搜尋’ 的連結將顯示在 OPAC 上方位於搜尋盒之下</p>
+<p><img alt="image94" src="_images/authoritysearch.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="opacbookbag">
+<span id="opacbookbag-label"></span><h3>opacbookbag<a class="headerlink" href="#opacbookbag" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者將找到的館藏暫存於 OPAC 的 “書目清單”。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows the user to temporarily save a list of items
+found on the catalog. By using the book bag, or cart, the user can
+print out or email a list of items found. The user does not need to
+be logged in. This list is temporary and will be emptied, or cleared,
+at the end of the session.</p></li>
+</ul>
+</section>
+<section id="opacbrowser">
+<span id="opacbrowser-label"></span><h3>OpacBrowser<a class="headerlink" href="#opacbrowser" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>This system preference only applies to installations using UNIMARC at this time.</p>
+</div></blockquote>
+<p>預設：不允許</p>
+<p>詢問：___ 讀者在 OPAC 瀏覽主題權威</p>
+<p>值：</p>
+<ul>
+<li><p>允許</p></li>
+<li><p>不允許</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>必須執行 <a class="reference internal" href="cron_jobs.html#cron-authorities-browser-label"><span class="std std-ref">權威瀏覽工作排程</span></a> 才能新增瀏覽清單</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opacbrowseresults">
+<span id="opacbrowseresults-label"></span><h3>OpacBrowseResults<a class="headerlink" href="#opacbrowseresults" title="此标题的永久链接"></a></h3>
+<p>預設值：啟用</p>
+<p>詢問：___ OPAC 詳情頁面的瀏覽與搜尋結果。</p>
+<p>值：</p>
+<ul>
+<li><p>停用</p></li>
+<li><p>啟用</p>
+<p><img alt="image95" src="_images/OpacBrowseResults.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference will control the option to return to your results
+and/or browse them from the detail page in the OPAC.</p></li>
+</ul>
+</section>
+<section id="opacbrowsesearch">
+<span id="opacbrowsesearch-label"></span><h3>OpacBrowseSearch<a class="headerlink" href="#opacbrowsesearch" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ interface for browsing all holdings (Elasticsearch only).</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>Disable</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>預設值：停用</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows Opac users to browse records by Author, Title or Subject.</p></li>
+<li><p>When set to “Enable”, the “Browse search” option appears in the Opac “More searches” area.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This system preference only has an effect when Elasticsearch is set up as the search engine.</p>
+<p>If you are not sure which search engine your Koha system is using, start by checking the <a class="reference internal" href="administrationpreferences.html#searchengine-label"><span class="std std-ref">SearchEngine system preference</span></a>.</p>
+</div>
+</section>
+<section id="opaccatalogconcerns">
+<span id="opaccatalogconcerns-label"></span><h3>OpacCatalogConcerns<a class="headerlink" href="#opaccatalogconcerns" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ OPAC users to report concerns about catalog records.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>預設：不允許</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to turn on the
+<a class="reference internal" href="opac.html#report-concern-opac-label"><span class="std std-ref">concern reporting feature in the OPAC</span></a>.</p></li>
+</ul>
+</section>
+<section id="opaccloud">
+<span id="opaccloud-label"></span><h3>OpacCloud<a class="headerlink" href="#opaccloud" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>This system preference only applies to French systems at this time.</p>
+</div></blockquote>
+<p>預設值：不顯示</p>
+<p>詢問：___ OPAC 的主題雲</p>
+<p>值：</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>必須執行 <a class="reference internal" href="cron_jobs.html#cron-authorities-browser-label"><span class="std std-ref">權威瀏覽工作排程</span></a> 才能新增瀏覽清單</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opacdetailqrcode">
+<span id="opacdetailqrcode-label"></span><h3>OPACPatronDetails<a class="headerlink" href="#opacdetailqrcode" title="此标题的永久链接"></a></h3>
+<p>預設值: 不啟用</p>
+<p>詢問：___ 選項展示QR Code在OPAC的書目詳頁。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>With this preference enabled a new option ‘Send to device’ displays in the
+list of options on the OPAC details page. When this link is clicked a
+QR code will be displayed which can be scanned using a compatible device
+in order to save the bibliographic details to that device.</p></li>
+</ul>
+</section>
+<section id="opacfinestab">
+<span id="opacfinestab-label"></span><h3>OPACFinesTab<a class="headerlink" href="#opacfinestab" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者從 OPAC 的 ‘摘要’ 頁面近用至罰款分頁。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p>
+<ul>
+<li><p><a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> needs to be set to ‘allow’</p></li>
+</ul>
+</li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="opacholdnotes">
+<span id="opacholdnotes-label"></span><h3>OpacHoldNotes<a class="headerlink" href="#opacholdnotes" title="此标题的永久链接"></a></h3>
+<p>預設值：不允許</p>
+<p>詢問：___ 讀者預約時新增說明。</p>
+<p>值：</p>
+<ul>
+<li><p>允許</p>
+<p><img alt="image96" src="_images/OpacHoldNotes.png" /></p>
+</li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="opacisbd">
+<span id="opacisbd-label"></span><h3>OPACISBD<a class="headerlink" href="#opacisbd" title="此标题的永久链接"></a></h3>
+<p>預設：見共筆的`ISBD 檢視組態 &lt;<a class="reference external" href="https://wiki.koha-community.org/wiki/ISBD_view_configuration">https://wiki.koha-community.org/wiki/ISBD_view_configuration</a>&gt;`。</p>
+<p>詢問：使用以下的 OPAC ISBD 模版：</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此設定決定在 OPAC 顯示 ISBD 資訊的方式。在此清單內的細目可以用不同的 ISBD 方式呈現。ISBD 全稱是 International Standard Bibliographic Description 譯名是國際書目著錄標準，1969年由國際圖書館協會聯合會 (International Federation of Library Associations, IFLA) 首次發佈做為敘述編目的指南。ISBD 的目的是協助不同類型的書目資料在國際間交換。</p></li>
+</ul>
+</section>
+<section id="opacitemlocation">
+<span id="opacitemlocation-label"></span><h3>OpacItemLocation<a class="headerlink" href="#opacitemlocation" title="此标题的永久链接"></a></h3>
+<p>詢問：顯示 ___ 供 OPAC 搜尋館藏之用。</p>
+<p>預設值: 圖書館及索書號</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>圖書館及索書號</p></li>
+<li><p>圖書館, 收藏代碼以及索書號</p></li>
+<li><p>僅限圖書館</p></li>
+<li><p>圖書館, 位置以及索書號</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此設定允許OPAC results XSLT樣式表的讀者可以選擇展示收藏代碼或圖書館的位置及索書號.</p></li>
+</ul>
+</section>
+<section id="opacnewslibraryselect">
+<span id="opacnewslibraryselect-label"></span><h3>OpacNewsLibrarySelect<a class="headerlink" href="#opacnewslibraryselect" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ a library selection list for news items in the OPAC.</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>If set to ‘Show’ a dropdown menu will be displayed above the news in the
+OPAC so that patrons can choose which library they want to see the news from.</p>
+<p><img alt="A dropdown menu labeled 'Display news for' allows the OPAC user to choose which library for which to see news" src="_images/OpacNewsLibrarySelect.png" /></p>
+</li>
+<li><p>If set to “Don’t show”, unlogged OPAC users will only see system-wide news
+(news set to ‘All libraries’) and logged in users will see news for their
+home library and system-wide news.</p></li>
+</ul>
+</section>
+<section id="opacpasswordchange">
+<span id="opacpasswordchange-label"></span><h3>OpacPasswordChange<a class="headerlink" href="#opacpasswordchange" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者由 OPAC 更改其密碼。</p>
+<p>值：</p>
+<ul>
+<li><p>允許</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> needs to be set to ‘allow’</p></li>
+</ul>
+</li>
+<li><p>不允許</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>啟用此功能將打破 LDAP 認證。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opacpatronimages">
+<span id="opacpatronimages-label"></span><h3>OPACpatronimages<a class="headerlink" href="#opacpatronimages" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：___ 讀者照片於 OPAC 的讀者資訊頁面。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If <a class="reference internal" href="patronspreferences.html#patronimages-label"><span class="std std-ref">patronimages</span></a> is set to allow the upload of
+patron images via the staff interface, then setting this preference to
+‘show’ will show the patron what image you have on file for them when
+they view their personal information on their account in the OPAC.</p></li>
+</ul>
+</section>
+<section id="opacpopupauthorssearch">
+<span id="opacpopupauthorssearch-label"></span><h3>OPACPopupAuthorsSearch<a class="headerlink" href="#opacpopupauthorssearch" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC 詳情頁面的組合搜尋 ___ 著者/主題清單。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>If this preference is set to ‘Show’, clicking a subject or
+author from the details page in the OPAC will present the patron
+with a pop up box. From this box they can check any of the
+subjects or authors listed and search them all at once by clicking
+‘Search’ at the bottom of the pop up.</p>
+<p><img alt="A pop up window with all the authors of a record in a list with checkboxes" src="_images/OPACPopupAuthorsSearch.png" /></p>
+</li>
+<li><p>If this preference is set to “Don’t show”, the default behavior, Koha will
+search just the clicked author or subject.</p></li>
+</ul>
+</section>
+<section id="opacreportproblem">
+<span id="opacreportproblem-label"></span><h3>OPACReportProblem<a class="headerlink" href="#opacreportproblem" title="此标题的永久链接"></a></h3>
+<p>要求: ___讀者將OPAC頁面的問題報表提交給圖書館或Koha管理員。</p>
+<p>預設值：允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference controls the
+<a class="reference internal" href="opac.html#opac-report-problem-label"><span class="std std-ref">‘Report a problem’ feature on the OPAC</span></a>,
+which enables patrons to send problem reports from the OPAC.</p></li>
+<li><p>Problem reports are sent by email to the address in
+<a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress-label"><span class="std std-ref">KohaAdminEmailAddress</span></a> or to the
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library</span></a>’s email address.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notice sent by email is customizable in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>. The letter code is
+PROBLEM_REPORT.</p>
+</div>
+</li>
+<li><p>Problem reports are managed in the
+<a class="reference internal" href="tools.html#opac-problem-reports-tool"><span class="std std-ref">OPAC problem reports tool</span></a>.</p></li>
+</ul>
+</section>
+<section id="opacresetpassword">
+<span id="opacresetpassword-label"></span><h3>OpacResetPassword<a class="headerlink" href="#opacresetpassword" title="此标题的永久链接"></a></h3>
+<p>預設值：不允許</p>
+<p>詢問：圖書館讀者 ___ 從 OPAC 以電子郵件恢復他們的密碼。</p>
+<p>值：</p>
+<ul>
+<li><p>允許的</p>
+<blockquote>
+<div><p><img alt="image1195" src="_images/OpacResetPassword.png" /></p>
+</div></blockquote>
+</li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference controls whether you present users of the public
+catalog with a ‘Forgot your password’ link or not. Learn more in the
+<a class="reference internal" href="opac.html#resetting-your-password-label"><span class="std std-ref">OPAC section</span></a> of this manual.</p></li>
+</ul>
+</section>
+<section id="opacshowsavings">
+<span id="opacshowsavings-label"></span><h3>OPACShowSavings<a class="headerlink" href="#opacshowsavings" title="此标题的永久链接"></a></h3>
+<p>Asks: Calculate the amount a patron has ‘saved’ by using the library based on
+replacement prices, and display: ___</p>
+<p>Default: none</p>
+<p>Values (multi-select):</p>
+<ul>
+<li><p>[全選]</p></li>
+<li><p>in user <a class="reference internal" href="opac.html#your-account-label"><span class="std std-ref">summary box on OPAC homepage</span></a> (the system
+preference <a class="reference internal" href="#opacusersummary-label"><span class="std std-ref">OPACUserSummary</span></a> must be enabled)</p>
+<p><img alt="A small box with the number of checkouts, overdues, holds, pending charges and savings" src="_images/OPACShowSavings-summarybox.png" /></p>
+</li>
+<li><p>on patron’s <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">‘your summary’ page</span></a></p>
+<p><img alt="A message at the top of the 'Your summary' page in the patron's account on the OPAC that reads &quot;Congratulations, you have saved a total of $ 76.65 by using the library.&quot;" src="_images/OPACShowSavings-yoursummary.png" /></p>
+</li>
+<li><p>on patron’s <a class="reference internal" href="opac.html#your-checkout-history-label"><span class="std std-ref">checkout history page</span></a> (the
+system preference <a class="reference internal" href="#opacreadinghistory-label"><span class="std std-ref">opacreadinghistory</span></a> must
+be enabled)</p>
+<p><img alt="A message at the top of the 'Checkout history' page in the patron's account on the OPAC that reads &quot;Congratulations, you have saved a total of $ 76.65 by using the library.&quot;" src="_images/OPACShowSavings-checkouthistory.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference will check the patron’s checkout history, add the
+replacement prices of all previously and currently checked out items, and
+display the sum in the selected pages.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>The items’ replacement prices are used to add up the savings. Make sure your
+items have replacement prices before displaying this information.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If <a class="reference internal" href="tools.html#patrons-anonymize-bulk-delete-label"><span class="std std-ref">checkout histories are anonymized</span></a>
+or if old checkouts are deleted through the
+<a class="reference internal" href="cron_jobs.html#cron-clean-up-database-label"><span class="std std-ref">cleanup_database script</span></a>, the savings
+information will be inaccurate.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If a patron checks out an item more than once, it will only be counted once
+in the savings.</p>
+</div>
+</section>
+<section id="opactopissue">
+<span id="opactopissue-label"></span><h3>OpacTopissue<a class="headerlink" href="#opactopissue" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>詢問：___ 讀者從 OPAC 近用最熱門的館藏。</p>
+<p>值：</p>
+<ul>
+<li><p>允許</p>
+<ul>
+<li><p>在 OPAC 出現 ‘最熱門館藏’ 連結</p>
+<p><img alt="image99" src="_images/OpacTopissue.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference allows the administrator to choose to show the “Most
+Popular” link at the top of the OPAC under the search box. The “Most
+Popular” page shows the top circulated items in the library, as
+determined by the number of times a title has been circulated. This
+allows users to see what titles are popular in their community. It is
+recommended that you leave this preference set to ‘Don’t allow’ until
+you have been live on Koha for a couple of months, otherwise the data
+that it shows will not be an accurate portrayal of what’s popular in
+your library.</p>
+<p><img alt="image100" src="_images/topissues.png" /></p>
+</li>
+</ul>
+</section>
+<section id="opacuserlogin">
+<span id="opacuserlogin-label"></span><h3>opacuserlogin<a class="headerlink" href="#opacuserlogin" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者從 OPAC 登入自己的帳號。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p>
+<ul>
+<li><p>即使未登入讀者仍可搜尋 OPAC，此偏好僅停用讀者以自己帳號登入 OPAC</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="quoteoftheday">
+<span id="quoteoftheday-label"></span><h3>QuoteOfTheDay<a class="headerlink" href="#quoteoftheday" title="此标题的永久链接"></a></h3>
+<p>要求：在 ___主頁面中顯示當天的報價</p>
+<p>預設值：(無)</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>OPAC</p></li>
+<li><p>館員介面</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好允許你選擇來自於 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>每日引句編輯&lt;quote-of-day-(qotd)-editor-label&gt;`工具中的引句。</p></li>
+</ul>
+</section>
+<section id="opacholdrequests">
+<span id="opacholdrequests-label"></span><h3>OPACHoldRequests<a class="headerlink" href="#opacholdrequests" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者經由 OPAC 預約館藏。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p>
+<ul>
+<li><p><a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> needs to be set to ‘allow’</p></li>
+</ul>
+</li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="opaccomments">
+<span id="opaccomments-label"></span><h3>OPACComments<a class="headerlink" href="#opaccomments" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者從 OPAC 撰寫書評。</p>
+<p>預設值：允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p>
+<ul>
+<li><p>讀者的評論都先經過館員的審核才能出現在 OPAC</p></li>
+<li><p><a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> needs to be set to ‘Allow’</p></li>
+</ul>
+</li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好決定了是否允許讀者對他們在OPAC上閱讀過的書目提交評論。如果這個偏好被設置為 “允許”，評論首先被發送到館員介面，供館員批准，然後才在OPAC中顯示。審查和批准評論的館員可以在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>評論工具 &lt;comments-label&gt;`上找到待定評論。然後，該館員可以選擇批准或刪除這些評論。</p></li>
+</ul>
+<p>參見 :</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#showreviewer-label"><span class="std std-ref">ShowReviewer</span></a></p></li>
+<li><p><a class="reference internal" href="#showreviewerphoto-label"><span class="std std-ref">ShowReviewerPhoto</span></a></p></li>
+<li><p><a class="reference internal" href="#opacshowrecentcomments-label"><span class="std std-ref">OpacShowRecentComments</span></a></p></li>
+</ul>
+</section>
+<section id="showreviewer">
+<span id="showreviewer-label"></span><h3>ShowReviewer<a class="headerlink" href="#showreviewer" title="此标题的永久链接"></a></h3>
+<p>預設值：全名</p>
+<p>詢問：在 OPAC 顯示評論者的 ___。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>名字</p></li>
+<li><p>名與第一個縮寫</p></li>
+<li><p>全名</p></li>
+<li><p>姓</p></li>
+<li><p>無名</p></li>
+<li><p>使用者名稱</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If you would like to protect your patron’s privacy in the OPAC you
+can choose to hide their names or parts of their names from any of
+the comments they leave on bibliographic records in your system.
+<a class="reference internal" href="#opaccomments-label"><span class="std std-ref">OPACComments</span></a> needs to be set to ‘Allow’ for this system preference
+to come in to play</p></li>
+</ul>
+</section>
+<section id="showreviewerphoto">
+<span id="showreviewerphoto-label"></span><h3>ShowReviewerPhoto<a class="headerlink" href="#showreviewerphoto" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ reviewer’s avatar beside comments in OPAC.</p>
+<p>預設值：顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference allows libraries to show avatars next to
+patron’s comments in the OPAC.</p>
+<p><img alt="A comment in the 'Recent comments' section, showing the title and bibliographic information, the comment, the date of the comment, the reviewer's name and their picture" src="_images/ShowReviewerPhoto.png" /></p>
+</li>
+<li><p>These avatars are pulled from the <a class="reference external" href="https://www.libravatar.org">Libravatar</a>
+library, an open source powered product that allows Internet users to choose
+a small icon to display next to their name on various different websites.</p></li>
+<li><p>The library itself has no control over the images the patron chooses to
+display.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This system preference requires that <a class="reference internal" href="#opaccomments-label"><span class="std std-ref">OPACComments</span></a> be set to ‘Allow’ and
+<a class="reference internal" href="#showreviewer-label"><span class="std std-ref">ShowReviewer</span></a> be set to ‘Show’ to have any effect.</p>
+</div>
+</section>
+<section id="socialnetworks">
+<span id="socialnetworks-label"></span><h3>SocialNetworks<a class="headerlink" href="#socialnetworks" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：在 OPAC 書目詳頁顯示 ___ 社群網路連結</p>
+<p>選項:</p>
+<ul>
+<li><p>電子郵件</p></li>
+<li><p>臉書</p></li>
+<li><p>LinkedIn</p></li>
+<li><p>推特</p>
+<p><img alt="image102" src="_images/SocialNetworks.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference will enable a line of social network share buttons
+below the right hand column on the detail pages of records in the
+OPAC.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>In order for these share buttons to work when clicked you must have
+filled in your <a class="reference internal" href="#opacbaseurl-label"><span class="std std-ref">OPACBaseURL</span></a> preference.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="payments">
+<span id="payments-label"></span><h2>支付<a class="headerlink" href="#payments" title="此标题的永久链接"></a></h2>
+<p>此偏好控制讀者是否可從 OPAC 支付費用。</p>
+<section id="enablepaypalopacpayments-and-paypalsandboxmode">
+<span id="enablepaypalopacpayments-and-paypalsandboxmode-label"></span><h3>EnablePayPalOpacPayments 與 PayPalSandboxMode<a class="headerlink" href="#enablepaypalopacpayments-and-paypalsandboxmode" title="此标题的永久链接"></a></h3>
+<p>EnablePayPalOpacPayments 預設值：不是全部</p>
+<p>PayPalSandboxMode 預設值：沙盒</p>
+<p>詢問：___ 讀者經由 PayPal 的 ___ 模式從 OPAC 支付費用。</p>
+<p>EnablePayPalOpacPayments 值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>PayPalSandboxMode 值：</p>
+<ul class="simple">
+<li><p>生產</p>
+<ul>
+<li><p>進入 <a class="reference external" href="https://developer.paypal.com/">https://developer.paypal.com/</a> 網站取得支付的資訊</p></li>
+</ul>
+</li>
+<li><p>沙盒</p>
+<ul>
+<li><p>進入 <a class="reference external" href="https://developer.paypal.com/developer/accounts/">https://developer.paypal.com/developer/accounts/</a> 取得沙盒的帳號</p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference will allow you to accept credit card payments via the
+OPAC for fines via PayPal. You will need to set up your PayPal
+account and it is recommended that you run tests before using this in
+production.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>PayPayl 的服務條款說，不能向客戶收取處理費用，所以此外掛不會加入處理費。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="paypalchargedescription">
+<span id="paypalchargedescription-label"></span><h3>PayPalChargeDescription<a class="headerlink" href="#paypalchargedescription" title="此标题的永久链接"></a></h3>
+<p>預設值：Koha 付費</p>
+<p>詢問：讀者應看到其收費說明 ___</p>
+<p>說明</p>
+<ul class="simple">
+<li><p>This system preference controls what the patron will see on their PayPal
+account/bank account for this charge.</p></li>
+</ul>
+</section>
+<section id="paypalpwd">
+<span id="paypalpwd-label"></span><h3>PayPalPwd<a class="headerlink" href="#paypalpwd" title="此标题的永久链接"></a></h3>
+<p>詢問：收取費用的 PayPal 帳號密碼是 ___</p>
+</section>
+<section id="paypalreturnurl">
+<span id="paypalreturnurl-label"></span><h3>PayPalReturnURL<a class="headerlink" href="#paypalreturnurl" title="此标题的永久链接"></a></h3>
+<p>詢問: 在支付或取消之後，PayPal應回到 ___</p>
+<p>Default: <a class="reference internal" href="#opacbaseurl-label"><span class="std std-ref">OPACBaseURL</span></a></p>
+<p>值：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opacbaseurl-label"><span class="std std-ref">OPACBaseURL</span></a></p></li>
+<li><p>配置的返回網址</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference lets you decide where a patron is redirected after
+they are done with their transaction, either the <a class="reference internal" href="#opacbaseurl-label"><span class="std std-ref">OPACBaseURL</span></a> or
+the URL specified in the PayPal configuration</p></li>
+</ul>
+</section>
+<section id="paypalsignature">
+<span id="paypalsignature-label"></span><h3>PayPalSignature<a class="headerlink" href="#paypalsignature" title="此标题的永久链接"></a></h3>
+<p>詢問：收取費用的 PayPal 帳號簽名是 ___</p>
+</section>
+<section id="paypaluser">
+<span id="paypaluser-label"></span><h3>PayPalUser<a class="headerlink" href="#paypaluser" title="此标题的永久链接"></a></h3>
+<p>詢問：收取 PayPal 款項的電子郵件帳號是 ___</p>
+</section>
+</section>
+<section id="policy">
+<span id="policy-label"></span><h2>政策<a class="headerlink" href="#policy" title="此标题的永久链接"></a></h2>
+<section id="blockexpiredpatronopacactions">
+<span id="blockexpiredpatronopacactions-label"></span><h3>BlockExpiredPatronOpacActions<a class="headerlink" href="#blockexpiredpatronopacactions" title="此标题的永久链接"></a></h3>
+<p>預設：不阻止</p>
+<p>詢問：___ 到期的讀者使用 OPAC 的預約或續借等功能。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>封鎖</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference lets you set a default value for how Koha handles
+permissions for patrons who are expired. This system preference can be
+overwritten by the setting on <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">individual patron
+categories</span></a>.</p></li>
+</ul>
+</section>
+<section id="opacallowpubliclistcreation">
+<span id="opacallowpubliclistcreation-label"></span><h3>OpacAllowPublicListCreation<a class="headerlink" href="#opacallowpubliclistcreation" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者從 OPAC 新增公共虛擬書架。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>公共虛擬書架可以被任何人從 OPAC 看到。此偏好控制讀者新增公共虛擬書架的權限。若設為 “不允許” 則祗有館員才可以新增公共虛擬書架。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>This system preference will only be taken in to account if you have
+<a class="reference internal" href="administrationpreferences.html#virtualshelves-label"><span class="std std-ref">virtualshelves</span></a> set to ‘Allow’</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opacallowsharingprivatelists">
+<span id="opacallowsharingprivatelists-label"></span><h3>OpacAllowSharingPrivateLists<a class="headerlink" href="#opacallowsharingprivatelists" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ OPAC users to share private lists with other patrons.</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This feature will add the option for patrons to share their lists
+with other patrons.</p></li>
+<li><p>When this is set to ‘Allow’ patrons will see a ‘Share list’ link at the top
+of their list. When they click that link it will ask for the email of the
+patron they would like to share with.</p></li>
+<li><p>Koha will then email the patron an invitation to see the list, and, once the
+other patron accepts the shared list, email the sharing patron to notify them
+that the share has been accepted.</p></li>
+<li><p>See <a class="reference internal" href="opac.html#managing-lists-label"><span class="std std-ref">Managing lists</span></a> for more information.</p></li>
+</ul>
+</section>
+<section id="opacfinenorenewals">
+<span id="opacfinenorenewals-label"></span><h3>OPACFineNoRenewals<a class="headerlink" href="#opacfinenorenewals" title="此标题的永久链接"></a></h3>
+<p>預設值：99999</p>
+<p>詢問： 讀者欠款在 ___ 元以下，才能從其 OPAC 續借</p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>空白則表示不使用</p>
+<p><strong>重要</strong></p>
+<p>To allow renewals in the OPAC, <a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a>
+needs to be set to ‘allow’</p>
+</div></blockquote>
+</section>
+<section id="opacfinenorenewalsincludecredits">
+<span id="opacfinenorenewalsincludecredits-label"></span><h3>OPACFineNoRenewalsIncludeCredits<a class="headerlink" href="#opacfinenorenewalsincludecredits" title="此标题的永久链接"></a></h3>
+<p>預設值：包括</p>
+<p>詢問: ___ 未結的/未應用的信用, 當申請OPACFineNoRenewals規則</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>包括</p></li>
+<li><p>不包括</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference controls whether the <a class="reference internal" href="#opacfinenorenewals-label"><span class="std std-ref">OPACFineNoRenewals</span></a> function uses
+the account balance (which combines outstanding credits and debits) or
+account amount outstanding (which excludes any credits) to make the calculation.</p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>Generally you would set this system preference to align with
+the <a class="reference internal" href="accountspreferences.html#accountautoreconcile-label"><span class="std std-ref">AccountAutoReconcile</span></a> system preference. If you have
+AccountAutoReconcile set to ‘Do’ you should leave this system preference as
+‘Include’. If you have AccountAutoReconcile set to ‘Do not’ it would make
+sense to have this set as ‘Don’t include’.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opachiddenitems">
+<span id="opachiddenitems-label"></span><h3>OpacHiddenItems<a class="headerlink" href="#opachiddenitems" title="此标题的永久链接"></a></h3>
+<p>詢問： 允許客製化規則在 OPAC 隱藏特定館藏。</p>
+<p>說明：</p>
+<ul>
+<li><p>在這個欄段中，你可以輸入你想在OPAC中隱藏顯示的館藏標準。這個欄段採用任何館藏欄段的組合(來自Koha數據庫中的館藏表) 進行屏蔽。例如一個值為:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">itype</span><span class="p">:</span> <span class="p">[</span><span class="mi">07</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="n">STAFF</span><span class="p">,</span> <span class="n">ISO</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>將隱藏館藏類型代號為 07 或 10 者以及館藏位置為 STAFF 或 ISO。</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>需要YAML語法來工作</p>
+<p>這說明</p>
+<ul class="simple">
+<li><p>確認在欄位名與冒號之間沒有空格</p></li>
+<li><p>確認在數值與冒號之間存在一個空格</p></li>
+<li><p>If there are more than one values for the same field, put them in
+square brackets, separated by comma and space</p></li>
+<li><p>確認每組都在同一列中</p></li>
+</ul>
+</div>
+</section>
+<section id="opachiddenitemsexceptions">
+<span id="opachiddenitemsexceptions-label"></span><h3>OpacHiddenItemsExceptions<a class="headerlink" href="#opachiddenitemsexceptions" title="此标题的永久链接"></a></h3>
+<p>Asks: List of patron categories, that can see items otherwise hidden by
+<a class="reference internal" href="#opachiddenitems-label"><span class="std std-ref">OpacHiddenItems</span></a></p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Patron categories chosen here will be able to view items on the OPAC that
+would otherwise be hidden by the <a class="reference internal" href="#opachiddenitems-label"><span class="std std-ref">OpacHiddenItems</span></a>
+system preference.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Users need to be logged into the OPAC to be able to see hidden items if they
+are part of the excepted categories.</p>
+</div>
+</section>
+<section id="opacrenewalallowed">
+<span id="opacrenewalallowed-label"></span><h3>OpacRenewalAllowed<a class="headerlink" href="#opacrenewalallowed" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者從 OPAC 續借。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p>
+<ul>
+<li><p><a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> needs to be set to ‘allow’</p></li>
+</ul>
+</li>
+<li><p>不允許</p>
+<ul>
+<li><p>Staff will still be able to renew items for patrons via the staff
+interface</p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows the administration to choose if patrons can
+renew their checked out materials via their checked out history in
+the OPAC. It allows patrons to renew their materials without having
+to contact the library or having to return to the library.</p></li>
+</ul>
+</section>
+<section id="opacrenewalbranch">
+<span id="opacrenewalbranch-label"></span><h3>OpacRenewalBranch<a class="headerlink" href="#opacrenewalbranch" title="此标题的永久链接"></a></h3>
+<p>Default: the library the item was checked out from</p>
+<p>詢問：使用 ___ 做為分館代碼供統計之用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>NULL</p></li>
+<li><p>‘OPACRenew’</p></li>
+<li><p>the item’s home library</p></li>
+<li><p>the patron’s home library</p></li>
+<li><p>the library the item was checked out from</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This value is used in the statistics table to help with reporting.
+The statistics table in Koha keeps track of all checkouts and
+renewals, this preference defines which library is entered in to the
+table when a patron renews an item for themselves via the OPAC.</p></li>
+</ul>
+</section>
+<section id="searchmylibraryfirst">
+<span id="searchmylibraryfirst-label"></span><h3>SearchMyLibraryFirst<a class="headerlink" href="#searchmylibraryfirst" title="此标题的永久链接"></a></h3>
+<p>預設值：不限制</p>
+<p>詢問：___ 讀者僅能搜尋所屬圖書館。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不限制</p>
+<ul>
+<li><p>搜尋 OPAC 時顯示所有圖書館的搜尋結果</p></li>
+<li><p>If you’re a one library system, choose ‘Don’t limit’</p></li>
+</ul>
+</li>
+<li><p>限制</p>
+<ul>
+<li><p>讀者仍然可以通過進階搜尋頁面搜尋其他圖書館 - 但將僅限於從基本搜尋框中搜尋自己的圖書館</p></li>
+<li><p><a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> needs to be set to ‘allow’</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="privacy">
+<span id="privacy-label"></span><h2>私人<a class="headerlink" href="#privacy" title="此标题的永久链接"></a></h2>
+<section id="allowpatrontosetcheckoutsvisibilityforguarantor">
+<span id="allowpatrontosetcheckoutsvisibilityforguarantor-label"></span><h3>AllowPatronToSetCheckoutsVisibilityForGuarantor<a class="headerlink" href="#allowpatrontosetcheckoutsvisibilityforguarantor" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>詢問：___ 讀者設隱私，對保證人顯示其借出”。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>By default staff can see checkouts to family members via the staff
+interface. This system preference will allow guarantees (children) to grant
+permission to guarantors (guardians) to view their current checkouts
+via the public catalog. This system preference requires that you allow
+patrons to choose their own privacy with the
+<a class="reference internal" href="#opacprivacy-label"><span class="std std-ref">OPACPrivacy</span></a> preference.</p></li>
+</ul>
+</section>
+<section id="anonymouspatron">
+<span id="anonymouspatron-label"></span><h3>AnonymousPatron<a class="headerlink" href="#anonymouspatron" title="此标题的永久链接"></a></h3>
+<p>預設值：0</p>
+<p>詢問：以讀者證號碼 ___ 做為匿名讀者 (供匿名推薦採訪與借閱記錄之用)</p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>設定此偏好前 <a class="reference internal" href="patrons.html#add-a-new-patron-label"><span class="std std-ref">新增讀者</span></a> 供所有的匿名建議與館藏閱讀紀錄使用。此讀者可以是任何類型但應明確地命名確定其為匿名讀者 (如：無名氏)。</p>
+<p><strong>重要</strong></p>
+<p>記得使用 borrowernumber 說明讀者的號碼。從右方的 ‘圖書館使用’ 找到 borrowernumber。</p>
+<p><img alt="image1196" src="_images/AnonymousPatron.png" /></p>
+</div></blockquote>
+</section>
+<section id="enableopacsearchhistory">
+<span id="enableopacsearchhistory-label"></span><h3>EnableOpacSearchHistory<a class="headerlink" href="#enableopacsearchhistory" title="此标题的永久链接"></a></h3>
+<p>預設值：保留</p>
+<p>詢問：___ 讀者在 OPAC 的搜尋記錄。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不保留</p></li>
+<li><p>保留</p></li>
+</ul>
+</section>
+<section id="opacholdshistory">
+<span id="opacholdshistory-label"></span><h3>OPACHoldsHistory<a class="headerlink" href="#opacholdshistory" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者查看他們過去的持有清單。</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好確定是否允許顧客查看他們 <a class="reference internal" href="opac.html#your-holds-history-label"><span class="std std-ref">在 OPAC 上保存的歷史記錄</span></a>。</p></li>
+</ul>
+</section>
+<section id="opacprivacy">
+<span id="opacprivacy-label"></span><h3>OPACPrivacy<a class="headerlink" href="#opacprivacy" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>詢問：___ 選擇其借閱記錄的隱私權設定。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>This requires <a class="reference internal" href="#opacreadinghistory-label"><span class="std std-ref">opacreadinghistory</span></a> set to
+‘Allow’ and <a class="reference internal" href="#anonymouspatron-label"><span class="std std-ref">AnonymousPatron</span></a> to be set to your
+anonymous patron’s borrowernumber.</p>
+</div></blockquote>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>預設的讀者隱私設定值在 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型</span></a> 區塊。若設為 ‘允許’ 讀者就可以經由 OPAC 更改其隱私設定。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>If patron has chosen to have their reading history anonymized and
+you have <a class="reference internal" href="circulationpreferences.html#storelastborrower-label"><span class="std std-ref">StoreLastBorrower</span></a> set to “Don’t
+store” then as soon as the item is checked in the last borrower will
+be anonymized.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opacreadinghistory">
+<span id="opacreadinghistory-label"></span><h3>opacreadinghistory<a class="headerlink" href="#opacreadinghistory" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者查看其借閱記錄。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Enabling this will make it so that patrons can view their
+circulation history in the OPAC unless you have
+<a class="reference internal" href="#opacprivacy-label"><span class="std std-ref">OPACPrivacy</span></a> set to ‘Allow’.</p>
+<p><strong>重要</strong></p>
+<p>除非讀者選擇其設定為不儲存借出記錄，否則該資料將儲在系統內，不論館員如何設定。</p>
+</div></blockquote>
+</section>
+<section id="trackclicks">
+<span id="trackclicks-label"></span><h3>TrackClicks<a class="headerlink" href="#trackclicks" title="此标题的永久链接"></a></h3>
+<p>預設值：不追蹤</p>
+<p>詢問：___ 讀者點選的連結。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不追蹤</p></li>
+<li><p>追蹤</p></li>
+<li><p>匿名追蹤</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>經由此偏好可以追蹤 Koha 內的每個點選。這些資料儲存在資料庫裡，可以抓出來編製成報表。若選擇 ‘追蹤’ Koha 記錄點選的連結與登入者。若選擇 ‘匿名追蹤’，則不記錄登入者的讀者證號碼只記錄其他的資料。</p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>記得更新圖書館隱私政策並從 OPAC 連結過來，告知讀者圖書館正追蹤其資訊。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="restricted-page">
+<span id="restricted-page-label"></span><h2>Restricted page<a class="headerlink" href="#restricted-page" title="此标题的永久链接"></a></h2>
+<p>經由偏好設定指定的 IP 才能近用 Koha。用於指定圖書館或其他授權的單位才能近用其資料庫。</p>
+<section id="restrictedpagecontent">
+<span id="restrictedpagecontent-label"></span><h3>RestrictedPageContent<a class="headerlink" href="#restrictedpagecontent" title="此标题的永久链接"></a></h3>
+<p>詢問：限制頁面內的 HTML 內容。</p>
+</section>
+<section id="restrictedpagelocalips">
+<span id="restrictedpagelocalips-label"></span><h3>RestrictedPageLocalIPs<a class="headerlink" href="#restrictedpagelocalips" title="此标题的永久链接"></a></h3>
+<p>詢問：近用的 IP 位址開始為 ___ 不需要認證</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>可以用逗點區隔 IP (如：’127.0.0,127.0.1’) 或祗列出 IP 的開始範圍 (如：’127.0.^)</p></li>
+</ul>
+</section>
+<section id="restrictedpagetitle">
+<span id="restrictedpagetitle-label"></span><h3>RestrictedPageTitle<a class="headerlink" href="#restrictedpagetitle" title="此标题的永久链接"></a></h3>
+<p>詢問：以 ___ 為限制頁面的題名</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此題名顯示於導覽列與限制頁面最上方。</p></li>
+</ul>
+</section>
+</section>
+<section id="self-registration-and-modification">
+<span id="self-registration-label"></span><h2>自行註冊及修改<a class="headerlink" href="#self-registration-and-modification" title="此标题的永久链接"></a></h2>
+<section id="emailpatronregistrations-and-emailaddressforpatronregistrations">
+<span id="emailpatronregistrations-and-emailaddressforpatronregistrations-label"></span><h3>EmailPatronRegistrations and EmailAddressForPatronRegistrations<a class="headerlink" href="#emailpatronregistrations-and-emailaddressforpatronregistrations" title="此标题的永久链接"></a></h3>
+<p>Asks: Choose email address that new patron self-registrations will be sent to: ___. If you choose EmailAddressForPatronRegistrations you have to enter a valid email address: ___</p>
+<p>Default: none</p>
+<p>Values:
+-  none
+-  email address of library
+-  EmailAddressForPatronRegistrations
+-  KohaAdminEmailAddress</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>These system preferences allow libraries to receive notifications when patrons self-register. The notice text can be customised in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips</span></a> tool; the letter code is OPAC_REG.</p></li>
+<li><p>If the value of EmailPatronRegistrations is set to ‘none’, no notifications will be sent.</p></li>
+<li><p>If the value of EmailPatronRegistrations is set to ‘email address of library’, notifications will be sent to the registration library using the email address entered in the <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">Libraries settings</span></a>.</p></li>
+<li><p>If the value is set to ‘EmailAddressForPatronRegistrations’, notifications will be sent to the email address in the input field.</p></li>
+<li><p>Lastly, when the value of EmailPatronRegistrations is set to ‘KohaAdminEmailAddress’, notifications will be sent to the email address entered in the <a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress-label"><span class="std std-ref">KohaAdminEmailAddress</span></a> system preference.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If verification is required for self-registrations (when PatronSelfRegistrationVerifyByEmail is enabled), then notifications are only sent to the library once the registration is confirmed.</p>
+</div>
+</section>
+<section id="opacpatrondetails">
+<span id="opacpatrondetails-label"></span><h3>OPACPatronDetails<a class="headerlink" href="#opacpatrondetails" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者從 OPAC 告知圖書館其連絡資訊已改變。</p>
+<p>預設值：允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p>
+<ul>
+<li><p><a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> needs to be set to ‘allow’</p></li>
+</ul>
+</li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>If patrons are allowed to notify the library of changes to their
+account then staff will need to approve the changes via the staff
+interface. Notification of patron account requests will appear on the
+dashboard below the list of modules with other pending actions.</p>
+<p><img alt="Prompt on staff interface homepage to view pending article requests, pending purchase suggestions, patrons requesting modifications, pending catalog concerns, pending checkout notes, and pending OPAC problem reports" src="_images/pendingrequests.png" /></p>
+<p>勾選通知之後將出現讀者的變更館員可以進行後續作業。</p>
+<p><img alt="Confirm requests to update patron records in the staff interface" src="_images/updatePatronRecords.png" /></p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>You can control which fields patrons see and can modify via the
+OPAC by setting the
+<a class="reference internal" href="#patronselfmodificationborrowerunwantedfield-label"><span class="std std-ref">PatronSelfModificationBorrowerUnwantedField</span></a> and
+<a class="reference internal" href="#patronselfmodificationmandatoryfield-label"><span class="std std-ref">PatronSelfModificationMandatoryField</span></a>
+preferences.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="patronselfmodificationborrowerunwantedfield">
+<span id="patronselfmodificationborrowerunwantedfield-label"></span><h3>PatronSelfModificationBorrowerUnwantedField<a class="headerlink" href="#patronselfmodificationborrowerunwantedfield" title="此标题的永久链接"></a></h3>
+<p>詢問：以下的 <a href="#id1"><span class="problematic" id="id2">:ref:`資料庫欄位 &lt;http://schema.koha-community.org/master/tables/borrowers.html&gt;`__</span></a> 將不會顯示在讀者自行修改畫面：___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to define which fields patrons can edit if
+you’re allowing them to update their personal information via the
+public catalog with the <a class="reference internal" href="#opacpatrondetails-label"><span class="std std-ref">OPACPatronDetails</span></a>
+preference.</p></li>
+</ul>
+</section>
+<section id="patronselfmodificationmandatoryfield">
+<span id="patronselfmodificationmandatoryfield-label"></span><h3>PatronSelfModificationMandatoryField<a class="headerlink" href="#patronselfmodificationmandatoryfield" title="此标题的永久链接"></a></h3>
+<p>Asks: The following <a class="reference external" href="http://schema.koha-community.org/master/tables/borrowers.html">database
+columns</a> must be filled in on the patron self-modification screen: ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to define which fields patrons must fill in if
+you’re allowing them to update their personal information via the
+public catalog with the <a class="reference internal" href="#opacpatrondetails-label"><span class="std std-ref">OPACPatronDetails</span></a>
+preference.</p></li>
+</ul>
+</section>
+<section id="patronselfregistration">
+<span id="patronselfregistration-label"></span><h3>PatronSelfRegistration<a class="headerlink" href="#patronselfregistration" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者經由 OPAC 註冊其帳號。</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>設定偏好為 ‘允許’ 後，讀者可從 OPAC 連結註冊其帳號。搭配其他的 <a class="reference internal" href="#self-registration-label"><span class="std std-ref">自助註冊</span></a> 系統偏好可以更精細地控制此功能的運作。</p>
+<p><img alt="&quot;Log in to your account&quot; section on the OPAC homepage. Underneath the Log in button is the mention: &quot;Don't have an account? Register here.&quot;" src="_images/opachomeloginform.png" /></p>
+</li>
+<li><p>To be notified when a patron registers via the OPAC, use the <a class="reference internal" href="#emailpatronregistrations-and-emailaddressforpatronregistrations-label"><span class="std std-ref">EmailPatronRegistrations</span></a> system preference.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>經由 OPAC 線上登錄的讀者不需圖書館員的核准。所以建議您設定該 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型</span></a> 為沒有 <span class="xref std std-ref">借閱權</span>。如此一來讀者必須到館確認其身份後才能借閱館藏。確認讀者身份後，館員可以更改其類型並給予借閱與預約的權限。</p>
+</div>
+</section>
+<section id="patronselfregistrationadditionalinstructions">
+<span id="patronselfregistrationadditionalinstructions-label"></span><h3>PatronSelfRegistrationAdditionalInstructions<a class="headerlink" href="#patronselfregistrationadditionalinstructions" title="此标题的永久链接"></a></h3>
+<p>詢問： 顯示以下的額外指示 (可使用 HTML 語法) 給經由 OPAC 自行註冊的讀者：</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference takes any HTML you’d like to display on the page the
+patron sees after successfully registering for their library card.</p></li>
+</ul>
+</section>
+<section id="patronselfregistrationborrowermandatoryfield">
+<span id="patronselfregistrationborrowermandatoryfield-label"></span><h3>PatronSelfRegistrationBorrowerMandatoryField<a class="headerlink" href="#patronselfregistrationborrowermandatoryfield" title="此标题的永久链接"></a></h3>
+<p>詢問：讀者必須在進入畫面填寫以下資料庫欄位 ：___</p>
+<p>預設值：surname|firstname</p>
+<p>說明：</p>
+<ul>
+<li><p>This system preference allows you to define what fields patrons must fill in
+on their self registration form. If any of the required fields are
+blank Koha will not let the patron register.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>以直線 | 區隔各欄位</p>
+<p><strong>註記</strong></p>
+<p>為了確認欄位名稱，可以請教系統管理員或 <a href="#id1"><span class="problematic" id="id2">:ref:`檢視資料庫結構 &lt;http://schema.koha-community.org/master/tables/borrowers.html&gt;`__</span></a> 列出相關的讀者表單。</p>
+<p><strong>註記</strong></p>
+<p>If you’re going to require that patrons verify their accounts via
+email with the
+<a class="reference internal" href="#patronselfregistrationverifybyemail-label"><span class="std std-ref">PatronSelfRegistrationVerifyByEmail</span></a>
+preference the email field will automatically be marked as required.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="patronselfregistrationborrowerunwantedfield">
+<span id="patronselfregistrationborrowerunwantedfield-label"></span><h3>PatronSelfRegistrationBorrowerUnwantedField<a class="headerlink" href="#patronselfregistrationborrowerunwantedfield" title="此标题的永久链接"></a></h3>
+<p>詢問：以下的資料庫欄將不顯示在讀者進入畫面：___</p>
+<p>說明：</p>
+<ul>
+<li><p>以此偏好隱藏 OPAC 欄位，讓讀者在註冊及更新時看不到他們。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>以直線 | 區隔各欄位</p>
+<p><strong>註記</strong></p>
+<p>為了確認欄位名稱，可以請教系統管理員或 <a href="#id1"><span class="problematic" id="id2">:ref:`檢視資料庫結構 &lt;http://schema.koha-community.org/master/tables/borrowers.html&gt;`__</span></a> 列出相關的讀者表單。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="patronselfregistrationconfirmemail">
+<span id="patronselfregistrationconfirmemail-label"></span><h3>PatronSelfRegistrationConfirmEmail<a class="headerlink" href="#patronselfregistrationconfirmemail" title="此标题的永久链接"></a></h3>
+<p>要求：___ 使用者通過輸入兩次來確認其電子郵件位址。</p>
+<p>預設值：不要求</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要求</p></li>
+<li><p>必須</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果這個偏好被設置為 ‘要求’，使用者必須輸入其電子郵件位址兩次。</p></li>
+<li><p>Make sure to enable this system preference if
+<a class="reference internal" href="#patronselfregistrationverifybyemail-label"><span class="std std-ref">PatronSelfRegistrationVerifyByEmail</span></a> is enabled.</p></li>
+</ul>
+</section>
+<section id="patronselfregistrationdefaultcategory">
+<span id="patronselfregistrationdefaultcategory-label"></span><h3>PatronSelfRegistrationDefaultCategory<a class="headerlink" href="#patronselfregistrationdefaultcategory" title="此标题的永久链接"></a></h3>
+<p>詢問：使用讀者類型代碼 ___ 做為經由 OPAC 註冊的預設讀者類型。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>輸入讀者 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">類別代碼</span></a>，所有通過OPAC註冊的新讀者將被歸入該類別。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Do not use a regular <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category</span></a> for
+this, as any patron who has not completed the registration verification
+process will be deleted by the
+<a class="reference internal" href="cron_jobs.html#cron-clean-up-database-label"><span class="std std-ref">cleanup_database.pl script</span></a> after the
+number of days indicated in
+<a class="reference internal" href="#patronselfregistrationexpiretemporaryaccountsdelay-label"><span class="std std-ref">PatronSelfRegistrationExpireTemporaryAccountsDelay</span></a>, including regular
+patrons who have not registered online.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Patrons registering via the OPAC will not need to be approved by a
+librarian. For this reason it is recommended that you set up a
+provisional <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category</span></a> with no
+<a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation rights</span></a>. That way,
+patrons will have to come in to the library to verify their identity
+before being given circulation rights at the library. Once the patron
+confirms their identity, the library staff can change the category to one
+with permissions to check items out and place holds.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>若此偏好空白或鍵入無效的讀者類型代碼，讀者仍可註冊但不會取得使用者名稱。也沒有錯誤訊息說明它，因此應鍵入有效的讀者類型代碼。</p>
+</div>
+<ul class="simple">
+<li><p>This system preference is required by <a class="reference internal" href="#patronselfregistration-label"><span class="std std-ref">PatronSelfRegistration</span></a>.</p></li>
+</ul>
+</section>
+<section id="patronselfregistrationemailmustbeunique">
+<span id="patronselfregistrationemailmustbeunique-label"></span><h3>PatronSelfRegistrationEmailMustBeUnique<a class="headerlink" href="#patronselfregistrationemailmustbeunique" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者電子郵件 (borrowers.email) 是自助註冊的資料。不接受與其他人重複的電子郵件。</p>
+<p>預設值：不考慮</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不考慮</p></li>
+<li><p>考慮</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果啟用，這個系統偏好將防止用戶用同一個電子郵件地址建立多個帳戶。</p></li>
+</ul>
+</section>
+<section id="patronselfregistrationexpiretemporaryaccountsdelay">
+<span id="patronselfregistrationexpiretemporaryaccountsdelay-label"></span><h3>PatronSelfRegistrationExpireTemporaryAccountsDelay<a class="headerlink" href="#patronselfregistrationexpiretemporaryaccountsdelay" title="此标题的永久链接"></a></h3>
+<p>Asks: Delete patrons still in the category indicated by
+<a class="reference internal" href="#patronselfregistrationdefaultcategory-label"><span class="std std-ref">PatronSelfRegistrationDefaultCategory</span></a> ___ days after account creation.</p>
+<p>預設值：0</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference links to the
+<a class="reference internal" href="cron_jobs.html#cron-clean-up-database-label"><span class="std std-ref">cleanup_database cron job</span></a>. If that
+cron is set to run nightly with the –del-exp-selfreg parameter, it will clean
+up any registrations that have not been verified via email in the number of
+days entered on this preference.</p></li>
+<li><p>This system preference is dependent on the <a class="reference internal" href="#patronselfregistrationverifybyemail-label"><span class="std std-ref">PatronSelfRegistrationVerifyByEmail</span></a>
+system preference.</p></li>
+</ul>
+</section>
+<section id="patronselfregistrationlibrarylist">
+<span id="patronselfregistrationlibrarylist-label"></span><h3>PatronSelfRegistrationLibraryList<a class="headerlink" href="#patronselfregistrationlibrarylist" title="此标题的永久链接"></a></h3>
+<p>詢問：在下述圖書館啟用自助註冊：___ (以 | 區隔分館代碼)。若空白，則所有圖書館均可用。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If only some libraries in your system are accepting self-registered patrons,
+enter the list of <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">codes</span></a> here and separate each with
+a pipe (|).</p></li>
+<li><p>如果這個系統偏好留空，所有圖書館都將被列出。</p></li>
+</ul>
+</section>
+<section id="patronselfregistrationprefillform">
+<span id="patronselfregistrationprefillform-label"></span><h3>PatronSelfRegistrationPrefillForm<a class="headerlink" href="#patronselfregistrationprefillform" title="此标题的永久链接"></a></h3>
+<p>詢問：自助登錄後出現 ___ 密碼及登入表單。</p>
+<p>Default: Show and prefill</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>Don’t show and prefill</p></li>
+<li><p>Show and prefill</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to prefill (or not) the login form on the
+OPAC after <a class="reference internal" href="opac.html#opac-self-registration-label"><span class="std std-ref">self registration</span></a>, so the
+patron doesn’t have to type in the information.</p></li>
+</ul>
+</section>
+<section id="patronselfregistrationverifybyemail">
+<span id="patronselfregistrationverifybyemail-label"></span><h3>PatronSelfRegistrationVerifyByEmail<a class="headerlink" href="#patronselfregistrationverifybyemail" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 自行註冊的讀者通過電子郵件驗證自己。</p>
+<p>預設值：非必須</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>非必須</p></li>
+<li><p>必須</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>If you require patrons to verify their accounts via email they will
+not be able to log in to the OPAC until they acknowledge the email
+sent by Koha. If you don’t require this then patrons will be able to
+log in as soon as they fill in the registration form. You can set the
+<a class="reference internal" href="#patronselfregistrationexpiretemporaryaccountsdelay-label"><span class="std std-ref">PatronSelfRegistrationExpireTemporaryAccountsDelay</span></a>
+preference to delete the un-verified self registrations after a
+certain number of days.</p>
+<blockquote>
+<div><p><strong>註記</strong></p>
+<p>若要求經由電子郵件認證，則電子郵件欄位自動成為必備欄位。</p>
+<p><strong>重要</strong></p>
+<p>If you require email verification, also set
+<a class="reference internal" href="#patronselfregistrationconfirmemail-label"><span class="std std-ref">PatronSelfRegistrationConfirmEmail</span></a> to ‘Require’ to prevent patrons
+from entering an erroneous email address and never being able to confirm
+their account.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="shelf-browser">
+<span id="shelf-browser-label"></span><h2>Shelf browser<a class="headerlink" href="#shelf-browser" title="此标题的永久链接"></a></h2>
+<section id="opacshelfbrowser">
+<span id="opacshelfbrowser-label"></span><h3>OPACShelfBrowser<a class="headerlink" href="#opacshelfbrowser" title="此标题的永久链接"></a></h3>
+<p>預設值：顯示</p>
+<p>詢問：在館藏詳情頁面 ___ 書架瀏覽功能，允許讀者瀏覽臨近的書架。</p>
+<p>值：</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<p><img alt="image104" src="_images/OPACShelfBrowser.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference allows patrons to view what is located on the shelf
+near the item they looked up. The shelf browser option appears on the
+details page to the right of each items’ call number. Clicking the
+‘Browse Shelf’ link allows for a virtual shelf browsing experience
+via the OPAC and lets patrons see other books that may relate to
+their search and items that sit on the shelf near the item they are
+looking at.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>此偏好耗費相當資源，應避免使用館藏量大的圖書館。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="shelfbrowserusesccode">
+<span id="shelfbrowserusesccode-label"></span><h3>ShelfBrowserUsesCcode<a class="headerlink" href="#shelfbrowserusesccode" title="此标题的永久链接"></a></h3>
+<p>預設值：不用</p>
+<p>詢問：從書架瀏覽器找尋館藏時 ___ 館藏代碼。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>使用館藏代碼的圖書館或許希望在書架瀏覽時，先查看該館藏所屬的館藏區，再以書架瀏覽器查看它們。</p></li>
+</ul>
+</section>
+<section id="shelfbrowseruseshomebranch">
+<span id="shelfbrowseruseshomebranch-label"></span><h3>ShelfBrowserUsesHomeBranch<a class="headerlink" href="#shelfbrowseruseshomebranch" title="此标题的永久链接"></a></h3>
+<p>預設值：使用</p>
+<p>Asks: ___ the item home library when finding items for the shelf
+browser.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If you have a multiple library system you may want to make sure that
+Koha takes into consideration what library owns the books when
+populating the virtual shelf browser for accuracy.</p></li>
+</ul>
+</section>
+<section id="shelfbrowseruseslocation">
+<span id="shelfbrowseruseslocation-label"></span><h3>ShelfBrowserUsesLocation<a class="headerlink" href="#shelfbrowseruseslocation" title="此标题的永久链接"></a></h3>
+<p>預設值：使用</p>
+<p>詢問：找到館藏時在書架瀏覽器 ___ 館藏位置。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>若圖書館使用書架位置，則或許希望將館藏位置放在虛擬書架瀏覽器內。</p></li>
+</ul>
+</section>
+</section>
+<section id="suggestions">
+<span id="suggestionspreferences-label"></span><h2>Suggestions<a class="headerlink" href="#suggestions" title="此标题的永久链接"></a></h2>
+<section id="anonsuggestions">
+<span id="anonsuggestions-label"></span><h3>AnonSuggestions<a class="headerlink" href="#anonsuggestions" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 未登入的讀者有權提出採訪建議。</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines whether or not patrons who aren’t logged
+into the OPAC, or people who aren’t patrons of the library can make
+<a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">purchase suggestions</span></a>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If set to ‘Allow’, suggestions are connected to the
+<a class="reference internal" href="#anonymouspatron-label"><span class="std std-ref">AnonymousPatron</span></a>. Make sure that system
+preference is set to a patron account.</p>
+</div>
+</section>
+<section id="maxopensuggestions">
+<span id="maxopensuggestions-label"></span><h3>MaxOpenSuggestions<a class="headerlink" href="#maxopensuggestions" title="此标题的永久链接"></a></h3>
+<p>Asks: Limit patrons to ___ open suggestions.</p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to limit how many
+<a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">purchase suggestions</span></a> patrons can
+have open at one time.</p></li>
+<li><p>Leave empty to have no limit.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This setting does not affect <a class="reference internal" href="#anonsuggestions-label"><span class="std std-ref">anonymous suggestions</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This affects only suggestions that are ‘pending’. Once the status of the
+suggestion changes, it is no longer considered ‘open’.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This setting only affects suggestions made by the patron in the OPAC. It does
+not prevent staff from
+<a class="reference internal" href="patrons.html#purchase-suggestions-label"><span class="std std-ref">making suggestions in the name of the patron in the staff interface</span></a>.</p>
+</div>
+</section>
+<section id="maxtotalsuggestions-and-numberofsuggestiondays">
+<span id="maxtotalsuggestions-numberofsuggestionsdays-label"></span><h3>MaxTotalSuggestions 和 NumberOfSuggestionDays<a class="headerlink" href="#maxtotalsuggestions-and-numberofsuggestiondays" title="此标题的永久链接"></a></h3>
+<p>詢問：在 ___ 天內允許的總建議數 ___。</p>
+<p>預設值：空白</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to limit the number of
+<a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">purchase suggestions</span></a> a patron
+can make in a certain number of days.</p></li>
+<li><p>例如，如果要將讀者限制為每周 10 條建議，請輸入 10 和 7。</p></li>
+<li><p>Leave empty to have no limit.</p></li>
+</ul>
+</section>
+<section id="opacsuggestionautofill">
+<span id="opacsuggestionautofill-label"></span><h3>OPACSuggestionAutoFill<a class="headerlink" href="#opacsuggestionautofill" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ OPAC suggestions form automatically filling with data from Google
+Books API.</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>Disable</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When this system preference is enabled, the
+<a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">purchase suggestions</span></a> form on the
+OPAC will have a ‘Search Google Books’ button next to the ISBN field. When a
+patron enters a valid ISBN, Koha will check the Google Books API for the
+information, such as title, author, and publication date and automatically
+fill out the suggestion form for the patron.</p></li>
+</ul>
+</section>
+<section id="opacsuggestionmanagedby">
+<span id="opacsuggestionmanagedby-label"></span><h3>OpacSuggestionManagedBy<a class="headerlink" href="#opacsuggestionmanagedby" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC ___ 管理採訪建議的館員姓名。</p>
+<p>預設值：顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If you’re <a class="reference internal" href="#suggestion-label"><span class="std std-ref">allowing patrons to make purchase
+suggestions</span></a>, they will see the ‘your purchase
+suggestions’ tab when logged in. By default, this tab displays the name of
+the staff member who approved or rejected the purchase suggestion. This
+preference controls if the patron sees the staff member’s name or not.</p></li>
+</ul>
+</section>
+<section id="opacsuggestionmandatoryfields">
+<span id="opacsuggestionmandatoryfields-label"></span><h3>OPACSuggestionMandatoryFields<a class="headerlink" href="#opacsuggestionmandatoryfields" title="此标题的永久链接"></a></h3>
+<p>Asks: Fields that should be mandatory for patron purchase suggestions: ___</p>
+<p>預設值：空白</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The ‘Title’ field is always mandatory.</p>
+</div>
+<p>值：</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>作者</p></li>
+<li><p>合集題名</p></li>
+<li><p>Copyright date</p></li>
+<li><p>ISBN</p></li>
+<li><p>館藏類型</p></li>
+<li><p>Library</p></li>
+<li><p>注意事項</p></li>
+<li><p>讀者理由</p></li>
+<li><p>Place of publication</p></li>
+<li><p>Publisher</p></li>
+<li><p>Quantity</p></li>
+<li><p>標題</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to choose which fields are mandatory when
+patrons <a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">make purchase suggestions from the OPAC</span></a>.</p></li>
+</ul>
+</section>
+<section id="opacsuggestionunwantedfields">
+<span id="opacsuggestionunwantedfields-label"></span><h3>OPACSuggestionUnwantedFields<a class="headerlink" href="#opacsuggestionunwantedfields" title="此标题的永久链接"></a></h3>
+<p>Asks: Fields that should be hidden for patron purchase suggestions: ___</p>
+<p>預設值：空白</p>
+<p>Values: As for <a class="reference internal" href="#opacsuggestionmandatoryfields-label"><span class="std std-ref">OPACSuggestionMandatoryFields</span></a> shown above.</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to hide fields from the <a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">purchase suggestion</span></a>
+form in the OPAC.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Do not make fields in
+<a class="reference internal" href="#opacsuggestionmandatoryfields-label"><span class="std std-ref">OPACSuggestionMandatoryFields</span></a>
+unwanted fields.</p>
+</div>
+</section>
+<section id="opacviewotherssuggestions">
+<span id="opacviewotherssuggestions-label"></span><h3>OPACViewOthersSuggestions<a class="headerlink" href="#opacviewotherssuggestions" title="此标题的永久链接"></a></h3>
+<p>詢問：在 OPAC ___ 其他讀者的採訪建議。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines whether or not patrons can see and
+search through <a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">purchase suggestions</span></a>
+made by other patrons.</p></li>
+<li><p>Only patrons logged in will be able to see purchase suggestions made by other
+patrons.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>The <a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> system preference needs to be
+set to ‘Allow’.</p>
+</div>
+</section>
+<section id="suggestion">
+<span id="suggestion-label"></span><h3>建議<a class="headerlink" href="#suggestion" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ purchase suggestions in the OPAC.</p>
+<p>預設值：啟用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>Disable</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is the main switch for the
+<a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">purchase suggestion</span></a> feature.</p></li>
+<li><p>If enabled, <a class="reference internal" href="#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> needs to be set to ‘allow’
+unless <a class="reference internal" href="#anonsuggestions-label"><span class="std std-ref">AnonSuggestions</span></a> is set to ‘allow’.</p></li>
+</ul>
+</section>
+<section id="suggestionpatroncategoryexceptions">
+<span id="suggestionpatroncategoryexceptions-label"></span><h3>suggestionPatronCategoryExceptions<a class="headerlink" href="#suggestionpatroncategoryexceptions" title="此标题的永久链接"></a></h3>
+<p>Asks: When <a class="reference internal" href="#suggestion-label"><span class="std std-ref">suggestion</span></a> is enabled and
+<a class="reference internal" href="#anonsuggestions-label"><span class="std std-ref">AnonSuggestions</span></a> is disabled, the following patron
+categories are not allowed to make purchase suggestions: ___</p>
+<p>預設值：空白</p>
+<p>Values: your <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron categories</span></a></p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to limit some patrons from making
+<a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">purchase suggestion</span></a> in the OPAC.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="logspreferences.html" class="btn btn-neutral float-left" title="日誌" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="patronspreferences.html" class="btn btn-neutral float-right" title="讀者" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

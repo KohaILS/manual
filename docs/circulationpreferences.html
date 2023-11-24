@@ -1,0 +1,3675 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>流通 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="強化內容" href="enhancedcontentpreferences.html" />
+    <link rel="prev" title="编目" href="catalogingpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">流通</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#article-requests">論文請求</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequests">ArticleRequests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestslinkcontrol">ArticleRequestsLinkControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestsmandatoryfields">ArticleRequestsMandatoryFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestsmandatoryfieldsitemsonly">ArticleRequestsMandatoryFieldsItemsOnly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestsmandatoryfieldsrecordonly">ArticleRequestsMandatoryFieldsRecordOnly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestsopachostredirection">ArticleRequestsOpacHostRedirection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#articlerequestssupportedformats">ArticleRequestsSupportedFormats</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-checkout">批次借出</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#batchcheckouts">BatchCheckouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batchcheckoutsvalidcategories">BatchCheckoutsValidCategories</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#checkin-policy">還入政策</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#automaticconfirmtransfer">AutomaticConfirmTransfer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blockreturnoflostitems">BlockReturnOfLostItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blockreturnofwithdrawnitems">BlockReturnOfWithdrawnItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculatefinesonbackdate">CalculateFinesOnBackdate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculatefinesonreturn">CalculateFinesOnReturn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hidepersonalpatrondetailoncirculation">HidePersonalPatronDetailOnCirculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdsautofill">HoldsAutoFill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdsautofillprintslip">HoldsAutoFillPrintSlip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdsneedprocessingsip">HoldsNeedProcessingSIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skipholdtraponnotforloanvalue">SkipHoldTrapOnNotForLoanValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storelastborrower">StoreLastBorrower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transfersblockcirc">TransfersBlockCirc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trapholdsonorder">TrapHoldsOnOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updateitemlocationoncheckin">UpdateItemLocationOnCheckin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updatenotforloanstatusoncheckin">UpdateNotForLoanStatusOnCheckin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#checkout-policy">Checkout policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#agerestrictionmarker">AgeRestrictionMarker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#agerestrictionoverride">AgeRestrictionOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allfinesneedoverride">AllFinesNeedOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowfineoverride">AllowFineOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowitemsonholdcheckoutsco">AllowItemsOnHoldCheckoutSCO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowitemsonholdcheckoutsip">AllowItemsOnHoldCheckoutSIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowmultipleissuesonabiblio">AllowMultipleIssuesOnABiblio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allownotforloanoverride">AllowNotForLoanOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowrenewallimitoverride">AllowRenewalLimitOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowrenewalonholdoverride">AllowRenewalOnHoldOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowreturntobranch">AllowReturnToBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowtoomanyoverride">AllowTooManyOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automaticitemreturn">AutomaticItemReturn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autoreturncheckedoutitems">AutoReturnCheckedOutItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circcontrol">CircControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circcontrolreturnsbranch">CircControlReturnsBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#consideronsitecheckoutsasnormalcheckouts">ConsiderOnSiteCheckoutsAsNormalCheckouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultlongoverduechargevalue">DefaultLongOverdueChargeValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultlongoverduelostvalue-and-defaultlongoverduedays">DefaultLongOverdueLostValue and DefaultLongOverdueDays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#homeorholdingbranch">HomeOrHoldingBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issuelostitem">IssueLostItem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issuinginprocess">IssuingInProcess</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#itemsdeniedrenewal">ItemsDeniedRenewal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marklostitemsasreturned">MarkLostItemsAsReturned</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxoutstanding">maxoutstanding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noissuescharge">noissuescharge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noissueschargeguarantees">NoIssuesChargeGuarantees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noissueschargeguarantorswithguarantees">NoIssuesChargeGuarantorsWithGuarantees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#norenewalbeforeprecision">NoRenewalBeforePrecision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noticebcc">NoticeBcc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onsitecheckoutautocheck">OnSiteCheckoutAutoCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onsitecheckouts">OnSiteCheckouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onsitecheckoutsforce">OnSiteCheckoutsForce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacfinenorenewalsblockautorenew">OPACFineNoRenewalsBlockAutoRenew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overduenoticecalendar">OverdueNoticeCalendar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overduenoticefrom">OverdueNoticeFrom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overduesblockcirc">OverduesBlockCirc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overduesblockrenewing">OverduesBlockRenewing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#printnoticesmaxlines">PrintNoticesMaxLines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renewaccruingiteminopac">RenewAccruingItemInOpac</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renewaccruingitemwhenpaid">RenewAccruingItemWhenPaid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renewalperiodbase">RenewalPeriodBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#renewalsendnotice">RenewalSendNotice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rentalfeescheckoutconfirmation">RentalFeesCheckoutConfirmation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#returnbeforeexpiry">ReturnBeforeExpiry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staffsearchresultsdisplaybranch">StaffSearchResultsDisplayBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switchonsitecheckouts">SwitchOnSiteCheckouts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transfersmaxdayswarning">TransfersMaxDaysWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unseenrenewals">UnseenRenewals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updatenotforloanstatusoncheckout">UpdateNotForLoanStatusOnCheckout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usebranchtransferlimits-and-branchtransferlimitstype">UseBranchTransferLimits 與 BranchTransferLimitsType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usedaysmode">useDaysMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usetransportcostmatrix">UseTransportCostMatrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#course-reserves">Course reserves</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usecoursereserves">UseCourseReserves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#curbside-pickup-module">Curbside pickup module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#curbsidepickup">CurbsidePickup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fines-policy">Fines policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#finescalendar">finesCalendar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finesincludegraceperiod">FinesIncludeGracePeriod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finesmode">finesMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdfeemode">HoldFeeMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#norefundonlostreturneditemsage">NoRefundOnLostReturnedItemsAge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processingfeenote">ProcessingFeeNote</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#refundlostonreturncontrol">RefundLostOnReturnControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suspensionscalendar">SuspensionsCalendar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usedefaultreplacementcost">useDefaultReplacementCost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whenlostchargereplacementfee">WhenLostChargeReplacementFee</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whenlostforgivefine">WhenLostForgiveFine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-policy">Holds policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowholddateinfuture">AllowHoldDateInFuture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowholditemtypeselection">AllowHoldItemTypeSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowholdpolicyoverride">AllowHoldPolicyOverride</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowholdsondamageditems">AllowHoldsOnDamagedItems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowholdsonpatronspossessions">AllowHoldsOnPatronsPossessions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowrenewalifotheritemsavailable">AllowRenewalIfOtherItemsAvailable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autoresumesuspendedholds">AutoResumeSuspendedHolds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canmarkholdstopullaslost">CanMarkHoldsToPullAsLost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canreservefromotherbranches">canreservefromotherbranches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#confirmfutureholds">ConfirmFutureHolds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decreaseloanhighholds-decreaseloanhighholdsduration-decreaseloanhighholdsvalue-decreaseloanhighholdscontrol-and-decreaseloanhighholdsignorestatuses">decreaseLoanHighHolds, decreaseLoanHighHoldsDuration, decreaseLoanHighHoldsValue, decreaseLoanHighHoldsControl, and decreaseLoanHighHoldsIgnoreStatuses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultholdpickuplocation">DefaultHoldPickupLocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displaymultiplacehold">DisplayMultiPlaceHold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emaillibrarianwhenholdisplaced">emailLibrarianWhenHoldIsPlaced</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enableitemgroupholds">EnableItemGroupHolds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enableitemgroups">EnableItemGroups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#excludeholidaysfrommaxpickupdelay">ExcludeHolidaysFromMaxPickUpDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expirereservesmaxpickupdelay">ExpireReservesMaxPickUpDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expirereservesautofill">ExpireReservesAutoFill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expirereservesautofillemail">ExpireReservesAutoFillEmail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expirereservesmaxpickupdelaycharge">ExpireReservesMaxPickUpDelayCharge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expirereservesonholidays">ExpireReservesOnHolidays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdssplitqueue">HoldsSplitQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdssplitqueuenumbering">HoldsSplitQueueNumbering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#localholdspriority-localholdsprioritypatroncontrol-localholdspriorityitemcontrol">LocalHoldsPriority, LocalHoldsPriorityPatronControl, LocalHoldsPriorityItemControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxreserves">maxreserves</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacallowholddateinfuture">OPACAllowHoldDateInFuture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacallowusertochangebranch">OPACAllowUserToChangeBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacallowusertochoosebranch">OPACAllowUserToChooseBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacholdsifavailableatpickup">OPACHoldsIfAvailableAtPickup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacholdsifavailableatpickupexceptions">OPACHoldsIfAvailableAtPickupExceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#realtimeholdsqueue">RealTimeHoldsQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reservescontrolbranch">ReservesControlBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reservesmaxpickupdelay">ReservesMaxPickUpDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reservesneedreturns">ReservesNeedReturns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staticholdsqueueweight-holdsqueueskipclosed-and-randomizeholdsqueueweight">StaticHoldsQueueWeight, HoldsQueueSkipClosed and RandomizeHoldsQueueWeight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suspendholdsintranet">SuspendHoldsIntranet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suspendholdsopac">SuspendHoldsOpac</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transferwhencancelallwaitingholds">TransferWhenCancelAllWaitingHolds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updateitemwhenlostfromholdlist">UpdateItemWhenLostFromHoldList</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#housebound-module">送書到府模式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#houseboundmodule">HouseboundModule</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interface">介面</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowallmessagedeletion">AllowAllMessageDeletion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowcheckoutnotes">AllowCheckoutNotes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allowofflinecirculation">AllowOfflineCirculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autoswitchpatron">AutoSwitchPatron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circautoprintquickslip">CircAutoPrintQuickSlip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circconfirmitemparts">CircConfirmItemParts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circsidebar">CircSidebar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#displayclearscreenbutton">DisplayClearScreenButton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exportcirchistory">ExportCircHistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exportremovefields">ExportRemoveFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filterbeforeoverduereport">FilterBeforeOverdueReport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finenotifyatcheckin">FineNotifyAtCheckin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#holdstopullstartdate">HoldsToPullStartDate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#itembarcodefallbacksearch">itemBarcodeFallbackSearch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#itembarcodeinputfilter">itemBarcodeInputFilter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noticecss">NoticeCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numreturneditemstoshow">numReturnedItemsToShow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronautocomplete">PatronAutoComplete</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#previousissuesdefaultsortorder">previousIssuesDefaultSortOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recordlocaluseonreturn">RecordLocalUseOnReturn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showallcheckins">ShowAllCheckins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specifyduedate">SpecifyDueDate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specifyreturndate">SpecifyReturnDate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#todaysissuesdefaultsortorder">todaysIssuesDefaultSortOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updatetotalissuesoncirc">UpdateTotalIssuesOnCirc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usecirculationdesks">UseCirculationDesks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#waitingnotifyatcheckin">WaitingNotifyAtCheckin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#item-bundles">Item bundles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bundlelostvalue">BundleLostValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bundlenotloanvalue">BundleNotLoanValue</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-restrictions">Patron restrictions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autoremoveoverduesrestrictions">AutoRemoveOverduesRestrictions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cumulativerestrictionperiods">CumulativeRestrictionPeriods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patronrestrictiontypes">PatronRestrictionTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restrictionblockrenewing">RestrictionBlockRenewing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#recalls">催還</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recallsmaxpickupdelay">RecallsMaxPickUpDelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#userecalls">UseRecalls</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#return-claims">還入索賠</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#claimreturnedchargefee">ClaimReturnedChargeFee</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#claimreturnedlostvalue">ClaimReturnedLostValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#claimreturnedwarningthreshold">ClaimReturnedWarningThreshold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cleanupdatabasereturnclaims">CleanUpDatabaseReturnClaims</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sip2">SIP2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sip2sortbinmapping">SIP2SortBinMapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uselocationasaqinsip">UseLocationAsAQInSIP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#self-check-in-module-sci-main-pl">自助還入模組(sci-main.pl)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckinmainuserblock">SelfCheckInMainUserBlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckinmodule">SelfCheckInModule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckintimeout">SelfCheckInTimeout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckinusercss">SelfCheckInUserCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckinuserjs">SelfCheckInUserJS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#self-check-out-module-sco-main-pl">自助借出模組 (sco-main.pl)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scouserjs">SCOUserJS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scomainuserblock">SCOMainUserBlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scousercss">SCOUserCSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showpatronimageinwebbasedselfcheck">ShowPatronImageInWebBasedSelfCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#webbasedselfcheck">WebBasedSelfCheck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckoutbylogin">SelfCheckoutByLogin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfchecktimeout">SelfCheckTimeout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scoallowcheckin">SCOAllowCheckin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckhelpmessage">SelfCheckHelpMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autoselfcheckallowed-autoselfcheckid-and-autoselfcheckpass">AutoSelfCheckAllowed, AutoSelfCheckID and AutoSelfCheckPass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckreceiptprompt">SelfCheckReceiptPrompt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcheckallowbyipranges">SelfCheckAllowByIPRanges</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#stock-rotation-module">Stock rotation module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stockrotation">StockRotation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">流通</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/circulationpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="catalogingpreferences.html" class="btn btn-neutral float-left" title="编目" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="enhancedcontentpreferences.html" class="btn btn-neutral float-right" title="強化內容" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="circulation">
+<span id="circulation-system-preferences-label"></span><h1>流通<a class="headerlink" href="#circulation" title="此标题的永久链接"></a></h1>
+<p><em>到達那裡：</em> 更多 &gt; 管理 &gt; 整體系統偏好 &gt; 流通</p>
+<section id="article-requests">
+<span id="article-requests-sysprefs-label"></span><h2>論文請求<a class="headerlink" href="#article-requests" title="此标题的永久链接"></a></h2>
+<section id="articlerequests">
+<span id="articlerequests-label"></span><h3>ArticleRequests<a class="headerlink" href="#articlerequests" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者搜尋您的權威記錄。</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制讀者是否可以請求文章。</p></li>
+<li><p>這是：ref：<a href="#id1"><span class="problematic" id="id2">`</span></a>文章請求&lt;文章-請求-流通-標籤&gt;`功能的主要開關。</p></li>
+</ul>
+</section>
+<section id="articlerequestslinkcontrol">
+<span id="articlerequestslinkcontrol-label"></span><h3>ArticleRequestsLinkControl<a class="headerlink" href="#articlerequestslinkcontrol" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 在搜尋結果顯示論文連結。</p>
+<p>預設：以演算法顯示或隱藏</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>總是顯示</p></li>
+<li><p>以演算法顯示或隱藏</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在 OPAC 結果頁面，顯示 ‘請求論文’ 連結，或在顯示連結前，先檢查分館、讀者與館藏類型以決定該論文是否可從該記錄取得。</p></li>
+</ul>
+</section>
+<section id="articlerequestsmandatoryfields">
+<span id="articlerequestsmandatoryfields-label"></span><h3>ArticleRequestsMandatoryFields<a class="headerlink" href="#articlerequestsmandatoryfields" title="此标题的永久链接"></a></h3>
+<p>詢問：紀錄層次或館藏層次的請求表單，把下列欄位列為必備: ___</p>
+<p>預設值：全部不選</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>作者</p></li>
+<li><p>章節</p></li>
+<li><p>日期</p></li>
+<li><p>期</p></li>
+<li><p>頁</p></li>
+<li><p>標題</p></li>
+<li><p>卷</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制紀錄層次與館藏層次論文請求表單的必備欄位。選取 [全選] 表示所有欄位 (著者、章、日期、期、頁、題名、卷) 都是必備。</p></li>
+</ul>
+</section>
+<section id="articlerequestsmandatoryfieldsitemsonly">
+<span id="articlerequestsmandatoryfieldsitemsonly-label"></span><h3>ArticleRequestsMandatoryFieldsItemsOnly<a class="headerlink" href="#articlerequestsmandatoryfieldsitemsonly" title="此标题的永久链接"></a></h3>
+<p>詢問：只申請館藏層次的紀錄，使用以下的必備欄位: ___</p>
+<p>預設值：全部不選</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>作者</p></li>
+<li><p>章節</p></li>
+<li><p>日期</p></li>
+<li><p>期</p></li>
+<li><p>頁</p></li>
+<li><p>標題</p></li>
+<li><p>卷</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好祗控制館藏層次論文請求表單的必備欄位。選取 [全選] 表示所有欄位 (著者、章、日期、期、頁、題名、卷) 都是必備。</p></li>
+</ul>
+</section>
+<section id="articlerequestsmandatoryfieldsrecordonly">
+<span id="articlerequestsmandatoryfieldsrecordonly-label"></span><h3>ArticleRequestsMandatoryFieldsRecordOnly<a class="headerlink" href="#articlerequestsmandatoryfieldsrecordonly" title="此标题的永久链接"></a></h3>
+<p>詢問：只申請紀錄層次的紀錄，使用以下的必備欄位: ___</p>
+<p>預設值：全部不選</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>作者</p></li>
+<li><p>章節</p></li>
+<li><p>日期</p></li>
+<li><p>期</p></li>
+<li><p>頁</p></li>
+<li><p>標題</p></li>
+<li><p>卷</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好祗控制紀錄層次論文請求表單的必備欄位。選取 [全選] 表示所有欄位 (著者、章、日期、期、頁、題名、卷) 都是必備。</p></li>
+</ul>
+</section>
+<section id="articlerequestsopachostredirection">
+<span id="articlerequestsopachostredirection-label"></span><h3>ArticleRequestsOpacHostRedirection<a class="headerlink" href="#articlerequestsopachostredirection" title="此标题的永久链接"></a></h3>
+<p>詢問：___當子級在OPAC上請求文章時沒有館藏，根據MARC21 773$w從子級重定向到主機。</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>啟用後，如果讀者嘗試從分析記錄提出文章請求，系統將使用主機記錄中的數據自動填充請求中的一些詳細訊息。</p></li>
+</ul>
+</section>
+<section id="articlerequestssupportedformats">
+<span id="articlerequestssupportedformats-label"></span><h3>ArticleRequestsSupportedFormats<a class="headerlink" href="#articlerequestssupportedformats" title="此标题的永久链接"></a></h3>
+<p>詢問：支援以下文章請求格式：___</p>
+<p>預設：影印</p>
+<p>值：目前有效的選擇是影印和掃描</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好控制了在提交文章請求時 ‘格式’ 下拉選單中的可用選項。</p></li>
+<li><p>有效的選擇是影印和掃描。</p></li>
+<li><p>使用豎線(|)分隔選項，例如影印|掃描</p></li>
+<li><p>清單中的第一個選項將是文章申請表中的預設選項。</p></li>
+</ul>
+</section>
+</section>
+<section id="batch-checkout">
+<span id="batch-checkout-label"></span><h2>批次借出<a class="headerlink" href="#batch-checkout" title="此标题的永久链接"></a></h2>
+<section id="batchcheckouts">
+<span id="batchcheckouts-label"></span><h3>BatchCheckouts<a class="headerlink" href="#batchcheckouts" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 批次借出</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好是 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>批次借出&lt;batch-checkouts-label&gt;`功能的主要開關</p></li>
+<li><p>Make sure to add the patron categories allowed to have batch checkouts in
+<a class="reference internal" href="#batchcheckoutsvalidcategories-label"><span class="std std-ref">BatchCheckoutsValidCategories</span></a></p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#batchcheckoutsvalidcategories-label"><span class="std std-ref">BatchCheckoutsValidCategories</span></a></p></li>
+</ul>
+</section>
+<section id="batchcheckoutsvalidcategories">
+<span id="batchcheckoutsvalidcategories-label"></span><h3>BatchCheckoutsValidCategories<a class="headerlink" href="#batchcheckoutsvalidcategories" title="此标题的永久链接"></a></h3>
+<p>詢問：允許批次借出的讀者類別：___</p>
+<p>預設值：無</p>
+<p>價值: <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類別</span></a></p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>檢查允許批次借出的讀者類別</p></li>
+<li><p><a class="reference internal" href="#batchcheckouts-label"><span class="std std-ref">BatchCheckouts</span></a> must be enabled for this preference to have any effect</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#batchcheckouts-label"><span class="std std-ref">BatchCheckouts</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="checkin-policy">
+<span id="checkin-policy-label"></span><h2>還入政策<a class="headerlink" href="#checkin-policy" title="此标题的永久链接"></a></h2>
+<section id="automaticconfirmtransfer">
+<span id="automaticconfirmtransfer-label"></span><h3>AutomaticConfirmTransfer<a class="headerlink" href="#automaticconfirmtransfer" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ automatically confirm a transfer when the modal is dismissed
+without clicking ‘Yes’.</p>
+<p>預設值：不要</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要</p></li>
+<li><p>做</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to control the transfer behavior when a staff
+member clicks away from the transfer confirmation pop-up.</p></li>
+<li><p>When set to “Don’t”, clicking away from the pop-up will leave the item as is.</p></li>
+<li><p>When set to “Do”, clicking away from the pop-up will confirm the transfer
+and put the item in transit.</p></li>
+<li><p>It is only possible to click away from the pop-up if the
+<a class="reference internal" href="#transfersblockcirc-label"><span class="std std-ref">TransfersBlockCirc</span></a> system preference is set
+to “Don’t block”.</p></li>
+</ul>
+</section>
+<section id="blockreturnoflostitems">
+<span id="blockreturnoflostitems-label"></span><h3>BlockReturnOfLostItems<a class="headerlink" href="#blockreturnoflostitems" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 還入遺失的館藏。</p>
+<p>預設：不阻止</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>封鎖</p></li>
+<li><p>不封鎖</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制被標記為遺失的館藏 (MARC21 欄位 952$1)，是否仍允許還入與借出。</p></li>
+</ul>
+</section>
+<section id="blockreturnofwithdrawnitems">
+<span id="blockreturnofwithdrawnitems-label"></span><h3>BlockReturnOfWithdrawnItems<a class="headerlink" href="#blockreturnofwithdrawnitems" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 還入被註銷的館藏。</p>
+<p>預設值：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>封鎖</p></li>
+<li><p>不封鎖</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制被標記為註銷的館藏 (在 MARC21 欄位 952$0)，是否仍允許還入與借出。</p></li>
+</ul>
+</section>
+<section id="calculatefinesonbackdate">
+<span id="calculatefinesonbackdate-label"></span><h3>CalculateFinesOnBackdate<a class="headerlink" href="#calculatefinesonbackdate" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 計算並更新帶有追溯返回日期的館藏時的逾期費用。</p>
+<p>預設值：要</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is similar to <a class="reference internal" href="#calculatefinesonreturn-label"><span class="std std-ref">CalculateFinesOnReturn</span></a> but is
+used when checkins are backdated either through the book drop mode or the
+specified return date (see <a class="reference internal" href="#specifyreturndate-label"><span class="std std-ref">SpecifyReturnDate</span></a>).</p></li>
+</ul>
+</section>
+<section id="calculatefinesonreturn">
+<span id="calculatefinesonreturn-label"></span><h3>CalculateFinesOnReturn<a class="headerlink" href="#calculatefinesonreturn" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 還入時，計算並更新罰款。</p>
+<p>預設值：要</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>若將此偏好設為 “要”，且將 <a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">罰款工作排程</span></a> 關閉，則祗在還入時，Koha 才計算罰款。若將此偏好設為 “要”，且將罰款排程開啟，則依罰款排程計算 (通常是半夜)，並且在還入時，再計算一次。依小時計算的罰款，比較適用。若將此偏好設為 “不要”，且將罰款排程關閉，則必須在執行罰款排程時，才能計算出應付罰款。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>以小時計算罰款時，這應該設定為 ‘要’。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>The <a class="reference internal" href="#finesmode-label"><span class="std std-ref">finesMode</span></a> system preference must be set to ‘Calculate and charge’
+in order for this system preference to have any effect.</p>
+</div>
+</section>
+<section id="hidepersonalpatrondetailoncirculation">
+<span id="hidepersonalpatrondetailoncirculation-label"></span><h3>HidePersonalPatronDetailOnCirculation<a class="headerlink" href="#hidepersonalpatrondetailoncirculation" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 在流通頁面隱藏讀者電話號碼、電子郵件、街道地址及城市名稱</p>
+<p>預設值：不要</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要</p></li>
+<li><p>做</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference controls the display of the patron’s phone number,
+email address, and physical address from the left side of the screen
+(under their picture, if they have one) on the
+<a class="reference internal" href="circulation.html#checking-items-out-label"><span class="std std-ref">circulation page</span></a>.</p></li>
+<li><p>當設定為 ‘做’ 之後，這些資訊將只會顯示在讀者詳情頁面。</p></li>
+</ul>
+</section>
+<section id="holdsautofill">
+<span id="holdsautofill-label"></span><h3>HoldsAutoFill<a class="headerlink" href="#holdsautofill" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 自動預約不必詢問圖書館員。</p>
+<p>預設值：不要</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If set to ‘Do’, the holds confirmation pop-up will not appear upon checking
+in an item placed on hold.</p></li>
+</ul>
+</section>
+<section id="holdsautofillprintslip">
+<span id="holdsautofillprintslip-label"></span><h3>HoldsAutoFillPrintSlip<a class="headerlink" href="#holdsautofillprintslip" title="此标题的永久链接"></a></h3>
+<p>問：___ 自動顯示預約收條對話。</p>
+<p>預設值：不要</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If set to ‘Do’, the holds slip print pop-up will appear automatically
+upon checking in an item placed on hold.</p></li>
+<li><p><a class="reference internal" href="#holdsautofill-label"><span class="std std-ref">HoldsAutoFill</span></a> must be set to ‘do’ for this preference to have any
+effect.</p></li>
+</ul>
+</section>
+<section id="holdsneedprocessingsip">
+<span id="holdsneedprocessingsip-label"></span><h3>HoldsNeedProcessingSIP<a class="headerlink" href="#holdsneedprocessingsip" title="此标题的永久链接"></a></h3>
+<p>詢問：如果通過 SIP 協定返回匹配項，___ 將自動保留。</p>
+<p>預約：執行</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>執行</p></li>
+<li><p>不執行</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好控制預約是否由通過 SIP（分類器、自動還入站等.）還入的館藏自動填補。</p></li>
+</ul>
+</section>
+<section id="skipholdtraponnotforloanvalue">
+<span id="skipholdtraponnotforloanvalue-label"></span><h3>SkipHoldTrapOnNotForLoanValue<a class="headerlink" href="#skipholdtraponnotforloanvalue" title="此标题的永久链接"></a></h3>
+<p>要求：不要用 “不可借出 “值為___的館藏來填補預約。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好用於從填補預約中完全排除具有“非借出”值的館藏。</p></li>
+<li><p>輸入 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">不是_借出 容許值</span></a>，用豎線(|)分隔。</p></li>
+</ul>
+</section>
+<section id="storelastborrower">
+<span id="storelastborrower-label"></span><h3>StoreLastBorrower<a class="headerlink" href="#storelastborrower" title="此标题的永久链接"></a></h3>
+<p>詢問：向最後借出館藏的讀者 ___ 還回館藏。</p>
+<p>預設：不儲存</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不儲存</p></li>
+<li><p>儲存</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>即使讀者選擇其設定匿名借出記錄，經由此偏好仍可儲存讀者最後一筆借出資訊。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This setting is independent of <a class="reference internal" href="opacpreferences.html#opacreadinghistory-label"><span class="std std-ref">opacreadinghistory</span></a> and
+<a class="reference internal" href="opacpreferences.html#anonymouspatron-label"><span class="std std-ref">AnonymousPatron</span></a>.</p>
+</div>
+</section>
+<section id="transfersblockcirc">
+<span id="transfersblockcirc-label"></span><h3>TransfersBlockCirc<a class="headerlink" href="#transfersblockcirc" title="此标题的永久链接"></a></h3>
+<p>要求：___ 館員在觸發轉移時不要繼續還入館藏。</p>
+<p>預設值：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不封鎖</p></li>
+<li><p>封鎖</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好控制轉移彈出窗口是否阻止進一步還入。</p></li>
+<li><p>If this is set to “Don’t block”, the
+<a class="reference internal" href="#automaticconfirmtransfer-label"><span class="std std-ref">AutomaticConfirmTransfer</span></a> system
+preference determines what happens if the pop-up is dismissed without
+confirming the transfer.</p></li>
+</ul>
+</section>
+<section id="trapholdsonorder">
+<span id="trapholdsonorder-label"></span><h3>TrapHoldsOnOrder<a class="headerlink" href="#trapholdsonorder" title="此标题的永久链接"></a></h3>
+<p>要求：___ 沒有借出但可以持有的館藏（notforlan &lt; 0）來填補預約。</p>
+<p>預設：陷阱</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要陷阱</p></li>
+<li><p>陷阱</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好控制 a <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">非_借出 容許值</span></a> 小於 0 的館藏（這意味著該館藏可以預約，但不能借出）是否應該是用於填補預約。</p></li>
+</ul>
+</section>
+<section id="updateitemlocationoncheckin">
+<span id="updateitemlocationoncheckin-label"></span><h3>UpdateItemLocationOnCheckin<a class="headerlink" href="#updateitemlocationoncheckin" title="此标题的永久链接"></a></h3>
+<p>詢問：這是成對的容許值。第一個值之後為冒號、空格，才是第二個值。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好影響還入館藏，現在及永久的位置 (不論借出與否)。</p></li>
+<li><p>若館藏值在冒號 (:) 的左方對應至館藏現在位置，將更新其位置值於冒號 (:) 的右方。</p></li>
+<li><p>LOC 的值是 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">容許值</span></a>。</p></li>
+<li><p>還入時，’STAFF: GEN’ 將把館藏從館員工作區移至普通書庫。</p></li>
+<li><p>特定術語</p>
+<ul>
+<li><p>PROC：處理中心。使用 PROC 時，只有現在位置受影響。</p></li>
+<li><p>推車: 歸架書車。使用推車時，只有現在位置受影響。</p></li>
+<li><p>_PERM_：使用館藏的永久位置，不論現在的位置為何。</p></li>
+<li><dl class="simple">
+<dt>_BLANK_：用於左側做為第一個值，將加入位置</dt><dd><p>沒有。用於右側做為第二個值，將移除位置。</p>
+</dd>
+</dl>
+</li>
+<li><p>_ALL_：用於左側做為第一個值，將影響所有館藏及取代其他規則。</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>需要 YAML 語法才能運作</p>
+<p>這表示</p>
+<ul class="simple">
+<li><p>確認在第一個值與冒號之間，沒有空格</p></li>
+<li><p>確認在第一個值與冒號之間，存在一個空格</p></li>
+<li><p>確認每組都在同一列中</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>如果使用 PROC 或 CART，請使用 <a class="reference internal" href="cron_jobs.html#cron-in-processing-book-cart-label"><span class="std std-ref">cart_to_shelf 程序作業</span></a> 在確定的小時數後將館藏還入到它們的常設位置。</p></li>
+</ul>
+</section>
+<section id="updatenotforloanstatusoncheckin">
+<span id="updatenotforloanstatusoncheckin-label"></span><h3>UpdateNotForLoanStatusOnCheckin<a class="headerlink" href="#updatenotforloanstatusoncheckin" title="此标题的永久链接"></a></h3>
+<p>問：這是一個值對清單。 還入館藏時，如果左邊的非借出與館藏的非借出值相匹配，它將被更新為右邊的值。</p>
+<p>說明：</p>
+<ul>
+<li><p>此系統偏好會影響單冊的’不借出’狀態，當單冊還入時（無論是否已借出）。</p></li>
+<li><p>如果冒號 (:) 左邊的狀態值與館藏的目前狀態匹配，它將被更新為與冒號（:）右邊的狀態值匹配。</p></li>
+<li><p>這些值是 NOT_LOAN <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">容許值</span></a>。</p></li>
+<li><p>例如，’-1: 0’ 將導致設定為 ‘已訂購’ 的館藏現在可以借出</p></li>
+<li><p>This system preference can also be used to only display the not for loan
+status. To do so, enter <code class="code docutils literal notranslate"><span class="pre">ONLYMESSAGE</span></code> on the right of the colon.
+For example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">ONLYMESSAGE</span>
+</pre></div>
+</div>
+<p>This will simply show the label for -1 without changing the status.</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>需要 YAML 語法才能運作</p>
+<p>這表示</p>
+<ul class="simple">
+<li><p>確認在第一個值與冒號之間，沒有空格</p></li>
+<li><p>確認在第一個值與冒號之間，存在一個空格</p></li>
+<li><p>確認每組都在同一列中</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="checkout-policy">
+<span id="checkout-policy-label"></span><h2>Checkout policy<a class="headerlink" href="#checkout-policy" title="此标题的永久链接"></a></h2>
+<section id="agerestrictionmarker">
+<span id="agerestrictionmarker-label"></span><h3>AgeRestrictionMarker<a class="headerlink" href="#agerestrictionmarker" title="此标题的永久链接"></a></h3>
+<p>詢問：限制部份讀者借出不適宜的館藏：___</p>
+<p>說明：</p>
+<ul>
+<li><p>This preference defines certain keywords that will trigger Koha to
+restrict checkout based on age. These restrictions can be overridden
+by the <a class="reference internal" href="#agerestrictionoverride-label"><span class="std std-ref">AgeRestrictionOverride</span></a>
+preference. Enter in this field a series of keywords separated by bar
+(|) with no spaces. For example PG|R|E|EC|Age| will look for PG
+followed by an age number, R folllowed by an age number, Age followed
+by an age number, and so on. These values can appear in any MARC
+field, but Library of Congress recommends the 521$a (Target Audience
+Note). Whatever field you decide to use you must map the word
+agerestriction in the biblioitems table to that field in the <a class="reference internal" href="administration.html#koha-to-marc-mapping-label"><span class="std std-ref">Koha to
+MARC Mapping</span></a>. When cataloging you can enter
+values like PG 13 or E 10 in the 521$a and Koha will then notify
+circulation librarians that the material may not be recommended for
+the patron based on their age.</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>必須在館藏表內，把年齡限制對映至 MARC 欄位，此資訊才會顯示在 <a class="reference internal" href="administration.html#koha-to-marc-mapping-label"><span class="std std-ref">Koha 對映至 MARC</span></a> 管理區塊。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="agerestrictionoverride">
+<span id="agerestrictionoverride-label"></span><h3>AgeRestrictionOverride<a class="headerlink" href="#agerestrictionoverride" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>詢問：___ 借出受年齡限制的館藏。</p>
+<p>值：</p>
+<ul>
+<li><p>允許</p>
+<p><img alt="image25" src="_images/AgeRestrictionOverride.png" /></p>
+</li>
+<li><p>不允許</p>
+<p><img alt="image26" src="_images/AgeRestrictionMarker.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When the <a class="reference internal" href="#agerestrictionmarker-label"><span class="std std-ref">AgeRestrictionMarker</span></a> preference
+is set, Koha will try to warn circulation librarians before checking
+out an item that might have an age restriction listed in the MARC
+record. This preference asks if you would like the staff to be able
+to still check out these items to patrons under the age limit.</p></li>
+</ul>
+</section>
+<section id="allfinesneedoverride">
+<span id="allfinesneedoverride-label"></span><h3>AllFinesNeedOverride<a class="headerlink" href="#allfinesneedoverride" title="此标题的永久链接"></a></h3>
+<p>預設：要求</p>
+<p>Asks: ___ staff to manually override all fines, even fines less than
+<a class="reference internal" href="#noissuescharge-label"><span class="std std-ref">noissuescharge</span></a>.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要求</p></li>
+<li><p>要求</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好設定後可在借出館藏時警示該讀者的罰款。若設為 ‘允許’，只要讀者積欠罰款，借出時，將彈出警示訊息。</p></li>
+</ul>
+</section>
+<section id="allowfineoverride">
+<span id="allowfineoverride-label"></span><h3>AllowFineOverride<a class="headerlink" href="#allowfineoverride" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>Asks: ___ staff to manually override and check out items to patrons
+who have more than <a class="reference internal" href="#noissuescharge-label"><span class="std std-ref">noissuescharge</span></a> in fines.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好讓館員可借出給待繳罰款已達指定金額的讀者。若設為 ‘允許’ 將彈出警示訊息，但仍可借出給該讀者。</p></li>
+</ul>
+</section>
+<section id="allowitemsonholdcheckoutsco">
+<span id="allowitemsonholdcheckoutsco-label"></span><h3>AllowItemsOnHoldCheckoutSCO<a class="headerlink" href="#allowitemsonholdcheckoutsco" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>詢問：___ 借出被他人預約的館藏。若允許則不發出 RESERVE_WAITING 與 RESERVED 警示警示。此允許就是可以自助借出該等館藏。</p>
+<p>值：</p>
+<ul>
+<li><p>允許</p></li>
+<li><p>不允許</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>此系統偏好只與 Koha 的網頁型自助借出系統有關。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>設定為 ‘允許’ 即使被預約的館藏，仍可經由外部的自助借出系統被其他讀者借出。設為 “不允許” 則不可被其他讀者借出已被預約的館藏。</p></li>
+</ul>
+</section>
+<section id="allowitemsonholdcheckoutsip">
+<span id="allowitemsonholdcheckout-label"></span><h3>AllowItemsOnHoldCheckoutSIP<a class="headerlink" href="#allowitemsonholdcheckoutsip" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 透過SIP的借出訊息將預約給別人的館藏借出。</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul>
+<li><p>允許</p></li>
+<li><p>不允許</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>此系統偏好只與SIP的自助借出系統有關，Koha 的網頁型自助借出系統不受影響。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>當這個偏好設定為 ‘允許’ 時，讀者將能夠使用你的外部自助借書機為自己借書，即使它是為其他人預約的。</p></li>
+<li><p>如果你想讓Koha阻止人們借出為他人預約的書籍，請將此偏好設置為 ‘不允許’。</p></li>
+</ul>
+</section>
+<section id="allowmultipleissuesonabiblio">
+<span id="allowmultipleissuesonabiblio-label"></span><h3>AllowMultipleIssuesOnABiblio<a class="headerlink" href="#allowmultipleissuesonabiblio" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者借出多個複本。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>若把此偏好設為 ‘允許’ 讀者就能同時借出同一個館藏的多個複本。若設定為 “不允許” 讀者只能同時借出同一個館藏的一個複本。訂閱中的館藏不能借出不論此偏好的設定值為何。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>只影響未訂閱的紀錄。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="allownotforloanoverride">
+<span id="allownotforloanoverride-label"></span><h3>AllowNotForLoanOverride<a class="headerlink" href="#allownotforloanoverride" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者借出被標示為不外借的館藏。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好為二元設定控制館員 (讀者不能自助借出) 借出被標記為 “不外借” 的館藏。設定為 “允許” 則可以借出該等館藏，設定為 “不允許” 則不能借出。此設定確保部份館藏在館內，如參考資料，其他圖書館資源則可以被讀者借出。</p></li>
+</ul>
+</section>
+<section id="allowrenewallimitoverride">
+<span id="allowrenewallimitoverride-label"></span><h3>AllowRenewalLimitOverride<a class="headerlink" href="#allowrenewallimitoverride" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 館員調整續借限制，仍可續借超過續借限制的館藏。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許或禁止館員調整續借館藏的次數。設定為 “允許” 即可以凌駕原來的續借限制，若設定為 “不允許” 則遵守原有的限制。若設為 “允許” 圖書館員可以現場判斷在特例下續借，設定為 “不允許” 則避免館員的濫權。</p></li>
+</ul>
+</section>
+<section id="allowrenewalonholdoverride">
+<span id="allowrenewalonholdoverride-label"></span><h3>AllowRenewalOnHoldOverride<a class="headerlink" href="#allowrenewalonholdoverride" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館員續借的館藏，以人工方式被指定到期日。</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>此偏好啟動館藏以指定到期日的方式續借。</p>
+<p>可以出現在兩個位置：</p>
+<ol class="arabic simple">
+<li><p>出現在讀者詳情頁面的 “借出” 分頁。可以指定借出的館藏被續借。指定該等館藏後，將出現日期選項，讓使用者指定續借的到期日。</p></li>
+<li><p>在流通 &gt; 續借警示畫面。鍵入外借中的館藏條碼，警示畫面出現，提示該館藏已被預約，還是可以越過該預約，續借該館藏。此偏好也可以指定到期日。</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="allowreturntobranch">
+<span id="allowreturntobranch-label"></span><h3>AllowReturnToBranch<a class="headerlink" href="#allowreturntobranch" title="此标题的永久链接"></a></h3>
+<p>預設值：任何圖書館</p>
+<p>詢問：允許館藏還入至 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>館藏所屬圖書館或借出的圖書館。</p></li>
+<li><p>館藏所屬圖書館。</p></li>
+<li><p>借出的圖書館。</p></li>
+<li><p>任何圖書館。</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好讓圖書館系統決定還入的方式。有些系統允許館藏還至系統內的任何圖書館 (此偏好的預設值，即俗稱的通借通還)，有些系統則限制館藏祗能還入特定的分館。此偏好允許您限制館藏歸還 (還入) 至指定的分館。</p></li>
+</ul>
+</section>
+<section id="allowtoomanyoverride">
+<span id="allowtoomanyoverride-label"></span><h3>AllowTooManyOverride<a class="headerlink" href="#allowtoomanyoverride" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者超借館藏。</p>
+<p>值：</p>
+<ul>
+<li><p>允許</p>
+<p><img alt="image27" src="_images/AllowTooManyOverride-yes.png" /></p>
+</li>
+<li><p>不允許</p>
+<p><img alt="image28" src="_images/AllowTooManyOverride-no.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If this preference is set to “Allow” then staff all will be presented
+with an option to checkout more items to a patron than are normally
+allowed in the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a>. If
+this preference is set to “Don’t allow” then no staff member will be
+able to check out more than the circulation limit.</p></li>
+</ul>
+</section>
+<section id="automaticitemreturn">
+<span id="automaticitemreturn-label"></span><h3>AutomaticItemReturn<a class="headerlink" href="#automaticitemreturn" title="此标题的永久链接"></a></h3>
+<p>預設值：要</p>
+<p>詢問：___ 自動轉移還入的館藏至所屬圖書館。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好為二元設定，決定還入的館藏是否自動送回所屬圖書館。若設定為 “不要”，還入他館館藏時，Koha 將詢問是否轉移至所屬圖書館或留在還入圖書館 (在此情況下重新標記該館藏的最新館藏地為還入圖書館)。設定為 “要”，則自動轉移至所屬圖書館。</p></li>
+</ul>
+</section>
+<section id="autoreturncheckedoutitems">
+<span id="autoreturncheckedoutitems-label"></span><h3>AutoReturnCheckedOutItems<a class="headerlink" href="#autoreturncheckedoutitems" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 要求館員以人工方式確認已被其他讀者借出的另個重複借出。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>預設值：要</p>
+<p>說明：</p>
+<ul>
+<li><p>此偏好讓 Koha 詢問借出已被另個讀者借出的館藏。</p></li>
+<li><p>設定為 ‘做’，Koha 就要求館員確認該筆借出。</p>
+<p><img alt="image1433" src="_images/autoreturncheckedoutitems-do.png" /></p>
+</li>
+<li><p>設定為 ‘不做’，Koha 將從前個讀者檔案中還入該館藏，並借出給當前的讀者，顯示該等訊息。</p>
+<p><img alt="image1434" src="_images/autoreturncheckedoutitems-dont.png" /></p>
+</li>
+</ul>
+</section>
+<section id="circcontrol">
+<span id="circcontrol-label"></span><h3>CircControl<a class="headerlink" href="#circcontrol" title="此标题的永久链接"></a></h3>
+<p>預設值：館藏所屬圖書館的規定</p>
+<p>詢問：借出與罰款規則，採用 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>館藏所屬圖書館的規定</p>
+<ul>
+<li><p>The <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines policies</span></a>
+will be determined by the item’s library where <a class="reference internal" href="#homeorholdingbranch-label"><span class="std std-ref">HomeOrHoldingBranch</span></a>
+chooses if item’s home library is used or holding library is used.</p></li>
+</ul>
+</li>
+<li><p>讀者所屬圖書館的規定</p>
+<ul>
+<li><p>使用 <span class="xref std std-ref">流通與罰款政策</span> 內讀者所屬圖書館的政策</p></li>
+</ul>
+</li>
+<li><p>借出圖書館的規定</p>
+<ul>
+<li><p>使用 <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">流通與罰款政策</span></a> 內借出館藏圖書館的政策</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="circcontrolreturnsbranch">
+<span id="circcontrolreturnsbranch-label"></span><h3>CircControlReturnsBranch<a class="headerlink" href="#circcontrolreturnsbranch" title="此标题的永久链接"></a></h3>
+<p>Asks: To determine whether an item is transferred or remains in the library
+after checkin, use the circulation rules of ___.</p>
+<p>Default: the library the item is owned by (homebranch)</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>the library the item is checked in at (checkin library)</p></li>
+<li><p>the library the item is currently held by (holdingbranch)</p></li>
+<li><p>the library the item is owned by (homebranch)</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference controls which
+<a class="reference internal" href="administration.html#item-hold-policies-label"><span class="std std-ref">return policy rule</span></a> (item returns home,
+item returns to issuing library, or item floats) is used when checking in
+items.</p></li>
+</ul>
+</section>
+<section id="consideronsitecheckoutsasnormalcheckouts">
+<span id="consideronsitecheckoutsasnormalcheckouts-label"></span><h3>ConsiderOnSiteCheckoutsAsNormalCheckouts<a class="headerlink" href="#consideronsitecheckoutsasnormalcheckouts" title="此标题的永久链接"></a></h3>
+<p>詢問： ___臨櫃借出與一般借出一樣。如果啟用，臨櫃借出將計入一般借出的借出限額。臨櫃借出的限額仍將適用於臨櫃借出。如果禁用，這兩個值將被分別檢查。</p>
+<p>預設值：考慮</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>考慮</p></li>
+<li><p>不考慮</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好允許你決定那些被認為是 <span class="xref std std-ref">臨櫃借出</span> 限制正常借出與臨櫃借出的量。</p></li>
+</ul>
+</section>
+<section id="defaultlongoverduechargevalue">
+<span id="defaultlongoverduechargevalue-label"></span><h3>DefaultLongOverdueChargeValue<a class="headerlink" href="#defaultlongoverduechargevalue" title="此标题的永久链接"></a></h3>
+<p>詢問：對借閱者帳號索取遺失書籍的費, 當遺失費用的值到達 ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果無意追索遺失館藏的費用, 請保持欄位內容空白。如果向使用者索賠請點擊 <a href="#id1"><span class="problematic" id="id2">:ref:`LOST 容許值 &lt;#lost&gt;`__</span></a> 您正使用 <a class="reference internal" href="#defaultlongoverduelostvalue-and-defaultlongoverduedays-label"><span class="std std-ref">DefaultLongOverdueLostValue</span></a> 偏好。此偏好用於當 <a class="reference internal" href="cron_jobs.html#cron-long-overdues-label"><span class="std std-ref">longoverdue cron job</span></a> 被使用而沒有 –charge 參數。</p></li>
+</ul>
+</section>
+<section id="defaultlongoverduelostvalue-and-defaultlongoverduedays">
+<span id="defaultlongoverduelostvalue-and-defaultlongoverduedays-label"></span><h3>DefaultLongOverdueLostValue and DefaultLongOverdueDays<a class="headerlink" href="#defaultlongoverduelostvalue-and-defaultlongoverduedays" title="此标题的永久链接"></a></h3>
+<p>問：預設值是，設定 LOST 館藏值為 ___ 當此館藏已被逾期借閱超過 ___ 天。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這些偏好用於呼叫 <span class="xref std std-ref">longoverdue cron job</span> 的值而不用去編輯例行工作排程。比方說設定 1 及 30 的值將會註記在 <a href="#id1"><span class="problematic" id="id2">:ref:`LOST 容許值 &lt;#lost&gt;`__</span></a> 表示逾期 30 天後就當成遺失 1 本館藏。</p></li>
+</ul>
+</section>
+<section id="homeorholdingbranch">
+<span id="homeorholdingbranch-label"></span><h3>HomeOrHoldingBranch<a class="headerlink" href="#homeorholdingbranch" title="此标题的永久链接"></a></h3>
+<p>預設值：館藏所屬圖書館(分館)。</p>
+<p>詢問：借出與罰款規則，採用 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>館藏所屬圖書館(所屬分館)。</p></li>
+<li><p>館藏的預約圖書館(預約分館)。</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>偏好可以處理若干事項。</p>
+<ul class="simple">
+<li><p>If <a class="reference internal" href="#circcontrol-label"><span class="std std-ref">CircControl</span></a> is set to ‘the library the item
+is from’ then the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines
+policies</span></a> will be determined by the item’s
+library where HomeOrHoldingBranch chooses if item’s home library
+is used or holding library is used.</p></li>
+<li><p>If <a class="reference internal" href="administrationpreferences.html#independentbranches-label"><span class="std std-ref">IndependentBranches</span></a> is set to
+‘Prevent’ then the value of this preference is used in figuring
+out if the item can be checked out. If the item’s home library
+does not match the logged in library, the item cannot be checked
+out unless you are a <a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">superlibrarian</span></a>.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>Koha開始運作後，建議您不要修改此設定，因為將影響已經借出的館藏。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="issuelostitem">
+<span id="issuelostitem-label"></span><h3>IssueLostItem<a class="headerlink" href="#issuelostitem" title="此标题的永久链接"></a></h3>
+<p>預設值：顯示訊息</p>
+<p>詢問：還入館藏由原位置 PROC ___ 轉移至 CART。</p>
+<p>值：</p>
+<ul>
+<li><p>顯示消息</p>
+<p><img alt="image29" src="_images/IssueLostItem-msg.png" /></p>
+</li>
+<li><p>什麼事都不做</p>
+<ul class="simple">
+<li><p>此選項將只借出館藏而不知會館員該館藏已報遺失。</p></li>
+</ul>
+</li>
+<li><p>需要確認</p>
+<p><img alt="image30" src="_images/IssueLostItem-confirm.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好設定圖書館員借出已報遺失館藏的對策。若選擇 ‘顯示訊息’ 或 ‘需要確認’ 則館員可改變此館藏為 ‘在館內’。若選擇 ‘不理會’，則該館藏仍被標示為 ‘遺失’。</p></li>
+</ul>
+</section>
+<section id="issuinginprocess">
+<span id="issuinginprocess-label"></span><h3>IssuingInProcess<a class="headerlink" href="#issuinginprocess" title="此标题的永久链接"></a></h3>
+<p>預設值：不禁止</p>
+<p>詢問：___ 讀者借出館藏的租賃費用高出既有限制。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不禁止</p></li>
+<li><p>禁止</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好可同意罰款未繳的讀者仍可借出超過最高罰款額的館藏。</p></li>
+</ul>
+<p>如：’罰款’ 上限為 5 元 (待繳罰款達到 5 元之後，就不能借出)。當讀者已有 4 元罰款，希望借出 5 件館藏 (4 本書與一個光碟)。光碟需支付 1 元的租賃費用，總金額就達到 5 元 (上限)。</p>
+</section>
+<section id="itemsdeniedrenewal">
+<span id="itemsdeniedrenewal-label"></span><h3>ItemsDeniedRenewal<a class="headerlink" href="#itemsdeniedrenewal" title="此标题的永久链接"></a></h3>
+<p>詢問： 允許客製化規則以續借指定的特定館藏。</p>
+<p>說明：</p>
+<ul>
+<li><p>此偏好可以指定不可從 OPAC 或館員介面續借的指定館藏。可鍵入任何欄位組合 (從 Koha 資料庫的館藏表單內選取)，冒號及空格，然後括號內的值以逗點區隔。如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ccode</span><span class="p">:</span> <span class="p">[</span><span class="n">NEWFIC</span><span class="p">,</span><span class="n">NULL</span><span class="p">,</span><span class="n">DVD</span><span class="p">]</span>
+<span class="n">itype</span><span class="p">:</span> <span class="p">[</span><span class="n">NEWBK</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>空白字串 “” 將封鎖空白 (但已定義) 欄位，所以應以 ‘NULL’ 填入禁止更新的未定義欄位。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>若使用自動更新通知，您的通知內容應更新至可能被阻檔的 “item_denied_renewal” 帳戶。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="marklostitemsasreturned">
+<span id="marklostitemsasreturned-label"></span><h3>MarkLostItemsAsReturned<a class="headerlink" href="#marklostitemsasreturned" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館藏還入時，宣告為遺失。</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>從 <a class="reference internal" href="circulation.html#holds-to-pull-label"><span class="std std-ref">‘預約拉動’</span></a> 清單</p></li>
+<li><p>從 <a class="reference internal" href="cataloging.html#batch-item-modification-label"><span class="std std-ref">批次處理館藏修改工具</span></a></p></li>
+<li><p>從目錄模組的館藏欄位</p></li>
+<li><p>從 <a class="reference internal" href="cron_jobs.html#cron-long-overdues-label"><span class="std std-ref">逾期未處理的排程工作</span></a></p></li>
+<li><p>當編目館藏時</p></li>
+<li><p>當把一件館藏標記為還入索賠時</p></li>
+<li><p>當收到館藏的付款時</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>圖書館可以指定工作，讓館藏自動回到原來的讀者帳號內。</p></li>
+</ul>
+</section>
+<section id="maxoutstanding">
+<span id="maxoutstanding-label"></span><h3>maxoutstanding<a class="headerlink" href="#maxoutstanding" title="此标题的永久链接"></a></h3>
+<p>預設值：5</p>
+<p>詢問：待繳罰款達 ___ 元以上，不允許從 OPAC 辦理預約。</p>
+</section>
+<section id="noissuescharge">
+<span id="noissuescharge-label"></span><h3>noissuescharge<a class="headerlink" href="#noissuescharge" title="此标题的永久链接"></a></h3>
+<p>Asks: Prevent patrons from checking out items if they have more than
+___ {<a class="reference internal" href="administration.html#currencies-and-exchange-rates-label"><span class="std std-ref">currency</span></a>} in fines.</p>
+<p>預設值：5</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference is the maximum amount of money owed to the library
+before the user is banned from borrowing more items.</p></li>
+<li><p>By default, this includes all <a class="reference internal" href="administration.html#debit-types-label"><span class="std std-ref">debit types</span></a> (overdue
+fines, account creation fees, hold fees, manual fees, rental fees, etc.), but
+it’s possible to exclude debit types or to include custom manual debit types
+using the ‘Included in noissuescharge’ option when
+<a class="reference internal" href="administration.html#add-debit-type-label"><span class="std std-ref">creating or editing a debit type</span></a>.</p></li>
+</ul>
+<p>參見：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#maxoutstanding-label"><span class="std std-ref">maxoutstanding</span></a></p></li>
+<li><p><a class="reference internal" href="#noissueschargeguarantees-label"><span class="std std-ref">NoIssuesChargeGuarantees</span></a></p></li>
+<li><p><a class="reference internal" href="#noissueschargeguarantorswithguarantees-label"><span class="std std-ref">NoIssuesChargeGuarantorsWithGuarantees</span></a></p></li>
+<li><p><a class="reference internal" href="#allfinesneedoverride-label"><span class="std std-ref">AllFinesNeedOverride</span></a></p></li>
+<li><p><a class="reference internal" href="#allowfineoverride-label"><span class="std std-ref">AllowFineOverride</span></a></p></li>
+</ul>
+</section>
+<section id="noissueschargeguarantees">
+<span id="noissueschargeguarantees-label"></span><h3>NoIssuesChargeGuarantees<a class="headerlink" href="#noissueschargeguarantees" title="此标题的永久链接"></a></h3>
+<p>詢問：待繳罰款達 ___ 元以上，不允許讀者借出館藏。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>待繳罰款太多時，不允許讀者借出館藏。</p></li>
+</ul>
+</section>
+<section id="noissueschargeguarantorswithguarantees">
+<span id="noissueschargeguarantorswithguarantees-label"></span><h3>NoIssuesChargeGuarantorsWithGuarantees<a class="headerlink" href="#noissueschargeguarantorswithguarantees" title="此标题的永久链接"></a></h3>
+<p>詢問：如果讀者有擔保人，且這些擔保人的擔保總額超過___（貨幣）了罰款，則預防該讀者借出。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>允許圖書館在讀者的擔保人或其擔保人的其他擔保人欠下太多罰款的情況下，阻止讀者借出館藏。</p></li>
+<li><p>這有效地阻止了整個家庭。</p></li>
+</ul>
+</section>
+<section id="norenewalbeforeprecision">
+<span id="norenewalbeforeprecision-label"></span><h3>NoRenewalBeforePrecision<a class="headerlink" href="#norenewalbeforeprecision" title="此标题的永久链接"></a></h3>
+<p>預設值：日期</p>
+<p>詢問：依據 ___ 計算 “不能續借的日期”。</p>
+<p>值：</p>
+<ul>
+<li><p>日期</p></li>
+<li><p>正確時間</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>只與以天計算的借出有關，按小時計算的借出不受影響。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference allows you to control how the ‘No renewal before”
+option in the <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a>
+administration area.</p></li>
+</ul>
+</section>
+<section id="noticebcc">
+<span id="noticebcc-label"></span><h3>NoticeBcc<a class="headerlink" href="#noticebcc" title="此标题的永久链接"></a></h3>
+<p>詢問：將所有通知以密件複本的方式，寄至此信箱 ___</p>
+<p>設定此偏好後，圖書館員取得所有送給讀者的通知。</p>
+<blockquote>
+<div><blockquote>
+<div><p><strong>說明</strong></p>
+<p>以逗點區隔，鍵入多個信箱，就可送出多個複本給多個圖書館員。</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="onsitecheckoutautocheck">
+<span id="onsitecheckoutautocheck-label"></span><h3>OnSiteCheckoutAutoCheck<a class="headerlink" href="#onsitecheckoutautocheck" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：如果上次借出是臨櫃借出，則預設為 ___ 臨櫃借出。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許指定之前借出是現場借出,然後選擇’On-site checkout’就會追蹤下次的借出。</p></li>
+</ul>
+</section>
+<section id="onsitecheckouts">
+<span id="onsitecheckouts-label"></span><h3>OnSiteCheckouts<a class="headerlink" href="#onsitecheckouts" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ 櫃檯借出的功能。</p>
+<p>值：</p>
+<ul>
+<li><p>停用</p></li>
+<li><p>啟用</p>
+<p><img alt="image1184" src="_images/OnSiteCheckouts.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好處理 ‘不外借’ 館藏。設為 ‘啟用’ 時在借出畫面新增勾選盒標記為 ‘臨櫃借出’。允許館員追蹤使用不外借或借於閉架館藏的讀者。</p></li>
+</ul>
+</section>
+<section id="onsitecheckoutsforce">
+<span id="onsitecheckoutsforce-label"></span><h3>OnSiteCheckoutsForce<a class="headerlink" href="#onsitecheckoutsforce" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ 櫃檯借出所有情況 (即使該讀者被停權等)。</p>
+<p>值：</p>
+<ul>
+<li><p>停用</p></li>
+<li><p>啟用</p>
+<p><img alt="image31" src="_images/OnSiteCheckoutsForce.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference lets the staff override any restrictions a patron
+might have and check out items for use within the library. The
+<a class="reference internal" href="#onsitecheckouts-label"><span class="std std-ref">OnSiteCheckouts</span></a> preference must first be set
+to ‘Enable’ for this preference to be considered.</p></li>
+</ul>
+</section>
+<section id="opacfinenorenewalsblockautorenew">
+<span id="opacfinenorenewalsblockautorenew-label"></span><h3>OPACFineNoRenewalsBlockAutoRenew<a class="headerlink" href="#opacfinenorenewalsblockautorenew" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>Asks: If a patron owes more than the value of <a class="reference internal" href="opacpreferences.html#opacfinenorenewals-label"><span class="std std-ref">OPACFineNoRenewals</span></a>,
+___ his/her auto renewals.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>封鎖</p></li>
+</ul>
+</section>
+<section id="overduenoticecalendar">
+<span id="overduenoticecalendar-label"></span><h3>OverdueNoticeCalendar<a class="headerlink" href="#overduenoticecalendar" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 處理逾期通知</p>
+<p>預設：忽略行事曆</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>忽略行事曆</p>
+<ul>
+<li><p>通知的發送不理會假日，即使未逾期也會照常發送</p></li>
+</ul>
+</li>
+<li><p>使用行事曆</p>
+<ul>
+<li><p>通知考量行事曆的閉館日，依扣除閉館日的逾期寄發通知</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="overduenoticefrom">
+<span id="overduenoticefrom-label"></span><h3>OverdueNoticeFrom<a class="headerlink" href="#overduenoticefrom" title="此标题的永久链接"></a></h3>
+<p>Asks: Organize and send overdue notices using the ___.</p>
+<p>Default: command-line option</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>command-line option</p></li>
+<li><p>item home library</p></li>
+<li><p>checkout library</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines which library’s information will be used
+in the overdue notices (if there is information in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">notice template</span></a> such as
+&lt;&lt;branches.branchname&gt;&gt; or &lt;&lt;branches.branchphone&gt;&gt;, or, in the new
+syntax, [% branch.branchname %] or [% branch.branchphone %]) and
+which email address will be used to send the notices.</p></li>
+<li><p>This system preference overrides the –frombranch parameter in the
+<a class="reference internal" href="cron_jobs.html#cron-overdue-notice-label"><span class="std std-ref">overdue_notices.pl cronjob</span></a>.</p></li>
+<li><p>When set to “command-line option”, the library information will be that of
+the –frombranch parameter in the
+<a class="reference internal" href="cron_jobs.html#cron-overdue-notice-label"><span class="std std-ref">overdue_notices.pl cronjob</span></a> or the
+checkout library if the parameter is absent.</p></li>
+<li><p>When set to “item home library”, the library information will be that of the
+overdue item’s home library.</p></li>
+<li><p>When set to “checkout library”, the library information will be that of the
+library at which the overdue item was checked out.</p></li>
+</ul>
+</section>
+<section id="overduesblockcirc">
+<span id="overduesblockcirc-label"></span><h3>OverduesBlockCirc<a class="headerlink" href="#overduesblockcirc" title="此标题的永久链接"></a></h3>
+<p>預設值：要求確認</p>
+<p>詢問：___ 借出給逾期待處理的讀者</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>請求確認</p>
+<ul>
+<li><p>必須經由圖書館員再次確認，才能借出館藏給有逾期待處理的讀者</p></li>
+</ul>
+</li>
+<li><p>封鎖</p>
+<ul>
+<li><p>禁止借出館藏給有逾期待處理的讀者</p></li>
+</ul>
+</li>
+<li><p>不封鎖</p>
+<ul>
+<li><p>逾期待處理的讀者仍可正常借出館藏</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="overduesblockrenewing">
+<span id="overduesblockrenewing-label"></span><h3>OverduesBlockRenewing<a class="headerlink" href="#overduesblockrenewing" title="此标题的永久链接"></a></h3>
+<p>預設值：允許續借</p>
+<p>詢問：借出已逾期的館藏時，___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許續借</p></li>
+<li><p>禁止該讀者續借所有的館藏</p></li>
+<li><p>只禁止續借此館藏</p></li>
+</ul>
+</section>
+<section id="printnoticesmaxlines">
+<span id="printnoticesmaxlines-label"></span><h3>PrintNoticesMaxLines<a class="headerlink" href="#printnoticesmaxlines" title="此标题的永久链接"></a></h3>
+<p>詢問：印出逾期通知時，最多只印 ___ 筆館藏。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>大於此設定的逾期館藏，將不會送出，祗在最後一行加註說明，要求讀者線上查閱完整的逾期清單。</p>
+<p><strong>說明</strong></p>
+<p>若設為0，則印出所有的逾期館藏。</p>
+<p><strong>重要的</strong></p>
+<p>此偏好僅適用於列印通知，不適用於透過電子郵件發送的通知。</p>
+</div></blockquote>
+</section>
+<section id="renewaccruingiteminopac">
+<span id="renewaccruingiteminopac-label"></span><h3>RenewAccruingItemInOpac<a class="headerlink" href="#renewaccruingiteminopac" title="此标题的永久链接"></a></h3>
+<p>詢問：如果讀者透過支付外掛程式付清了在 OPAC 中累積的逾期館藏所有罰款，___ 該館藏將自動。</p>
+<p>預設：不續借</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不續借</p></li>
+<li><p>續借</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>這個系統偏好允許你控制如果讀者在網上支付罰款，逾期的館藏是否會被續借。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>If the <a class="reference internal" href="#renewalperiodbase-label"><span class="std std-ref">RenewalPeriodBase</span></a> system preference is set to ‘due date’,
+renewed items may still be overdue even after renewal.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="renewaccruingitemwhenpaid">
+<span id="renewaccruingitemwhenpaid-label"></span><h3>RenewAccruingItemWhenPaid<a class="headerlink" href="#renewaccruingitemwhenpaid" title="此标题的永久链接"></a></h3>
+<p>詢問：如果顧客還清了逾期館藏的所有罰款，則該館藏自動產生罰款___  。</p>
+<p>預設：不續借</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不續借</p></li>
+<li><p>續借</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>這個系統偏好允許你控制在館員介面中支付罰款時，逾期的館藏是否會被續借。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>If the <a class="reference internal" href="#renewalperiodbase-label"><span class="std std-ref">RenewalPeriodBase</span></a> system preference is set to ‘due date’,
+renewed items may still be overdue even after renewal.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="renewalperiodbase">
+<span id="renewalperiodbase-label"></span><h3>RenewalPeriodBase<a class="headerlink" href="#renewalperiodbase" title="此标题的永久链接"></a></h3>
+<p>預設值：原來的到期日</p>
+<p>詢問：續借的到期日，其計算基礎為 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>原來的到期日</p></li>
+<li><p>今天的日期</p></li>
+</ul>
+</section>
+<section id="renewalsendnotice">
+<span id="renewalsendnotice-label"></span><h3>RenewalSendNotice<a class="headerlink" href="#renewalsendnotice" title="此标题的永久链接"></a></h3>
+<p>預設值：不送出</p>
+<p>詢問：根據讀者借出提示的設定，____ 續借通知。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不送出</p></li>
+<li><p>送出</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>若讀者在訊息偏好裡選擇接收借出通知，且此偏好設為 ‘送出’，這些讀者也會收到續借的通知。館員可設定 <a class="reference internal" href="tools.html#adding-notices-and-slips-label"><span class="std std-ref">新增通知</span></a>，加入 RENEWAL (若還沒有) 代碼在客製化的訊息前。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>This preference requires that you have
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+set to ‘Allow’</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="rentalfeescheckoutconfirmation">
+<span id="rentalfeescheckoutconfirmation-label"></span><h3>RentalFeesCheckoutConfirmation<a class="headerlink" href="#rentalfeescheckoutconfirmation" title="此标题的永久链接"></a></h3>
+<p>預設：不問</p>
+<p>問：借出需要租金的館藏時，___ 確認。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>詢問</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="image1183" src="_images/RentalFeesCheckoutConfirmation.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>不問</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>收取館藏租金時此偏好允許在借出之前顯示 (或不顯示) 確認訊息。</p></li>
+</ul>
+</section>
+<section id="returnbeforeexpiry">
+<span id="returnbeforeexpiry-label"></span><h3>ReturnBeforeExpiry<a class="headerlink" href="#returnbeforeexpiry" title="此标题的永久链接"></a></h3>
+<p>預設值：非必須</p>
+<p>詢問：___ 讀者證到期前應先還書 (館藏到期日必須在讀者證到期日之前)。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要求</p></li>
+<li><p>要求</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好禁止讀者使用過期的讀者證借出館藏。若設為 “要求”，所有的館藏到期日都必須在讀者證到期日之前。若設定為 “不要求”，則館藏到期日可能落在讀者證到期日之後。</p></li>
+</ul>
+</section>
+<section id="staffsearchresultsdisplaybranch">
+<span id="staffsearchresultsdisplaybranch-label"></span><h3>StaffSearchResultsDisplayBranch<a class="headerlink" href="#staffsearchresultsdisplaybranch" title="此标题的永久链接"></a></h3>
+<p>預設：館藏已被預約</p>
+<p>詢問：館員介面的搜尋結果，顯示分館 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>館藏所屬圖書館的規定</p></li>
+<li><p>圖書館的館藏已被預約</p></li>
+</ul>
+</section>
+<section id="switchonsitecheckouts">
+<span id="switchonsitecheckouts-label"></span><h3>SwitchOnSiteCheckouts<a class="headerlink" href="#switchonsitecheckouts" title="此标题的永久链接"></a></h3>
+<p>預設值：不切換</p>
+<p>詢問：___ 櫃檯借出的功能。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不切換</p></li>
+<li><p>切換</p></li>
+</ul>
+</section>
+<section id="transfersmaxdayswarning">
+<span id="transfersmaxdayswarning-label"></span><h3>TransfersMaxDaysWarning<a class="headerlink" href="#transfersmaxdayswarning" title="此标题的永久链接"></a></h3>
+<p>預設值：3</p>
+<p>詢問：若轉出館藏在 ___ 天之內，未被對方收到，在 “轉出給它館” 畫面顯示警語。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此 TransferMaxDaysWarning 偏好預設為日數。此偏好允許在指定時間內對方分館未簽收轉移的館藏時提出警示。此警示將出現在 <a class="reference internal" href="circulation.html#transfers-to-receive-label"><span class="std std-ref">轉移至簽收</span></a> 報表。</p></li>
+</ul>
+</section>
+<section id="unseenrenewals">
+<span id="unseenrenewals-label"></span><h3>UnseenRenewals<a class="headerlink" href="#unseenrenewals" title="此标题的永久链接"></a></h3>
+<p>要求：___ 圖書館將續借記錄為 “未見”，並計入讀者未見的續借限額。</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個系統偏好啟用未見過的續借功能。它允許館員將續借標記為 “未見過”，即館員實際上沒有看到該館藏。</p></li>
+<li><p>如果你啟用了這個偏好，請確保在’允許看不見的續借(計數)’欄中添加一個值</p></li>
+</ul>
+</section>
+<section id="updatenotforloanstatusoncheckout">
+<span id="updatenotforloanstatusoncheckout-label"></span><h3>UpdateNotForLoanStatusOnCheckout<a class="headerlink" href="#updatenotforloanstatusoncheckout" title="此标题的永久链接"></a></h3>
+<p>Asks: This is a list of value pairs. When an item is checked out, if the
+not for loan value on the left matches the items not for loan value it
+will be updated to the right-hand value.</p>
+<p>說明：</p>
+<ul>
+<li><p>This system preference affects the item’s ‘not for loan’ status
+when the item is checked out.</p></li>
+<li><p>如果冒號 (:) 左邊的狀態值與館藏的目前狀態匹配，它將被更新為與冒號（:）右邊的狀態值匹配。</p></li>
+<li><p>這些值是 NOT_LOAN <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">容許值</span></a>。</p></li>
+<li><p>例如，’-1: 0’ 將導致設定為 ‘已訂購’ 的館藏現在可以借出</p></li>
+<li><p>This system preference can also be used to only display the not for loan
+status. To do so, enter <code class="code docutils literal notranslate"><span class="pre">ONLYMESSAGE</span></code> on the right of the colon.
+For example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">ONLYMESSAGE</span>
+</pre></div>
+</div>
+<p>This will simply show the label for -1 without changing the status.</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>需要 YAML 語法才能運作</p>
+<p>這表示</p>
+<ul class="simple">
+<li><p>確認在第一個值與冒號之間，沒有空格</p></li>
+<li><p>確認在第一個值與冒號之間，存在一個空格</p></li>
+<li><p>確認每組都在同一列中</p></li>
+</ul>
+</div>
+</section>
+<section id="usebranchtransferlimits-and-branchtransferlimitstype">
+<span id="usebranchtransferlimits-and-branchtransferlimitstype-label"></span><h3>UseBranchTransferLimits 與 BranchTransferLimitsType<a class="headerlink" href="#usebranchtransferlimits-and-branchtransferlimitstype" title="此标题的永久链接"></a></h3>
+<p>預設值：不強制和館藏代碼</p>
+<p>詢問：___ 分館轉移的限制基礎是 ___</p>
+<p>UseBranchTransferLimits 值：</p>
+<ul class="simple">
+<li><p>不強迫</p></li>
+<li><p>強迫</p></li>
+</ul>
+<p>BranchTransferLimitsType 值：</p>
+<ul class="simple">
+<li><p>館藏代碼</p></li>
+<li><p>館藏類型</p></li>
+</ul>
+<p>BranchTransferLimitsType 說明：</p>
+<ul class="simple">
+<li><p>此參數是二元設定，館藏在圖書館間的轉移基礎是館藏類型或館藏代碼。此值協助圖書館管理者限制館藏在分館間的轉移方式。</p></li>
+</ul>
+</section>
+<section id="usedaysmode">
+<span id="usedaysmode-label"></span><h3>useDaysMode<a class="headerlink" href="#usedaysmode" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 計算到期日期。</p>
+<p>預設：使用行事曆略過閉館日</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>使用行事曆略過閉館日</p></li>
+<li><p>使用行事曆將截止日期推送到下一個開放日</p></li>
+<li><p>忽略行事曆</p></li>
+<li><p>利用行事歷將還書到期日延期至每週開放日子,或下個開放日(注意:此偏好設置只適用於借出期限為倍數7).</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好控制了圖書館預定關閉如何影響訊息的到期日。</p></li>
+<li><p>‘使用日曆跳過圖書館關閉的所有日期’的設置允許預定的關閉不計入借閱期間的一天。</p></li>
+<li><p>‘忽略日曆’的設定根本不會考慮計劃的關閉</p></li>
+<li><p>‘使用日曆將到期日推至下一個開放日’只會影響到期日，如果該館藏到期日具體在關閉日的話。</p></li>
+<li><p>最後一個選項，’對於每週的借閱期，使用日曆將到期日推到下一個匹配的工作日，否則就推到下一個開放日’，允許圖書館滿足那些可能只能在一周中的某一天訪問圖書館的讀者，如兼職學生或依賴公共交通的讀者。</p></li>
+</ul>
+<p>例如:</p>
+<ul class="simple">
+<li><p>圖書館已將12月24日和25日作為閉館日列入日曆。根據流通和罰款規則，讀者借出書的到期日為12月25日。</p>
+<ul>
+<li><p>如果這個偏好被設定為 ‘忽略日曆’，那麼該館藏將在25日到期。</p></li>
+<li><p>如果偏好設置為 ‘使用日曆將到期日推至下一個開放日’，那麼到期日將是12月26日。</p></li>
+<li><p>如果偏好設置為 ‘使用日曆跳過圖書館關閉的所有日子’，那麼到期日將被推到12月27日，以適應這兩天的關閉日。</p></li>
+<li><p>如果偏好設置為 ‘對於每週的借閱期，使用日曆將到期日推到下一個開放匹配的工作日，否則就是下一個開放日’，那麼館藏將在1月1日到期。如果1月1日也是一個關閉日，那麼該館藏將在下一個可用的開放日到期歸還。</p></li>
+</ul>
+</li>
+</ul>
+<p>行事曆以分館為基礎。詳情見本手冊的 <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">行事曆</span></a> 章節。</p>
+</section>
+<section id="usetransportcostmatrix">
+<span id="usetransportcostmatrix-label"></span><h3>UseTransportCostMatrix<a class="headerlink" href="#usetransportcostmatrix" title="此标题的永久链接"></a></h3>
+<p>預設值：不用</p>
+<p>詢問：___ 轉移費用矩陣做為分館間轉移館藏的收費依據。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>採用 <a class="reference internal" href="administration.html#transport-cost-matrix-label"><span class="std std-ref">轉移費用矩陣</span></a> 後，預約他館的館藏時，系統先優先向費用最低的圖書館預約。費用相同時，則隨機選取其中之一。若無法預約，才依次向費用較高的圖書館預約。</p>
+<p>使用轉移費用矩陣時以館藏現在位置為準。</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="course-reserves">
+<span id="course-reserves-system-preferences-label"></span><h2>Course reserves<a class="headerlink" href="#course-reserves" title="此标题的永久链接"></a></h2>
+<section id="usecoursereserves">
+<span id="usecoursereserves-label"></span><h3>UseCourseReserves<a class="headerlink" href="#usecoursereserves" title="此标题的永久链接"></a></h3>
+<p>預設值：不用</p>
+<p>詢問：___ 課程指定用書</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Koha 的 <a class="reference external" href="#coursereserves">課程指定用書</a> 模組可以 ‘指定’ 部份館藏為參考書，給予不同的流通規則，以便給特定課程使用。</p></li>
+</ul>
+</section>
+</section>
+<section id="curbside-pickup-module">
+<span id="curbside-pickup-preferences-label"></span><h2>Curbside pickup module<a class="headerlink" href="#curbside-pickup-module" title="此标题的永久链接"></a></h2>
+<section id="curbsidepickup">
+<span id="curbsidepickup-label"></span><h3>CurbsidePickup<a class="headerlink" href="#curbsidepickup" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ the curbside pickup module.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>預設值：停用</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is the main switch for the
+<a class="reference internal" href="administration.html#curbside-pickup-configuration-label"><span class="std std-ref">curbside pickup module</span></a>.</p></li>
+</ul>
+</section>
+</section>
+<section id="fines-policy">
+<span id="fines-policy-label"></span><h2>Fines policy<a class="headerlink" href="#fines-policy" title="此标题的永久链接"></a></h2>
+<section id="finescalendar">
+<span id="finescalendar-label"></span><h3>finesCalendar<a class="headerlink" href="#finescalendar" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 計算罰款期限時。</p>
+<p>預設值：使用行事曆</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>忽略行事曆</p></li>
+<li><p>使用行事曆</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此種偏好將決定在圖書館關閉的日子裡是否會累積罰款。例如，節假日、圖書館在職日等。</p></li>
+<li><p>如果設置為’使用行事曆’ Koha 在計算逾期罰款時將跳過關閉日。</p></li>
+<li><p>如果設置為’忽略行事曆’，罰款將直接計算，不考慮休息日。</p></li>
+</ul>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>要利用這個設定，你的系統管理員首先必須訪問Koha的 :ref:calendar&lt;calendar-label&gt;`，並提前將關閉的日子標記為 “假日”。</p>
+</div></blockquote>
+<p>行事曆以分館為基礎。詳情見本手冊的 <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">行事曆</span></a> 章節。</p>
+</section>
+<section id="finesincludegraceperiod">
+<span id="finesincludegraceperiod-label"></span><h3>FinesIncludeGracePeriod<a class="headerlink" href="#finesincludegraceperiod" title="此标题的永久链接"></a></h3>
+<p>預設值：包括</p>
+<p>詢問：計算罰款時 ___ 寬限期。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不包括</p></li>
+<li><p>包括</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好讓圖書館計算包括寬限期的罰款。若選擇包括寬限期，則 Koha 把寬限期計入罰款之內。若選擇不包括寬限期，則 Koha 的罰款祗計算寬限期之後的逾期日數。</p></li>
+</ul>
+</section>
+<section id="finesmode">
+<span id="finesmode-label"></span><h3>finesMode<a class="headerlink" href="#finesmode" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 罰款</p>
+<p>預設值: 不計算</p>
+<p>值：</p>
+<ul>
+<li><p>不計算</p></li>
+<li><p>計算並收費</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>If this system preference is set to ‘Calculate and charge’, you must either
+add the <a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">fines cron job</span></a> to your crontab, or enable
+<a class="reference internal" href="#calculatefinesonreturn-label"><span class="std std-ref">CalculateFinesOnReturn</span></a></p>
+<p>如果工作排程/罰款.pl 工作排程正在運行，罰款將在排程運行時計算，累積罰款將在退回館藏時最終確定。如果啟用了CalculateFinesOnReturn，最後的罰款將在館藏被退回時計算。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="holdfeemode">
+<span id="holdfeemode-label"></span><h3>HoldFeeMode<a class="headerlink" href="#holdfeemode" title="此标题的永久链接"></a></h3>
+<p>預設值：只限所有館藏都被借出且至少一個紀錄被預約。</p>
+<p>詢問：收取預約費用 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>任何時間都有一個預約。</p></li>
+<li><p>任何時間都有一個預約。</p></li>
+<li><p>只限所有館藏都被借出且至少一個紀錄被預約。</p></li>
+</ul>
+</section>
+<section id="norefundonlostreturneditemsage">
+<span id="norefundonlostreturneditemsage-label"></span><h3>NoRefundOnLostReturnedItemsAge<a class="headerlink" href="#norefundonlostreturneditemsage" title="此标题的永久链接"></a></h3>
+<p>詢問：如果遺失的館藏在被標記為遺失後超過 ___ 天才被託運，請不要退還遺失費用。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>輸入一個天數，過了這個天數，丟失的館藏就不會被退還。</p></li>
+</ul>
+<p><strong>說明</strong></p>
+<p>在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>退貨政策中預設的館藏遺失費退款 &lt;item-fee-refund-on-return-label&gt;`規則中設定退款政策，在 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>流通和罰款規則 &lt;circulation-and-fines-rules-label&gt;`中。</p>
+</section>
+<section id="processingfeenote">
+<span id="processingfeenote-label"></span><h3>ProcessingFeeNote<a class="headerlink" href="#processingfeenote" title="此标题的永久链接"></a></h3>
+<p>詢問：收取處理費用 (設定在館藏類型)時，將文字記錄在欄位 ‘note’、表單 ‘accountlines’ 內。</p>
+</section>
+<section id="refundlostonreturncontrol">
+<span id="refundlostonreturncontrol-label"></span><h3>RefundLostOnReturnControl<a class="headerlink" href="#refundlostonreturncontrol" title="此标题的永久链接"></a></h3>
+<p>詢問：還入已報失的館藏時，使用以下的退費規則 ___</p>
+<p>預設值：還入圖書館。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>還入圖書館。</p></li>
+<li><p>分館館藏預約。</p></li>
+<li><p>館藏所屬圖書館。</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這指的是 :ref: “預設遺失館藏的退貨費政策&lt;item-fee-refund-on-return-label&gt;”規則在 :ref: “流通和罰款規則&lt;circulation-and-fines-rules-label&gt;”。</p></li>
+</ul>
+<p><strong>說明</strong></p>
+<p>You can limit the number of days after which a lost item is not refunded using
+the <a class="reference internal" href="#norefundonlostreturneditemsage-label"><span class="std std-ref">NoRefundOnLostReturnedItemsAge</span></a> system preference.</p>
+</section>
+<section id="suspensionscalendar">
+<span id="suspensionscalendar-label"></span><h3>SuspensionsCalendar<a class="headerlink" href="#suspensionscalendar" title="此标题的永久链接"></a></h3>
+<p>預設值：不包括閉館日</p>
+<p>問：根據逾期天數計算___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>忽略行事曆</p></li>
+<li><p>使用行事曆</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>系統偏好影響:ref:<cite>行事曆 &lt;calendar-label&gt;`當停止計算會考慮這一點。  中止規則可以設置 :ref:`流通規則 &lt;circulation-and-fines-rules-label&gt;</cite>.若設‘直接地’,會忽略已添加到行事歷中的任何閉館日.若設為’不包括圖書館關閉的日期’,當計算還書日子時，將跳過行事曆中標記為閉館的任何日子。</p></li>
+</ul>
+</section>
+<section id="usedefaultreplacementcost">
+<span id="usedefaultreplacementcost-label"></span><h3>useDefaultReplacementCost<a class="headerlink" href="#usedefaultreplacementcost" title="此标题的永久链接"></a></h3>
+<p>預設值：不用</p>
+<p>詢問：___ 預設的重置費用在館藏類型內。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好啟用設在館藏類型層次的重置費用。</p></li>
+</ul>
+</section>
+<section id="whenlostchargereplacementfee">
+<span id="whenlostchargereplacementfee-label"></span><h3>WhenLostChargeReplacementFee<a class="headerlink" href="#whenlostchargereplacementfee" title="此标题的永久链接"></a></h3>
+<p>預設值：收費</p>
+<p>詢問：向遺失館藏的讀者收取 ___ 重置費用。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>收費</p></li>
+<li><p>不收費</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好告訴 Koha 處理遺失館藏的方式。Koha 可以向讀者 ‘收取’ 遺失館藏的重置費用或什麼事也不做只在目錄裡標記該館藏為遺失。</p></li>
+</ul>
+</section>
+<section id="whenlostforgivefine">
+<span id="whenlostforgivefine-label"></span><h3>WhenLostForgiveFine<a class="headerlink" href="#whenlostforgivefine" title="此标题的永久链接"></a></h3>
+<p>預設值：不原諒</p>
+<p>館藏被宣告為遺失時 ___ 罰款。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不原諒</p></li>
+<li><p>原諒</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許圖書館對遺失的館藏收取重置費用與罰款。若此偏好設為 ‘免除’ 則不向讀者收取重置費用之外的罰款。</p></li>
+</ul>
+</section>
+</section>
+<section id="holds-policy">
+<span id="holds-policy-label"></span><h2>Holds policy<a class="headerlink" href="#holds-policy" title="此标题的永久链接"></a></h2>
+<section id="allowholddateinfuture">
+<span id="allowholddateinfuture-label"></span><h3>AllowHoldDateInFuture<a class="headerlink" href="#allowholddateinfuture" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 先辦理預約手續，到了指定日期後，才正式預約，加入等候清單。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="allowholditemtypeselection">
+<span id="allowholditemtypeselection-label"></span><h3>AllowHoldItemTypeSelection<a class="headerlink" href="#allowholditemtypeselection" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>詢問：___ 預約指定類型的館藏。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="allowholdpolicyoverride">
+<span id="allowholdpolicyoverride-label"></span><h3>AllowHoldPolicyOverride<a class="headerlink" href="#allowholdpolicyoverride" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 館員調整預約狀態。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此參數為二元設定做為圖書館員在預約事務上凌駕流通與罰款規則的依據。若設為 “不允許” 則禁止任何人凌駕流通與罰款規則；設定為 “允許” 則圖書館員可以凌駕流通與罰款規則。此偏好的設定極為重要，因為它決定流通與罰款規則的嚴謹性。若設定為 “允許”，表現良好的讀者可以特例處理，但館員可能濫用此權利。若設定為 “不允許”，系統不會被誤用，但對預約者毫無彈性，真是兩難。</p></li>
+</ul>
+</section>
+<section id="allowholdsondamageditems">
+<span id="allowholdsondamageditems-label"></span><h3>AllowHoldsOnDamagedItems<a class="headerlink" href="#allowholdsondamageditems" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 預約毀損的館藏。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此參數為二元設定做為控制預約被標記為 “毀損” (在館藏紀錄的分欄 4 標記其為毀損) 的館藏。設定此值為 “不允許” 將禁止任何人預約它，設定為 “允許” 則可以預約該館藏。此偏好極為重要因為毀損的館藏可能在修補中或狀況不佳，讀者仍有機會預約它。圖書館的作業流程，無法在可預期的時間內 (或許不可能修復)，將毀損的館藏恢復成使用狀態，必須勾選 “不允許”，以免讀者等待太久而失望。若設定為 “允許” 則應儘快完成修補以滿足預約讀者的需求。</p></li>
+</ul>
+</section>
+<section id="allowholdsonpatronspossessions">
+<span id="allowholdsonpatronspossessions-label"></span><h3>AllowHoldsOnPatronsPossessions<a class="headerlink" href="#allowholdsonpatronspossessions" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：____ 預約的讀者已經借出一筆或多筆該書目記錄的館藏。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>設為 “不允許” 預約相同館藏，可避免讀者長期借出同一個館藏妨礙其他讀者的使用。</p></li>
+</ul>
+</section>
+<section id="allowrenewalifotheritemsavailable">
+<span id="allowrenewalifotheritemsavailable-label"></span><h3>AllowRenewalIfOtherItemsAvailable<a class="headerlink" href="#allowrenewalifotheritemsavailable" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>詢問：___ 如果有其他可利用的館藏可以填補該館藏，顧客可以續借未預約的館藏。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="autoresumesuspendedholds">
+<span id="autoresumesuspendedholds-label"></span><h3>AutoResumeSuspendedHolds<a class="headerlink" href="#autoresumesuspendedholds" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 在指定的日期自動預約。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>If this preference is set to ‘Allow’ then all suspended holds will be
+able to have a date at after which they automatically become
+unsuspended. If you have this preference set to ‘Allow’ you will also
+need the <a class="reference internal" href="cron_jobs.html#cron-unsuspend-holds-label"><span class="std std-ref">Unsuspend Holds</span></a> cron job running.</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>讀者指定的日期後該預約才生效。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="canmarkholdstopullaslost">
+<span id="canmarkholdstopullaslost-label"></span><h3>CanMarkHoldsToPullAsLost<a class="headerlink" href="#canmarkholdstopullaslost" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 從 ‘預約下拉選單’ 螢幕</p>
+<p>預設值：不允許標記館藏為遺失</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許標記館藏為遺失</p></li>
+<li><p>允許標記館藏為遺失並通知讀者</p></li>
+<li><p>不允許標記館藏為遺失</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference lets you choose whether the staff can mark items
+as lost directly from the <a class="reference internal" href="circulation.html#holds-to-pull-label"><span class="std std-ref">‘Holds to pull’ list</span></a>
+if they can’t find the item on the shelf.</p></li>
+<li><p>The actual lost value that will be assigned to the item is defined in the
+<a class="reference internal" href="#updateitemwhenlostfromholdlist-label"><span class="std std-ref">UpdateItemWhenLostFromHoldList</span></a>
+system preference.</p></li>
+<li><p>If the patron is notified, the message sent will be based on the
+CANCEL_HOLD_ON_LOST template. It can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This only applies to item-level holds.</p>
+</div>
+</section>
+<section id="canreservefromotherbranches">
+<span id="canreservefromotherbranches-label"></span><h3>canreservefromotherbranches<a class="headerlink" href="#canreservefromotherbranches" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者預約他館的館藏</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此參數為二元設定控制讀者預約它館館藏的方式。若此偏好設為 “允許” 讀者就能預約它館的館藏；若設為 “不允許” 則不能預約它館的館藏。這是重要的設定因為它決定讀者從其他分館預約館藏的權利。若圖書館是共享 Koha 系統的獨立圖書館，不願意跨館借閱，建議把此偏好設為 “不允許”。</p></li>
+</ul>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>Don’t allow (with <a class="reference internal" href="administrationpreferences.html#independentbranches-label"><span class="std std-ref">IndependentBranches</span></a>)</p></li>
+</ul>
+</section>
+<section id="confirmfutureholds">
+<span id="confirmfutureholds-label"></span><h3>ConfirmFutureHolds<a class="headerlink" href="#confirmfutureholds" title="此标题的永久链接"></a></h3>
+<p>預設值：0</p>
+<p>詢問：還入時確認未來的預約需求 (不能晚於 ___ 日)。</p>
+<p>說明：</p>
+<ul>
+<li><p>於還入時的預約確認，此偏好的日數係用於計算預約的警示。此偏好不影響館藏的續借、借出與轉移。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>日數也將於計算預設的預約終止日以製作報表。但它不會影響館藏的借出、續借、或轉移。</p>
+<p><strong>重要的</strong></p>
+<p>This preference is only looked at if you’re allowing hold dates in
+the future with <a class="reference internal" href="#allowholddateinfuture-label"><span class="std std-ref">AllowHoldDateInFuture</span></a>
+or <a class="reference internal" href="#opacallowholddateinfuture-label"><span class="std std-ref">OPACAllowHoldDateInFuture</span></a></p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="decreaseloanhighholds-decreaseloanhighholdsduration-decreaseloanhighholdsvalue-decreaseloanhighholdscontrol-and-decreaseloanhighholdsignorestatuses">
+<span id="decreaseloanhighholds-preferences-label"></span><h3>decreaseLoanHighHolds, decreaseLoanHighHoldsDuration, decreaseLoanHighHoldsValue, decreaseLoanHighHoldsControl, and decreaseLoanHighHoldsIgnoreStatuses<a class="headerlink" href="#decreaseloanhighholds-decreaseloanhighholdsduration-decreaseloanhighholdsvalue-decreaseloanhighholdscontrol-and-decreaseloanhighholdsignorestatuses" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 縮減借出館藏的期限至 ___ 日，當該需求量大的館藏已有超過 ___ 個預約 ___。計算館藏 ___ 時，略過以下狀態的館藏</p>
+<p>decreaseLoanHighHolds 預設值：停用</p>
+<p>decreaseLoanHighHolds 預設值：在記錄中</p>
+<p>值：</p>
+<p>decreaseLoanHighHolds</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>decreaseLoanHighHoldsControl</p>
+<ul class="simple">
+<li><p>可預約的館藏數量</p></li>
+<li><p>在記錄中</p></li>
+</ul>
+<p>decreaseLoanHighHoldsIgnoreStatuses</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>被損壞</p></li>
+<li><p>遺失</p></li>
+<li><p>不用於貸款</p></li>
+<li><p>已撤銷</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>此偏好讓您改變被預約多次館藏的借期。不會影響已被借出的館，但在 decreaseLoanHighHoldsValue 之後借出的館藏則受影響，借期僅限於 decreaseLoanHighHoldsDuration 偏好的日數。</p>
+<p><img alt="Alert message upon checkout that says &quot;Please confirm checkout High demand item Loan period shortened to 7 days (due 08/04/2022). Check out anyway?&quot;" src="_images/decreaseLoanHighHoldsDuration.png" /></p>
+</li>
+</ul>
+</section>
+<section id="defaultholdpickuplocation">
+<span id="defaultholdpickuplocation-label"></span><h3>DefaultHoldPickupLocation<a class="headerlink" href="#defaultholdpickuplocation" title="此标题的永久链接"></a></h3>
+<p>Asks: When placing a hold via the staff interface default the pickup location
+to the ___ .</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>item’s holding library</p></li>
+<li><p>item’s home library</p></li>
+<li><p>logged in library</p></li>
+</ul>
+<p>Default: logged in library</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference lets you determine which library is the default
+pickup location while
+<a class="reference internal" href="circulation.html#placing-holds-in-staff-client-label"><span class="std std-ref">placing holds in the staff interface</span></a>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This system preference only applies to item-level holds.</p>
+</div>
+</section>
+<section id="displaymultiplacehold">
+<span id="displaymultiplacehold-label"></span><h3>DisplayMultiPlaceHold<a class="headerlink" href="#displaymultiplacehold" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ 從檢索結果預約多筆書目的能力</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+</section>
+<section id="emaillibrarianwhenholdisplaced">
+<span id="emaillibrarianwhenholdisplaced-label"></span><h3>emailLibrarianWhenHoldIsPlaced<a class="headerlink" href="#emaillibrarianwhenholdisplaced" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ 送出電子郵件告知 Koha 管理者有人預約館藏。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>當讀者預約時，此偏好讓 Koha 寄發電子郵件給館員。此功能把讀者的需求立即警示館員，大部份情況下此偏好並不實用。多數圖書館以另外的機制管理預約。也就是，很多圖書館允許預約在書架的館藏，開啟此偏好警示館員從書架取下該書供預約者到館借用。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>在 HOLDPLACED 內必須有 <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">通知</span></a> 模板才能發送此電子郵件</p>
+<p><strong>重要的</strong></p>
+<p>已定期執行 <a class="reference internal" href="cron_jobs.html#cron-message-queue-label"><span class="std std-ref">process_message_queue.pl 排程</span></a> 才會送出此通知。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="enableitemgroupholds">
+<span id="enableitemgroupholds-label"></span><h3>EnableItemGroupHolds<a class="headerlink" href="#enableitemgroupholds" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ the ability to place holds on item groups.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>預設值：停用</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows users to place holds on item groups.</p></li>
+<li><p>This is useful if you need to place holds on a subset of items on a
+bibliographic record, rather than a specific item or the next available item.</p></li>
+<li><p>Requires <a class="reference internal" href="#enableitemgroups-label"><span class="std std-ref">EnableItemGroups</span></a></p></li>
+</ul>
+</section>
+<section id="enableitemgroups">
+<span id="enableitemgroups-label"></span><h3>EnableItemGroups<a class="headerlink" href="#enableitemgroups" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ the item groups feature to allow collecting groups of items on a
+record together.</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference enables the item groups feature.</p></li>
+<li><p>It can be used with <a class="reference internal" href="#enableitemgroupholds-label"><span class="std std-ref">EnableItemGroupHolds</span></a>
+to allow holds on item groups.</p></li>
+</ul>
+</section>
+<section id="excludeholidaysfrommaxpickupdelay">
+<span id="excludeholidaysfrommaxpickupdelay-label"></span><h3>ExcludeHolidaysFromMaxPickUpDelay<a class="headerlink" href="#excludeholidaysfrommaxpickupdelay" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ when calculating the period for a hold’s max pickup delay.</p>
+<p>預設：忽略行事曆</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>忽略行事曆</p></li>
+<li><p>使用行事曆</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference determines whether or not closed days in the
+<a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">calendar</span></a> are taken into account when calculating the
+time period for patrons to pick up their holds (see
+<a class="reference internal" href="#reservesmaxpickupdelay-label"><span class="std std-ref">ReservesMaxPickUpDelay</span></a>).</p></li>
+<li><p>如果設定為 “忽略行事曆”，將直接計算取書延遲。</p></li>
+<li><p>如果設置為 “使用行事曆”，假日將被排除在取件延遲之外。</p></li>
+</ul>
+</section>
+<section id="expirereservesmaxpickupdelay">
+<span id="expirereservesmaxpickupdelay-label"></span><h3>ExpireReservesMaxPickUpDelay<a class="headerlink" href="#expirereservesmaxpickupdelay" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>Asks: ___ holds to expire automatically if they have not been picked
+by within the time period specified in
+<a class="reference internal" href="#reservesmaxpickupdelay-label"><span class="std std-ref">ReservesMaxPickUpDelay</span></a></p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If set to ‘allow’ this will cancel holds that have been waiting for
+longer than the number of days specified in the
+<a class="reference internal" href="#reservesmaxpickupdelay-label"><span class="std std-ref">ReservesMaxPickUpDelay</span></a> system
+preference. Holds will only be cancelled if the <a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">Expire Holds cron
+job</span></a> is running.</p></li>
+</ul>
+</section>
+<section id="expirereservesautofill">
+<span id="expirereservesautofill-label"></span><h3>ExpireReservesAutoFill<a class="headerlink" href="#expirereservesautofill" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ automatically fill the next hold using the item.</p>
+<p>預設值：不要</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要</p></li>
+<li><p>做</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>If <a class="reference internal" href="#expirereservesmaxpickupdelay-label"><span class="std std-ref">ExpireReservesMaxPickUpDelay</span></a>
+is set to ‘Allow’, you can choose to automatically fill the next hold when
+a hold is cancelled.</p></li>
+<li><p>If this system preference is set to “Don’t”, the expired hold will be
+cancelled, but the item will not be used to fill the next hold, if there is
+one. Staff must manually
+<a class="reference internal" href="circulation.html#receiving-holds-label"><span class="std std-ref">check in the item in order to trigger the next hold</span></a>.</p></li>
+<li><p>If this system preference is set to “Do”, the item will be used to fill the
+next hold, if there is one, without manual input from staff members.</p>
+<ul>
+<li><p>If <a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">they opted to receive ‘Hold filled’ notices</span></a>,
+a notification will be sent to the next patron to advise them that they
+can now come pick up their hold.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notice sent is based on the HOLD template, which can be customized
+in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>A notification will also be sent to the email address in
+<a class="reference internal" href="#expirereservesautofillemail-label"><span class="std std-ref">ExpireReservesAutoFillEmail</span></a>
+to alert staff that the hold is now waiting for someone else.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notice sent is based on the HOLD_CHANGED template, which can be
+customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This system preference will not have any effect unless
+<a class="reference internal" href="#expirereservesmaxpickupdelay-label"><span class="std std-ref">ExpireReservesMaxPickUpDelay</span></a> is
+set to ‘Allow’.</p>
+</div>
+</section>
+<section id="expirereservesautofillemail">
+<span id="expirereservesautofillemail-label"></span><h3>ExpireReservesAutoFillEmail<a class="headerlink" href="#expirereservesautofillemail" title="此标题的永久链接"></a></h3>
+<p>Asks: Send email notification of the new hold filled with a canceled item to ___.</p>
+<p>說明：</p>
+<ul>
+<li><p>If <a class="reference internal" href="#expirereservesmaxpickupdelay-label"><span class="std std-ref">ExpireReservesMaxPickUpDelay</span></a>
+is set to ‘Allow’, and <a class="reference internal" href="#expirereservesautofill-label"><span class="std std-ref">ExpireReservesAutoFill</span></a>
+is set to ‘Do’, an email will be sent to alert staff that the hold is now
+waiting for someone else.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notice sent is based on the HOLD_CHANGED template, which can be
+customized in the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+</li>
+<li><p>If this system preference is empty, the notification will be sent to the
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library’s</span></a> reply-to address.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This system preference will not have any effect unless
+<a class="reference internal" href="#expirereservesautofill-label"><span class="std std-ref">ExpireReservesAutoFill</span></a> is
+set to ‘Do’.</p>
+</div>
+</section>
+<section id="expirereservesmaxpickupdelaycharge">
+<span id="expirereservesmaxpickupdelaycharge-label"></span><h3>ExpireReservesMaxPickUpDelayCharge<a class="headerlink" href="#expirereservesmaxpickupdelaycharge" title="此标题的永久链接"></a></h3>
+<p>預設值：0</p>
+<p>Asks: If using
+<a class="reference internal" href="#expirereservesmaxpickupdelay-label"><span class="std std-ref">ExpireReservesMaxPickUpDelay</span></a>, charge
+a borrower who allows his or her waiting hold to expire a fee of ___
+USD</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>若預約到館未在指定時間內提取時，您可使用此偏好向讀者收取未提取預約的費用。若不向讀者收取未提取預約的費用，就讓此偏好保留為預約值 0。必須同時執行 <a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">Expire Holds 工作排程</span></a>，才能取消預約並收取費用。</p></li>
+</ul>
+</section>
+<section id="expirereservesonholidays">
+<span id="expirereservesonholidays-label"></span><h3>ExpireReservesOnHolidays<a class="headerlink" href="#expirereservesonholidays" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>Asks: If using <a class="reference internal" href="#expirereservesmaxpickupdelay-label"><span class="std std-ref">ExpireReservesMaxPickUpDelay</span></a>, ___ expired holds to be canceled on
+days the library is closed per the calendar.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="holdssplitqueue">
+<span id="holdssplitqueue-label"></span><h3>HoldsSplitQueue<a class="headerlink" href="#holdssplitqueue" title="此标题的永久链接"></a></h3>
+<p>預設值：沒有</p>
+<p>詢問： 在館員介面裡，以 ___ 區隔預約佇列為獨立的表單</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>取件圖書館</p></li>
+<li><p>提取圖書館與 itemtype</p></li>
+<li><p>預約 itemtype</p></li>
+<li><p>沒有</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此功能係允許在紀錄的預約頁面 (不是流通頁面的預約佇列) 依提取圖書館或館藏類型，分別顯示預約狀態。</p></li>
+<li><p>使用向上、向下箭頭時，只改變群組內預約的優先順序。</p></li>
+</ul>
+</section>
+<section id="holdssplitqueuenumbering">
+<span id="holdssplitqueuenumbering-label"></span><h3>HoldsSplitQueueNumbering<a class="headerlink" href="#holdssplitqueuenumbering" title="此标题的永久链接"></a></h3>
+<p>預設：實際的優先順序，可能不能用</p>
+<p>詢問：若區隔預約佇列，顯示圖書館員為 __</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>實際的優先順序，可能過時</p></li>
+<li><p>‘虛擬’ 優先事項，每個組分別編號</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is only effective if <a class="reference internal" href="#holdssplitqueue-label"><span class="std std-ref">HoldsSplitQueue</span></a> is set to
+any value except ‘nothing’.</p></li>
+<li><p>此系統偏好控制紀錄預約頁面的優先順序 (不是流通頁面的預約佇列)。</p></li>
+</ul>
+</section>
+<section id="localholdspriority-localholdsprioritypatroncontrol-localholdspriorityitemcontrol">
+<span id="localholdspriority-preferences-label"></span><h3>LocalHoldsPriority, LocalHoldsPriorityPatronControl, LocalHoldsPriorityItemControl<a class="headerlink" href="#localholdspriority-localholdsprioritypatroncontrol-localholdspriorityitemcontrol" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 優先滿足讀者的預約其 ___ 符合館藏的 ___</p>
+<p>LocalHoldsPriority 值：</p>
+<ul class="simple">
+<li><p>不給</p></li>
+<li><p>給</p></li>
+</ul>
+<p>LocalHoldsPriorityPatronControl 值：</p>
+<ul class="simple">
+<li><p>所屬圖書館</p></li>
+<li><p>取件圖書館</p></li>
+</ul>
+<p>LocalHoldsPriorityItemControl 值：</p>
+<ul class="simple">
+<li><p>預約圖書館</p></li>
+<li><p>所屬圖書館</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>還入館藏時，此功能優先滿足在地的預約，即使其原先的順位較低。</p></li>
+</ul>
+</section>
+<section id="maxreserves">
+<span id="maxreserves-label"></span><h3>maxreserves<a class="headerlink" href="#maxreserves" title="此标题的永久链接"></a></h3>
+<p>預設值：50</p>
+<p>詢問：讀者同時最多可以預約 ___ 筆館藏。</p>
+</section>
+<section id="opacallowholddateinfuture">
+<span id="opacallowholddateinfuture-label"></span><h3>OPACAllowHoldDateInFuture<a class="headerlink" href="#opacallowholddateinfuture" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者把預約生效日置於將來的某一天。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p>
+<ul>
+<li><p><a class="reference internal" href="#allowholddateinfuture-label"><span class="std std-ref">AllowHoldDateInFuture</span></a> must also be
+enabled for this to work</p></li>
+</ul>
+</li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="opacallowusertochangebranch">
+<span id="opacallowusertochangebranch-label"></span><h3>OPACAllowUserToChangeBranch<a class="headerlink" href="#opacallowusertochangebranch" title="此标题的永久链接"></a></h3>
+<p>Asks: Allow users to change the library to pick up a hold for these statuses:
+___</p>
+<p>預設值：無</p>
+<p>Values (multiple values allowed):</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>In transit</p></li>
+<li><p>Pending</p></li>
+<li><p>Suspended</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference is used to allow patrons to change the pickup location
+of their holds through their account in the OPAC.</p></li>
+<li><p>This system preference allows multiple values. Check all that apply.</p></li>
+<li><p>By default, patrons cannot change the pickup location of their holds from the
+OPAC.</p></li>
+<li><p>When one or more status is selected, a ‘Change’ link will appear under the
+current pickup library’s name for holds that have that status in the holds
+tab of the <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">patron’s account</span></a>.</p>
+<p><img alt="The Holds tab in a patron's summary page on the OPAC, OPACAllowUserToChangeBranch is enabled for pending holds, there is a Change link under the current pickup library's name" src="_images/myholds-changepickuplibrary.png" /></p>
+</li>
+</ul>
+</section>
+<section id="opacallowusertochoosebranch">
+<span id="opacallowusertochoosebranch-label"></span><h3>OPACAllowUserToChooseBranch<a class="headerlink" href="#opacallowusertochoosebranch" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者選擇提取預約館藏的圖書館。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>改變此偏好並不能阻止館員轉移館藏滿足讀者的預約；只是禁止讀者要求在所屬圖書館以外的地方提取預約館藏。</p></li>
+<li><p>此可用的提取位置清單包括所有在圖書館組態頁面已設定 ‘提取位置’ 為 ‘是的’ 的圖書館。</p></li>
+</ul>
+</section>
+<section id="opacholdsifavailableatpickup">
+<span id="opacholdsifavailableatpickup-label"></span><h3>OPACHoldsIfAvailableAtPickup<a class="headerlink" href="#opacholdsifavailableatpickup" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>問：館藏可被借出時 ___ 提取預約。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>避免讀者從待處理書架取書借出。</p></li>
+</ul>
+</section>
+<section id="opacholdsifavailableatpickupexceptions">
+<span id="opacholdsifavailableatpickupexceptions-label"></span><h3>OPACHoldsIfAvailableAtPickupExceptions<a class="headerlink" href="#opacholdsifavailableatpickupexceptions" title="此标题的永久链接"></a></h3>
+<p>預設值：空白</p>
+<p>Asks: Patron categories not affected by <a class="reference internal" href="#opacholdsifavailableatpickup-label"><span class="std std-ref">OPACHoldsIfAvailableAtPickup</span></a>
+___ (list of patron categories separated with a pipe ^|^)</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Patron category codes listed here separated by a pipe ^|^ are unaffected by
+<a class="reference internal" href="#opacholdsifavailableatpickup-label"><span class="std std-ref">OPACHoldsIfAvailableAtPickup</span></a>.</p></li>
+</ul>
+</section>
+<section id="realtimeholdsqueue">
+<span id="realtimeholdsqueue-label"></span><h3>RealTimeHoldsQueue<a class="headerlink" href="#realtimeholdsqueue" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ updating the holds queue in real time.</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to enable the automatic updating of the
+<a class="reference internal" href="circulation.html#holds-queue-label"><span class="std std-ref">holds queue</span></a>.</p></li>
+<li><p>If this system preference is set to ‘Disable’, the
+<a class="reference internal" href="cron_jobs.html#cron-holds-queue-report-label"><span class="std std-ref">build_holds_queue.pl cronjob</span></a> should
+be run regularly to build the holds queue.</p></li>
+</ul>
+</section>
+<section id="reservescontrolbranch">
+<span id="reservescontrolbranch-label"></span><h3>ReservesControlBranch<a class="headerlink" href="#reservescontrolbranch" title="此标题的永久链接"></a></h3>
+<p>預設值：館藏所屬圖書館</p>
+<p>詢問：檢查 ___ 了解讀者的館藏預約現況。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>館藏的所屬圖書館。</p></li>
+<li><p>讀者的所屬圖書館。</p></li>
+</ul>
+</section>
+<section id="reservesmaxpickupdelay">
+<span id="reservesmaxpickupdelay-label"></span><h3>ReservesMaxPickUpDelay<a class="headerlink" href="#reservesmaxpickupdelay" title="此标题的永久链接"></a></h3>
+<p>預設值：7</p>
+<p>詢問：若預約到館待提取超過 ___ 天，視為有問題的預約。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好 (以日曆天為準，不是 <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">Koha 的行事曆</span></a>) 決定預約的失效日。過了此失效日期後，館員將把未提取的預約館藏置入書架或借給下位預約的讀者。被此偏好判定為 ‘失效’ 的館藏，將移到 <a class="reference internal" href="circulation.html#holds-awaiting-pickup-label"><span class="std std-ref">預約到館待提取</span></a> 報表的 ‘預約逾期’ 分頁。</p></li>
+</ul>
+</section>
+<section id="reservesneedreturns">
+<span id="reservesneedreturns-label"></span><h3>ReservesNeedReturns<a class="headerlink" href="#reservesneedreturns" title="此标题的永久链接"></a></h3>
+<p>預設值：不自動</p>
+<p>詢問：___ 將還入的被預約館藏標記為到館待提取。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>自動</p></li>
+<li><p>不自動</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好處理在館內的 ‘特定’ 館藏。此偏好允許圖書館將被預約的 ‘特定’ 館藏設定為 ‘等待’；或還入該館藏時，將該預約的館藏設為 “等待”。此偏好將告知讀者，該館藏在圖書館內 “等待” 讀者借出。</p></li>
+</ul>
+</section>
+<section id="staticholdsqueueweight-holdsqueueskipclosed-and-randomizeholdsqueueweight">
+<span id="holds-queue-system-preferences-label"></span><h3>StaticHoldsQueueWeight, HoldsQueueSkipClosed and RandomizeHoldsQueueWeight<a class="headerlink" href="#staticholdsqueueweight-holdsqueueskipclosed-and-randomizeholdsqueueweight" title="此标题的永久链接"></a></h3>
+<p>StaticHoldsQueueWeight 預設值：0</p>
+<p>HoldsQueueSkipClosed 預設值：開啟或關閉</p>
+<p>RandomizeHoldsQueueWeight 預設值：依序</p>
+<p>詢問：向圖書館預約 ___ (鍵入圖書館代碼，以逗點區隔；若空白，則使用所有圖書館)，當他們是 ___ ___。</p>
+<p>HoldsQueueSkipClosed 值：</p>
+<ul class="simple">
+<li><p>開或關</p></li>
+<li><p>打開</p></li>
+</ul>
+<p>RandomizeHoldsQueueWeight 值：</p>
+<ul class="simple">
+<li><p>隨機順序</p>
+<ul>
+<li><p>若 StaticHoldsQueueWeight 為預設值，則 Koha 將從所有的圖書館隨裡機挑選，否則從列出的圖書館裡隨機挑選。</p></li>
+</ul>
+</li>
+<li><p>依序</p>
+<ul>
+<li><p>若 StaticHoldsQueueWeight 為預設值，則依字順從所有的圖書館裡取用，否則依字順使用在 StaticHoldsQueueWeight 偏好內的圖書館。</p></li>
+</ul>
+</li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>這些偏好控制由 <a class="reference internal" href="circulation.html#holds-queue-label"><span class="std std-ref">預約佇列報表</span></a> 以 <span class="xref std std-ref">工作排程</span> 產生之。</p>
+<p>不讓所有圖書館參與館藏滿足預約計畫，應列出*要*參加該計畫的圖書館，包括圖書館的條碼，並以逗點區隔(如：”MPL,CPL,SPL,BML” 等)。</p>
+<p>預設，預約順位將先列入提取圖書館。若無法滿足，則 build_holds_queue.pl 將取用 StaticHoldsQueueWeight 設定的圖書館。若停用 RandomizeHoldsQueueWeight (預設值為停用)，則依 StaticHoldsQueueWeight 偏好設定的圖書館順序，逐一取用。</p>
+<p>例如，系統內有三個規模不一的圖書館 (大型、中型與小型)，希望由大型圖書館承擔較多的預約責任，StaticHoldsQueueWeight偏好應設為”LRG,MED,SML”。</p>
+<p>若期望各圖書館平均分擔預約的任務，應啟用 RandomizeHoldsQueueWeight 偏好。該偏好啟用後，將隨機把預約分配給各圖書館。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>The <a class="reference internal" href="administration.html#transport-cost-matrix-label"><span class="std std-ref">Transport Cost Matrix</span></a> takes
+precedence in controlling where holds are filled from, if the matrix
+is not used then Koha checks the StaticHoldsQueueWeight. To use the
+Transport Cost Matrix simply set your
+<a class="reference internal" href="#usetransportcostmatrix-label"><span class="std std-ref">UseTransportCostMatrix</span></a> preference to
+‘Use’</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="suspendholdsintranet">
+<span id="suspendholdsintranet-label"></span><h3>SuspendHoldsIntranet<a class="headerlink" href="#suspendholdsintranet" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 暫停從館員介面的預約的功能。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>The holds suspension feature can be turned on and off in the staff
+client by altering this system preference. If this is set to ‘allow’
+you will want to set the
+<a class="reference internal" href="#autoresumesuspendedholds-label"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> system
+preference.</p></li>
+</ul>
+</section>
+<section id="suspendholdsopac">
+<span id="suspendholdsopac-label"></span><h3>SuspendHoldsOpac<a class="headerlink" href="#suspendholdsopac" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 暫停從 OPAC 預約的功能。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>The holds suspension feature can be turned on and off in the OPAC by
+altering this system preference. If this is set to ‘allow’ you will
+want to set the
+<a class="reference internal" href="#autoresumesuspendedholds-label"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> system
+preference.</p></li>
+</ul>
+</section>
+<section id="transferwhencancelallwaitingholds">
+<span id="transferwhencancelallwaitingholds-label"></span><h3>TransferWhenCancelAllWaitingHolds<a class="headerlink" href="#transferwhencancelallwaitingholds" title="此标题的永久链接"></a></h3>
+<p>預設值：不轉移</p>
+<p>問：___ 館藏當取消所有預約時。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不轉移</p></li>
+<li><p>轉移</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>當 TransferWhenCancelAllWaitingHolds 設為 “不轉移” 時，不會新增分館轉移紀錄。Koha 不允許轉移轉移已預約的館藏，因為會讓待提取圖書館無館藏供提取，館員不知如何處理。當系統偏好設為 “轉移” 時，新增分館間的轉移紀錄，並把預約紀錄刪除。</p></li>
+</ul>
+</section>
+<section id="updateitemwhenlostfromholdlist">
+<span id="updateitemwhenlostfromholdlist-label"></span><h3>UpdateItemWhenLostFromHoldList<a class="headerlink" href="#updateitemwhenlostfromholdlist" title="此标题的永久链接"></a></h3>
+<p>詢問：從預約下拉畫面標記為遺失時，更新館藏資料。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>從預約下拉畫面標記為遺失時，更新館藏資料。例如，將館藏設定為 “itemlost: 1”。館藏被標記為遺失時，itemlost 的值設為 1。這將使用 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>LOST容許值清單&lt;existing-values-label&gt;`中的容許值1。</p></li>
+<li><p>關鍵字範例：</p>
+<ul>
+<li><p>itemlost：遺失狀態，使用 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">遺失容許值清單</span></a></p></li>
+<li><p>notforloan:不用於借出狀態，使用 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">NOT_LOAN容許值清單</span></a></p></li>
+<li><p>已撤回：已撤回狀態，使用 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">已撤回容許值清單</span></a></p></li>
+<li><p>損壞：損壞狀態，使用 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">損壞的容許值清單</span></a></p></li>
+<li><p>館藏：館藏代碼，使用 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOC 容許值清單</span></a></p></li>
+<li><p>CCODE：館藏代碼，使用 <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">CCODE 容許值清單</span></a></p></li>
+</ul>
+</li>
+<li><p>This preference requires that the <a class="reference internal" href="#canmarkholdstopullaslost-label"><span class="std std-ref">CanMarkHoldsToPullAsLost</span></a> system
+preference be set to either ‘Allow’ option</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>需要 YAML 語法才能運作</p>
+<p>這表示</p>
+<ul class="simple">
+<li><p>確認欄號和冒號之間沒有空格</p></li>
+<li><p>確認冒號和值之間有一個空格</p></li>
+<li><p>確認每組都在同一列中</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="housebound-module">
+<span id="housebound-module-label"></span><h2>送書到府模式<a class="headerlink" href="#housebound-module" title="此标题的永久链接"></a></h2>
+<section id="houseboundmodule">
+<span id="houseboundmodule-label"></span><h3>HouseboundModule<a class="headerlink" href="#houseboundmodule" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ 到府服務模式</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好啟用或停用處理管理流通的送書到府模式。</p></li>
+</ul>
+</section>
+</section>
+<section id="interface">
+<span id="housebound-interface-label"></span><h2>介面<a class="headerlink" href="#interface" title="此标题的永久链接"></a></h2>
+<section id="allowallmessagedeletion">
+<span id="allowallmessagedeletion-label"></span><h3>AllowAllMessageDeletion<a class="headerlink" href="#allowallmessagedeletion" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>詢問：___ 館員刪除來自其他圖書館的訊息。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="allowcheckoutnotes">
+<span id="allowcheckoutnotes-label"></span><h3>AllowCheckoutNotes<a class="headerlink" href="#allowcheckoutnotes" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>詢問：___ 讀者送出關於借出館藏的說明。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>設定此偏好後，讀者可以由OPAC端對借出館藏鍵入評論。還入後，館員可以看到該評論。</p>
+</section>
+<section id="allowofflinecirculation">
+<span id="allowofflinecirculation-label"></span><h3>AllowOfflineCirculation<a class="headerlink" href="#allowofflinecirculation" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ 在流通電腦執行離線流通。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>將此偏好設為 ‘啟用’ 時，可以從館員介面執行 <a class="reference internal" href="circulation.html#offline-circulation-utilities-label"><span class="std std-ref">離線流通</span></a> 工作。此設定不影響`Firefox 的外掛功能 &lt;firefox-plugin-label&gt;` 或 <a class="reference internal" href="circulation.html#offline-circ-tool-for-windows-label"><span class="std std-ref">桌面應用程式</span></a>，此三個選項都可以執行離線流通的工作。</p></li>
+</ul>
+</section>
+<section id="autoswitchpatron">
+<span id="autoswitchpatron-label"></span><h3>AutoSwitchPatron<a class="headerlink" href="#autoswitchpatron" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>問：___ 當掃描讀者條碼而不是書籍時自動重新導向到另一個讀者。如果您有重疊的讀者條碼和圖書條碼，則不應啟用此功能。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>啟用此系統偏好允許館員掃描讀者條碼而不是借出框中的館藏條碼以切換讀者記錄。</p></li>
+</ul>
+</section>
+<section id="circautoprintquickslip">
+<span id="circautoprintquickslip-label"></span><h3>CircAutoPrintQuickSlip<a class="headerlink" href="#circautoprintquickslip" title="此标题的永久链接"></a></h3>
+<p>預設值：打開列印快速收條視窗</p>
+<p>詢問：流通時送出空白的條碼欄位時 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>清空螢幕</p></li>
+<li><p>打開列印快速收條視窗</p></li>
+<li><p>打開列印收條視窗</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>若將本偏好設定為開啟快速收條 (<span class="xref std std-ref">ISSUEQSLIP</span>) 或開啟收條 (<span class="xref std std-ref">ISSUESLIP</span>) 供列印之用，在讀者借出館藏時，不必再按按列印鍵，就能產生借出收條給讀者。若設定為清空螢幕，則 “借出” 一筆空白條碼時，將清空螢幕，看不到上個讀者的狀態。</p></li>
+</ul>
+</section>
+<section id="circconfirmitemparts">
+<span id="circconfirmitemparts-label"></span><h3>CircConfirmItemParts<a class="headerlink" href="#circconfirmitemparts" title="此标题的永久链接"></a></h3>
+<p>詢問：___工作人員確認館藏的所有部分在還入/借出時都存在。</p>
+<p>預設值：非必須</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要求</p></li>
+<li><p>要求</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>此系統偏好控制在借出或還入帶有資料的館藏時是否顯示要求確認的訊息或警報。</p></li>
+<li><p>如果該館藏在 “3-指定材料（裝訂成冊或其他部分）”館藏欄段中有一個值（952$3），則會出現該訊息/警告</p></li>
+<li><p>如果該值被設置為 “不需要”，則在還入與借出時將出現一條簡單的訊息</p>
+<p><img alt="Message in a blue box 'Note about the accompanying materials: 2 DVD'" src="_images/CircConfirmItemParts-dontrequire.png" /></p>
+</li>
+<li><p>如果值被設置為 “要求”，就會有一個提醒，要求館員確認他們檢查的所有部件是否存在</p>
+<p>在借出時</p>
+<p><img alt="Alert in a yellow box asking to confirm checkout 'Please confirm checkout Please confirm that the accompanying materials are present: 2 DVD Yes, check out (Y) No, don't check out (N)'" src="_images/CircConfirmItemParts-require-checkout.png" /></p>
+<p>在還入時</p>
+<p><img alt="Alert modal asking to confirm checkin 'Please confirm checkin Please confirm that the accompanying materials are present: 2 DVD Yes, check in (Y) No, don't check in (N)'" src="_images/CircConfirmItemParts-require-checkin.png" /></p>
+</li>
+</ul>
+</section>
+<section id="circsidebar">
+<span id="circsidebar-label"></span><h3>CircSidebar<a class="headerlink" href="#circsidebar" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ 流通頁面的瀏覽側欄。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>無效</p></li>
+<li><p>啟用</p></li>
+</ul>
+</section>
+<section id="displayclearscreenbutton">
+<span id="displayclearscreenbutton-label"></span><h3>DisplayClearScreenButton<a class="headerlink" href="#displayclearscreenbutton" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ to clear the current patron from the screen on the circulation
+screen.</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>Show print quick slip and clear buttons</p></li>
+<li><p>Show print slip and clear buttons</p></li>
+<li><p>Don’t show clear screen button</p></li>
+</ul>
+<p>Default: Don’t show clear screen button</p>
+<p>說明：</p>
+<ul>
+<li><p>This system preference is used to display a small button in the corner of
+the checkout box to print either the quick slip or the slip, and go back to
+the main checkout page</p>
+<p><img alt="The checkout box in a patron file, in the top right corner of the box, there is a printer button and an X button" src="_images/DisplayClearScreenButton.png" /></p>
+</li>
+</ul>
+</section>
+<section id="exportcirchistory">
+<span id="exportcirchistory-label"></span><h3>ExportCircHistory<a class="headerlink" href="#exportcirchistory" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館員近用讀者借出記錄。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference enables the option to
+<a class="reference internal" href="circulation.html#export-checkouts-label"><span class="std std-ref">export patrons’ checkouts</span></a> in MARC or CSV
+format.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Contrary to what its name suggests, this option is not available for the
+patrons’ checkout history. It is only for current checkouts.</p>
+</div>
+</section>
+<section id="exportremovefields">
+<span id="exportremovefields-label"></span><h3>ExportRemoveFields<a class="headerlink" href="#exportremovefields" title="此标题的永久链接"></a></h3>
+<p>Asks: The following fields should be excluded from the patron checkout history
+CSV or MARC (ISO 2709) export ___</p>
+<p>說明：</p>
+<ul>
+<li><p>This space separated list of fields (e.g. 100a 245b) will
+automatically be excluded when
+<a class="reference internal" href="circulation.html#export-checkouts-label"><span class="std std-ref">exporting the patron’s current checkouts</span></a>.</p>
+<p><img alt="Checkouts table in a patron's account, the last column of the table is 'Export', and at the bottom of the table, there is an option to export checkouts and not export specific fields" src="_images/ExportCircHistory.png" /></p>
+</li>
+<li><p>This system preference requires that
+<a class="reference internal" href="#exportcirchistory-label"><span class="std std-ref">ExportCircHistory</span></a> be enabled.</p></li>
+</ul>
+</section>
+<section id="filterbeforeoverduereport">
+<span id="filterbeforeoverduereport-label"></span><h3>FilterBeforeOverdueReport<a class="headerlink" href="#filterbeforeoverduereport" title="此标题的永久链接"></a></h3>
+<p>預設值：非必須</p>
+<p>詢問：執行逾期報表前 ___ 館員選擇借出的類型。</p>
+<p>說明：</p>
+<ul>
+<li><p>Koha 的逾期報表顯示系統內所有的逾期館藏。在大型圖書館裡執行逾期報表，極為費時費工。可把此偏好設為 ‘要求’，強迫館員勾選分館、逾期範圍、讀者類型等篩選條件，避免拖累整個系統的效率。</p>
+<p><img alt="image34" src="_images/FilterBeforeOverdueReport.png" /></p>
+</li>
+</ul>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要求</p></li>
+<li><p>要求</p></li>
+</ul>
+</section>
+<section id="finenotifyatcheckin">
+<span id="finenotifyatcheckin-label"></span><h3>FineNotifyAtCheckin<a class="headerlink" href="#finenotifyatcheckin" title="此标题的永久链接"></a></h3>
+<p>預設值：不通知</p>
+<p>詢問：在還入時 ___ 圖書館員執行逾期罰款。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不通知</p></li>
+<li><p>通知</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>將此偏好設為 ‘通知’ 後，還入館藏時將出現逾期罰款通知。需確認此警示才能繼續還入館藏。將此偏好設為 ‘不通知’，仍可看到讀者的罰款，但還入時沒有額外的通知。</p>
+<p><img alt="image35" src="_images/FineNotifyAtCheckin.png" /></p>
+</li>
+</ul>
+</section>
+<section id="holdstopullstartdate">
+<span id="holdstopullstartdate-label"></span><h3>HoldsToPullStartDate<a class="headerlink" href="#holdstopullstartdate" title="此标题的永久链接"></a></h3>
+<p>預設值：2</p>
+<p>詢問：設定預約的預設開始日期，以產生下拉選單至 ___ 天前。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="circulation.html#holds-to-pull-label"><span class="std std-ref">Holds to Pull</span></a> report in circulation defaults to
+filtering holds placed 2 days ago. This preference allows you to set
+this default filter to any number of days.</p></li>
+</ul>
+</section>
+<section id="itembarcodefallbacksearch">
+<span id="itembarcodefallbacksearch-label"></span><h3>itemBarcodeFallbackSearch<a class="headerlink" href="#itembarcodefallbacksearch" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：在借出頁面鍵入詞彙系統沒有任何回應時，___ 自動轉換為關鍵詞搜尋。</p>
+<p>值：</p>
+<ul>
+<li><p>停用</p></li>
+<li><p>啟用</p>
+<p><img alt="image40" src="_images/itemBarcodeFallbackSearch.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>有時，圖書館想以條碼號以外的方式借出館藏。啟用此偏好後，就可以從流通頁面以關鍵詞搜尋，再借出館藏。可使用將索書號、條碼、部份題名或其他字元，以關鍵詞檢索方式找到館藏後，Koha 再詢問是否借出該館藏。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>不以條碼搜尋時，條碼仍是借出的必要條件。只有含條碼的題名才會出現在搜尋結果內。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="itembarcodeinputfilter">
+<span id="itembarcodeinputfilter-label"></span><h3>itemBarcodeInputFilter<a class="headerlink" href="#itembarcodeinputfilter" title="此标题的永久链接"></a></h3>
+<p>預設值：不要篩選</p>
+<p>詢問：___ 掃描館藏條碼。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>轉換自 CueCat 格式</p></li>
+<li><p>轉換自 Libsuite8 表單</p></li>
+<li><p>不要篩選</p></li>
+<li><p>EAN-13 或零填充的 UPC-A 來自</p></li>
+<li><p>從中刪除空格</p></li>
+<li><p>從 T 前置字碼樣式中刪除第一個數字</p>
+<ul>
+<li><p>轉移自 Follett 系統的資料常是此格式</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="noticecss">
+<span id="noticecss-label"></span><h3>NoticeCSS<a class="headerlink" href="#noticecss" title="此标题的永久链接"></a></h3>
+<p>詢問：包括樣式表 ___ 於通知內。</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>應該是完整的 URL，以 <a class="reference external" href="http://">http://</a> 起頭</p>
+</div></blockquote>
+<p>說明：</p>
+<ul class="simple">
+<li><p>採用此偏好可保持通知內文的字型與顏色的一致。</p></li>
+</ul>
+</section>
+<section id="numreturneditemstoshow">
+<span id="numreturneditemstoshow-label"></span><h3>numReturnedItemsToShow<a class="headerlink" href="#numreturneditemstoshow" title="此标题的永久链接"></a></h3>
+<p>預設值：20</p>
+<p>詢問：顯示 ___ 筆稍早還入的館藏。</p>
+</section>
+<section id="patronautocomplete">
+<span id="patronautocomplete-label"></span><h3>PatronAutoComplete<a class="headerlink" href="#patronautocomplete" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 在讀者輸入流通或讀者搜尋時，猜測輸入的讀者。每次只返回前10個結果。</p>
+<p>預設值：試</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>試</p></li>
+<li><p>不試</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>此系統偏好啟用顧客和流通模組中 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>顧客搜尋&lt;patron-search-label&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>的自動完成功能。</p></li>
+<li><p>將其設定為“嘗試”將使館員能夠開始在欄位中輸入名稱或其他值，並彈出一個選單，其中包含完成它的建議。將其設定為“不要嘗試”將停用此功能。</p></li>
+<li><p>這種偏好可以使館員的工作更容易，也有可能使頁面加載過程變慢。</p>
+<p><img alt="image33" src="_images/CircAutocompl.png" /></p>
+</li>
+</ul>
+</section>
+<section id="previousissuesdefaultsortorder">
+<span id="previousissuesdefaultsortorder-label"></span><h3>previousIssuesDefaultSortOrder<a class="headerlink" href="#previousissuesdefaultsortorder" title="此标题的永久链接"></a></h3>
+<p>詢問：在流通頁面依照上次借出日期排序 ___ 到期日。</p>
+<p>預設值：由遠至近</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>最早到最新</p></li>
+<li><p>最新到最早</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好控制您希望以前的借出如何顯示在讀者的 <a class="reference internal" href="circulation.html#checking-items-out-label"><span class="std std-ref">借出選項欄</span></a>。</p></li>
+<li><p>如果您選擇“從早到晚”，最早的借出將在頂部。</p></li>
+<li><p>如果你選擇 ‘最新到最早’，則最近的借出將在最上面。</p></li>
+</ul>
+</section>
+<section id="recordlocaluseonreturn">
+<span id="recordlocaluseonreturn-label"></span><h3>RecordLocalUseOnReturn<a class="headerlink" href="#recordlocaluseonreturn" title="此标题的永久链接"></a></h3>
+<p>預設值：不要記錄</p>
+<p>詢問：___ 還入不外借館藏，並將之納入館內使用。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不要記錄</p></li>
+<li><p>紀錄</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>將此偏好設為 “不要記錄”，可以使用統計讀者記錄館內使用的情形。若設為 “記錄”，在使用統計館員的同時，也可以還入該館藏。</p></li>
+</ul>
+</section>
+<section id="showallcheckins">
+<span id="showallcheckins-label"></span><h3>ShowAllCheckins<a class="headerlink" href="#showallcheckins" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：___ 在 “還入館藏” 清單內的館藏，即使該等館藏尚未借出。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>還入未借出的館藏時，不會顯示在還入清單。此偏好允許選擇是否在還入記錄檔顯示該館藏。</p></li>
+</ul>
+</section>
+<section id="specifyduedate">
+<span id="specifyduedate-label"></span><h3>SpecifyDueDate<a class="headerlink" href="#specifyduedate" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館員指定到期日。</p>
+<p>預設值：允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference allows for circulation staff to change a due date
+from the automatic due date, defined by
+<a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a>,
+to another calendar date during <a class="reference internal" href="circulation.html#checking-items-out-label"><span class="std std-ref">checkout</span></a>.</p></li>
+<li><p>這個選項將用於因任何原因可能需要減少或延長到期日期的情況。</p></li>
+</ul>
+</section>
+<section id="specifyreturndate">
+<span id="specifyreturndate-label"></span><h3>SpecifyReturnDate<a class="headerlink" href="#specifyreturndate" title="此标题的永久链接"></a></h3>
+<p>預設：不允許</p>
+<p>問：___ 館員指定還入的日期。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="image1185" src="_images/SpecifyReturnDate.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>不允許</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="image1186" src="_images/SpecifyReturnDate-no.png" /></p>
+</div></blockquote>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許館員在還入館藏時指定任意的日期為還入日期。逾期罰款也因此而調整。</p></li>
+</ul>
+</section>
+<section id="todaysissuesdefaultsortorder">
+<span id="todaysissuesdefaultsortorder-label"></span><h3>todaysIssuesDefaultSortOrder<a class="headerlink" href="#todaysissuesdefaultsortorder" title="此标题的永久链接"></a></h3>
+<p>詢問：在流通頁面，排序今天的借出 ___ 到期日。</p>
+<p>預設值：由遠至近</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>最早到最新</p></li>
+<li><p>最新到最早</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好控制您希望今天的借出如何顯示在讀者的 <a class="reference internal" href="circulation.html#checking-items-out-label"><span class="std std-ref">借出選項欄中。</span></a></p></li>
+<li><p>如果您選擇“從早到晚”，最早的借出將在頂部。</p></li>
+<li><p>如果你選擇 ‘最新到最早’，則最近的借出將在最上面。</p></li>
+</ul>
+</section>
+<section id="updatetotalissuesoncirc">
+<span id="updatetotalissuesoncirc-label"></span><h3>UpdateTotalIssuesOnCirc<a class="headerlink" href="#updatetotalissuesoncirc" title="此标题的永久链接"></a></h3>
+<p>預設值：不要</p>
+<p>詢問：借出館藏時 ___ 更新書目記錄的所有流通內容</p>
+<p>值：</p>
+<ul>
+<li><p>做</p>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>此作業增加伺服器相當負擔，若擔心其效能請使用 <a class="reference internal" href="cron_jobs.html#cron-track-total-checkouts-label"><span class="std std-ref">工作排程</span></a> 更新此流通內容。</p>
+</div></blockquote>
+</li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Koha 可以追蹤館藏的流通次數將之儲存在資料庫內。此功能不是預設的。將此偏好設為 ‘做’ 告訴 Koha 即時追蹤借出的資訊。否則必須使用 <a class="reference internal" href="cron_jobs.html#cron-track-total-checkouts-label"><span class="std std-ref">工作排程</span></a> 讓 Koha 在夜間離峰時間更新它。</p></li>
+</ul>
+</section>
+<section id="usecirculationdesks">
+<span id="usecirculationdesks-label"></span><h3>UseCirculationDesks<a class="headerlink" href="#usecirculationdesks" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ 流通櫃台</p>
+<p>預設值：不用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好可以在單一圖書館管理多個流通櫃台</p></li>
+</ul>
+</section>
+<section id="waitingnotifyatcheckin">
+<span id="waitingnotifyatcheckin-label"></span><h3>WaitingNotifyAtCheckin<a class="headerlink" href="#waitingnotifyatcheckin" title="此标题的永久链接"></a></h3>
+<p>預設值：不通知</p>
+<p>詢問：還書時 ___ 圖書館員預約到館之書。</p>
+<p>值：</p>
+<ul>
+<li><p>不通知</p></li>
+<li><p>通知</p>
+<p><img alt="image43" src="_images/WaitingNotifyAtCheckin.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>若讀者還入的館藏已經被預約可以彈出該預約通知。若設定 WaitingNotifyAtCheckin 為 ‘通知’ 則還入該等館藏後，會通知讀者其預約已到館待提取。</p></li>
+</ul>
+</section>
+</section>
+<section id="item-bundles">
+<span id="itembundles-preferences-label"></span><h2>Item bundles<a class="headerlink" href="#item-bundles" title="此标题的永久链接"></a></h2>
+<section id="bundlelostvalue">
+<span id="bundlelostvalue-label"></span><h3>BundleLostValue<a class="headerlink" href="#bundlelostvalue" title="此标题的永久链接"></a></h3>
+<p>Asks: Use the <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOST authorized value</span></a> ___ to
+represent ‘missing from bundle’ at return.</p>
+<p>預設值：5</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used when circulating item bundles to set the lost
+status of the item when it is missing from it’s bundle upon checkin.</p></li>
+<li><p>The value in this system preference should be a number, representing a lost
+status in the <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOST authorized values list</span></a>.</p></li>
+<li><p>The default value for this preference is 5, which is the ‘Missing from bundle’
+status in the default values for the LOST category. If you didn’t install the
+default values, make sure the system preference value refers to an actual
+lost status.</p></li>
+</ul>
+</section>
+<section id="bundlenotloanvalue">
+<span id="bundlenotloanvalue-label"></span><h3>BundleNotLoanValue<a class="headerlink" href="#bundlenotloanvalue" title="此标题的永久链接"></a></h3>
+<p>Asks: Use the <a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">NOT_LOAN authorized value</span></a> ___ to
+represent ‘added to bundle’ when an item is attached to bundle.</p>
+<p>預設值：3</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used when creating item bundles, to set the not for
+loan status of the item when it is added to a bundle so that the item itself
+cannot be circulated by itself, but only as part as the bundle.</p></li>
+<li><p>The value in this system preference should be a number, representing a not
+for loan status in the
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">NOT_LOAN authorized values list</span></a>.</p></li>
+<li><p>The default value for this preference is 3, which is the ‘Added to bundle’
+status in the default values for the NOT_LOAN category. If you didn’t
+install the default values, make sure the system preference value refers to
+an actual not for loan status (the status should be positive so that patrons
+cannot place holds on the bundled item).</p></li>
+</ul>
+</section>
+</section>
+<section id="patron-restrictions">
+<span id="patron-restrictions-preferences-label"></span><h2>Patron restrictions<a class="headerlink" href="#patron-restrictions" title="此标题的永久链接"></a></h2>
+<section id="autoremoveoverduesrestrictions">
+<span id="autoremoveoverduesrestrictions-label"></span><h3>AutoRemoveOverduesRestrictions<a class="headerlink" href="#autoremoveoverduesrestrictions" title="此标题的永久链接"></a></h3>
+<p>預設值：不要</p>
+<p>詢問：___ 自動清空 OVERDUES 限制，當讀者還入所有逾期館藏。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>做</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Using the <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">Overdue Notice/Status Triggers</span></a> you
+can restrict patrons after they receive an overdue notice. This
+preference lets you define whether Koha will automatically remove
+that restriction once the overdue items in question are returned or
+not.</p></li>
+</ul>
+</section>
+<section id="cumulativerestrictionperiods">
+<span id="cumulativerestrictionperiods-label"></span><h3>CumulativeRestrictionPeriods<a class="headerlink" href="#cumulativerestrictionperiods" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者記錄的改變。</p>
+<p>預設值：不累計</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不累計</p></li>
+<li><p>累計</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好控制是否應同時或連續提供 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>限制&lt;patron-restrictions-label&gt;`時段。</p></li>
+<li><p>如果設置為”不累積”，讀者將僅在最長的時間內受到限制。(例如，如果讀者有 10 天的限制和另一個 15 天的限制，他們將被限制 15 天。)</p></li>
+<li><p>如果設置為”累積”，讀者將被限制在所有限制期的總和。(例如，如果讀者有 10 天的限制和另一個 15 天的限制，他們將被限制 25 天。)</p></li>
+</ul>
+</section>
+<section id="patronrestrictiontypes">
+<span id="patronrestrictiontypes-label"></span><h3>PatronRestrictionTypes<a class="headerlink" href="#patronrestrictiontypes" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ the type of patron restriction to be specified when applying manually.</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference allows staff the ability to pick a restriction type when
+<a class="reference internal" href="patrons.html#patron-restrictions-label"><span class="std std-ref">adding a manual restriction to a patron</span></a>.</p></li>
+</ul>
+</section>
+<section id="restrictionblockrenewing">
+<span id="restrictionblockrenewing-label"></span><h3>RestrictionBlockRenewing<a class="headerlink" href="#restrictionblockrenewing" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：如果讀者受到限制，___ 從館員界面續借館藏和透過 <a class="reference internal" href="cron_jobs.html#cron-automatic-renewal-label"><span class="std std-ref">misc/cronjobs/automatic_renewals.pl</span></a> 。工作排程</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>封鎖</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這個偏好會影響到從館員界面和自動續借排程工作中進行的所有形式的續借。</p></li>
+</ul>
+</section>
+</section>
+<section id="recalls">
+<span id="recalls-preferences-label"></span><h2>催還<a class="headerlink" href="#recalls" title="此标题的永久链接"></a></h2>
+<p>催還功能允許用戶催還目前已借出的館藏。</p>
+<section id="recallsmaxpickupdelay">
+<span id="recallsmaxpickupdelay-label"></span><h3>RecallsMaxPickUpDelay<a class="headerlink" href="#recallsmaxpickupdelay" title="此标题的永久链接"></a></h3>
+<p>詢問：如果催還已經等待 ___ 天，則將其標記為有問題。</p>
+<p>預設值：7</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好定義了使用者必須來取回他們催還館藏的天數。</p></li>
+<li><p>等待取件時間超過這個天數的催還將在流通模組中特別顯示。</p></li>
+<li><p>如果 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>流通規則&lt;circulation-and-fines-rules-label&gt;`中沒有定義等待期，則應用此偏好。</p></li>
+</ul>
+</section>
+<section id="userecalls">
+<span id="userecalls-label"></span><h3>UseRecalls<a class="headerlink" href="#userecalls" title="此标题的永久链接"></a></h3>
+<p>詢問：___催還。</p>
+<p>預設值：不用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>這是催還功能的主開關。</p></li>
+<li><p>Make sure you configure
+<a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">circulation and fines rules</span></a> for
+recalls once enabled.</p></li>
+</ul>
+</section>
+</section>
+<section id="return-claims">
+<span id="returnclaims-label"></span><h2>還入索賠<a class="headerlink" href="#return-claims" title="此标题的永久链接"></a></h2>
+<p>These system preferences are used by the <a class="reference internal" href="circulation.html#return-claim-label"><span class="std std-ref">return claims</span></a>
+feature, where staff can mark checkouts as ‘claimed returned’ when a patron
+says they returned an item, and track those claims.</p>
+<section id="claimreturnedchargefee">
+<span id="claimreturnedchargefee-label"></span><h3>ClaimReturnedChargeFee<a class="headerlink" href="#claimreturnedchargefee" title="此标题的永久链接"></a></h3>
+<p>詢問:當將借出標記為「已還入的索賠」時,</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>問如果遺失是否應該收取費用(預設)</p></li>
+<li><p>遺失費用</p></li>
+<li><p>不收取遺失的費用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許圖書館選擇在是否收取遺失的費用。如果設置為詢問,有一個選框,按交易收費或不收費。如果設定為收費, Koha 將會向讀者收取該館藏的費用。如果設定為不收費, Koha 則不會收取讀者的費用。</p></li>
+</ul>
+</section>
+<section id="claimreturnedlostvalue">
+<span id="claimreturnedlostvalue-label"></span><h3>ClaimReturnedLostValue<a class="headerlink" href="#claimreturnedlostvalue" title="此标题的永久链接"></a></h3>
+<p>詢問:使用 LOST 容許值  ___ 來表示遺失索賠</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>LOST-這是啟用索賠未還入的館藏的功能。向 LOST 新增新的容許值,以表示圖書館索賠未還入。</p></li>
+</ul>
+</section>
+<section id="claimreturnedwarningthreshold">
+<span id="claimreturnedwarningthreshold-label"></span><h3>ClaimReturnedWarningThreshold<a class="headerlink" href="#claimreturnedwarningthreshold" title="此标题的永久链接"></a></h3>
+<p>詢問：待繳罰款達 ___ 元以上，不允許讀者借出館藏。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果圖書館想要在讀者的螢幕上顯示之前待繳罰款請輸入一個數量當超過此數量就會在讀者的螢幕上顯示。</p></li>
+</ul>
+</section>
+<section id="cleanupdatabasereturnclaims">
+<span id="cleanupdatabasereturnclaims-label"></span><h3>CleanUpDatabaseReturnClaims<a class="headerlink" href="#cleanupdatabasereturnclaims" title="此标题的永久链接"></a></h3>
+<p>Asks: Remove resolved return claims older than ___ days.</p>
+<p>Default: (empty)</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference is used to delete
+<a class="reference internal" href="circulation.html#resolve-return-claim-label"><span class="std std-ref">resolved return claims</span></a>.</p></li>
+<li><p>This system preference requires the
+<a class="reference internal" href="cron_jobs.html#cron-clean-up-database-label"><span class="std std-ref">cleanup_database.pl cron job</span></a> with the
+<code class="code docutils literal notranslate"><span class="pre">--return-claims</span></code> parameter.</p></li>
+</ul>
+</section>
+</section>
+<section id="sip2">
+<span id="sip2preferences-label"></span><h2>SIP2<a class="headerlink" href="#sip2" title="此标题的永久链接"></a></h2>
+<section id="sip2sortbinmapping">
+<span id="sip2sortbinmapping-label"></span><h3>SIP2SortBinMapping<a class="headerlink" href="#sip2sortbinmapping" title="此标题的永久链接"></a></h3>
+<p>Asks: Use the following mappings to determine the sort_bin of a returned item.</p>
+<p>說明：</p>
+<ul>
+<li><p>This system preference is used to set the ‘sort bin’ or CL response for SIP
+equipment when checking in an item. The mappings entered here will determine which bin the SIP sorter sends an item to.</p></li>
+<li><p>This system preference must be filled with a specific syntax.</p>
+<ul>
+<li><p>Each mapping should be on its own line.</p></li>
+<li><p>Each mapping should be of the form</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">branchcode</span><span class="p">:</span><span class="n">item</span> <span class="n">field</span><span class="p">:</span><span class="n">comparator</span><span class="p">:</span><span class="n">item</span> <span class="n">field</span> <span class="n">value</span><span class="p">:</span><span class="n">sort</span> <span class="nb">bin</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><p>‘branchcode’ is the library where the checkin is being performed (i.e.
+library assigned to the SIP user)</p></li>
+<li><p>‘item field’ is a database column in the items table</p></li>
+<li><p>‘comparator’ is the type of comparison, possible values are:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">eq</span></code> (is equal to)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">&lt;</span></code> (is less than)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">&lt;=</span></code> (is less than or equal to)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">&gt;</span></code> (is greater than)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">&gt;=</span></code> (is greater than or equal to)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ne</span></code> (is not equal to)</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>‘item field value’ is the value to compare against the value in the
+specified ‘item field’</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Specifying ‘item field value’ with a leading <code class="code docutils literal notranslate"><span class="pre">$</span></code> and an item field
+name will use the value of that field in the item for comparison.</p>
+<p>For example, <code class="code docutils literal notranslate"><span class="pre">$holdingbranch</span></code> will compare the item field to the item’s
+homebranch.</p>
+</div>
+</li>
+<li><p>‘sort bin number’ is the expected return value in the CL field of the
+SIP response for an item matching the rule.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>The mappings will be taken into account in the order the lines are written, starting with the top one.
+Think carefully about the logic your mappings should follow and which order to write them in to achieve what you want.</p>
+</div>
+<section id="mapping-examples">
+<h4>Mapping examples<a class="headerlink" href="#mapping-examples" title="此标题的永久链接"></a></h4>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CPL</span><span class="p">:</span><span class="n">itype</span><span class="p">:</span><span class="n">eq</span><span class="p">:</span><span class="n">BOOK</span><span class="p">:</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>This will return sort bin 1 for an item of itemtype code ‘BOOK’ returned to the library with branchcode ‘CPL’.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CPL</span><span class="p">:</span><span class="n">itemcallnumber</span><span class="p">:</span><span class="o">&lt;</span><span class="p">:</span><span class="mf">339.6</span><span class="p">:</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>This will return sort bin 3 for an item with a callnumber less than 339.6
+returned to the ‘CPL’ library.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CPL:homebranch:ne:\$holdingbranch:X
+</pre></div>
+</div>
+<p>This will return sort bin ‘X’ for an item returned to CPL where the
+holdingbranch is not equal to the homebranch (i.e. any item belonging to a
+different library than ‘CPL’).</p>
+</div></blockquote>
+<div class="admonition-version admonition">
+<p class="admonition-title">Version</p>
+<p>Before Koha version 23.11, each line can only have one ‘item field’ mapping. From 23.11, each line can use multiple item fields mappings.</p>
+<p>There is no limit on the number of item field mappings that can be used in one line.</p>
+<p>This allows for more refined sorting rules. For example, instead of only sorting by item type, a library may now sort by item type and collection code and not for loan status.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CPL</span><span class="p">:</span><span class="n">itype</span><span class="p">:</span><span class="n">eq</span><span class="p">:</span><span class="n">BOOK</span><span class="p">:</span><span class="n">ccode</span><span class="p">:</span><span class="n">eq</span><span class="p">:</span><span class="n">TEEN</span><span class="p">:</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>This will return sort bin 5 for an item with the itemtype code ‘BOOK’ and the collection code ‘TEEN’ returned to the library with branchcode ‘CPL’.</p>
+</div>
+</section>
+<section id="use-case">
+<h4>Use case<a class="headerlink" href="#use-case" title="此标题的永久链接"></a></h4>
+<p>Centerville Library (branchcode ‘CPL’) has SIP equipment which sorts returned items into 4 bins.</p>
+<ul class="simple">
+<li><p>Bin number 1 is for CPL items to be shelved on floor 1 (items whose location code is ‘FLOOR1’).</p></li>
+<li><p>Bin 2 is for CPL items to be shelved on floor 2 (items whose location code is ‘FLOOR2’).</p></li>
+<li><p>Bin 3 is for CPL items that require specific attention, e.g. they need to be checked before shelving or they are part of a specific collection. The CPL stock team is currently recalling the floor 1 Parent collection using this bin.</p></li>
+<li><p>Bin 4 is solely for items that need to be transferred to other libraries (items whose homebranch is not CPL).</p></li>
+</ul>
+<p>Here is the content of their SIP2SortBinMapping system preference.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>::</dt><dd><p># Items to be transferred go to bin 4
+CPL:homebranch:ne:$holdingbranch:4
+# CPL toys, special stock and Floor 1 parent collection go to bin 3
+CPL:itype:eq:TOY:3
+CPL:notforloan:&gt;=:1:3
+CPL:location:eq:FLOOR1:ccode:eq:PARENT:3
+# Other floor 1 CPL stock to bin 1
+CPL:location:eq:FLOOR1:1
+# Floor 2 CPL stock to bin 2
+CPL:location:eq:FLOOR2:2</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Note that the mapping for bin 4 is at the top.
+This ensures that items to be transferred to other libraries are dealt with first; the next mappings will therefore only concern CPL items.</p>
+</section>
+</section>
+<section id="uselocationasaqinsip">
+<span id="uselocationasaqisip-label"></span><h3>UseLocationAsAQInSIP<a class="headerlink" href="#uselocationasaqinsip" title="此标题的永久链接"></a></h3>
+<p>Asks: Use ___ for AQ field in SIP protocol.</p>
+<p>Default: homebranch</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>homebranch</p></li>
+<li><p>permanent_location</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to decide which item information is used
+as the AQ response for SIP equipment.</p></li>
+<li><p>AQ is used in automated sorting bins, for example, as the item’s ‘permanent
+location’. For some libraries, that might mean the item’s home library,
+whereas for others it might mean the item’s permanent location.</p></li>
+</ul>
+</section>
+</section>
+<section id="self-check-in-module-sci-main-pl">
+<h2>自助還入模組(sci-main.pl)<a class="headerlink" href="#self-check-in-module-sci-main-pl" title="此标题的永久链接"></a></h2>
+<section id="selfcheckinmainuserblock">
+<span id="selfcheckinmainuserblock-label"></span><h3>SelfCheckInMainUserBlock<a class="headerlink" href="#selfcheckinmainuserblock" title="此标题的永久链接"></a></h3>
+<p>詢問：在自助借出畫面含下列的 HTML</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在此欄位輸入的 HTML 將出現在自助借出畫面的首頁中央</p></li>
+</ul>
+</section>
+<section id="selfcheckinmodule">
+<span id="selfscheckinmodule-label"></span><h3>SelfCheckInModule<a class="headerlink" href="#selfcheckinmodule" title="此标题的永久链接"></a></h3>
+<p>預設值：停用</p>
+<p>詢問：___ 獨立的自助借出模組 (在：/cgi-bin/koha/sci/sci-main.pl</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好將啟用 (或停用) 自助借出系統模組</p></li>
+</ul>
+</section>
+<section id="selfcheckintimeout">
+<span id="selfcheckintimeout-label"></span><h3>SelfCheckInTimeout<a class="headerlink" href="#selfcheckintimeout" title="此标题的永久链接"></a></h3>
+<p>預設值：120</p>
+<p>詢問：經過 ___ 秒閒置後，就重設自助還入畫面</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>輸入的秒數到，將重新載入自助還入畫面，並回到主頁 (如，讀者忘了登出)。</p></li>
+</ul>
+</section>
+<section id="selfcheckinusercss">
+<span id="selfcheckinusercss-label"></span><h3>SelfCheckInUserCSS<a class="headerlink" href="#selfcheckinusercss" title="此标题的永久链接"></a></h3>
+<p>詢問：在自助借出畫面包括下列的 CSS</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在此輸入的 CSS 將取代自助還入畫面的 CSS</p></li>
+</ul>
+</section>
+<section id="selfcheckinuserjs">
+<span id="selfcheckinuserjs-label"></span><h3>SelfCheckInUserJS<a class="headerlink" href="#selfcheckinuserjs" title="此标题的永久链接"></a></h3>
+<p>詢問：在自助還入各頁面使用以下的 JavaScript</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在此輸入的 JavaScript 將取代自助還入畫面的其他 JavaScript</p></li>
+</ul>
+</section>
+</section>
+<section id="self-check-out-module-sco-main-pl">
+<span id="self-checkout-system-preferences-label"></span><h2>自助借出模組 (sco-main.pl)<a class="headerlink" href="#self-check-out-module-sco-main-pl" title="此标题的永久链接"></a></h2>
+<section id="scouserjs">
+<span id="scouserjs-label"></span><h3>SCOUserJS<a class="headerlink" href="#scouserjs" title="此标题的永久链接"></a></h3>
+<p>詢問：在基於 Web 自助借出的所有頁面上包含以下 JavaScript：</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在此偏好中輸入的 JavaScript 將影響您所有的 Koha 自助借出畫面。</p></li>
+</ul>
+</section>
+<section id="scomainuserblock">
+<span id="scomainuserblock-label"></span><h3>SCOMainUserBlock<a class="headerlink" href="#scomainuserblock" title="此标题的永久链接"></a></h3>
+<p>詢問：在網頁自助借出系統的說明裡有下列的 HTML 內容：</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在此偏好輸入的 HTML 將使用於主要的自助借出畫面。</p></li>
+</ul>
+</section>
+<section id="scousercss">
+<span id="scousercss-label"></span><h3>SCOUserCSS<a class="headerlink" href="#scousercss" title="此标题的永久链接"></a></h3>
+<p>自助借出的所有網頁包括以下的CSS：</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>在此偏好輸入的 CSS 將使用於 Koha 所有的自助借出畫面。</p></li>
+</ul>
+</section>
+<section id="showpatronimageinwebbasedselfcheck">
+<span id="showpatronimageinwebbasedselfcheck-label"></span><h3>ShowPatronImageInWebBasedSelfCheck<a class="headerlink" href="#showpatronimageinwebbasedselfcheck" title="此标题的永久链接"></a></h3>
+<p>詢問：使用自助借出系統時 ___ 讀者照片 (若已匯入)。</p>
+<p>預設值：不顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>如果該系統偏好設置為 ‘顯示’，讀者在登入基於網路的自助借出模組時將看到自己的照片。</p></li>
+</ul>
+</section>
+<section id="webbasedselfcheck">
+<span id="webbasedselfcheck-label"></span><h3>WebBasedSelfCheck<a class="headerlink" href="#webbasedselfcheck" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 網頁自助借出系統。</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>啟用此偏好時，將允許近用 Koha 自己的 <a class="reference internal" href="circulation.html#self-checkout-label"><span class="std std-ref">自助借出</span></a> 模組。</p></li>
+<li><p>您的自助借出模塊可在: <a class="reference external" href="https://YOUR.OPAC.URL/cgi-bin/koha/">https://YOUR.OPAC.URL/cgi-bin/koha/</a> sco/sco-main.pl</p></li>
+</ul>
+</section>
+<section id="selfcheckoutbylogin">
+<span id="selfcheckoutbylogin-label"></span><h3>SelfCheckoutByLogin<a class="headerlink" href="#selfcheckoutbylogin" title="此标题的永久链接"></a></h3>
+<p>詢問：讀者以自己帳號的 ___ 登入網頁自助借出系統</p>
+<p>預設值：Cardnumber</p>
+<p>值：</p>
+<ul>
+<li><p>讀者證號碼</p>
+<p><img alt="image44" src="_images/selfcheckout.png" /></p>
+</li>
+<li><p>名稱與密碼</p>
+<p><img alt="image45" src="_images/SelfCheckoutByLogin.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好讓您決定讀者登入自助借出機器的方式。讀者的卡號(條碼)或他們使用opac/館員用戶名和密碼欄位在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者紀錄 &lt;add-a-new-patron-label&gt;上設定的用戶名和密碼。</p></li>
+</ul>
+</section>
+<section id="selfchecktimeout">
+<span id="selfchecktimeout-label"></span><h3>SelfCheckTimeout<a class="headerlink" href="#selfchecktimeout" title="此标题的永久链接"></a></h3>
+<p>詢問：經過 ___ 秒閒置後，就將讀者登出自助借出系統。</p>
+<p>預設值：120</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>閒置設定的時間後，自助借出系統將讀者登出回到起始畫面。</p></li>
+</ul>
+</section>
+<section id="scoallowcheckin">
+<span id="scoallowcheckin-label"></span><h3>SCOAllowCheckin<a class="headerlink" href="#scoallowcheckin" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者經由自助借出系統還入。</p>
+<p>預設：不允許</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好設定後允許還入館藏。但自助系統的預設值僅供借出之用。</p></li>
+</ul>
+</section>
+<section id="selfcheckhelpmessage">
+<span id="selfcheckhelpmessage-label"></span><h3>SelfCheckHelpMessage<a class="headerlink" href="#selfcheckhelpmessage" title="此标题的永久链接"></a></h3>
+<p>詢問：在網頁自助借出系統的說明裡有下列的 HTML 內容：</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>點選自助借出模組右上角的 ‘說明’ 打開使用說明的三個步驟。從這個偏好新增 HTML，將新增在原有的說明之外。</p></li>
+</ul>
+</section>
+<section id="autoselfcheckallowed-autoselfcheckid-and-autoselfcheckpass">
+<span id="autoselfcheck-preferences-label"></span><h3>AutoSelfCheckAllowed, AutoSelfCheckID and AutoSelfCheckPass<a class="headerlink" href="#autoselfcheckallowed-autoselfcheckid-and-autoselfcheckpass" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>重要的</strong></p>
+<p>大部份圖書館將此偏好設為 ‘不允許’。此偏好關閉以館員帳號與密碼登入自助借出機的權限只允許讀者的帳號與密碼可用。</p>
+</div></blockquote>
+<p>詢問：___ 館員以其帳號 ___ 以及其密碼 ___ 登入自助借出系統。</p>
+<p>AutoSelfCheckAllowed 預設值：不允許</p>
+<p>AutoSelfCheckAllowed 值：</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>AutoSelfCheckID 值：</p>
+<ul class="simple">
+<li><p>具有“自助_借出_模組” <a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">permission</span></a> 的館員讀者名稱。</p></li>
+</ul>
+<p>AutoSelfCheckPass 值：</p>
+<ul class="simple">
+<li><p>具有’自助_借出_模組’的館員密碼 <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">權限</span></a> 的館員密碼。</p></li>
+</ul>
+</section>
+<section id="selfcheckreceiptprompt">
+<span id="selfcheckreceiptprompt-label"></span><h3>SelfCheckReceiptPrompt<a class="headerlink" href="#selfcheckreceiptprompt" title="此标题的永久链接"></a></h3>
+<p>詢問：完成自助借出後 ___ 彈出列印收條對話框。</p>
+<p>預設值：顯示</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>當讀者在網頁自助借出系統按下 ‘完成’ 鈕後，此偏好控制彈出的提示訊息。</p></li>
+</ul>
+</section>
+<section id="selfcheckallowbyipranges">
+<span id="selfcheckallowbyipranges-label"></span><h3>SelfCheckAllowByIPRanges<a class="headerlink" href="#selfcheckallowbyipranges" title="此标题的永久链接"></a></h3>
+<p>詢問: ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此系統偏好用於按IP範圍限制對自助借出模組的近用。</p></li>
+<li><p>使用以空格分隔的範圍或單一IP位址，例如’192.168.1.1 192.168.0.0/24’。</p></li>
+<li><p>如果不想照IP範圍限制近用，請將此系統偏好留空。</p></li>
+</ul>
+</section>
+</section>
+<section id="stock-rotation-module">
+<span id="stock-rotation-system-preferences-label"></span><h2>Stock rotation module<a class="headerlink" href="#stock-rotation-module" title="此标题的永久链接"></a></h2>
+<section id="stockrotation">
+<span id="stockrotation-module-label"></span><h3>StockRotation<a class="headerlink" href="#stockrotation" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 館藏輪調模組</p>
+<p>預設值：停用</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If set to ‘Enable’, the <a class="reference internal" href="cataloging.html#stock-rotation-label"><span class="std std-ref">stock rotation module</span></a>
+will appear under Cataloging &gt; Automation.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="catalogingpreferences.html" class="btn btn-neutral float-left" title="编目" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="enhancedcontentpreferences.html" class="btn btn-neutral float-right" title="強化內容" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

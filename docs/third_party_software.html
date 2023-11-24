@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>在 Koha 使用第三方軟體 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Configuring receipt printers" href="hardware.html" />
+    <link rel="prev" title="擴展 Koha" href="extending_koha.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">在 Koha 使用第三方軟體</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#marcedit">MarcEdit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-prefix-to-call-numbers">新增索書號的首字</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-excel-data-into-koha">將 Excel 資料匯入 Koha</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#converting-from-excel-format-into-mrk-format">將 Excel 格式轉換為 .mrk 格式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#convert-mrk-file-to-mrc">轉換 .mrk 格式為 .mrc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-mrc-into-koha">把 .mrc 匯入 Koha</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#oclc-connexion-gateway">OCLC Connexion Gateway</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-oclc-service-on-koha">在 Koha 設定 OCLC 的服務</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-your-oclc-desktop-client">設定您的 OCLC 桌面客戶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-oclc-connexion-gateway">使用 OCLC Connexion Gateway</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exporting-records-one-by-one">逐筆匯出記錄</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exporting-records-in-a-batch">批次匯出記錄</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#items-in-oclc">OCLC 內的館藏</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#talking-tech">Talking Tech</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-and-setup-instructions">Installation and setup instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-notices-file">Sending notices file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receiving-results-file">Receiving results file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">在 Koha 使用第三方軟體</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/third_party_software.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="extending_koha.html" class="btn btn-neutral float-left" title="擴展 Koha" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="hardware.html" class="btn btn-neutral float-right" title="Configuring receipt printers" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-third-party-software-with-koha">
+<span id="using-third-party-software-with-koha-label"></span><h1>在 Koha 使用第三方軟體<a class="headerlink" href="#using-third-party-software-with-koha" title="此标题的永久链接"></a></h1>
+<section id="marcedit">
+<span id="marc-edit-label"></span><h2>MarcEdit<a class="headerlink" href="#marcedit" title="此标题的永久链接"></a></h2>
+<p>很多圖書館喜歡使用 MarcEdit 軟體修改與整理資料。該軟體可從此處下載：<a class="reference external" href="http://marcedit.reeset.net/">http://marcedit.reeset.net/</a></p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>本章內描述的內容可以在 Koha 內使用 <a class="reference internal" href="cataloging.html#marc-modification-templates-label"><span class="std std-ref">Marc 編修模板</span></a> 完成它，但此段內容係供 MarcEdit 使用。</p>
+</div></blockquote>
+<section id="adding-a-prefix-to-call-numbers">
+<span id="adding-a-prefix-to-call-numbers-label"></span><h3>新增索書號的首字<a class="headerlink" href="#adding-a-prefix-to-call-numbers" title="此标题的永久链接"></a></h3>
+<p>匯入資料前，您或許要先清理它。常用的方法是新增前置碼於索書號之前。</p>
+<ul>
+<li><p>開啟 MarcEdit</p>
+<p><img alt="image1089" src="_images/marcedit.png" /></p>
+</li>
+<li><p>點選 ‘MarcEditor’</p></li>
+<li><p>進入工具 &amp;gt; 編輯分欄資料</p>
+<p><img alt="image1090" src="_images/marcedit-editsubfield.png" /></p>
+</li>
+<li><p>在資料前置特殊字元：^b，在分欄前置資料時，祗需在欄位資料前加入 ^b 即可：將文字及資料附加在取代位置</p>
+<p><img alt="image1091" src="_images/editsubfield1.png" /></p>
+<ul class="simple">
+<li><p>取代字串時先在分欄加入前置資料，加入 ^b [欲取代的字串] 於資料欄位前。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="importing-excel-data-into-koha">
+<span id="importing-excel-data-into-koha-label"></span><h3>將 Excel 資料匯入 Koha<a class="headerlink" href="#importing-excel-data-into-koha" title="此标题的永久链接"></a></h3>
+<p>假設您想要匯入已經存在的 Excel 格式記錄。該怎麼做呢？Koha 不讓您直接匯入 Excel 格式資料。以另個簡單的方案使 Koha 接收 Excel 資料。將 Excel 檔案轉換為 MARC 格式，就能夠匯入。</p>
+<p>依照下列的步驟將 Excel 記錄匯入 Koha</p>
+<section id="converting-from-excel-format-into-mrk-format">
+<span id="converting-from-excel-format-into-mrk-format-label"></span><h4>將 Excel 格式轉換為 .mrk 格式<a class="headerlink" href="#converting-from-excel-format-into-mrk-format" title="此标题的永久链接"></a></h4>
+<p>首先，將 Excel 格式轉換為 .mrk 格式。您將用到 MarcEdit 軟體。可從此處下載它 <a class="reference external" href="http://marcedit.reeset.net/">http://marcedit.reeset.net/</a></p>
+<p>開啟它並選擇Add-ins–&amp;gt;刪除文字轉換器。</p>
+<p><img alt="image1092" src="_images/step-1.png" /></p>
+<p>出現以下視窗時按下一步。</p>
+<p><img alt="image1093" src="_images/step-2.png" /></p>
+<p>瀏覽您的 Excel 檔案。</p>
+<p><img alt="image1094" src="_images/step-3.png" /></p>
+<p>依照 Excel 檔案格式 (*.xls) 選取您的 Excel 檔案。</p>
+<p><img alt="image1095" src="_images/step-4.png" /></p>
+<p>同樣的，填入其他款目，如：匯出檔案、Excel 表單名稱並勾選 UTF-8 編碼 (必要時) 並點選下一步。</p>
+<p><img alt="image1096" src="_images/step-5.png" /></p>
+<p>畫面提示您將欄位對映至標準的 MARC 格式欄位。</p>
+<p>假設欄位 0 是第一欄，則鍵入對映至：022$a (連續性出版品的有效 ISSN) 再按取用。</p>
+<p><img alt="image1097" src="_images/step-6.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>可以客製化指標及其他字串，MARC21 格式的詳情參見 <a href="#id1"><span class="problematic" id="id2">:ref:`official library of congress site &lt;http://www.loc.gov/marc/bibliographic/&gt;`__</span></a>。</p>
+</div></blockquote>
+<p>對映其他欄位後再按完成。</p>
+<p><img alt="image1098" src="_images/step-7.png" /></p>
+<p>將出現視窗告知已新增您的 MARC 文字檔 (*.mrk)。</p>
+<p><img alt="image1099" src="_images/step-8.png" /></p>
+<p>按關閉此步驟把 .xls 檔案格式轉換為 .mrk 檔案格式。點兩下就能打開該檔案。</p>
+</section>
+<section id="convert-mrk-file-to-mrc">
+<span id="convert-mrk-file-to-mrc-label"></span><h4>轉換 .mrk 格式為 .mrc<a class="headerlink" href="#convert-mrk-file-to-mrc" title="此标题的永久链接"></a></h4>
+<p>我們將轉換稍早新增的 .mrk 檔案為可以直接匯入 Koha 的 MRAC 檔案。</p>
+<p>所以再開啟 MarcEdit 軟體並選擇 MARC 工具。</p>
+<p><img alt="image1100" src="_images/step-9.png" /></p>
+<p>接著選取 MarcMaker 把 .mrk 檔案轉換為 .mrc 檔案。</p>
+<p><img alt="image1101" src="_images/step-10.png" /></p>
+<p>選取您的匯入檔案並命名匯出檔案。再點選執行。</p>
+<p><img alt="image1102" src="_images/step-11.png" /></p>
+<p>然後它將顯示結果。</p>
+<p><img alt="image1103" src="_images/step-12.png" /></p>
+<p>按關閉，接著出現 MARC 記錄(.mrc)。</p>
+</section>
+<section id="import-mrc-into-koha">
+<span id="import-mrc-into-koha-label"></span><h4>把 .mrc 匯入 Koha<a class="headerlink" href="#import-mrc-into-koha" title="此标题的永久链接"></a></h4>
+<p>More information on importing records into Koha can be found in the
+<a class="reference internal" href="cataloging.html#stage-marc-records-for-import-label"><span class="std std-ref">Stage MARC records for import</span></a>
+section of this manual.</p>
+<p>最後我們將把新增的 .mrc 檔案匯入 Koha。</p>
+<p>點選館員介面的工具。</p>
+<p><img alt="image1104" src="_images/step-13.png" /></p>
+<p>接著按待匯入的 MARC 記錄。</p>
+<p><img alt="image1105" src="_images/step-14.png" /></p>
+<p>然後，選擇稍早新增的 .mrc 檔案並按上傳。</p>
+<p><img alt="image1106" src="_images/step-15.png" /></p>
+<p>您可新增檔案的評論然後再點選匯入待處理。</p>
+<p><img alt="image1107" src="_images/step-17.png" /></p>
+<p>匯入完成後，您將得到如下的結果</p>
+<p><img alt="image1108" src="_images/step-18.png" /></p>
+<p>然後，點選管理待匯入記錄。</p>
+<p>您可從這裡改變對映規則。</p>
+<p><img alt="image1109" src="_images/step-19.png" /></p>
+<p>做好後，點選匯入此批次目錄。</p>
+<p>做好後。匯入所有的記錄後，按狀態後將顯示 “已匯入”</p>
+<p><img alt="image1110" src="_images/step-20.png" /></p>
+<p>您可取消匯入作業。</p>
+<p>幾分鐘後，您就已匯入 10,000 筆左右的記錄</p>
+</section>
+</section>
+</section>
+<section id="oclc-connexion-gateway">
+<span id="oclc-connexion-gateway-label"></span><h2>OCLC Connexion Gateway<a class="headerlink" href="#oclc-connexion-gateway" title="此标题的永久链接"></a></h2>
+<p>Koha 可以和 OCLC Connextion Gateway 相容。此舉容許圖書館使用 OCLC Connextion 做為其編目工具並以單鍵送出此等記錄給 Koha。以下指示有助於您設定 OCLC Connextion Gateway，若您是系統管理者就可參照使用它。</p>
+<section id="setting-up-oclc-service-on-koha">
+<span id="setting-up-oclc-service-on-koha-label"></span><h3>在 Koha 設定 OCLC 的服務<a class="headerlink" href="#setting-up-oclc-service-on-koha" title="此标题的永久链接"></a></h3>
+<p>首先，需在系統的某個地方新增組態資訊的檔案。可以放在帳號可及且可執行服務的地方。</p>
+<p>此檔案有11列。前6列有關您的 Koha 系統：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">host</span><span class="p">:</span> <span class="n">The</span> <span class="n">IP</span> <span class="n">address</span> <span class="n">of</span> <span class="n">your</span> <span class="n">Koha</span> <span class="n">server</span>
+<span class="n">port</span><span class="p">:</span> <span class="n">The</span> <span class="n">port</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Connexion</span> <span class="n">service</span><span class="o">.</span> <span class="n">This</span> <span class="n">port</span> <span class="n">must</span> <span class="n">be</span> <span class="n">different</span> <span class="kn">from</span> <span class="nn">your</span> <span class="n">SIP</span> <span class="n">port</span><span class="p">,</span> <span class="ow">or</span> <span class="nb">any</span> <span class="n">other</span> <span class="n">service</span>
+<span class="n">koha</span><span class="p">:</span> <span class="n">The</span> <span class="n">full</span> <span class="n">URL</span> <span class="n">of</span> <span class="n">your</span> <span class="n">staff</span> <span class="n">client</span>
+<span class="n">log</span><span class="p">:</span> <span class="n">The</span> <span class="n">location</span> <span class="p">(</span><span class="n">full</span> <span class="n">file</span> <span class="n">specification</span><span class="p">)</span> <span class="n">of</span> <span class="n">your</span> <span class="n">log</span> <span class="k">for</span> <span class="n">the</span> <span class="n">service</span>
+<span class="n">user</span><span class="p">:</span> <span class="n">The</span> <span class="n">default</span> <span class="n">Koha</span> <span class="n">username</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">importing</span>
+<span class="n">password</span><span class="p">:</span> <span class="n">The</span> <span class="n">password</span> <span class="n">that</span> <span class="n">goes</span> <span class="k">with</span> <span class="n">that</span> <span class="n">username</span>
+</pre></div>
+</div>
+<p>其他幾列描述管理的方式：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">match</span><span class="p">:</span> <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">matching</span> <span class="n">rule</span> <span class="kn">from</span> <span class="nn">your</span> <span class="n">system</span> <span class="n">to</span> <span class="n">use</span>
+<span class="n">overlay_action</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="s2">&quot;create_new&quot;</span><span class="p">,</span> <span class="ow">or</span> <span class="s2">&quot;ignore&quot;</span><span class="o">--</span> <span class="n">what</span> <span class="n">to</span> <span class="n">do</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">match</span>
+<span class="n">nomatch_action</span><span class="p">:</span> <span class="s2">&quot;create_new&quot;</span> <span class="ow">or</span> <span class="s2">&quot;ignore&quot;</span><span class="o">--</span> <span class="n">what</span> <span class="n">to</span> <span class="n">do</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">match</span>
+<span class="n">item_action</span><span class="p">:</span> <span class="s2">&quot;always_add&quot;</span><span class="p">,</span><span class="s2">&quot;add_only_for_matches&quot;</span><span class="p">,</span><span class="s2">&quot;add_only_for_new&quot;</span><span class="p">,</span> <span class="ow">or</span> <span class="s2">&quot;ignore&quot;</span> <span class="o">--</span> <span class="n">what</span> <span class="n">to</span> <span class="n">do</span> <span class="k">with</span> <span class="n">embedded</span> <span class="mi">952</span> <span class="n">item</span> <span class="n">data</span>
+<span class="n">import_mode</span><span class="p">:</span> <span class="s2">&quot;direct&quot;</span> <span class="ow">or</span> <span class="s2">&quot;stage&quot;</span>
+</pre></div>
+</div>
+<p>範例如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">host</span><span class="p">:</span> <span class="mf">1.2.3.4</span>
+<span class="n">port</span><span class="p">:</span> <span class="mi">8000</span>
+<span class="n">log</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">koha</span><span class="o">/</span><span class="n">koha</span><span class="o">-</span><span class="n">dev</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">connexion</span><span class="o">.</span><span class="n">log</span>
+<span class="n">koha</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">kohastaff</span><span class="o">.</span><span class="n">myuniversity</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">user</span><span class="p">:</span> <span class="n">koha_generic_staff</span>
+<span class="n">password</span><span class="p">:</span> <span class="n">password</span>
+<span class="n">match</span><span class="p">:</span> <span class="mi">001</span>
+<span class="n">overlay_action</span><span class="p">:</span> <span class="n">replace</span>
+<span class="n">nomatch_action</span><span class="p">:</span> <span class="n">create_new</span>
+<span class="n">item_action</span><span class="p">:</span> <span class="n">ignore</span>
+<span class="n">import_mode</span><span class="p">:</span> <span class="n">direct</span>
+</pre></div>
+</div>
+<p>使用 “直接” 就是選擇 ‘import_mode’，則把待處理記錄立即匯入 Koha，且在索引建立後就可搜尋。若選擇 “待處理”，則記錄置於待處理批次，直至選取 <a class="reference internal" href="cataloging.html#staged-marc-record-management-label"><span class="std std-ref">管理待處理 MARC 記錄</span></a> 時，才處理它。</p>
+<p>匯入多筆記錄時，他們將在同一個批次，直到該筆批次匯入完畢，才產生新的指次。</p>
+<p>在 “直接” 模式，每筆記錄將在其自己的批次內。</p>
+<p>執行下列程式，啟動服務：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">location</span><span class="o">/</span><span class="n">of</span><span class="o">/</span><span class="n">connexion</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="n">daemon</span><span class="o">/</span><span class="n">connexion_import_daemon</span><span class="o">.</span><span class="n">pl</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">location</span><span class="o">/</span><span class="n">of</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">cnf</span>
+</pre></div>
+</div>
+</section>
+<section id="setting-up-your-oclc-desktop-client">
+<span id="setting-up-your-oclc-desktop-client-label"></span><h3>設定您的 OCLC 桌面客戶<a class="headerlink" href="#setting-up-your-oclc-desktop-client" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>取自 OCLC Connexion Client v.2.50, Koha v.3.12 的畫面</p>
+</div></blockquote>
+<p>設定 OCLC Connexion 桌面客戶連結 Koha，至 工具 &amp;gt; 選項，再選取匯出分頁。</p>
+<p><img alt="image1317" src="_images/oclcexporttab.png" /></p>
+<ul>
+<li><p>點選 “新增…” 鈕以設定新的目的地，再選取 “OCLC Gateway Export” 及按 OK。</p>
+<ul class="simple">
+<li><p>鍵入以下資訊：</p>
+<ul>
+<li><p>“Host Name:” 您的目錄 IP 位址(取自 <a class="reference internal" href="#setting-up-oclc-service-on-koha-label"><span class="std std-ref">前述組態檔</span></a>)</p></li>
+<li><p>“Port:” 您的目錄埠號(取自 <a class="reference internal" href="#setting-up-oclc-service-on-koha-label"><span class="std std-ref">前述組態檔</span></a>)</p></li>
+<li><p>“Login ID:” 編目員的 Koha 帳號</p></li>
+<li><p>“Password:” 編目員的 Koha 密碼</p></li>
+<li><p>“Notify Host Before Disconnect” = checked,</p></li>
+<li><p>“Timeout” = 100, “Retries” = 3, “Delay” = 0 (zero),</p></li>
+<li><p>“Send Local System Logon ID Password” = checked.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1111" src="_images/oclcgatewaysetup.png" /></p>
+</li>
+<li><p>完成後點選 “OK”，接著可以到新增 “Gateway 匯出” 選項清單(以下的畫面不顯示目錄的IP網址及埠號)</p>
+<p>新增 Gateway 匯出</p>
+</li>
+<li><p>點選 “記錄特性” 並確認書目記錄使用 MARC21、UTF-8 Unicode 編碼，並點選 OK 以儲存它。</p>
+<p>記錄特性</p>
+</li>
+</ul>
+<p>您應已準備妥當！從 OCLC Connexion 的 Koha 客戶匯出記錄，記錄出現在螢幕時，祗需要 F5 鍵即可。彈出匯出對話盒，您將看到 Connexion 與 Koha 的對話。注意記錄已新增或覆寫的訊息，包括書目號與網址以備查檢該記錄之用。</p>
+</section>
+<section id="using-the-oclc-connexion-gateway">
+<span id="using-the-oclc-connexion-gateway-label"></span><h3>使用 OCLC Connexion Gateway<a class="headerlink" href="#using-the-oclc-connexion-gateway" title="此标题的永久链接"></a></h3>
+<p>可以從 Connexion 批次或逐筆匯出記錄。</p>
+<section id="exporting-records-one-by-one">
+<span id="exporting-records-one-by-one-label"></span><h4>逐筆匯出記錄<a class="headerlink" href="#exporting-records-one-by-one" title="此标题的永久链接"></a></h4>
+<p>逐筆匯出書目記錄時，確認您的 “批次” 選項的正確性：從 “工具” 選單裡，選取 “選項”，再選 “批次” 分頁。在 “於批次執行在地作業” 區塊，不要勾選 “匯出書目記錄”</p>
+<p><img alt="image1318" src="_images/oclcoptions.png" /></p>
+<p>準備匯出時，從 “行動” 選單，選擇 “匯出” 或使用 F5 鍵。若匯出成功或新增至目錄時可看到類似的畫面；您可複製 &amp;amp; 貼上結果網址於您的 Koha 目錄就可看到新增的記錄。</p>
+<p><img alt="image1319" src="_images/oclcstatus.png" /></p>
+<p>若覆寫記錄，您將看到 “OCLC Gateway Export Status” 視窗顯示的訊息</p>
+<p><img alt="image1319" src="_images/oclcstatus.png" /></p>
+</section>
+<section id="exporting-records-in-a-batch">
+<span id="exporting-records-in-a-batch-label"></span><h4>批次匯出記錄<a class="headerlink" href="#exporting-records-in-a-batch" title="此标题的永久链接"></a></h4>
+<p>批次匯出書目記錄時，確認您的 “批次” 選項的正確性：從 “工具” 選單裡，選取 “選項”，再選 “批次” 分頁。在 “於批次執行在地作業” 區塊，勾選 “匯出書目紀錄”</p>
+<p><img alt="image1320" src="_images/oclcexportbatch.png" /></p>
+<p>準備匯出單筆記錄時，從 “行動” 選單，選取 “匯出” 或按 F5 鍵，其匯出狀態將是 “備便。”</p>
+<p>準備批次匯出記錄時，從 “批次” 選單，選取 “批次程序” 並選取適當的 “路徑” 與 “匯出” 盒</p>
+<p><img alt="image1321" src="_images/oclcprocessbatch.png" /></p>
+<p>即將開始匯出，書目記錄將逐筆匯出 &amp;amp; 匯入 Koha；您可在 “OCLC Gateway 匯出狀態” 視窗，如前所述，看到每個記錄的匯出。必須選取 “關閉”，該視窗才會關閉並開始下筆記錄的匯出/匯入作業。此過程持續不斷直到完成批次內所有的記錄。然後您可見到或看不到 Connexion 客戶匯出報表(視您的客戶選項而定)。</p>
+</section>
+<section id="items-in-oclc">
+<span id="items-in-oclc-label"></span><h4>OCLC 內的館藏<a class="headerlink" href="#items-in-oclc" title="此标题的永久链接"></a></h4>
+<p>為每個館藏新增 952 欄就能把館藏記錄加入 OCLC。 <a class="reference internal" href="cataloging.html#location-item-information-label"><span class="std std-ref">位置和館藏訊息</span></a> 將分析 952 的分欄，至少應使用到分欄 2、a、b、與 y。</p>
+<p>952
+\\$2CLASSIFICATION$aHOMEBRANCHCODE$bHOLDINGBRANCHCODE$yITEMTYPECODE</p>
+<ul class="simple">
+<li><p>分欄 2 是分類法代碼。可以用 ddc 代表杜威分類法或 lcc 代表美國國會圖書館分類法或 z 代表客製化的分類法。其他的分類法來源在管理區塊的 <a class="reference internal" href="administration.html#classification-sources-label"><span class="std std-ref">分類法來源</span></a></p></li>
+<li><p>分欄 a 是您所屬圖書館的代碼，不是名稱。代碼可在管理區塊的 <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">圖書館</span></a> 找到。</p></li>
+<li><p>分欄 b 是您館藏圖書館的代碼，不是名稱。代碼可在管理區塊的 <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">圖書館</span></a> 找到。</p></li>
+<li><p>分欄 y 是您館藏類型的代碼。必須是代碼，不是名稱。代碼可在管理區塊的 <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">館藏類型</span></a> 找到。</p></li>
+</ul>
+<p>952 \\$2ddc$aMAIN$bMAIN$yBOOK</p>
+<p>在這些必備欄位之外您可輸入其他任何的欄位。大部份圖書館在分欄 o 輸入索書號在分欄 p 鍵入條碼號。在 <a class="reference internal" href="cataloging.html#location-item-information-label"><span class="std std-ref">位置和館藏訊息</span></a> 檢視完整分欄及其值。</p>
+</section>
+</section>
+</section>
+<section id="talking-tech">
+<span id="talking-tech-label"></span><h2>Talking Tech<a class="headerlink" href="#talking-tech" title="此标题的永久链接"></a></h2>
+<p>Talking Tech i-tiva is a third party, proprietary, product that
+libraries can subscribe to. Learn more here:
+<a class="reference external" href="http://www.talkingtech.com/solutions/library">http://www.talkingtech.com/solutions/library</a>.</p>
+<section id="installation-and-setup-instructions">
+<span id="installation-and-setup-instructions-label"></span><h3>Installation and setup instructions<a class="headerlink" href="#installation-and-setup-instructions" title="此标题的永久链接"></a></h3>
+<p>確認您已執行 installer/data/mysql/atomicupdate/Bug-4246-Talking-Tech-itiva-phone-notifications.pl，安裝必備的資料包(新增 syspref，通知 placeholders 與 messaging transport 偏好)</p>
+<p>To use,
+<a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification-label"><span class="std std-ref">TalkingTechItivaPhoneNotification</span></a>
+system preference must be turned on.</p>
+<p>If you wish to process PREOVERDUE or RESERVES messages, you’ll need the
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> system
+preference turned on, and patrons to have filled in a preference for
+receiving these notices by phone.</p>
+<p>對於 OVERDUE，必須在 更多 &gt; 工具 &gt; <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">啟動逾期通知</span></a> 下的組態逾期通知。可以使用個別分館的啟動方式，或預設階段的啟動 (選擇適宜的腳本)。</p>
+</section>
+<section id="sending-notices-file">
+<span id="sending-notices-file-label"></span><h3>Sending notices file<a class="headerlink" href="#sending-notices-file" title="此标题的永久链接"></a></h3>
+<ol class="arabic simple">
+<li><p>新增 <a class="reference internal" href="cron_jobs.html#cron-sending-notices-file-label"><span class="std std-ref">TalkingTech_itiva_outbound.pl</span></a> 腳本至您的排程</p></li>
+<li><p>Add an FTP/SFTP or other transport method to send the output file to
+the i-tiva server</p></li>
+<li><p>若您需要，可以在送出之後於另個資料夾典藏送出的通知檔</p></li>
+</ol>
+<p>執行 TalkingTech_itiva_outbound.pl –help 指令取得更多資訊</p>
+</section>
+<section id="receiving-results-file">
+<span id="receiving-results-file-label"></span><h3>Receiving results file<a class="headerlink" href="#receiving-results-file" title="此标题的永久链接"></a></h3>
+<ol class="arabic simple">
+<li><p>新增 FTP/SFTP 或其他傳輸方法，將結果檔案送至您 Koha 伺服器內已知的資料夾</p></li>
+<li><p>新增 <a class="reference internal" href="cron_jobs.html#cron-receiving-notices-file-label"><span class="std std-ref">TalkingTech_itiva_inbound.pl</span></a> 腳本於您的排程後，針對於該資料夾</p></li>
+<li><p>若您願意，可以在處理後於其他資料夾儲存結果檔案</p></li>
+</ol>
+<p>執行 TalkingTech_itiva_inbound.pl –help 指令取得更多資訊</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="extending_koha.html" class="btn btn-neutral float-left" title="擴展 Koha" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="hardware.html" class="btn btn-neutral float-right" title="Configuring receipt printers" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

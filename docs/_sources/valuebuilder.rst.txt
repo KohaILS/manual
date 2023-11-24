@@ -1,0 +1,44 @@
+.. include:: images.rst
+
+.. _valuebuilder-label:
+
+Cataloguing plugins (value builders)
+===============================================================================
+
+With value builders you can enhance your cataloguing with additional features 
+like validation, link creation, auto-generation of numbers etc.
+
+A value builder is a perl script that, within a MARC framework, is linked to a 
+certain subfield in bibliographic records, authority records or items. 
+
+.. Note::
+
+   Cataloguing plugins are not to be confused with 
+   :ref:`Koha plugins <plugin-system-label>`
+
+.. _setup-valuebuilder-label:
+
+Set up
+-------------------------------------------------------------------------------
+
+*Get there:* Administration > MARC bibliographic framework
+
+To use a value builder in your MARC framework, navigate to Administration > 
+MARC bibliographic framework and then to the MARC structure of the desired 
+framework.
+
+Search for or browse to a field, and choose 'Edit subfields' from its 'Actions' 
+menu. Go to the subfield's tab, and choose the relevant entry from the drop down
+list at "plugin".
+
+Example
+-------------------------------------------------------------------------------
+
+Adding the call number browser to the items editor:
+
+#. In your MARC framework, go to field 952 and edit subfield o.
+#. Choose cn_browser.pl from the 'Plugin' list.
+#. Save your changes.
+
+|image1518|
+

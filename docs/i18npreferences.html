@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I18N/L10N &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Interlibrary loans" href="illpreferences.html" />
+    <link rel="prev" title="E-Resource management" href="ermpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">I18N/L10N</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#addressformat">AddressFormat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alphabet">字母</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calendarfirstdayofweek">CalendarFirstDayOfWeek</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dateformat">dateformat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#language">語言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opaclanguages">OPACLanguages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opaclanguagesdisplay">opaclanguagesdisplay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeformat">TimeFormat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translatenotices">TranslateNotices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">I18N/L10N</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/i18npreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="ermpreferences.html" class="btn btn-neutral float-left" title="E-Resource management" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="illpreferences.html" class="btn btn-neutral float-right" title="Interlibrary loans" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="i18n-l10n">
+<span id="i18n-l10n-label"></span><h1>I18N/L10N<a class="headerlink" href="#i18n-l10n" title="此标题的永久链接"></a></h1>
+<p>此等偏好控制國際化與在地化的設定。</p>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt;
+I18N/L10N</p>
+<section id="addressformat">
+<span id="addressformat-label"></span><h2>AddressFormat<a class="headerlink" href="#addressformat" title="此标题的永久链接"></a></h2>
+<p>詢問：郵寄地址的格式 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>德國式 ([地址] [門牌] - [郵遞區號] [縣市] - [國名])</p></li>
+<li><p>法國式 ([門牌] [地址] - [郵遞區號] [縣市] - [國名])</p></li>
+<li><p>US 式 ([門牌]、[地址] - [縣市]、[郵遞區號]、[國名])</p></li>
+</ul>
+<p>預設: US 式 ([門牌]、[地址] - [縣市]、[郵遞區號]、[國名])</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制 Koha 在讀者記錄內顯示其地址資訊的方式。</p></li>
+</ul>
+</section>
+<section id="alphabet">
+<span id="alphabet-label"></span><h2>字母<a class="headerlink" href="#alphabet" title="此标题的永久链接"></a></h2>
+<p>Asks: Use the alphabet ___ for lists of browsable letters. This
+should be a space separated list of uppercase letters. Hint: Changing collation in the database for the ‘surname’ column of the ‘borrowers’ table is helpful to make browsing by last name work in members-home.pl when using an alphabet outside of A-Z.</p>
+<p>預設：A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+<p>說明：</p>
+<ul>
+<li><p>此偏好允許您設定額外的字母供 Koha 讀者瀏覽。</p>
+<p><img alt="On the Patrons module homepage, the alphabet is displayed next to &quot;Browse by last name&quot;." src="_images/alphabet.png" /></p>
+</li>
+</ul>
+</section>
+<section id="calendarfirstdayofweek">
+<span id="calendarfirstdayofweek-label"></span><h2>CalendarFirstDayOfWeek<a class="headerlink" href="#calendarfirstdayofweek" title="此标题的永久链接"></a></h2>
+<p>詢問：以 ___ 為日曆上每週開始的第一天。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>星期日</p></li>
+<li><p>星期一</p></li>
+<li><p>星期二</p></li>
+<li><p>星期三</p></li>
+<li><p>星期四</p></li>
+<li><p>星期五</p></li>
+<li><p>星期六</p></li>
+</ul>
+<p>預設值：星期日</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Using this preference, you can control what day shows as the first day
+of the week in the calendar pop ups throughout Koha and on the
+Calendar tool. If you change this preference and don’t see a change
+in your browser, try clearing your cache since it makes changes to the
+Javascript on these pages.</p></li>
+</ul>
+</section>
+<section id="dateformat">
+<span id="dateformat-label"></span><h2>dateformat<a class="headerlink" href="#dateformat" title="此标题的永久链接"></a></h2>
+<p>詢問： 日期格式為 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>dd.mm.yyyy</p></li>
+<li><p>yyyy-mm-dd</p></li>
+<li><p>dd/mm/yyyy</p></li>
+<li><p>mm/dd/yyyy</p></li>
+</ul>
+<p>預設值：mm/dd/yyyy</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference controls how the date is displayed.</p></li>
+<li><p>The options are: mm/dd/yyyy (e.g., 04/24/2010 for 24 April 2010); dd/mm/yyyy (24/04/2010); dd.mm.yyyy (24.04.2010); the ISO (International Organization for Standardization) format yyyy-mm-dd (2010-04-24).</p></li>
+<li><p>The ISO format would primarily be used by libraries with locations in multiple nations that may use different date formats, to have a
+single display type.</p></li>
+</ul>
+</section>
+<section id="language">
+<span id="language-label"></span><h2>語言<a class="headerlink" href="#language" title="此标题的永久链接"></a></h2>
+<p>詢問：以下列的語系為館員介面的預設語系</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>English (en)</p></li>
+</ul>
+<p>Default: English (en)</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>To install additional languages, please refer to the Koha Wiki page <a class="reference external" href="https://wiki.koha-community.org/wiki/Installation_of_additional_languages_for_OPAC_and_INTRANET_staff_client">Installation of additional languages for OPAC and INTRANET staff client</a>.
+Once an additional language are installed, it will show as an option in this preference.</p>
+</div>
+</section>
+<section id="opaclanguages">
+<span id="opaclanguages-label"></span><h2>OPACLanguages<a class="headerlink" href="#opaclanguages" title="此标题的永久链接"></a></h2>
+<p>詢問：以下列的語系為 OPAC 的預設語系</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>English (en)</p></li>
+</ul>
+<p>Default: English (en)</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>To install additional languages, please refer to the Koha Wiki page <a class="reference external" href="https://wiki.koha-community.org/wiki/Installation_of_additional_languages_for_OPAC_and_INTRANET_staff_client">Installation of additional languages for OPAC and INTRANET staff client</a>.
+Once an additional language are installed, it will show as an option in this preference.</p>
+</div>
+</section>
+<section id="opaclanguagesdisplay">
+<span id="opaclanguagesdisplay-label"></span><h2>opaclanguagesdisplay<a class="headerlink" href="#opaclanguagesdisplay" title="此标题的永久链接"></a></h2>
+<p>詢問：___ 讀者選擇 OPAC 的語系。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>預設：不允許</p>
+<p>說明：</p>
+<ul>
+<li><p>When Allow is selected, patrons will see a language selector on the public catalog. Use the <a class="reference internal" href="opacpreferences.html#opaclangselectormode-label"><span class="std std-ref">OpacLangSelectorMode</span></a> preference
+to control where this selector will appear on the page.</p>
+<p><img alt="Language selector in the footer of the Opac, with text: &quot;Languages: English Español Français&quot;." src="_images/opaclanguagesdisplay.png" /></p>
+</li>
+<li><p>When Don’t allow is selected, there is no option for a patron to choose their preferred language on the public catalog.</p></li>
+</ul>
+</section>
+<section id="timeformat">
+<span id="timeformat-label"></span><h2>TimeFormat<a class="headerlink" href="#timeformat" title="此标题的永久链接"></a></h2>
+<p>詢問：時間格式 ___</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>12 hour format (e.g. “02:18 PM”)</p></li>
+<li><p>24 hour format (e.g. “14:18”)</p></li>
+</ul>
+<p>Default: 24 hour format (e.g. “14:18”)</p>
+</section>
+<section id="translatenotices">
+<span id="translatenotices-label"></span><h2>TranslateNotices<a class="headerlink" href="#translatenotices" title="此标题的永久链接"></a></h2>
+<p>詢問：___ 將翻譯的通知。設定之後，將從 “通知與收條” 介面翻譯其內容。將以讀者指定語文將通知送給讀者。</p>
+<p>值：</p>
+<ul class="simple">
+<li><p>不允許</p></li>
+<li><p>允許</p></li>
+</ul>
+<p>預設：不允許</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If set to ‘Allow’ it is possible to choose a ‘Preferred language for notices’
+when creating a new patron account in the staff interface, or for the patron to
+do this themselves from their messaging options when logged into their account on the OPAC.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="ermpreferences.html" class="btn btn-neutral float-left" title="E-Resource management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="illpreferences.html" class="btn btn-neutral float-right" title="Interlibrary loans" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

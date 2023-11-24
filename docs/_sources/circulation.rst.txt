@@ -1,0 +1,3425 @@
+.. include:: images.rst
+
+.. _circulation-label:
+
+Circulation
+===========
+
+Circulation functions can be accessed in several different ways. On the
+main page of the staff client there are some quick links in the center
+of the page to check items out, in or transfer them. For a complete
+listing of Circulation functions you can visit the Circulation page
+which is linked from the top left of every page or from the center of
+the main page.
+
+Before circulating your collection you will want to set your :ref:`Global
+system preferences <global-system-preferences-label>`, :ref:`Basic
+parameters <basic-parameters-label>` and :ref:`Patrons and circulation
+rules <patrons-and-circulation-label>`.
+
+While in Circulation you can jump between the tabs on the quick search
+box at the top of the screen by using the following hot keys:
+
+-  jump to the catalog search with Alt+Q
+
+-  jump to the checkout with Alt+U
+
+   -  this will not work for Mac users
+
+-  jump to the checkin with Alt+R
+
+    **Note**
+
+    Mac users use the OPTION button in place of ALT
+
+.. _check-out-(issuing)-label:
+
+Check out (issuing)
+-------------------------------------------------------------------------------
+
+To begin the checkout process you must enter the patron barcode or part
+of their name. The checkout option appears in three main places:
+
+-  Check out option in the search bar at the top of the staff interface's main
+   page
+
+   |checkoutsearchbar|
+
+-  Check out option in the search bar at the top of the main circulation page
+
+   |circulationsearchbar|
+
+Those two options are essentially a :ref:`patron search<patron-search-label>`.
+If you only have one result, Koha will automatically go to the patron's file,
+in the 'Check out' tab.
+
+|checkoutpatrondetail|
+
+If your search gives you more than one result, it will ask you to choose which
+patron to check out to.
+
+|patronsearchresults|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module, under the patrons tab (table id: memberresultst).
+
+Clicking on a patron search result will bring you to the patron's file, on the
+'Details' tab. Click the 'Check out' tab to access the check out screen.
+
+If you have enabled :ref:`batch checkouts <batch-checkouts-label>`, click the
+batch check out tab on the patron record
+
+|batchcheckout|
+
+.. _checking-items-out-label:
+
+Checking items out
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To check an item out to a patron, first search for that patron using one
+of the many options listed above. You will then be presented with the
+checkout screen.
+
+|checkoutpatrondetail|
+
+If 'Always show checkouts immediately' is checked, you will see the list of
+current checkouts below the check out box.
+
+|checkoutpatron-alwaysshow|
+
+.. Note::
+
+   The :ref:`previousIssuesDefaultSortOrder <previousIssuesDefaultSortOrder-label>` system preference controls
+   in which order these previous checkouts appear (earliest to latest,
+   or latest to earliest).
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module, under the circulation tab (table id: issues-table).
+
+At the top of the check out screen is a field to type or scan the item's
+barcode into.
+
+.. Note::
+
+   Many modern barcode scanners will send a 'return' to the browser,
+   making it so that the 'Check out' button is automatically clicked.
+
+-  If the barcode is not found you will be prompted to use fast
+   cataloging to add the item. Learn more about :ref:`fast
+   cataloging <fast-add-cataloging-label>` later in this manual.
+
+-  If the :ref:`itemBarcodeFallbackSearch <itemBarcodeFallbackSearch-label>` system preference is set to
+   'Enable', you can enter a keyword search in this box instead of
+   just a barcode (this will make it possible to check out using title
+   and/or call number).
+
+-  If the :ref:`AutoSwitchPatron <AutoSwitchPatron-label>` system preference is set to 'Enable',
+   scanning a patron barcode here will take you to that patron's file.
+
+To see more checkout options click the 'Checkout settings' link to
+expand the checkout area.
+
+|checkoutsettings|
+
+-  Specify due date: this option can be used to override the default due date
+   for the item, as defined in the
+   :ref:`circulation and fines rules<circulation-and-fines-rules-label>`.
+
+   .. Note::
+
+      This option will only appear if the :ref:`SpecifyDueDate <SpecifyDueDate-label>` system
+      preference is set to allow staff to override the due date.
+
+   -  The red 'X' is used to clear the date. If the 'specify due date' field is
+      empty, the default due date, as defined in the
+      :ref:`circulation and fines rules<circulation-and-fines-rules-label>` is
+      used.
+
+   -  Remember for this session: check this box to use the same date for all
+      checkouts. This will not only keep the specified due date for this patron
+      but for all patrons, until you log out of the staff interface.
+
+-  Automatic renewal: this option will allow this item to automatically be
+   renewed
+
+   -  To use automatic renewals,
+
+      -  the :ref:`automatic\_renewals cron job <cron-automatic-renewal-label>`
+         must be running
+
+      -  the :ref:`circulation and fines rules<circulation-and-fines-rules-label>`
+         regarding automatic renewals must be defined
+
+   -  Just like regular renewals, the checkouts will not be automatically
+      renewed if there is a hold on the item.
+
+-  Don't decrease checkout length based on holds: this option overrides the
+   :ref:`decreaseLoanHighHolds <decreaseloanhighholds-preferences-label>` system
+   preference.
+
+   .. Note::
+
+      This option will only appear if the
+      :ref:`decreaseLoanHighHolds <decreaseloanhighholds-preferences-label>`
+      system preference is enabled.
+
+-  On-site checkout: this option indicates that this checkout is an on-site
+   checkout.
+
+   .. Note::
+
+      This option will only appear if the
+      :ref:`checkout of items on site <onsitecheckouts-label>` to patrons is
+      allowed. These are usually items that are not for loan that you would
+      like to check out for in-library use.
+
+At the bottom of the page there is a summary of the patron's current
+checked out items along with the due date (and time if the item is an
+hourly loan). Items checked out today will appear at the top, previously
+checked out items will be underneath.
+
+.. Note::
+
+   The :ref:`todaysIssuesDefaultSortOrder <todaysIssuesDefaultSortOrder-label>` system preference controls in
+   which order these new checkouts appear (earliest to latest, or latest
+   to earliest).
+
+.. Note::
+
+   Items that are hourly loan items will include the time with the due date.
+
+If an item is checked out for on-site use, that information will be highlighted
+in red in the checkout summary.
+
+|onsitecheckout|
+
+If there are notes on the patron record these will appear to the right
+of the checkout box
+
+|patronnotes|
+
+If the patron has a hold waiting at the library, that too will appear to
+the right of the check out box making it easy for the circulation
+staff to see that there is another item to give to the patron.
+
+The details of the checkouts will appear on the record detail page in the
+staff interface as well.
+
+|circonholdings|
+
+.. _printing-receipts-label:
+
+Printing receipts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once you have checked out all of the items for the patron you can print
+them a receipt by choosing one of two methods.
+
+If you have the :ref:`CircAutoPrintQuickSlip <CircAutoPrintQuickSlip-label>`
+preference set to 'open a print quick slip window' you can simply hit
+enter on your keyboard or scan a blank piece of paper with your barcode
+scanner. The idea being that you're "checking out" a blank barcode which
+triggers Koha to print the 'Quick slip.'
+
+If you have the :ref:`DisplayClearScreenButton <displayclearscreenbutton-label>`
+system preference set to 'Show print quick slip and clear buttons' or 'Show
+print slip and clear buttons', there will be a small printer button in the top
+right of the checkout box, which can be used to print the slip or quick slip.
+
+|DisplayClearScreenButton|
+
+You can also click the Print button at the top of the screen and choose
+'Print slip' or 'Print quick slip'.
+
+|printslip|
+
+If you choose 'Print slip' it will print all of the items the patron has
+checked out, including those they checked out at an earlier date.
+
+.. Note::
+
+   The slip uses the ISSUESLIP notice. You can customize the notice in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+Choosing 'Print quick slip' will print only the items that were checked
+out today.
+
+.. Note::
+
+   The quick slip uses the ISSUEQSLIP notice. You can customize the notice in
+   the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+'Print summary' will generate a full page summary for the patron's
+circulation information.
+
+.. Note::
+
+   The summary cannot be customized.
+
+   However, the tables for the checkouts, holds, and charges are customizable in
+   the :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: print-summary-checkouts,
+   print-summary-holds, and print-summary-fines).
+
+'Print account balance' will generate a summary of outstanding charges and
+unused credits in the patron's account.
+
+.. Note::
+
+   The quick slip uses the ACCOUNTS_SUMMARY notice. You can customize the notice
+   in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. Note::
+
+   This option will only appear if the patron has charges in their
+   :ref:`Accounting tab <fines-label>`.
+
+'Print overdues' will print out a slip that lists all items that are overdue.
+
+.. Note::
+
+   The overdue slip uses the OVERDUE\_SLIP notice. You can customize the notice
+   in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+'Print checkin slip' will print out a slip that lists items that were 
+checked in today.
+
+.. Note::
+
+   The checkin slip uses the CHECKINSLIP notice. You can customize the notice
+   in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _export-checkouts-label:
+
+Exporting checkouts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Other than :ref:`printing a receipt <printing-receipts-label>`, there are
+several ways to export a patron's checkouts.
+
+The 'Export' button at the top of the table allows you to export the patron's
+current checkouts in either Microsoft Excel or CSV format, or even copy or print
+their checkouts.
+
+|exportcheckouts|
+
+The CSV file exported this way will contain the columns of the table that are
+visible. You can click on the 'Columns' button and remove some columns first,
+if needed.
+
+If the :ref:`ExportCircHistory <exportcirchistory-label>` system preference is
+enabled, there will be an 'Export' column in the checkouts table. This is used
+to export the patron's current checkouts in either MARC or CSV format.
+
+|ExportCircHistory|
+
+To export checkouts this way,
+
+-  Select the checkouts to be exported using the checkboxes in the 'Export'
+   column.
+
+-  At the bottom of the table, choose the options for the export
+
+   -  Export checkouts using format
+
+      -  MARC with items: this will export the MARC records of the checked out
+         titles, including the item information.
+
+      -  MARC without items: this will export the MARC records of the checked
+         out titles.
+
+      -  CSV: this will export a CSV file of checked out titles. When this
+         option is selected, a new dropdown menu will appear to choose a
+         :ref:`CSV profile <csv-profiles-label>`.
+
+   -  Export bundle contents: if the patron checked out a
+      :ref:`bundle <bundles-circulation-label>`, this option will export the
+      parent record as well as all the child records.
+
+   -  Don't export fields: optionally, you can enter MARC fields that are not to
+      be exported.
+
+      .. Note::
+
+         The default values in the "Don't export field" field are set in the
+         :ref:`ExportRemoveFields <exportremovefields-label>` system preference.
+
+.. _clear-patron-information-label:
+
+Clear patron information
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you're done checking an item out if you have the
+:ref:`DisplayClearScreenButton <DisplayClearScreenButton-label>` preference set
+to 'Show' you can clear the current patron by clicking the X in the top
+right of the patron's info to remove the current patron from the screen
+and start over.
+
+|image495|
+
+If you have the :ref:`CircAutoPrintQuickSlip <CircAutoPrintQuickSlip-label>`
+preference set to 'clear the screen' then you simply need to hit enter
+or scan a blank barcode and the screen will be cleared of the current
+patron.
+
+.. _batch-checkouts-label:
+
+Batch checkouts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you would like to perform a batch check out you can do so by turning
+on the :ref:`BatchCheckouts <BatchCheckouts-label>` system preference and assigning the proper patron
+categories via the :ref:`BatchCheckoutsValidCategories <BatchCheckoutsValidCategories-label>` system preference. This
+will allow you to use an RFID pad that reads multiple barcodes or perform a
+batch check out for training internal use.
+
+|batchcheckout|
+
+From this screen you can scan several barcodes or load a file of
+barcodes.
+
+If you have the :ref:`SpecifyDueDate <SpecifyDueDate-label>` system preference enabled you will
+have the option to set a due date for the checkouts. 
+
+If the items cannot be checked out, a warning will be provided on the following
+screen, with the option to uncheck the items that are not to be checked out.
+
+|batchcheckoutwarn|
+
+If you are using a statistical patron type then you'll see that local
+use was recorded for each item you scanned.
+
+|batchlocaluse|
+
+.. _check-out-messages-label:
+
+Check out messages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you check out an item that has multiple pieces and you have cataloged
+that information in subfield 3 of the item record (in MARC21) a message
+will pop up when you check out that item telling you how many pieces
+should be there.
+
+|accompanyingmaterials|
+
+There are times when Koha will prevent the librarian from being able to
+check out items to a patron. When this happens a warning will appear
+notifying the librarian of why the patron cannot check items out.
+
+-  Patron owes too much in fines
+
+   |image499|
+
+   -  You can set the amount at which patron checkouts are blocked with
+      the :ref:`noissuescharge <noissuescharge-label>` system preference
+
+-  Patron has a restriction on their account
+
+   |image500|
+
+   -  This can be set by the librarian editing a patron record and
+      adding a :ref:`restriction <patron-restrictions-label>` or by the :ref:`Overdue/Notice
+      Status Triggers <overdue-notice/status-triggers-label>`
+
+   -  If the staff member has the right permission they can override the
+      restriction temporarily
+
+      |image501|
+
+-  Patron needs to confirm their address
+
+   |addresswarning|
+
+   -  This can be set by the staff editing a patron record and
+      :ref:`adding a flag <add-patron-flags-label>`.
+
+-  Patrons has lost their library card
+
+   |lostcardwarning|
+
+   -  This can be set by the staff editing a patron record and
+      :ref:`adding a flag <add-patron-flags-label>`.
+
+.. _check-out-warnings-label:
+
+Check out warnings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Sometimes checkouts will trigger warning messages that will appear in a
+yellow box above the check out field. These warnings need to be
+acknowledged before you will be able to continue checking items out.
+
+-  Patron has outstanding fines
+
+   |image504|
+
+-  Item on hold for someone else
+
+   |image505|
+
+-  Item should be on the hold shelf waiting for someone else
+
+   |image506|
+
+-  Item already checked out to this patron
+
+   |image507|
+
+-  Item checked out to another patron
+
+   |image508|
+
+   -  This warning will allow you to place a hold on the item for the
+      patron you're trying to check it out to.
+
+-  Item not for loan
+
+   |image509|
+
+-  Patron has too many things checked out and
+   :ref:`AllowTooManyOverride <AllowTooManyOverride-label>` is set to 'Allow'
+
+   |image510|
+
+-  Patron has too many things checked out and
+   :ref:`AllowTooManyOverride <AllowTooManyOverride-label>` is set to "Don't
+   allow"
+
+   |image511|
+
+-  Item cannot be renewed
+
+   |image512|
+
+   -  This can be overridden with the
+      :ref:`AllowRenewalLimitOverride <AllowRenewalLimitOverride-label>` system
+      preference
+
+-  Barcode not found
+
+   |image513|
+
+   -  Learn more about :ref:`fast cataloging <fast-add-cataloging-label>` later in this
+      manual.
+
+-  Item being checked out is marked as 'lost'
+
+   -  Depending on the value in your :ref:`IssueLostItem <IssueLostItem-label>`
+      preference, you may just see a warning
+
+      |image514|
+
+      or a confirmation box
+
+      |image515|
+
+-  Item being checked out is not recommended for a patron of this age
+
+   |image516|
+
+-  Item being checked out meets the
+   :ref:`decreaseLoanHighHolds <decreaseloanhighholds-preferences-label>` system preference
+   criteria
+
+   |image517|
+
+-  Item has accompanying material (field 952$3, 'Materials specified', is filled)
+
+   |CircConfirmItemParts-dontrequire|
+
+   -  If :ref:`CircConfirmItemParts <CircConfirmItemParts-label>` is set to 'Require', the staff member will have to 
+      confirm the checkout
+
+      |CircConfirmItemParts-require-checkout|
+
+-  If the :ref:`CheckPrevCheckout <checkprevcheckout-label>` system preference
+   says to check the patron's circulation history, a warning will show to
+   indicate that the patron has already checked out the item
+
+   |prevcheckout|
+
+.. _checkoutnotes-label:
+
+Checkout notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Checkout notes are notes that patrons can add from the OPAC about a particular
+item they have checked out (for example: missing first page, or DVD is
+scratched, etc.).
+
+To enable checkout notes, set the :ref:`AllowCheckoutNotes <allowcheckoutnotes-label>`
+system preference to 'Allow'.
+
+Once the system preference is activated, a new column titled 'Report a problem'
+will appear in the list of checkouts in the
+:ref:`patron's summary in the OPAC <your-summary-label>`.
+
+|AllowCheckoutNotes|
+
+When the patron clicks on 'Add note', they will be able to write a note about
+this checkout.
+
+|checkoutnote|
+
+Staff will be alerted of new checkout notes in the section at the bottom of the
+staff interface's home page, with other pending requests.
+
+|pendingrequests|
+
+An email will also be sent to the email address in
+:ref:`KohaAdminEmailAddress <kohaadminemailaddress-label>` to alert the system
+administrator that a checkout note was added.
+
+.. Note::
+
+   You can customize this message in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+   The letter code is CHECKOUT\_NOTE.
+
+Checkout notes can be managed from the circulation module home page, under
+Circulation > Checkout notes, or by clicking on the message in the pending
+requests section of the staff interface home page.
+
+|circmenu|
+
+|checkoutnotes|
+
+From this page, staff can mark notes as seen, either individually by clicking
+the 'Mark seen' button on the right, or in a batch by selecting the notes and
+clicking 'Mark seen' at the top of the page. Marking the notes as seen will
+remove them from the pending requests section of the staff interface homepage.
+
+Seen notes can be filtered out with the 'Hide seen' link at the top of the table.
+
+Checkout notes will also appear :ref:`upon checkin <check-in-(returning)-label>`.
+
+|patronnotecheckin|
+
+Once the item is checked in, the note will be removed permanently from this page.
+
+.. _renewing-label:
+
+Renewing
+-------------------------
+
+Checked out items can be renewed (checked out for another period of
+time) based on your :ref:`circulation rules <circulation-and-fines-rules-label>`
+and :ref:`renewal preferences <renewalperiodbase-label>`.
+
+If :ref:`you allow it <opacrenewalallowed-label>`, patrons can renew their own
+items via the OPAC, but sometimes you'll need to help them by renewing
+their items via the staff client.
+
+To renew items checked out to a patron, you can do one of two things.
+
+The first is to visit their details page or checkout page and review
+their checkout summary at the bottom.
+
+|circsummary|
+
+In the Renew column you will see how many times each item has been
+renewed and a checkbox to renew the item for the patron. Check the box
+of the items you would like to renew and click the 'Renew or return
+checked items' button, or to renew all items checked out to the patron
+simply click the 'Renew all' button.
+
+|renewbutton|
+
+Sometimes renewals will be blocked based on your circulation rules, to
+override this block you must have your
+:ref:`AllowRenewalLimitOverride <AllowRenewalLimitOverride-label>` preference
+set to 'Allow'. If you allow renewal limit overrides, you will see a
+checkbox at the bottom left of the circulation summary. Check that box
+and then choose the items you would like to renew.
+
+|overriderenew|
+
+Checking that box will add checkboxes in the renew column above where
+before the item was not renewable.
+
+You can also mark a renewal as 'unseen', to differentiate between renewals
+where staff has actually seen the item, versus renewals where they didn't see 
+it (over the phone, for example). To do this, you must first enable 
+the :ref:`UnseenRenewals <UnseenRenewals-label>` system preference. Once enabled, a checkbox will 
+appear at the bottom left of the circulation summary. Check that box to mark 
+the renewals as 'unseen'. Then click either 'Renew or check in selected items' 
+or 'Renew all'.
+
+|unseenrenewalcheckbox|
+
+The second option is to visit the 'Renew' page found under the
+Circulation menu.
+
+|circmodulecolumn1|
+
+And scan the barcodes of the items you would like to renew.
+
+|image522|
+
+If the item is renewed you will receive a confirmation message.
+
+|image523|
+
+If the barcode is not found you will be presented with an error.
+
+|image524|
+
+If the item is not actually checked out you will also receive an error.
+
+|image525|
+
+.. _check-in-(returning)-label:
+
+Check in (returning)
+--------------------------------------
+
+Checking in items can be performed from various different locations
+
+-  The check in box on the top of the main staff client
+
+   |image526|
+
+-  The check in option on the quick search bar on the Circulation page
+
+   |image527|
+
+-  The check in link on the patron's checkout summary (and on the
+   checkout summary page)
+
+   |image528|
+
+-  The Check in page under the Circulation menu
+
+   |image529|
+
+- Koha also offers an automatic checkin feature, which can be set in 
+  :ref:`item types <item-types-label>`.
+
+.. _checking-items-in-label:
+
+Checking items in
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To check an item in scan the barcode for the item into the box provided.
+A summary of all items checked in will appear below the checkin box
+
+|image530|
+
+     **Note**
+
+     -  You can customize the columns of this table in the 
+        :ref:`'Table settings'<column-settings-label>` section of the 
+        Administration module (table id: checkedintable).
+
+If you are checking items in that were put in the book drop while the
+library was closed you can check the 'Book drop mode' box before
+scanning items. This will effectively roll back the returned date to the
+last date the library was open.
+
+-  This requires that you have your closings added to the :ref:`calendar tool <calendar-label>`
+
+You can also choose to forgive all overdue charges for items you are
+checking in by checking the 'Forgive overdue charges' box before
+scanning items.
+
+If you have the :ref:`SpecifyReturnDate <SpecifyReturnDate-label>` preference
+set to 'Allow' you will be able to arbitrarily set the return date from
+below the check in box.
+
+|image1258|
+
+.. _check-in-messages-label:
+
+Check in messages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are several messages that can appear when checking items in:
+
+-  If the :ref:`return policy <item-hold-policies-label>` dictates items need to
+   be returned back to their home or holding library, a message will appear
+   asking staff to transfer the item.
+
+   |checkintransfer|
+
+   .. Note::
+
+      When set to 'Block', the :ref:`TransfersBlockCirc <transfersblockcirc-label>`
+      system preference will block all actions until the pop-up is confirmed.
+
+      When set to "Don't block", the
+      :ref:`AutomaticConfirmTransfer <automaticconfirmtransfer-label>` system
+      preference determines what happens if the pop-up is dismissed without
+      confirming the transfer.
+
+   -  After this item is checked in and the transfer is confirmed, the status
+      of the item will be changed in the catalog to 'in transit'.
+
+      |transferstatus|
+
+   -  To mark an item as back at the home or holding library, check the item
+      in at that library.
+
+      |transfercheckin|
+
+      -  A message will appear to tell you that the item is not checked
+         out, but the status will now say available in the catalog. This
+         step is necessary to mark items as received by the library.
+
+-  If you are checking in an item that should have multiple parts or
+   pieces a message will appear warning you about the number of pieces
+   you should have in your hand
+
+   |CircConfirmItemParts-dontrequire|
+
+   -  If :ref:`CircConfirmItemParts <CircConfirmItemParts-label>` is set to 'Require', the staff member will have to 
+      confirm the checkin
+
+      |CircConfirmItemParts-require-checkin|
+
+-  If you're checking an item in that has a hold on it, you will be
+   prompted to confirm the hold
+
+   |image535|
+
+   -  Clicking the Confirm hold button will mark the item as waiting for
+      pickup from the library
+
+      |image536|
+
+   -  Clicking the 'Print slip and confirm' button will mark the item as
+      waiting for pickup at the library and present the library with a
+      receipt to print and place on the book with the patron's
+      information
+
+   -  Ignoring the hold will leave the item on hold, but leave its
+      status as Available (it will not cancel the hold)
+
+-  If you're checking in an item that has a hold on it at another branch
+   you will be prompted to confirm and transfer the item
+
+   |holdconfirmtransfer|
+
+   -  Clicking the 'Confirm hold and transfer' button will mark the item
+      as in transit to the library where the hold was placed
+
+      |image538|
+
+   -  Clicking the 'Print slip, transfer and confirm' button will mark the
+      item as in transit to the library where the hold was placed and
+      present the library with a receipt to print and place on the book
+      with the patron's information
+
+   -  Ignoring the hold will leave the item on hold, but leave its
+      status as Available (it will not cancel the hold)
+
+-  If you have the system showing you fines at the time of checkin
+   (:ref:`FineNotifyAtCheckin <FineNotifyAtCheckin-label>`) you will see a
+   message telling you about the fine and providing you a link to the
+   payment page for that patron
+
+   |image539|
+
+.. _return-claim-label:
+
+Claiming an item as returned
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the patron claims they returned something, you can mark that item as 'Claimed
+returned' and track those claims.
+
+In order to use this feature,
+
+-  :ref:`Add a new authorized value <add-new-authorized-value-label>` to the
+   LOST category to represent items claimed as returned.
+
+-  Enter the authorized value in the
+   :ref:`ClaimReturnedLostValue <claimreturnedlostvalue-label>` system preference
+   (this enables the return claims feature).
+
+-  Choose if a lost fee should be charged to the patron who claims an item as
+   returned. Set a value in the
+   :ref:`ClaimReturnedChargeFee <claimreturnedchargefee-label>` system preference
+   (the default is to ask if a lost fee should be charged).
+
+-  Optionally set a number of return claims a patron can make before a warning
+   appears in their record in the
+   :ref:`ClaimReturnedWarningThreshold <claimreturnedwarningthreshold-label>`
+   system preference.
+
+Once the feature is enabled, a button to 'Claim returned' will appear in the
+patron's checkouts tab.
+
+|checkoutsummary|
+
+To claim an item as returned,
+
+-  Click the 'Claim returned' button next to the checkout.
+
+-  In the pop-up, enter any notes about this claim.
+
+   |claimreturnedmodal|
+
+-  If the :ref:`ClaimReturnedChargeFee <claimreturnedchargefee-label>` system
+   preference is set to ask whether or not the lost fee should be charged to the
+   patron, there will be a checkbox to charge the fee.
+
+-  Click 'Make claim'.
+
+The claimed returned item will stay in the patron's checkouts, and its lost
+status will be updated. The claim will also appear in the
+:ref:`'Claims' tab <patron-return-claims-label>`.
+
+.. _resolve-return-claim-label:
+
+Resolving a return claim
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To resolve a claim,
+
+-  Go to the patron's record in the
+   :ref:`'Claims' tab <patron-return-claims-label>`.
+
+   |claims|
+
+-  Click 'Actions' next to the item and choose 'Resolve'.
+
+-  In the pop-up, choose a resolution and new lost status.
+
+   |resolveclaim|
+
+   -  Resolution: the resolution is the reason this claim is being closed.
+
+      .. Note::
+
+         The values are managed in the RETURN\_CLAIM\_RESOLUTION
+         :ref:`authorized value category <existing-values-label>`.
+
+   -  New item lost value: this is the new lost status for this item.
+
+      .. Note::
+
+         The values are managed in the LOST
+         :ref:`authorized value category <existing-values-label>`.
+
+-  Click 'Resolve claim'.
+
+The resolved claim will stay in the patron's record, unless they are purged
+by the :ref:`cleanup\_database.pl cron job <cron-clean-up-database-label>`
+after the number of days specified in the
+:ref:`CleanUpDatabaseReturnClaims <cleanupdatabasereturnclaims-label>` system
+preference.
+
+.. _bundles-circulation-label:
+
+Circulating bundles
+-------------------
+
+This feature adds the ability to create bundles of items that can be
+checked out as a single entity. A bundle could for example be a box of 
+related items from your library or a collection of musical scores 
+which need to be circulated together.
+
+You create a collection level bibliographic record and add items to
+it in the usual way. Those items can then be converted to a bundle by
+adding existing item records to them using their barcodes. The items
+will remain attached to their original records and be marked as ‘not for
+loan’.
+
+.. _bundles-configuration-circulation-label:
+
+Configuration
+~~~~~~~~~~~~~
+
+First you need to make some configuration choices.
+
+Item types - you may want to
+:ref:`create a separate item type<adding-item-types-label>` to identify
+your bundles.
+
+Circulation rules - you can optionally
+:ref:`create circulation rules<defining-circulation-rules-label>` for your
+bundle item type.
+
+There are two system preferences which control the status values used
+with bundles:
+
+-  :ref:`BundleNotLoanValue<bundlenotloanvalue-label>`.
+
+-  :ref:`BundleLostValue<bundlelostvalue-label>`.
+
+Creating bundles
+~~~~~~~~~~~~~~~~
+
+The bundle functionality will only be displayed if you create a
+catalogue record with the Leader, (000 MARC tag) position 7 set to ‘c’
+for Collection.
+
+|leader|
+
+.. Note::
+
+   It might be useful to have a separate MARC bibliographic framework
+   for bundles with the ‘c’ set as a default value if you will use bundles
+   regularly. You can also add any custom fields to the template that might
+   be unique to bundles such as size or weight.
+
+Your catalogue record will contain information to identify the content 
+of the bundle. 
+
+For example, if the bundle is a box of resources for school children on 
+the topic of oceans, the catalogue record might look something like the 
+one shown below.
+
+|bundlerecord|
+
+Add an item record for each physical bundle. It is likely that you will
+want a specific item type for bundles so that you can identify them
+easily and create circulation rules for them. In this case the bundle
+has the item type COLLECTION.
+
+An item record attached to this type of catalogue record can be
+converted into a bundle via the Manage bundle button on the far
+right-hand side of the holdings table for each item as shown below.
+
+.. _adding-items-to-bundles-label:
+
+Adding items to bundles
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Click on Manage bundle and then the Add to bundle button to add items to
+the bundle using the barcode of the item.
+
+|addtobundle|
+
+You will see a message telling you that the item has been added
+successfully.
+
+|addedtobundle|
+
+When you have finished scanning in items you can click on Close and view
+the bundle contents. The bundle contents list can be exported or printed
+if required.
+
+|managebundle|
+
+.. Warning::
+
+   Items added to bundles are still attached to their permanent
+   catalogue record, however, they cannot be checked out individually. When
+   added to a bundle an item’s
+   :ref:`Not for Loan status<9527-notforloan-status-label>` is updated and can
+   be viewed in the holdings table of the permanent record along with a link
+   to the bundle. The Not for Loan status can be defined in the
+   :ref:`BundleNotLoanValue system preference<bundlenotloanvalue-label>`.
+
+   |bundleditemnotforloan|
+
+If an item is already found to be attached to the bundle, a warning
+message will be displayed.
+
+|alreadyattached|
+
+If an item has an item-level hold, a warning message will be displayed. To
+add the item to the bundle anyway, click 'Ignore holds and add to bundle'. To
+cancel, click 'Close'.
+
+|itemonhold|
+
+If an item cannot be added to the bundle for any other reason a failure
+message will display.
+
+|belongstootherbundle|
+
+Removing items from bundles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To remove an individual item from a bundle you can click on the Remove
+button from the Actions column of the bundle contents list.
+
+To remove multiple items from the bundle you have two options:
+
+Use the ‘Remove from bundle’ button from within the Manage bundle
+display
+
+|removefrombundlebutton|
+
+Scan in barcodes in the same way as you add items to bundles. You will
+see a confirmation dialogue to let you know the item has been removed.
+
+|removedfrombundle|
+
+If the item couldn’t be removed you will see a Failure message.
+
+|barcodematchedmultiple|
+
+The second way to remove multiple items is to scan the barcode of the
+item into the checkin box and you will be given the option to remove the
+item from its bundle.
+
+|checkinbundleditem|
+
+When you have finished working with a bundle you can close the contents
+list by clicking on the Manage bundle button again.
+
+Circulating bundles
+~~~~~~~~~~~~~~~~~~~
+
+Checkout
+^^^^^^^^
+
+You can checkout a bundle in the usual way from Circulation using the
+barcode of the bundle. If required you can create specific circulation
+rules for bundles based on their item type.
+
+Remember, once an item is within a bundle it cannot be checked out
+individually. If you try to do this the following alert will be
+displayed.
+
+|confirmcheckout|
+
+You can see the checkout from the patron’s list of checkouts.
+
+|checkedoutbundle|
+
+You can also see that the bundle is checked out from the status column
+of the Holdings table of the catalogue record.from the catalogue record
+display.
+
+|checkedoutbundle-record|
+
+Checkin
+^^^^^^^
+
+Check in bundles in the usual way from Circulation. You will then be
+prompted to verify the presence of each item that belongs in the bundle.
+
+If you need to skip the verification process, click the 'Confirm checkin without
+verifying bundle contents' button. You will be able to
+:ref:`verify the contents later <bundle-invetory-label>`.
+
+A list of the items currently attached to the bundle, and expected to be
+returned, will display at the top of the dialogue. Beneath the list will
+be a ‘Barcodes’ box where you are expected to scan the barcodes of the
+returned items one by one.
+
+|confirmbundlecontent|
+
+As you scan items, the matching row in the list will be highlighted to
+give some visual feedback. You also see a running total of items that
+have been checked in on the right hand side.
+
+When you have finished scanning the returned items you can click on
+‘Confirm checkin and mark missing items as lost’ or you can cancel the
+checkin.
+
+If all the bundle items were marked as found you will be presented with
+a message to say the checkin is complete.
+
+|bundleverified|
+
+You can view and print a contents list.
+
+|bundlecontents|
+
+Missing items
+^^^^^^^^^^^^^
+
+If some items were found to be missing during the verification stage the
+check in will proceed but you will be alerted to the fact that the
+bundle content has changed and you will be given the option to view and
+print an updated contents list.
+
+|missingitems|
+
+You can also view a list of the missing items.
+
+|itemsmissingfrombundle|
+
+Any items that were missing during the verification stage will
+automatically be marked with an appropriate Lost status and a return
+claim added to track which checkout lost the contained item. You can add
+your own Lost statuses as :ref:`authorized values<existing-values-label>` and
+can control which lost status is used via the
+:ref:`BundleLostValue system preference<bundlelostvalue-label>`. For example a
+‘Missing from bundle’ status as shown below.
+
+|missingfrombundlestatus|
+
+In the Manage bundle contents view, the missing item displays with the
+date last seen.
+
+|bundleditemlastseen|
+
+Claims returned process
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Within the patron record the missing items are listed as claims returned
+and can be viewed from the Claim(s) tab in the Checkouts table.
+
+|patrontabs|
+
+Click on the numbered square to view the missing items for the patron.
+
+If an item is found it should be checked in. The checkin dialogue box
+will include a button to ‘Resolve’ the claim.
+
+|claimedreturned|
+
+You are required to add a resolution reason and can optionally change
+the lost value of the item.
+
+|resolvereturnclaim|
+
+.. _bundle-invetory-label:
+
+Inventory (checking bundle contents at any time)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A verification can be triggered at any time by checking the bundle in.
+If the system detects that the bundle was not checked out at this point,
+a modified confirmation dialogue is displayed which will include all
+items expected to be present in the bundle, even those currently marked
+as lost.
+
+|confirmbundlecontent-2|
+
+This allows for a quick view of what should be in the bundle and what’s
+currently marked as missing. You can optionally cancel the checkin or
+choose to rescan the items to perform the verification, marking items as
+found or subsequently missing. As this is a checkin that is not
+associated with a checkout, if new items are found to be missing, we
+will mark them as lost but cannot associate them with a checkout and
+returns claim.
+
+.. _holds-circulation-label:
+
+Holds
+-------------------------------------------------------------------------------
+
+Koha allows patrons to put things on hold. A 'Hold' is a way to reserve
+an item. Depending on your :ref:`circulation and fines
+rules <circulation-and-fines-rules-label>` and
+:ref:`hold system preference <holds-policy-label>` settings, patrons will be
+able to place items on hold for pickup at the library at a later date and time.
+
+.. _placing-holds-in-staff-client-label:
+
+Placing holds in the staff interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are several ways to place holds from the staff interface. The most
+obvious is using the 'Place hold' button at the top of any bibliographic
+record.
+
+|recorddetail|
+
+You can also click the smaller 'Place hold' link found at the top of
+your catalog search results, or the 'Holds' link found below each
+result.
+
+|searchresultsingle|
+
+To place holds on multiple titles at the same time, check the boxes next to the
+titles in the search results, and click the 'Place hold' button at the top of
+the search results.
+
+You will be asked to search for a patron by barcode or any part of their
+name to start the hold process.
+
+|placeholdfindpatron|
+
+If you'd like to search for the patron first and then the bibliographic record
+for the hold, you can open the patron record and click on the 'Search to Hold'
+button at the top of the patron record.
+
+|patronedit|
+
+After clicking the button you will be brought to the catalog search page
+where you can find the title or titles you need to place a hold on. Under each
+title on the results you'll see an option to 'Place hold for (patron name).'
+
+|placeholdfor|
+
+If you want to place a hold on multiple titles for this patron, check the boxes
+to the left of the titles, click the arrow to the right of the 'Place Hold'
+button and choose 'Place hold for (patron name)'.
+
+|placeholdoptions|
+
+.. Note::
+
+   Once the holds are placed, you can choose to have Koha 'forget'
+   the patron's name by clicking the arrow to the right of the 'Place hold'
+   button on the search results and choosing the 'Forget (patron name)' option.
+
+Depending on how many items you choose to place a hold on at once you
+will see a different place hold form. If you are placing a hold on one
+bibliographic record you will see a list of all of the items you can
+place a hold on.
+
+|placeholdsingle|
+
+-  Patron: the patron's name for whom this hold is
+
+-  Estimated priority: this takes into account holds that are already placed on
+   this title
+
+-  Note: enter any notes that might apply to this hold
+
+-  Pickup at: choose the library where the patron will pick up the item
+
+-  Request specific item type: if the
+   :ref:`AllowHoldItemTypeSelection <AllowHoldItemTypeSelection-label>`
+   system preference is set to 'Allow' there will be an option to choose to
+   limit the hold to a specific item type
+
+-  Hold starts on date: if the
+   :ref:`AllowHoldDateInFuture <AllowHoldDateInFuture-label>` system preference
+   is set to 'Allow', and the patron wants the hold to start on a date other
+   than today, enter the date here
+
+-  Hold expires on: if the patron has specified that they don't want the item
+   after a certain date, or if you have limits on hold lengths, you can enter an
+   expiration date for the hold in the 'Hold expires on date'
+
+   .. Note::
+
+      To cancel expired holds automatically you need to have the
+      :ref:`expired holds <cron-expired-holds-label>` cron job set to run on a
+      regular basis.
+
+-  Hold next available item: check if the hold should be on the next available
+   item, if not, choose an item group in the 'Hold next available item from an
+   item group' section or a specific item in the 'Place hold on a specific item'
+   section below
+
+-  Holds to place (count): If 'Hold next available item' is checked and multiple
+   holds per record are allowed, you can enter a number in the 'Holds to place
+   (count)' text box to place that number of holds for the selected patron.
+
+   .. Note::
+
+      The 'Holds to place (count)' text box will only appear if the
+      :ref:`Circulation and Fines <defining-circulation-rules-label>` rules are
+      set to allow a 'Holds per record' limit that is greater than 1, but not
+      Unlimited, for this combination of item type and patron category.
+
+-  Non-priority hold: if you are placing a hold for internal purposes, such as
+   checking for missing pages or needing to add a label, check the 'Non-priority
+   hold' box. This type of hold will not prevent the patron who currently has
+   the item to renew their checkout.
+
+-  Hold next available item from an item group: if the
+   :ref:`EnableItemGroupHolds <enableitemgroupholds-label>` system preference
+   is set to 'Enable' and the record has :ref:`item groups <item-groups-label>`,
+   you can choose to place a hold on the next available item of a group, rather
+   than the next available item on the whole record or a specific item.
+
+-  Place hold on a specific item: if the hold should be on a specific item
+   rather than the next available item of the record or the group, select the
+   item that should be placed on hold
+
+   .. Note::
+
+      The default pickup library for item-level holds is determined by the
+      :ref:`DefaultHoldPickupLocation <defaultholdpickuplocation-label>`
+      system preference.
+
+If you're placing holds on multiple records you will be presented with
+the next available option for all titles. If no items are available for
+hold it will say so on the confirmation screen.
+
+|placeholdmultiple|
+
+If your library uses the :ref:`patron clubs feature <patron-clubs-label>`, use
+the clubs tab to place a hold for a club.
+
+To place a hold for a club, click the clubs tab, search for and select the club
+name, and click the 'Place hold' button.
+
+|placeclubhold|
+
+.. _managing-holds-label:
+
+Managing holds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Holds can be altered and cancelled from the holds tab found on the left
+of the bibliographic record.
+
+|holdtab|
+
+From the list of holds you can change the order of the holds, the pickup
+location, :ref:`suspend <suspend-holds-label>`, or :ref:`cancel <cancel-holds-label>`
+the hold.
+
+|holdslist|
+
+.. Note::
+
+   If the :ref:`HoldsSplitQueue <HoldsSplitQueue-label>` system preference is
+   set, you will see the holds list split across different tables by either
+   pickup library, item type or both.
+
+.. Note::
+
+   If the :ref:`AllowHoldDateInFuture <AllowHoldDateInFuture-label>` system
+   preference is set to "Don't allow", you will not have the option to edit the
+   date the hold was placed (the column labelled Date).
+
+.. Note::
+
+   Depending on how the :ref:`HidePatronName <HidePatronName-label>` system
+   preference is set, the list may show card numbers instead of names in the
+   patron column like in the image above.
+
+.. _changing-holds-order-label:
+
+Changing the order of the holds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To rearrange holds, make a selection from the 'Priority' drop-down or click the
+arrows to the right of the priority pull down.
+
+|holdpriority|
+
+.. Warning::
+
+   Clicking the double down arrow to the right of the hold will stick the hold
+   at the bottom of the list even if more requests are made.
+
+   For example, if your library has home-bound patrons that are allowed to keep
+   items out for months at a time, it would not be fair to other patrons if a
+   home-bound patron were able to check out a brand new book and keep it for
+   months. For this reason, the home-bound patron's hold request would stay at
+   the bottom of the queue until everyone else who wanted to read that book has
+   already done so.
+
+   In the list of existing holds, lowest priority holds are indicated by the
+   double down arrow with a line underneath.
+
+   |lowestpriority|
+
+   Clicking the double arrow again will put the hold back in regular priority,
+   in last place.
+
+.. _suspend-holds-label:
+
+Suspending holds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If a patron asks to have their hold suspended and the
+:ref:`SuspendHoldsIntranet <SuspendHoldsIntranet-label>` system preference is
+set to 'Allow', you can do so by clicking the 'Suspend' button at the far right.
+
+If the patron gives you a date for the holds to resume, you can
+enter that in the date box and click the 'Update hold(s)' button to save
+your changes.
+
+|suspendholds|
+
+.. Note::
+
+   If the :ref:`AutoResumeSuspendedHolds <AutoResumeSuspendedHolds-label>`
+   system preference is set to "Don't allow" there will not be the option to put
+   an end date on the hold suspension.
+
+.. Note::
+
+   The :ref:`auto\_unsuspend\_holds.pl cron job <cron-unsuspend-holds-label>` is
+   required to automatically resume suspended holds.
+
+You can also unsuspend holds manually by clicking the 'Unsusped' button.
+
+If the :ref:`SuspendHoldsOpac <SuspendHoldsOpac-label>` system preference is set
+to 'Allow', patrons will be able to suspend and unsuspend their own holds from
+:ref:`their online account <your-summary-label>`.
+
+.. _cancel-holds-label:
+
+Deleting holds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To delete or cancel a hold, click the red trash can to the right of the hold
+line.
+
+To delete/cancel a bunch of holds you can choose 'del' from the drop-down menu
+on the left of each line and then click 'Update hold(s)' at the
+bottom of the list.
+
+|cancelholds|
+
+Alternatively, you can select the holds to be cancelled and click the 'Cancel
+selected' button.
+
+.. _receiving-holds-label:
+
+Receiving holds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When items that are on hold are :ref:`checked in <check-in-(returning)-label>` or
+:ref:`out <check-out-(issuing)-label>` the system will remind the circulation
+staff that the item is on hold and offer them options for managing the hold.
+
+When you check in an item that has a hold on it the system will ask you
+to either confirm and transfer the item
+
+|holdconfirmtransfer|
+
+or just confirm the hold
+
+|holdconfirm|
+
+If the item needs to be transferred, clicking 'Confirm and transfer' or 'Print
+slip, transfer, and confirm' will mark the item as in transit to the proper
+library.
+
+If the item is already at the pickup library, clicking the 'Confirm' or the
+'Print slip and confirm' button will mark the item as ready for pickup by the
+patron.
+
+Clicking 'Ignore' will retain the hold, but allow the item to be checked out to
+another patron or change the status of the item (if it was returned damaged,
+for example).
+
+The 'Print slip and confirm' or 'Print slip, transfer, and confirm' options
+will open a printable page that you can attach to the item with the necessary
+hold or transfer information.
+
+.. Note::
+
+   The slip that is printed is the HOLD\_SLIP notice. It can be modified with
+   the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+When the hold is confirmed, if
+:ref:`the patron is notified <advance-notices-and-hold-notices-label>`, the
+'hold filled' notice will be sent to them.
+
+.. Note::
+
+   The notice that is sent is the HOLD notice. It can be modified with the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. Note::
+
+   If the :ref:`HoldsAutoFill <HoldsAutoFill-label>` system preference is enabled, the circulation
+   staff will not have to confirm the hold, but they will have the option to
+   print the hold or transfer slip.
+
+   |HoldsAutoFill|
+
+   If the :ref:`HoldsAutoFillPrintSlip <HoldsAutoFillPrintSlip-label>` system preference is enabled, the print
+   window to print the hold or transfer slip will open automatically.
+
+Once confirmed, the hold will show as 'waiting' on the patron record and on the
+checkout screen under the :ref:`'Holds' tab<holds-summary-label>`.
+
+|holdssummary|
+
+The item record will also show that the item is on hold.
+
+|holditem|
+
+In some cases, a patron may come in to pick up a hold on behalf of someone else.
+In this case, make sure that the hold is cancelled when you check the item
+out to someone else. Alternatively, a check out might be attempted in error for
+an item that is already waiting for someone else. In this case you will be
+presented with a warning message.
+
+|holdwaitingwarn|
+
+-  Cancel hold: in combination with 'Yes, check out', this option will cancel
+   the current hold and check the item out to the new patron.
+
+-  Revert waiting status: in combination with 'Yes, check out', this option will
+   revert the waiting status of the hold (the patron who placed the hold will
+   be back in first position in the queue) and check the item out to the new
+   patron.
+
+-  Yes, check out: this option will check the item out to the current patron.
+
+-  Don't check out and print slip: this option will open the print window to
+   print the hold slip, the check out will be cancelled and the hold will
+   remain.
+
+-  No, don't check out: this option will cancel the check out, the hold will
+   remain.
+
+If you try to :ref:`check in<check-in-(returning)-label>` an item that is
+already waiting to be picked up, a pop up indicating that a hold was found and
+the item is already waiting will appear.
+
+|holdwaitingcheckinwarn|
+
+-  Confirm hold: this option will keep the existing hold.
+
+-  Print slip and confirm: this option will open the print window to
+   print the hold slip and keep the existing hold.
+
+-  Cancel hold: this option will remove the hold.
+
+   -  If you cancel the hold and further holds exist for the item you will be
+      presented with a new option to confirm the hold for the next patron.
+
+.. _curbside-pickups-label:
+
+Curbside pickups
+-------------------------------------------------------------------------------
+
+Koha has an integrated curbside pickup module that can be used to schedule
+hold pickups by patrons.
+
+-  *Get there*: Circulation > Curbside pickups
+
+See the :ref:`curbside pickup configuration <curbside-pickup-configuration-label>`
+section to learn how to set up curbside pickup.
+
+.. Note::
+
+   Staff needs the manage\_curbside\_pickups permission (under circulate) in
+   order to schedule and manage pickups.
+
+.. _curbsidepickup-schedule-label:
+
+Scheduling a pickup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there*: Circulation > Curbside pickups > Schedule pickup
+
+To schedule a pickup,
+
+-  Click the 'Schedule pickup' tab
+
+   |schedule-pickup|
+
+-  Search for the patron for whom to schedule a pickup, with either their name
+   or their card number
+
+   .. Warning::
+
+      If 'Enable for waiting holds only' is set in the
+      :ref:`curbside pickup configuration<curbside-pickup-configuration-label>`
+      for your library, and the patron has no waiting holds, there will be an
+      error message.
+
+      |no-waiting-holds|
+
+-  Enter a date for the pickup
+
+   .. Note::
+
+      Only dates with available time slots will be displayed.
+
+-  The possible pickup times will be displayed, depending on the day of the week
+
+   |pickup-slots|
+
+   .. Note::
+
+      The number in parentheses under each time slot is the number of patrons
+      who are currently scheduled for a pickup at that time. If the maximum
+      number of appointments has been reached, based on the 'Maximum patrons
+      per interval' setting in the
+      :ref:`curbside pickup configuration<curbside-pickup-configuration-label>`,
+      the time slot will be displayed in red and you will not be able to select
+      it.
+
+-  If needed, you can add a note concerning this pickup
+
+-  Click 'Submit'
+
+Alternatively, you can schedule a pickup from the patron's account.
+
+-  Click 'Schedule pickup' at the top of the patron's detail page
+
+   |patronedit|
+
+.. Note::
+
+   If the patron has chosen to receive the 'Hold filled' notice by email, they
+   will also get a notification when a curbside pickup is scheduled.
+
+   You can customize the notice by editing the NEW\_CURBSIDE\_PICKUP template in
+   the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _curbsidepickup-preparation-label:
+
+Preparing for curbside pickups
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there*: Circulation > Curbside pickups > To be staged
+
+The 'To be staged' tab contains all the curbside pickups still waiting to be
+prepared.
+
+|tobestaged|
+
+.. Note::
+
+   If the patron has overdues or restrictions, it will be shown here, under
+   their name.
+
+Once the items are prepared and ready to be picked up, click 'Mark as staged &
+ready'. This will transfer the scheduled pickup appointment in the 'Staged &
+ready' tab.
+
+|stagedready|
+
+.. Note::
+
+   There is no need to checkout the item or items to the patron at this point.
+   When :ref:`delivering curbside pickups<curbsidepickup-delivery-label>`, the
+   module will automatically check the items out.
+
+You have the option to refresh the list manually by clicking the 'Refresh'
+button. You can also set up your session to refresh every X seconds. Check the
+box next to 'Refresh automatically every X seconds' and enter the number of
+seconds.
+
+.. _curbsidepickup-delivery-label:
+
+Delivering curbside pickups
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there*: Circulation > Curbside pickups > Patron is outside
+
+From the OPAC, the patron can alert that they are outside. Staff can also
+indicate that the patron has arrived by clicking on the 'Patron has arrived'
+button from the 'Staged & ready' tab.
+
+At the designated time, meet the patron to give them their items. Then, click
+'Mark as delivered'. This will check out the item or items to the patron and
+transfer the curbside pickup appointment to the 'Delivered today' tab.
+
+.. _curbsidepickup-cancel-label:
+
+Cancelling curbside pickups
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  *Get there*: Circulation > Curbside pickups > To be staged
+
+If, for any reason, you need to cancel a curbside pickup appointment, click
+the 'Cancel' button from the 'To be staged' tab.
+
+|tobestaged|
+
+If the appointment has already progressed beyond the 'To be staged' status,
+click 'Mark as To be staged' to bring it back there in order to cancel it.
+
+.. _recalls-label:
+
+Recalls
+-------------------------------------------------------------------------------
+
+The recalls feature allows users to recall items that are currently checked out.
+Once the recall is confirmed, the borrower who currently has the item checked
+out will be notified that their due date has been adjusted and they need to
+return their item. Once recalled items are returned, the recall requester will
+be notified that their item is awaiting pickup at their specified pickup
+location.
+
+See the :ref:`requesting recalls<request-recalls-opac-label>` section to learn
+how to place a recall in the OPAC.
+
+.. _recalls-setup-label:
+
+Setting up recalls in Koha
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To use this feature:
+
+-  Enable the :ref:`UseRecalls <UseRecalls-label>` system preference
+
+-  Set the :ref:`RecallsMaxPickUpDelay <RecallsMaxPickUpDelay-label>` system preference
+
+-  Optionally, enable the :ref:`RecallsLog <RecallsLog-label>` system preference
+
+-  Modify the following sections in the relevant
+   :ref:`circulation rules<defining-circulation-rules-label>`
+
+   -  Recalls allowed (count)
+
+   -  Recalls per record (count)
+
+   -  On shelf recalls allowed
+
+   -  Recall due date interval (day)
+
+   -  Recall overdue fine amount
+
+   -  Recall pickup period
+
+-  Make sure all the staff member who will be managing recalls have the
+   superlibrarian or manage\_recalls
+   :ref:`permission<patron-permissions-defined-label>`
+
+-  Schedule the :ref:`recalls cronjobs<cron-recalls-label>`
+
+-  Review the :ref:`recalls notices and slips<existing-notices-and-slips-label>`
+   to make sure they have all the information needed
+
+.. _recalls-manage-label:
+
+Managing recalls
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The recalls feature is relatively automated. Staff do not have a lot of
+manipulations to do to manage recalls.
+
+.. _recall-statuses-label:
+
+Recall statuses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The possible statuses for recalls are the following:
+
+-  Requested
+
+   -  A new recall request has been made and the item must be returned by the
+      patron who currently has it
+
+   -  Requested recalls appear in
+
+      -  the :ref:`recalls queue<recalls-queue-label>`
+
+      -  the :ref:`recalls to pull list <recalls-to-pull-label>`, if an
+         available item can fulfill the recall
+
+      -  the 'Recalls' tab of the bibliographic record
+
+      -  the :ref:`'Recalls' tab of the patron's file<patron-recalls-label>`
+         (and :ref:`its equivalent in the OPAC<your-summary-label>`)
+
+      -  the :ref:`'Recalls history' tab of a patron's file<patron-recall-history-label>`
+         (and :ref:`its equivalent in the OPAC<your-recalls-history-label>`)
+
+-  Waiting
+
+   -  A recalled item is awaiting pickup at the requester's chosen branch
+
+   -  Waiting recalls appear in
+
+      -  the :ref:`recalls awaiting pickup list<recalls-awaiting-pickup-label>`
+
+      -  the :ref:`recalls queue<recalls-queue-label>`
+
+      -  the :ref:`'Recalls' tab of the patron's file<patron-recalls-label>`
+         (and :ref:`its equivalent in the OPAC<your-summary-label>`)
+
+      -  the :ref:`'Recalls history' tab of a patron's file<patron-recall-history-label>`
+         (and :ref:`its equivalent in the OPAC<your-recalls-history-label>`)
+
+-  In transit
+
+   -  An item has been assigned to a recall and is in transit to the
+      requester's chosen pickup branch
+
+   -  In transit recalls appear in
+
+      -  the :ref:`recalls queue<recalls-queue-label>`
+
+      -  the :ref:`'Recalls' tab of the patron's file<patron-recalls-label>`
+         (and :ref:`its equivalent in the OPAC<your-summary-label>`)
+
+      -  the :ref:`'Recalls history' tab of a patron's file<patron-recall-history-label>`
+         (and :ref:`its equivalent in the OPAC<your-recalls-history-label>`)
+
+-  Overdue
+
+   -  A recalled item is overdue to be returned by the patron who currently has
+      it
+
+   -  Overdue recalls appear in
+
+      -  the :ref:`overdue recalls list<recalls-overdue-label>`
+
+      -  the :ref:`recalls queue<recalls-queue-label>`
+
+      -  the :ref:`'Recalls' tab of the patron's file<patron-recalls-label>`
+         (and :ref:`its equivalent in the OPAC<your-summary-label>`)
+
+      -  the :ref:`'Recalls history' tab of a patron's file<patron-recall-history-label>`
+         (and :ref:`its equivalent in the OPAC<your-recalls-history-label>`)
+
+-  Fulfilled
+
+   -  A recalled item has been checked out to the recall requester, and the
+      recall is complete
+
+   -  Fulfilled recalls appear in
+
+      -  the :ref:`old recalls list<recalls-old-label>`
+
+      -  the :ref:`'Recalls history' tab of a patron's file<patron-recall-history-label>`
+         (and :ref:`its equivalent in the OPAC<your-recalls-history-label>`)
+
+-  Expired
+
+   -  The recall was not completed before a defined expiration date or the
+      recall requester failed to pick up their waiting recall within the pickup
+      period defined in :ref:`RecallsMaxPickUpDelay <RecallsMaxPickUpDelay-label>`
+
+   -  Expired recalls appear in
+
+      -  the :ref:`old recalls list<recalls-old-label>`
+
+      -  the :ref:`'Recalls history' tab of a patron's file<patron-recall-history-label>`
+         (and :ref:`its equivalent in the OPAC<your-recalls-history-label>`)
+
+-  Cancelled
+
+   -  The recall request was cancelled.
+
+   -  Cancelled recalls appear in
+
+      -  the :ref:`old recalls list<recalls-old-label>`
+
+      -  the :ref:`'Recalls history' tab of a patron's file<patron-recall-history-label>`
+         (and :ref:`its equivalent in the OPAC<your-recalls-history-label>`)
+
+.. _recalls-receive-label:
+
+Receiving recalled items
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Upon :ref:`checkin in<check-in-(returning)-label>` an item that has been
+recalled, a pop up will appear asking the staff member to confirm or ignore the
+recall.
+
+|returnrecall|
+
+-  Confirm recall: this option will put the recall in 'Waiting' status and,
+   if the patron has an email address in their file, will notify them that
+   their recalled item is now ready for pickup.
+
+   .. Note::
+
+      The notice sent is PICKUP\_RECALLED\_ITEM. You can modify it's content
+      in the :ref:`notices and slips tool<notices-and-slips-label>`
+
+-  Print slip and confirm: this option will print a slip you can attach to the
+   item (similar to a hold slip) in addition to everything the 'confirm recall'
+   does (change the status and send the notice).
+
+   .. Note::
+
+      The slip is RECALL\_REQUESTER\_DET. You can modify it's content
+      in the :ref:`notices and slips tool<notices-and-slips-label>`
+
+-  Ignore: this option will check in the item, but the recall will not be set
+   as awaiting pickup and the patron will not be notified.
+
+If the patron asked to pick up their recalled item at a different library, a
+:ref:`transfer<transfers-label>` will be triggered.
+
+|transferrecall|
+
+-  Confirm recall and transfer: this option will put the recall 'In transit'.
+
+-  Print slip, transfer, and confirm: this option will print a slip you can
+   attach to the item (similar to a hold slip) in addition to setting the recall
+   as 'In transit'.
+
+-  Ignore: this option will check in the item, but the recall will not be set
+   as 'In transit'
+
+.. Note::
+
+   The patron will not be notified that their recall is ready for them with any
+   of the above options.
+
+.. _recalls-cancel-label:
+
+Cancelling recalls
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Note::
+
+   Only requested or overdue recalls can be cancelled.
+
+   It is not possible to cancel a recall that is currently awaiting pickup
+
+Staff can cancel recalls from various screen in the staff interface.
+
+-  Cancel from the :ref:`recalls queue<recalls-queue-label>` either
+   individually by clicking the 'Actions' button and selecting the 'Cancel'
+   option.
+
+   |cancelrecallsqueue|
+
+   Or by selecting several recalls and clicking the 'Cancel selected recalls'
+   button at the bottom of the screen.
+
+   If the recalled item is currently in transit, the cancel option will also
+   trigger a transfer back to the item's home library.
+
+   |canceltransferrecallsqueue|
+
+-  Cancel from the :ref:`recalls to pull<recalls-to-pull-label>` by clicking
+   the 'Cancel recall' button on the right
+
+   |recallstopull|
+
+   If the recalled item is currently in transit, the cancel option will also
+   trigger a transfer back to the item's home library.
+
+   |recallstopulltransfer|
+
+-  Cancel from the :ref:`overdue recalls list<recalls-overdue-label>` either
+   individually by clicking the 'Actions' button and selecting the 'Cancel'
+   option.
+
+   |canceloverduerecalls|
+
+   Or by selecting several recalls and clicking the 'Cancel selected recalls'
+   button at the bottom of the screen.
+
+-  Cancel from the 'Recalls' tab of a bibliographic record by clicking the
+   'Actions' button and selecting the 'Cancel' option.
+
+   |existingrecallsbibliorecord|
+
+   Or by selecting several recalls and clicking the 'Cancel selected recalls'
+   button at the bottom of the screen.
+
+-  Cancel from the 'Recalls' tab of a patron's details page by clicking the
+   'Actions' button and selecting the 'Cancel' option.
+
+   |cancelrecallspatrondetails|
+
+-  Cancel from the 'Recalls history' tab of a patron's file by clicking the
+   'Actions' button and selecting the 'Cancel' option.
+
+   |cancelrecallspatronhistory|
+
+.. _recalls-revert-waiting-label:
+
+Changing waiting recalls' status
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If a recall is currently awaiting pickup and for some reason the staff needs to
+change this status (for example, the requesting patron called and they won't be
+picking up the recall), it is possible to revert the waiting status.
+
+-  Revert the status from the :ref:`recalls queue<recalls-queue-label>` by
+   clicking the 'Actions' button and selecting the 'Revert waiting' option.
+
+   |revertwaitingrecallsqueue|
+
+-  Revert the status from the
+   :ref:`Recalls awaiting pickup list<recalls-awaiting-pickup-label>` by
+   clicking the 'Revert waiting status' button on the right.
+
+   |recallsawaitingpickup|
+
+.. _recalls-mark-overdue-label:
+
+Marking recalls as overdue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If a recall is not checked in by the new due date, it should be marked as
+overdue by the :ref:`overdue\_recalls cronjob<cron-overdue-recalls-label>`.
+However, it is possible to mark recalls as overdue manually.
+
+From the :ref:`recalls queue<recalls-queue-label>`, click the 'Actions' button
+and selecting the 'Mark as overdue' option.
+
+|markoverduerecallsqueue|
+
+Overdue recalls appear in the :ref:`Overdue recalls list<recalls-overdue-label>`.
+
+.. _recalls-expire-label:
+
+Expiring recalls
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If a recall as been awaiting pickup for longer than the allowed period defined
+in :ref:`RecallsMaxPickUpDelay <RecallsMaxPickUpDelay-label>`, it should be expired automatically by the
+:ref:`expire\_recalls cronjob<cron-expire-recalls-label>`. However, it is
+possible to expire recalls manually.
+
+From the :ref:`recalls awaiting pickup list<recalls-awaiting-pickup-label>`,
+click the 'Expire recall' button on the right.
+
+|recallsawaitingpickup|
+
+.. _recalls-reports-label:
+
+Recalls reports
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once :ref:`recalls are set up<recalls-setup-label>`, new sections will appear
+in the circulation module.
+
+-  *Get there*: Circulation > Recalls
+
+.. _recalls-queue-label:
+
+Recalls queue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The recalls queue shows all the current active recalls with their statuses.
+
+|recallsqueue|
+
+From the recalls queue, staff can cancel active recalls either individually by
+clicking the 'Actions' button and selecting the 'Cancel' option.
+
+|cancelrecallsqueue|
+
+Or by selecting several recalls and clicking the 'Cancel selected recalls'
+button at the bottom of the screen.
+
+For recalls that are in transit, it is possible to cancel them and this will
+trigger a transfer back to their home library.
+
+|canceltransferrecallsqueue|
+
+For recalls that are currently awaiting pickup, it is possible to revert the
+waiting status by clicking the 'Actions' button and selecting the 'Revert
+waiting' option.
+
+|revertwaitingrecallsqueue|
+
+For recalls that are overdue, it is possible to mark them as such from the
+recalls queue by clicking the 'Actions' button and selecting the 'Mark as
+overdue' option.
+
+|markoverduerecallsqueue|
+
+
+.. _recalls-to-pull-label:
+
+Recalls to pull
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The recalls to pull list shows all the records that have been recalled but that
+have available items that could fulfill the request.
+
+|recallstopull|
+
+Staff can pick up these items from the shelves and
+:ref:`check them in<check-in-(returning)-label>` to fulfill the requests.
+
+From the recalls to pull list, staff can cancel recalls if needed, by clicking
+the 'Cancel recall' button on the right.
+
+If the item is currently in transit, cancelling the recall will also trigger a
+transfer back the the item's home library.
+
+|recallstopulltransfer|
+
+.. _recalls-overdue-label:
+
+Overdue recalls
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This list shows the items that have been recalled but have not been returned
+by the new due date.
+
+Recalls can be marked as overdue automatically through the
+:ref:`overdue\_recalls cronjob<cron-overdue-recalls-label>` or
+:ref:`manually<recalls-mark-overdue-label>`.
+
+|overduerecalls|
+
+From this list, staff can cancel active recalls either individually by
+clicking the 'Actions' button and selecting the 'Cancel' option.
+
+|canceloverduerecalls|
+
+Or by selecting several recalls and clicking the 'Cancel selected recalls'
+button at the bottom of the screen.
+
+.. _recalls-awaiting-pickup-label:
+
+Recalls awaiting pickup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The recalls awaiting pickup list shows all the recalls that are currently
+waiting for the patron to come and get them.
+
+|recallsawaitingpickup|
+
+This list is divided in two tabs:
+
+-  Recalls waiting: shows all the recalls currently awaiting pickup.
+
+-  Recalls waiting over x days: shows the recalls that have been waiting for
+   more than the number of days specified in the :ref:`RecallsMaxPickUpDelay <RecallsMaxPickUpDelay-label>`
+   system preference.
+
+From this list, staff can
+:ref:`revert waiting recalls<recalls-revert-waiting-label>` by clicking on the
+'Revert waiting status' button on the right.
+
+Staff can also manually :ref:`expire recalls<recalls-expire-label>` by clicking
+on the 'Expire recall' button on the far right.
+
+.. _recalls-old-label:
+
+Old recalls
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The old recalls list shows all the inactive recalls (completed, cancelled and
+expired).
+
+|oldrecalls|
+
+.. _transfers-label:
+
+Transfers
+--------------------------
+
+If you work in a multi-branch system you can transfer items from one
+library to another by using the Transfer tool.
+
+-  *Get there*: Circulation > Transfer
+
+To transfer an item
+
+-  Click 'Transfer' on the Circulation page
+
+   |image565|
+
+   -  Enter the library you would like to transfer the item to
+
+   -  Scan or type the barcode on the item you would like to transfer
+
+-  Click 'Submit'
+
+   |image566|
+
+-  The item will now say that it is in transit
+
+   |image567|
+
+-  When the item arrives at the other branch the librarian must check
+   the item in to acknowledge that it is no longer in transit
+
+-  The item will not be permanently moved to the new library
+
+   |image568|
+
+   -  The item shows the same 'Home library' but has updated the
+      'Current location' to note where it resides at this time
+
+.. _set-library-label:
+
+Set library
+-------------------------------------------------------------------------------
+
+By default, you will enter the staff interface as if you are at your home
+library. This library will appear in the top right of the staff interface.
+
+|searchbar-checkout|
+
+This is the library where all circulation transactions will take place. If you
+are at another library (or on a bookmobile) you will need to set the library
+before you start circulating items. To do this, click on your username and
+logged in library at the top right and choose 'Set library' or click 'Set
+library' on the main circulation page.
+
+|circmenu|
+
+This will bring you to a page where you can choose at which library you are.
+
+|setlibrary|
+
+Once you save your changes, your new library will appear in the top right.
+
+.. Note::
+
+   Only staff with the loggedinlibrary (or superlibrarian)
+   :ref:`permission <patron-permissions-defined-label>` will be able to change
+   the library where they are logged in.
+
+   Staff members who do not have this permission will only be able to log
+   into their home library.
+
+.. _fast-add-cataloging-label:
+
+Fast add cataloging
+-------------------------------------
+
+Sometimes circulation librarians need to quickly add a record to the
+system for an item they are about to check out. This is called 'Fast
+add'. To allow circulation librarians access to the Fast add cataloging
+tool, simply make sure they have the
+`fast\_cataloging <#fastaddpermissions>`__ permissions. There are two
+ways to add titles via fast add. If you know that you're about to check
+out an item that isn't in you catalog you can go to the Circulation
+module and click 'Fast cataloging.'
+
+|circmenu|
+
+The cataloging interface will open up with the short cataloging record:
+
+|image572|
+
+After adding your cataloging data you will be asked to enter item data.
+Enter the items barcode, collection code, etc and save the item before
+checking it out.
+
+The other way to fast catalog is from the checkout screen. When you
+enter a barcode at checkout that Koha can't find, it will prompt you to
+use fast cataloging to add the item to Koha and check it out.
+
+|image573|
+
+Clicking 'Fast cataloging' will bring you to the fast cataloging form
+where you can enter the title information
+
+|image574|
+
+After clicking 'Save' you will be brought to the item record where the
+barcode will already be filled in with the barcode you're trying to
+check out.
+
+|image575|
+
+After clicking the 'Add item' button the item will automatically be
+checked out the patron you were trying to check the book out to
+originally.
+
+|image576|
+
+.. _circulation-reports-label:
+
+Circulation reports
+--------------------------------------
+
+Most reports can be found via the Reports module, but some of the more
+common circulation reports are available right from the Circulation
+module.
+
+-  *Get there*: Circulation > Circulation reports
+
+.. _holds-queue-label:
+
+Holds queue
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This report will show you all holds waiting to be pulled off the shelf at your
+library.
+
+First, choose some filters for the report.
+
+|holdsqueuefilter|
+
+Then, the report will be displayed.
+
+|holdsqueue|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: holds-table).
+
+To generate this report, you must either have the :ref:`Build holds queue cron
+job <cron-holds-queue-report-label>` running, or the
+:ref:`RealTimeHoldsQueue <realtimeholdsqueue-label>` system preference must be
+set to 'Enable'. Either of these will run a script that decides which library
+should be responsible for fulfilling a given hold request. This should
+be enabled if your library system allows borrowers to place on-shelf holds.
+
+The holds queue behavior is controlled by the system preferences
+:ref:`StaticHoldsQueueWeight <holds-queue-system-preferences-label>`,
+:ref:`RandomizeHoldsQueueWeight <holds-queue-system-preferences-label>` and
+:ref:`UseTransportCostMatrix <UseTransportCostMatrix-label>`.
+
+If you do not want all of your libraries to participate in the on-shelf
+holds fulfillment process, you should list the libraries that \*do\*
+participate in the process here by inputting all the participating
+library's branchcodes, separated by commas (e.g. "MPL,CPL,SPL,BML" etc.).
+
+By default, the holds queue will be generated such that the system will
+first attempt to hold fulfillment using items already at the pickup
+library if possible. If there are no items available at the pickup
+library to fill a hold, the system will then use the list of
+libraries defined in
+:ref:`StaticHoldsQueueWeight <holds-queue-system-preferences-label>`. If
+:ref:`RandomizeHoldsQueueWeight <holds-queue-system-preferences-label>` is
+disabled (which it is by default), the script will assign fulfillment requests
+in the order the libraries are placed in the
+:ref:`StaticHoldsQueueWeight <holds-queue-system-preferences-label>` system
+preference.
+
+For example, if your system has three libraries, of varying sizes (small,
+medium and large) and you want the burden of holds fulfillment
+to be on larger libraries before smaller libraries, you would want
+:ref:`StaticHoldsQueueWeight <holds-queue-system-preferences-label>` to look
+something like "LRG,MED,SML".
+
+If you want the burden of holds fulfillment to be spread out equally
+throughout your library system, simply enable
+:ref:`RandomizeHoldsQueueWeight <holds-queue-system-preferences-label>`.
+When this system preference is enabled, the order in which libraries
+will be requested to fulfill an on-shelf hold will be randomized each
+time the list is regenerated.
+
+An alternative to static and randomized is using the
+:ref:`Tansport cost matrix <transport-cost-matrix-label>`.
+It takes precedence in controlling where holds are filled from and allows you
+to define the 'cost' of transport between any two libraries.
+To use the Transport cost matrix simply set your
+:ref:`UseTransportCostMatrix <UseTransportCostMatrix-label>` preference to 'Use'.
+
+.. _holds-to-pull-label:
+
+Holds to pull
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This report will show you all of the items that have holds on them that
+are available at the library for pulling. If the items are available at
+multiple libraries then all libraries with that item available will see
+the hold to pull until one library :ref:`triggers the hold <receiving-holds-label>`.
+
+|holdstopull|
+
+.. Note::
+
+  You can customize the columns of this table in the
+  :ref:`'Table settings'<column-settings-label>` section of the
+  Administration module (table id: holds-to-pull).
+
+Depending on the value of the :ref:`CanMarkHoldsToPullAsLost <CanMarkHoldsToPullAsLost-label>`
+system preference, clicking the "Mark item as lost" button or "Mark item as lost
+and notify patron" button will mark item as lost and notify the requesting patron.
+
+You can choose which :ref:`LOST value<existing-values-label>` to set the
+item to with the :ref:`UpdateItemWhenLostFromHoldList <UpdateItemWhenLostFromHoldList-label>`
+system preference.
+
+.. Warning::
+
+   These buttons will only appear on item-level holds.
+
+.. Note::
+
+   The notification sent to the patron will use the CANCEL\_HOLD\_ON\_LOST
+   template. It can be customized in the
+   :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+You can limit the results you see by using the Refine box on the left
+side of the page.
+
+|refineholdstopull|
+
+.. Note::
+
+   The default dates in the filters are determined by the
+   :ref:`HoldsToPullStartDate <holdstopullstartdate-label>` and
+   :ref:`ConfirmFutureHolds <confirmfutureholds-label>` system preferences.
+
+.. _holds-awaiting-pickup-label:
+
+Holds awaiting pickup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This report will show all of the holds that are waiting for patrons to
+pick them up.
+
+|holdspickup|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: holdst).
+
+You can cancel individual holds manually by clicking the 'Cancel hold' button
+to the right of each hold, or you can cancel selected holds using the button at
+the top of the list.
+
+Items that have been on the hold shelf longer than you normally allow
+(based on the :ref:`ReservesMaxPickUpDelay <ReservesMaxPickUpDelay-label>`
+system preference value) will appear on the 'Holds waiting over X days' tab.
+
+|holdspickupover|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: holdso).
+
+These holds will not automatically be canceled unless the
+:ref:`ExpireReservesMaxPickUpDelay <expirereservesmaxpickupdelay-label>` system
+preference is set to 'Allow' and the
+:ref:`cancel\_expired\_holds.pl cron job <cron-expired-holds-label>` is
+scheduled to run regularly.
+
+You can cancel individual holds manually by clicking the 'Cancel hold' button
+to the right of each hold, or you can cancel selected holds using the button at
+the top of the list, or even cancel all holds.
+
+The 'Holds with cancellation requests' tab contains waiting holds that have been
+canceled by patrons through :ref:`their account on the OPAC <your-summary-label>`,
+if that is allowed by the
+:ref:`waiting hold cancellation policy <defaultwaitingholdcancellationpolicy-label>`.
+
+From this tab, staff can cancel the holds, and transfer them back to their home
+library, if that is the case.
+
+.. Note::
+
+   :ref:`Checking in the items <check-in-(returning)-label>` will also cancel
+   the holds with cancellation requests.
+
+.. _hold-ratios-label:
+
+Hold ratios
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Hold ratios help with collection development. Using this report you will
+be able to see how many of your patrons have holds on items and whether
+you should buy more. By default it will be set to the library needing 3
+items per hold that has been placed. The report will tell you how many
+additional items need to be purchased to meet this quota.
+
+|image582|
+
+     **Note**
+
+     -  You can customize the columns of this table in the 
+        :ref:`'Table settings'<column-settings-label>` section of the 
+        Administration module (table id: holds-ratios).
+
+.. _transfers-to-receive-label:
+
+Transfers to receive
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This report will list all of the items that Koha thinks are in transit
+to your library.
+
+|image583|
+
+If your transfers are late in arriving at your library you will see a
+message stating how late your items are.
+
+|image584|
+
+    **Important**
+
+    An item is considered late based on the number of days you have
+    entered in the
+    :ref:`TransfersMaxDaysWarning <TransfersMaxDaysWarning-label>` system
+    preference.
+
+.. _article-requests-circulation-label:
+
+Article requests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Article requests are somewhat similar to holds, but are not requests
+for an item to check out. Instead, article requests are requests for a
+photocopy of a particular section of a book or an article from a serial
+issue. This is very common in academic libraries where researchers may
+request a copy of a single article found in a journal.
+
+.. _setting-up-article-requests-label:
+
+Setting up article requests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+First, enable your system preference for :ref:`ArticleRequests <ArticleRequests-label>`.
+
+Set to 'Enable' patrons to place article requests.
+
+Next you will need to decide how your patrons will make requests,
+either record only, item only, or both record and item level.
+
+You can set 3 different system preferences for mandatory fields to be filled
+in depending on how your records are requested.
+
+  - :ref:`ArticleRequestsMandatoryFields <ArticleRequestsMandatoryFields-label>`: make the following fields
+    mandatory for records that are record level or item level requestable
+
+  - :ref:`ArticleRequestsMandatoryFieldsItemsOnly <ArticleRequestsMandatoryFieldsItemsOnly-label>` make the following
+    fields mandatory for records that are only item level requestable
+
+  - :ref:`ArticleRequestsMandatoryFieldsRecordOnly <ArticleRequestsMandatoryFieldsRecordOnly-label>` make the
+    following fields mandatory for records that are only record level
+    requestable
+
+The :ref:`ArticleRequestsOpacHostRedirection <ArticleRequestsOpacHostRedirection-label>` system preference is used if you
+create analytical records. If enabled, it will redirect the patron from the
+child record to the host record in the OPAC.
+
+The :ref:`ArticleRequestsSupportedFormats <ArticleRequestsSupportedFormats-label>` system preference determines the
+various formats patrons can request their articles in (either photocopy or
+scan).
+
+Next you will want to go into your :ref:`circulation and fines rules
+matrix <circulation-and-fines-rules-label>` and select each rule for which
+you want to allow requests.
+
+You can allow requests to be made at the record level, item level,
+yes (which means both) and no (which means no article requests may
+be placed).
+
+You can also limit the number of open article requests a patron can have at one
+time by patron category in the
+:ref:`Default open article requests limit <default-open-article-requests-limit-label>`
+section of the circulation rules page.
+
+You can set up a fee for each article request in the
+:ref:`Default article request fees<default-article-request-fees-label>` section
+of the circulation rules page.
+
+.. _placing-article-requests-label:
+
+Placing article requests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now you can place requests on both the staff client and OPAC.
+
+In the staff client, on the record details page, you will see a
+'Request article' button at the top and an 'Article requests' tab
+to the left. The two options lead to the same page.
+
+|recorddetail|
+
+Just like a hold, you will be prompted to enter the patron's card
+number or name.
+
+|articlerequest-patronsearch|
+
+If there is a fee, a message will appear to inform the staff member.
+
+|articlerequestfeewarningstaff|
+
+Fill in the form.
+
+|articlerequestform|
+
+.. Note::
+
+   The mandatory fields are set through the three system preferences
+   :ref:`ArticleRequestsMandatoryFields <ArticleRequestsMandatoryFields-label>`,
+   :ref:`ArticleRequestsMandatoryFieldsItemsOnly <ArticleRequestsMandatoryFieldsItemsOnly-label>`, and
+   :ref:`ArticleRequestsMandatoryFieldsRecordOnly <ArticleRequestsMandatoryFieldsRecordOnly-label>`.
+
+-  Title: enter the title of the requested article or chapter
+
+-  Author: enter the author of the requested article or chapter
+
+-  Volume: enter the volume in which this article or chapter is found
+
+-  Issue: enter the issue in which this article is found
+
+-  Date: enter the date of the issue in which this article is found
+
+-  Table of contents: check to indicate the patron wants a copy of the table
+   of contents
+
+-  Pages: enter the pages to photocopy or scan
+
+-  Chapters: enter the chapters to photocopy or scan
+
+-  Patron notes: enter any relevant notes
+
+-  Format: choose the format in which the patron wishes to receive this article
+   or chapter
+
+   .. Note::
+
+      The possible formats are defined in the
+      :ref:`ArticleRequestsSupportedFormats <ArticleRequestsSupportedFormats-label>` system preference.
+
+-  Pickup library: choose the library at which the patron wishes to pick up
+   their photocopy
+
+If allowed, choose the specific item to request.
+
+Then, click on 'Place request'.
+
+From the OPAC, patrons can place requests themselves either from the
+results list
+
+|opacsearchresults|
+
+or by going to the detailed record.
+
+|opacdetails|
+
+As with a hold, if the patron is not logged in, they will be asked to do so.
+
+The form is the same as the one in the staff interface.
+
+|articlerequestopacform|
+
+If there is a fee, a message will appear to inform the patron.
+
+|articlerequestfeewarningopac|
+
+If allowed, the patron can choose the specific item to request.
+
+From their account, the patron will be able to follow the progress
+of their request from 'new'
+
+|opacarticlerequestnew|
+
+to 'pending', if necessary,
+
+|opacarticlerequestpending|
+
+to 'processing'.
+
+|opacarticlerequestprocessing|
+
+The patron will receive an email notification after placing the request to
+confirm it as well as when the status of the request changes.
+
+  .. Note::
+
+     When placing an article request, the patron will receive a notification.
+     The notice sent is based on the AR\_REQUESTED template.
+
+     Each status is also linked to a notification. See below, under
+     :ref:`Managing article requests <managing-article-requests-label>` for
+     the letter code for each status.
+
+     The content of any notification can be customized in the
+     :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+Once the request is completed the patron will receive an email notification
+and the article request will no longer appear in their account.
+
+  .. Note::
+
+     When staff :ref:`marks the article request as 'Completed' <managing-article-requests-label>`,
+     the patron will receive a notification. The notice sent is based on the
+     AR\_COMPLETED template. The content of this notification can be customized
+     in the :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. _managing-article-requests-label:
+
+Managing article requests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once the article request has been placed, staff will see new requests at
+the bottom of the home page on the staff client. (In the same location
+as tags, comments and modifications).
+
+|articlerequeststaffinterfacenotification|
+
+From there staff will be able to select requests to process.
+
+|requestmanagement|
+
+New requests are in the 'New' tab.
+
+The first step would be for a staff member to process the request, that moves
+the request to the processing tab and alerts other staff members that the
+request is in process. In the actions column, click on the dropdown menu and
+select 'Process request'. This will move the request to the processing tab.
+
+|actionsmenu|
+
+  .. Note::
+
+     Setting an article request to 'Processing' will send a notification to the
+     patron. The notice sent is based on the AR\_PROCESSING template. The
+     content of this notification can be customized in the
+     :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+If for any reason, a request cannot be processed right away (for example, if
+the title is currently checked out), the status can be changed to 'Pending'.
+This will send a notice to the patron indicating the request has been received
+and seen, but has yet to be processed.
+
+  .. Note::
+
+     Setting an article request to 'Pending' will send a notification to the patron.
+     The notice sent is based on the AR\_PENDING template. The content of this
+     notification can be customized in the
+     :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+Next staff will go to the shelf and make a copy of the requested article.
+
+Once that is complete, staff can print the article request slip and staple or
+paper clip it to the article. In the actions column, you can select the dropdown
+and select print slip.
+
+  .. Note::
+
+     The slip used is based on the AR\_SLIP template. The content of this
+     slip can be customized in the
+     :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+Finally, staff will select the complete article request from the actions
+dropdown menu which will send a notice to the patron who made the request
+letting them know the request is ready for pickup.
+
+This removes the article request from the processing tab.
+
+  .. Note::
+
+     Completing an article request will send a notification to the patron.
+     The notice sent is based on the AR\_COMPLETED template. The content of this
+     notification can be customized in the
+     :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+If, for any reason, an article request must be cancelled, staff can choose the
+'Cancel request' option from the 'Actions' button.
+
+  .. Note::
+
+     Cancelling an article request will send a notification to the patron.
+     The notice sent is based on the AR\_CANCELED template. The content of this
+     notification can be customized in the
+     :ref:`Notices and slips tool <notices-and-slips-label>`.
+
+.. Note::
+
+   Actions can also be made in bulk by checking the boxes next to the
+   requests to process or by clicking 'Select all', and choosing the new
+   status from the actions menu on top of the table.
+
+   |articlerequestbatchprocess|
+
+.. _overdues-report-label:
+
+Overdues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This report will list all items that are overdue at your library.
+
+.. Warning::
+
+   For libraries with a large patron base, this report may take a
+   significant amount of time to run.
+
+   Large libraries can choose to filter the report before it runs by
+   setting the :ref:`FilterBeforeOverdueReport <FilterBeforeOverdueReport-label>` system preference to 'Require'.
+
+|overdues|
+
+.. Note::
+
+   You can customize the columns of this table in the
+   :ref:`'Table settings'<column-settings-label>` section of the
+   Administration module (table id: circ-overdues).
+
+The report can be filtered using the menu options found on the left of
+the report.
+
+.. Note::
+
+   The 'Show any items currently checked out' checkbox basically
+   switches this from a report of overdues to a report of checkouts. It
+   will show all titles checked out regardless of due date.
+
+The report result can be downloaded via the 'Download file of displayed overdues'
+link or the 'Export' button at the top of the table.
+
+.. _overdues-with-fines-label:
+
+Overdues with fines
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This report will show you any overdues at your library that have accrued
+fines on them.
+
+|image586|
+
+If you would like to limit the report you can use the pull down menu at
+the top to limit to a specific shelving location at your branch. To see
+overdues with fines at other branches you will have to :ref:`change your
+branch <set-library-label>` or log in at that branch.
+
+    **Important**
+
+    If you do not charge fines and/or don't have the :ref:`fines cron
+    job <cron-fines-label>` running you will see no data on this report.
+
+.. _pending-on-site-checkouts-label:
+
+Pending on-site checkouts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you are using the on site checkouts functionality
+(:ref:`OnSiteCheckouts <OnSiteCheckouts-label>`) then you'll have a report to
+view all items that are currently checked out on site.
+
+|image1260|
+
+This will list the due date (overdues in red), who has the item, item
+information and what library the item is at.
+
+.. _tracking-in-house-use-label:
+
+Tracking in-house use
+-----------------------------------------
+
+Many libraries track the use of items within the library.
+
+    **Note**
+
+    This is different from tracking on-site usage. In-house use is the
+    use of items in the library by patrons without them having to check
+    them out. On-site use is the use of items on site that must first be
+    checked out. To learn more about on site usage please review the
+    :ref:`OnSiteCheckouts <OnSiteCheckouts-label>` preference.
+
+Tracking the use of items in the library without checking them out can
+be done in Koha one of two ways. The first is to create one or more
+:ref:`Statistical Patrons <add-a-statistical-patron-label>`. When collecting items that
+have been used within the library, you will want to check them out to
+your statistical patron:
+
+|image587|
+
+Instead of marking the item as 'checked out' the system will record that
+the item was used in house:
+
+|image588|
+
+Repeat these steps for all items that have been used within the library
+to keep accurate statistics for item use.
+
+The other way to record local use of items is to set your
+:ref:`RecordLocalUseOnReturn <RecordLocalUseOnReturn-label>` preference to
+'Record.' Then whenever you check an item in that is not checked out and
+not on hold a local use will be recorded.
+
+|image589|
+
+    **Note**
+
+    If you have :ref:`RecordLocalUseOnReturn <RecordLocalUseOnReturn-label>` set
+    to 'Record' you can still use your statistical patrons to record
+    local use as well.
+
+.. _self-checkout-label:
+
+Self checkout
+---------------------------------
+
+Koha comes with a very basic self checkout module. To enable this module
+you need to set the :ref:`WebBasedSelfCheck <WebBasedSelfCheck-label>` system
+preference to 'Enable.' To use this module you have to log in as a
+:ref:`staff member <add-a-staff-patron-label>` with :ref:`self\_check
+permissions <patron-permissions-label>`.
+
+    **Note**
+
+    Create a :ref:`staff patron <add-a-staff-patron-label>` specifically for this
+    action so that you don't leave a real staff client logged into a
+    computer all day
+
+There is no link to the Self checkout module, but a simple addition to
+the :ref:`OPACUserJS <OPACUserJS-label>` system preference can add one.
+
+::
+
+    $(document).ready(function(){
+        $("#login .btn").parent().after("<p><a href=\"http://YOUR_KOHA_OPAC_URL/cgi-bin/koha/sco/sco-main.pl\" target=\"_blank\">Self-Checkout</a></p>");
+    });
+
+    **Important**
+
+    The code above has line breaks added to make it more readable,
+    please be sure to enter the above as one line in when putting it in
+    the system preference.
+
+The link will then appear at the bottom of the log in page:
+
+|image591|
+
+You can also access this module by going to:
+http://YOUR\_KOHA\_OPAC\_URL/cgi-bin/koha/sco/sco-main.pl
+
+When on the self checkout page, depending on the value in your
+:ref:`SelfCheckoutByLogin <selfcheckoutbylogin-label>` system preference
+you will be asked to enter your cardnumber
+
+|image592|
+
+or your username and password
+
+|image593|
+
+Once you're logged in to the self check module you will be asked to scan
+the items you are checking out
+
+|image594|
+
+As you scan items they will appear below the barcode box
+
+|image595|
+
+When you are finished scanning items it is important to click the
+'Finish' button. This will prompt you to print a receipt and log you out
+of the self check module.
+
+|image596|
+
+When attempting to check items out there are some instances where error
+messages will appear and the patron will be directed to the librarian.
+This will happen even if you are allowing overrides on circulation
+functions. Only a librarian can override a circulation block and so
+patrons must go to the librarian for help in these situations.
+
+|image597|
+
+.. _self-checkin-label:
+
+Self check-in
+------------------------------------------------
+
+In order to use the self check-in module, you must first set the :ref:
+`SelfCheckInModule <selfscheckinmodule-label>` system preference to
+'Enable'.
+
+Then, you will have to :ref:`create a patron <add-a-staff-patron-label>`
+with the :ref:`self\_checkin\_module permission <patron-permissions-label>`.
+
+    **Note**
+
+    Create a :ref:`staff patron <add-a-staff-patron-label>` specifically for this
+    action so that you don't leave a real staff client logged into a
+    computer all day. You can give this patron only the aforementioned
+    permission so it cannot be used for anything else.
+
+Once this is done, you can head over to the self check-in page:
+http://YOUR\_KOHA\_OPAC\_URL/cgi-bin/koha/sci/sci-main.pl
+
+Log in with your staff patron with self check-in permissions
+
+Once the computer or kiosk is set and the self check-in user logged in,
+patrons will be able to check-in their items themselves.
+
+|image1331|
+
+The patron will either scan the item's barcode, if the computer is
+attached to a barcode scanner, or type in their item's barcode in the box
+and click 'Add' or press enter.
+
+    **Note**
+
+    Most barcode scanners will automatically hit return after scanning.
+
+Once they have scanned or entered all their items' barcodes, they can
+click on the 'Check-in' button to return all the items at once.
+
+    **Important**
+
+    If the patron doesn't click the 'Check-in' button, the items will not
+    be returned and will stay in their account.
+
+    **Important**
+
+    The self check-in module will not warn user if the item is late, if
+    they have fines, if the item is on hold for someone else, or if they
+    have messages in their account.
+
+|image1332|
+
+They can then click 'Finish' to return to the main self check-in page.
+
+|image1333|
+
+    **Note**
+
+    If the patron doesn't click 'Finish', the screen will refresh after the
+    timeout period specified in the :ref:`SelfCheckInTimeout <SelfCheckInTimeout-label>` system preference.
+
+    **Note**
+
+    Even if the patron doesn't click 'Finish' the item will still be checked
+    in from their account.
+
+You can customize the look of your self check-in screens by using the
+:ref:`SelfCheckInUserCSS <SelfCheckInUserCSS-label>` system preference or
+the :ref:`SelfCheckInUserJS <SelfCheckInUserJS-label>` system preference.
+
+You can add content, like instructions on how to use the self check-in system
+for example, by using the :ref:`SelfCheckInMainUserBlock <SelfCheckInMainUserBlock-label>` system preference.
+
+Statistics about the transactions made through the self check-in module
+are logged into the action\_logs table in the Koha database. You can therefore
+:ref:`build a custom report <custom-reports-label>` to get the statistics you
+need.
+
+.. _offline-circulation-utilities-label:
+
+Offline circulation utilities
+------------------------------------------------
+
+Koha allows for you to continue circulation actions while offline by
+using any one of three utilities.
+
+.. _offline-circulation-in-koha-label:
+
+Offline circulation in Koha
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the :ref:`AllowOfflineCirculation <AllowOfflineCirculation-label>` preference
+is set to 'Enable' the library staff can continue to perform circulation
+actions within Koha when the system is offline. You will want to visit
+http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl at least
+once while online and bookmark that page. That is the page you will go
+to when you are offline.
+
+    **Important**
+
+    The offline interface uses HTML LocalStorage, which depending on the
+    browser and user setting, is limited to 2.5MB or 5MB per domain.
+    This means that larger systems will not be able to synchronize their
+    data and are recommended to use either the
+    :ref:`Firefox <firefox-plugin-label>` or
+    :ref:`Windows <offline-circ-tool-for-windows-label>` application for offline
+    circulation.
+
+.. _setup-offline-circulation-label:
+
+Setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before the first time the system goes offline go to Circulation and
+choose 'Built-in offline circulation interface'
+
+|image598|
+
+And synchronize your data on every circulation computer by clicking the
+'Synchronize' link on the right of the screen.
+
+|image599|
+
+    **Important**
+
+    The offline interface uses HTML LocalStorage, which depending on the
+    browser and user setting, is limited to 2.5MB or 5MB per domain.
+    This means that larger systems will not be able to synchronize their
+    data and are recommended to use either the
+    :ref:`Firefox <firefox-plugin-label>` or
+    :ref:`Windows <offline-circ-tool-for-windows-label>` application for offline
+    circulation.
+
+This will allow you download a local copy of your patrons and
+circulation data. Click the 'Download records' link at the top of the
+page to synchronize your data.
+
+|image600|
+
+Once your data is downloaded you will see the dates your data was last
+synced to the right of each data set.
+
+|image1261|
+
+This should be done regularly in preparation for any unexpected connection losses.
+
+.. _circulating-label:
+
+Circulating
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When your system goes offline visit the Offline Circulation page
+(http://your-koha-staff-client-url/cgi-bin/koha/circ/offline.pl) in Koha
+and click 'Check out' or 'Check in' to perform offline actions.
+
+Checking out is done by searching for the patron by barcode or name at
+the top of the 'Check out' screen. After selecting a patron you will be
+presented with the synced patron info, including fines and check outs.
+
+|image601|
+
+Scan the barcode of the item you would like to check out and enter a due
+date. If you don't enter a due date Koha will prompt you for one.
+
+|image602|
+
+Once the item is checked out it will appear below the patron's info.
+
+|image603|
+
+.. _koha-offline-uploading-label:
+
+Koha offline uploading
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once the system is back online visit the 'Synchronize' page on the Offline
+circulation module and click 'Upload transactions'
+
+|image604|
+
+After the files are uploaded you can click 'View pending offline
+circulation actions' on the right.
+
+|image605|
+
+After clicking 'View pending offline circulation actions' you will be
+brought to a summary of all of the actions you loaded in to Koha in your
+\*.koc file.
+
+|image606|
+
+-  Once all of the logs from all of the circulation computers are loaded
+   you will be able to check them all or select just those you want to
+   process into Koha.
+
+-  Click on the 'Process' button and Koha will record every stored
+   transaction one by one. For each transaction, the status will change
+   to:
+
+   -  "Success." if the transaction was processed correctly
+
+   -  "Borrower not found." if the borrower card number is incorrect
+
+   -  "Item not found." if the item barcode is wrong
+
+   -  "Item not issued." if you checked in an available item
+
+Once finished you will have a summary of all of your transactions
+
+|image607|
+
+.. _firefox-plugin-label:
+
+Firefox plugin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There is an offline circulation tool that you can add to your Firefox
+browser as an add-on. To do so, just go to
+https://addons.mozilla.org/en/firefox/addon/koct/ page and click on the
+"install now" button. You may have to confirm the installation, just
+click on "install now" and then restart Firefox to complete the
+installation.
+
+Once you have installed the plugin and restarted Firefox, you will see
+the Koha logo in the download bar at the bottom right of Firefox.
+
+|image608|
+
+A click on the logo will open the tool in its own window.
+
+|image609|
+
+The plugin consists of three sections:
+
+-  The 'Check out' section is where you check out items
+
+-  The 'Check in' section is where you check in items
+
+-  The ‘Transactions’ section is where you can track the transactions done while in offline mode
+
+   -  The transactions will keep information until you empty it.
+
+      |image610|
+
+      If you'd like to clear the transactions, click the 'Clear'
+      box before hitting the 'OK' button. 
+
+The first thing you want to do then is to set up the plugin. Proceed to the settings page, linked in the top right of the page or under ‘Configuration page’ in the Transactions section. 
+
+|image611|
+
+Answer the 5 questions presented:
+
+-  Server = the URL of the librarian interface
+
+-  Username = your staff account login
+
+-  Password = your staff account password
+
+-  Branch code = the code for the branch where you are located
+
+-  Commit Type = If you select ‘Send data to Koha’, your account will need to be approved by an administrator. If you select ‘Apply directly to Koha’, your account will not need to be approved. 
+
+    **Important**
+
+    To save the settings, you will have to close the plugin window and
+    re-open it by clicking again on the Koha logo in the add-on bar.
+
+    **Note**
+
+    You can create a staff account dedicated to the offline circulation.
+    So that, no matter who is at the circulation desk, they can all use
+    the same login. Along those lines, you can use a group login that
+    you already have in place for circulation as well.
+
+Once you have everything set up you can start checking items in and out.
+
+Checking out:
+
+|image1516|
+
+-  Under the 'Checkout' heading
+
+-  Scan the patron barcode
+
+-  Scan the item barcode
+
+-  Click 'Checkout'
+
+Checking in:
+
+|image613|
+
+-  Under the 'Checkin' heading
+
+-  Scan the item barcode
+
+-  Click 'Checkin'
+
+Each time, you check out or check in an item, a new transaction is
+recorded in the local plugin database. This is recorded in the Transactions section bellow. 
+
+|image615|
+
+    **Note**
+
+    The status will be "Local." as long as you are offline and don't
+    process the transactions into Koha.
+
+When your Internet connection comes back up you will want to get these
+transactions in to Koha. Before processing these transactions you should
+be aware of a few issues.
+
+Because you are not connected to your Koha database when using this
+plugin holds will need additional processing. If an item you check in
+while offline has a hold, the hold is kept on the item. Since, you can't
+confirm holds found during the processing of every check in, the holds
+stay on the item and will need to be managed later. If you only checked
+in a few items you can just keep a record of them all. If you checked in
+a lot of items you can use the Holds queue once it rebuilds to see what
+holds made it to the shelf erroneously.
+
+Similarly, if an patron card was expired, the offline circulation tool
+won't know about it, so the checkout will be recorded regardless of the
+patron's account being blocked normally.
+
+You have two options for adding this data to Koha
+
+|image1516|
+
+-  Apply to Koha
+
+   -  If you checked in/out on more than one computer at the same time,
+      what you want is to process every transaction consistently. Let's
+      say for instance that one patron checked a book out on one
+      computer and then checked the same book in on another computer. To
+      be consistent, you need to record the check out first and then the
+      check in. Not the opposite! To do so, you need to group every
+      transaction in one place, sort them all and then, process
+      everything. So, you need to use the "Apply to Koha" option from
+      every plugin/computer you worked with. This way, the log will go
+      to Koha and be accessible from the Offline Circulation page.
+
+      |image616|
+
+   -  *Get there:* Circulation > Pending offline circulation actions
+
+      |image617|
+
+   -  Once all of the logs from all of the circulation computers are
+      loaded you will be able to check them all or select just those you
+      want to process into Koha.
+
+   -  Click on the Process button and Koha will record every stored
+      transaction one by one. For each transaction, the status will
+      change to:
+
+      -  "Success." if the transaction was processed correctly
+
+      -  "Borrower not found." if the borrower card number is incorrect
+
+      -  "Item not found." if the item barcode is wrong
+
+      -  "Item not issued." if you checked in an available item
+
+   -  Once finished you will have a summary of all of your transactions
+
+      |image618|
+
+-  Apply directly
+
+   -  If you performed all of the circulation actions on one computer
+      then everything is sorted already so you can choose to "Apply
+      directly"
+
+   -  The status column will be updated to let you know if the
+      transactions were applied
+
+      -  "Success." if the transaction was processed correctly
+
+      -  "Borrower not found." if the borrower card number is incorrect
+
+      -  "Item not found." if the item barcode is wrong
+
+      -  "Item not issued." if you checked in an available item
+
+
+.. _offline-circ-tool-for-windows-label:
+
+Offline circulation tool for Windows
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Offline circulation utility can be downloaded at:
+https://github.com/bywatersolutions/koha-offline-circulation/releases
+
+To generate a borrowers.db file for loading in to the Windows tool you
+will need to run the :ref:`file generator via a cron
+job <cron-generate-patron-file-for-offline-circulation-label>`.
+
+.. _upload-offline-circ-file-label:
+
+Upload offline circulation file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :ref:`offline circulation tool for Windows <offline-circ-tool-for-windows-label>` will
+generate a KOC file that you can upload into Koha once your system comes
+back up.
+
+On the Circulation menu click 'Upload offline circulation file (.koc)'
+
+|image621|
+
+Browse your computer for the \*.koc file
+
+|image622|
+
+Once the file is uploaded, click the process the file
+
+|image623|
+
+When this is complete you'll be able to upload another file or tend to
+pending offline circulation actions.
+
+|image624|
+
+After clicking 'View pending offline circulation actions' you will be
+brought to a summary of all of the actions you loaded in to Koha in your
+\*.koc file.
+
+|image625|
+
+-  Once all of the logs from all of the circulation computers are loaded
+   you will be able to check them all or select just those you want to
+   process into Koha.
+
+-  Click on the Process button and Koha will record every stored
+   transaction one by one. For each transaction, the status will change
+   to:
+
+   -  "Success." if the transaction was processed correctly
+
+   -  "Borrower not found." if the borrower card number is incorrect
+
+   -  "Item not found." if the item barcode is wrong
+
+   -  "Item not issued." if you checked in an available item
+
+Once finished you will have a summary of all of your transactions
+
+|image626|

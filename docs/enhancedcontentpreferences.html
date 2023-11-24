@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>強化內容 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="E-Resource management" href="ermpreferences.html" />
+    <link rel="prev" title="流通" href="circulationpreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">強化內容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#all">全部</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#frbrizeeditions">FRBRizeEditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacfrbrizeeditions">OPACFRBRizeEditions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#amazon">Amazon</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#amazonassoctag">AmazonAssocTag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amazoncoverimages">AmazonCoverImages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amazonlocale">AmazonLocale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacamazoncoverimages">OPACAmazonCoverImages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#babeltheque">Babelthèque</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#babeltheque-label">Babelthèque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#babeltheque-url-js">Babeltheque_url_js</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#babeltheque-url-update">Babeltheque_url_update</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#baker-taylor">Baker &amp; Taylor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bakertaylorbookstoreurl">BakerTaylorBookstoreURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bakertaylorenabled">BakerTaylorEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bakertaylorusername-and-bakertaylorpassword">BakerTaylorUsername 與 BakerTaylorPassword</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#coce-cover-images-cache">Coce cover images cache</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#coce">Coce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cocehost">CoceHost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coceproviders">CoceProviders</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#google">Google</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#googlejackets">GoogleJackets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#html5-media">HTML5 媒體</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#html5mediaenabled">HTML5MediaEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#html5mediaextensions">HTML5MediaExtensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#html5mediayoutube">HTML5MediaYouTube</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#librarything">LibraryThing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librarythingforlibrariesenabled">LibraryThingForLibrariesEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#librarythingforlibrariesid">LibraryThingForLibrariesID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#librarythingforlibrariestabbedview">LibraryThingForLibrariesTabbedView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#thingisbn">ThingISBN</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#local-or-remote-cover-images">在地或遠端封面圖片</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#allowmultiplecovers">AllowMultipleCovers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customcoverimages">客製化封面</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaccustomcoverimages">OPACLocalCoverImages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customcoverimagesurl">CustomCoverImagesURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#localcoverimages">LocalCoverImages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opaclocalcoverimages">OPACLocalCoverImages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#manual">手冊</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kohamanualbaseurl">KohaManualBaseURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kohamanuallanguage">KohaManualLanguage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#novelist-select">NoveList Select</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectenabled">NovelistSelectEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectprofile-and-novelistselectpassword">NovelistSelectProfile 與 NovelistSelectPassword</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectstaffenabled">NovelistSelectStaffEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectstaffprofile">NovelistSelectStaffProfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectstaffview">NovelistSelectStaffView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#novelistselectview">NovelistSelectView</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#open-library">開放式圖書館</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openlibrarycovers">OpenLibraryCovers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openlibrarysearch">OpenLibrarySearch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#overdrive">Overdrive</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overdrivecirculation">OverDriveCirculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overdriveclientkey-and-overdriveclientsecret">OverDriveClientKey and OverDriveClientSecret</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overdrivelibraryid">OverDriveLibraryID</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#recordedbooks">RecordedBooks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recordedbooksclientsecret">RecordedBooksClientSecret</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recordedbooksdomain">RecordedBooksDomain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recordedbookslibraryid">RecordedBooksLibraryID</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#syndetics">Syndetics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsauthornotes">SyndeticsAuthorNotes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsawards">SyndeticsAwards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsclientcode">SyndeticsClientCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticscoverimages-and-syndeticscoverimagesize">SyndeticsCoverImages 與 SyndeticsCoverImageSize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticseditions">SyndeticsEditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsenabled">SyndeticsEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsexcerpt">SyndeticsExcerpt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsreviews">SyndeticsReviews</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticsseries">SyndeticsSeries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticssummary">SyndeticsSummary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syndeticstoc">SyndeticsTOC</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tagging">標籤</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tagsenabled">TagsEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsexternaldictionary">TagsExternalDictionary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsinputondetail">TagsInputOnDetail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsinputonlist">TagsInputOnList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsmoderation">TagsModeration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsshowondetail">TagsShowOnDetail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tagsshowonlist">TagsShowOnList</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">強化內容</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhancedcontentpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="circulationpreferences.html" class="btn btn-neutral float-left" title="流通" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="ermpreferences.html" class="btn btn-neutral float-right" title="E-Resource management" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enhanced-content">
+<span id="enhanced-content-system-preferences-label"></span><h1>強化內容<a class="headerlink" href="#enhanced-content" title="此标题的永久链接"></a></h1>
+<p><em>到那裡：</em> 更多 &gt; 管理 &gt; 整體系統偏好 &gt; 強化內容</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>注意外部資料來源的服務條款，確認在正確的授權範圍內使用它們。</p>
+<p><strong>注意</strong></p>
+<p>不能使用多個封面服務 (包括在地服務)。若設定多個服務將形成重複封面。只能選一個封面來源。</p>
+</div></blockquote>
+<section id="all">
+<span id="all-label"></span><h2>全部<a class="headerlink" href="#all" title="此标题的永久链接"></a></h2>
+<section id="frbrizeeditions">
+<span id="frbrizeeditions-label"></span><h3>FRBRizeEditions<a class="headerlink" href="#frbrizeeditions" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在館員介面 ___ 館藏的其他版本</p>
+<p>值:</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<p><img alt="image46" src="_images/editionstab.png" /></p>
+</li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>Using the rules set forth in the Functional Requirements for
+Bibliographic records, this option, when enabled, pulls all editions
+of the same title available in your collection regardless of material
+type. Items will appear under an ‘Editions’ tab on the detail page
+for the title in question.. According to <em>Libraries Unlimited’s
+Online Dictionary for Library and Information Science</em>
+(<a class="reference external" href="http://lu.com/odlis/">http://lu.com/odlis/</a>), FRBRizing the catalog involves collating MARC
+records of similar materials. FRBRization brings together entities
+(sets of Works, Expressions, or Manifestations), rather than just
+sets of Items. It can aid patrons in selecting related items,
+expressions, and manifestations that will serve their needs. When it
+is set to “Show”, the OPAC will query one or more ISBN web services
+for associated ISBNs and display an Editions tab on the details
+pages. Once this preference is enabled, the library must select one
+of the ISBN options (such as <a class="reference internal" href="#thingisbn-label"><span class="std std-ref">ThingISBN</span></a>). This option is only for the Staff
+Client - the <a class="reference internal" href="#opacfrbrizeeditions-label"><span class="std std-ref">OPACFRBRizeEditions</span></a> option must be enabled
+to have the Editions tab appear on the OPAC.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Requires that you turn on one or more of the ISBN services
+(such as <a class="reference internal" href="#thingisbn-label"><span class="std std-ref">ThingISBN</span></a>).</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="opacfrbrizeeditions">
+<span id="opacfrbrizeeditions-label"></span><h3>OPACFRBRizeEditions<a class="headerlink" href="#opacfrbrizeeditions" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC ___ 館藏的其他版本。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Using the rules set forth in the Functional Requirements for
+Bibliographic records, this option, when enabled, pulls all editions
+of the same title available in your collection regardless of material
+type. Items will appear under an ‘Editions’ tab on the detail page
+for the title in question.. According to <em>Libraries Unlimited’s
+Online Dictionary for Library and Information Science</em>
+(<a class="reference external" href="http://lu.com/odlis/">http://lu.com/odlis/</a>), FRBRizing the catalog involves collating MARC
+records of similar materials. FRBRization brings together entities
+(sets of Works, Expressions, or Manifestations), rather than just
+sets of Items. It can aid patrons in selecting related items,
+expressions, and manifestations that will serve their needs. When it
+is set to “Show”, the OPAC will query one or more ISBN web services
+for associated ISBNs and display an Editions tab on the details
+pages. Once this preference is enabled, the library must select one
+of the ISBN options (such as <a class="reference internal" href="#thingisbn-label"><span class="std std-ref">ThingISBN</span></a>). This option is only for the OPAC - the
+<a class="reference internal" href="#frbrizeeditions-label"><span class="std std-ref">FRBRizeEditions</span></a> option must be turned “On” to
+have the Editions tab appear on the Staff Client.</p></li>
+</ul>
+<p>值:</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<p><img alt="image47" src="_images/editions.png" /></p>
+</li>
+</ul>
+<p>此偏好抓出館藏內題名相同的所有類型的各種版本。館藏將顯示在詳情頁面的 ‘版本’ 分頁。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Requires that you turn on one or more of the ISBN services
+(such as <a class="reference internal" href="#thingisbn-label"><span class="std std-ref">ThingISBN</span></a>).</p>
+</div></blockquote>
+</section>
+</section>
+<section id="amazon">
+<span id="amazon-system-preferences-label"></span><h2>Amazon<a class="headerlink" href="#amazon" title="此标题的永久链接"></a></h2>
+<section id="amazonassoctag">
+<span id="amazonassoctag-label"></span><h3>AmazonAssocTag<a class="headerlink" href="#amazonassoctag" title="此标题的永久链接"></a></h3>
+<p>詢問：填入亞馬遜書店的推廣帳號 ___。</p>
+<blockquote>
+<div><p><strong>注意</strong></p>
+<p>讀者從圖書館網頁點選進入亞馬遜書店購物，圖書館就能收到介紹費。</p>
+</div></blockquote>
+<p>說明：</p>
+<ul class="simple">
+<li><p>向亞馬遜書店取得推廣帳號後讀者就可以點選圖書館網頁裡連結進入亞馬遜書店購物讓圖書館收到介紹費。詳情見亞馬遜書店夥伴計畫網站 <a class="reference external" href="https://affiliate-program.amazon.com/">https://affiliate-program.amazon.com/</a>。然而，取得推廣帳號前，必須先申請亞馬遜書店網頁服務帳號 (Amazon Web Services, AWS) <a class="reference external" href="http://aws.amazon.com">http://aws.amazon.com</a>。才能登入前述的夥伴計畫網站，取得推廣帳號。</p></li>
+</ul>
+<p>登入於：<a class="reference external" href="https://affiliate-program.amazon.com/">https://affiliate-program.amazon.com/</a></p>
+</section>
+<section id="amazoncoverimages">
+<span id="amazoncoverimages-label"></span><h3>AmazonCoverImages<a class="headerlink" href="#amazoncoverimages" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：___ 來自亞馬遜書店的封面資訊於館員介面的搜尋結果與館藏詳情。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制亞馬遜書店的封面是否顯示在館員介面。根據館藏的 MARC 紀錄的第一個 ISBN 向亞馬遜書店的資料庫擷取封面。亞馬遜書店提供此免費服務。若此偏好設定為 “顯示”，封面顯示在館員介面裡，若此偏好設定 “不顯示”，則不會顯示封面。最後，選用亞馬遜書店的封面後，必須關閉其他來源的封面資料。否則，會干擾此偏好的運作。</p></li>
+</ul>
+</section>
+<section id="amazonlocale">
+<span id="amazonlocale-label"></span><h3>AmazonLocale<a class="headerlink" href="#amazonlocale" title="此标题的永久链接"></a></h3>
+<p>預設值：美國</p>
+<p>詢問：從 ___ 網站取用亞馬遜資訊。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>美國</p></li>
+<li><p>英國</p></li>
+<li><p>加拿大</p></li>
+<li><p>法國</p></li>
+<li><p>德國</p></li>
+<li><p>印度語系</p></li>
+<li><p>日文</p></li>
+</ul>
+</section>
+<section id="opacamazoncoverimages">
+<span id="opacamazoncoverimages-label"></span><h3>OPACAmazonCoverImages<a class="headerlink" href="#opacamazoncoverimages" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：___ 來自亞馬遜書店的封面資訊於 OPAC 的搜尋結果與館藏詳情。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好控制是否在 OPAC 顯示亞馬遜書店的封面。取自亞馬遜書店的封面，係根據館藏 MARC 記錄的第一個 ISBN 向亞馬遜書店的資料庫擷取。此服務為免費。若此偏好設定為 “顯示”，封面顯示在 OPAC 裡，若此偏好設定 “不顯示”，則不會顯示封面。最後，選用亞馬遜書店的封面後，必須關閉其他來源的封面資料。若沒有關閉，會干擾 AmazonCoverImages 偏好的運作。</p></li>
+</ul>
+</section>
+</section>
+<section id="babeltheque">
+<span id="babeltheque-system-preferences-label"></span><h2>Babelthèque<a class="headerlink" href="#babeltheque" title="此标题的永久链接"></a></h2>
+<section id="babeltheque-label">
+<span id="id1"></span><h3>Babelthèque<a class="headerlink" href="#babeltheque-label" title="此标题的永久链接"></a></h3>
+<p>預設值：不要</p>
+<p>詢問: ___ 加入來自法國文學圖書館的 (書評與引文) 資訊於 OPAC。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>設定此偏好後，在 OPAC 顯示法國國家圖書館分頁，讀者可近用該館的標籤、評論與其他資訊。這些資訊都來自法文的 <a class="reference external" href="http://www.babelio.com/">Babelio.com</a>，類似的英文資料在 LibraryThing for Libraries。詳情見其網站，<a class="reference external" href="http://www.babeltheque.com/">http://www.babeltheque.com</a>。使用前必須先登錄入 <a class="reference external" href="http://www.babeltheque.com">http://www.babeltheque.com</a>。此資訊只以法文顯示。</p></li>
+</ul>
+<p>值:</p>
+<ul>
+<li><p>做</p>
+<p><img alt="image48" src="_images/Babeltheque.png" /></p>
+</li>
+<li><p>不要</p></li>
+</ul>
+</section>
+<section id="babeltheque-url-js">
+<span id="babeltheque-url-js-label"></span><h3>Babeltheque_url_js<a class="headerlink" href="#babeltheque-url-js" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 設定供 Babeltheque javascript 檔案使用的網址 (如： <a class="reference external" href="http://www.babeltheque.com/bw_XX.js">http://www.babeltheque.com/bw_XX.js</a>)</p>
+</section>
+<section id="babeltheque-url-update">
+<span id="babeltheque-url-update-label"></span><h3>Babeltheque_url_update<a class="headerlink" href="#babeltheque-url-update" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 定期更新設定 Babelthèque 的網址 (如：<a class="reference external" href="http://www.babeltheque.com/.../file.csv.bz2">http://www.babeltheque.com/…/file.csv.bz2</a>)。</p>
+</section>
+</section>
+<section id="baker-taylor">
+<span id="baker-and-taylor-label"></span><h2>Baker &amp; Taylor<a class="headerlink" href="#baker-taylor" title="此标题的永久链接"></a></h2>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>這是付費服務，設定之前先聯絡 Baker &amp; Taylor。</p>
+</div></blockquote>
+<section id="bakertaylorbookstoreurl">
+<span id="bakertaylorbookstoreurl-label"></span><h3>BakerTaylorBookstoreURL<a class="headerlink" href="#bakertaylorbookstoreurl" title="此标题的永久链接"></a></h3>
+<p>問：貝克與泰勒書店的 “我的圖書館書店” 應該可以近用於 <a class="reference external" href="https://">https://</a> ___ isbn</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>一些圖書館通過出售從Baker &amp; Taylor書店購買的或以前從Baker &amp; Taylor書店租借的書籍和其他資料為圖書館創造額外的資金。這些資料可以通過圖書館網站上的一個連結來獲取。這項服務通常被稱為 “我的圖書館書店”。為了參與這項計劃，圖書館必須首先在Baker &amp; Taylor書店註冊並支付這項服務的費用。有關這項服務和Baker &amp; Taylor公司提供的其他服務的更多訊息可在Baker &amp; Taylor的網站https://www.baker-taylor.com/。 BakerTaylorBookstoreURL偏好設置了一個URL，以連結到圖書館的Baker &amp; Taylor支持的在線書店，如果已經建立了這樣的書店。這個欄位的預設值為空白；如果沒有輸入值，與我的圖書館書店的連結將保持不活動。如果啟用這一偏好，請在URL中的適當位置輸入圖書館的主機名和上層號碼。 “key “值（key=）應附加到URL中，<a class="reference external" href="https://">https://</a>，應預留。</p></li>
+</ul>
+<p>應填入像這樣的資料 koha.mylibrarybookstore.com/MLB/actions/searchHandler.do?nextPage=bookDetails&amp;amp;parentNum=10923&amp;amp;key=</p>
+<blockquote>
+<div><p><strong>注意</strong></p>
+<p>空白即停用。</p>
+<p><strong>重要</strong></p>
+<p>訂購時向貝克與泰勒書店取得此資訊。</p>
+</div></blockquote>
+</section>
+<section id="bakertaylorenabled">
+<span id="bakertaylorenabled-label"></span><h3>BakerTaylorEnabled<a class="headerlink" href="#bakertaylorenabled" title="此标题的永久链接"></a></h3>
+<p>預設值：不加入</p>
+<p>詢問：___ 貝克與泰勒連結書店與封面至 OPAC 與館員介面。此項服務需要帳號與密碼 (從封面連結可看到)。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>新增</p></li>
+<li><p>不加入</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>此偏好設定後，可以取得貝克與泰勒書店的內容 (書評、摘要、封面等)，顯示於館員介面與 OPAC。必須先向貝克與泰勒 (<a class="reference external" href="http://www.baker-taylor.com/">http://www.baker-taylor.com/</a>) 申請註冊並付費。啟用後，必須關閉其他的封面與評論服務以免干擾。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>使用此偏好，必須同時設定 <a class="reference internal" href="#bakertaylorusername-and-bakertaylorpassword-label"><span class="std std-ref">BakerTaylorUsername and BakerTaylorPassword</span></a> 系統偏好</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="bakertaylorusername-and-bakertaylorpassword">
+<span id="bakertaylorusername-and-bakertaylorpassword-label"></span><h3>BakerTaylorUsername 與 BakerTaylorPassword<a class="headerlink" href="#bakertaylorusername-and-bakertaylorpassword" title="此标题的永久链接"></a></h3>
+<p>詢問： 近用貝克與泰勒書店時，使用者名稱 ___ 與密碼 ___</p>
+<p>說明:</p>
+<ul>
+<li><p>This setting in only applicable if the library has a paid
+subscription to the external Content CafÃ© service from Baker &amp;
+Taylor. Use the box provided to enter in the library’s Content CafÃ©
+username and password. Also, ensure that the
+<a class="reference internal" href="#bakertaylorbookstoreurl-label"><span class="std std-ref">BakerTaylorBookstoreURL</span></a> and
+<a class="reference internal" href="#bakertaylorenabled-label"><span class="std std-ref">BakerTaylorEnabled</span></a> settings are properly
+set. The Content CafÃ© service is a feed of enhanced content such as
+cover art, professional reviews, and summaries that is displayed
+along with Staff Client/OPAC search results. For more information on
+this service please see the Baker &amp; Taylor website:
+<a class="reference external" href="https://www.baker-taylor.com/">https://www.baker-taylor.com/</a></p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>訂購時向貝克與泰勒書店取得此資訊。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="coce-cover-images-cache">
+<span id="coce-cover-images-cache-label"></span><h2>Coce cover images cache<a class="headerlink" href="#coce-cover-images-cache" title="此标题的永久链接"></a></h2>
+<p>Coce 是遠端 URL 圖片快取。以此選項，封面不是直接從 Amazon、Google 等地取得。此等 URL 係經由網頁服務送至 Coce 由其管理 URL 的快取。</p>
+<section id="coce">
+<span id="coce-label"></span><h3>Coce<a class="headerlink" href="#coce" title="此标题的永久链接"></a></h3>
+<p>預設值：不啟用</p>
+<p>詢問：___ Coce 封面快取服務。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>Coce 對 Koha 選擇與顯示封面有許多幫助：</p>
+<ul>
+<li><p>無法由提供者得到封面，但可從其他地方取得，Koha 仍顯示其封面，目前還不能使用它</p></li>
+<li><p>因為 URL 是經過快取的，不必每次請求提供封面，一而再地，只有必要時才請提供者及其他再提供封面。</p></li>
+<li><p>經由 Amazon Product Advertising API 取得 Amazon 的圖書封面，就是可以取得更多的封面(ISBN13)。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Coce 並不是 Koha 專屬的服務。安裝 Koha 並不自動設定 Coce 伺服器。啟用此服務前應先設定 Coce 伺服器。安裝與設定 Coce 的方法在 github 官網 <a class="reference external" href="https://github.com/fredericd/coce">https://github.com/fredericd/coce</a>。</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="cocehost">
+<span id="cocehost-label"></span><h3>CoceHost<a class="headerlink" href="#cocehost" title="此标题的永久链接"></a></h3>
+<p>詢問：Coce 伺服器的 URL 是 ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Coce 伺服器應該是完整的 URL (以 <a class="reference external" href="http://">http://</a> 起頭)。</p></li>
+</ul>
+</section>
+<section id="coceproviders">
+<span id="coceproviders-label"></span><h3>CoceProviders<a class="headerlink" href="#coceproviders" title="此标题的永久链接"></a></h3>
+<p>詢問：從下列提供者擷取封面 ___</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>[全選]</p></li>
+<li><p>Amazon 網頁服務</p></li>
+<li><p>Google 圖書</p></li>
+<li><p>開放式圖書館</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>以在此選定的提供者於您的 Koha 目錄顯示封面。</p></li>
+</ul>
+</section>
+</section>
+<section id="google">
+<span id="google-label"></span><h2>Google<a class="headerlink" href="#google" title="此标题的永久链接"></a></h2>
+<section id="googlejackets">
+<span id="googlejackets-label"></span><h3>GoogleJackets<a class="headerlink" href="#googlejackets" title="此标题的永久链接"></a></h3>
+<p>預設值：不加入</p>
+<p>詢問：___ 來自 Google 圖書的封面於 OPAC 的搜尋結果與館藏詳情頁面。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>新增</p></li>
+<li><p>不加入</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此設定控制經由 Google 圖書 API 取得 Google 圖書資訊庫的封面。必須關閉其他的封面服務，才能使用它。</p></li>
+</ul>
+</section>
+</section>
+<section id="html5-media">
+<span id="html5-media-label"></span><h2>HTML5 媒體<a class="headerlink" href="#html5-media" title="此标题的永久链接"></a></h2>
+<section id="html5mediaenabled">
+<span id="html5mediaenabled-label"></span><h3>HTML5MediaEnabled<a class="headerlink" href="#html5mediaenabled" title="此标题的永久链接"></a></h3>
+<p>預設值：不用</p>
+<p>詢問：在欄位 856 使用 HTML5 媒體播放器顯示分頁 ___</p>
+<p>值:</p>
+<ul>
+<li><p>在館員介面與OPAC</p></li>
+<li><p>在 OPAC</p>
+<p><img alt="image49" src="_images/HTML5MediaEnabled-opac.png" /></p>
+</li>
+<li><p>在館員介面</p>
+<p><img alt="image50" src="_images/HTML5MediaEnabled-staff.png" /></p>
+</li>
+<li><p>並非如此</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>若在 MARC 記錄的 856 欄位包括媒體細目，以此偏好設定為從獨立的分頁以 HTML5 執行/顯示該媒體檔案。</p></li>
+</ul>
+</section>
+<section id="html5mediaextensions">
+<span id="html5mediaextensions-label"></span><h3>HTML5MediaExtensions<a class="headerlink" href="#html5mediaextensions" title="此标题的永久链接"></a></h3>
+<p>預設值：webm|ogg|ogv|oga|vtt</p>
+<p>詢問：媒體檔案延伸檔名 ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>以直線 (|) 區隔多個檔案名稱</p></li>
+</ul>
+</section>
+<section id="html5mediayoutube">
+<span id="html5mediayoutube-label"></span><h3>HTML5MediaYouTube<a class="headerlink" href="#html5mediayoutube" title="此标题的永久链接"></a></h3>
+<p>預設值：不嵌入</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>To turn this on first enable
+<a class="reference internal" href="#html5mediaenabled-label"><span class="std std-ref">HTML5MediaEnabled</span></a></p>
+</div></blockquote>
+<p>詢問：___ YouTube 連結為影片。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不嵌入</p></li>
+<li><p>嵌入</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>This preference will allow MARC21 856$u that points to YouTube to
+appear as a playable video on the pages defined in
+<a class="reference internal" href="#html5mediaenabled-label"><span class="std std-ref">HTML5MediaEnabled</span></a>.</p></li>
+</ul>
+</section>
+</section>
+<section id="librarything">
+<span id="librarything-label"></span><h2>LibraryThing<a class="headerlink" href="#librarything" title="此标题的永久链接"></a></h2>
+<p>LibraryThing 是付費服務。先直接聯絡該公司取得付費與訂閱資訊。詳細的設定在 <a class="reference external" href="http://www.librarything.com/forlibraries">http://www.librarything.com/forlibraries</a>。有關組態部份，參閱 LibraryThing 共筆：<a class="reference external" href="http://www.librarything.com/wiki/index.php/Koha">http://www.librarything.com/wiki/index.php/Koha</a></p>
+<section id="librarythingforlibrariesenabled">
+<span id="librarythingforlibrariesenabled-label"></span><h3>LibraryThingForLibrariesEnabled<a class="headerlink" href="#librarythingforlibrariesenabled" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：___ 來自 Library Thing 的評論、相關館藏與標籤於 OPAC 館藏的詳情頁面。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>此設定僅適用於向 LibraryThing 取得的付費服務。它提供推薦圖書之類的額外服務。以及瀏覽標籤、讀者撰寫書評、圖書詳情等。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>If this is set to ‘show’ you will need to enter a value in the
+<a class="reference internal" href="#librarythingforlibrariesid-label"><span class="std std-ref">LibraryThingForLibrariesID</span></a> system preference.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="librarythingforlibrariesid">
+<span id="librarythingforlibrariesid-label"></span><h3>LibraryThingForLibrariesID<a class="headerlink" href="#librarythingforlibrariesid" title="此标题的永久链接"></a></h3>
+<p>詢問：以帳號 ___ 近用 Library Thing 網站</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此設定僅適用於向 LibraryThing 取得付費服務代號的圖書館。在輸入盒內鍵入取自 LibraryThing for Libraries 像 ###-######### 的代號。它提供推薦圖書之類的額外服務，以及瀏覽標籤、讀者撰寫書評、圖書詳情等。</p></li>
+</ul>
+</section>
+<section id="librarythingforlibrariestabbedview">
+<span id="librarythingforlibrariestabbedview-label"></span><h3>LibraryThingForLibrariesTabbedView<a class="headerlink" href="#librarythingforlibrariestabbedview" title="此标题的永久链接"></a></h3>
+<p>預設值：書目資訊方式</p>
+<p>詢問：顯示來自 Library Thing for Libraries 的資訊 ___</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>書目資訊方式</p></li>
+<li><p>在分頁</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此設定僅適用於向 LibraryThing 取得付費服務代號的圖書館。它顯示推薦購買與封面等資訊給讀者。同時在詳情頁面提供瀏覽標籤、讀者撰寫書評、虛擬圖書館等進階功能。</p></li>
+</ul>
+</section>
+<section id="thingisbn">
+<span id="thingisbn-label"></span><h3>ThingISBN<a class="headerlink" href="#thingisbn" title="此标题的永久链接"></a></h3>
+<p>預設值：不用</p>
+<p>詢問：___ ThingISBN 服務於顯示其他版本</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>設定為 ‘使用’ 於館藏詳情頁面顯示 “版本” 分頁。列出版本及其封面 (若已啟用封面服務) 與書目資訊。其內容來自 LibraryThing 的 ThingISBN 網頁服務。每天 1,000 筆免費提供給非營利網站。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Requires <a class="reference internal" href="#frbrizeeditions-label"><span class="std std-ref">FRBRizeEditions</span></a> and/or
+<a class="reference internal" href="#opacfrbrizeeditions-label"><span class="std std-ref">OPACFRBRizeEditions</span></a> set to ‘show’</p>
+<p><strong>重要</strong></p>
+<p>這項服務與 Library Thing for Libraries 不同它是免費。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="local-or-remote-cover-images">
+<span id="local-cover-images-label"></span><h2>在地或遠端封面圖片<a class="headerlink" href="#local-or-remote-cover-images" title="此标题的永久链接"></a></h2>
+<section id="allowmultiplecovers">
+<span id="allowmultiplecovers-label"></span><h3>AllowMultipleCovers<a class="headerlink" href="#allowmultiplecovers" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ multiple images to be attached to each bibliographic record and
+item.</p>
+<p>預設：不允許</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>If this preference is set to ‘Allow’, you can upload multiple
+images that will appear in the images tab of the bibliographic record in the
+OPAC and the staff interface.</p>
+<p><img alt="Detailed record in the OPAC, the record has two local cover images displayed in the 'Image' tab. The thumbnail next to the title is the first cover image, with two dots under it to switch from one image to the other." src="_images/multiplecoversopac.png" /></p>
+</li>
+<li><p>This system preference requires that either one or both of
+<a class="reference internal" href="#localcoverimages-label"><span class="std std-ref">LocalCoverImages</span></a> and
+<a class="reference internal" href="#opaclocalcoverimages-label"><span class="std std-ref">OPACLocalCoverImages</span></a> be set to ‘Show’.</p></li>
+</ul>
+</section>
+<section id="customcoverimages">
+<span id="customcoverimages-label"></span><h3>客製化封面<a class="headerlink" href="#customcoverimages" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ custom remote URL images in the staff interface.</p>
+<p>預設值：不顯示</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If you use <a class="reference internal" href="#customcoverimagesurl-label"><span class="std std-ref">CustomCoverImagesURL</span></a>, this preference indicates if you
+want these cover images to appear in the staff interface.</p></li>
+<li><p>Use <a class="reference internal" href="#opaccustomcoverimages-label"><span class="std std-ref">OPACCustomCoverImages</span></a> if you want those images to appear in the
+OPAC.</p></li>
+</ul>
+</section>
+<section id="opaccustomcoverimages">
+<span id="opaccustomcoverimages-label"></span><h3>OPACLocalCoverImages<a class="headerlink" href="#opaccustomcoverimages" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ custom remote URL images at the OPAC.</p>
+<p>預設值：不顯示</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>If you use <a class="reference internal" href="#customcoverimagesurl-label"><span class="std std-ref">CustomCoverImagesURL</span></a>, this preference indicates if you
+want these cover images to appear in the OPAC.</p></li>
+<li><p>Use <a class="reference internal" href="#customcoverimages-label"><span class="std std-ref">CustomCoverImages</span></a> if you want those images to appear in the
+staff interface.</p></li>
+</ul>
+</section>
+<section id="customcoverimagesurl">
+<span id="customcoverimagesurl-label"></span><h3>CustomCoverImagesURL<a class="headerlink" href="#customcoverimagesurl" title="此标题的永久链接"></a></h3>
+<p>詢問：使用以下的搜尋網址：___</p>
+<p>說明：</p>
+<ul>
+<li><p>您可以使用代碼來代替在網址裡的書目資料: {isbn}, {issn}, {normalized_isbn}</p>
+<p>範例: <a class="reference external" href="http://www.mylibrarysite.com/covers">http://www.mylibrarysite.com/covers</a>/{isbn}.png</p>
+</li>
+<li><p>您同樣可以在網址裡使用MARC欄位及分欄,像是: {024$a}</p>
+<p>舉例來說: <a class="reference external" href="http://www.mylibrarysite.com/covers">http://www.mylibrarysite.com/covers</a>/{024$a}.png</p>
+</li>
+<li><p>Make sure to enable <a class="reference internal" href="#customcoverimages-label"><span class="std std-ref">CustomCoverImages</span></a> if you want those images to
+appear in the staff interface and <a class="reference internal" href="#opaccustomcoverimages-label"><span class="std std-ref">OPACCustomCoverImages</span></a> if you want
+those images to appear in the OPAC.</p></li>
+</ul>
+</section>
+<section id="localcoverimages">
+<span id="localcoverimages-label"></span><h3>LocalCoverImages<a class="headerlink" href="#localcoverimages" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ local cover images on staff interface search and details pages.</p>
+<p>預設值：不顯示</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Setting this preference to ‘Show’ allows you to upload your own
+cover images to bibliographic records and display them on the detail page in
+the staff interface.</p></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#opaclocalcoverimages-label"><span class="std std-ref">OPACLocalCoverImages</span></a></p></li>
+<li><p><a class="reference internal" href="#customcoverimages-label"><span class="std std-ref">CustomCoverImages</span></a></p></li>
+<li><p><a class="reference internal" href="#allowmultiplecovers-label"><span class="std std-ref">AllowMultipleCovers</span></a></p></li>
+</ul>
+</section>
+<section id="opaclocalcoverimages">
+<span id="opaclocalcoverimages-label"></span><h3>OPACLocalCoverImages<a class="headerlink" href="#opaclocalcoverimages" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 在地封面於 OPAC 搜尋與詳情頁面。</p>
+<p>預設值：不顯示</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Setting this preference to ‘Show’ allows you to upload your own
+cover images to bibliographic records and display them on the detail page and
+search results in the OPAC.</p></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#localcoverimages-label"><span class="std std-ref">LocalCoverImages</span></a></p></li>
+<li><p><a class="reference internal" href="#opaccustomcoverimages-label"><span class="std std-ref">OPACCustomCoverImages</span></a></p></li>
+<li><p><a class="reference internal" href="#allowmultiplecovers-label"><span class="std std-ref">AllowMultipleCovers</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="manual">
+<span id="manual-sysprefs-label"></span><h2>手冊<a class="headerlink" href="#manual" title="此标题的永久链接"></a></h2>
+<section id="kohamanualbaseurl">
+<span id="kohamanualbaseurl-label"></span><h3>KohaManualBaseURL<a class="headerlink" href="#kohamanualbaseurl" title="此标题的永久链接"></a></h3>
+<p>預設：<a class="reference external" href="https://koha-community.org/manual/">https://koha-community.org/manual/</a></p>
+<p>詢問：Koha 手冊的位置 ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>您可指定 Koha 手冊的位置。這是按下右上角 ‘說明’ 時打開手冊的 URL。</p></li>
+<li><p>預設，使用 Koha 手冊，不過也可以透過系統偏好使用自己選定的頁面。</p></li>
+<li><p>If the URL starts with ‘/’, the value of <a class="reference internal" href="staffclientpreferences.html#staffclientbaseurl-label"><span class="std std-ref">staffClientBaseURL</span></a>
+will be used as a prefix.</p></li>
+<li><p>說明通常放在在版本 / 語言 / 格式 (/17.11/en/html)之後</p></li>
+</ul>
+</section>
+<section id="kohamanuallanguage">
+<span id="kohamanuallanguage-label"></span><h3>KohaManualLanguage<a class="headerlink" href="#kohamanuallanguage" title="此标题的永久链接"></a></h3>
+<p>預設值：英文</p>
+<p>詢問： 線上手冊 ___ 的語言</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>預設，Koha介面的語系採用手冊使用的語系。然而，若手冊未翻譯為該語系，系統偏好會回到英語。</p></li>
+</ul>
+</section>
+</section>
+<section id="novelist-select">
+<span id="novelist-select-label"></span><h2>NoveList Select<a class="headerlink" href="#novelist-select" title="此标题的永久链接"></a></h2>
+<p>NoveList Select 不是免費服務。向 Ebsco 的業務代表洽詢取得將內容置於 OPAC 的登入資訊。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>NoveList Select 不包括供搜尋結果與書目詳情頁面使用的封面。可與其他封面服務併用或聯繫 Ebsco 取得近用 <a class="reference internal" href="#baker-and-taylor-label"><span class="std std-ref">Baker &amp; Taylor Content Cafe</span></a> 付費服務。</p>
+</div></blockquote>
+<section id="novelistselectenabled">
+<span id="novelistselectenabled-label"></span><h3>NovelistSelectEnabled<a class="headerlink" href="#novelistselectenabled" title="此标题的永久链接"></a></h3>
+<p>預設值：不加入</p>
+<p>詢問：___ NoveList Select 內容於 OPAC。</p>
+<p>值:</p>
+<ul>
+<li><p>新增</p></li>
+<li><p>不加入</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Enabling this requires that you have entered in a user profile and
+password in the <a class="reference internal" href="#novelistselectprofile-and-novelistselectpassword-label"><span class="std std-ref">NovelistSelectProfile and NovelistSelectPassword</span></a> preferences</p>
+</div></blockquote>
+</li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>來自 Ebsco 的 NoveList Select 是付費服務可在 OPAC 提供額外的內容。</p></li>
+</ul>
+</section>
+<section id="novelistselectprofile-and-novelistselectpassword">
+<span id="novelistselectprofile-and-novelistselectpassword-label"></span><h3>NovelistSelectProfile 與 NovelistSelectPassword<a class="headerlink" href="#novelistselectprofile-and-novelistselectpassword" title="此标题的永久链接"></a></h3>
+<p>詢問：以使用者帳號 ___ 及密碼 ___ 近用 NoveList Select。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>從 OPAC 的原始碼可以看到此資訊。</p>
+</div></blockquote>
+<p>說明：</p>
+<ul class="simple">
+<li><p>來自 Ebsco 的 NoveList Select 是付費服務可在 OPAC 提供額外的內容。</p></li>
+</ul>
+</section>
+<section id="novelistselectstaffenabled">
+<span id="novelistselectstaffenabled-label"></span><h3>NovelistSelectStaffEnabled<a class="headerlink" href="#novelistselectstaffenabled" title="此标题的永久链接"></a></h3>
+<p>預設值：不加入</p>
+<p>詢問：___ 貝克與泰勒連結書店與封面至 OPAC 與館員介面 (此項服務需要從封面連結可看到的帳號與密碼 )。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不加入</p></li>
+<li><p>新增</p></li>
+</ul>
+</section>
+<section id="novelistselectstaffprofile">
+<span id="novelistselectstaffprofile-label"></span><h3>NovelistSelectStaffProfile<a class="headerlink" href="#novelistselectstaffprofile" title="此标题的永久链接"></a></h3>
+<p>詢問：從館員介面以使用者檔案 ___ 近用 NoveList Select</p>
+<p>說明：</p>
+<ul>
+<li><p>若未設定此值，將停用館員介面的 NoveList 的功能，直到從 NoveList 取得正確的設定檔且輸入此欄位。</p>
+<blockquote>
+<div><p><strong>注意</strong></p>
+<p>此值必須獨立於 OPAC 設定檔供 NoveList 使用</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="novelistselectstaffview">
+<span id="novelistselectstaffview-label"></span><h3>NovelistSelectStaffView<a class="headerlink" href="#novelistselectstaffview" title="此标题的永久链接"></a></h3>
+<p>預設值：在分頁</p>
+<p>詢問： 顯示 NoveList Select 的內容 ___。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>在館藏表單之上</p></li>
+<li><p>在館藏表單之下</p></li>
+<li><p>在分頁</p></li>
+</ul>
+</section>
+<section id="novelistselectview">
+<span id="novelistselectview-label"></span><h3>NovelistSelectView<a class="headerlink" href="#novelistselectview" title="此标题的永久链接"></a></h3>
+<p>預設值：在 OPAC 分頁</p>
+<p>詢問： 顯示 Novelist Select 的內容 ___</p>
+<p>說明：</p>
+<ul>
+<li><p>Novelist Select 提供不少內容，可以在四個位置顯示其內容。預設值是顯示在館藏資料表的分頁。</p>
+<p><img alt="image55" src="_images/novelisttab.png" /></p>
+<p>顯示在館藏表單的上方或下方內容是一樣的。若顯示在頁面右欄其內容亦相同，但受限於空間顯示方式略有不同。</p>
+<p><img alt="image56" src="_images/novelistside.png" /></p>
+</li>
+</ul>
+<p>值:</p>
+<ul class="simple">
+<li><p>在館藏表單之上</p></li>
+<li><p>在館藏表單之下</p></li>
+<li><p>在 OPAC 分頁</p></li>
+<li><p>在右方儲存記錄下拉選單之下</p></li>
+</ul>
+</section>
+</section>
+<section id="open-library">
+<span id="open-library-label"></span><h2>開放式圖書館<a class="headerlink" href="#open-library" title="此标题的永久链接"></a></h2>
+<section id="openlibrarycovers">
+<span id="openlibrarycovers-label"></span><h3>OpenLibraryCovers<a class="headerlink" href="#openlibrarycovers" title="此标题的永久链接"></a></h3>
+<p>預設值：不加入</p>
+<p>詢問：在 OPAC 的搜尋結果與館藏詳情頁面 ___ 來自 Open Library 的封面。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>新增</p></li>
+<li><p>不加入</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此設定控制經由 Open Library API 取得的免費 Open Library 資料庫封面。必須關閉其他封面服務此設定才生效。</p></li>
+</ul>
+</section>
+<section id="openlibrarysearch">
+<span id="openlibrarysearch-label"></span><h3>OpenLibrarySearch<a class="headerlink" href="#openlibrarysearch" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：從 OPAC 的 Open Libary ___ 的搜尋結果。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="image1187" src="_images/OpenLibrarySearch.png" /></p>
+</div></blockquote>
+</section>
+</section>
+<section id="overdrive">
+<span id="overdrive-label"></span><h2>Overdrive<a class="headerlink" href="#overdrive" title="此标题的永久链接"></a></h2>
+<p>OverDrive 是付費服務。必須先向 OverDreive 詢價並訂閱。啟用此服務後將把 OverDreive 的結果顯示於 OPAC 的搜尋。必須經由 API 發展者的應用程式申請這 3 件資訊。Overdirve API 應用程式每週評估一次所以不會在登入之後立即可用。詳情請洽 OverDrive 業務代表。</p>
+<p><img alt="image57" src="_images/Overdrive.png" /></p>
+<section id="overdrivecirculation">
+<span id="overdrivecirculation-label"></span><h3>OverDriveCirculation<a class="headerlink" href="#overdrivecirculation" title="此标题的永久链接"></a></h3>
+<p>預設值：不啟用</p>
+<p>詢問：___ 使用者近用 OverDrive 的流通紀錄，及流通的館藏。若允許近用，必須以 OverDrive 的帳號登錄於 http(s)://my.opac.hostname/cgi-bin/koha/external/overdrive/auth.pl。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>停用</p></li>
+<li><p>啟用</p></li>
+</ul>
+</section>
+<section id="overdriveclientkey-and-overdriveclientsecret">
+<span id="overdriveclientkey-and-overdriveclientsecret-label"></span><h3>OverDriveClientKey and OverDriveClientSecret<a class="headerlink" href="#overdriveclientkey-and-overdriveclientsecret" title="此标题的永久链接"></a></h3>
+<p>詢問：包括 OverDrive 可得資訊與客戶碼 __ 與客戶秘密 ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>OverDrive customers can get this information by visiting the
+<a class="reference external" href="https://developer.overdrive.com/docs/getting-started">OverDrive Developer
+Portal</a> and
+following the instructions found there to apply as an API developer.
+Once this data and the <a class="reference internal" href="#overdrivelibraryid-label"><span class="std std-ref">OverDriveLibraryID</span></a>
+are populated you will see OverDrive results on your OPAC searches.</p></li>
+</ul>
+</section>
+<section id="overdrivelibraryid">
+<span id="overdrivelibraryid-label"></span><h3>OverDriveLibraryID<a class="headerlink" href="#overdrivelibraryid" title="此标题的永久链接"></a></h3>
+<p>詢問： 從圖書館 # 的 ___ OverDrive 目錄顯示館藏</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>OverDrive 客戶可從 <a class="reference external" href="https://developer.overdrive.com/docs/getting-started">OverDrive Developer Portal</a> 網站取得此資訊並依指示申請成為 API 發展者。取得這些資料與 <a class="reference internal" href="#overdriveclientkey-and-overdriveclientsecret-label"><span class="std std-ref">OverDriveClientKey 與 OverDriveClientSecret</span></a> 偏好的內容 OverDrive 的搜尋結果就可顯示 OPAC 裡。</p></li>
+</ul>
+</section>
+</section>
+<section id="recordedbooks">
+<span id="recordedbooks-label"></span><h2>RecordedBooks<a class="headerlink" href="#recordedbooks" title="此标题的永久链接"></a></h2>
+<p>RecordedBooks 是付費服務。須先向 RecordedBooks 洽詢付費與訂閱的詳情。</p>
+<section id="recordedbooksclientsecret">
+<span id="recordedbooksclientsecret-label"></span><h3>RecordedBooksClientSecret<a class="headerlink" href="#recordedbooksclientsecret" title="此标题的永久链接"></a></h3>
+<p>詢問：將記錄簿可用性資訊包含在客戶端密碼 ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>請聯繫您的記錄簿代表以獲取圖書館客戶端密碼。（請訪問RBmedia主頁 <a class="reference external" href="https://rbmediaglobal.com/">https://rbmediaglobal.com/</a> 瞭解更多資訊。)</p></li>
+</ul>
+</section>
+<section id="recordedbooksdomain">
+<span id="recordedbooksdomain-label"></span><h3>RecordedBooksDomain<a class="headerlink" href="#recordedbooksdomain" title="此标题的永久链接"></a></h3>
+<p>問：RecordedBooks 領域 ___</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>輸入你的讀者訪問RecordedBooks的領域名。</p></li>
+</ul>
+</section>
+<section id="recordedbookslibraryid">
+<span id="recordedbookslibraryid-label"></span><h3>RecordedBooksLibraryID<a class="headerlink" href="#recordedbookslibraryid" title="此标题的永久链接"></a></h3>
+<p>詢問： 從圖書館ID的 ___ RecordedBooks 目錄顯示館藏</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>請聯繫您的Recorded Books代表，以獲得目錄圖書館的id。</p></li>
+</ul>
+</section>
+</section>
+<section id="syndetics">
+<span id="syndetics-label"></span><h2>Syndetics<a class="headerlink" href="#syndetics" title="此标题的永久链接"></a></h2>
+<p>Syndetics 是付費服務。須先向 Syndetics 洽詢付費與訂閱的詳情。</p>
+<section id="syndeticsauthornotes">
+<span id="syndeticsauthornotes-label"></span><h3>SyndeticsAuthorNotes<a class="headerlink" href="#syndeticsauthornotes" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC ___ 取得自 Syndetics 書目中心的附註。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When this option is set to “Show”, Syndetics provides notes and short
+author biographies for more that 300,000 authors, in both fiction and
+nonfiction. With this option enabled the library can display
+Syndetics Author Notes on the OPAC. According to the Syndetics
+Solutions website (<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>), Author Notes
+include lists of contributors for many multi-author texts and
+compilations. The <a class="reference internal" href="#syndeticsclientcode-label"><span class="std std-ref">SyndeticsClientCode</span></a> must
+be entered and the <a class="reference internal" href="#syndeticsenabled-label"><span class="std std-ref">SyndeticsEnabled</span></a> option
+must be activated before this service can be used.</p></li>
+</ul>
+</section>
+<section id="syndeticsawards">
+<span id="syndeticsawards-label"></span><h3>SyndeticsAwards<a class="headerlink" href="#syndeticsawards" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC ___ 得自 Syndetics 書目中心的作品得獎資訊。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When this option is set to “Show”, Syndetics provides its clients
+with a list of awards that any title has won. With this service
+enabled the library can display those awards for each book on its
+website. For each book or item that comes up during a user search,
+the list of awards for that title will be displayed. When a user
+clicks on a given award, information about that award is presented
+along with a list of the other titles that have won that award. If
+the user clicks on any title in the list, they will see holdings
+information about that title in their region. This option is a paid
+subscription service. The
+<a class="reference internal" href="#syndeticsclientcode-label"><span class="std std-ref">SyndeticsClientCode</span></a> must be entered and
+the <a class="reference internal" href="#syndeticsenabled-label"><span class="std std-ref">SyndeticsEnabled</span></a> option must be activated
+before this service can be used.</p></li>
+</ul>
+</section>
+<section id="syndeticsclientcode">
+<span id="syndeticsclientcode-label"></span><h3>SyndeticsClientCode<a class="headerlink" href="#syndeticsclientcode" title="此标题的永久链接"></a></h3>
+<p>詢問：使用客戶碼 ___ 進入 Syndetics。</p>
+<p>說明：</p>
+<ul>
+<li><p>Once the library signs up for Syndetics’ services, Syndetics will
+provide the library with an access code. (Visit the Syndetics
+homepage at <a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a> for more information.)
+This is the code that must be entered to access Syndetics’
+subscription services. Syndetics is a paid subscription service. This
+value must be entered before
+<a class="reference internal" href="#syndeticseditions-label"><span class="std std-ref">SyndeticsEditions</span></a> can be enabled. If the
+code is lost, corrupted, or forgotten, a new one can be obtained from
+<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>需直接從 Syndetics 取得客戶碼。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="syndeticscoverimages-and-syndeticscoverimagesize">
+<span id="syndeticscoverimages-and-syndeticscoverimagesize-label"></span><h3>SyndeticsCoverImages 與 SyndeticsCoverImageSize<a class="headerlink" href="#syndeticscoverimages-and-syndeticscoverimagesize" title="此标题的永久链接"></a></h3>
+<p>SyndeticsCoverImages 預設值：不顯示</p>
+<p>SyndeticsCoverImageSize 預設值：中</p>
+<p>詢問：___ 得自 Syndetics 書目中心的封面以及採用 ___ 型大小於 OPAC 詳情頁面。</p>
+<p>說明:</p>
+<ul class="simple">
+<li><p>When enabled, SyndeticsCoverImages, allows libraries to display
+Syndetics’ collection of full-color cover images for books, videos,
+DVDs and CDs on their OPAC. For each book or item that comes up
+during a user search, the cover image for that title will be
+displayed. Since these cover images come in three sizes, the optimum
+size must be selected using the SyndeticsCoverImageSize preference
+after SyndeticsCoverImages are enabled. Syndetics cover images come
+in two sizes: mid-size (187 x 187 pixels), and large (400 x 400
+pixels). Syndetics is a paid subscription service. The
+<a class="reference internal" href="#syndeticsclientcode-label"><span class="std std-ref">SyndeticsClientCode</span></a> must be entered and
+the <a class="reference internal" href="#syndeticsenabled-label"><span class="std std-ref">SyndeticsEnabled</span></a> option must be activated
+before this service can be used. Other cover image preferences should
+also be disabled to avoid interference.</p></li>
+</ul>
+<p>SyndeticsCoverImages 值：</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>SyndeticsCoverImageSize 值：</p>
+<ul class="simple">
+<li><p>中等</p></li>
+<li><p>大</p></li>
+</ul>
+</section>
+<section id="syndeticseditions">
+<span id="syndeticseditions-label"></span><h3>SyndeticsEditions<a class="headerlink" href="#syndeticseditions" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC 詳情頁面 ___ 得自 Syndetics 書目中心的其他版本資訊</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>When enabled this option shows information on other editions of a
+title from Syndetics on the item detail pages of the OPAC. Syndetics
+is a paid subscription service. The
+<a class="reference internal" href="#syndeticsclientcode-label"><span class="std std-ref">SyndeticsClientCode</span></a> must be entered and
+the <a class="reference internal" href="#syndeticsenabled-label"><span class="std std-ref">SyndeticsEnabled</span></a> option must be activated
+before this service can be used.</p></li>
+</ul>
+<p>值:</p>
+<ul>
+<li><p>不顯示</p></li>
+<li><p>顯示</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Requires <a class="reference internal" href="#opacfrbrizeeditions-label"><span class="std std-ref">OPACFRBRizeEditions</span></a> set to
+‘show’</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="syndeticsenabled">
+<span id="syndeticsenabled-label"></span><h3>SyndeticsEnabled<a class="headerlink" href="#syndeticsenabled" title="此标题的永久链接"></a></h3>
+<p>預設值：不用</p>
+<p>詢問：___ 從 Syndetics 取得的內容。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不使用</p></li>
+<li><p>使用</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>啟用此偏好後就能使用 Syndetics 的選項。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Requires that you enter your
+<a class="reference internal" href="#syndeticsclientcode-label"><span class="std std-ref">SyndeticsClientCode</span></a> before this content
+will appear.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="syndeticsexcerpt">
+<span id="syndeticsexcerpt-label"></span><h3>SyndeticsExcerpt<a class="headerlink" href="#syndeticsexcerpt" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC 詳情頁面 ___ 得自 Syndetics 書目中心的摘要資訊。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許 Syndetics 顯示指定出版社的摘要。包括小說與非小說的未出版新書評論。此摘要包括詩、散文、食譜、前言、導論等。以 ISBN 自動連結至在地的 MARC 記錄，顯示於圖書館的 OPAC。詳情見官網 (<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>)。</p></li>
+</ul>
+</section>
+<section id="syndeticsreviews">
+<span id="syndeticsreviews-label"></span><h3>SyndeticsReviews<a class="headerlink" href="#syndeticsreviews" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC 詳情頁面 ___ 得自 Syndetics 書目中心的書評。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>Syndetics 書評取材自學刊與期刊。書評頁面顯示被評圖書的全彩書衣，以及提供書評的學刊或期刊。點選圖示開啟視窗，顯示圖書的書名、著者、封面及評論者的意見。以 ISBN 自動連結至在地的 MARC 記錄，顯示於圖書館的 OPAC。詳情見官網 (<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>)。</p></li>
+</ul>
+</section>
+<section id="syndeticsseries">
+<span id="syndeticsseries-label"></span><h3>SyndeticsSeries<a class="headerlink" href="#syndeticsseries" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC 詳情頁面 ___ 得自 Syndetics 的作品集叢資訊。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>集叢內的小說題名連結至集叢的完整記錄。依序顯示每個題名及其不同的出版資訊。也顯示集叢的又名。以 ISBN 自動連結至在地的 MARC 記錄，顯示於圖書館的 OPAC。詳情見官網 (<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>)。</p></li>
+</ul>
+</section>
+<section id="syndeticssummary">
+<span id="syndeticssummary-label"></span><h3>SyndeticsSummary<a class="headerlink" href="#syndeticssummary" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC 詳情頁面 ___ 得自 Syndetics 書目中心的摘要資訊。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>提供來自 Books News 公司的 560 萬筆取自書衣、編者及其他獨立摘要者的摘要。包括小說與非小說、商業用書與學術用書。以 ISBN 自動連結至在地的 MARC 記錄，顯示於圖書館的 OPAC。詳情見官網 (<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>)。</p></li>
+</ul>
+</section>
+<section id="syndeticstoc">
+<span id="syndeticstoc-label"></span><h3>SyndeticsTOC<a class="headerlink" href="#syndeticstoc" title="此标题的永久链接"></a></h3>
+<p>預設值：不顯示</p>
+<p>詢問：在 OPAC 詳情頁面 ___ 得自 Syndetics 書目中心的目次。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>顯示</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>此偏好允許館員與讀者檢視從自學書到會議記錄各種圖書的目次。Specific Information 近用是此選項的主要目的，允許讀者進入指定的章節。可以進入新書的指定目次。整合Syndetics 之後可以 ISBN 自動連結至在地的 MARC 記錄，顯示於圖書館的 OPAC。詳情見官網 (<a class="reference external" href="http://www.bowker.com/syndetics/">http://www.bowker.com/syndetics/</a>)。</p></li>
+</ul>
+</section>
+</section>
+<section id="tagging">
+<span id="tagging-label"></span><h2>標籤<a class="headerlink" href="#tagging" title="此标题的永久链接"></a></h2>
+<section id="tagsenabled">
+<span id="tagsenabled-label"></span><h3>TagsEnabled<a class="headerlink" href="#tagsenabled" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者與館員新增館藏標籤。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>設為 ‘允許’ 就啟用標籤功能。標籤是一種後設資料，以文字辨識館藏。允許讀者以自己的方式分類館藏。TagsEnagled 是所有標籤偏好的頭。必須設為 ‘允許’ 才能再設定其他的標籤。</p></li>
+</ul>
+</section>
+<section id="tagsexternaldictionary">
+<span id="tagsexternaldictionary-label"></span><h3>TagsExternalDictionary<a class="headerlink" href="#tagsexternaldictionary" title="此标题的永久链接"></a></h3>
+<p>詢問：允許在 Ispell 字典裡的標籤 ___ 不需審核。</p>
+<p>說明：</p>
+<ul class="simple">
+<li><p>字典裡有接受與拒絕兩組標籤清單。接受清單包括事先准許的標籤。拒絕清單則是不同意的標籤。此偏好使用 “接受” 清單。此偏好採用開放源碼的 Ispell 字典內的詞彙。因為字典允許標籤包括不合道德規範的詞彙，圖書館需要再審核其內容。詳情見官網 <a class="reference external" href="http://www.gnu.org/software/ispell/ispell.html">http://www.gnu.org/software/ispell/ispell.html</a>。從 $Lingua::Ispell::path 設定執行 ispell 的位置。</p></li>
+</ul>
+</section>
+<section id="tagsinputondetail">
+<span id="tagsinputondetail-label"></span><h3>TagsInputOnDetail<a class="headerlink" href="#tagsinputondetail" title="此标题的永久链接"></a></h3>
+<p>預設值：允許</p>
+<p>詢問：___ 讀者從 OPAC 的館藏詳情頁面新增標籤。</p>
+<p>值:</p>
+<ul>
+<li><p>允許</p>
+<p><img alt="image59" src="_images/TagsInputOnDetail.png" /></p>
+</li>
+<li><p>不允許</p></li>
+</ul>
+</section>
+<section id="tagsinputonlist">
+<span id="tagsinputonlist-label"></span><h3>TagsInputOnList<a class="headerlink" href="#tagsinputonlist" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 讀者從 OPAC 的搜尋結果新增標籤。</p>
+<p>預設：不允許</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>允許</p></li>
+<li><p>不允許</p></li>
+</ul>
+<p>說明：</p>
+<ul>
+<li><p>This system preference is used to control whether or not patrons can add tags
+to titles from the search results, lists and cart.</p></li>
+<li><p>When set to ‘Allow’, a button to add tags will appear under each search
+result, under each title in a list and in the cart.</p>
+<p><img alt="A single search result in the OPAC, visible is a checkbox on the left, some bibliographic information, the title being a link, availability of items, star ratings, place hold option, place recall option, save to lists option and add to cart option" src="_images/opacsearchresultsingle.png" /></p>
+</li>
+<li><p>Patrons will also have the possibility of selecting several titles and
+tagging them all.</p></li>
+</ul>
+</section>
+<section id="tagsmoderation">
+<span id="tagsmoderation-label"></span><h3>TagsModeration<a class="headerlink" href="#tagsmoderation" title="此标题的永久链接"></a></h3>
+<p>預設值：非必須</p>
+<p>詢問：讀者新增的標籤 ___ 被館員審核。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>非必須</p></li>
+<li><p>必須</p></li>
+</ul>
+<p>說明：</p>
+<ul class="simple">
+<li><p>設定為 ‘需要^，所有的標籤都先被標籤審核員篩選。祗有審核通過的標籤才會被讀者看到。設為 ‘不需要’ 則略過標籤審核員這關，讀者立即可看到。啟用此偏好後，具備館員權限的標籤審核員將從館員介面審核此等標籤。標籤審核員有權核准或拒絕。</p></li>
+</ul>
+<p>需要審核時所有的標籤都經過標籤審核工具才能被看見。</p>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &gt; 工具 &gt;  <a class="reference internal" href="tools.html#tag-moderation-label"><span class="std std-ref">Tags</span></a></p></li>
+</ul>
+</section>
+<section id="tagsshowondetail">
+<span id="tagsshowondetail-label"></span><h3>TagsShowOnDetail<a class="headerlink" href="#tagsshowondetail" title="此标题的永久链接"></a></h3>
+<p>預設值：10</p>
+<p>詢問： 顯示 ___ 個標籤在 OPAC 的館藏詳情頁面。</p>
+<blockquote>
+<div><p><strong>注意</strong></p>
+<p>設定為 0 (零)，則關閉此功能。</p>
+</div></blockquote>
+</section>
+<section id="tagsshowonlist">
+<span id="tagsshowonlist-label"></span><h3>TagsShowOnList<a class="headerlink" href="#tagsshowonlist" title="此标题的永久链接"></a></h3>
+<p>預設值：6</p>
+<p>詢問：顯示 ___ 個標籤在 OPAC 的搜尋結果。</p>
+<blockquote>
+<div><p><strong>注意</strong></p>
+<p>設定為 0 (零)，則關閉此功能。</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="circulationpreferences.html" class="btn btn-neutral float-left" title="流通" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="ermpreferences.html" class="btn btn-neutral float-right" title="E-Resource management" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

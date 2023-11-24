@@ -1,0 +1,90 @@
+.. include:: images.rst
+
+.. _erm-system-preferences-label:
+
+E-Resource management
+---------------------
+
+The E-Resource management tab in Koha will give you settings to enable
+and configure the module for the first time.
+
+-  Get there: More > Administration > Global System Preferences > E-Resource management
+
+.. _erm-interface-label:
+
+Interface
+~~~~~~~~~
+
+.. _erm-ermmodule-label:
+
+ERMModule
+^^^^^^^^^
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  This preference controls whether or not staff can use the E-Resource management module.
+
+-  This is the main switch for the E-Resource management functionality.
+
+.. _erm-ermproviderebscoapikey-label:
+
+ERMProviderEbscoApiKey
+^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: for the HoldingsIQ API key from EBSCO. If left empty, you will be
+unable to connect the EBSCO knowledge base.
+
+Description:
+
+This preference allows libraries to integrate with the EBSCO global
+knowledge base using their
+`HoldingsIQ <https://developer.ebsco.com/knowledge-services/holdingsiq>`__
+tool. To integrate this tool the library will need to ask EBSCO for both
+an API key and a Customer ID (see below). Once correctly configured the
+EBSCO knowledge base will be accessible via the eHoldings menu option in
+E-Resource management.
+
+.. _erm-ermproviderebscocustomerid-label:
+
+ERMProviderEbscoCustomerID
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: for the HoldingsIQ Customer ID from EBSCO. If left empty, you will
+be unable to connect the EBSCO knowledge base.
+
+Description:
+
+This preference allows libraries to integrate with the EBSCO global
+knowledge base using their HoldingsIQ tool. To integrate this tool the
+library will need to ask EBSCO for both a Customer ID and an API key
+(see above). Once correctly configured the EBSCO knowledge base will be
+accessible via the eHoldings menu option in E-Resource management.
+
+.. _erm-ermproviders-label:
+
+ERMProviders
+^^^^^^^^^^^^
+
+Default: Local
+
+Values:
+
+-  EBSCO
+
+-  Local
+
+Description:
+
+This preference controls whether to show one or more sources of
+eHoldings in the eHoldings menu option. Currently this allows
+integration with the EBSCO global knowledge base and also the ability to
+manually create eHoldings records for local sources. In the future other
+knowledge bases may be added.

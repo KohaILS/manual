@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>報表 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="OPAC" href="opac.html" />
+    <link rel="prev" title="虛擬書架與書目清單" href="lists.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">報表</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#custom-reports">客製化報表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-custom-report">新增客製化報表</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#guided-report-wizard">報表精靈</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#report-from-sql">來自SQL的報表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sql-report-from-mana">來自 Mana 的 SQL 報表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duplicate-report">複製報表</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-custom-reports">編輯客製化報表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-custom-reports">執行客製化報表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-report-output-to-batch-modification-tools">將報表輸出寄送給批次修改工具</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#statistics-reports">統計報表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acquisitions-statistics">採訪統計</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-statistics">讀者統計</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catalog-statistics">目錄統計</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#circulation-statistics">流通統計</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tracking-in-house-use">追蹤館內使用</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#serials-statistics">期刊統計</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-statistics">預約統計</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patrons-with-the-most-checkouts">借出最多的讀者</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#most-circulated-items">借出最多館藏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patrons-with-no-checkouts">無借出的讀者</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#items-with-no-checkouts">不曾借出的館藏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catalog-by-item-type">目錄依館藏類型排序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lost-items">遺失的館藏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#orders-by-fund">以基金訂購</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#average-loan-time">平均借出時間</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#report-dictionary">報表字典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#report-plugins">Report plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">報表</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/reports.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="lists.html" class="btn btn-neutral float-left" title="虛擬書架與書目清單" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="opac.html" class="btn btn-neutral float-right" title="OPAC" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reports">
+<span id="reports-label"></span><h1>報表<a class="headerlink" href="#reports" title="此标题的永久链接"></a></h1>
+<p>Koha 的報表是聚集資料的方法之一。報表用於產生統計、讀者清單、排架清單、或其他由資料庫產生的清單。</p>
+<ul class="simple">
+<li><p><em>到那：</em> 更多 &gt; 報表</p></li>
+</ul>
+<section id="custom-reports">
+<span id="custom-reports-label"></span><h2>客製化報表<a class="headerlink" href="#custom-reports" title="此标题的永久链接"></a></h2>
+<p>Koha 的資料儲存在 MySQL 資料庫即圖書館員可以使用 <cite>報表精靈 &lt;guided-report-wizard-label&gt;</cite> 或撰寫他們自己的 <cite>SQL query &lt;report-from-sql-label&gt;</cite> 從中產生任何想要的報表。</p>
+<section id="add-custom-report">
+<span id="add-custom-report-label"></span><h3>新增客製化報表<a class="headerlink" href="#add-custom-report" title="此标题的永久链接"></a></h3>
+<section id="guided-report-wizard">
+<span id="guided-report-wizard-label"></span><h4>報表精靈<a class="headerlink" href="#guided-report-wizard" title="此标题的永久链接"></a></h4>
+<p>報表精靈以六個步驟引導您建立報表。</p>
+<p>步驟 1：選擇編輯報表的模組。就是決定資料來源的表單與欄位。</p>
+<p>大部份情況下含有讀者及其他敏感資訊時，’報表公開’ 應預設為 ‘否’。<a class="reference internal" href="webservices.html#json-reports-services-label"><span class="std std-ref">JSON 報表服務</span></a> 不需認證任何人均可使用。</p>
+<p><img alt="First step of creating a guided report - choosing which module to work on and whether report is public or not" src="_images/guided-report-step1.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>若系統管理已設定快取記憶您就有更多選擇。與公開報表有關。若把報表公開則需時時執行從而耗費系資料。設定此值可避免此現象。</p>
+<p><img alt="Creating a guided report - define the cache expiry time" src="_images/guided-report-step1-cacheexpiry.png" /></p>
+</div></blockquote>
+<p>步驟 2：選擇報表類型。目前，祗有 Tabular 可選。</p>
+<p><img alt="Second step of creating a guided report - choosing type" src="_images/guided-report-step2.png" /></p>
+<p>步驟 3：選擇編入報表的欄位。複選並以 CTRL+Click 把每個欄位再按下新增鈕。</p>
+<p><img alt="Third step of creating a guided report - select columns for display" src="_images/guided-report-step3.png" /></p>
+<p>步驟 4：選擇報表的範圍(館藏類型或分館等)。不需要限制時，直接點選 ‘下一步’。</p>
+<p><img alt="Fourth step of creating a guided report - select criteria to limit on" src="_images/guided-report-step4.png" /></p>
+<p>步驟 5：執行數學算式。不需要計算時，按 ‘下一步’ 略過它。</p>
+<p><img alt="Fifth step of creating a guided report - pick column to total" src="_images/guided-report-step5.png" /></p>
+<p>步驟 6：選擇資料順序。不需要排序則直接按 ‘完成’ 鈕。</p>
+<p><img alt="Sixth step of creating a guided report - Choose how you want the report ordered" src="_images/guided-report-step6.png" /></p>
+<p>完成之後，將出現由報表精靈產生的 SQL。從此點選 ‘儲存’ 儲存報表，或複製 SQL 並以人工編輯它。</p>
+<p><img alt="Confirm custom report" src="_images/guided-report-confirm.png" /></p>
+<p>若選擇儲存報表，將詢問報表名稱、排序入的群組與次群組，以及必要的說明。</p>
+<p><img alt="Save custom report" src="_images/guided-report-save.png" /></p>
+<p>報表儲存後，將與其他儲存的報表一起出現在 ‘使用儲存的’ 頁面。</p>
+<p><img alt="List of saved reports, &quot;All&quot; tab is selected" src="_images/savedreports.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 客製此表的列(table id: table_reports)。</p></li>
+</ul>
+</div></blockquote>
+<p>可從這裡編輯、執行報表，或指定執行報表的時間。點選欄標題即可依欄位排列報表(建議以新增報表日期排序)。以左方的篩選器選單篩選報表，或依客戶群組分頁尋找報表。</p>
+</section>
+<section id="report-from-sql">
+<span id="report-from-sql-label"></span><h4>來自SQL的報表<a class="headerlink" href="#report-from-sql" title="此标题的永久链接"></a></h4>
+<p>除了報表精靈，還可以用 SQL 撰寫自己的報表。其他圖書館寫的報表，公開在 Koha 共筆：<a class="reference external" href="http://wiki.koha-community.org/wiki/SQL_Reports_Library">http://wiki.koha-community.org/wiki/SQL_Reports_Library</a>。各館自己的資料庫結構在 /installer/data/mysql/kohastructure.sql 或線上：<a class="reference external" href="http://schema.koha-community.org/">http://schema.koha-community.org</a>。</p>
+<p>To add your query, click the link to ‘Create from SQL’ on the main
+reports module</p>
+<p><img alt="Reports main page" src="_images/reportsmain.png" /></p>
+<p>or the ‘New report’ button at the top of the ‘Saved reports’ page.</p>
+<p><img alt="New report button is pressed and the options are New guided report and New SQL report" src="_images/newsql.png" /></p>
+<p>在顯現的表單填入資料</p>
+<p><img alt="New report from SQL form" src="_images/reportfromsql.png" /></p>
+<ul>
+<li><p>Report name: the name is what will appear on the ‘Saved reports’ page to help
+you identify the report later. It will also be searchable using the
+filters found on the left of the ‘Saved reports’ page.</p></li>
+<li><p>Report group: you can use the ‘Report group’ to organize your reports in
+tabs on the ‘Saved reports’ page. You can choose from the list of existing
+groups, or create one on the fly by choosing the ‘or create’ radio button.</p>
+<p><img alt="New report from SQL form, the group drop-down menu is open" src="_images/reportgroup.png" /></p>
+<p>Report groups are set in the REPORT_GROUP
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If you’re adding a report group on the fly, the code should not include
+special characters or spaces.</p>
+</div>
+</li>
+<li><p>Report subgroup: if you chose a report group, this field will appear to
+further organize your reports. Choose a subgroup from the list, or create
+one on the fly by choosing the ‘or create’ radio button.</p>
+<p>Report subgroups are set in the REPORT_SUBGROUP
+<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">authorized value category</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Report subgroups need to have unique values in ‘Authorized value’ and
+‘Description’. The ‘Description (OPAC)’ field needs to contain the
+authorized value for the report group that the subgroup falls under.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If you’re adding a report subgroup on the fly, the code should not include
+special characters or spaces.</p>
+</div>
+</li>
+<li><p>Report is public: this should be left to the default of ‘No’ in most cases,
+especially if the report contains patron or other sensitive information.
+A public report can be accessed using the
+<a class="reference internal" href="webservices.html#json-reports-services-label"><span class="std std-ref">JSON reports services</span></a> by anyone and
+without authentication.</p></li>
+<li><p>Cache expiry: this field will only appear if your system administrator has
+set up memcache on your server. This is related to public reports. If you
+make the report public, it’s constantly running and will cause a large load
+on your system. Setting this value prevents that.</p></li>
+<li><p>Notes: notes will appear on the ‘Saved reports’ page, and can be used
+to provide more details about the report or tips on how to enter
+values when it runs.</p></li>
+<li><p>SQL: type or paste the SQL for the report (see
+<a class="reference internal" href="#report-writing-tips-label"><span class="std std-ref">report writing tips</span></a> below).</p></li>
+</ul>
+<p>Once everything is entered click the ‘Save report’ button and you’ll be
+presented with options to run it. From here, you can also
+<a class="reference internal" href="#edit-custom-reports-label"><span class="std std-ref">edit it</span></a>, <a class="reference internal" href="#duplicate-report-label"><span class="std std-ref">duplicate it</span></a>,
+or schedule it to be run later.</p>
+<p>Once a report is saved, you do not have to recreate it, it will appear on the
+‘Saved reports’ page with all other saved reports.</p>
+<p><img alt="List of saved reports, &quot;All&quot; tab is selected" src="_images/savedreports.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 客製此表的列(table id: table_reports)。</p>
+</div>
+<p>From the ‘Saved reports’ page, you can <a class="reference internal" href="#edit-custom-reports-label"><span class="std std-ref">make edits</span></a>,
+<a class="reference internal" href="#running-custom-reports-label"><span class="std std-ref">run the report</span></a>, or schedule a time to
+run the report later. To find the report you created, you can sort by any of
+the columns by clicking on the column header (creation date is the best to
+find the report you just added). You can also filter your results using the
+filter menu on the left or use the tabs to find reports based on your custom
+groups.</p>
+<section id="report-writing-tips">
+<span id="report-writing-tips-label"></span><h5>撰寫報表提示<a class="headerlink" href="#report-writing-tips" title="此标题的永久链接"></a></h5>
+<p><strong>Autocomplete</strong></p>
+<p>When you start typing in the SQL field, autocomplete options will be displayed.</p>
+<p><img alt="SQL field when creating a report from SQL, in the box, SEL is typed and a suggestion for SELECT is displayed" src="_images/reportautocomplete.png" /></p>
+<p>Use the arrows on your keyboard to choose the correct option and press ‘Enter’
+or ‘Tab’ to insert it into your report, or simply click on the option to insert
+it.</p>
+<p>Autocomplete options include:</p>
+<ul>
+<li><p>SQL keywords such as SELECT, FROM, WHERE, etc.</p></li>
+<li><p>table names</p></li>
+<li><p>column names</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>To have suggestions for column names, you must type the table name first,
+followed by a period, then start typing the column name.</p>
+<p>For example, to have the suggestion for <code class="code docutils literal notranslate"><span class="pre">cardnumber</span></code>, you must type
+<code class="code docutils literal notranslate"><span class="pre">borrowers.ca</span></code>.</p>
+<p><img alt="SQL field when creating a report from SQL, in the box, SELECT borrowers.ca is typed and suggestions for borrowers.cardnumber and borrowers.categorycode are displayed" src="_images/reportautocomplete-column.png" /></p>
+</div>
+</li>
+</ul>
+<p><strong>執行參數</strong></p>
+<p>若執行報表耗費過多資源時您可考慮使用執行參數。執行參數可以在執行報表前先篩選資料以節省系統資源。</p>
+<p>Click the button ‘Insert runtime parameter’ and choose which parameter to add.</p>
+<p><img alt="The Insert runtime parameter button is pressed and the different options are shown" src="_images/runtimeparameters.png" /></p>
+<ul>
+<li><p>Authorized value: will display a drop down menu of the value descriptions
+from the chosen <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized value category</span></a>.
+The authorized value code will be inserted in the report when it is run.</p></li>
+<li><p>Bibliographic framework: will display a drop down menu of
+<a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC bibliographic frameworks</span></a>.
+The framework code will be inserted in the report when it is run.</p></li>
+<li><p>Classification sources: will display a drop down menu of
+<a class="reference internal" href="administration.html#classification-sources-label"><span class="std std-ref">classification sources</span></a>. The
+classification code will be inserted in the report when it is run.</p></li>
+<li><p>Date: will display a calendar to pick a date. The date in YYYY-MM-DD format
+will be inserted in the report when it is run.</p></li>
+<li><p>Item types: will display a drop down menu of
+<a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">item types</span></a>. The item type code will be inserted in
+the report when it is run.</p></li>
+<li><p>Libraries: will display a drop down menu of <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">libraries</span></a>.
+The library code (branchcode) will be inserted in the report when it is run.</p></li>
+<li><p>List: will display a large text box in which the user can enter many values,
+one per line. Those values will be inserted in the report, separated by
+commas, when it is run.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>在參數清單的情況下，使用者必須在每行寫一個值。</p>
+</div>
+</li>
+<li><p>Patron categories: will display a drop down menu of
+<a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron categories</span></a>. The category code will
+be inserted in the report when it is run.</p></li>
+<li><p>Cash registers: will display a drop down menu of
+<a class="reference internal" href="administration.html#cashregisters-label"><span class="std std-ref">cash registers</span></a>. The cash register’s internal id
+will be inserted in the report when it is run.</p></li>
+<li><p>Debit types: will display a drop down menu of
+<a class="reference internal" href="administration.html#debit-types-label"><span class="std std-ref">debit types</span></a>. The debit type code will be inserted
+in the report when it is run.</p></li>
+<li><p>Credit types: will display a drop down menu of
+<a class="reference internal" href="administration.html#credit-types-label"><span class="std std-ref">credit types</span></a>. The credit type code will be
+inserted in the report when it is run.</p></li>
+<li><p>Text field: will display an empty text field in which the user can enter any
+text.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在文字盒裡必須置入 “%” 其內容才算是 ‘空白’。否則，這樣的內容 “” (空字串) 被視為空字串仍有內容。</p>
+<p>例如，不輸入任何內容的: “標題=&lt;&lt;Enter title&gt;&gt;”將顯示帶有標題’’（無標題）的結果。</p>
+<p>如果你想擁有一些非強制性的東西，可以使用 “標題像&lt;&lt;Enter title&gt;&gt;”，並在運行時輸入%，而不是什麼都沒有。</p>
+</div>
+</li>
+</ul>
+<p>After you choose the type of runtime parameter, it will ask you for the parameter
+label. This is what the user will see as the label for the choice they have to
+make or text they have to enter.</p>
+<p>The syntax inserted into the report is <code class="code docutils literal notranslate"><span class="pre">&lt;&lt;Label|authorized_value&gt;&gt;</span></code>.</p>
+<ul class="simple">
+<li><p>The &lt;&lt; and &gt;&gt; are just delimiters to indicate the start and end of the
+runtime parameter.</p></li>
+<li><p>The label will be displayed on the left of the choice or value to enter.</p></li>
+<li><p>The authorized_value can be omitted if not applicable. If it is absent, a
+free text field will be displayed. If it contains an authorized code (see
+table below), a drop down of the values will be displayed.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can write those in manually as well, you don’t have to go through the
+‘Insert runtime parameter’ button. As long as the syntax is correct, Koha
+will interpret it as a runtime parameter.</p>
+<p>可用於執行參數的參數清單</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>參數</p></th>
+<th class="head"><p>使用者所見為</p></th>
+<th class="head"><p>插入詢問的內容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>日期</p></td>
+<td><p>日期選擇器</p></td>
+<td><p>有效格式化日期</p></td>
+</tr>
+<tr class="row-odd"><td><p>分行</p></td>
+<td><p>分行名稱的下拉選單</p></td>
+<td><p>分行代碼</p></td>
+</tr>
+<tr class="row-even"><td><p>館藏類型</p></td>
+<td><p>館藏類型名稱的下拉選單</p></td>
+<td><p>館藏類型</p></td>
+</tr>
+<tr class="row-odd"><td><p>類別代碼</p></td>
+<td><p>讀者類別說明的下拉選單</p></td>
+<td><p>借款人類別代碼</p></td>
+</tr>
+<tr class="row-even"><td><p>書目_框架</p></td>
+<td><p>MARC書目框架的下拉選單</p></td>
+<td><p>框架代碼</p></td>
+</tr>
+<tr class="row-odd"><td><p>清單</p></td>
+<td><p>大型文字框</p></td>
+<td><p>逗號分隔值</p></td>
+</tr>
+<tr class="row-even"><td><p>(容許-值-類別)</p></td>
+<td><p>類別中的容許值說明的下拉選單</p></td>
+<td><p>容許值</p></td>
+</tr>
+<tr class="row-odd"><td><p>(沒什麼)</p></td>
+<td><p>文字框</p></td>
+<td><p>輸入的文字</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can have more than one runtime parameter in a given SQL query.</p>
+</div>
+<p>範例 1</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">surname</span><span class="p">,</span>
+<span class="w">       </span><span class="n">firstname</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">borrowers</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">branchcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">Enter</span><span class="w"> </span><span class="n">patrons</span><span class="w"> </span><span class="n">library</span><span class="o">|</span><span class="n">branches</span><span class="o">&gt;&gt;</span>
+<span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">Enter</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">patron</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="p">(</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">none</span><span class="p">)</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to choose a library from a drop-down menu and enter a surname in an input text field" src="_images/runtimeparameterex1.png" /></p>
+<p>範例 2</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">items</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">homebranch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">Pick</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">branch</span><span class="o">|</span><span class="n">branches</span><span class="o">&gt;&gt;</span>
+<span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">barcode</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="k">Partial</span><span class="w"> </span><span class="n">barcode</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">here</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to choose a library from a drop-down menu and enter a barcode in an input text field" src="_images/runtimeparameterex2.png" /></p>
+<p>範例 3</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="p">,</span>
+<span class="w">       </span><span class="n">author</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">biblio</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">frameworkcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">Enter</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">frameworkcode</span><span class="o">|</span><span class="n">biblio_framework</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to choose a bibliographic framework from a drop-down menu" src="_images/runtimeparameterex3.png" /></p>
+<p>範例 4</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">cardnumber</span><span class="p">,</span>
+<span class="w">       </span><span class="n">surname</span><span class="p">,</span>
+<span class="w">       </span><span class="n">firstname</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">borrowers</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">dateexpiry</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">Expiry</span><span class="w"> </span><span class="nb">date</span><span class="o">|</span><span class="nb">date</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to pick a date in the calendar (date picker)" src="_images/runtimeparameterex4.png" /></p>
+<p>範例 5</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">items</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">itemnumber</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">List</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">itemnumbers</span><span class="w"> </span><span class="p">(</span><span class="n">one</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span><span class="p">)</span><span class="o">|</span><span class="n">list</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><img alt="When running the report, the user is asked to enter a list of values" src="_images/runtimeparameterex5.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>在參數清單的情況下，使用者必須在每行寫一個值。</p>
+</div>
+</section>
+</section>
+<section id="sql-report-from-mana">
+<span id="mana-sql-report-label"></span><h4>來自 Mana 的 SQL 報表<a class="headerlink" href="#sql-report-from-mana" title="此标题的永久链接"></a></h4>
+<p>由 Mana KB 新增預設報表的方式是，在 “由 SQL 產生報表” 內，您可按, you can search Mana KB for pre-made reports by clicking on “新增報表” 並選擇 “從 Mana 新增 SQL”。</p>
+<p><img alt="image1428" src="_images/sqlfrommana.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>從管理模組設定 <a class="reference internal" href="administration.html#share-with-mana-kb-label"><span class="std std-ref">組態 Mana KB</span></a> 後，才出現此選項。</p>
+</div></blockquote>
+<p>提示您以關鍵字搜尋知識庫。</p>
+<p><img alt="image1429" src="_images/searchmana.png" /></p>
+<p>在搜尋結果，您將看到</p>
+<ul class="simple">
+<li><p>報告詳情 (姓名、說明與類型)</p></li>
+<li><p>多少人已使用此款目 (# 表示使用者)</p></li>
+<li><p>當它用於姓 (最後匯入)</p></li>
+<li><p>Koha 使用者新增的評論 (評論)</p></li>
+</ul>
+<p><img alt="image1430" src="_images/manasearchresults.png" /></p>
+<p>勾選 “匯入” 把報告複製在您自已的儲存報告內。</p>
+<p>您可編輯、複製、刪除、執行它，如同自己的其他報告。</p>
+</section>
+<section id="duplicate-report">
+<span id="duplicate-report-label"></span><h4>複製報表<a class="headerlink" href="#duplicate-report" title="此标题的永久链接"></a></h4>
+<p>可以複製現在報表為新的報表。進入 ‘儲存報表’ 頁面查看已有的報表。</p>
+<p><img alt="image895" src="_images/duplicatereport.png" /></p>
+<p>在報表右方有個 ‘動作’ 下拉選單。按下並選擇 ‘複製’ 鈕以現在的報表為基礎產生新報表。修改必要的 SQL 後成為新的報表。</p>
+</section>
+</section>
+<section id="edit-custom-reports">
+<span id="edit-custom-reports-label"></span><h3>編輯客製化報表<a class="headerlink" href="#edit-custom-reports" title="此标题的永久链接"></a></h3>
+<p>可從報表清單編輯各報表。點選 ‘使用已儲存的’，檢視 Koha 已儲存的報表清單。</p>
+<p><img alt="List of saved reports, &quot;All&quot; tab is selected" src="_images/savedreports.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 客製此表的列(table id: table_reports)。</p></li>
+</ul>
+</div></blockquote>
+<p>點選欄位標題，讓報表依欄位排序，就能找到指定的報表。也可用左方的篩選器選單或分頁，依照客製化群組，找到指定的報表。</p>
+<p>您可以從這個清單勾選報表右下角的 ‘動作’ 鈕從彈出的選單裡選擇 ‘編輯’。</p>
+<p><img alt="&quot;Edit&quot; option of the report action button" src="_images/editsavedreport.png" /></p>
+<p>The form to edit the report will appear. Use the “update button” to save your modifications or click on “update and run SQL” to save and display the report results.</p>
+<p><img alt="The edit report form with the 'update' button and 'save and run sql' button" src="_images/updatesavedreport.png" /></p>
+</section>
+<section id="running-custom-reports">
+<span id="running-custom-reports-label"></span><h3>執行客製化報表<a class="headerlink" href="#running-custom-reports" title="此标题的永久链接"></a></h3>
+<p>儲存客製化報表後，可從儲存報表頁面勾選該報表右方的 ‘動作’ 連結再點選 ‘執行’ 它。</p>
+<p><img alt="image899" src="_images/runreport.png" /></p>
+<p>執行報表時將被要求輸入若干值</p>
+<p><img alt="image900" src="_images/reportparameters.png" /></p>
+<p>或直接看到結果</p>
+<p><img alt="image901" src="_images/reportresults.png" /></p>
+<p>從此結果裡，您可以點選上方的 ‘執行報表’，再執行報表；或點選 ‘編輯’ 鈕，編輯報表；或點選 ‘新增’ 鈕，重新建立報表。從結果下方選取檔案類型，選擇 ‘下載報表’ 標籤，再選取 ‘下載’ ，就能下載您的結果。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>逗點區隔的純文字檔案稱為 CSV 檔案，任何試算表應用程式都可以打開它。</p>
+</div></blockquote>
+</section>
+<section id="send-report-output-to-batch-modification-tools">
+<span id="send-report-output-to-batch-modification-tools-label"></span><h3>將報表輸出寄送給批次修改工具<a class="headerlink" href="#send-report-output-to-batch-modification-tools" title="此标题的永久链接"></a></h3>
+<p>在執行一個包含館藏編號、書目編號和/或讀者卡片編號的報表後，可以通過點擊報表結果中的 ‘具有X條可見記錄的批次操作 ‘按鈕，將編號列表直接輸入相關的批次修改工具中。  X取決於你選擇在螢幕上顯示的記錄數（最多 1000條）。</p>
+<p><img alt="image1343" src="_images/senditemnumberstobatch.png" /></p>
+</section>
+</section>
+<section id="statistics-reports">
+<span id="statistics-reports-label"></span><h2>統計報表<a class="headerlink" href="#statistics-reports" title="此标题的永久链接"></a></h2>
+<p>Statistic reports will show you counts and sums. These reports are all
+about numbers and statistics, for reports that return more detailed
+data, use the <a class="reference internal" href="#guided-report-wizard-label"><span class="std std-ref">guided report wizard</span></a>. These
+reports are limited in what data they can look at, so it’s often
+recommended to use <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">custom reports</span></a> for official end
+of the year statistics.</p>
+<section id="acquisitions-statistics">
+<span id="acquisitions-statistics-label"></span><h3>採訪統計<a class="headerlink" href="#acquisitions-statistics" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>可檢視的報表內容有限，建議使用 <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">客製化報表</span></a> 做為年度統計之用。</p>
+</div></blockquote>
+<p>使用提供的表單，選定顯示的欄與列。</p>
+<p><img alt="使用提供的表單，選定顯示的欄與列。" src="_images/acqform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image903" src="_images/acqnumbers.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+<p>產生報表時，必須選定計算或總結其值。</p>
+<p><img alt="image904" src="_images/acqtotal.png" /></p>
+<p>選擇改變結果的總數，做為總支出的金額。</p>
+<p><img alt="image905" src="_images/acqamounts.png" /></p>
+</section>
+<section id="patron-statistics">
+<span id="patron-statistics-label"></span><h3>讀者統計<a class="headerlink" href="#patron-statistics" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>可檢視的報表內容有限，建議使用 <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">客製化報表</span></a> 做為年度統計之用。</p>
+</div></blockquote>
+<p>使用提供的表單，選定顯示的欄與列。</p>
+<p><img alt="View of patron form for patron statistics" src="_images/patronform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image907" src="_images/patronresults.png" /></p>
+<p>根據你的選擇，可在搜尋表單之上看到部份查詢資訊。也可選擇匯出至檔案再編輯成您的需要。</p>
+</section>
+<section id="catalog-statistics">
+<span id="catalog-statistics-label"></span><h3>目錄統計<a class="headerlink" href="#catalog-statistics" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>可檢視的報表內容有限，建議使用 <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">客製化報表</span></a> 做為年度統計之用。</p>
+</div></blockquote>
+<p>使用提供的表單，選定顯示的欄與列。</p>
+<p><img alt="image908" src="_images/catalogform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image909" src="_images/catalogresults.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+</section>
+<section id="circulation-statistics">
+<span id="circulation-statistics-label"></span><h3>流通統計<a class="headerlink" href="#circulation-statistics" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>可檢視的報表內容有限，建議使用 <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">客製化報表</span></a> 做為年度統計之用。</p>
+</div></blockquote>
+<p>使用提供的表單，選定顯示的欄與列。</p>
+<p><img alt="Circulation statistics reporting wizard, with options to select the report parameters" src="_images/circform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image911" src="_images/circresults.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>為了對按月與逐日的流通有全盤瞭解，您可執行兩次報表，一次是 ‘借出’ 的 ‘類型’ 另一次是 ‘續借’。</p>
+<p>此報表使用 ‘期間’，或日期篩選，允許您以每月第一天至次月第一天篩選。例如：10/1 至 11/1 做為十月份的統計。</p>
+<ul class="simple">
+<li><p>設定日期範圍，查看逐日統計。&lt;/br&gt; 如：”從 XXX 開始至 XXX 結束的流通統計”。</p></li>
+<li><p>對一個月而言，如11/01/2009 至 12/01/2009</p></li>
+<li><p>對整年而言，如：01/01/2009 至 01/01/2010</p></li>
+<li><p>以一天而言，如： 11/15/2009 至 11/16/2009，會找到15日的流通紀錄</p></li>
+</ul>
+</div></blockquote>
+<section id="tracking-in-house-use">
+<span id="tracking-in-house-use-reports-label"></span><h4>追蹤館內使用<a class="headerlink" href="#tracking-in-house-use" title="此标题的永久链接"></a></h4>
+<p>利用流通統計報表精靈，您可以執行館內使用報表，祗需從 ‘類型’ 下拉選單裡選取 ‘館內使用’ 即可：</p>
+<p><img alt="Circulation statistics reporting wizard with Type drop-down menu open and &quot;Local use&quot; highlighted." src="_images/inhouse.png" /></p>
+</section>
+</section>
+<section id="serials-statistics">
+<span id="serials-statistics-label"></span><h3>期刊統計<a class="headerlink" href="#serials-statistics" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>可檢視的報表內容有限，建議使用 <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">客製化報表</span></a> 做為年度統計之用。</p>
+</div></blockquote>
+<p>以提供的表單選擇系統內指定的期刊。</p>
+<p><img alt="In the reports module, the form to launch statistics in the serials" src="_images/serialsform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image914" src="_images/serialsresults.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+</section>
+<section id="holds-statistics">
+<span id="holds-statistics-label"></span><h3>預約統計<a class="headerlink" href="#holds-statistics" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>可檢視的報表內容有限，建議使用 <a class="reference internal" href="#custom-reports-label"><span class="std std-ref">客製化報表</span></a> 做為年度統計之用。</p>
+</div></blockquote>
+<p>根據提供的統計資料，可以看到本館的預約數、滿足數、取消及其他統計。從選定的表單指定顯示的欄與列。也可用表單右方的篩選器，祗統計部份內容。</p>
+<p><img alt="Form for holds statistics" src="_images/holdstatsform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image916" src="_images/holdstatsresults.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+</section>
+<section id="patrons-with-the-most-checkouts">
+<span id="patrons-with-the-most-checkouts-label"></span><h3>借出最多的讀者<a class="headerlink" href="#patrons-with-the-most-checkouts" title="此标题的永久链接"></a></h3>
+<p>此報表將列出借出最多館藏的讀者。</p>
+<p><img alt="Form to select parameters to run Top checkouts report" src="_images/topcheckoutsform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image918" src="_images/topcheckoutsresult.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+</section>
+<section id="most-circulated-items">
+<span id="most-circulated-items-label"></span><h3>借出最多館藏<a class="headerlink" href="#most-circulated-items" title="此标题的永久链接"></a></h3>
+<p>此報表將列出被借出最多的館藏。</p>
+<p><img alt="image919" src="_images/topcircform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image920" src="_images/topcircresults.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+</section>
+<section id="patrons-with-no-checkouts">
+<span id="patrons-with-no-checkouts-label"></span><h3>無借出的讀者<a class="headerlink" href="#patrons-with-no-checkouts" title="此标题的永久链接"></a></h3>
+<p>此報表將列出不曾借出館藏的讀者。</p>
+<p><img alt="Report form for creating a report of patrons who have never checked out items" src="_images/patnocheckout.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image922" src="_images/patnocheckout-results.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+</section>
+<section id="items-with-no-checkouts">
+<span id="items-with-no-checkouts-label"></span><h3>不曾借出的館藏<a class="headerlink" href="#items-with-no-checkouts" title="此标题的永久链接"></a></h3>
+<p>此報表將列出不曾借出的館藏。</p>
+<p><img alt="Form for the report of items with no checkouts" src="_images/nocheckoutsform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image924" src="_images/nocheckoutsresults.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+</section>
+<section id="catalog-by-item-type">
+<span id="catalog-by-item-type-label"></span><h3>目錄依館藏類型排序<a class="headerlink" href="#catalog-by-item-type" title="此标题的永久链接"></a></h3>
+<p>此報表列出每個分館各種資料類型的館藏總數。</p>
+<p><img alt="目錄依館藏類型排序" src="_images/itemtotals.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="Catalog by item type results" src="_images/itemtotalsresults.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+</section>
+<section id="lost-items">
+<span id="lost-items-label"></span><h3>遺失的館藏<a class="headerlink" href="#lost-items" title="此标题的永久链接"></a></h3>
+<p>此報表允許您產生系統內被標記為遺失的館藏清單</p>
+<p><img alt="Input for lost item report" src="_images/lostitems.png" /></p>
+<p>一旦你選擇了參數，你會看到相應的館藏清單。</p>
+<p><img alt="Results of lost item report" src="_images/lostitemsresult.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 客製化此表的列(table id: lostitems-table)。</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="orders-by-fund">
+<span id="orders-by-fund-label"></span><h3>以基金訂購<a class="headerlink" href="#orders-by-fund" title="此标题的永久链接"></a></h3>
+<p>如果你使用 <a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">採訪模組</span></a>，你將能夠看到每個基金中訂購的所有館藏。</p>
+<p><img alt="image1499" src="_images/ordersbyfund.png" /></p>
+<p>一旦你選擇了你想要查看的基金，你可以輸出結果或在瀏覽器中查看。如果你選擇直接查看，你將會看到訂單的清單。</p>
+<p><img alt="Example of a report result of Orders by fund" src="_images/ordersbyfundresult.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 客製化此表的列(table id: funds-table)。</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="average-loan-time">
+<span id="average-loan-time-label"></span><h3>平均借出時間<a class="headerlink" href="#average-loan-time" title="此标题的永久链接"></a></h3>
+<p>此報表將依照您要求的類型列出館藏平均借出的時間：</p>
+<p><img alt="Wizard to generate report for average loan time, with options to select the report parameters (checkout date, patron category, item type...)" src="_images/averloanform.png" /></p>
+<p>選擇輸出至瀏覽器，您的結果將出現在螢幕。</p>
+<p><img alt="image929" src="_images/avercheckout.png" /></p>
+<p>您可選擇匯出成檔案，供後續的使用。</p>
+</section>
+</section>
+<section id="report-dictionary">
+<span id="report-dictionary-label"></span><h2>報表字典<a class="headerlink" href="#report-dictionary" title="此标题的永久链接"></a></h2>
+<p>報表字典是一種事先定義報表常用的篩選器。不妨新增報表精靈預設之外的篩選器。勾選報表字典頁面的 ‘新增定義’，並依照下列 4 個步驟，就能新增定義或篩選器。</p>
+<p>步驟 1：給予此定義並提供必要的說明</p>
+<p><img alt="image930" src="_images/dict1.png" /></p>
+<p>步驟2：選擇詢問的模組。</p>
+<p><img alt="image931" src="_images/dict2.png" /></p>
+<p>步驟3：從顯示的表單裡選取詢問的欄位。</p>
+<p><img alt="image932" src="_images/dict3.png" /></p>
+<p>步驟4：從欄位選取值。自動佈署於可用的資料庫。</p>
+<p><img alt="image933" src="_images/dict4.png" /></p>
+<p>確認您的選項以便儲存此定義。</p>
+<p><img alt="image934" src="_images/dictconfirm.png" /></p>
+<p>您的定義將出現在報表字典頁面</p>
+<p><img alt="image935" src="_images/dictlist.png" /></p>
+<p>新增報表後，在下方的定義出現限制的選項，當成一般的篩選器。</p>
+<p><img alt="image936" src="_images/dictionarylimit.png" /></p>
+</section>
+<section id="report-plugins">
+<span id="report-plugins-label"></span><h2>Report plugins<a class="headerlink" href="#report-plugins" title="此标题的永久链接"></a></h2>
+<p>Some plugins that are available can be used to make or enhance reports.</p>
+<ul class="simple">
+<li><p><em>Get there:</em> More &gt; Reports &gt; Report plugins &gt; Report plugins</p></li>
+</ul>
+<p>From this page, you will see only report-type plugins.</p>
+<p>See the <a class="reference internal" href="administration.html#manage-plugins-label"><span class="std std-ref">managing plugins section</span></a> of this manual
+to learn how to manage your report-type plugins.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="lists.html" class="btn btn-neutral float-left" title="虛擬書架與書目清單" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="opac.html" class="btn btn-neutral float-right" title="OPAC" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

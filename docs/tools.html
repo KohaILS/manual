@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>工具 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="讀者" href="patrons.html" />
+    <link rel="prev" title="管理" href="administration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">工具</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#patrons-and-circulation">读者和流通</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#patron-lists">读者清单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-clubs">讀者讀書會</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-new-club-template">新增讀書會模板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-new-club-based-on-a-template">依此模版新增讀書會</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enrolling-a-patron-in-a-club-from-the-staff-interface">Enrolling a patron in a club from the staff interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enrolling-a-patron-in-a-club-from-the-opac">從 OPAC 註冊至讀書會</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewing-enrollments">檢視註冊</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#placing-a-hold-for-a-patron-club">為讀者群組預留</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comments">評論</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-import">匯入讀者</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-patron-import-file">新增讀者匯入檔</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#importing-patrons">匯入讀者</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#notices-slips">通知 &amp; 收條</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-notices-and-slips">新增通知與收條</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#preview-notice-templates">檢視通知模板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#existing-notices-and-slips">既有說明與收條</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#overdue-notice-status-triggers">啟動逾期通知/狀態</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-card-creator">新增讀者證</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#layouts">布局</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#templates">模板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles">設定檔</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batches">批次</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manage-images">管理照片</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-patron-deletion-anonymization">批次刪除讀者/匿名讀者</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-patron-modification">批次讀者修改</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-extend-due-dates">批次延長到期日</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tag-moderation">管理標籤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-patron-images">上傳讀者圖片</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rotating-collections">巡迴書庫</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#transfer-a-rotating-collection">轉移巡迴書庫</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-tools">Additional tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#calendar">行事曆</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-events">新增事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-events">編輯事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-help">其他說明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#csv-profiles">CSV設定檔</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#add-csv-profiles">新增CSV設定檔</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modify-csv-profiles">修改CSV設定檔</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-csv-profiles">使用CSV設定檔</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#log-viewer">日誌檢視器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#news">最新消息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#html-customizations">HTML客製化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pages">Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-scheduler">工作排程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting">解決問題</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quote-editor">Quote editor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-quote">Adding a quote</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#importing-quotes">Importing quotes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-a-quote">Editing a quote</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-a-quote">Deleting a quote</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tool-plugins">Tool plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload">上傳</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#upload-files">Upload files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-files">搜尋檔案</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access-files">近用檔案</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opac-problem-reports">OPAC 問題報表</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cash-management">現金管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cash-registers">收銀機</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setup">設定</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cashup">Cashup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cash-summary-for-library">*圖書館*的現金摘要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transaction-history-for-register">*註冊*的交易歷史</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">工具</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tools.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="administration.html" class="btn btn-neutral float-left" title="管理" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="patrons.html" class="btn btn-neutral float-right" title="讀者" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tools">
+<span id="tools-label"></span><h1>工具<a class="headerlink" href="#tools" title="此标题的永久链接"></a></h1>
+<p>Koha 的工具都是執行特定工作之用。其他的圖書館管理系統常把這些工具當作 ‘報表’。</p>
+<ul class="simple">
+<li><p><em>在这里：</em> 更多 &gt; 工具</p></li>
+</ul>
+<section id="patrons-and-circulation">
+<span id="tools-patrons-and-circulation-label"></span><h2>读者和流通<a class="headerlink" href="#patrons-and-circulation" title="此标题的永久链接"></a></h2>
+<section id="patron-lists">
+<span id="patron-lists-label"></span><h3>读者清单<a class="headerlink" href="#patron-lists" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>在这里：</em> 更多 &gt; 工具 &gt; 读者与流通 &gt; 读者清单</p></li>
+</ul>
+<p>读者清单是存储读者群的地方，可以通过 <a class="reference internal" href="#batch-patron-modification-label"><span class="std std-ref">批次读者修改工具</span></a> 或报表修改读者。</p>
+<p><img alt="View of all patron lists and New patron list button" src="_images/patronlists.png" /></p>
+<p>點選 ‘新增讀者清單’ 鈕，就能新增讀者清單</p>
+<p><img alt="New patron list form" src="_images/newpatronlist.png" /></p>
+<p>輸入虛擬書架名稱。</p>
+<p>勾選 ‘共享’ 盒後，此選單可以被使用 <a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">manage_patron_lists permission</span></a> 的讀者看到。</p>
+<p>儲存虛擬書架。</p>
+<p><img alt="View of patrons in the list and search form to add new patrons to the list" src="_images/addtopatronlist.png" /></p>
+<p>每個清單都有 ‘作用’ 鈕以開啟更多選項。</p>
+<p><img alt="Action menu available on each patron list" src="_images/patronlistmenu.png" /></p>
+<p>按 ‘作用’ 選單裡的 ‘新增讀者’ 鈕，就能新增讀者入選單。</p>
+<p><img alt="image248" src="_images/addpatrontolist.png" /></p>
+<p>請在搜尋框輸入讀者名字或讀者證號並在右側空白處點擊以加入讀者資訊。</p>
+<p>此外，也可以按 ‘鍵入多個讀者證號碼’ 連結，並把條碼掃瞄 (或鍵入) 盒內。</p>
+<p><img alt="View of selected patron ready to be added to the list" src="_images/patronstoadd.png" /></p>
+<p>所有的讀者都選定後，按 ‘新增讀者’ 鈕把他們加入清單。</p>
+<p><img alt="View of all patrons of the list after adding patrons" src="_images/patronlist.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘欄組態’</span></a> 部分, 自訂義此表的列(table id: patron-list-table)。</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="patron-clubs">
+<span id="patron-clubs-label"></span><h3>讀者讀書會<a class="headerlink" href="#patron-clubs" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 讀者與流通 &amp;gt; 讀者讀書會</p></li>
+</ul>
+<p>讀者讀書會新增供讀者加入的讀書會。可做為追蹤讀書會、圖書俱樂部及其他俱樂部活動。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Staff will need the <a class="reference internal" href="patrons.html#patron-permissions-defined-label"><span class="std std-ref">clubs permissions</span></a>
+to edit clubs, templates and enroll patrons. To learn how to set patron
+permissions, go to the <a class="reference internal" href="patrons.html#setting-patron-permissions-label"><span class="std std-ref">patron permissions section</span></a>
+of this manual.</p>
+</div></blockquote>
+<section id="creating-a-new-club-template">
+<h4>新增讀書會模板<a class="headerlink" href="#creating-a-new-club-template" title="此标题的永久链接"></a></h4>
+<p>按 ‘新增讀書會模板’ 鈕。新增的欄位可於新增模板時填入資料，或新增讀書會時加入為會員。</p>
+<p><img alt="image1364" src="_images/newclubtemplate.png" /></p>
+<p>名稱為必備。例如，’成人讀書俱樂部’、’兒讀讀書俱樂部’ 或 ‘夏季閱讀計晝’。新增俱樂部時將開啟這些模板。</p>
+<p>可加入其他資訊。</p>
+<p>允許公開註冊：勾選之後所有讀者都可經由 OPAC 的模板加入俱樂部。</p>
+<p>有效的電子郵件信箱為必備：勾選之後必須留下有效電子郵件信箱的讀者才能註冊。因此必須先行註冊電子信箱。</p>
+<p>從下拉式圖書館裡選取分館的讀者註冊。若空白，則所有的分館讀者均可註冊。</p>
+<p>讀書會欄位：依此模板新增讀書會時，可以使用該等欄位。例如，可以是讀書會的名稱、發起人姓名、主題等。</p>
+<p><img alt="image1365" src="_images/newclubtemplate-clubfields.png" /></p>
+<blockquote>
+<div><p>‘名稱’ 是欄位的標籤</p>
+<p>‘說明’ 是此欄位的其他資訊。</p>
+<p>可把容許值連結至此。</p>
+</div></blockquote>
+<p>註冊欄位：在此模版註冊讀書會時，您可新增供讀者填寫的欄位。</p>
+<p><img alt="image1366" src="_images/newclubtemplate-enrollmentfields.png" /></p>
+<blockquote>
+<div><p>‘名稱’ 是欄位的標籤</p>
+<p>‘說明’ 是此欄位的其他資訊。</p>
+<p>可把容許值連結至此。</p>
+</div></blockquote>
+</section>
+<section id="creating-a-new-club-based-on-a-template">
+<h4>依此模版新增讀書會<a class="headerlink" href="#creating-a-new-club-based-on-a-template" title="此标题的永久链接"></a></h4>
+<p>勾選 ‘新增讀書會’ 下拉選單並選定使用的模板。以該模板填入新讀書會的資料。</p>
+<p><img alt="image1367" src="_images/newclub.png" /></p>
+<p>名稱為必備，使用模板將此名稱列為讀書會的名稱。例如，’夏季兒童讀書會’。</p>
+<p>可加入其他資訊。</p>
+<p>讀書會應有開始與束的時間。到期後，不能再註冊該讀書會。</p>
+<p>從下拉式圖書館裡選取分館的讀者註冊。若空白，則所有的分館讀者均可註冊。</p>
+</section>
+<section id="enrolling-a-patron-in-a-club-from-the-staff-interface">
+<h4>Enrolling a patron in a club from the staff interface<a class="headerlink" href="#enrolling-a-patron-in-a-club-from-the-staff-interface" title="此标题的永久链接"></a></h4>
+<p>以館員的帳號，從館員介面註冊讀書會的讀者。</p>
+<p>在 ‘詳情’ 頁面或 ‘借出’ 頁面，點選 ‘讀書會’ 分頁。當前的讀書會將顯現在此分頁。</p>
+<p><img alt="image1368" src="_images/enrollpatronstaff.png" /></p>
+<p>按下 ‘註冊’ 鈕並在欄位內填入資料。</p>
+<p>按取消註冊鈕就能取消註冊。</p>
+</section>
+<section id="enrolling-a-patron-in-a-club-from-the-opac">
+<h4>從 OPAC 註冊至讀書會<a class="headerlink" href="#enrolling-a-patron-in-a-club-from-the-opac" title="此标题的永久链接"></a></h4>
+<p>若同意公開註冊，讀書會將顯示在 OPAC。</p>
+<p>讀者必須登入其帳號。在 ‘您的摘要’ 區塊，點選 ‘讀書會Clubs’ 分頁並註冊。</p>
+<p><img alt="image1369" src="_images/enrollpatronopac.png" /></p>
+</section>
+<section id="viewing-enrollments">
+<h4>檢視註冊<a class="headerlink" href="#viewing-enrollments" title="此标题的永久链接"></a></h4>
+<p>進入 ‘讀者讀書會’ 工具頁並從 ‘行動’ 鈕選擇註冊。</p>
+<p><img alt="image1370" src="_images/clubenrollments.png" /></p>
+</section>
+<section id="placing-a-hold-for-a-patron-club">
+<h4>為讀者群組預留<a class="headerlink" href="#placing-a-hold-for-a-patron-club" title="此标题的永久链接"></a></h4>
+<p>您可以為讀者群組預留 - 以隨機順序為群組成員預留.</p>
+<p>預留給讀者群組:</p>
+<ol class="arabic simple">
+<li><p>前往讀者讀書會工具 (‘首頁 &gt; 工具 &gt; 讀者讀書會’).</p></li>
+<li><p>點擊群組的’動作’按鈕以及選擇’搜尋館藏’.</p></li>
+<li><p>搜尋題名以及選擇記錄.</p></li>
+<li><p>從紀錄的操作連結選擇’預留[群組名稱]’, 或是從功能表列裡’預留’動作.</p></li>
+<li><p>預留頁面顯示和列出群組成員.</p></li>
+<li><p>點擊’預留’按鈕.</p></li>
+</ol>
+<p>結果: 預留給所有的群組成員.</p>
+</section>
+</section>
+<section id="comments">
+<span id="comments-label"></span><h3>評論<a class="headerlink" href="#comments" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 讀者與流通 &amp;gt; 評論</p></li>
+</ul>
+<p>讀者經由 OPAC 新增的評論都需經館員審核。待審核的評論出現在館員首頁的工具分頁之下：</p>
+<p><img alt="View of alert that there are comments wainting on Koha main page" src="_images/commentswaiting.png" /></p>
+<p>然後在工具頁面的評論工具旁</p>
+<p><img alt="View of alert that there are comments wainting on Koha tools page" src="_images/commentswaitingtools.png" /></p>
+<p>勾選主頁的通知或進入評論工具點選評論右方的 ‘通過’ 或 ‘拒絕’ 就能評審讀者送來的評論。</p>
+<p><img alt="List of comments to moderate with action buttons" src="_images/commentmoderation.png" /></p>
+<p>若無評論待審核，您可看到無可審核的訊息</p>
+<p><img alt="List of comments moderation when no comments" src="_images/nocomments.png" /></p>
+<p>選擇 ‘通過審評’ 分頁，就能檢視或拒絕曾經通過的評論</p>
+<p><img alt="List of comments to approved with action buttons" src="_images/commentapproved.png" /></p>
+</section>
+<section id="patron-import">
+<span id="patron-import-label"></span><h3>匯入讀者<a class="headerlink" href="#patron-import" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 讀者與流通 &amp;gt; 匯入讀者</p></li>
+</ul>
+<p>任何時間都可以使用讀者匯入工具批次新增讀者。通常用於各級學校新生入學時。</p>
+<section id="creating-a-patron-import-file">
+<span id="creating-patron-file-label"></span><h4>新增讀者匯入檔<a class="headerlink" href="#creating-a-patron-import-file" title="此标题的永久链接"></a></h4>
+<p>您可從讀者匯入工具的啟始頁使用匯入的模板，下載含標頭的空白 CSV 檔案。標頭包括讀者匯入工具的所有欄位。您可以刪除不需要的欄位和列，少數必填欄位和列除外。 覆蓋時，如果您的新 .csv 包含空白列，則讀者記錄中的任何現有值都將被空白覆蓋。 最好刪除 .csv 中的所有空白列，以確保沒有刪除現有數據。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<blockquote>
+<div><p>cardnumber, surname, and all fields you have
+defined in the <a class="reference internal" href="patronspreferences.html#borrowermandatoryfield-label"><span class="std std-ref">BorrowerMandatoryField</span></a>
+preference are required and must match valid entries in your
+database.</p>
+<p><strong>重要</strong></p>
+<p>此 ‘password’ 欄的值必須是純文字，將以 MD5 雜湊演算法編碼。</p>
+<p>若密碼已經編碼，請洽系統管理員，詢求其他選項</p>
+<p><strong>重要</strong></p>
+<p>Date formats should match your <a class="reference internal" href="i18npreferences.html#dateformat-label"><span class="std std-ref">dateformat system preference</span></a>,
+and must be zero-padded, e.g. ‘01/02/2008’. Alternatively you can supply
+dates in ISO format (e.g. ‘2008-12-01’).</p>
+<p><strong>重要</strong></p>
+<p>含有特殊字元或語音符號，請使用 UTF-8 編碼。否則，該等字元或符號不會被正確地匯入。</p>
+<p><strong>說明</strong></p>
+<p>若載入 <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">讀者屬性</span></a>，’patron_attributes’ 欄位應包括以逗點區隔的屬性類型及其值。</p>
+<ul class="simple">
+<li><p>每個值之前應有屬性類型與冒號。</p>
+<ul>
+<li><p>例如：”INSTID:12345,BASEBALL:Cubs”</p></li>
+<li><p>若設定多個值則此欄位必須折收起來。</p></li>
+<li><p>因為可能包括空格，所以必須置於雙括號內：</p>
+<ul>
+<li><p>“INSTID:12345,BASEBALL:Cubs,””BASEBALL:White Sox””</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>說明</strong></p>
+<p>可以對讀者匯入工具設限。若到期日與評論符合既有的限制，在匯入檔案內符合該限制的讀者將被排除在外。所以，一個讀者可以重複匯入，但祗收錄一位。祗要新增限制，就能阻止其他的重複。</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="importing-patrons">
+<span id="importing-patrons-label"></span><h4>匯入讀者<a class="headerlink" href="#importing-patrons" title="此标题的永久链接"></a></h4>
+<p>新增檔案後，可以使用匯入讀者工具把資料加入Koha。</p>
+<ul>
+<li><p>選定 CSV 檔案</p>
+<p><img alt="image255" src="_images/importpatrons.png" /></p>
+</li>
+<li><p>指定對映 ‘cardnumber’ 或 ‘username’ 以避免新增重複的讀者號。使用其他的讀者屬性可以增加對映點。</p>
+<p><img alt="image256" src="_images/patronmatch.png" /></p>
+</li>
+<li><p>接著選擇適用於匯入讀者的預設值</p>
+<ul class="simple">
+<li><p>如：匯入指定分館的讀者時，可在匯入表單將分館代碼欄位給那些匯入的讀者。</p></li>
+</ul>
+</li>
+<li><p>最後，若有重複時，需決定以何種資料取代它。</p>
+<ul class="simple">
+<li><p>匹配紀錄是以欄位找到的，避免出現重複紀錄</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="image257" src="_images/patronmatching.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>安裝時已用到的讀者屬性，就能夠在匯入時選用它。可以覆寫所有讀者屬性或取代匯入檔內的讀者屬性。讓其他屬性保持原樣不變。</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="image1355" src="_images/patronattributes.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="notices-slips">
+<span id="notices-and-slips-label"></span><h3>通知 &amp; 收條<a class="headerlink" href="#notices-slips" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 讀者與流通 &amp;gt; 通知 &amp;amp; 收條</p></li>
+</ul>
+<p>Koha 產生的通知與流通收據 (或收條) 都可以用通知&amp;amp;收條工具客製它。系統本身有若干預設的模版在工具頁面裡。</p>
+<p><img alt="image258" src="_images/notices.png" /></p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<ul class="simple">
+<li><p>您可以在管理模組的 <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘欄組態’</span></a> 部份, 自定義此表的列 (table id: lettert).</p></li>
+</ul>
+</div></blockquote>
+<p>每個通知都可編輯，為了避免系統錯誤，祗有少數才能被刪除。每個通知與收條都可以編輯供各圖書館使用，預設是給所有圖書館使用。</p>
+<p>If you have a style you’d like applied to all slips you can point the
+<a class="reference internal" href="staffclientpreferences.html#slipcss-label"><span class="std std-ref">SlipCSS</span></a> preference to a stylesheet. The same is true for
+notices, using the <a class="reference internal" href="circulationpreferences.html#noticecss-label"><span class="std std-ref">NoticeCSS</span></a> preference to define a
+stylesheet.</p>
+<p>格式化此通知也需檢視 <a class="reference external" href="https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips">客製化通知與收條</a> 共筆頁面。</p>
+<section id="adding-notices-and-slips">
+<span id="adding-notices-and-slips-label"></span><h4>新增通知與收條<a class="headerlink" href="#adding-notices-and-slips" title="此标题的永久链接"></a></h4>
+<p>新增通知或收條</p>
+<ul>
+<li><p>勾選 ‘新增通知’</p>
+<p><img alt="image259" src="_images/newnotice.png" /></p>
+</li>
+<li><p>選擇此通知或收條適用的圖書館</p>
+<ul>
+<li><p><strong>重要</strong></p>
+<blockquote>
+<div><p>並非所有通知都可以依館別區分，詳情見 <a class="reference external" href="https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips">客製化通知與收條</a> 共筆頁頁。</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>選擇此通知相關的模組</p></li>
+<li><p>代碼限制20字元內</p></li>
+<li><p>以同樣的欄位擴允您的代碼</p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>使用逾期通知時，確認分館名稱出現其中以及設定 <a class="reference internal" href="#overdue-notice-status-triggers-label"><span class="std std-ref">triggers</span></a> 之內。</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>接著您可客製化各種可能發送方式的通知</p>
+<ul>
+<li><p>每種通知都應有專屬的電子郵件模板</p>
+<p><img alt="image1220" src="_images/newemail.png" /></p>
+</li>
+<li><p>If you’re using the
+<a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification-label"><span class="std std-ref">TalkingTechItivaPhoneNotification</span></a>
+service you can set up a Phone notification</p>
+<p><img alt="image1221" src="_images/newphone.png" /></p>
+</li>
+<li><p>列印此通知時，可以設定列印模板</p>
+<p><img alt="image1222" src="_images/newprint.png" /></p>
+</li>
+<li><p>If you have enabled SMS notices with the
+<a class="reference internal" href="patronspreferences.html#smssenddriver-label"><span class="std std-ref">SMSSendDriver</span></a> preference you can set the text
+for your SMS notices next</p>
+<p><img alt="image1223" src="_images/newsms.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>每個通知都有相同的選項</p>
+<ul>
+<li><p>若計畫以 HTML 格式撰寫通知或收條，勾選 ‘HTML訊息’ 盒，否則其內容將視為純文字</p></li>
+<li><p>合併主題將顯示在電子郵件主題列</p></li>
+<li><p>可在訊息本體使用任何文字，使用左手邊的欄位鍵入來自資料庫的個人化資料。</p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>詳情見 <a class="reference external" href="https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips">客製化通知與收條</a> 共筆頁面。</p>
+</div></blockquote>
+</li>
+<li><p><strong>重要</strong></p>
+<blockquote>
+<div><p>逾期通知本身可使用 &lt;&lt;items.content&gt;&gt; 標籤，或使用 &lt;item&gt;&lt;/item&gt; 展開所有的標籤。詳情見 <a class="reference internal" href="#overdue-notice-markup-label"><span class="std std-ref">標記逾期通知</span></a></p>
+<ul>
+<li><p>確認使用 &lt;&lt;items.content&gt;&gt; 於逾期通知裡，列出所有逾期的館藏資料。</p></li>
+<li><p>另個祗適用於另個逾期通知的選項是，使用 &lt;item&gt;&lt;/item&gt; 標籤展開它以印出多列。給 &lt;item&gt;&lt;/item&gt; 標籤選項的範例是：</p>
+<p>&lt;item&gt;”&lt;&lt;biblio.title&gt;&gt;” 著者 &lt;&lt;biblio.author&gt;&gt;, &lt;&lt;items.itemcallnumber&gt;&gt;, 條碼：&lt;&lt;items.barcode&gt;&gt;, 借出日期：&lt;&lt;issues.issuedate&gt;&gt;, 到期日：&lt;&lt;issues.date_due&gt;&gt; 罰款：&lt;&lt;items.fine&gt;&gt; &lt;/item&gt;</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>重要</strong></p>
+<blockquote>
+<div><p>祗有逾期通知才能使用 &lt;item&gt;&lt;/item&gt; 標籤，其他的通知使用 &lt;&lt;items.content&gt;&gt;</p>
+</div></blockquote>
+</li>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>可使用 &lt;&lt;today&gt;&gt; 語法新增今天的日期</p>
+</div></blockquote>
+</li>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>可在其他姓名或縮寫欄位鍵入讀者全名就能在收條或通知內顯示其全名。</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>The system preference <a class="reference internal" href="i18npreferences.html#translatenotices-label"><span class="std std-ref">TranslateNotices</span></a> will add tabs for each
+installed language to the notices editor. The notice defined in the
+‘Default’ tab will be used if there is no preferred language set
+for a patron.</p>
+<p><img alt="image1335" src="_images/notice_translation.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="preview-notice-templates">
+<span id="preview-notice-templates-label"></span><h4>檢視通知模板<a class="headerlink" href="#preview-notice-templates" title="此标题的永久链接"></a></h4>
+<p>有的時候，仍需要檢視通知模板，以確認對指定讀者特定館藏或紀錄發送的通知。</p>
+<p>檢視通知模板時，可看到模板標題的鍵入資料的欄位</p>
+<p><img alt="image1342" src="_images/preview-data.png" /></p>
+<p>填入必要的資訊，按下方的檢視鈕。檢視對話將顯示任何問題。</p>
+<section id="overdue-notice-markup">
+<span id="overdue-notice-markup-label"></span><h5>標記逾期通知<a class="headerlink" href="#overdue-notice-markup" title="此标题的永久链接"></a></h5>
+<p>新增逾期通知時，在資料庫欄位外還可以加入兩個標籤。詳情見 <a class="reference external" href="https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips">客製化通知與收條</a> 共筆頁面。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>這些新標籤祗適用於逾期通知，不能用在其他的流通通知。</p>
+</div></blockquote>
+<p>&lt;item&gt; 與 &lt;/item&gt; 應包括來自書目與館藏表的所有欄位。</p>
+<p>可使用通知模版裡這些欄號裡的範例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">following</span> <span class="n">item</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">is</span><span class="o">/</span><span class="n">are</span> <span class="n">currently</span> <span class="n">overdue</span><span class="p">:</span>
+
+<span class="o">&lt;</span><span class="n">item</span><span class="o">&gt;</span><span class="s2">&quot;&lt;&lt;biblio.title&gt;&gt;&quot;</span> <span class="n">by</span> <span class="o">&lt;&lt;</span><span class="n">biblio</span><span class="o">.</span><span class="n">author</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="o">&lt;&lt;</span><span class="n">items</span><span class="o">.</span><span class="n">itemcallnumber</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">Barcode</span><span class="p">:</span> <span class="o">&lt;&lt;</span><span class="n">items</span><span class="o">.</span><span class="n">barcode</span><span class="o">&gt;&gt;</span> <span class="n">Fine</span><span class="p">:</span> <span class="o">&lt;&lt;</span><span class="n">items</span><span class="o">.</span><span class="n">fine</span><span class="o">&gt;&gt;&lt;/</span><span class="n">item</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>假設兩筆館藏逾期，通知內容會是這樣：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">following</span> <span class="n">item</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">is</span><span class="o">/</span><span class="n">are</span> <span class="n">currently</span> <span class="n">overdue</span><span class="p">:</span>
+
+<span class="s2">&quot;A Short History of Western Civilization&quot;</span> <span class="n">by</span> <span class="n">Harrison</span><span class="p">,</span> <span class="n">John</span> <span class="n">B</span><span class="p">,</span> <span class="mf">909.09821</span> <span class="n">H2451</span><span class="p">,</span> <span class="n">Barcode</span><span class="p">:</span> <span class="mi">08030003</span> <span class="n">Fine</span><span class="p">:</span> <span class="mf">3.50</span>
+<span class="s2">&quot;History of Western Civilization&quot;</span> <span class="n">by</span> <span class="n">Hayes</span><span class="p">,</span> <span class="n">Carlton</span> <span class="n">Joseph</span> <span class="n">Huntley</span><span class="p">,</span> <span class="mf">909.09821</span> <span class="n">H3261</span> <span class="n">v</span><span class="mf">.1</span><span class="p">,</span> <span class="n">Barcode</span><span class="p">:</span> <span class="mi">08030004</span> <span class="n">Fine</span><span class="p">:</span> <span class="mf">3.50</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="existing-notices-and-slips">
+<span id="existing-notices-and-slips-label"></span><h4>既有說明與收條<a class="headerlink" href="#existing-notices-and-slips" title="此标题的永久链接"></a></h4>
+<p>Among the default notices are notices for several common actions within
+Koha. All of these notices can be customized by altering their text via
+the Notices and slips tool and their style using the
+<a class="reference internal" href="circulationpreferences.html#noticecss-label"><span class="std std-ref">NoticeCSS</span></a> system preference to define a stylesheet.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>Review the <a class="reference external" href="https://wiki.koha-community.org/wiki/Customising_Notices_and_Slips">Customising notices and slips</a>
+wiki page for information on formatting item
+information in these notices.</p>
+</div>
+<p>Here are some of what those notices do:</p>
+<ul>
+<li><p>2FA_DISABLE</p>
+<ul class="simple">
+<li><p>This notice is sent to a staff user when they disable the
+<a class="reference internal" href="patrons.html#two-factor-authentication-staff-label"><span class="std std-ref">two-factor authentication</span></a>
+on their account.</p></li>
+</ul>
+</li>
+<li><p>2FA_ENABLE</p>
+<ul class="simple">
+<li><p>This notice is sent to a staff user when they enable the
+<a class="reference internal" href="patrons.html#two-factor-authentication-staff-label"><span class="std std-ref">two-factor authentication</span></a>
+on their account.</p></li>
+</ul>
+</li>
+<li><p>2FA_OTP_TOKEN</p>
+<ul class="simple">
+<li><p>This notice is used to send a time-based one-time password to a staff user
+for them to use to log into the staff interface if they have enabled the
+<a class="reference internal" href="patrons.html#two-factor-authentication-staff-label"><span class="std std-ref">two-factor authentication</span></a>
+on their account.</p></li>
+</ul>
+</li>
+<li><p>已接受</p>
+<ul>
+<li><p>This notice is sent to the patron when their
+<a class="reference internal" href="acquisitions.html#approve-reject-suggestions-label"><span class="std std-ref">purchase suggestion is accepted</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you don’t want to send this notice, simply delete it.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>ACCOUNT_PAYMENT</p>
+<ul class="simple">
+<li><p>This notice is sent for each
+<a class="reference internal" href="patrons.html#pay-and-writeoff-fines-label"><span class="std std-ref">payment transaction</span></a> in a patron’s
+account if the <a class="reference internal" href="patronspreferences.html#useemailreceipts-label"><span class="std std-ref">UseEmailReceipts</span></a> system
+preference is set to ‘Send’.</p></li>
+</ul>
+</li>
+<li><p>ACCOUNT_WRITEOFF</p>
+<ul class="simple">
+<li><p>This notice is sent for each
+<a class="reference internal" href="patrons.html#pay-and-writeoff-fines-label"><span class="std std-ref">writeoff transaction</span></a> in a patron’s
+account if the <a class="reference internal" href="patronspreferences.html#useemailreceipts-label"><span class="std std-ref">UseEmailReceipts</span></a> system
+preference is set to ‘Send’.</p></li>
+</ul>
+</li>
+<li><p>ACQCLAIM (採訪催缺)</p>
+<ul class="simple">
+<li><p>Used for <a class="reference internal" href="acquisitions.html#claims-and-late-orders-label"><span class="std std-ref">claiming orders</span></a> in the
+<a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">aquisitions module</span></a>.</p></li>
+<li><p>ACQCLAIM is the code of the sample notice, but it’s possible to define
+several notices choosing any code. Only the module ‘Claim
+acquisition’ will be taken into account. All notices with this module
+will appear in the pull down on the <a class="reference internal" href="acquisitions.html#claims-and-late-orders-label"><span class="std std-ref">late orders page</span></a>.</p></li>
+<li><p>在若干情況下，使用此通知：</p>
+<ol class="arabic simple">
+<li><p>館員以有效電子郵件地址發送電子郵件。</p></li>
+<li><p>The <a class="reference internal" href="acquisitions.html#vendors-label"><span class="std std-ref">vendor contact</span></a> marked as ‘Contact about late
+orders?’ has a valid email address.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>ACQORDER (採訪訂單)</p>
+<ul class="simple">
+<li><p>Used in the <a class="reference internal" href="acquisitions.html#acquisitions-label"><span class="std std-ref">acquisitions module</span></a> to send order
+information to the vendor</p></li>
+<li><p>The notice is triggered manually from the
+<a class="reference internal" href="acquisitions.html#edit-basket-label"><span class="std std-ref">basket summary page</span></a> using the ‘Email order’
+button in the toolbar.</p></li>
+<li><p>在若干情況下，使用此通知：</p>
+<ol class="arabic simple">
+<li><p>館員以有效電子郵件地址發送電子郵件。</p></li>
+<li><p>The <a class="reference internal" href="acquisitions.html#vendors-label"><span class="std std-ref">vendor contact</span></a> marked as ‘Primary acquisitions
+contact’ and ‘Contact when ordering’ has a valid email address.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>ACQ_NOTIF_ON_RECEIV</p>
+<ul class="simple">
+<li><p>Used in the acquisition module to
+<a class="reference internal" href="acquisitions.html#order-patron-notifications-label"><span class="std std-ref">inform patrons on receiving orders</span></a>
+they have been added to.</p></li>
+</ul>
+</li>
+<li><p>AR_CANCELLED</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron when an
+<a class="reference internal" href="circulation.html#managing-article-requests-label"><span class="std std-ref">article request</span></a> is cancelled by
+staff.</p></li>
+</ul>
+</li>
+<li><p>AR_COMPLETED</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron when an
+<a class="reference internal" href="circulation.html#managing-article-requests-label"><span class="std std-ref">article request</span></a> is marked as
+completed by staff.</p></li>
+</ul>
+</li>
+<li><p>AR_PENDING</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron when an
+<a class="reference internal" href="circulation.html#managing-article-requests-label"><span class="std std-ref">article request</span></a> is changed to
+‘pending’ status</p></li>
+</ul>
+</li>
+<li><p>AR_PROCESSING</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron when an
+<a class="reference internal" href="circulation.html#managing-article-requests-label"><span class="std std-ref">article request</span></a> is marked as
+being processed by staff.</p></li>
+</ul>
+</li>
+<li><p>AR_REQUESTED</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron when an
+<a class="reference internal" href="circulation.html#placing-article-requests-label"><span class="std std-ref">article request has been made</span></a> in
+order to confirm the request.</p></li>
+</ul>
+</li>
+<li><p>AUTO_RENEWALS</p>
+<ul class="simple">
+<li><p>這則通知將會寄送給讀者如果自動續借已被啟用，而讀者選擇接收訊息在他們的 <a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">訊息偏好</span></a>.</p></li>
+<li><p>In order to send this notice, you must set the <a class="reference internal" href="patronspreferences.html#autorenewalnotices-label"><span class="std std-ref">AutoRenewalNotices</span></a>
+system preference to “according to patron messaging preferences”.</p></li>
+<li><p>這則通知已設定，所以根據續借的結果，無論成功與否，訊息會有所不同。</p></li>
+</ul>
+</li>
+<li><p>AUTO_RENEWALS_DGST</p>
+<ul class="simple">
+<li><p>這則通知將會寄送讀者，如果自動續借已啟用，並且讀者在他們的訊息偏好選擇 <a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.</p></li>
+<li><p>In order to send this notice, you must set the <a class="reference internal" href="patronspreferences.html#autorenewalnotices-label"><span class="std std-ref">AutoRenewalNotices</span></a>
+system preference to “according to patron messaging preferences”.</p></li>
+<li><p>這則通知已設定，所以根據續借的結果，無論成功與否，訊息會有所不同。</p></li>
+</ul>
+</li>
+<li><p>AVAILABLE</p>
+<ul>
+<li><p>This notice is sent to the patron who
+<a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">made a purchase suggestion</span></a>, when
+the <a class="reference internal" href="acquisitions.html#order-from-purchase-suggestion-label"><span class="std std-ref">order created from the suggestion</span></a>
+is <a class="reference internal" href="acquisitions.html#receiving-orders-label"><span class="std std-ref">received</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you don’t want to send this notice, simply delete it.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>CART</p>
+<ul class="simple">
+<li><p>This notice is used when
+<a class="reference internal" href="opac.html#managing-the-cart-label"><span class="std std-ref">sending the cart by email from the OPAC</span></a>
+or when <a class="reference internal" href="lists.html#cart-label"><span class="std std-ref">sending the cart by email from the staff interface</span></a>.</p></li>
+</ul>
+</li>
+<li><p>CANCEL_HOLD_ON_LOST</p>
+<ul class="simple">
+<li><p>This notice is sent to a patron who placed a hold on an item and staff
+marked this items as lost from the <a class="reference internal" href="circulation.html#holds-to-pull-label"><span class="std std-ref">‘Holds to pull’ list</span></a>.</p></li>
+<li><p>This notice is sent if the <a class="reference internal" href="circulationpreferences.html#canmarkholdstopullaslost-label"><span class="std std-ref">CanMarkHoldsToPullAsLost</span></a>
+system preference is set to ‘Allow to mark items as lost and notify the
+patron’.</p></li>
+</ul>
+</li>
+<li><p>CHECKIN</p>
+<ul class="simple">
+<li><p>還入館藏時發送此 ‘還入’ 通知</p></li>
+<li><p>碰到以下兩種情況時使用此通知：</p>
+<ol class="arabic simple">
+<li><p>The
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+is set to ‘Allow’</p></li>
+<li><p>讀者請求收到此通知</p>
+<ul>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>CHECKOUT</p>
+<ul class="simple">
+<li><p>借出館藏時發送此 ‘借出’ 通知</p></li>
+<li><p>碰到以下兩種情況時使用此通知：</p>
+<ol class="arabic simple">
+<li><p>The
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+is set to ‘Allow’</p></li>
+<li><p>讀者請求收到此通知</p>
+<ul>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>CHECKOUT_NOTE</p>
+<ul class="simple">
+<li><p>This notice is sent to the system administration (the email address in
+<a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress-label"><span class="std std-ref">KohaAdminEmailAddress</span></a>) to alert them
+that a patron added a <a class="reference internal" href="circulation.html#checkoutnotes-label"><span class="std std-ref">checkout note</span></a> from
+their <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">checkouts list on the OPAC</span></a>.</p></li>
+</ul>
+</li>
+<li><p>DISCHARGE</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>此通知用於製作 PDF，表示離館請求已完成</p></li>
+<li><p>此 PDF 可以被讀者從其帳號下載，或讀者請求離館時，由館員介面下載</p></li>
+<li><p>The discharge feature is controlled by the <a class="reference internal" href="patronspreferences.html#usedischarge-label"><span class="std std-ref">useDischarge</span></a>
+system preference.</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>DUE</p>
+<ul class="simple">
+<li><p>This notice is sent as the
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">‘Item due’ notice</span></a> for an
+checked out item that is due today.</p></li>
+<li><p>碰到以下兩種情況時使用此通知：</p>
+<ol class="arabic simple">
+<li><p>The
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+is set to ‘Allow’</p></li>
+<li><p>讀者請求收到此通知</p>
+<ul>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>DUEDGST</p>
+<ul class="simple">
+<li><p>This notice is sent as the
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">‘Item due’ notice</span></a> for all
+checked out items that are due today (digest option).</p></li>
+<li><p>碰到以下兩種情況時使用此通知：</p>
+<ol class="arabic simple">
+<li><p>The
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+is set to ‘Allow’</p></li>
+<li><p>讀者要求以摘要方式收取此通知</p>
+<ul>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>HOLD (預約到館待提取)</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron when their hold is ready for pickup.</p></li>
+<li><p>碰到以下兩種情況時使用此通知：</p>
+<ol class="arabic simple">
+<li><p>The
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+is set to ‘Allow’</p></li>
+<li><p>讀者要求以摘要方式收取此通知</p>
+<ul>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>當此通知指向分館表單時，係指提取分館的資訊。</p></li>
+</ul>
+</li>
+<li><p>HOLD_CHANGED</p>
+<ul class="simple">
+<li><p>This notice is sent to library staff (either the email address in
+<a class="reference internal" href="circulationpreferences.html#expirereservesautofillemail-label"><span class="std std-ref">ExpireReservesAutoFillEmail</span></a>),
+or the <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library’s</span></a> reply-to address, to alert them
+that a hold has been canceled, the item filled the next hold and is now
+waiting for another patron.</p></li>
+<li><p>This notice is only sent if
+<a class="reference internal" href="circulationpreferences.html#expirereservesautofill-label"><span class="std std-ref">ExpireReservesAutoFill</span></a> is set to
+‘Do’.</p></li>
+</ul>
+</li>
+<li><p>HOLD_REMINDER</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron when their hold has been waiting for
+pickup for more than a number of days</p></li>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>. The notice is ‘Hold reminder’.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.
+The notice is ‘Hold reminder’.</p></li>
+<li><p>The <a class="reference internal" href="cron_jobs.html#cron-holdsreminder-label"><span class="std std-ref">holds_reminder.pl</span></a> cron job is
+required to generate this notice.</p></li>
+</ul>
+</li>
+<li><p>HOLDPLACED</p>
+<ul class="simple">
+<li><p>This notice is sent to the library staff when a hold has been placed.</p></li>
+<li><p>This notice requires the
+<a class="reference internal" href="circulationpreferences.html#emaillibrarianwhenholdisplaced-label"><span class="std std-ref">emailLibrarianWhenHoldIsPlaced</span></a>
+system preference to be set to ‘Enable’.</p></li>
+<li><p>When this notice references the branches table it is referring to
+the pickup library information.</p></li>
+</ul>
+</li>
+<li><p>ILL_PARTNER_REQ</p>
+<ul class="simple">
+<li><p>This notice is used by the <a class="reference internal" href="ILL_requests.html#ill-requests-label"><span class="std std-ref">ILL module</span></a> to send
+<a class="reference internal" href="ILL_requests.html#place-request-with-partners-label"><span class="std std-ref">requests to partner libraries</span></a>.</p></li>
+</ul>
+</li>
+<li><p>ILL_PICKUP_READY</p>
+<ul>
+<li><p>This notice is sent to the patron when the
+<a class="reference internal" href="ILL_requests.html#ill-requests-label"><span class="std std-ref">inter-library loan</span></a> they requested has been
+fulfilled and is now ready for pickup.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.
+The notice is ‘Interlibrary loan ready’.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The option will only appear in the messaging preferences if the
+<a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a> system preference is enabled.</p>
+</div>
+</li>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>. The notice is ‘Interlibrary
+loan ready’.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The option will only appear in the messaging preferences if the
+<a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a> system preference is enabled.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>ILL_REQUEST_CANCEL</p>
+<ul class="simple">
+<li><p>This notice is sent to library staff when a patron
+<a class="reference internal" href="opac.html#your-interlibrary-loan-requests-label"><span class="std std-ref">cancels their inter-library loan request</span></a>
+from their account in the OPAC.</p></li>
+</ul>
+</li>
+<li><p>ILL_REQUEST_MODIFIED</p>
+<ul class="simple">
+<li><p>This notice is sent to library staff when a patron
+<a class="reference internal" href="opac.html#your-interlibrary-loan-requests-label"><span class="std std-ref">modifies their inter-library loan request</span></a>
+from their account in the OPAC.</p></li>
+</ul>
+</li>
+<li><p>ILL_REQUEST_UNAVAIL</p>
+<ul>
+<li><p>This notice is sent to the patron when the
+<a class="reference internal" href="ILL_requests.html#ill-requests-label"><span class="std std-ref">inter-library loan</span></a> they requested has been
+cancelled because it was unavailable.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.
+The notice is ‘Interlibrary loan unavailable’.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The option will only appear in the messaging preferences if the
+<a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a> system preference is enabled.</p>
+</div>
+</li>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>. The notice is ‘Interlibrary
+loan unavailable’.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The option will only appear in the messaging preferences if the
+<a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a> system preference is enabled.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>ILL_REQUEST_UPDATE</p>
+<ul>
+<li><p>This notice is sent to the patron to alert them that
+<a class="reference internal" href="ILL_requests.html#managing-ill-requests-label"><span class="std std-ref">their inter-library loan request has been updated</span></a>.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.
+The notice is ‘Interlibrary loan updated’.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The option will only appear in the messaging preferences if the
+<a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a> system preference is enabled.</p>
+</div>
+</li>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>. The notice is ‘Interlibrary
+loan updated’.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The option will only appear in the messaging preferences if the
+<a class="reference internal" href="illpreferences.html#illmodule-label"><span class="std std-ref">ILLModule</span></a> system preference is enabled.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>LIST</p>
+<ul class="simple">
+<li><p>This notice is used when
+<a class="reference internal" href="opac.html#viewing-lists-contents-label"><span class="std std-ref">sending a list by email from the OPAC</span></a>
+or when <a class="reference internal" href="lists.html#viewing-lists-label"><span class="std std-ref">sending a list by email from the staff interface</span></a>.</p></li>
+</ul>
+</li>
+<li><p>MEMBERSHIP_EXPIRY</p>
+<ul class="simple">
+<li><p>此通知告訴讀者其讀者證即將到期。</p></li>
+<li><p>Requires that you have the
+<a class="reference internal" href="patronspreferences.html#membershipexpirydaysnotice-label"><span class="std std-ref">MembershipExpiryDaysNotice</span></a> set
+and the <a class="reference internal" href="cron_jobs.html#cron-notify-patrons-of-expiration-label"><span class="std std-ref">related cron job</span></a> set.</p></li>
+</ul>
+</li>
+<li><p>NEW_CURBSIDE_PICKUP</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron when
+<a class="reference internal" href="circulation.html#curbsidepickup-schedule-label"><span class="std std-ref">a curbside pickup is scheduled</span></a>.</p></li>
+<li><p>In order to send this notice,</p>
+<ul>
+<li><p>The <a class="reference internal" href="administration.html#curbside-pickup-configuration-label"><span class="std std-ref">curbside pickup module must be enabled</span></a></p></li>
+<li><p>The patron must have chosen to receive the ‘Hold filled’ notice by email.</p>
+<ul>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a></p></li>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>NEW_SUGGESTION</p>
+<ul class="simple">
+<li><p>This notice is sent to library staff when the
+<a class="reference internal" href="acquisitionspreferences.html#emailpurchasesuggestions-and-emailaddressforsuggestions-label"><span class="std std-ref">EmailPurchaseSuggestions</span></a>
+system preference is enabled.</p></li>
+</ul>
+</li>
+<li><p>NOTIFY_MANAGER</p>
+<ul class="simple">
+<li><p>當館員在採訪模組中 <a class="reference internal" href="acquisitions.html#managing-purchase-suggestions-label"><span class="std std-ref">被指派為建議的管理員</span></a> 這則通知將會發送給他們。</p></li>
+</ul>
+</li>
+<li><p>ODUE (逾期通知)</p>
+<ul class="simple">
+<li><p>此通知係發送逾期通知之用</p></li>
+<li><p>ODUE 是範本通知的代碼，但也可用於任何代碼設定多個不同的訊息，供不同讀者類型及通知層次使用</p></li>
+<li><p>要求設定 <a class="reference internal" href="#overdue-notice-status-triggers-label"><span class="std std-ref">啟動逾期通知/狀態</span></a></p></li>
+</ul>
+</li>
+<li><p>OPAC_REG</p>
+<ul class="simple">
+<li><p>This notice is sent to library staff when the
+<a class="reference internal" href="opacpreferences.html#emailpatronregistrations-and-emailaddressforpatronregistrations-label"><span class="std std-ref">EmailPatronRegistrations</span></a>
+system preference is enabled and a
+<a class="reference internal" href="opac.html#opac-self-registration-label"><span class="std std-ref">patron registers through the OPAC</span></a>.</p></li>
+</ul>
+</li>
+<li><p>OPAC_REG_VERIFY</p>
+<ul class="simple">
+<li><p>This notice is sent to the
+<a class="reference internal" href="opac.html#opac-self-registration-label"><span class="std std-ref">patron who registered through the OPAC</span></a>
+if the <a class="reference internal" href="opacpreferences.html#patronselfregistrationverifybyemail-label"><span class="std std-ref">PatronSelfRegistrationVerifyByEmail</span></a>
+system preference is enabled.</p></li>
+</ul>
+</li>
+<li><p>ORDERED</p>
+<ul class="simple">
+<li><p>This notice is sent to the
+<a class="reference internal" href="opac.html#your-purchase-suggestions-label"><span class="std std-ref">patron who made a suggestion</span></a>,
+when the
+<a class="reference internal" href="acquisitions.html#order-from-purchase-suggestion-label"><span class="std std-ref">‘from a suggestion’ option is used to create an order from it</span></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you don’t want to send this notice, just delete it.</p>
+</div>
+</li>
+<li><p>PASSWORD_CHANGE</p>
+<ul class="simple">
+<li><p>This notice is sent to a patron whose password was changed, if the
+<a class="reference internal" href="patronspreferences.html#notifypasswordchange-label"><span class="std std-ref">NotifyPasswordChange</span></a> system preference
+is enabled.</p></li>
+</ul>
+</li>
+<li><p>PASSWORD_RESET</p>
+<ul class="simple">
+<li><p>This notice is sent when
+<a class="reference internal" href="opac.html#resetting-your-password-label"><span class="std std-ref">a patron requests a new password from the OPAC</span></a>
+in order to validate the email address.</p></li>
+<li><p>The password reset feature is controlled by the <a class="reference internal" href="opacpreferences.html#opacresetpassword-label"><span class="std std-ref">OpacResetPassword</span></a>
+system preference.</p></li>
+</ul>
+</li>
+<li><p>PICKUP_RECALLED_ITEM</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron who has
+<a class="reference internal" href="opac.html#request-recalls-opac-label"><span class="std std-ref">requested a recall</span></a> when the
+item is <a class="reference internal" href="circulation.html#recalls-receive-label"><span class="std std-ref">ready for them to pick up</span></a>.</p></li>
+</ul>
+</li>
+<li><p>PREDUE</p>
+<ul class="simple">
+<li><p>This notice is sent as the
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">‘Advanced notice’</span></a> when an
+item is due</p></li>
+<li><p>碰到以下兩種情況時使用此通知：</p>
+<ol class="arabic simple">
+<li><p>The
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+is set to ‘Allow’</p></li>
+<li><p>讀者請求收到此通知</p>
+<ul>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>PREDUEDGST</p>
+<ul class="simple">
+<li><p>This notice is sent as the
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">‘Advanced notice’ digest</span></a>
+for all items that are due</p></li>
+<li><p>碰到以下兩種情況時使用此通知：</p>
+<ol class="arabic simple">
+<li><p>The
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+is set to ‘Allow’</p></li>
+<li><p>讀者要求以摘要方式收取此通知</p>
+<ul>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>PROBLEM_REPORT</p>
+<ul class="simple">
+<li><p>This notice is sent to the email address in the
+<a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress-label"><span class="std std-ref">KohaAdminEmailAddress</span></a> system
+preference, or the <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library</span></a>’s email address when
+a patron <a class="reference internal" href="opac.html#opac-report-problem-label"><span class="std std-ref">reports a problem on the OPAC</span></a>.</p></li>
+</ul>
+</li>
+<li><p>RECEIPT</p>
+<ul class="simple">
+<li><p>Used to send a payment receipt by email from the
+<a class="reference internal" href="cash_management.html#point-of-sale-label"><span class="std std-ref">point of sale module</span></a>.</p></li>
+</ul>
+</li>
+<li><p>已拒絕</p>
+<ul>
+<li><p>This notice is sent when a
+<a class="reference internal" href="acquisitions.html#approve-reject-suggestions-label"><span class="std std-ref">patron’s purchase suggestion is rejected</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you don’t want to send this notice, just delete it.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>RENEWAL</p>
+<ul class="simple">
+<li><p>This notice is sent as the ‘Item checkout and renewal’ notice for all items that
+are renewed</p></li>
+<li><p>滿足三種情況時使用此通知：</p>
+<ol class="arabic simple">
+<li><p>The
+<a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a>
+is set to ‘Allow’</p></li>
+<li><p>The <a class="reference internal" href="circulationpreferences.html#renewalsendnotice-label"><span class="std std-ref">RenewalSendNotice</span></a> system preference is
+set to ‘Send’</p></li>
+<li><p>讀者請求收到此通知</p>
+<ul>
+<li><p>If <a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>
+is set to ‘Show’, patrons will be able to choose their messaging
+preferences in their online account in the
+<a class="reference internal" href="opac.html#your-messaging-label"><span class="std std-ref">Messaging tab</span></a>.</p></li>
+<li><p>Staff can select this notice for a patron in their
+<a class="reference internal" href="patrons.html#advance-notices-and-hold-notices-label"><span class="std std-ref">messaging preferences</span></a>.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>RETURN_RECALLED_ITEM</p>
+<ul class="simple">
+<li><p>This notice is sent to the patron who currently has an item in their
+possession that <a class="reference internal" href="opac.html#request-recalls-opac-label"><span class="std std-ref">has been recalled</span></a>.
+It serves to notify them of the new due date for the checked out item.</p></li>
+</ul>
+</li>
+<li><p>SERIAL_ALERT (新期刊)</p>
+<ul>
+<li><p>此通知用於期刊模組，告知讀者/館員新期刊到了。SERIAL_ALERT (舊版用 RLIST) 提供範例通知，但通知代碼可以任選。可以管理多個通知。</p></li>
+<li><p>You have the option to select the notice used to inform the patron
+about a received serial issue when
+<a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">adding or editing a subscription</span></a>. Choose
+from the ‘Patron notification’ drop down menu.</p></li>
+<li><p>If a notice has been selected for a subscription, patrons can
+subscribe to the email notification from the subscription tab
+in the <a class="reference internal" href="opac.html#bibliographic-record-label"><span class="std std-ref">detail view in the OPAC</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Notice also that if you’d like to notify patrons of new serial
+issues, you can click on ‘define a notice’ which will take you
+to the ‘Notices’ tool.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>SHARE_ACCEPT</p>
+<ul class="simple">
+<li><p>通知讀者，其他讀者接受共享虛擬書架。</p></li>
+<li><p>Requires that the
+<a class="reference internal" href="opacpreferences.html#opacallowsharingprivatelists-label"><span class="std std-ref">OpacAllowSharingPrivateLists</span></a>
+system preference be set to ‘Allow’.</p></li>
+<li><p>See <a class="reference internal" href="opac.html#managing-lists-label"><span class="std std-ref">Managing lists</span></a> for more information
+about sharing lists.</p></li>
+</ul>
+</li>
+<li><p>SHARE_INVITE</p>
+<ul class="simple">
+<li><p>通知讀者，其他讀者想要共享其虛擬書架。</p></li>
+<li><p>Requires that the
+<a class="reference internal" href="opacpreferences.html#opacallowsharingprivatelists-label"><span class="std std-ref">OpacAllowSharingPrivateLists</span></a>
+system preference be set to ‘Allow’.</p></li>
+<li><p>See <a class="reference internal" href="opac.html#managing-lists-label"><span class="std std-ref">Managing lists</span></a> for more information
+about sharing lists.</p></li>
+</ul>
+</li>
+<li><p>SR_SLIP</p>
+<ul class="simple">
+<li><p>Used to notify library staff from a particular library branch of items
+that should be transferred to another library in the context of
+<a class="reference internal" href="cataloging.html#stock-rotation-label"><span class="std std-ref">stock rotation</span></a>.</p></li>
+<li><p>Requires the <a class="reference internal" href="cron_jobs.html#cron-stockrotation-label"><span class="std std-ref">stockrotation.pl</span></a> cron job.</p></li>
+</ul>
+</li>
+<li><p>STAFF_PASSWORD_RESET</p>
+<ul class="simple">
+<li><p>This notice is sent when a staff member sends a
+<a class="reference internal" href="patrons.html#patron-password-label"><span class="std std-ref">password reset email</span></a> to a patron.</p></li>
+<li><p>The password reset feature is controlled by the
+<a class="reference internal" href="opacpreferences.html#opacresetpassword-label"><span class="std std-ref">OpacResetPassword</span></a> system preference.</p></li>
+</ul>
+</li>
+<li><p>TICKET_ACKNOWLEDGE</p>
+<ul class="simple">
+<li><p>This notice is sent to the reporter of a catalog concern when they
+<a class="reference internal" href="cataloging.html#report-concern-staff-label"><span class="std std-ref">report a concern through the staff interface</span></a>,
+or when they <a class="reference internal" href="opac.html#report-concern-opac-label"><span class="std std-ref">report a concern through the OPAC</span></a>,
+to acknowledge that the concern report was received.</p></li>
+<li><p>The concern report feature is enabled in the staff interface by the
+<a class="reference internal" href="catalogingpreferences.html#catalogconcerns-label"><span class="std std-ref">CatalogConcerns</span></a> system preference and in
+the OPAC by the <a class="reference internal" href="opacpreferences.html#opaccatalogconcerns-label"><span class="std std-ref">OpacCatalogConcerns</span></a>
+system preference.</p></li>
+</ul>
+</li>
+<li><p>TICKET_NOTIFY</p>
+<ul class="simple">
+<li><p>This notice is sent to the cataloging team, to the email address in the
+<a class="reference internal" href="catalogingpreferences.html#catalogeremails-label"><span class="std std-ref">CatalogerEmails</span></a> system preference, to
+notify them that
+<a class="reference internal" href="cataloging.html#report-concern-staff-label"><span class="std std-ref">a concern was reported about a bibliographic record</span></a>.</p></li>
+<li><p>The concern report feature is enabled in the staff interface by the
+<a class="reference internal" href="catalogingpreferences.html#catalogconcerns-label"><span class="std std-ref">CatalogConcerns</span></a> system preference and in
+the OPAC by the <a class="reference internal" href="opacpreferences.html#opaccatalogconcerns-label"><span class="std std-ref">OpacCatalogConcerns</span></a>
+system preference.</p></li>
+</ul>
+</li>
+<li><p>TICKET_RESOLVE</p>
+<ul class="simple">
+<li><p>This notice is sent to the reporter of a catalog concern when
+<a class="reference internal" href="cataloging.html#manage-catalog-concerns-label"><span class="std std-ref">the concern is marked as resolved with the ‘Notify’ flag</span></a>.</p></li>
+<li><p>The concern report feature is enabled in the staff interface by the
+<a class="reference internal" href="catalogingpreferences.html#catalogconcerns-label"><span class="std std-ref">CatalogConcerns</span></a> system preference and in
+the OPAC by the <a class="reference internal" href="opacpreferences.html#opaccatalogconcerns-label"><span class="std std-ref">OpacCatalogConcerns</span></a>
+system preference.</p></li>
+</ul>
+</li>
+<li><p>TICKET_UPDATE</p>
+<ul class="simple">
+<li><p>This notice is sent to the reporter of a catalog concern when
+<a class="reference internal" href="cataloging.html#manage-catalog-concerns-label"><span class="std std-ref">the concern is updated with the ‘Notify’ flag</span></a>.</p></li>
+<li><p>The concern report feature is enabled in the staff interface by the
+<a class="reference internal" href="catalogingpreferences.html#catalogconcerns-label"><span class="std std-ref">CatalogConcerns</span></a> system preference and in
+the OPAC by the <a class="reference internal" href="opacpreferences.html#opaccatalogconcerns-label"><span class="std std-ref">OpacCatalogConcerns</span></a>
+system preference.</p></li>
+</ul>
+</li>
+<li><p>TO_PROCESS</p>
+<ul class="simple">
+<li><p>告知館員採訪建議是否移入基金</p></li>
+<li><p>需要 <a class="reference internal" href="cron_jobs.html#cron-email-suggestions-to-process-label"><span class="std std-ref">notice_unprocessed_suggestions</span></a> 工作排程</p></li>
+</ul>
+</li>
+<li><p>WELCOME</p>
+<ul class="simple">
+<li><p>Sent to patrons when their account is set up if the
+<a class="reference internal" href="patronspreferences.html#autoemailnewuser-label"><span class="std std-ref">AutoEmailNewUser</span></a> preference is set to
+‘Send’</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>For security reasons, it is not possible to send the patron’s password in
+a notice.</p>
+</div>
+</li>
+</ul>
+<p>There are also a set of predefined slips (or receipts) listed on this
+page. All of these slips can be customized by altering their text via
+the Notices &amp; slips tool and their style using the
+<a class="reference internal" href="staffclientpreferences.html#slipcss-label"><span class="std std-ref">SlipCSS</span></a> preference to define a stylesheet. Here is what
+those slips are used for:</p>
+<ul>
+<li><p>ACCOUNT_CREDIT</p>
+<ul class="simple">
+<li><p>Used to print a receipt for a credit (either a payment, writeoff or other
+credit).</p></li>
+<li><p>The slip or receipt can be printed manually with the ‘Print’ button
+next to a credit type account line in the
+<a class="reference internal" href="patrons.html#charging-fines-actions-label"><span class="std std-ref">patron’s accounting tab</span></a>.</p></li>
+<li><p>The slip or receipt can also be printed semi-automatically when
+<a class="reference internal" href="patrons.html#pay-and-writeoff-fines-label"><span class="std std-ref">paying or writing off a charge</span></a> if
+the <a class="reference internal" href="accountspreferences.html#finepaymentautopopup-label"><span class="std std-ref">FinePaymentAutoPopup</span></a> system
+preference is enabled.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>It is possible to set specific notices for different credit types. To do
+so, <a class="reference internal" href="#adding-notices-and-slips-label"><span class="std std-ref">create a new notice</span></a> with the
+code CREDIT_ followed by the <a class="reference internal" href="administration.html#credit-types-label"><span class="std std-ref">credit type code</span></a>.</p>
+<p>For example, to have a specific slip for writeoffs,
+<a class="reference internal" href="#adding-notices-and-slips-label"><span class="std std-ref">create a new notice</span></a> with the code
+CREDIT_WRITEOFF.</p>
+</div>
+</li>
+<li><p>ACCOUNT_DEBIT</p>
+<ul class="simple">
+<li><p>Used to print an invoice for a debit (any type of charge, such as a lost
+item fee, or overdue fine).</p></li>
+<li><p>The slip or invoice can be printed manually with the ‘Print’ button
+next to a debit type account line in the
+<a class="reference internal" href="patrons.html#charging-fines-actions-label"><span class="std std-ref">patron’s accounting tab</span></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>It is possible to set specific notices for different debit types. To do
+so, <a class="reference internal" href="#adding-notices-and-slips-label"><span class="std std-ref">create a new notice</span></a> with the
+code DEBIT_ followed by the <a class="reference internal" href="administration.html#debit-types-label"><span class="std std-ref">debit type code</span></a>.</p>
+<p>For example, to have a specific slip for lost items,
+<a class="reference internal" href="#adding-notices-and-slips-label"><span class="std std-ref">create a new notice</span></a> with the code
+DEBIT_LOST.</p>
+</div>
+</li>
+<li><p>ACCOUNTS_SUMMARY</p>
+<ul class="simple">
+<li><p>Used to print a summary of outstanding charges and unused credits in the
+patron’s account.</p></li>
+<li><p>The slip can be printed manually with the ‘Print account balance’ option
+in the <a class="reference internal" href="circulation.html#printing-receipts-label"><span class="std std-ref">‘Print’ button</span></a> at the top of the
+patron’s details page.</p></li>
+</ul>
+</li>
+<li><p>AR_SLIP</p>
+<ul class="simple">
+<li><p>Used to print a slip for an <a class="reference internal" href="circulation.html#managing-article-requests-label"><span class="std std-ref">article request</span></a></p></li>
+<li><p>The slip or receipt can be printed manually when
+<a class="reference internal" href="circulation.html#managing-article-requests-label"><span class="std std-ref">managing article requests from the staff interface</span></a>.</p></li>
+<li><p><em>到那裡</em>： 流通 &gt; 請求論文 &gt; 啟用 &gt; 列印收條</p></li>
+</ul>
+</li>
+<li><p>CHECKINSLIP</p>
+<ul class="simple">
+<li><p>這張清單列出了今天為該讀者還入的所有館藏。</p></li>
+<li><p>要列印此單據, 點擊列印 &gt; <a class="reference internal" href="circulation.html#printing-receipts-label"><span class="std std-ref">列印還入單據</span></a> 從讀者檔</p></li>
+<li><p>你也可以從還入頁面 <a class="reference internal" href="circulation.html#check-in-returning-label"><span class="std std-ref">列印此單據</span></a></p></li>
+</ul>
+</li>
+<li><p>ISSUEQSLIP</p>
+<ul class="simple">
+<li><p>Used to <a class="reference internal" href="circulation.html#printing-receipts-label"><span class="std std-ref">print the quick slip in circulation</span></a></p></li>
+<li><p>快速收條祗包括今天借出的館藏</p></li>
+</ul>
+</li>
+<li><p>ISSUESLIP</p>
+<ul class="simple">
+<li><p>Used to <a class="reference internal" href="circulation.html#printing-receipts-label"><span class="std std-ref">print a full slip in circulation</span></a></p></li>
+<li><p>收條顯示今天借出與尚未還入的館藏</p></li>
+</ul>
+</li>
+<li><p>HOLD_SLIP</p>
+<ul class="simple">
+<li><p>使用於列印預約收條</p></li>
+<li><p>The holds slip is generated when
+<a class="reference internal" href="circulation.html#receiving-holds-label"><span class="std std-ref">a hold is confirmed and set to waiting</span></a>.</p></li>
+</ul>
+</li>
+<li><p>OVERDUE_SLIP</p>
+<ul class="simple">
+<li><p>使用於列印逾期收條</p></li>
+<li><p>The overdues slip can be generated manually using the
+<a class="reference internal" href="circulation.html#printing-receipts-label"><span class="std std-ref">‘print’ menu in the patron account</span></a> in
+the staff interface. It will show all items overdue.</p></li>
+</ul>
+</li>
+<li><p>RECALL_REQUESTER_DET</p>
+<ul class="simple">
+<li><p>Used to print the details of the patron who has requested a recall on an
+item, when <a class="reference internal" href="circulation.html#recalls-receive-label"><span class="std std-ref">receiving the recall</span></a>.</p></li>
+</ul>
+</li>
+<li><p>RECEIPT</p>
+<ul class="simple">
+<li><p>Used to print a payment receipt in the
+<a class="reference internal" href="cash_management.html#point-of-sale-label"><span class="std std-ref">point of sale module</span></a>.</p></li>
+</ul>
+</li>
+<li><p>TRANSFERSLIP</p>
+<ul class="simple">
+<li><p>使用於列印快速收條</p></li>
+<li><p>確認轉移後，列印轉移收條，隨書轉移至另個圖書館</p></li>
+</ul>
+</li>
+</ul>
+<p>This tool also allows you to modify database entries for some specific purposes.
+So far, only the overdue fine description is available.</p>
+<ul>
+<li><p>OVERDUE_FINE_DESC</p>
+<ul>
+<li><p>This template is used to generate the description for overdue fines in a
+<a class="reference internal" href="patrons.html#fines-label"><span class="std std-ref">patron’s account</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The information available to this customization come from the checkouts
+(issues), items and patrons (borrowers).</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="overdue-notice-status-triggers">
+<span id="overdue-notice-status-triggers-label"></span><h3>啟動逾期通知/狀態<a class="headerlink" href="#overdue-notice-status-triggers" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 讀者與流通 &amp;gt; 啟動逾期通知/狀態</p></li>
+</ul>
+<p>必須先使用 <a class="reference internal" href="#notices-and-slips-label"><span class="std std-ref">通知與收條</span></a> 工具設定逾期通知，才能啟動發出逾期訊息。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>設定需要逾期通知的 <a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">讀者類型</span></a>，才能發送逾期通知給讀者。</p>
+<p><strong>重要</strong></p>
+<p>Depending on the value of your
+<a class="reference internal" href="circulationpreferences.html#overduenoticecalendar-label"><span class="std std-ref">OverdueNoticeCalendar</span></a> preference the
+delay may or may not include days the library is closed based on the
+<a class="reference internal" href="#calendar-label"><span class="std std-ref">holiday calendar</span></a>.</p>
+</div></blockquote>
+<p>逾期通知/啟動狀態工具讓館員有權限，送出最多三次通知給逾期館藏的讀者</p>
+<p><img alt="image260" src="_images/triggers.png" /></p>
+<ul>
+<li><p>延遲日數是應該到期卻逾期後啟動通知的日數。</p>
+<ul>
+<li><p><strong>重要</strong></p>
+<blockquote>
+<div><p>必須設定延遲日數，才能要求 Koha 啟動此作業 (送出信件或限制借閱權利)。</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>勾選分頁的 ‘第二’ 與 ‘第三’ 通知，送出更多的通知</p></li>
+<li><p>勾選 ‘限制’ 盒，把通知置於讀者紀錄裡，在借出時，告知館員，該讀者還有逾期館藏，不得借出；如此一來，就達到禁止讀者借出館藏的目的。</p>
+<ul class="simple">
+<li><p>If you choose to restrict a patron in this way you can also have
+Koha automatically remove that restriction with the
+<a class="reference internal" href="circulationpreferences.html#autoremoveoverduesrestrictions-label"><span class="std std-ref">AutoRemoveOverduesRestrictions</span></a>
+preference.</p></li>
+</ul>
+</li>
+<li><p>Next you can choose the delivery method for the overdue notice. You
+can choose from Email, Phone (if you are using the <a class="reference internal" href="patronspreferences.html#talkingtechitivaphonenotification-label"><span class="std std-ref">i-tiva Talking
+Tech service</span></a>), Print and SMS
+(if you have set your <a class="reference internal" href="patronspreferences.html#smssenddriver-label"><span class="std std-ref">SMSSendDriver</span></a>).</p></li>
+</ul>
+</section>
+<section id="patron-card-creator">
+<span id="patron-card-creator-label"></span><h3>新增讀者證<a class="headerlink" href="#patron-card-creator" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 新增讀者證</p></li>
+</ul>
+<p>可以在新增讀者證使用列印用的客製化布局與模板。以下是若干新增讀者證模組的功能：</p>
+<ul class="simple">
+<li><p>從 Koha 讀者資料取得客製化讀者證布局的文字內容</p></li>
+<li><p>設計讀者證面板供列印之用(符合書標格式)</p></li>
+<li><p>建立與管理供批次列印的讀者證</p></li>
+<li><p>匯出 (PDF 格式) 一件或多件批次列印資料</p></li>
+<li><p>匯出 (PDF 格式) 一個批次的一件或多件讀者證</p></li>
+</ul>
+<section id="layouts">
+<span id="patron-card-layouts-label"></span><h4>布局<a class="headerlink" href="#layouts" title="此标题的永久链接"></a></h4>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 新增讀者證 &amp;gt; 管理 &amp;gt; 布局</p></li>
+</ul>
+<p>布局定義印在讀者證的文字與照片位置。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>讀者證可使用最多三列文字的條碼，以及最多兩張照片。</p>
+</div></blockquote>
+<section id="add-a-layout">
+<span id="patron-add-a-layout-label"></span><h5>新增布局<a class="headerlink" href="#add-a-layout" title="此标题的永久链接"></a></h5>
+<p>若還沒有設定布局，可按螢幕上方的 ‘新增’ 鈕並選擇 ‘布局’，就能新增它。</p>
+<p><img alt="image1224" src="_images/newlayout1.png" /></p>
+<p>可按左方的 ‘管理布局’。出垷可供編輯的布局清單。但每頁上方仍有 ‘新增布局’ 鈕。</p>
+<p><img alt="image261" src="_images/addlayout.png" /></p>
+<ul>
+<li><p>指定給布局的名稱係供您未來容易辨識使用</p></li>
+<li><p>以下拉選單使用的單位設定在布局內使用的度量的單位。</p>
+<p><img alt="Dropdown list of measurement units used in the patron card creator tool, PostScript Points, Agates, US Inches, SI Millimeters, and SI Centimeters" src="_images/units.png" /></p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>Postscript Point 是 1/72” Adobe Agate 是 1/64”，一英吋是 25.4 SI 公釐</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>接著，說明布局為讀者證的正面或背面</p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>使用 2 面讀者證時需設定正反面的布局，此選項不允許列印雙面讀者證，祗能用於追蹤設計的讀者證。</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>讀者證最多有 3 列文字。可以是固定的文字或從讀者紀錄提取的欄位內容。把欄位名稱置於方括號內，就能提取欄位的內容 - &lt;firstname&gt;</p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>可從資料庫概要 <a class="reference external" href="http://schema.koha-community.org">http://schema.koha-community.org</a> 取得檔案名稱的清單</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>對每列文字，您需選定字型、大小與讀者證上文字的位置</p></li>
+<li><p>勾選 ‘列印讀者證號碼當成條碼’ 顯示條碼與讀者證號碼。把讀者證號碼轉換為條碼。還可勾選 ‘將讀者證號碼以文字方式列印在條碼之下’ 讓條碼可以被肉眼閱讀。</p></li>
+<li><p>最後，可選擇兩張以內的照片印在讀者證上。</p>
+<ul class="simple">
+<li><p>可以調整 <a class="reference internal" href="#upload-patron-images-label"><span class="std std-ref">讀者照片</span></a> 的大小，以符合 Koha 的要求。</p></li>
+<li><p>以新增讀者證工具的 ‘<a class="reference internal" href="#manage-images-label"><span class="std std-ref">管理照片</span></a>’ 模組上傳另張圖書館標識或符號的圖片。</p></li>
+</ul>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>設計者需負責文字、條碼與照片以免重複。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>儲存之後，您的布局將出現在 ‘管理布局’ 頁面。</p>
+<p><img alt="image263" src="_images/managelayouts1.png" /></p>
+</section>
+</section>
+<section id="templates">
+<span id="patron-templates-label"></span><h4>模板<a class="headerlink" href="#templates" title="此标题的永久链接"></a></h4>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 新增讀者證 &amp;gt; 管理 &amp;gt; 讀者證模板</p></li>
+</ul>
+<p>布局的作用是在書標/讀者證排列標籤。可能是 Avery 5160 地址機、Gaylord 47-284 書標機或 28371 讀者證製作機等。布局所需的資訊可能在包裝上，或者從代理商的網站或範例取得。</p>
+<section id="add-a-template">
+<span id="patron-add-a-template-label"></span><h5>新增模版<a class="headerlink" href="#add-a-template" title="此标题的永久链接"></a></h5>
+<p>按頁面上方的 ‘新增模版’ 就立即進入編輯模版頁面。可按左方的 ‘管理模版’ 鈕。從可得的模版中選取編輯的模版。不過在頁面上方仍有 ‘新增模版’ 鈕。</p>
+<p><img alt="&quot;New&quot; button in the patron card creator is open, the mouse cursor is on the &quot;Card template&quot; option" src="_images/newcardtemplate.png" /></p>
+<p>按了 ‘編輯’ 或 ‘新增布局’ 後就可以在標籤或讀者證上設定布局。</p>
+<p><img alt="image265" src="_images/edittemplate.png" /></p>
+<ul>
+<li><p>模版代碼是系統產生的代碼</p></li>
+<li><p>模版代碼應足以在代碼清單中代表該模版</p></li>
+<li><p>您可用模板說明新增模板的資訊</p></li>
+<li><p>以下拉選單使用的單位設定在布局內使用的度量的單位。</p>
+<p><img alt="Dropdown list of measurement units used in the patron card creator tool, PostScript Points, Agates, US Inches, SI Millimeters, and SI Centimeters" src="_images/units.png" /></p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>Postscript Point 是 1/72” Adobe Agate 是 1/64”，一英吋是 25.4 SI 公釐</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>度量 (頁高、頁廣、卡片廣、卡片高) 可從包裝取得，也可從代理商網站或樣張量取。</p></li>
+<li><p>設定檔是一組適用於指定模版的 “調整”，於列印之前補償特定印表機的偏移 (指定給該印表機)。</p>
+<ul>
+<li><p>挑選列印的設定檔前先試印幾張讀者證就能看出印表機/模版組合的可行性。</p></li>
+<li><p>從印表機文件找到偏移值後，<a class="reference internal" href="#patron-add-a-profile-label"><span class="std std-ref">新增設定檔</span></a> 並指定給模板。</p></li>
+<li><p><strong>重要</strong></p>
+<blockquote>
+<div><p>必要時才建置設定檔，不要隨意設定印表機設定檔。不可能移除模版內移除設定檔但可以切換至另個設定檔。</p>
+</div></blockquote>
+</li>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>使用不同的印表機則應設定多個模版。</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>儲存之後，您的布局將出現在 ‘管理布局’ 頁面。</p>
+<p><img alt="image267" src="_images/managetemplates1.png" /></p>
+</section>
+</section>
+<section id="profiles">
+<span id="patron-profiles-label"></span><h4>設定檔<a class="headerlink" href="#profiles" title="此标题的永久链接"></a></h4>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 新增讀者證 &amp;gt; 管理 &amp;gt; 設定檔</p></li>
+</ul>
+<p>設定檔是一組適用於指定 <a class="reference internal" href="#patron-templates-label"><span class="std std-ref">模版</span></a> 的 “調整” 於列印之前補償特定印表機的偏移。設定模版後並列印樣本資料若發現館藏並未出現在預期的位置，對該印表機給個設定檔 (或同個印表機的不同紙匣)，指示上、下、左、右的位移值。</p>
+<p>印出的讀者證與預期相同，就不需要設定檔。</p>
+<section id="add-a-profile">
+<span id="patron-add-a-profile-label"></span><h5>新增設定檔<a class="headerlink" href="#add-a-profile" title="此标题的永久链接"></a></h5>
+<p>勾選頁面上方的 ‘設定檔’ 鈕，選取 ‘新增設定檔’，就能新增設定檔</p>
+<p><img alt="image268" src="_images/newprofile1.png" /></p>
+<p>按頁面上方的 ‘新增設定檔’ 鈕，就能新增設定檔。以表單方式設定借書證偏移的部份。可從左方的 ‘管理設定檔’ 選定欲編輯的設定檔。</p>
+<p><img alt="image269" src="_images/addprofile.png" /></p>
+<ul>
+<li><p>印表機名稱與紙匣不符合現況，這是供您的設定檔使用。</p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>例如：可在印表機名稱內使用印表機型號，或者稱他為 ‘我的桌面印表機’</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>在 <a class="reference internal" href="#patron-add-a-template-label"><span class="std std-ref">編輯模板表單</span></a> 選定設定檔後即把內容加入該模板內</p></li>
+<li><p>單位下拉選單用在您的設定檔內，用以設定衡量的單位。</p>
+<p><img alt="Dropdown list of measurement units used in the patron card creator tool, PostScript Points, Agates, US Inches, SI Millimeters, and SI Centimeters" src="_images/units.png" /></p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>Postscript Point 是 1/72” Adobe Agate 是 1/64”，一英吋是 25.4 SI 公釐</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>整個圖像水平或垂宜偏離中心就該處理位移。小心描述該偏離的狀況</p>
+<ul class="simple">
+<li><p>對偏移值而言，負數表示向上與向左移動內容而正數表示向下與向右</p></li>
+<li><p>範例：距離第一個標籤左緣 0 .25”，距離第二個標籤左緣 0 .28” 且距離第三個標籤左緣 0 .31”。表示水平偏移應設為 (減) -0.03 ” 以補償其差距。</p></li>
+</ul>
+</li>
+</ul>
+<p>儲存之後，設定檔將出現在 ‘管理印表機設定檔’ 頁面。</p>
+<p><img alt="image271" src="_images/manageprofiles1.png" /></p>
+<p>儲存新的設定檔後，可回到模板清單並選擇編輯該模板。</p>
+</section>
+</section>
+<section id="batches">
+<span id="patron-batches-label"></span><h4>批次<a class="headerlink" href="#batches" title="此标题的永久链接"></a></h4>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 新增讀者證 &amp;gt; 管理 &amp;gt; 批次讀者證</p></li>
+</ul>
+<p>批次是一群讀者，您可批次製作讀者證。</p>
+<section id="add-a-batch">
+<span id="patron-add-a-batch-label"></span><h5>新增批次<a class="headerlink" href="#add-a-batch" title="此标题的永久链接"></a></h5>
+<p>按頁面上方的 ‘新增批次’，就能新增批次了。選擇左方的 ‘管理批次’ 就可從選單中選取批次。您可從這裡選取待編輯的批次或新增批次。</p>
+<p><img alt="image272" src="_images/newbatch1.png" /></p>
+<p>彈出新的批次訊息並指引您選擇被發送的讀者。</p>
+<p><img alt="image1225" src="_images/noitemsbatch.png" /></p>
+<p>選定 ‘新增館藏’ 鈕後彈出讀者搜尋視窗。</p>
+<p><img alt="Pop up window for patron search" src="_images/patronsearchpopup.png" /></p>
+<p>從這裡搜尋讀者姓名、類型或所屬圖書館就能把讀者加入批次內。以萬用字元 * 搜尋所有的讀者。</p>
+<p><img alt="image1227" src="_images/addpatrons.png" /></p>
+<p>按 ‘新增’ 鈕就能新增讀者至批次。從結果新增讀者後可執行另個搜尋重新來過或按螢幕下方的 ‘關閉’ 鈕表示做完了。然後出現此批次。</p>
+<p><img alt="image1228" src="_images/batchsummary.png" />
+If you are satisfied with your batch you can proceed to export. If you
+want to correct or even delete that batch the buttons to do so can be
+found at the top of your screen. You can always come back here through
+the ‘Manage &gt; Card batches’ button.</p>
+<p>可以按 ‘批次匯出讀者證’ 或勾選讀者名字右方的盒，再按上方的 ‘匯出讀者證’ 鈕，匯出勾選的讀者。</p>
+<p>匯出選單請您指定模板、布局與開始位置 (在報表紙開始列印的位置)。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>若前 6 個書標已使用則可從第 7 個位置開始列印。書標的位置編碼係由左而右由上而下。</p>
+</div></blockquote>
+<p><img alt="image1229" src="_images/export.png" /></p>
+<p>按下 ‘匯出’ 鈕後出現列印書標的 PDF 檔案</p>
+<p><img alt="image1230" src="_images/taggedtitles.png" /></p>
+<p>開啟 PDF 檔案後可看到待列印的讀者證</p>
+<p><img alt="image273" src="_images/cards.png" /></p>
+<p>以上的圖像是兩行文字式的布局。第一行是純文字，第二行是兩個欄位的內容 &lt;firstname&gt; &lt;surname&gt;。可以列印讀者照片 (若提供的話) 與 39 碼式的讀者號。以三欄 8 列的模板在位置 1-3 列印。列印時不會重組 PDF (即不會自動符合紙張大小) 印表機可能無法在模板上正確印出。</p>
+</section>
+</section>
+<section id="manage-images">
+<span id="manage-images-label"></span><h4>管理照片<a class="headerlink" href="#manage-images" title="此标题的永久链接"></a></h4>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 新增讀者證 &amp;gt; 管理 &gt; 照片</p></li>
+</ul>
+<p>Images uploaded using this tool will appear on the menu when creating
+<a class="reference internal" href="#patron-card-layouts-label"><span class="std std-ref">patron card layouts</span></a>. You are limited in how many
+images you can upload (not counting patron images) by the
+<a class="reference internal" href="toolspreferences.html#imagelimit-label"><span class="std std-ref">ImageLimit</span></a> system preference.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>照片必須小於500K。</p>
+<p><strong>說明</strong></p>
+<p>以此工具上傳的照片不得少於300dpi，這是列印的最低品質。</p>
+</div></blockquote>
+<p>在螢幕中央是一個簡單的上傳表單，瀏覽電腦的檔案，選定後給個容易辨識的名稱。</p>
+<p><img alt="image274" src="_images/imageupload.png" /></p>
+<p>檔案上傳後，出現確認訊息。</p>
+<p><img alt="image275" src="_images/imageuploaded.png" /></p>
+<p>照片與其他資料將顯示在頁面的右手邊。</p>
+<p><img alt="image276" src="_images/imagedelete.png" /></p>
+<p>勾選照片右方盒，再按下 ‘刪除’ 鈕，就能刪除照片。</p>
+</section>
+</section>
+<section id="batch-patron-deletion-anonymization">
+<span id="patrons-anonymize-bulk-delete-label"></span><h3>批次刪除讀者/匿名讀者<a class="headerlink" href="#batch-patron-deletion-anonymization" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 讀者與流通 &amp;gt; 批次刪除讀者/匿名讀者</p></li>
+</ul>
+<p>此工具允許批次匿名流通紀錄 (圖書館仍保留館藏借出次數的資料 - 但沒有借閱者的資料) 或批次刪除讀者 (從系統裡完全移除)。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>不能儲存還有罰款待繳或待還館藏的讀者。不能從系統移除他們 (祗能從 delete_borrowers 表單移除)，但此工具不提供其他的選項。</p>
+<p><strong>重要</strong></p>
+<p>使用此工具前建議先備份資料庫。改變後無法復原。</p>
+<p><strong>重要</strong></p>
+<p>The anonymization will fail quietly if
+<a class="reference internal" href="opacpreferences.html#anonymouspatron-label"><span class="std std-ref">AnonymousPatron</span></a> preference does not contain a
+valid value.</p>
+</div></blockquote>
+<p><img alt="image277" src="_images/patronbulkdelete.png" /></p>
+<p>刪除或匿名讀者</p>
+<ul>
+<li><p>在您想要完成的工作 (刪除或匿名) 裡，勾選 ‘確認’ 鈕</p></li>
+<li><p>改變資料前，先鍵入日期</p></li>
+<li><p>尋欲刪除的讀者</p>
+<ul class="simple">
+<li><p>指定日期後不曾借出館藏的讀者</p></li>
+<li><p>指定日期前就已到期的讀者</p></li>
+<li><p>是特定的 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型</span></a></p></li>
+<li><p>是在 <a class="reference internal" href="#patron-lists-label"><span class="std std-ref">讀者清單</span></a></p></li>
+</ul>
+</li>
+<li><p>勾選 ‘下一步’</p></li>
+<li><p>將出現確認訊息，讓您確認將進行的工作</p>
+<p><img alt="image278" src="_images/patronanonconfirm.png" /></p>
+</li>
+<li><p>勾選 ‘完成’ 將刪除或匿名您的資料</p>
+<p><img alt="image279" src="_images/patronanoncomplete.png" /></p>
+</li>
+</ul>
+</section>
+<section id="batch-patron-modification">
+<span id="batch-patron-modification-label"></span><h3>批次讀者修改<a class="headerlink" href="#batch-patron-modification" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 讀者與流通 &amp;gt; 批次修改讀者</p></li>
+</ul>
+<p>此工具允許批次編輯讀者記錄。上傳讀者號檔案 (一號一行)，選擇 <a class="reference internal" href="#patron-lists-label"><span class="std std-ref">讀者清單</span></a> 或掃瞄讀者號。</p>
+<p><img alt="image280" src="_images/batchmodify.png" /></p>
+<p>上傳檔案或掃瞄條碼後可按 ‘繼續’ 鈕。將出現包括剛才改變的者清單。</p>
+<p><img alt="image281" src="_images/modifyform.png" /></p>
+<p>每個文字盒左邊有勾選盒。用來清除欄位裡的值。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>不能清除必備欄位的值。</p>
+</div></blockquote>
+<p>若有多個讀者屬性可使用文字區右方的加號 ‘新增+’ 切換它。允許您新增其他屬性。</p>
+<p><img alt="image282" src="_images/attributes1.png" /></p>
+<p>改變之後，勾選 ‘儲存’ Koha 將出現改變後的讀者紀錄。</p>
+</section>
+<section id="batch-extend-due-dates">
+<span id="batch-extend-due-dates-label"></span><h3>批次延長到期日<a class="headerlink" href="#batch-extend-due-dates" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &gt; 工具 &gt; 讀者與流通 &gt; 批次延長到期日</p></li>
+</ul>
+<p>此工具讓您批次更新到期日期，如果圖書館需要無預期地關閉且無法接受還入，這將非常有用。</p>
+<p><img alt="Batch extend due dates selection page" src="_images/batchextendselection.png" /></p>
+<ul class="simple">
+<li><p>您可以根據讀者類別、圖書館或兩者的組合篩選借出選擇。  如果需要，您可以在下拉式選單中選擇多個選項。</p></li>
+<li><p>接下來，為借出資料的當前到期日期指定一個日期範圍。  例如，您可能想要延長最近借出的到期日期，但不包括長期逾期的借出。</p></li>
+<li><p>選擇將到期日延長到新的確定到期日或延長幾天。  使用天數選項可以防止大量借出在同一日到期。</p></li>
+<li><p>您可以選擇是否預覽選擇的結果。</p></li>
+</ul>
+<p><img alt="Batch extend due dates preview results page" src="_images/batchextendpreview.png" /></p>
+<ul class="simple">
+<li><p>如果您預覽結果，您將看到一個顯示當前截止日期和新截止日期的表格，以便您檢查您的選擇。  如果不正確，您可以取消勾選借出或返回並更改您的選擇。</p></li>
+<li><p>點擊修改已選定的借出按鈕以查看顯示已修改為借出的確認畫面。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>使用此工具需要工具權限`batch_extend_due_dates`.</p>
+</div>
+</section>
+<section id="tag-moderation">
+<span id="tag-moderation-label"></span><h3>管理標籤<a class="headerlink" href="#tag-moderation" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 讀者與流通 &amp;gt; 標籤</p></li>
+</ul>
+<p>依照 <a class="reference internal" href="enhancedcontentpreferences.html#tagging-label"><span class="std std-ref">標籤系統偏好</span></a> 的設定方式，標籤需通過館員的審核才能出現的 OPAC。可經由管理標籤工具設定它。待審核標籤出現在館員介面的主頁之下：</p>
+<p><img alt="image283" src="_images/pendingtags.png" /></p>
+<p>以標籤工具管理標籤。首次使用此工具時，出現待評審的標籤清單，或被館員拒絕的標籤清單</p>
+<p><img alt="image284" src="_images/tagpending.png" /></p>
+<ul>
+<li><p>點選標籤詞彙，就可看到所有的相關題名</p>
+<p><img alt="image1230" src="_images/taggedtitles.png" /></p>
+<ul class="simple">
+<li><p>按題名右方的 ‘移除標籤’ 鈕，就可以移除個別題名的標籤。</p></li>
+</ul>
+</li>
+<li><p>勾選個別詞彙列的 ‘核准’ 鈕或勾選所有的詞彙再選取表單下的 ‘核准’ 鈕，都可以核准欄號。</p></li>
+<li><p>點選詞彙的 ‘拒絕’ 鈕，或勾選表格下方的 ‘拒絕’，都可拒絕標籤。</p></li>
+</ul>
+<p>標籤被審核通過或拒絕後，將移到適當的標籤清單。所有標籤的摘要將顯示在螢幕右方。</p>
+<p><img alt="image285" src="_images/tagsummary.png" /></p>
+<p>即便已通過或拒絕的標籤，仍可移至其他清單。檢視通過的標籤時，有個拒絕的選項：</p>
+<p><img alt="image286" src="_images/tagapproved.png" /></p>
+<p>在螢幕右下方的搜尋盒裡，鍵入術語，即可搜尋該術語的合法性 (或許使用指定的標籤審核 <a class="reference internal" href="enhancedcontentpreferences.html#tagsexternaldictionary-label"><span class="std std-ref">字典</span></a>)</p>
+<p><img alt="image287" src="_images/tagblacklisttest-neither.png" /></p>
+<p>最後以左方的篩選器搜尋標籤。</p>
+<p><img alt="image288" src="_images/tagfilters.png" /></p>
+</section>
+<section id="upload-patron-images">
+<span id="upload-patron-images-label"></span><h3>上傳讀者圖片<a class="headerlink" href="#upload-patron-images" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 讀者與流通 &amp;gt; 上傳讀者照片</p></li>
+</ul>
+<p>若 <a class="reference internal" href="patronspreferences.html#patronimages-label"><span class="std std-ref">允許讀者照片</span></a> 附加在讀者紀錄內，就可以大批上傳讀者照片。也可用這些照片新增 <a class="reference internal" href="#patron-card-creator-label"><span class="std std-ref">讀者證</span></a>。</p>
+<ul>
+<li><p>新增文字檔，並命名為 “DATALINK.TXT” 或 “IDLINK.TXT”</p></li>
+<li><p>每列的內容是讀者證號碼以及逗點 (或定位) 和照片檔名</p>
+<p><img alt="image289" src="_images/uploadphotosfile.png" /></p>
+<ul class="simple">
+<li><p>確定您TXT檔為純文字檔，不是RTF檔。</p></li>
+</ul>
+</li>
+<li><p>關閉文字檔與圖像檔</p></li>
+<li><p>進入上傳讀者照片工具</p>
+<p><img alt="image290" src="_images/uploadimagetool.png" /></p>
+</li>
+<li><p>對單一照片而言，點選該照片檔案，並鍵入讀者號</p></li>
+<li><p>多筆圖片時，選擇上傳一個壓縮檔</p></li>
+<li><p>上傳之後，出現確認訊息</p>
+<p><img alt="image291" src="_images/imageuploadconfirm.png" /></p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>每張照片的大小不能超過 100K，建議解析度不超過 200x300 圖素。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="rotating-collections">
+<span id="rotating-collections-label"></span><h3>巡迴書庫<a class="headerlink" href="#rotating-collections" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 目錄 &amp;gt; 巡迴館藏</p></li>
+</ul>
+<p>巡迴館藏是是把館藏在各圖書館間流動。不僅具有儲存館藏在所屬圖書館與現在位置的功能，同時提示即將轉移至下個圖書館，以確保館藏送至正確的圖書館。還入巡迴館藏後，系統顯示該館藏為巡迴館藏，並指示圖書館員將其送至正確的圖書館。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>The <a class="reference internal" href="circulationpreferences.html#automaticitemreturn-label"><span class="std std-ref">AutomaticItemReturn</span></a> system preference
+must be set to “Don’t automatically transfer items to their home
+library when they are returned” for rotating collections to function
+properly.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>新增巡迴合集時，按 “新增合集” 鈕，鍵入名稱與說明，再按 “送出” 鈕。畫面出現 “成功新增合集名稱”；按 “回到巡迴合集首頁” 就回到巡迴合集管理頁面 (或按側面的巡迴合集連結)。</p></li>
+<li><p>新增館藏入書庫時，先按 “Actions” 鈕，再按書庫名稱清單旁的 “新增或移除館藏” 鈕。在 “新增或移除館藏” 鈕下掃瞄或鍵入館藏條碼，再按 Enter 就能新增該館藏入書庫。</p></li>
+<li><p>移除館藏的方法是，按下館藏清單條碼旁的 ‘移除’ 或按下 “新增或移除館藏” 條碼旁的 “從書架移除館藏”，再掃瞄條碼，按下 “送出” 或歸位鍵。說明：祗要還在 “新增或移除館藏” 頁面，”從書庫移除館藏” 就保持被勾選狀態，可以主動不勾選它，還可以掃瞄館藏的條碼，快速刪除它們。</p></li>
+</ul>
+<section id="transfer-a-rotating-collection">
+<span id="transfer-a-rotating-collection-label"></span><h4>轉移巡迴書庫<a class="headerlink" href="#transfer-a-rotating-collection" title="此标题的永久链接"></a></h4>
+<p>轉移巡迴書庫將：</p>
+<ul class="simple">
+<li><p>變更即將轉移的館藏至新的館藏地</p></li>
+<li><p>啟動轉移程序從原位置/儲存圖書館至現在位置/儲存圖書館。收到館藏後應先還入才算完成轉移。</p></li>
+</ul>
+<p>可以用以下的方法之一轉移巡迴書庫：</p>
+<ul>
+<li><p>於巡迴書庫首頁，按 “啟用” 並選擇欲轉移題名旁的 “轉移”；選定轉移至的圖書館，再按 “轉移館藏” 鈕。</p></li>
+<li><p>或，從合集的 “新增或移除館藏” 頁面，您可按轉移鈕，選擇欲轉移至的合集再按 “轉移合集” 鈕。</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>為了完成轉移程序，應先還入至巡迴書庫的圖書館。甚狀態就不會是 “轉移中”。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>若巡迴書庫的館藏被還入非巡迴書庫的圖書館，將出現提示訊息，並警示圖書館員將該館藏送至適當的地方。</p>
+<p><img alt="image292" src="_images/rotatingcollectionnotice.png" /></p>
+</section>
+</section>
+</section>
+<section id="additional-tools">
+<span id="additional-tools-label"></span><h2>Additional tools<a class="headerlink" href="#additional-tools" title="此标题的永久链接"></a></h2>
+<section id="calendar">
+<span id="calendar-label"></span><h3>行事曆<a class="headerlink" href="#calendar" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &gt; 工具 &gt; 其他工具 &gt; 行事曆</p></li>
+</ul>
+<p>圖書館設定閉館日與假日供計算到期日之用。打開適當的系統偏好設定，就能使用行事曆：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="circulationpreferences.html#usedaysmode-label"><span class="std std-ref">useDaysMode</span></a>: Choose the method for calculating due date - either
+include days the library is closed in the calculation or don’t include them</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#finescalendar-label"><span class="std std-ref">finescalendar</span></a>: This will check the holiday calendar before charging
+fines</p></li>
+</ul>
+<p><img alt="View of the calendar" src="_images/calendar.png" /></p>
+<section id="adding-events">
+<span id="adding-events-label"></span><h4>新增事件<a class="headerlink" href="#adding-events" title="此标题的永久链接"></a></h4>
+<p>新增事件前，選擇適用此閉館日的圖書館。新增事件後應選定該事件適用於單一圖書館或所有圖書館。新增事件，祗要</p>
+<ul>
+<li><p>勾選行事曆的日期，加入終止的時間</p>
+<p><img alt="Add new holiday form" src="_images/calendaradd.png" /></p>
+</li>
+<li><p>於行事曆上方的表單內，鍵入閉館資訊 (詳情請按選項右方的問號 [?])</p>
+<ul>
+<li><p>根據從頁面上方的下拉選單選定的圖書館，圖書館將自動補入</p></li>
+<li><p>日期資訊將根據點選的行事曆自動更新</p>
+<ul class="simple">
+<li><p>如果這個假期超過一天，請在“截止日期”中輸入結束日期</p></li>
+</ul>
+</li>
+<li><p>在“標題”中輸入假期的名稱或關閉的原因</p></li>
+<li><p>在“說明”中輸入更多有關此假期的資訊</p></li>
+<li><p>接著可選擇此事件為單一事件或重複事件。</p>
+<ul>
+<li><p>‘只在這一天放假’：這是為期一天的假期</p></li>
+<li><p>‘每週重複相同時間的假期’：這是每週關閉（例如，如果您每個星期天都關閉）</p></li>
+<li><p>‘每年同一天重複的假期’：這是一個每年一次的假期關閉（例如，如果您在每年的 1 月 1 日關閉）</p></li>
+<li><p>‘範圍內的假期’：這是一個持續數天的假期</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>如果您選擇“範圍內的假期”，請確保在頂部輸入“截止日期”</p>
+</div></blockquote>
+</li>
+<li><p>‘每年在範圍內重複的假期’：這是一個每年延長好幾天的假期（例如學校的暑假）</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>如果您選擇“範圍內每年重複的假期”，請確保在最上面輸入“截止日期”</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>最後設定事件適用於所有圖書館或祗適用於單一圖書館</p>
+<ul>
+<li><p>以行事曆下方的複製選單把所有假日複製至其他分館</p>
+<p><img alt="Drop down menu of all libraries from which to choose to which library to copy the holidays" src="_images/copyholidays.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>儲存之後，您可在行事曆右方看到事件清單摘要</p>
+<p><img alt="View of the calendar page showing the calendar and all the programmed holidays" src="_images/calendarsummary.png" /></p>
+</li>
+</ul>
+</section>
+<section id="editing-events">
+<span id="editing-events-label"></span><h4>編輯事件<a class="headerlink" href="#editing-events" title="此标题的永久链接"></a></h4>
+<p>編輯事件</p>
+<ul>
+<li><p>勾選行事曆的事件，以改變它(勾選行事曆的日期，不是摘要)</p>
+<p><img alt="Edit holiday form" src="_images/calendaredit.png" /></p>
+</li>
+<li><p>在此表單內可以編輯或刪除假日。</p>
+<ul class="simple">
+<li><p>必須按 ‘儲存’ 鈕才算完成編修。</p></li>
+</ul>
+</li>
+<li><p>按可重複事件將出現略有不同的選項</p>
+<p><img alt="Edit holiday form with the option of generating exceptions for repeating holidays" src="_images/calendarexception.png" /></p>
+<ul class="simple">
+<li><p>在上面的表格中，您會注意到現在有一個選項“為這個重複的假期生成一個例外”和“在一個日期範圍內生成例外”，選擇這些選項之一將使您能夠使這個日期不關閉，即使圖書館通常在這個日期關閉。</p></li>
+<li><p>必須按 ‘儲存’ 鈕才算完成編修。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="additional-help">
+<span id="additional-help-label"></span><h4>其他說明<a class="headerlink" href="#additional-help" title="此标题的永久链接"></a></h4>
+<p>新增或編輯事件時，可以勾選表單旁的問號，取得額外的說明</p>
+<p><img alt="Text under &quot;Delete this holiday&quot;: &quot;This will delete this holiday rule. If it is a repeatable holiday, this option checks for possible exceptions. If an exception exists, this option will remove the exception and set the date to a regular holiday.&quot;" src="_images/calendarhelp.png" /></p>
+</section>
+</section>
+<section id="csv-profiles">
+<span id="csv-profiles-label"></span><h3>CSV設定檔<a class="headerlink" href="#csv-profiles" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到:</em> 更多 &gt; 工具 &gt; 額外的工具 &gt; CSV設定檔</p></li>
+</ul>
+<p>建立CSV設定檔說明您如何輸出您的購物車或是清單.</p>
+<section id="add-csv-profiles">
+<span id="add-csv-profiles-label"></span><h4>新增CSV設定檔<a class="headerlink" href="#add-csv-profiles" title="此标题的永久链接"></a></h4>
+<p>新增一個CSV設定檔</p>
+<ul>
+<li><p>點擊“新增 CSV 設定檔”</p>
+<p><img alt="Add new CSV profile form" src="_images/addcsv.png" /></p>
+<ul>
+<li><p>從採購單或虛擬書架裡選擇 ‘下載’ 時，’設定檔’ 名稱將顯示在匯出下拉選單</p>
+<p><img alt="View of the cart with the Download pull down menu open and &quot;CSV - Record export&quot; is selected" src="_images/downloadcsv.png" /></p>
+</li>
+<li><p>從 ‘設定檔類型’ 決定設定的欄位類型 (MARC 或 SQL)</p>
+<ul>
+<li><p>選擇 MARC 之後需鍵入 MARC 欄位</p>
+<p><img alt="Add new CSV profile form filled with MARC information" src="_images/addcsv-marc.png" /></p>
+</li>
+<li><p>若選擇 SQL 則需鍵入 SQL 資料庫的欄位</p>
+<p><img alt="Add new CSV profile form filled with SQL information" src="_images/addcsv-sql.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>‘用法’ 欄段用於指示此 CSV 設定檔與哪種類型的紀錄一起使用</p>
+<ul class="simple">
+<li><p>“匯出記錄”（僅適用於 MARC 設定檔類型）：用於從書目清單或虛擬書架中匯出記錄</p></li>
+<li><p>‘近期連續期刊催缺’（僅適用於 SQL 設定檔類型）：這用於 <a class="reference internal" href="serials.html#claim-late-serials-label"><span class="std std-ref">匯出連續訂閱的近期期刊</span></a></p></li>
+<li><p>‘匯出延遲訂單’（僅適用於 SQL 設定檔類型）：這用於 <a class="reference internal" href="acquisitions.html#claims-and-late-orders-label"><span class="std std-ref">在採訪模組</span></a> 中匯出延遲訂單</p></li>
+<li><dl class="simple">
+<dt>“籃中以採訪匯出”（僅適用於 SQL 設定檔</dt><dd><p>類型）：用於 <a class="reference internal" href="acquisitions.html#create-a-basket-label"><span class="std std-ref">從採訪籃中下載記錄</span></a></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“在報表中匯出遺失的館藏”（僅適用於 SQL 設定檔</dt><dd><p>類型）：用於從遺失館藏報表 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>匯出CSV&lt;lost-items-label&gt;</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>此 ‘設定檔說明’ 是給館員用的，當讀者下載內容時，也顯示在 OPAC，確保讀者知道其內容</p></li>
+<li><p>此 ‘CSV產生器’ 是以字元區隔值與值的群組</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>最常見的選項是逗點，因為大部份的試算表應用程式都能以逗點使用開放檔案。</p>
+</div></blockquote>
+</li>
+<li><p>此 ‘欄位區隔字元’ 是用於區隔重複的欄位</p>
+<ul>
+<li><p>例如：您可有多個650欄位，這是顯示在欄位的字元</p>
+<p><img alt="CSV file opened in a spreadsheet software where we can see the pipes separating subject headings when there are more than one" src="_images/csvfieldsep.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>此 ‘分欄區隔字元’ 是用於區隔重複的分欄</p>
+<ul class="simple">
+<li><p>何如：您可有多個$a分欄</p></li>
+</ul>
+</li>
+<li><p>此 ‘編碼’ 欄位讓您設定儲存檔案時使用的編碼方式</p></li>
+<li><p>“僅在館員界面上可用”核取方塊（僅適用於 MARC 設定檔類型）允許您將此 CSV 設定檔限制為僅館員界面，這表示讀者將無法使用此設定檔從 OPAC 匯出他們的書目清單或虛擬書架</p></li>
+<li><p>最後以 ‘MARC 欄位設定檔’ 或 ‘SQL 欄位設定檔’ 格式化您的 CSV 檔案</p>
+<ul>
+<li><p>設定匯出的欄位與分欄，以直線區隔。如：200|210$a|301 供 MARC 使用或biblio.title|biblio.author 供 SQL 使用</p></li>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>在欄號前加入標題，後面加個等號，就能加入自己的標題 (不使用 Koha 的)。如：個人名稱=100|題名=245$a|300</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>鍵入設定檔的所有資訊後，按 ‘送出’ 鈕，出現確認訊息，表示你的設定檔已儲存。</p>
+<p><img alt="Blue box with the confirmation message &quot;CSV profile added successfully.&quot;" src="_images/csvadded.png" /></p>
+</section>
+<section id="modify-csv-profiles">
+<span id="modify-csv-profiles-label"></span><h4>修改CSV設定檔<a class="headerlink" href="#modify-csv-profiles" title="此标题的永久链接"></a></h4>
+<p>您需要建立至少一個CSV設定檔一個’編輯設定檔’標籤將會出現在’新設定檔’按鈕的旁邊.</p>
+<p><img alt="image381" src="_images/modifycsv.png" /></p>
+<ul>
+<li><p>選擇編輯的設定檔，並修改必要的欄位。</p></li>
+<li><p>送出您的改變後，在螢幕上端出現確認訊息</p>
+<p><img alt="image382" src="_images/csvmodified.png" /></p>
+</li>
+<li><p>按下 ‘送出詢問’ 前，勾選 ‘刪除選定的設定檔’ 選項，就能刪除設定檔</p>
+<p><img alt="image383" src="_images/deletecsv.png" /></p>
+</li>
+</ul>
+</section>
+<section id="using-csv-profiles">
+<span id="using-csv-profiles-label"></span><h4>使用CSV設定檔<a class="headerlink" href="#using-csv-profiles" title="此标题的永久链接"></a></h4>
+<p>您的CSV設定檔將會出現在館員操作端和OPAC中’下載’按鈕下的輸出清單上或是購物車選單</p>
+<p><img alt="image384" src="_images/exportlist.png" /></p>
+</section>
+</section>
+<section id="log-viewer">
+<span id="log-viewer-label"></span><h3>日誌檢視器<a class="headerlink" href="#log-viewer" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到:</em> 更多 &gt; 工具 &gt; 額外的工具 &gt; 日誌檢視器</p></li>
+</ul>
+<p>在日誌檔案中紀錄Koha系統的運作. 您 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>system preferences &lt;logs-label&gt;`可以更改防止不同運作的日誌. 可以使用這些日誌檢視器查看日誌.</p>
+<p><img alt="Screenshot of the log viewer tool" src="_images/logviewer.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>模組名稱旁邊的警告標誌表示未記錄此模組中的操作。 更改您的 <a class="reference internal" href="logspreferences.html#logging-label"><span class="std std-ref">日誌偏好</span></a> 以記錄來自模組的操作。</p>
+</div>
+<p>選擇選單的不同組合，以產生詢問的紀錄檔。</p>
+<p>搜尋與流通模組有關的紀錄，產生結果</p>
+<p><img alt="Log viewer results table" src="_images/logresults.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>您可以在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>’欄組態’&lt;column-settings-label&gt;`部份, 自定義此表的列 (table id: logst)。</p>
+</div>
+</section>
+<section id="news">
+<span id="news-label"></span><h3>最新消息<a class="headerlink" href="#news" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到:</em> 更多 &gt; 工具 &gt; 額外的工具 &gt; 新聞</p></li>
+</ul>
+<p>Koha 的最新消息模組允許館員張貼最新消息至 OPAC、館員目錄與流通收條。</p>
+<p><img alt="News tool main page" src="_images/news1.png" /></p>
+<p>新增消息在OPAC, 館員操作端或是一個流通收據:</p>
+<ul>
+<li><p>點擊’新的款目’</p>
+<p><img alt="New news entry form" src="_images/addnews.png" /></p>
+<ul>
+<li><p>代碼：輸入此消息館藏的唯一代碼</p></li>
+<li><p>顯示位置: 選擇放置消息的地方</p>
+<p><img alt="Drop-down menu of display locations for news" src="_images/newsdisplaylocations.png" /></p>
+<ul>
+<li><p>圖書館館員和OPAC介面: 內容將出現在館員界面主頁以及 OPAC 的消息區域中</p></li>
+<li><p>圖書館館員介面: 目錄會出現在員工介面的主頁上</p>
+<p><img alt="A news block on the main page of the staff interface, followed by a quote of the day" src="_images/news.png" /></p>
+</li>
+<li><p>OPAC：內容將出現在OPAC頁面的頂端中間部分</p>
+<ul>
+<li><p>在 OPAC 的最新消息下有個 RSS 圖示允許您和您的使用者訂閱圖書館的消息</p>
+<p><img alt="View of a news item on the OPAC with an RSS icon next to the text 'RSS feed for system-wide library news'" src="_images/newsrss.png" /></p>
+</li>
+<li><p>You can allow your users to choose to see branch-specific news
+with the <a class="reference internal" href="opacpreferences.html#opacnewslibraryselect-label"><span class="std std-ref">OpacNewsLibrarySelect</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>條: 目錄會出現在流通收據上</p>
+<p><img alt="Issue slip with news at the bottom" src="_images/slipnews.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This can be activated or deactivated in the
+<a class="reference internal" href="#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips tool</span></a></p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>圖書館: 選擇顯示此消息館藏的圖書館</p>
+<ul class="simple">
+<li><p>Prior to end users logging in to the OPAC only news items listed to
+appear for ‘All libraries’ will display unless your system administrator
+has configured an ‘OPAC_BRANCH_DEFAULT’ override in virtual host
+configuration. See <a class="reference internal" href="installation.html#advanced-configurations-label"><span class="std std-ref">installation</span></a> for details.</p></li>
+</ul>
+</li>
+<li><p>出版日期：使用出版日期欄位來控制您的新增館藏出現的日期</p>
+<ul class="simple">
+<li><p>範例: (假設今天的日期是2019年5月7日)</p>
+<ul>
+<li><p>現行出版日期: 設定出版日期是2019年5月7日</p></li>
+<li><p>未來預訂出版日期: 設定日期在2019年5月7日之後</p></li>
+<li><p>新聞館藏的回溯日期: 設定日期在2019年5月7日之前</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>過期日期：使用過期日期欄位在不再相關時自動停止顯示新增館藏。</p>
+<ul class="simple">
+<li><p>如果此欄位為空，則將顯示新增館藏，直到您手動將其刪除</p></li>
+</ul>
+</li>
+<li><p>顯示位置: 讓您決定新增館藏的顯示順序</p>
+<ul class="simple">
+<li><p>如果該欄位留空，則消息將從最新顯示到最舊</p></li>
+<li><p>在此欄位中，0 是最上面的位置； 數字越大，消息出現在列表中的位置越下面</p></li>
+</ul>
+</li>
+<li><p>您可以為安裝的每種語言輸入消息標題和文字</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can choose which type of editor to use here (either a text editor or
+a WYSIWYG (what you see is what you get) editor) with the
+<a class="reference internal" href="toolspreferences.html#additionalcontentseditor-label"><span class="std std-ref">AdditionalContentsEditor</span></a> system preference.</p>
+</div>
+<ul class="simple">
+<li><p>After filling in all of the fields, click ‘Save’ at the top of the page.</p>
+<ul>
+<li><p>Alternatively, click the arrow next to the ‘Save’ button and choose
+‘Save and continue editing’ if you need to stay on this page to continue
+editing the news item.</p></li>
+</ul>
+</li>
+</ul>
+<p>Depending on your choice for the <a class="reference internal" href="toolspreferences.html#newsauthordisplay-label"><span class="std std-ref">NewsAuthorDisplay</span></a> system preference,
+you will also see the person who created the news item (this uses the logged in
+person).</p>
+</section>
+<section id="html-customizations">
+<span id="html-customizations-label"></span><h3>HTML客製化<a class="headerlink" href="#html-customizations" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到:</em> 更多 &gt; 工具 &gt; 額外的工具 &gt; HTML 客製化</p></li>
+</ul>
+<p>Koha 的 HTML 自定工具允許館員將內容發布到 OPAC。</p>
+<p><img alt="Additional content / HTML customizations main page" src="_images/additionalcontent.png" /></p>
+<p>新增內容至OPAC：</p>
+<ul>
+<li><p>點擊’新的款目’</p>
+<p><img alt="New additional content entry form" src="_images/addadditionalcontent.png" /></p>
+<ul>
+<li><p>代碼：為此附加內容項輸入唯一代碼</p></li>
+<li><p>顯示位置: 選擇放置內容的地方</p>
+<p><img alt="Drop-down menu of display locations for additional content" src="_images/additionalcontentdisplaylocations.png" /></p>
+<p>下圖顯示了每塊在 OPAC 主頁上的顯示位置</p>
+<p><img alt="View of the main page of the OPAC with each customizable section highlighted" src="_images/opacregionsbootstrap.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The <a class="reference internal" href="#quote-of-the-day-qotd-editor-label"><span class="std std-ref">Quote of the day</span></a>
+feature is found in the tools module, and the news are managed in the
+<a class="reference internal" href="#news-label"><span class="std std-ref">news tool</span></a>. The rest of the customizable
+blocks are managed in the HTML customizations tool.</p>
+</div>
+<ul>
+<li><p>ArticleRequestsDisclaimerText: 內容將出現，讀者必須先接受，才能繼續文章申請表； 用於任何版權/免責聲明讀者需要注意有關文章或章節的影印本或掃描件</p></li>
+<li><p>CatalogConcernHelp: content will appear at the bottom of catalog
+concern form when
+<a class="reference internal" href="opac.html#report-concern-opac-label"><span class="std std-ref">reporting a concern in the OPAC</span></a>, or
+<a class="reference internal" href="cataloging.html#report-concern-staff-label"><span class="std std-ref">reporting a concern in the staff interface</span></a>.
+The default text is “Please describe your concern clearly and the
+library will try to deal with it as quickly as possible”.</p></li>
+<li><p>CatalogConcernTemplate: content will appear in the main text area of
+the catalog concern form when
+<a class="reference internal" href="opac.html#report-concern-opac-label"><span class="std std-ref">reporting a concern in the OPAC</span></a>, or
+<a class="reference internal" href="cataloging.html#report-concern-staff-label"><span class="std std-ref">reporting a concern in the staff interface</span></a>.
+The default text is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">Describe</span> <span class="n">the</span> <span class="n">concern</span><span class="o">**</span>
+
+<span class="n">A</span> <span class="n">clear</span> <span class="ow">and</span> <span class="n">concise</span> <span class="n">description</span> <span class="n">of</span> <span class="n">what</span> <span class="n">the</span> <span class="n">concern</span> <span class="ow">is</span><span class="o">.</span>
+
+<span class="o">**</span><span class="n">To</span> <span class="n">Reproduce</span><span class="o">**</span>
+
+<span class="n">Steps</span> <span class="n">to</span> <span class="n">reproduce</span> <span class="n">the</span> <span class="n">behavior</span><span class="p">:</span>
+<span class="mf">1.</span> <span class="n">Go</span> <span class="n">to</span> <span class="s1">&#39;...&#39;</span>
+<span class="mf">2.</span> <span class="n">Click</span> <span class="n">on</span> <span class="s1">&#39;....&#39;</span>
+<span class="mf">3.</span> <span class="n">Scroll</span> <span class="n">down</span> <span class="n">to</span> <span class="s1">&#39;....&#39;</span>
+<span class="mf">4.</span> <span class="n">See</span> <span class="n">error</span>
+
+<span class="o">**</span><span class="n">Expected</span> <span class="n">behavior</span><span class="o">**</span>
+
+<span class="n">A</span> <span class="n">clear</span> <span class="ow">and</span> <span class="n">concise</span> <span class="n">description</span> <span class="n">of</span> <span class="n">what</span> <span class="n">you</span> <span class="n">expected</span> <span class="n">to</span> <span class="n">happen</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>Since this will be in a text field, there is no way to add formatting.
+Make sure to use the text editor, not the WYSIWYG editor, in order
+to have line breaks in your text.</p>
+</div>
+</li>
+<li><p>opaccredits: 內容會出現在頁面的底部</p></li>
+<li><p>OpacCustomSearch: 內容將取代頁面頂端的簡易搜尋欄</p></li>
+<li><p>opacheader: 內容會出現在OPAC頁面的頂端</p></li>
+<li><p>OpacLibraryInfo: content will appear in the
+<a class="reference internal" href="opac.html#opaclibrariespage-label"><span class="std std-ref">‘Libraries’ page in the OPAC</span></a>, as well
+as in the holdings table in the OPAC</p></li>
+<li><p>OpacLoginInstructions: 內容會出現在OPAC主頁的登入框下面</p></li>
+<li><p>OpacMainUserBlock: 內容會出現在OPAC主頁的中間</p></li>
+<li><p>OpacMoreSearches: content will appear under the search box at the
+top of the OPAC. By default (and depending on system preferences)
+there is a link for Advanced Search, Course reserves, Authority search,
+and Tag cloud. Any new searches will be added to the right of the already
+present links.</p></li>
+<li><p>OpacMySummaryNote: content will appear above the patron’s summary and
+below the welcome message when the patron logs in to the OPAC and
+views their <a class="reference internal" href="opac.html#your-summary-label"><span class="std std-ref">‘your summary’ tab</span></a>.</p>
+<p><img alt="Top of the your summary page, under the title of the page, it is written Welcome Mary Burton, Click here if you're not Mary Burton and below that is a text that says This is OpacMySummaryNote." src="_images/OpacMySummaryNote.png" /></p>
+</li>
+<li><p>OpacNav: content will appear on the left hand column of the main page
+and patron account on the OPAC. When on the patron account page, the
+content in OpacNav will appear before the account tabs (summary,
+charges, personal details, etc.)</p></li>
+<li><p>OpacNavBottom: content will appear on the left hand column of the main
+page and patron account on the OPAC. When on the patron account page,
+the content in OpacNavBottom will appear after the account tabs (summary,
+charges, personal details, etc.). On the main page, the content in
+OpacNavBottom appears right below the content in OpacNav.</p></li>
+<li><p>OpacNavRight: 目錄會出現在OPAC頁面的右側</p></li>
+<li><p>OpacSuggestionInstructions: 內容將替換 OPAC 上 <a class="reference internal" href="opac.html#purchase-suggestions-opac-label"><span class="std std-ref">購買建議表頂端的文字</span></a></p></li>
+</ul>
+</li>
+<li><p>圖書館：選擇將顯示此內容的圖書館</p>
+<ul class="simple">
+<li><p>在最終使用者登錄到 OPAC 之前，只有為“所有圖書館”列出的內容塊才會顯示，除非您的系統管理員在虛擬主機中配置了“OPAC_BRANCH_DEFAULT”替換值。</p></li>
+</ul>
+</li>
+<li><p>出版日期：使用出版日期欄位來控制您的內容出現的日期</p>
+<ul class="simple">
+<li><p>範例: (假設今天的日期是2019年5月7日)</p>
+<ul>
+<li><p>現行出版日期: 設定出版日期是2019年5月7日</p></li>
+<li><p>未來預訂出版日期: 設定日期在2019年5月7日之後</p></li>
+<li><p>新聞館藏的回溯日期: 設定日期在2019年5月7日之前</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>到期日期：使用到期日期欄位在不再相關時自動停止顯示內容。</p>
+<ul class="simple">
+<li><p>如果此欄位為空，將顯示內容，直到您手動將其刪除</p></li>
+</ul>
+</li>
+<li><p>顯示位置: 讓您決定您的內容顯示順序，當同一顯示位置有多個內容時</p>
+<ul class="simple">
+<li><p>如果該欄位留空，則內容將從最舊顯示到最新</p></li>
+<li><p>在此欄位中，0 是最上面的位置； 數字越大，內容在列表中的顯示位置就越低</p></li>
+</ul>
+</li>
+<li><p>您可以為安裝的每種語言輸入內容標題和文字</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>附加內容不顯示題名。 它主要用於在查看附加內容館藏列表時一目了然地了解內容。 如果要顯示題名，則必須將其增加到文字部分。</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can choose which type of editor to use here (either a text editor or
+a WYSIWYG (what you see is what you get) editor) with the
+<a class="reference internal" href="toolspreferences.html#additionalcontentseditor-label"><span class="std std-ref">AdditionalContentsEditor</span></a> system preference.</p>
+</div>
+<ul class="simple">
+<li><p>After filling in all of the fields, click ‘Save’ at the top of the page.</p>
+<ul>
+<li><p>Alternatively, click the arrow next to the ‘Save’ button and choose
+‘Save and continue editing’ if you need to stay on this page to continue
+editing the news item.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="pages">
+<span id="additional-content-pages-label"></span><h3>Pages<a class="headerlink" href="#pages" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>Get there:</em> More &gt; Tools &gt; Additional tools &gt; Pages</p></li>
+</ul>
+<p>The pages tool is a tool to create custom additional pages in the OPAC and in
+the staff interface. It is based on the same tool as the
+<a class="reference internal" href="#news-label"><span class="std std-ref">news</span></a> and the
+<a class="reference internal" href="#html-customizations-label"><span class="std std-ref">HTML customizations</span></a>, therefore it works in the
+same way.</p>
+<p><img alt="Pages tool main page, with table of current pages" src="_images/pages.png" /></p>
+<p>To add a new page:</p>
+<ul>
+<li><p>點擊’新的款目’</p>
+<p><img alt="New page entry form" src="_images/addpage.png" /></p>
+<ul class="simple">
+<li><p>Display location: choose the interface from which this page should be
+accessed</p>
+<ul>
+<li><p>Librarian and OPAC interfaces: two links will be created, one for the
+OPAC and one for the staff interface</p></li>
+<li><p>Librarian interface: a link for the staff interface will be created</p></li>
+<li><p>OPAC: a link for the OPAC will be created</p></li>
+</ul>
+</li>
+<li><p>Library: choose the library for which this page will be available</p>
+<ul>
+<li><p>If an OPAC page is limited to a library, only logged in users whose
+home library matches the page library will be able to access the page.</p></li>
+<li><p>Pages limited to a library will not be accessible to OPAC users who are
+not logged in, unless your system administrator has configured an
+‘OPAC_BRANCH_DEFAULT’ override in virtual host configuration.</p></li>
+<li><p>If a staff interface page is limited to a library, only staff logged
+into that library will be able to access the page.</p></li>
+</ul>
+</li>
+<li><p>Publication date: use the publication date field to control from which
+date your page is accessible, if it should only be accessed at a future
+date.</p>
+</li>
+<li><p>Expiration date: use the expiration date field to remove the page after a
+specific date.</p>
+<ul>
+<li><p>If this field is empty the page will be available until you remove it
+manually</p>
+</li>
+</ul>
+</li>
+<li><p>You can enter the page title and content for each language installed</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can choose which type of editor to use here (either a text editor or
+a WYSIWYG (what you see is what you get) editor) with the
+<a class="reference internal" href="toolspreferences.html#additionalcontentseditor-label"><span class="std std-ref">AdditionalContentsEditor</span></a> system preference.</p>
+</div>
+<ul>
+<li><p>After filling in all of the fields, click ‘Save’ at the top of the page.</p>
+<ul class="simple">
+<li><p>Alternatively, click the arrow next to the ‘Save’ button and choose
+‘Save and continue editing’ if you need to stay on this page to continue
+editing the news item.</p></li>
+</ul>
+</li>
+<li><p>In the table, a link will be generated for the OPAC or the staff interface
+or both. Use this link in HTML customizations, news or system preferences
+such as <a class="reference internal" href="staffclientpreferences.html#intranetnav-label"><span class="std std-ref">IntranetNav</span></a> or
+<a class="reference internal" href="staffclientpreferences.html#intranetmainuserblock-label"><span class="std std-ref">IntranetmainUserBlock</span></a> so that the
+patrons or staff members can access the new page.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>To link to a specific page, use the code in the URL with the <code class="code docutils literal notranslate"><span class="pre">code=</span></code>
+parameter. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>OPACBASEURL/cgi-bin/koha/opac-page.pl?code=staff_and_opac_42
+
+STAFFCLIENTBASEURL/cgi-bin/koha/tools/page.pl?code=staff_and_opac_42
+</pre></div>
+</div>
+<p>In multi-language installations, use the <code class="code docutils literal notranslate"><span class="pre">language=</span></code> parameter
+followed by the language code to link to the page in a specific language.
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>OPACBASEURL/cgi-bin/koha/opac-page.pl?code=staff_and_opac_42&amp;language=fr-CA
+
+STAFFCLIENTBASEURL/cgi-bin/koha/tools/page.pl?code=staff_and_opac_42&amp;language=fr-CA
+</pre></div>
+</div>
+</div>
+</li>
+</ul>
+<p>To use a custom page</p>
+<p>Once the page has been developed and saved, you will see a summary table of all custom pages.
+This table also displays the generated links to access these custom pages. The links will be available in both the default
+language, and the installed language currently in use by the logged in staff member.</p>
+<p><img alt="Pages tool main page, with table of current pages" src="_images/pages.png" /></p>
+<p>There is a button to preview the created page. This is helpful to check how the page looks and functions before it is deployed.</p>
+<p><img alt="Preview of a page" src="_images/pagepreview.png" /></p>
+<p>Now the page has been created, there are a number of ways to make the page accessible to your patrons in the Koha OPAC.</p>
+<p><img alt="Example of a page on the OPAC" src="_images/pageexample.png" /></p>
+<p>One option is to use an HTML customisation to add the link to the page to a section of the OPAC. The page can be added as
+a navigation link (in OpacNav, OpacNavBottom, or OpacNavRight). Depending on the page, it may be more suitable in the header
+(opacheader), footer (opaccredits), or main section of the homepage (OpacMainUserBlock).</p>
+<p>HTML customizations are only displayed on the OPAC, so News items would be the appropriate tool to add the link to
+the main landing page of the staff interface.</p>
+<p><img alt="Example of an OpacNav HTML customization with links to pages" src="_images/opacnavexample.png" /></p>
+<p>The benefit of putting the page link in an HTML customization or News item is that you can use the WYSIWYG editor, instead of
+writing code. However, there is always the option to write the content in the HTML text editor too, if you prefer.</p>
+<p>Those more proficient in writing code could use jQuery (Javascript) to insert their page link anywhere in the OPAC or staff interface.</p>
+<p><img alt="Example of using javascript in the OPACUserJS system preference to add a link to a custom page under the search bar in the OPAC" src="_images/opacuserjsexample.png" /></p>
+<p>Using jQuery, the pages could be added to either interface as simple text links, or as more advanced button links or image links. Add code
+to the OPACUserJS system preference to apply jQuery to the OPAC, or to the IntranetUserJS system preference to apply jQuery to the staff interface.</p>
+<p>Clever ways to use custom pages:</p>
+<p>There are many interesting ways to use custom pages in a Koha library. We’ve heard discussion of pages being used for tables of contents,
+frequently asked questions pages for the library, and enquiry forms.</p>
+<p><img alt="Example of a custom page, with a form for patrons to send enquiries to the library" src="_images/pageexample-form.png" /></p>
+<p>Another way to make custom Koha page content accessible for users, would be to catalogue those pages so
+they pop in in Koha search results, for example library tutorials that patrons may be looking for.</p>
+<p><img alt="Example of a custom page &quot;How to use eBooks Tutorial&quot; catalogued as a bibliographic record" src="_images/pageexample-record.png" /></p>
+<p>Once the page has been created, it can be catalogued in the URI field of a record (856$u). Alternatively, it could
+be catalogued in the URI field of an item attached to a record (952$u). Both of these fields get converted into hyperlinks
+by Koha. If catalogued in a record or item, it would then be indexed and become searchable.</p>
+<p>Once catalogued, these pages could be used in other ways that are typically reserved for books and other records. The records
+representing pages can be added to lists, or stored in virtual collections or locations that make them easier to find in the catalogue.
+They could even be captured and displayed in carousels!</p>
+</section>
+<section id="task-scheduler">
+<span id="task-scheduler-label"></span><h3>工作排程<a class="headerlink" href="#task-scheduler" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &gt; 工具 &gt; 其他工具 &gt; 工作排程</p></li>
+</ul>
+<p>工作排程是任何時間都可執行的報表排程。</p>
+<p>進入工作排程並填寫表單，就能排入工作</p>
+<p><img alt="image392" src="_images/taskscheduler.png" /></p>
+<ul class="simple">
+<li><p>伺服器現在時間(用於管理所有的報表 - 不是真的在地時間)</p></li>
+<li><p>時間應鍵入為時時：分分(2個數字為時，2個數字為分)</p></li>
+<li><p>應以彈出的日曆鍵入日期</p></li>
+<li><p>從報表選取工作的報表</p></li>
+<li><p>選是是否收取此結果的文字或連結</p></li>
+<li><p>在 Email 欄位鍵入接收報表者的電子郵件</p></li>
+</ul>
+<p>工作排程表單下，有排定報表清單</p>
+<p><img alt="image393" src="_images/scheduledreports.png" /></p>
+<p>按下 ‘排程’ 連結，就可從儲存報表清單執行報表排程</p>
+<p><img alt="image394" src="_images/savedreports1.png" /></p>
+<section id="troubleshooting">
+<span id="troubleshooting-label"></span><h4>解決問題<a class="headerlink" href="#troubleshooting" title="此标题的永久链接"></a></h4>
+<p>若網站使用者沒有權限則不會執行工作排程。檢查 /etc/at.allow 查看使用者的權限。若沒有該檔案，則檢查 etc/at.deny 檔案。若 at.deny 內容為空白，則每個人都可以執行它。要求您的系統管理員把使用者加入正確的位置才能執行排定工作。</p>
+</section>
+</section>
+<section id="quote-editor">
+<span id="quote-of-the-day-qotd-editor-label"></span><h3>Quote editor<a class="headerlink" href="#quote-editor" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>Get there:</em> More &gt; Tools &gt; Additional Tools &gt; Quote editor</p></li>
+</ul>
+<p>此工具可以新增與編輯顯示於 OPAC 的引句。</p>
+<p><img alt="Main page of the quote of the day editor" src="_images/qotdeditor.png" /></p>
+<p>To turn this feature on set the <a class="reference internal" href="opacpreferences.html#quoteoftheday-label"><span class="std std-ref">QuoteOfTheDay</span></a> system preference to
+either ‘OPAC’, ‘staff interface’, or both, and add at least one quote using this
+tool.</p>
+<p>In the OPAC, the quotes will appear above the ‘OpacMainUserBlock’
+<a class="reference internal" href="#news-label"><span class="std std-ref">news block</span></a>.</p>
+<p><img alt="View of the main page of the OPAC, customized, and with each section highlighted and labeled" src="_images/opacregionsbootstrap-customized.png" /></p>
+<p>在館員界面中，引言將出現在左側消息下方。</p>
+<p><img alt="A news block on the main page of the staff interface, followed by a quote of the day" src="_images/news.png" /></p>
+<section id="adding-a-quote">
+<span id="add-a-quote-label"></span><h4>Adding a quote<a class="headerlink" href="#adding-a-quote" title="此标题的永久链接"></a></h4>
+<p>新增引句：</p>
+<ul>
+<li><p>Click the ‘New quote’ button in the toolbar at the top of the page.</p>
+<p><img alt="Main page of the quote of the day editor" src="_images/qotdeditor.png" /></p>
+</li>
+<li><p>填寫表格.</p>
+<p><img alt="New quote form" src="_images/newquote.png" /></p>
+<ul class="simple">
+<li><p>來源：輸入引用的來源，例如 說這句話的人的名字</p></li>
+<li><p>文字：輸入引句的文字</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>必須在 ‘來源’ 與 ‘內文’ 欄位鍵入資料才能儲存新的引句。</p>
+</div>
+</li>
+<li><p>點擊“提交”以保存新引句。</p></li>
+</ul>
+<p>新引句現在應該在清單中可以看到。</p>
+</section>
+<section id="importing-quotes">
+<span id="import-quotes-label"></span><h4>Importing quotes<a class="headerlink" href="#importing-quotes" title="此标题的永久链接"></a></h4>
+<p>您可以以 CSV 檔案批次匯入引句。該檔案必須有以下兩個形式的欄位：”來源”、”文字” 且無標題行。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>將提示確認上傳的檔案大於512KB。</p>
+</div>
+<ul>
+<li><p>To start the import process click the ‘Import quotes’ button at the
+top of the screen.</p>
+<p><img alt="Main page of the quote of the day editor" src="_images/qotdeditor.png" /></p>
+</li>
+<li><p>進入匯入引句螢幕後可從電腦內選取欲匯入的檔案</p>
+<p><img alt="Quote uploader screen" src="_images/importquotes.png" /></p>
+</li>
+<li><p>選定CSV檔案後，點選 ‘開啟’ 鈕，該檔案將上傳至暫存編輯表。</p>
+<p><img alt="A list of imported quotes in a table" src="_images/importedsummary.png" /></p>
+</li>
+<li><p>按下 ‘來源’ 或 ‘文字’ 欄位就能夠編輯該清單的內容。完成欄位的編輯後，按 &lt;Enter&gt; 鈕儲存該內容。</p>
+<p><img alt="Clicking in the table on the source or the text of a quote will open a editable field" src="_images/editimportquote.png" /></p>
+</li>
+<li><p>完成之後，按上方工具列的 ‘儲存引句’ 鈕儲存引句。</p></li>
+</ul>
+</section>
+<section id="editing-a-quote">
+<span id="edit-quote-label"></span><h4>Editing a quote<a class="headerlink" href="#editing-a-quote" title="此标题的永久链接"></a></h4>
+<p>要編輯引句，請點擊引句右邊的“編輯”按鈕。</p>
+<p><img alt="Main page of the quote of the day editor" src="_images/qotdeditor.png" /></p>
+<p>編輯 ‘來源’ 或 ‘文字’ 欄位。</p>
+<p>點擊“提交”以保存引句。</p>
+</section>
+<section id="deleting-a-quote">
+<span id="delete-quote-label"></span><h4>Deleting a quote<a class="headerlink" href="#deleting-a-quote" title="此标题的永久链接"></a></h4>
+<p>要刪除引言，請點擊引句右邊的“刪除”按鈕。</p>
+<p><img alt="Main page of the quote of the day editor" src="_images/qotdeditor.png" /></p>
+<p>點擊“刪除”確認刪除。</p>
+<p><img alt="Quote deletion confirmation modal" src="_images/deletequote.png" /></p>
+</section>
+</section>
+<section id="tool-plugins">
+<span id="tool-plugins-label"></span><h3>Tool plugins<a class="headerlink" href="#tool-plugins" title="此标题的永久链接"></a></h3>
+<p>This tool is used to view, manage and configure plugins used as tools.</p>
+<p>This section will only be visible once you have uploaded tool-type plugins in
+the <a class="reference internal" href="administration.html#plugn-administration-label"><span class="std std-ref">plugin administration page</span></a>.</p>
+<ul class="simple">
+<li><p><em>Get there:</em> More &gt; Tools &gt; Additional Tools &gt; Tool plugins</p></li>
+</ul>
+<p>From this page, you will see only tool-type plugins.</p>
+<p>See the <a class="reference internal" href="administration.html#manage-plugins-label"><span class="std std-ref">managing plugins section</span></a> of this manual
+to learn how to manage your tool-type plugins.</p>
+</section>
+<section id="upload">
+<span id="upload-label"></span><h3>上傳<a class="headerlink" href="#upload" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &gt; 工具 &gt; 其他工具 &gt; 上傳</p></li>
+</ul>
+<p>從 <a class="reference internal" href="cataloging.html#attaching-files-to-records-label"><span class="std std-ref">編目表單</span></a> 上傳檔案供選擇。</p>
+<section id="upload-files">
+<span id="upload-files-label"></span><h4>Upload files<a class="headerlink" href="#upload-files" title="此标题的永久链接"></a></h4>
+<p>第一次進入上傳工具時，可能看到缺少類型的警示。</p>
+<p><img alt="image1242" src="_images/uploadtemp.png" /></p>
+<p>類型設定在 UPLOAD 類型的 <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">容許值</span></a>。若沒有上傳類型，則把檔案暫存，在重新啟動伺服器時將被刪除。一但在 UPLOAD 容許值類型內有了資料，可在 ‘瀏覽’ 鈕下看類型的下拉選單。</p>
+<p><img alt="image1243" src="_images/upload.png" /></p>
+<p>瀏覽電腦的檔案，選擇類型並決定是否讓讀者經由 OPAC 下載。上傳之後，還有確認程序。</p>
+<p><img alt="image1244" src="_images/uploadresult.png" /></p>
+</section>
+<section id="search-files">
+<span id="search-files-label"></span><h4>搜尋檔案<a class="headerlink" href="#search-files" title="此标题的永久链接"></a></h4>
+<p>上傳的檔案都可以經由上傳表單搜尋。使用該表單可搜尋檔案名稱的任何部份及 Hashvalue。搜尋上傳檔案</p>
+<p>出現搜尋結果。</p>
+<p><img alt="image1245" src="_images/uploadsearch.png" /></p>
+</section>
+<section id="access-files">
+<h4>近用檔案<a class="headerlink" href="#access-files" title="此标题的永久链接"></a></h4>
+<ul class="simple">
+<li><p><em>到那裡：</em> 更多 &amp;gt; 工具 &amp;gt; 其他工具 &amp;gt; 近用檔案</p></li>
+</ul>
+<p>此選項允許從館員介面近用伺服器的檔案。被 koha-conf.xml 設定的資料夾內檔案。為了能夠近用工具，需有超級館員或 access_files 權限的館員。</p>
+<p><img alt="image1340" src="_images/accessfiles.png" /></p>
+</section>
+</section>
+<section id="opac-problem-reports">
+<span id="opac-problem-reports-tool"></span><h3>OPAC 問題報表<a class="headerlink" href="#opac-problem-reports" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>Get there:</em> More &gt; Tools &gt; Additional tools &gt; OPAC problem reports</p></li>
+</ul>
+<p>該工具用於管理讀者通過 OPAC 發送的問題報表。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This tool only appears if the
+<a class="reference internal" href="opacpreferences.html#opacreportproblem-label"><span class="std std-ref">OPACReportProblem</span></a> system preference is
+enabled.</p>
+</div>
+<p>從此工具中，您將看到讀者在 OPAC 上報表的所有問題。</p>
+<p><img alt="Table of problem reports submitted by patrons" src="_images/opacproblemreports.png" /></p>
+<p>在“操作”列中，您可以</p>
+<ul class="simple">
+<li><p>“標記已查看”：將此問題報表標記為已查看，這會將問題報表的狀態更改為“已查看”</p></li>
+<li><p>‘標記為關閉’：關閉此問題報表，這會將問題報表的狀態更改為’關閉’</p></li>
+<li><p>‘標記為新’：將此問題標記為新問題（即未查看），這會將狀態恢復為“新”。</p></li>
+</ul>
+<p>您還可以通過勾選要更改的問題報表旁邊的框並使用頁面頂端的按鈕來批次更改狀態。</p>
+</section>
+</section>
+<section id="cash-management">
+<span id="cash-management-label"></span><h2>現金管理<a class="headerlink" href="#cash-management" title="此标题的永久链接"></a></h2>
+<p>Koha 包括許多處理貨幣交易和操作的選項，以允許對這些過程進行細度追蹤以進行審計和分析過程。</p>
+<section id="cash-registers">
+<span id="cash-management-registers-label"></span><h3>收銀機<a class="headerlink" href="#cash-registers" title="此标题的永久链接"></a></h3>
+<p>收銀機可用於跟蹤到圖書館特定位置的作業。 這對於詳細說明現金用於付款的位置以及隨後何時將現金取出並帶到銀行特別有用。</p>
+<section id="setup">
+<h4>設定<a class="headerlink" href="#setup" title="此标题的永久链接"></a></h4>
+<p>To enable the use of cash registers, you must turn on the <a class="reference internal" href="accountspreferences.html#usecashregisters-label"><span class="std std-ref">UseCashRegisters</span></a>
+system preference.</p>
+<p>然後，您可以從管理模組中的 <a class="reference internal" href="administration.html#cashregisters-label"><span class="std std-ref">收銀機</span></a> 頁面為您的圖書館配置收銀機。</p>
+</section>
+<section id="cashup">
+<span id="cash-management-register-cashup-label"></span><h4>Cashup<a class="headerlink" href="#cashup" title="此标题的永久链接"></a></h4>
+<p>可以從 <a class="reference internal" href="#cash-management-library-details-label"><span class="std std-ref">圖書館細節</span></a> 和 <a class="reference internal" href="#cash-management-register-details-label"><span class="std std-ref">收銀機細節</span></a> 頁面針對收銀機記錄“兌現”操作。</p>
+<p>點擊`記錄現金`按鈕將簡單地記錄操作發生的日期和時間，目的是允許定期記錄何時從收銀機收取款項並將其存入銀行。</p>
+<p>上述兩個頁面都利用提現記錄將交易/摘要的顯示限制為自上次提現以來的相關訊息。</p>
+<p>一旦發生兌現，在該兌現期間進行的交易摘要可通過註冊詳細訊息頁面上最後兌現日期旁邊的“摘要”連結顯示和列印。</p>
+<p><img alt="A cashup summary view modal" src="_images/cashup_summary.png" /></p>
+</section>
+</section>
+<section id="cash-summary-for-library">
+<span id="cash-management-library-details-label"></span><h3><a href="#id1"><span class="problematic" id="id2">*</span></a>圖書館*的現金摘要<a class="headerlink" href="#cash-summary-for-library" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 主頁 &gt; 工具 &gt; <a href="#id1"><span class="problematic" id="id2">*</span></a>圖書館*的現金匯總</p></li>
+</ul>
+<p>可以在“<a href="#id1"><span class="problematic" id="id2">*</span></a>圖書館*的現金摘要”頁面工具下找到與圖書館收銀機相關的交易金額摘要。</p>
+<p>該摘要將列出與您登錄的分行相關的登記簿，以及有關每個登記簿中應該有多少錢的訊息、可以帶到銀行的物品以及收入與支出的明細。</p>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>注意：<a href="#id3"><span class="problematic" id="id4">*</span></a>您還可以從 <a class="reference internal" href="cash_management.html#point-of-sale-label"><span class="std std-ref">銷售點</span></a> 頁面啟用該模組時提供的左側選單訪問此頁面。</p>
+</section>
+<section id="transaction-history-for-register">
+<span id="cash-management-register-details-label"></span><h3><a href="#id1"><span class="problematic" id="id2">*</span></a>註冊*的交易歷史<a class="headerlink" href="#transaction-history-for-register" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><em>到那裡：</em> 主頁 &gt; 工具 &gt; 現金管理 &gt; <a href="#id1"><span class="problematic" id="id2">*</span></a>註冊*的交易歷史</p></li>
+</ul>
+<p>點擊 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>圖書館詳細資訊 &lt;cash-management-library-details-label&gt;`頁面中的收銀機名稱，即可獲得所有在收銀台發生的交易列表。</p>
+<p>如果您擁有正確的權限，您可以從該頁面重新列印收據、發放退款和記錄 <a class="reference internal" href="#cash-management-register-cashup-label"><span class="std std-ref">cashups</span></a>。</p>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>注意：<a href="#id3"><span class="problematic" id="id4">*</span></a>您還可以從 <a class="reference internal" href="cash_management.html#point-of-sale-label"><span class="std std-ref">銷售點</span></a> 頁面啟用該模組時提供的左側選單訪問此頁面。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="administration.html" class="btn btn-neutral float-left" title="管理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="patrons.html" class="btn btn-neutral float-right" title="讀者" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,3300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>搜尋 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Plugin system" href="plugins.html" />
+    <link rel="prev" title="OPAC" href="opac.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">搜尋</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-searching">基本搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-searching">進階搜尋</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#search-terms">搜尋術語</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#item-types-locations-and-collections-limits">館藏類型、位置和館藏限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#date-and-language-limits">日期和語言限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subtype-limits">次類型的限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#location-and-availability">位置與可及性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorting">排序</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opac-browse-search">Opac browse search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search-results">搜尋結果</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#facets">分面</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#actions-on-search-results">對搜尋結果的操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-filters">Search filters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-search-filters">Adding search filters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-existing-search-filters">Editing existing search filters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#search-history">搜尋紀錄</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-search-prefixes">進階搜尋文法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guide-to-searching">搜尋指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zebra-indexing">Zebra 索引</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indexing-configuration">索引組態</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#item-search">館藏搜尋</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-command-language-searching">通用指令語言搜尋</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#indexes">索引</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-syntax">搜尋語法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#koha-search-indexes">Koha 搜尋索引</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zebra">Zebra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elasticsearch-indexes">Elasticsearch索引</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bibliographic-record-indexes">書目紀錄索引</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authority-record-indexes">Authority record indexes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">搜尋</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/searching.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="opac.html" class="btn btn-neutral float-left" title="OPAC" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugin system" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="searching">
+<span id="searching-label"></span><h1>搜尋<a class="headerlink" href="#searching" title="此标题的永久链接"></a></h1>
+<section id="basic-searching">
+<span id="basic-searching-label"></span><h2>基本搜尋<a class="headerlink" href="#basic-searching" title="此标题的永久链接"></a></h2>
+<p>圖書館員最常看到的搜尋框是位於館員介面頁面頂端的持續搜尋框。</p>
+<p><img alt="Search the catalog box at the top of the page in the staff interface" src="_images/searchboxintranet.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="staffclientpreferences.html#intranetaddmastheadlibrarypulldown-label"><span class="std std-ref">IntranetAddMastheadLibraryPulldown</span></a>
+system preference is set to ‘Add’, the basic search box in the staff interface
+will include a choice of <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library</span></a>.</p>
+<p><img alt="Menu and search bar at the top of the page in the staff interface, the Search catalog option is selected, the mouse cursor is on  the settings icon and there is a library drop-down menu" src="_images/searchbar-catalog-librarypulldown.png" /></p>
+</div>
+<p>在OPAC中，圖書館的讀者會在大多數頁面的頂端看到一個搜尋框。</p>
+<p><img alt="Library catalog search box at the top of the page in the OPAC" src="_images/searchboxopac.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If the <a class="reference internal" href="opacpreferences.html#opacaddmastheadlibrarypulldown-label"><span class="std std-ref">OpacAddMastheadLibraryPulldown</span></a>
+system preference is set to ‘Add’, the basic search box in the OPAC will
+include a choice of <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library</span></a> and
+<a class="reference internal" href="administration.html#library-groups-label"><span class="std std-ref">library group</span></a>.</p>
+<p><img alt="Library and library group dropdown menu in the simple search bar in the OPAC" src="_images/OpacAddMastheadLibraryPulldown.png" /></p>
+</div>
+<p>要搜尋，在搜尋框中輸入一個詞或多個詞。如果沒有指定搜尋索引，就會進行關鍵詞搜尋。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>你可以透過在表格中輸入一個詞並注意結果的數量來驗證這一點。然後，用一個小的變化重複搜尋：在搜尋詞的前面，輸入’kw=’，後面是相同的搜尋詞。結果將是相同的。</p>
+</div>
+<p>當你在搜尋框中有一個以上的詞時，Koha仍然會進行關鍵詞搜尋，但以布林邏輯的交集運算 ‘AND’。這將把你的搜尋範圍縮小到只符合所有單詞的記錄。</p>
+<p>搜尋時，選擇你要尋找的主要術語，並將其輸入持續的搜尋框。</p>
+<p><img alt="Search the catalog box at the top of the page in the staff interface with the words 'king arthur' typed inside" src="_images/searchterms.png" /></p>
+<p>Koha將執行搜尋並 <a class="reference internal" href="#search-results-label"><span class="std std-ref">返回結果</span></a>。</p>
+<p><img alt="Search results screen, 129 results found for 'shakespeare'" src="_images/searchresults.png" /></p>
+<p>詞的順序並不影響檢索結果。</p>
+<p><img alt="4 results found for 'arthur king'" src="_images/resultssummary2.png" /></p>
+<p>在搜尋框輸入過多的詞彙將得到較少的結果。</p>
+<p><img alt="No results match your search for 'king arthur camelot merlin'." src="_images/noresults.png" /></p>
+</section>
+<section id="advanced-searching">
+<span id="advanced-searching-label"></span><h2>進階搜尋<a class="headerlink" href="#advanced-searching" title="此标题的永久链接"></a></h2>
+<p>當基本搜尋返回時，而有太多的結果，進階搜尋可以提供幫助。</p>
+<ul class="simple">
+<li><p><em>到那裡：</em> 搜尋或進階搜尋</p></li>
+</ul>
+<p>進階搜尋頁面提供多種篩選機制。可以用布林邏輯的運算元 AND、OR 與 NOT；篩選館藏類型；篩選出版年與語言；篩選預期讀者、內容、格式或其他內容類型；篩選館藏地與取得性。</p>
+<p>你可以根據需要使用多個部分，沒有一個是必須的，只要至少有一個搜尋詞或選擇一個限制。</p>
+<p><img alt="The advanced search form in the staff interface" src="_images/advancedsearchform.png" /></p>
+<p>The option to see the Search History within the Advanced Search feature exists if the system preference, :ref: <cite>EnableSearchHistory &lt;enablesearchhistory-label&gt;</cite> is set to Keep.  This system preference controls whether the staff interface keeps <a class="reference internal" href="#search-history-label"><span class="std std-ref">search history</span></a> for logged in users. The <a class="reference internal" href="#search-history-label"><span class="std std-ref">search history</span></a> will be accessible under the link to your account at the top right of the staff interface and additionally under the Advanced Search option.</p>
+<section id="search-terms">
+<span id="advanced-search-terms-label"></span><h3>搜尋術語<a class="headerlink" href="#search-terms" title="此标题的永久链接"></a></h3>
+<p>在進階搜尋表單的第一部分中提供了多個搜尋框以同時搜尋不同的索引。</p>
+<p><img alt="Search for section of the advanced search form in the staff interface" src="_images/advancedsearch-searchfor.png" /></p>
+<p>If the <a class="reference internal" href="searchingpreferences.html#expandedsearchoption-label"><span class="std std-ref">expandedSearchOption</span></a> system preference is set to ‘show’, options
+to choose Boolean operators will be automatically displayed. If the preference
+is set to ‘don’t show’, clicking ‘More options’ will make those options appear.</p>
+<p><img alt="Search for section of the advanced search form in the staff interface when more options are enabled" src="_images/advancedsearch-searchfor-moreoptions.png" /></p>
+<p>在這一部分，你可以在下拉選單中的許多索引中進行選擇。此文字框逐一輸入關鍵詞。第二列鍵入布林邏輯運算元。包括 ‘and’、’or’ 與 ‘not’。再選擇搜尋的索引，以及關鍵詞。不夠的話，還可以按 [+] 增加更多的搜尋選項。</p>
+<p>舉例來說，這是一個搜尋記錄，作者是Twain，標題包含’Huckleberry Finn’或’Tom Sawyer’。</p>
+<p><img alt="Search for section of the advanced search form in the staff interface when more options are enabled with an example (Author Twain and Title Huckleberry Finn or Title Tom sawyer)" src="_images/advancedsearch-searchfor-moreoptions-example.png" /></p>
+<p>布林邏輯運算元可以擴大或縮小搜尋範圍。</p>
+<ul class="simple">
+<li><p>和：縮小結果範圍，因為搜尋將檢索包含所有搜尋詞的記錄。</p></li>
+<li><p>或：擴大結果，因為搜尋將尋找所有搜尋術語的出現次數，無論它們是否在同一記錄中。</p></li>
+<li><p>不：排除包含搜尋術語的記錄。</p></li>
+</ul>
+<p>在進階搜尋表格中可用的索引有以下幾種(見下文 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Koha 搜尋索引&lt;koha-search-indexes-label&gt;`部分中關於索引和每個MARC欄位索引的更多訊息):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>索引選項</p></th>
+<th class="head"><p>索引搜尋</p></th>
+<th class="head"><p>搜尋類型</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>關鍵詞</p></td>
+<td><p>全部</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>關鍵詞作為慣用語</p></td>
+<td><p>全部</p></td>
+<td><p>精確的慣用語</p></td>
+</tr>
+<tr class="row-even"><td><p>著者</p></td>
+<td><p>作者</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>作者作為慣用語</p></td>
+<td><p>作者</p></td>
+<td><p>精確的慣用語</p></td>
+</tr>
+<tr class="row-even"><td><p>公司名稱</p></td>
+<td><p>公司-名稱</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>會議名稱</p></td>
+<td><p>會議-名稱</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-even"><td><p>公司名稱為慣用語</p></td>
+<td><p>公司-名稱</p></td>
+<td><p>精確的慣用語</p></td>
+</tr>
+<tr class="row-odd"><td><p>會議名稱為慣用語</p></td>
+<td><p>會議-名稱</p></td>
+<td><p>精確的慣用語</p></td>
+</tr>
+<tr class="row-even"><td><p>個人姓名</p></td>
+<td><p>個人-姓名</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>個人名稱為慣用語</p></td>
+<td><p>個人-姓名</p></td>
+<td><p>精確的慣用語</p></td>
+</tr>
+<tr class="row-even"><td><p>題名</p></td>
+<td><p>題名</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>題名為慣用語</p></td>
+<td><p>題名</p></td>
+<td><p>精確的慣用語</p></td>
+</tr>
+<tr class="row-even"><td><p>期刊題名</p></td>
+<td><p>題名-期刊</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>主題</p></td>
+<td><p>主題</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-even"><td><p>主題為慣用語</p></td>
+<td><p>主題</p></td>
+<td><p>精確的慣用語</p></td>
+</tr>
+<tr class="row-odd"><td><p>條碼</p></td>
+<td><p>條碼</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-even"><td><p>排架位置</p></td>
+<td><p>地點(見備註)</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>標準號碼</p></td>
+<td><p>識別碼-標準</p></td>
+<td><p>號碼</p></td>
+</tr>
+<tr class="row-even"><td><p>ISBN</p></td>
+<td><p>國際標準書號</p></td>
+<td><p>國際標準書號</p></td>
+</tr>
+<tr class="row-odd"><td><p>ISSN</p></td>
+<td><p>國際標準期刊編號</p></td>
+<td><p>號碼</p></td>
+</tr>
+<tr class="row-even"><td><p>索書號</p></td>
+<td><p>本地-分類</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>語言</p></td>
+<td><p>ln</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-even"><td><p>說明/評論</p></td>
+<td><p>說明</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>課程</p></td>
+<td><p>課程</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-even"><td><p>出版者</p></td>
+<td><p>出版商</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-odd"><td><p>出版地</p></td>
+<td><p>pl</p></td>
+<td><p>關鍵詞</p></td>
+</tr>
+<tr class="row-even"><td><p>出版日期</p></td>
+<td><p>出版日期</p></td>
+<td><p>日期</p></td>
+</tr>
+<tr class="row-odd"><td><p>採訪日期</p></td>
+<td><p>採訪日期</p></td>
+<td><p>日期</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果在 <span class="xref std std-ref">LOC容許值</span>，索引的位置就是容許值代碼。</p>
+</div>
+</section>
+<section id="item-types-locations-and-collections-limits">
+<span id="advanced-search-limits-tabs-label"></span><h3>館藏類型、位置和館藏限制<a class="headerlink" href="#item-types-locations-and-collections-limits" title="此标题的永久链接"></a></h3>
+<p>在搜尋框下，有一些標籤允許你按館藏類型、書架位置或館藏來限制你的搜尋。</p>
+<p><img alt="Advanced search tabbed limits for item type, shelving location and collection" src="_images/advancedsearch-itypetabs.png" /></p>
+<p>The tabs shown here, as well as their order are controlled by the
+<a class="reference internal" href="searchingpreferences.html#advancedsearchtypes-label"><span class="std std-ref">AdvancedSearchTypes</span></a> system preference (or <a class="reference internal" href="opacpreferences.html#opacadvancedsearchtypes-label"><span class="std std-ref">OpacAdvancedSearchTypes</span></a>
+for the advanced search form in the OPAC).</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>In the OPAC, this section can be hidden with the <a class="reference internal" href="opacpreferences.html#opacadvsearchmoreoptions-label"><span class="std std-ref">OpacAdvSearchMoreOptions</span></a>
+or the <a class="reference internal" href="opacpreferences.html#opacadvsearchoptions-label"><span class="std std-ref">OpacAdvSearchOptions</span></a> system preferences (uncheck the ‘Item
+types’ option).</p>
+<p>在館員介面上不可能隱藏它。</p>
+</div>
+<p>在搜尋時，可以在多個選項卡中檢查多個選項。在這種情況下，同一標籤的選項用OR運算符進行搜尋，不同標籤的選項用AND運算符進行搜尋。例如，如果使用者檢查了 ‘書籍’ 和 ‘參考資料’ 館藏類型以及 ‘兒童區’ 和 ‘普通書架’ 的書架位置，這些選項將被這樣連結：（書籍或參考資料）和（兒童區或普通書架）。</p>
+<p>對於每個標籤，都會搜尋以下索引(關於索引的更多訊息，以及每個索引中的MARC欄位，請參見下面的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Koha 搜尋索引&lt;koha-search-indexes-label&gt;`部分):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>標籤</p></th>
+<th class="head"><p>索引搜尋</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>館藏類型</p></td>
+<td><p>類型</p></td>
+</tr>
+<tr class="row-odd"><td><p>排架位置</p></td>
+<td><p>位置</p></td>
+</tr>
+<tr class="row-even"><td><p>Collection</p></td>
+<td><p>ccode</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="date-and-language-limits">
+<span id="advanced-search-date-lang-limits-label"></span><h3>日期和語言限制<a class="headerlink" href="#date-and-language-limits" title="此标题的永久链接"></a></h3>
+<p>The next section only appears if you click ‘More option’ or if the
+<a class="reference internal" href="searchingpreferences.html#expandedsearchoption-label"><span class="std std-ref">expandedSearchOption</span></a> system preference is set to ‘show’. It allows you
+to limit your search based on publication date or language.</p>
+<p><img alt="Date and language limits section of the advanced search form in the staff interface" src="_images/advancedsearch-date.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>In the OPAC, this section can be hidden with the <a class="reference internal" href="opacpreferences.html#opacadvsearchmoreoptions-label"><span class="std std-ref">OpacAdvSearchMoreOptions</span></a>
+or the <a class="reference internal" href="opacpreferences.html#opacadvsearchoptions-label"><span class="std std-ref">OpacAdvSearchOptions</span></a> system preferences (uncheck the
+‘Publication date’ or the ‘Language’ option).</p>
+<p>在館員介面上不可能隱藏它。</p>
+</div>
+<p>‘年份’ 的限制允許你搜尋在特定年份以及一系列年份出版的題名。</p>
+<ul class="simple">
+<li><p>‘2005’ 將搜尋 2005 年出版的題名</p></li>
+<li><p>‘2005-2010’ 將搜尋2005年至2010年期間出版的題名（包括2005和2010）</p></li>
+<li><p>‘-2010’ 將搜尋 2010 年及之前出版的題名</p></li>
+<li><p>‘&lt;2010’ 將搜尋 2010 年之前出版的題名（不包括 2010 年）</p></li>
+<li><p>‘2005-’ 將搜尋 2005 年及之後出版的題名</p></li>
+<li><p>‘&gt;2005’將搜尋2005年以後出版的題名（不包括2005年）</p></li>
+</ul>
+<p>‘語言’ 和 ‘原始語言’ 限制允許您搜尋特定語言的題名或從特定語言翻譯的題名。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>By default, the languages drop-down menus are populated by all languages. It
+is possible to limit the list with the <a class="reference internal" href="searchingpreferences.html#advancedsearchlanguages-label"><span class="std std-ref">AdvancedSearchLanguages</span></a> system
+preference.</p>
+</div>
+<p>對於每個搜尋欄位，都會搜尋以下索引 (關於索引的更多訊息，以及每個索引中包含哪些MARC欄位，請參見下面的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Koha 搜尋索引&lt;koha-search-indexes-label&gt;`部分):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>搜尋欄位</p></th>
+<th class="head"><p>索引搜尋</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>年</p></td>
+<td><p>出版日期</p></td>
+</tr>
+<tr class="row-odd"><td><p>語言</p></td>
+<td><p>ln</p></td>
+</tr>
+<tr class="row-even"><td><p>原始語言</p></td>
+<td><p>原文</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="subtype-limits">
+<span id="advanced-search-subtype-limits-label"></span><h3>次類型的限制<a class="headerlink" href="#subtype-limits" title="此标题的永久链接"></a></h3>
+<p>下一節允許你用編碼值來限制你的搜尋。</p>
+<p><img alt="Subtypes limits section of the advanced search form in the staff interface" src="_images/advancedsearch-subtypes.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>In the OPAC, this section can be hidden with the <a class="reference internal" href="opacpreferences.html#opacadvsearchmoreoptions-label"><span class="std std-ref">OpacAdvSearchMoreOptions</span></a>
+or the <a class="reference internal" href="opacpreferences.html#opacadvsearchoptions-label"><span class="std std-ref">OpacAdvSearchOptions</span></a> system preferences (uncheck the
+‘Subtypes’ option).</p>
+<p>在館員介面上不可能隱藏它。</p>
+</div>
+<p>‘受眾群體’ 下拉選單可用於將結果限制為特定目標受眾群體。</p>
+<ul class="simple">
+<li><p>學齡前</p></li>
+<li><p>主要</p></li>
+<li><p>青少年前期</p></li>
+<li><p>青年</p></li>
+<li><p>成人</p></li>
+<li><p>特別的</p></li>
+<li><p>一般</p></li>
+<li><p>少年</p></li>
+</ul>
+<p>‘內容’ 下拉選單可用於將結果限制為特定類型的內容。</p>
+<ul class="simple">
+<li><p>小說</p></li>
+<li><p>非小說</p></li>
+<li><p>傳記</p></li>
+<li><p>音樂性錄音資料</p></li>
+<li><p>非音樂性錄音資料</p></li>
+</ul>
+<p>‘格式’ 下拉選單可用於將結果限制為特定類型的格式。</p>
+<ul class="simple">
+<li><p>正常列印</p></li>
+<li><p>大字印刷</p></li>
+<li><p>點字</p></li>
+<li><p>音樂光碟</p></li>
+<li><p>卡帶錄音</p></li>
+<li><p>VHS 錄影帶 / 錄影卡帶</p></li>
+<li><p>DVD / 影碟</p></li>
+<li><p>軟體光碟</p></li>
+<li><p>網站</p></li>
+</ul>
+<p>‘其他內容類型’ 下拉選單可用於進一步將結果限制為特定類型的內容。</p>
+<ul class="simple">
+<li><p>摘要/總結</p></li>
+<li><p>參考書目</p></li>
+<li><p>目錄</p></li>
+<li><p>百科全書</p></li>
+<li><p>手冊</p></li>
+<li><p>法律條文</p></li>
+<li><p>索引</p></li>
+<li><p>專利文件</p></li>
+<li><p>唱片分類目錄</p></li>
+<li><p>立法</p></li>
+<li><p>論文</p></li>
+<li><p>調查</p></li>
+<li><p>審核</p></li>
+<li><p>程式化文字</p></li>
+<li><p>影片目錄</p></li>
+<li><p>指南</p></li>
+<li><p>統計</p></li>
+<li><p>技術報告</p></li>
+<li><p>法律個案與個案說明</p></li>
+<li><p>法律報告與摘要</p></li>
+<li><p>條約</p></li>
+</ul>
+<p>對於每個搜尋欄位，都會搜尋以下索引 (關於索引的更多訊息，以及每個索引中包含哪些MARC欄位，請參見下面的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Koha 搜尋索引&lt;koha-search-indexes-label&gt;`部分):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>搜尋欄位</p></th>
+<th class="head"><p>索引搜尋</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>受眾</p></td>
+<td><p>ta</p></td>
+</tr>
+<tr class="row-odd"><td><p>內容</p></td>
+<td><p>如果生物 rtype</p></td>
+</tr>
+<tr class="row-even"><td><p>格式</p></td>
+<td><p>ff7-01-02</p></td>
+</tr>
+<tr class="row-odd"><td><p>其他內容類型</p></td>
+<td><p>ctype</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="location-and-availability">
+<span id="advanced-search-location-availability-label"></span><h3>位置與可及性<a class="headerlink" href="#location-and-availability" title="此标题的永久链接"></a></h3>
+<p>‘位置和可用性’ 部分允許您進一步限制搜尋。</p>
+<p><img alt="Location and availability limits section of the advanced search form in the staff interface" src="_images/advancedsearch-location-availability.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>In the OPAC, this section can be hidden with the <a class="reference internal" href="opacpreferences.html#opacadvsearchmoreoptions-label"><span class="std std-ref">OpacAdvSearchMoreOptions</span></a>
+or the <a class="reference internal" href="opacpreferences.html#opacadvsearchoptions-label"><span class="std std-ref">OpacAdvSearchOptions</span></a> system preferences (uncheck the ‘Location
+and availability’ option).</p>
+<p>在館員介面上不可能隱藏它。</p>
+</div>
+<p>可以勾選 ‘限於可用館藏’ 的框，以便在結果中只顯示可取用的館藏。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>‘限制可用的館藏’ 選項只刪除目前已借出的館藏。它 <em>不會</em> 刪除被撤回、丟失或其他不被借出的館藏。</p>
+</div>
+<p>‘個別圖書館’ 下拉選單可用於將搜尋限制在一個特定的圖書館。</p>
+<p>如果你有 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>圖書館組&lt;library-groups-label&gt;`被選為搜尋組，它們將出現在’圖書館組’下。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>By default, the location limit looks for the item’s home library. This can
+be changed with the <a class="reference internal" href="searchingpreferences.html#searchlimitlibrary-label"><span class="std std-ref">SearchLimitLibrary</span></a> system preference.</p>
+</div>
+<p>對於每個搜尋欄位，都會搜尋以下索引 (關於索引的更多訊息，以及每個索引中包含哪些MARC欄位，請參見下面的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Koha 搜尋索引&lt;koha-search-indexes-label&gt;`部分):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>搜尋欄位</p></th>
+<th class="head"><p>索引搜尋</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>可用館藏</p></td>
+<td><p>外借中</p></td>
+</tr>
+<tr class="row-odd"><td><p>個別圖書館或圖書館群組</p></td>
+<td><p>homebranch
+holdingbranch</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sorting">
+<span id="advanced-search-sort-label"></span><h3>排序<a class="headerlink" href="#sorting" title="此标题的永久链接"></a></h3>
+<p>最後，你可以選擇如何對結果進行排序。</p>
+<p><img alt="Sort by section of the advanced search form in the staff interface" src="_images/advancedsearch-sortby.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>In the OPAC, this section can be hidden with the <a class="reference internal" href="opacpreferences.html#opacadvsearchmoreoptions-label"><span class="std std-ref">OpacAdvSearchMoreOptions</span></a>
+or the <a class="reference internal" href="opacpreferences.html#opacadvsearchoptions-label"><span class="std std-ref">OpacAdvSearchOptions</span></a> system preferences (uncheck the ‘Sorting’
+option).</p>
+<p>在館員介面上不可能隱藏它。</p>
+</div>
+<p>預設排序是在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>defaultSortField和defaultSortOrder &lt;defaultsortfield-and-defaultsortorder-label&gt;`系統偏好中設定的，但你可以選擇按作者、按標題、按書號、按日期或按受歡迎程度（使用在館藏表中發現的總發行量訊息）進行排序。</p>
+<ul class="simple">
+<li><p>相關性：當使用 ElasticSearch 時，相關性是透過欄位的權重和每個欄位中搜尋詞的出現次數來計算的。</p></li>
+<li><p>受歡迎程度：這種排序使用問題索引，即記錄每個館藏中的問題數量。</p></li>
+<li><p>作者：這種排序使用作者索引</p></li>
+<li><p>索書號：該排序使用cn-sort索引，它是使用分類方案和索書號建立的。</p></li>
+<li><p>出版/版權日期：該排序使用出版日期索引</p></li>
+<li><p>採訪日期：該排序使用採訪日期的索引</p></li>
+<li><p>題名：這種排序使用題名索引</p></li>
+</ul>
+<p>在下面的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Koha 搜尋索引&lt;koha-search-indexes-label&gt;`一節中，可以看到更多關於索引和每個 MARC 欄位被索引的訊息。</p>
+</section>
+</section>
+<section id="opac-browse-search">
+<span id="browse-search-label"></span><h2>Opac browse search<a class="headerlink" href="#opac-browse-search" title="此标题的永久链接"></a></h2>
+<p>When Elasticsearch is used, a browse search option is available on the Opac. It is enabled using the <a class="reference internal" href="opacpreferences.html#opacbrowsesearch-label"><span class="std std-ref">OpacBrowseSearch system preference</span></a>. The option then appears as a link in the Opac “More searches” area.</p>
+<p><img alt="Opac search bar and &quot;More searches&quot; area, with &quot;Browse search&quot; one of the links displayed alongside &quot;Advanced search&quot;, &quot;Tag cloud&quot; and &quot;Libraries&quot;." src="_images/browsesearchopac.png" /></p>
+<p>On the browse search page, enter your terms in the “Search for” box.
+Use the “Search type” menu to select either the Author, Subject or Title search.
+Underneath the search box, radio buttons allow you to choose between an “Exact”, “Fuzzy” or “Really fuzzy” search.</p>
+<p>When you land on the page, the “Author” search type and “Fuzzy” search mode are selected by default.</p>
+<p><img alt="Browse search page on the Opac, with a search box and search options." src="_images/browsesearchpage.png" /></p>
+<p>When you click the search button, you will see a list of results that begin with the text you entered in the search box.
+Clicking on a result opens a section listing the catalogue records that match this search result.
+From there, it is possible to click through to the full record.</p>
+<p><img alt="Browse search page on the Opac. The term &quot;yousafzai&quot; is in the search box. Search type &quot;Author&quot; and &quot;Fuzzy&quot; are selected. There are four results displayed underneath the search button. The section for the result &quot;Yousafzai, Malala,&quot; is open showing a list of three titles." src="_images/browsesearchresults.png" /></p>
+</section>
+<section id="search-results">
+<span id="search-results-label"></span><h2>搜尋結果<a class="headerlink" href="#search-results" title="此标题的永久链接"></a></h2>
+<p>搜尋結果的數量將顯示在結果頁面。</p>
+<p>還會有一個返回進階搜尋螢幕的連結，以編輯搜尋。</p>
+<p>If the <a class="reference internal" href="searchingpreferences.html#savedsearchfilters-label"><span class="std std-ref">SavedSearchFilters</span></a> system preference is
+enabled, there will also be a link to
+<a class="reference internal" href="#adding-search-filters-label"><span class="std std-ref">save the search as a search filter</span></a>.</p>
+<p><img alt="Search results screen, 129 results found for 'shakespeare'" src="_images/searchresults.png" /></p>
+<p>There is the possibility to search within results. This search box will take the
+query and add it as a limit to the previous search.</p>
+<p>If <a class="reference internal" href="staffclientpreferences.html#staffhighlightedwords-label"><span class="std std-ref">StaffHighlightedWords</span></a> is set to ‘highlight’, the search term(s) will be
+highlighted in yellow with red text in every record. You can remove the
+highlighting by clicking the ‘Unhighlight’ link at the top of the page.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>強調顯示並不代表搜尋詞在記錄中的位置，它只是在頁面上可以找到的任何地方強調顯示這串字符。</p>
+</div>
+<p>預設情況下，搜尋結果將根據 <a class="reference internal" href="searchingpreferences.html#opacdefaultsortfield-and-opacdefaultsortorder-label"><span class="std std-ref">OPACdefaultSortField and OPACdefaultSortOrder</span></a> 系統偏好值進行排序。要改變這一點，你可以從右邊的下拉選單中選擇另一種排序方法。</p>
+<p>每個搜尋結果都顯示在一個表格中，左欄為書目訊息，右欄為館藏訊息。</p>
+<p>Under each title in the list, a series of values from the record’s leader will
+appear. It is important to note that this has nothing to do with the item types
+or collection codes assigned to the items, this data is all pulled from the
+record’s fixed fields. This can be turned on or off with the
+<a class="reference internal" href="staffclientpreferences.html#displayiconsxslt-label"><span class="std std-ref">DisplayIconsXSLT</span></a> system preference.</p>
+<p>在右欄中，顯示附加到記錄的館藏的可用性和訊息。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>即使您篩選了一個圖書館，擁有該館藏的所有圖書館都會出現在搜尋結果中。</p>
+</div>
+<p>館藏的可用性取決於它們的狀態。 以下將顯示為可用：</p>
+<ul class="simple">
+<li><p>可用（未借出，無特定狀態）</p></li>
+<li><p><a class="reference internal" href="cataloging.html#use-restrictions-label"><span class="std std-ref">受限制的</span></a></p></li>
+<li><p>預約中</p>
+<ul>
+<li><p>在館藏處於 ‘等待’ 狀態之前，館藏的預約狀態並不影響該館藏是否 ‘可用’。在架子上被放置的館藏將顯示為可用，直到館員將其從架子上取下，並檢查該館藏以確認放置，並將其放在一邊等待取件。</p></li>
+</ul>
+</li>
+</ul>
+<p>以下將顯示為不可用：</p>
+<ul class="simple">
+<li><p>借出</p></li>
+<li><p>預約中，等待取件</p></li>
+<li><p>在途中</p></li>
+<li><p><a class="reference internal" href="cataloging.html#lost-status-label"><span class="std std-ref">遺失</span></a></p></li>
+<li><p><a class="reference internal" href="cataloging.html#withdrawn-status-label"><span class="std std-ref">撤回</span></a></p></li>
+<li><p><a class="reference internal" href="cataloging.html#damaged-status-label"><span class="std std-ref">損壞</span></a></p></li>
+<li><p><a class="reference internal" href="cataloging.html#notforloan-status-label"><span class="std std-ref">不外借</span></a></p></li>
+</ul>
+<p>The availability of items is displayed only for the first twenty items in the
+record. This number can be changed with the
+<a class="reference internal" href="searchingpreferences.html#maxsearchresultsitemsperrecordstatuscheck-label"><span class="std std-ref">MaxSearchResultsItemsPerRecordStatusCheck</span></a> system preference.</p>
+<p>If records have a lot of items, only twenty items will be displayed in the
+search results by default. This number can be changed with the
+<a class="reference internal" href="searchingpreferences.html#maxitemsinsearchresults-label"><span class="std std-ref">maxItemsInSearchResults</span></a> system preference.</p>
+<p>如果封面圖片相關 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>強化內容系統偏好&lt;enhanced-content-system-preferences-label&gt;`被啟用，封面圖片將出現在搜尋結果旁邊。</p>
+<section id="facets">
+<span id="search-results-facets-label"></span><h3>分面<a class="headerlink" href="#facets" title="此标题的永久链接"></a></h3>
+<p>在左邊，可以篩選，或分面，可以精簡你的搜尋。</p>
+<p><img alt="Facets on the search results page" src="_images/searchresults-facets.png" /></p>
+<p>目前可用的分面包括：</p>
+<ul>
+<li><p>在館內</p></li>
+<li><p>著者</p></li>
+<li><p>館藏類型</p></li>
+<li><p>位置</p></li>
+<li><p>地點 (地理名詞標題)</p></li>
+<li><p>集叢</p></li>
+<li><p>主題 (主題標目)</p></li>
+<li><p>館藏(館藏代碼)</p></li>
+<li><p>所屬圖書館、館藏圖書館或兩者兼俱</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This depends on your setting for the <a class="reference internal" href="searchingpreferences.html#displaylibraryfacets-label"><span class="std std-ref">DisplayLibraryFacets</span></a> system
+preference.</p>
+</div>
+</li>
+<li><p>題名 (劃一題名標題) (僅限斑馬)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>當使用Elasticsearch時，可以從 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>搜尋引擎配置頁面&lt;search-engine-configuration&gt;`中刪除面並重新排序。</p>
+</div>
+<p>By default, facets are constructed using the first twenty records. You can
+customize this with the <a class="reference internal" href="searchingpreferences.html#maxrecordsforfacets-label"><span class="std std-ref">maxRecordsForFacets</span></a> system preference.</p>
+<p>If you want to show the number of records that correspond to each facet next to
+it, you can make it appear with the <a class="reference internal" href="searchingpreferences.html#displayfacetcount-label"><span class="std std-ref">displayFacetCount</span></a> system preference.
+Note that this number is dependent on the <a class="reference internal" href="searchingpreferences.html#maxrecordsforfacets-label"><span class="std std-ref">maxRecordsForFacets</span></a> system
+preference.</p>
+<p>When there are more than five facets in a category, a ‘Show more’ link
+will appear. By default, this link will show up to twenty facets. You can
+change the maximum number of facets shown with the <a class="reference internal" href="searchingpreferences.html#facetmaxcount-label"><span class="std std-ref">FacetMaxCount</span></a> system
+preference.</p>
+<p>By default, when facets are longer than twenty characters, will be truncated.
+You can change the number of character after which a facet is truncated with the
+<a class="reference internal" href="searchingpreferences.html#facetlabeltruncationlength-label"><span class="std std-ref">FacetLabelTruncationLength</span></a> system preference.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>當使用Elasticsearch時，分面不會被截斷。這僅適用於斑馬使用者。</p>
+</div>
+<p>By default, facets in each category are ordered alphabetically. You can change
+the order with the <a class="reference internal" href="searchingpreferences.html#facetorder-label"><span class="std std-ref">FacetOrder</span></a> system preference.</p>
+<p>When using UNIMARC, the default separator for authors’ last and first names in
+the facets is a comma, but you can change this using the
+<a class="reference internal" href="searchingpreferences.html#unimarcauthorsfacetsseparator-label"><span class="std std-ref">UNIMARCAuthorsFacetsSeparator</span></a> system preference, if necessary.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you have any <a class="reference internal" href="#search-filters-label"><span class="std std-ref">search filters</span></a>, they will
+appear above the facets.</p>
+</div>
+</section>
+<section id="actions-on-search-results">
+<span id="search-results-actions-labels"></span><h3>對搜尋結果的操作<a class="headerlink" href="#actions-on-search-results" title="此标题的永久链接"></a></h3>
+<p>上方的結果數量下，有多個按鈕針對選定的紀錄續作業。</p>
+<ul>
+<li><p>全選：全選頁面的紀錄。</p></li>
+<li><p>全部清除：清除已選的頁面紀錄。</p></li>
+<li><p>不強調：移除搜尋術語的紅/黃色強調。</p>
+<ul class="simple">
+<li><p>If <a class="reference internal" href="staffclientpreferences.html#staffhighlightedwords-label"><span class="std std-ref">StaffHighlightedWords</span></a> is set to ‘highlight’, the search term(s)
+will be highlighted in yellow with red text in every record. The
+‘Unhighlight’ link removes the highlighting.</p></li>
+</ul>
+</li>
+<li><p>新增至書車：把選定的紀錄新增至 <a class="reference internal" href="lists.html#cart-label"><span class="std std-ref">書車</span></a>.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The <a class="reference internal" href="staffclientpreferences.html#intranetbookbag-label"><span class="std std-ref">intranetbookbag</span></a> system preference needs to be set to ‘Show’
+in order for that button to appear.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>新增至虛擬書架：將選定的紀錄新增至 <a class="reference internal" href="lists.html#lists-label"><span class="std std-ref">虛擬書架</span></a>。</p></li>
+<li><p>預約：預約選定的紀錄。</p></li>
+<li><p>瀏覽選定的紀錄：進入選定紀錄的詳情。按 ‘下一個’ 或 ‘前一個’ 進入下個選定的紀錄。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The <a class="reference internal" href="searchingpreferences.html#browseresultselection-label"><span class="std std-ref">BrowseResultSelection</span></a> system preference needs to be enabled in
+order for that button to appear.</p>
+</div>
+</li>
+<li><p>Z39.50/SRU 搜尋：以預填的搜尋術語，在另個視窗開啟 Z39.50/SRU 搜尋。</p></li>
+<li><p>編輯：批次編輯、批次刪除或合併選定的記錄。</p></li>
+<li><p>排序：改變排序欄位和順序。這些選項與上面 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>排序部分&lt;advanced-search-sort-label&gt;`中描述的選項相同。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>預設的排序是依照 :ref: <cite>defaultSortField and defaultSortOrder &lt;defaultsortfield-&amp;-defaultsortorder-label&gt;</cite> 系統偏好的設定。</p>
+</div>
+<p><img alt="The sort options in the search results page" src="_images/searchresultssort.png" /></p>
+</li>
+</ul>
+<p>在每筆紀錄的下方，還有更多其他操作連結：</p>
+<ul>
+<li><p>預約：連結到該記錄 <a class="reference internal" href="circulation.html#placing-holds-in-staff-client-label"><span class="std std-ref">‘預約’ 分頁</span></a>。</p></li>
+<li><p>催還：連結到該記錄的 ‘催還’ 標籤。</p></li>
+<li><p>新增至書車：把選定的紀錄新增至 <a class="reference internal" href="lists.html#cart-label"><span class="std std-ref">書車</span></a>.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The <a class="reference internal" href="staffclientpreferences.html#intranetbookbag-label"><span class="std std-ref">intranetbookbag</span></a> system preference needs to be set to ‘Show’
+in order for that link to appear.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>請求論文：連結到該記錄 <a class="reference internal" href="patrons.html#article-requests-label"><span class="std std-ref">‘論文請求’ 分頁</span></a>。</p></li>
+<li><p>編輯紀錄：連結到紀錄的 MARC 框架。</p></li>
+<li><p>編輯館藏：連結到紀錄的館藏清單。</p></li>
+<li><p>OPC 檢視：連結到紀錄的 OPAC 詳情頁面。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The ‘OPAC view’ option needs the <a class="reference internal" href="opacpreferences.html#opacbaseurl-label"><span class="std std-ref">OPACBaseURL</span></a> system preference to
+be properly set.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="search-filters">
+<span id="search-filters-label"></span><h3>Search filters<a class="headerlink" href="#search-filters" title="此标题的永久链接"></a></h3>
+<p>Search filters are custom searches or filters that can be applied to search
+results.</p>
+<p>This functionality is enabled on using the
+<a class="reference internal" href="searchingpreferences.html#savedsearchfilters-label"><span class="std std-ref">SavedSearchFilters</span></a> system preference.</p>
+<section id="adding-search-filters">
+<span id="adding-search-filters-label"></span><h4>Adding search filters<a class="headerlink" href="#adding-search-filters" title="此标题的永久链接"></a></h4>
+<p>Once the <a class="reference internal" href="searchingpreferences.html#savedsearchfilters-label"><span class="std std-ref">SavedSearchFilters</span></a> system preference
+is enabled, there will be a new option on the search results page to create a
+new search filter from this search.</p>
+<p>To create a new search filter:</p>
+<ul class="simple">
+<li><p>Search the catalog from the staff interface
+<a class="reference internal" href="#basic-searching-label"><span class="std std-ref">basic search</span></a> or
+<a class="reference internal" href="#advanced-searching-label"><span class="std std-ref">advanced search</span></a>.</p></li>
+<li><p>Click ‘Save search as filter’ at the top of the results.</p></li>
+</ul>
+<p>A form will pop up.</p>
+<p><img alt="Form to save a search as a filter" src="_images/savesearchfilter.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Visibility</p>
+<ul>
+<li><p>Show on OPAC: If checked, this search filter will be available on the
+OPAC.</p></li>
+<li><p>Show in staff interface: If checked, this search filter will be available
+in the staff interface.</p></li>
+</ul>
+</li>
+<li><p>Name: Enter the name of the search filter. This name will appear to staff
+and OPAC user, depending on where this search filter is available.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Click ‘Save’ next to the name field.</p></li>
+</ul>
+<p>Search filters will be displayed before the facets in the search results page,
+in the staff interface or OPAC, depending on visibility.</p>
+<p>All search filters can be managed in the
+<a class="reference internal" href="administration.html#search-filter-administration-label"><span class="std std-ref">search filter administration section</span></a>.</p>
+</section>
+<section id="editing-existing-search-filters">
+<span id="editing-search-filters-label"></span><h4>Editing existing search filters<a class="headerlink" href="#editing-existing-search-filters" title="此标题的永久链接"></a></h4>
+<p>Once you have existing search filters, the way to edit them is basically the
+same as adding a new one, but you are replacing instead of adding</p>
+<ul class="simple">
+<li><p>Search the catalog from the staff interface
+<a class="reference internal" href="#basic-searching-label"><span class="std std-ref">basic search</span></a> or
+<a class="reference internal" href="#advanced-searching-label"><span class="std std-ref">advanced search</span></a>.</p></li>
+<li><p>Click ‘Save search as filter’ at the top of the results.</p></li>
+</ul>
+<p>The form will pop up.</p>
+<p><img alt="Form to save a search as a filter, a replace option is available" src="_images/savesearchfilter-replace.png" /></p>
+<ul class="simple">
+<li><p>Choose which search filter to replace from the ‘Replace existing search
+filter’ drop-down menu.</p></li>
+<li><p>Click ‘Replace’ next to the drop-down menu.</p></li>
+</ul>
+<p>To further edit search filters, visit the
+<a class="reference internal" href="administration.html#search-filter-administration-label"><span class="std std-ref">search filter administration page</span></a>.</p>
+</section>
+</section>
+</section>
+<section id="search-history">
+<span id="search-history-label"></span><h2>搜尋紀錄<a class="headerlink" href="#search-history" title="此标题的永久链接"></a></h2>
+<p>If the <a class="reference internal" href="searchingpreferences.html#enablesearchhistory-label"><span class="std std-ref">EnableSearchHistory</span></a> system preference set to keep the search
+history, you can access this information by clicking on your username in the
+top right of the staff interface and choosing ‘Search history’.</p>
+<p><img alt="Search history option in the user menu at the top of the page" src="_images/searchhistory.png" /></p>
+<p>在此頁面可看到您的書目搜尋記錄</p>
+<p><img alt="Bibliographic search history" src="_images/searchhistory-bibsearch.png" /></p>
+<p>及您的權威搜尋記錄。</p>
+<p><img alt="Authority search history" src="_images/searchhistory-authsearch.png" /></p>
+<p>在搜尋紀錄頁面，可以透過點擊搜尋術語重新啟動搜尋。</p>
+<p>也可以透過選擇以前的搜尋並點擊表格頂端的 ‘刪除’ 連結來刪除它們。</p>
+</section>
+<section id="advanced-search-prefixes">
+<span id="advanced-search-prefixes-label"></span><h2>進階搜尋文法<a class="headerlink" href="#advanced-search-prefixes" title="此标题的永久链接"></a></h2>
+<p>以下的搜尋指令可以加在鍵詞搜尋盒的語彙之前，篩選傳回的資料</p>
+<ul class="simple">
+<li><p>ti: 題名搜尋</p>
+<ul>
+<li><p>如，ti:臺灣</p></li>
+</ul>
+</li>
+<li><p>su: 主題搜尋</p>
+<ul>
+<li><p>如，su:美食</p></li>
+</ul>
+</li>
+<li><p>pb: 出版社搜尋</p>
+<ul>
+<li><p>如，pb:遠景</p></li>
+</ul>
+</li>
+<li><p>au: 著者搜尋</p>
+<ul>
+<li><p>如，au:張大春</p></li>
+</ul>
+</li>
+<li><p>su-geo: 地名主題</p>
+<ul>
+<li><p>如，su-geo:雲林 and kw:人文 and kw:旅行</p></li>
+</ul>
+</li>
+<li><p>bc: 條碼</p>
+<ul>
+<li><p>如，bc:502326000912</p></li>
+</ul>
+</li>
+<li><p>lex: lexile</p>
+<ul>
+<li><p>層次 lex:510</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="guide-to-searching">
+<span id="guide-to-searching-label"></span><h2>搜尋指南<a class="headerlink" href="#guide-to-searching" title="此标题的永久链接"></a></h2>
+<p>本章以圖表簡單介紹 MARC21 資料庫的組態，以及搜尋準則。此章描述的索引欄位與書目資料有關，不是權威資料庫的索引。</p>
+<section id="zebra-indexing">
+<span id="zebra-indexing-label"></span><h3>Zebra 索引<a class="headerlink" href="#zebra-indexing" title="此标题的永久链接"></a></h3>
+<p>Koha 資料庫的索引使用 GPL 2.0 授權的 Zebra 自由軟體。Zebra 的官方文件稱：</p>
+<blockquote>
+<div><p>“…Zebra 是高效能的通用結構化索引與搜尋引擎。可讀入多種格式的記錄 (如 email、XML、MARC 等) 經由強力組合的布林邏輯搜尋與關連排序自由文字詢問近用這些記錄。</p>
+<p>Zebra 支援大型資料庫 (數千萬筆記錄、數十GB的資料)。允許安全、增量資料地更新即時系統。因為 Zebra 支援工業標準的資訊擷取協定，Z39.50，可以使用支援標準化的商業授權或自由軟體式的程式與工具，搜尋 Zebra 資料庫，…” Zebra - User 使用指南與參考手冊，第 1 頁，<a class="reference external" href="https://software.indexdata.com/zebra/doc/idzebra.pdf">https://software.indexdata.com/zebra/doc/idzebra.pdf</a></p>
+</div></blockquote>
+<p>本章以圖表簡單介紹 MARC21 資料庫的組態，以及搜尋準則。此章描述的索引欄位與書目資料有關，不是權威資料庫的索引。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>本章以圖表簡單介紹 MARC21 資料庫的組態，以及搜尋準則。此章描述的索引欄位與書目資料有關，不是權威資料庫的索引。</p>
+</div></blockquote>
+</section>
+<section id="indexing-configuration">
+<span id="indexing-configuration-label"></span><h3>索引組態<a class="headerlink" href="#indexing-configuration" title="此标题的永久链接"></a></h3>
+<p>Koha 索引時用到三個組態檔。</p>
+<p>第一個組態檔 (etc/zebradb/biblios/etc/bib1.att)包括 Z39.50 bib-1 屬性清單，以及 Biblio Indexes、Items Index、Fixed Fields 與其他特殊索引的 Koha 在地屬性。Z39.50 Bib-1 profile 由數個屬性類型構成：Use、Relation、Position、Structure、Truncation、Completeness。bib-1 ‘Use’ 屬性以圖表示；其他的屬性主要供搜尋之用。有 150 多種屬性供索引集合使用，幾乎不可能全部使用。其他五個屬性供進一步搜尋的設定之用，不在本文詳述。請參照在 <a class="reference external" href="http://www.loc.gov/z3950/agency/defns/bib1.html">http://www.loc.gov/z3950/agency/defns/bib1.html</a> 的 Bib-1 attributes 詳情。</p>
+<p>第二個檔案是 etc/zebradb/marc_defs/[marc21|unimarc]/biblios/record.abs 若您使用 grs1 索引 [the default until 3.16] 或 etc/zebradb/marc_defs/[marc21|unimarc]/biblios/biblio-koha-indexdefs.xml 若您使用 dom 索引 [3.18 的預設]。任何檔案都包括摘要語法對應至 MARC21 欄號設定至選定的 Use Attributes。為啟用更精準的 xml 檔案需轉換至 biblio-zebra-indexdefs.xsl，參見 biblio-zebra-indexdefs.xsl 標頭瞭解詳情。此檔案設定規則提供 Bath 第 0 層與第 1 層服務，包括著者、題名、主題、鍵詞與標準號碼的精準服務 (LCCN、ISBN、ISSN等)</p>
+<p>第三個組態檔 (etc/zebradb/ccl.properties) 是通用指令語言欄位對應表。此檔案包括 bib-1 屬性集檔與摘要檔及新增限義詞，通常稱為索引名稱。此資料庫的限義詞或索引有：pn, cpn, cfn, ti, se, ut, nb, ns, sn,lcn, callnum, su, su-to, su-geo, su-ut, yr,pubdate, acqdate, ln, pl, ab, nt, rtype, mc-rtype, mus, au, su-na,kw, pb, ctype 與 an。</p>
+<p>以 <a class="reference internal" href="#koha-search-indexes-label"><span class="std std-ref">Koha 索引表</span></a> 把前述三個檔案的內容歸納成可讀性較高的內容。前兩欄是 Z39.50 屬性與對應至 Z39.50 bib-1 屬性檔的 Z39.50 名稱。第三欄是指出各 MARC 欄號對應屬性的 MARC 欄號索引。第四欄內部 CCL 詢問搜尋縮寫的限義詞。接著的說明則定義 ‘限義詞’ 的內容。</p>
+<p><em>限義詞用於指引搜尋至特定的搜尋索引，如題名 (ti) 與著者索引 (au) 等。CCL 標準本身不指定限義詞的集合，但建議若干簡短的標記。使用者可以客製化 CCL 的剖析以支持特定的限義詞集合反應當前的目標群。習慣上，限義詞可能對映至 BIB-1 屬性集裡的特定使用者屬性。也可能設定其他的屬性，如結構屬性之類。</em></p>
+<p>部份 MARC 的欄位，已經被指定特定的用途。包括：</p>
+<ul class="simple">
+<li><p>祗有三位數的欄號 (如：100)，表示其所有的分欄均可被搜尋。因此，鍵入 ‘Jackson’ 做為著者搜尋，實際上傳回以 Jackson 為姓或名的款目。</p></li>
+<li><p>三位數的欄號跟著錢號 ‘$’ 以及字母(600$a)，表示祗搜尋該字母 ‘a’ 的分欄。</p></li>
+<li><p>三位數的欄號跟著冒號 ‘:’ 以及一個字母 (240:w)，表示可以篩選的搜尋。冒號後的字母表示搜尋的方式，最常見的有：’w’ (word)、’p’ (phrase)、’s’ (sort)、以及 ‘n’ (numeric)。</p></li>
+</ul>
+<p>出現在表單的 MARC 欄號、分欄與固定欄位內容都是被索引的。每個屬性列並未對應至特定的限義詞 (索引) - 美國國會圖書館控制號，第九列是其中一例。然而，每個被索引的字 (前後空白的字串)，可以經由鍵詞 (kw) 搜尋。所以，儘管美國國會圖書館控制號並未被索引，仍可搜尋美國國會圖書館控制號因為欄位 010 指定給美國國會圖書館控制號屬性。確認的方法是，於搜尋盒鍵入 72180055。就會找到 Isaac Asimov 寫的 Ther gods themselves 一書。</p>
+<p>在屬性 8822 與 8703內可看到索引的固定欄位細目內容。這些屬性係限制使用。目前的固定欄位屬性代表 BK 代碼。若有需要可定義其他的代碼格式。</p>
+</section>
+<section id="item-search">
+<span id="item-searching-label"></span><h3>館藏搜尋<a class="headerlink" href="#item-search" title="此标题的永久链接"></a></h3>
+<p>可用館員介面的館藏搜尋引擎尋找特定的館藏。</p>
+<ul class="simple">
+<li><p><em>到那裡：</em> 搜尋 &gt; 館藏搜尋</p></li>
+</ul>
+<p><img alt="image1447" src="_images/itemsearchinmenu.png" /></p>
+<p>可從館員介面的進階搜尋頁面上方的 ‘進入館藏搜尋’ 連結，執行它。</p>
+<p><img alt="image1313" src="_images/itemsearchlink.png" /></p>
+<p>這些連結都可以開啟特定的搜尋引擎。</p>
+<p><img alt="image1314" src="_images/itemsearch.png" /></p>
+<p>使用搜尋表單找到的指定館藏清單，可以顯示在螢幕、匯出為 CSV 格式檔案或匯出為條碼檔案。</p>
+<p>從管理模組的 <a class="reference internal" href="administration.html#item-search-fields-label"><span class="std std-ref">館藏搜尋欄位</span></a> 區塊，可以新增搜尋欄位至此表單。</p>
+<p>可以使用上方的篩選單縮小螢幕上的搜尋結果。</p>
+<p><img alt="image1315" src="_images/itemsearchresults.png" /></p>
+</section>
+<section id="common-command-language-searching">
+<span id="common-command-language-searching-label"></span><h3>通用指令語言搜尋<a class="headerlink" href="#common-command-language-searching" title="此标题的永久链接"></a></h3>
+<p>Koha 以通用指令語言 (Common Command Language, CCL, ISO 8777) 做為內部搜尋協定。以圖形介面開始搜尋，搜尋者並不知道可用及使用的索引、運算元與限制。搜尋者知道搜尋索引的位置後，雖然可以使用進階搜尋，以取得更精準的結果；但很多圖書館的使用者及館員仍習慣使用命令的基本結構。本節文件說明 Koha 命令的基本結構，索引、運算元與限制在圖形介面裡，當成同一件事。</p>
+<section id="indexes">
+<span id="indexes-label"></span><h4>索引<a class="headerlink" href="#indexes" title="此标题的永久链接"></a></h4>
+<p>CCL 標準本身並未指定特別的限義詞 (索引) 集合，祗建議若干簡短的標記，如：’ti’、’au’ 與 ‘su’ 等。Koha擁有自己的預設索引集合；使用者可以依據自身的需要新增必要的索引客製化它。限義詞 (索引) 以 Z39.50 Bib-1 屬性集對應至特定的使用-屬性。完整的 Z39.50 Bib-1 屬性參見 <a class="reference external" href="http://www.loc.gov/z3950/agency/defns/bib1.html">http://www.loc.gov/z3950/agency/defns/bib1.html</a>。</p>
+<p>標準的 Koha 索引集就是 MARC21 索引規則。Koha 定義的索引與其他圖書館自動化系統無異。Z39.50Bib-1 Attribute 對應的索引如下：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bib-1 屬性</p></th>
+<th class="head"><p>限義詞 (索引)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Personal-name</p></td>
+<td><p>pn</p></td>
+</tr>
+<tr class="row-odd"><td><p>Corporate-name</p></td>
+<td><p>cpn</p></td>
+</tr>
+<tr class="row-even"><td><p>Conference-name</p></td>
+<td><p>cfn</p></td>
+</tr>
+<tr class="row-odd"><td><p>題名</p></td>
+<td><p>ti</p></td>
+</tr>
+<tr class="row-even"><td><p>Title-series</p></td>
+<td><p>se</p></td>
+</tr>
+<tr class="row-odd"><td><p>Title-uniform</p></td>
+<td><p>ut</p></td>
+</tr>
+<tr class="row-even"><td><p>ISBN</p></td>
+<td><p>nb</p></td>
+</tr>
+<tr class="row-odd"><td><p>ISSN</p></td>
+<td><p>ns</p></td>
+</tr>
+<tr class="row-even"><td><p>本地編號</p></td>
+<td><p>sn</p></td>
+</tr>
+<tr class="row-odd"><td><p>Local-classification</p></td>
+<td><p>lcn and callnum</p></td>
+</tr>
+<tr class="row-even"><td><p>主題</p></td>
+<td><p>su, su-to, su-geo, su-ut</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pubdate</p></td>
+<td><p>yr,pubdate</p></td>
+</tr>
+<tr class="row-even"><td><p>Date-of-Acquisition</p></td>
+<td><p>acqdate</p></td>
+</tr>
+<tr class="row-odd"><td><p>語言</p></td>
+<td><p>ln</p></td>
+</tr>
+<tr class="row-even"><td><p>Place-of-publication</p></td>
+<td><p>pl</p></td>
+</tr>
+<tr class="row-odd"><td><p>Abstract</p></td>
+<td><p>ab</p></td>
+</tr>
+<tr class="row-even"><td><p>說明</p></td>
+<td><p>nt</p></td>
+</tr>
+<tr class="row-odd"><td><p>Record-type</p></td>
+<td><p>rtype, mc-rtype, mus</p></td>
+</tr>
+<tr class="row-even"><td><p>著者</p></td>
+<td><p>au, aut</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subject-person-name</p></td>
+<td><p>su-na</p></td>
+</tr>
+<tr class="row-even"><td><p>Any (keyword)</p></td>
+<td><p>kw</p></td>
+</tr>
+<tr class="row-odd"><td><p>出版者</p></td>
+<td><p>pb</p></td>
+</tr>
+<tr class="row-even"><td><p>Content-type</p></td>
+<td><p>ctype</p></td>
+</tr>
+<tr class="row-odd"><td><p>Koha-Auth-Number</p></td>
+<td><p>an</p></td>
+</tr>
+<tr class="row-even"><td><p>Author-personal-bibliography</p></td>
+<td><p>aub</p></td>
+</tr>
+<tr class="row-odd"><td><p>Author-in-order</p></td>
+<td><p>auo</p></td>
+</tr>
+</tbody>
+</table>
+<p>表單：屬性</p>
+<p>參照至 <span class="xref std std-ref">Koha 索引圖表 &lt;koha-search-indexes-label</span>&gt; 由 MARC21 欄號對映至每個 Bib-1 屬性與索引的組合。</p>
+<section id="audience-examples">
+<span id="audience-examples-label"></span><h5>讀者範例<a class="headerlink" href="#audience-examples" title="此标题的永久链接"></a></h5>
+<ul class="simple">
+<li><p>aud:a 幼兒園</p></li>
+<li><p>aud:b 小學</p></li>
+<li><p>aud:c 青少年前期</p></li>
+<li><p>aud:d 青少年</p></li>
+<li><p>aud:e 成年人</p></li>
+<li><p>aud:f 特別</p></li>
+<li><p>aud:g 一般</p></li>
+<li><p>aud:j 少年</p></li>
+</ul>
+</section>
+<section id="contents-examples">
+<span id="contents-examples-label"></span><h5>內容範例<a class="headerlink" href="#contents-examples" title="此标题的永久链接"></a></h5>
+<ul class="simple">
+<li><p>fic:1 小說</p></li>
+<li><p>fic:0 非小說</p></li>
+<li><p>bio:b 傳記</p></li>
+<li><p>mus:j 音樂錄音</p></li>
+<li><p>mus:I 非音樂記錄</p></li>
+</ul>
+</section>
+</section>
+<section id="search-syntax">
+<span id="search-syntax-label"></span><h4>搜尋語法<a class="headerlink" href="#search-syntax" title="此标题的永久链接"></a></h4>
+<p>搜尋時，單字搜尋產生大量資料。以字串搜尋，則有效的縮小搜尋結果。Koha 自動使用 ‘and’ 布林運算元取得精確的結果。使用布林運算元可縮小搜尋結果至指定的著者或題名或主題，沒有明確的方法可以達成此結果。當然，圖書館使用者可以使用進階搜尋頁面；若會使用通用指令語言指令，能更精準的找到資訊。</p>
+<p>CCL 搜尋語法有一定的順序。雖然也可用於基本搜尋，但更適用於 進階搜尋，全面控制搜尋的結果。首先鍵入索引代碼，然後是等號，再來是搜尋的詞彙，以下是幾個範例。</p>
+<ul class="simple">
+<li><p>ti=principles of accounting</p></li>
+<li><p>au=brown joseph</p></li>
+<li><p>su=poetry</p></li>
+<li><p>su-na=Shakespeare</p></li>
+<li><p>kw=marlin</p></li>
+</ul>
+<p>以布林邏輯的交集 ‘and’、聯集 ‘or’ 或差集 ‘not’ 運算元，組合若干搜尋詞彙，篩選搜尋的結果。以下是使用布林邏輯運算元範例。</p>
+<ul class="simple">
+<li><p>ti=principles of accounting and au=brown joseph</p></li>
+<li><p>su=poetry not su-na=Shakespeare</p></li>
+<li><p>kw=communication and su=debate</p></li>
+</ul>
+<p>可以選擇搜尋開頭的字元或若字串</p>
+<ul class="simple">
+<li><p>ti,first-in-subfield=C (will show you all titles that start with the
+letter ‘C’)</p></li>
+</ul>
+<p>以下的鍵詞可搜尋其他位置的內容：</p>
+<ul class="simple">
+<li><p>rtrn : 右方截切</p></li>
+<li><p>ltrn : 左方截切</p></li>
+<li><p>lrtrn : 左右切截</p></li>
+<li><p>st-date : 鍵入日期</p></li>
+<li><p>st-numeric : 鍵入數字 (整數)</p></li>
+<li><p>例如：正確搜尋整個分欄 (不包括 icu)</p></li>
+<li><p>phr : 搜尋分欄的任何地方</p></li>
+<li><p>startswithnt : 分欄的起始</p></li>
+</ul>
+<p>特定的索引與布林邏輯運算元，祗是達成進階搜尋的方法之一。還可以把搜尋詞彙定義為字串，直接搜尋題名、著者或主題。它的語法是 <em>index,phr=search words</em>。</p>
+<p>搜尋 ‘supreme court’ 的結果，做為說明各種搜尋類型之用。此結果說明搜尋索引與用字順序對搜尋結果有不同程度的影響。在此例中祗解釋搜尋結果數與搜尋本身。此搜尋內容以單引號納入。</p>
+<p><img alt="image1049" src="_images/ex1.png" /></p>
+<p><img alt="image1050" src="_images/ex2.png" /></p>
+<p><img alt="image1051" src="_images/ex3.png" /></p>
+<p><img alt="image1052" src="_images/ex4.png" /></p>
+<p><img alt="image1053" src="_images/ex5.png" /></p>
+<p><img alt="image1054" src="_images/ex6.png" /></p>
+<p><img alt="image1055" src="_images/ex7.png" /></p>
+<p><img alt="image1056" src="_images/ex8.png" /></p>
+<p><img alt="image1057" src="_images/ex9.png" /></p>
+<p>可以在搜尋裡使用限制詞。常用的限制詞包括日期、語文、記錄類型與館藏類型。在進階搜尋裡，您可按日期盒限制搜尋的範圍。同樣的限制也可以語法方式在以下的範例中納入 CCL。所有的</p>
+<p><em>按日期：su=supreme court and yr,st-numeric=&gt;2000</em></p>
+<p><img alt="image1058" src="_images/ex10.png" /></p>
+<p>以時間限制時，可以使用 ‘&amp;gt;’ (大於)、’&amp;lt;’ (小於)、’=’ (等於)、或 ‘yyyy-yyyy’ (範圍) 等符號。</p>
+<p><em>按館藏類型：su=nursing and itype:BK</em></p>
+<p><img alt="image1059" src="_images/ex11.png" /></p>
+<p>每個圖書館在流通組態裡設定的館藏類型不儘相同。設定時，每個館藏類型都有自己的代碼與名稱。其名稱將顯示在進階搜尋頁面。代碼則適用於 CCL 搜尋限制，以 ‘itype:x’ 型式出現，’x’ 即為代碼。Koha 預設的館藏類型祗供參考，應該編輯它以反應真實的館藏，所以您的館藏限制應不同於初始的設定。初始的館藏類型限制詞如下。</p>
+<ul class="simple">
+<li><p>itype:BKS 圖書、小冊子、練習簿</p></li>
+<li><p>itype:SR 音樂卡帶、音樂 CD</p></li>
+<li><p>itype:IR 圓圈裝</p></li>
+<li><p>itype:CF CD-ROMs、DVD-ROMs、一般線上資源</p></li>
+<li><p>itype:VR DVDs、VHS</p></li>
+<li><p>itype:KT 特殊教學資料</p></li>
+<li><p>itype:AR 模型</p></li>
+<li><p>itype:SER 連續性出版品</p></li>
+</ul>
+<p><em>按格式：su=supreme court not l-format:sr</em></p>
+<p><img alt="image1060" src="_images/ex12.png" /></p>
+<p>格式限制源自於 LDR、006 與 007 位置的內容。這些格式定義如下。</p>
+<ul class="simple">
+<li><p>l-format:ta 正常列印</p></li>
+<li><p>l-format:tb 大字本</p></li>
+<li><p>l-format:fk 點字</p></li>
+<li><p>l-format:sd 音樂光碟</p></li>
+<li><p>l-format:ss 卡式錄音</p></li>
+<li><p>l-format:vf VHS 錄影帶</p></li>
+<li><p>l-format:vd DVD 錄影</p></li>
+<li><p>l-format:co CD 軟體</p></li>
+<li><p>l-format:cr 網站</p></li>
+</ul>
+<p><em>按內容類型：su=supreme court not ctype:l</em></p>
+<p><img alt="image1061" src="_images/ex13.png" /></p>
+<p>內容類型取自 MARC 欄位 008 的位址 24-27。</p>
+<p>兩種限制類型不在本文件的範圍內。即讀者與內容。在 CCL 語法的不同祗在實際的限制詞。在此重置僅供您需要時使用。</p>
+</section>
+</section>
+</section>
+<section id="koha-search-indexes">
+<span id="koha-search-indexes-label"></span><h2>Koha 搜尋索引<a class="headerlink" href="#koha-search-indexes" title="此标题的永久链接"></a></h2>
+<section id="zebra">
+<h3>Zebra<a class="headerlink" href="#zebra" title="此标题的永久链接"></a></h3>
+<p>預設，Zebra 搜尋引擎並未索引全部欄位，祗索引大部份。以下是被 Zebra 索引的 MARC21 欄位。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>欄位</p></th>
+<th class="head"><p>說明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>記錄標示/06</p></td>
+<td><p>記錄類型，rtype</p></td>
+</tr>
+<tr class="row-odd"><td><p>記錄標示/07</p></td>
+<td><p>Bib-level</p></td>
+</tr>
+<tr class="row-even"><td><p>記錄標示/06-07</p></td>
+<td><p>Material-type</p></td>
+</tr>
+<tr class="row-odd"><td><p>001</p></td>
+<td><p>Control-number</p></td>
+</tr>
+<tr class="row-even"><td><p>005</p></td>
+<td><p>日期/時間-最後修正，dtlm，日期-時間-最後修正</p></td>
+</tr>
+<tr class="row-odd"><td><p>007</p></td>
+<td><p>Microform-generation:n:range(data,11,1), Material-type,ff7-00:w:range(data,0,1), ff7-01:w:range(data,1,1), ff7-02:w:range(data,2,1), ff7-01-02:w:range(data,0,2)</p></td>
+</tr>
+<tr class="row-even"><td><p>008</p></td>
+<td><p>date-entered-on-file:n:range(data,0,5), date-entered-on-file:s:range(data,0,5), pubdate:w:range(data,7,4), pubdate:n:range(data,7,4), pubdate:y:range(data,7,4), pubdate:s:range(data,7,4), pl:w:range(data,15,3), ta:w:range(data,22,1), ff8-23:w:range(data,23,1), ff8-29:w:range(data,29,1), lf:w:range(data,33,1), bio:w:range(data,34,1), ln:n:range(data,35,3), ctype:w:range(data,24,4), Record-source:w:range(data,39,0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>010</p></td>
+<td><p>LC-card-number, Identifier-standard</p></td>
+</tr>
+<tr class="row-even"><td><p>011</p></td>
+<td><p>LC-card-number, Identifier-standard</p></td>
+</tr>
+<tr class="row-odd"><td><p>015</p></td>
+<td><p>BNB-card-number, BGF-number, Number-db, Number-natl-biblio, Identifier-standard</p></td>
+</tr>
+<tr class="row-even"><td><p>017</p></td>
+<td><p>Number-legal-deposit, Identifier-standard</p></td>
+</tr>
+<tr class="row-odd"><td><p>018</p></td>
+<td><p>Identifier-standard</p></td>
+</tr>
+<tr class="row-even"><td><p>020$a</p></td>
+<td><p>ISBN:w, Identifier-standard:w</p></td>
+</tr>
+<tr class="row-odd"><td><p>020</p></td>
+<td><p>Identifier-standard</p></td>
+</tr>
+<tr class="row-even"><td><p>022$a</p></td>
+<td><p>ISSN:w, Identifier-standard:w</p></td>
+</tr>
+<tr class="row-odd"><td><p>022</p></td>
+<td><p>Identifier-standard</p></td>
+</tr>
+<tr class="row-even"><td><p>023</p></td>
+<td><p>Identifier-standard</p></td>
+</tr>
+<tr class="row-odd"><td><p>024$a</p></td>
+<td><p>Identifier-other</p></td>
+</tr>
+<tr class="row-even"><td><p>024</p></td>
+<td><p>Identifier-standard</p></td>
+</tr>
+<tr class="row-odd"><td><p>025</p></td>
+<td><p>Identifier-standard</p></td>
+</tr>
+<tr class="row-even"><td><p>027</p></td>
+<td><p>Report-number, Identifier-standard</p></td>
+</tr>
+<tr class="row-odd"><td><p>028</p></td>
+<td><p>Number-music-publisher, Identifier-standard</p></td>
+</tr>
+<tr class="row-even"><td><p>030</p></td>
+<td><p>CODEN, Identifier-standard</p></td>
+</tr>
+<tr class="row-odd"><td><p>034</p></td>
+<td><p>Map-scale</p></td>
+</tr>
+<tr class="row-even"><td><p>035</p></td>
+<td><p>Other-control-number</p></td>
+</tr>
+<tr class="row-odd"><td><p>037</p></td>
+<td><p>Identifier-standard, Stock-number</p></td>
+</tr>
+<tr class="row-even"><td><p>040</p></td>
+<td><p>Code-institution, Record-source</p></td>
+</tr>
+<tr class="row-odd"><td><p>041$a</p></td>
+<td><p>ln-audio</p></td>
+</tr>
+<tr class="row-even"><td><p>041$h</p></td>
+<td><p>原文</p></td>
+</tr>
+<tr class="row-odd"><td><p>041$j</p></td>
+<td><p>在副書名</p></td>
+</tr>
+<tr class="row-even"><td><p>041</p></td>
+<td><p>ln</p></td>
+</tr>
+<tr class="row-odd"><td><p>043</p></td>
+<td><p>Code-geographic</p></td>
+</tr>
+<tr class="row-even"><td><p>050$b</p></td>
+<td><p>LC-call-number:w, LC-call-number:p, LC-call-number:s</p></td>
+</tr>
+<tr class="row-odd"><td><p>050</p></td>
+<td><p>LC-call-number:w, LC-call-number:p, LC-call-number:s</p></td>
+</tr>
+<tr class="row-even"><td><p>052</p></td>
+<td><p>Geographic-class</p></td>
+</tr>
+<tr class="row-odd"><td><p>060</p></td>
+<td><p>NLM-call-number</p></td>
+</tr>
+<tr class="row-even"><td><p>070</p></td>
+<td><p>NAL-call-number</p></td>
+</tr>
+<tr class="row-odd"><td><p>080</p></td>
+<td><p>UDC-classification</p></td>
+</tr>
+<tr class="row-even"><td><p>082</p></td>
+<td><p>Dewey-classification:w, Dewey-classification:s</p></td>
+</tr>
+<tr class="row-odd"><td><p>086</p></td>
+<td><p>Number-govt-pub</p></td>
+</tr>
+<tr class="row-even"><td><p>100$9</p></td>
+<td><p>Cross-Reference:w, Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>100$a</p></td>
+<td><p>Author,Author:p, Author:s, Editor, Author-personal-bibliography, Author-personal-bibliography:p, Author-personal-bibliography:s</p></td>
+</tr>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>Author, Author-title, Author-name-personal, Name, Name-and-title, Personal-name</p></td>
+</tr>
+<tr class="row-odd"><td><p>110$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>110</p></td>
+<td><p>Author, Author-title, Author-name-corporate, Name, Name-and-title, Corporate-name</p></td>
+</tr>
+<tr class="row-odd"><td><p>111$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>111</p></td>
+<td><p>Author, Author-title, Author-name-corporate, Name, Name-and-title, Conference-name</p></td>
+</tr>
+<tr class="row-odd"><td><p>130$n</p></td>
+<td><p>Thematic-number</p></td>
+</tr>
+<tr class="row-even"><td><p>130$r</p></td>
+<td><p>Music-key</p></td>
+</tr>
+<tr class="row-odd"><td><p>130$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>130</p></td>
+<td><p>Title, Title-uniform</p></td>
+</tr>
+<tr class="row-odd"><td><p>210</p></td>
+<td><p>Title, Title-abbreviated</p></td>
+</tr>
+<tr class="row-even"><td><p>211</p></td>
+<td><p>Title, Title-abbreviated</p></td>
+</tr>
+<tr class="row-odd"><td><p>212</p></td>
+<td><p>Title, Title-other-variant</p></td>
+</tr>
+<tr class="row-even"><td><p>214</p></td>
+<td><p>Title, Title-expanded</p></td>
+</tr>
+<tr class="row-odd"><td><p>222</p></td>
+<td><p>Title, Title-key</p></td>
+</tr>
+<tr class="row-even"><td><p>240$r</p></td>
+<td><p>Music-key</p></td>
+</tr>
+<tr class="row-odd"><td><p>240$n</p></td>
+<td><p>Thematic-number</p></td>
+</tr>
+<tr class="row-even"><td><p>240</p></td>
+<td><p>Title:w, Title:p, Title-uniform</p></td>
+</tr>
+<tr class="row-odd"><td><p>243$n</p></td>
+<td><p>Thematic-number</p></td>
+</tr>
+<tr class="row-even"><td><p>243$r</p></td>
+<td><p>Music-key</p></td>
+</tr>
+<tr class="row-odd"><td><p>243</p></td>
+<td><p>Title:w, Title:p, Title-collective</p></td>
+</tr>
+<tr class="row-even"><td><p>245$a</p></td>
+<td><p>Title-cover:w, Title-cover:p, Title-cover:s, Title:w, Title:p, Title:s</p></td>
+</tr>
+<tr class="row-odd"><td><p>245$c</p></td>
+<td><p>Author, Author-in-order:w, Author-in-order:p, Author-in-order:s</p></td>
+</tr>
+<tr class="row-even"><td><p>245$9</p></td>
+<td><p>Cross-Reference:w, Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>245</p></td>
+<td><p>Title:w, Title:p</p></td>
+</tr>
+<tr class="row-even"><td><p>246</p></td>
+<td><p>Title, Title:p, Title-abbreviated, Title-expanded, Title-former</p></td>
+</tr>
+<tr class="row-odd"><td><p>247</p></td>
+<td><p>Title, Title:p, Title-former, Title-other-variant, Related-periodical</p></td>
+</tr>
+<tr class="row-even"><td><p>260$a</p></td>
+<td><p>pl:w, pl:p</p></td>
+</tr>
+<tr class="row-odd"><td><p>260$b</p></td>
+<td><p>Publisher:w, Publisher:p</p></td>
+</tr>
+<tr class="row-even"><td><p>260$c</p></td>
+<td><p>copydate, copydate:s</p></td>
+</tr>
+<tr class="row-odd"><td><p>260</p></td>
+<td><p>Provider, pl</p></td>
+</tr>
+<tr class="row-even"><td><p>264</p></td>
+<td><p>提供者</p></td>
+</tr>
+<tr class="row-odd"><td><p>300</p></td>
+<td><p>Extent:w, Extent:p</p></td>
+</tr>
+<tr class="row-even"><td><p>400$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-odd"><td><p>400$t</p></td>
+<td><p>Author-title, Name-and-title, Title, Title-series</p></td>
+</tr>
+<tr class="row-even"><td><p>400$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+<td><p>Author, Author-name-personal, Name, Personal-name</p></td>
+</tr>
+<tr class="row-even"><td><p>410</p></td>
+<td><p>Author, Corporate-name</p></td>
+</tr>
+<tr class="row-odd"><td><p>410$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-even"><td><p>410$t</p></td>
+<td><p>Author-title, Title, Title-series</p></td>
+</tr>
+<tr class="row-odd"><td><p>410$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>410</p></td>
+<td><p>Author-name-corporate, Name</p></td>
+</tr>
+<tr class="row-odd"><td><p>411</p></td>
+<td><p>Author, Conference-name</p></td>
+</tr>
+<tr class="row-even"><td><p>411$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-odd"><td><p>411$t</p></td>
+<td><p>Author-title, Title-series</p></td>
+</tr>
+<tr class="row-even"><td><p>411</p></td>
+<td><p>Author-name-corporate, Name</p></td>
+</tr>
+<tr class="row-odd"><td><p>440$a</p></td>
+<td><p>Title-series:w, Title-series:p</p></td>
+</tr>
+<tr class="row-even"><td><p>440$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>440</p></td>
+<td><p>Title-series:w, Title-series:p, Title, Title-series</p></td>
+</tr>
+<tr class="row-even"><td><p>490$a</p></td>
+<td><p>Title-series:w, Title-series:p</p></td>
+</tr>
+<tr class="row-odd"><td><p>490</p></td>
+<td><p>Title, Title-series</p></td>
+</tr>
+<tr class="row-even"><td><p>490$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p>Note:w, Note:p</p></td>
+</tr>
+<tr class="row-even"><td><p>502</p></td>
+<td><p>Material-type</p></td>
+</tr>
+<tr class="row-odd"><td><p>505$r</p></td>
+<td><p>著者</p></td>
+</tr>
+<tr class="row-even"><td><p>505$t</p></td>
+<td><p>題名</p></td>
+</tr>
+<tr class="row-odd"><td><p>505</p></td>
+<td><p>Note:w, Note:p</p></td>
+</tr>
+<tr class="row-even"><td><p>510</p></td>
+<td><p>Indexed-by</p></td>
+</tr>
+<tr class="row-odd"><td><p>520</p></td>
+<td><p>Abstract:w, Abstract:p</p></td>
+</tr>
+<tr class="row-even"><td><p>521$a</p></td>
+<td><p>lex:n</p></td>
+</tr>
+<tr class="row-odd"><td><p>526$c</p></td>
+<td><p>arl, arl:n</p></td>
+</tr>
+<tr class="row-even"><td><p>526$d</p></td>
+<td><p>arp, arp:n</p></td>
+</tr>
+<tr class="row-odd"><td><p>590</p></td>
+<td><p>Note:w, Note:p</p></td>
+</tr>
+<tr class="row-even"><td><p>600$a</p></td>
+<td><p>Name-and-title, Name, Personal-name, Subject-name-personal, Subject</p></td>
+</tr>
+<tr class="row-odd"><td><p>600$t</p></td>
+<td><p>Name-and-title, Title, Subject</p></td>
+</tr>
+<tr class="row-even"><td><p>600$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>600</p></td>
+<td><p>Name, Personal-name, Subject-name-personal, Subject</p></td>
+</tr>
+<tr class="row-even"><td><p>610$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-odd"><td><p>610$t</p></td>
+<td><p>Name-and-title, Title</p></td>
+</tr>
+<tr class="row-even"><td><p>610$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>610</p></td>
+<td><p>Name, Subject, Corporate-name</p></td>
+</tr>
+<tr class="row-even"><td><p>611</p></td>
+<td><p>Conference-name</p></td>
+</tr>
+<tr class="row-odd"><td><p>611$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-even"><td><p>611$t</p></td>
+<td><p>Name-and-title, Title</p></td>
+</tr>
+<tr class="row-odd"><td><p>611$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>611</p></td>
+<td><p>Name, Subject</p></td>
+</tr>
+<tr class="row-odd"><td><p>630$n</p></td>
+<td><p>Thematic-number</p></td>
+</tr>
+<tr class="row-even"><td><p>630$r</p></td>
+<td><p>Music-key</p></td>
+</tr>
+<tr class="row-odd"><td><p>630$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>630</p></td>
+<td><p>主題</p></td>
+</tr>
+<tr class="row-odd"><td><p>650$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>650</p></td>
+<td><p>Subject, Subject:p</p></td>
+</tr>
+<tr class="row-odd"><td><p>651$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>651</p></td>
+<td><p>Name-geographic, Subject,Subject:p</p></td>
+</tr>
+<tr class="row-odd"><td><p>652$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>653$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>653</p></td>
+<td><p>Subject, Subject:p</p></td>
+</tr>
+<tr class="row-even"><td><p>654$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>654</p></td>
+<td><p>主題</p></td>
+</tr>
+<tr class="row-even"><td><p>655$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>655</p></td>
+<td><p>主題</p></td>
+</tr>
+<tr class="row-even"><td><p>656$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>656</p></td>
+<td><p>主題</p></td>
+</tr>
+<tr class="row-even"><td><p>657$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>657</p></td>
+<td><p>主題</p></td>
+</tr>
+<tr class="row-even"><td><p>690$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>690</p></td>
+<td><p>Subject, Subject:p</p></td>
+</tr>
+<tr class="row-even"><td><p>700$9</p></td>
+<td><p>Cross-Reference, Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>700$a</p></td>
+<td><p>Author, Author:p</p></td>
+</tr>
+<tr class="row-even"><td><p>700$n</p></td>
+<td><p>Thematic-number</p></td>
+</tr>
+<tr class="row-odd"><td><p>700$r</p></td>
+<td><p>Music-key</p></td>
+</tr>
+<tr class="row-even"><td><p>700$t</p></td>
+<td><p>Author-title, Name-and-title, Title, Title-uniform</p></td>
+</tr>
+<tr class="row-odd"><td><p>700</p></td>
+<td><p>Author, Author-name-corporate, Author-name-personal, Name, Editor, Personal-name</p></td>
+</tr>
+<tr class="row-even"><td><p>710</p></td>
+<td><p>Author, Corporate-name</p></td>
+</tr>
+<tr class="row-odd"><td><p>710$t</p></td>
+<td><p>Author-title, Name-and-title, Title, Title-uniform</p></td>
+</tr>
+<tr class="row-even"><td><p>710$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-odd"><td><p>710$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>710</p></td>
+<td><p>Author, Name</p></td>
+</tr>
+<tr class="row-odd"><td><p>711$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-even"><td><p>711$t</p></td>
+<td><p>Author-title, Title, Title-uniform</p></td>
+</tr>
+<tr class="row-odd"><td><p>711$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>711</p></td>
+<td><p>Author-name-corporate, Name, Conference-name</p></td>
+</tr>
+<tr class="row-odd"><td><p>730$n</p></td>
+<td><p>Thematic-number</p></td>
+</tr>
+<tr class="row-even"><td><p>730$r</p></td>
+<td><p>Music-key</p></td>
+</tr>
+<tr class="row-odd"><td><p>730$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>730</p></td>
+<td><p>Title, Title-uniform</p></td>
+</tr>
+<tr class="row-odd"><td><p>740</p></td>
+<td><p>Title, Title-other-variant</p></td>
+</tr>
+<tr class="row-even"><td><p>773$t</p></td>
+<td><p>Host-item</p></td>
+</tr>
+<tr class="row-odd"><td><p>780$t</p></td>
+<td><p>題名</p></td>
+</tr>
+<tr class="row-even"><td><p>780$w</p></td>
+<td><p>記錄控制號</p></td>
+</tr>
+<tr class="row-odd"><td><p>780</p></td>
+<td><p>Title, Title-former, Related-periodical</p></td>
+</tr>
+<tr class="row-even"><td><p>785$w</p></td>
+<td><p>記錄控制號</p></td>
+</tr>
+<tr class="row-odd"><td><p>785</p></td>
+<td><p>Related-periodical</p></td>
+</tr>
+<tr class="row-even"><td><p>787$w</p></td>
+<td><p>記錄控制號</p></td>
+</tr>
+<tr class="row-odd"><td><p>800$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-even"><td><p>800$t</p></td>
+<td><p>Author-title, Name-and-title, Title, Title-series</p></td>
+</tr>
+<tr class="row-odd"><td><p>800$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>800</p></td>
+<td><p>Author, Author-name-personal, Name, Personal-name</p></td>
+</tr>
+<tr class="row-odd"><td><p>810$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-even"><td><p>810$t</p></td>
+<td><p>Author-title, Name-and-title, Title, Title-series</p></td>
+</tr>
+<tr class="row-odd"><td><p>810$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>810</p></td>
+<td><p>Author, Corporate-name, Author-name-corporate, Name</p></td>
+</tr>
+<tr class="row-odd"><td><p>811$a</p></td>
+<td><p>Name-and-title</p></td>
+</tr>
+<tr class="row-even"><td><p>811$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>811$t</p></td>
+<td><p>Author-title, Name-and-title, Title, Title-series</p></td>
+</tr>
+<tr class="row-even"><td><p>811</p></td>
+<td><p>Author, Author-name-corporate, Name, Conference-name</p></td>
+</tr>
+<tr class="row-odd"><td><p>830$9</p></td>
+<td><p>Koha-Auth-Number</p></td>
+</tr>
+<tr class="row-even"><td><p>830</p></td>
+<td><p>Title, Title-series</p></td>
+</tr>
+<tr class="row-odd"><td><p>840</p></td>
+<td><p>Title, Title-series</p></td>
+</tr>
+<tr class="row-even"><td><p>942$0</p></td>
+<td><p>totalissues:n, totalissues:s</p></td>
+</tr>
+<tr class="row-odd"><td><p>942$2</p></td>
+<td><p>cn-bib-source</p></td>
+</tr>
+<tr class="row-even"><td><p>942$6</p></td>
+<td><p>cn-bib-sort:n, cn-bib-sort:s</p></td>
+</tr>
+<tr class="row-odd"><td><p>942$c</p></td>
+<td><p>itemtype:w</p></td>
+</tr>
+<tr class="row-even"><td><p>942$n</p></td>
+<td><p>Suppress:w, Suppress:n</p></td>
+</tr>
+<tr class="row-odd"><td><p>942$h</p></td>
+<td><p>cn-class</p></td>
+</tr>
+<tr class="row-even"><td><p>942$i</p></td>
+<td><p>cn-item</p></td>
+</tr>
+<tr class="row-odd"><td><p>942$k</p></td>
+<td><p>cn-prefix</p></td>
+</tr>
+<tr class="row-even"><td><p>942$m</p></td>
+<td><p>cn-suffix</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$0</p></td>
+<td><p>withdrawn:n, withdrawn:w</p></td>
+</tr>
+<tr class="row-even"><td><p>952$1</p></td>
+<td><p>lost, lost:n</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$2</p></td>
+<td><p>classification-source</p></td>
+</tr>
+<tr class="row-even"><td><p>952$3</p></td>
+<td><p>materials-specified</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$4</p></td>
+<td><p>damaged:n, damaged:w</p></td>
+</tr>
+<tr class="row-even"><td><p>952$5</p></td>
+<td><p>restricted:n, restricted:w</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$6</p></td>
+<td><p>cn-sort:n, cn-sort:s</p></td>
+</tr>
+<tr class="row-even"><td><p>952$7</p></td>
+<td><p>notforloan:n, notforloan:w</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$8</p></td>
+<td><p>ccode</p></td>
+</tr>
+<tr class="row-even"><td><p>952$9</p></td>
+<td><p>itemnumber:n, itemnumber:s</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$a</p></td>
+<td><p>homebranch</p></td>
+</tr>
+<tr class="row-even"><td><p>952$b</p></td>
+<td><p>holdingbranch</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$c</p></td>
+<td><p>位置</p></td>
+</tr>
+<tr class="row-even"><td><p>952$d</p></td>
+<td><p>Date-of-acquisition, Date-of-acquisition:d, Date-of-acquisition:s</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$e</p></td>
+<td><p>acqsource</p></td>
+</tr>
+<tr class="row-even"><td><p>952$f</p></td>
+<td><p>coded-location-qualifier</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$g</p></td>
+<td><p>price</p></td>
+</tr>
+<tr class="row-even"><td><p>952$j</p></td>
+<td><p>stack:n, stack:w</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$l</p></td>
+<td><p>issues:n, issues:w, issues:s</p></td>
+</tr>
+<tr class="row-even"><td><p>952$m</p></td>
+<td><p>renewals:n, renewals:w</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$n</p></td>
+<td><p>reserves:n, reserves:w</p></td>
+</tr>
+<tr class="row-even"><td><p>952$o</p></td>
+<td><p>Local-classification:w, Local-classification:p, Local-classification:s</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$p</p></td>
+<td><p>barcode, barcode:n</p></td>
+</tr>
+<tr class="row-even"><td><p>952$q</p></td>
+<td><p>onloan:n, onloan:w</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$r</p></td>
+<td><p>datelastseen</p></td>
+</tr>
+<tr class="row-even"><td><p>952$s</p></td>
+<td><p>datelastborrowed</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$t</p></td>
+<td><p>copynumber</p></td>
+</tr>
+<tr class="row-even"><td><p>952$u</p></td>
+<td><p>uri:u</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$v</p></td>
+<td><p>replacementprice</p></td>
+</tr>
+<tr class="row-even"><td><p>952$w</p></td>
+<td><p>replacementpricedate</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$y</p></td>
+<td><p>itype:w</p></td>
+</tr>
+<tr class="row-even"><td><p>952$z</p></td>
+<td><p>Note:w, Note:p</p></td>
+</tr>
+<tr class="row-odd"><td><p>999$c</p></td>
+<td><p>Local-Number:n, Local-Number:w, Local-Number:s</p></td>
+</tr>
+<tr class="row-even"><td><p>999$d</p></td>
+<td><p>biblioitemnumber:n, biblioitemnumber:w, biblioitemnumber:s</p></td>
+</tr>
+</tbody>
+</table>
+<p>表單：索引</p>
+</section>
+<section id="elasticsearch-indexes">
+<span id="elasticsearch-indexes-label"></span><h3>Elasticsearch索引<a class="headerlink" href="#elasticsearch-indexes" title="此标题的永久链接"></a></h3>
+<p>彈性搜尋的索引可在映射.yaml檔案中獲得，該檔案位於 :: 管理員/搜尋引擎/彈性搜尋。</p>
+<p>它們被複製到這裡以便於參考。</p>
+<section id="bibliographic-record-indexes">
+<span id="elasticsearch-bibliographic-indexes-label"></span><h4>書目紀錄索引<a class="headerlink" href="#bibliographic-record-indexes" title="此标题的永久链接"></a></h4>
+<section id="marc21-bibliographic-indexes">
+<span id="elasticsearch-bibliographic-marc21-indexes-label"></span><h5>MARC21 書目索引<a class="headerlink" href="#marc21-bibliographic-indexes" title="此标题的永久链接"></a></h5>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>索引名稱</p></th>
+<th class="head"><p>MARC 欄位</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>摘要</p></td>
+<td><p>520</p></td>
+</tr>
+<tr class="row-odd"><td><p>acqsource</p></td>
+<td><p>952$e</p></td>
+</tr>
+<tr class="row-even"><td><p>arl</p></td>
+<td><p>526$c</p></td>
+</tr>
+<tr class="row-odd"><td><p>arp</p></td>
+<td><p>526$d</p></td>
+</tr>
+<tr class="row-even"><td rowspan="5"><p>作者</p></td>
+<td><p>100$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>110$a</p></td>
+</tr>
+<tr class="row-even"><td><p>111$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>245$c</p></td>
+</tr>
+<tr class="row-even"><td><p>700$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>按順序作者</p></td>
+<td><p>245$c</p></td>
+</tr>
+<tr class="row-even"><td rowspan="5"><p>作者-姓名-公司</p></td>
+<td><p>110</p></td>
+</tr>
+<tr class="row-odd"><td><p>111</p></td>
+</tr>
+<tr class="row-even"><td><p>711</p></td>
+</tr>
+<tr class="row-odd"><td><p>810</p></td>
+</tr>
+<tr class="row-even"><td><p>811</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>作者-姓名-個人</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+</tr>
+<tr class="row-odd"><td><p>700</p></td>
+</tr>
+<tr class="row-even"><td><p>800</p></td>
+</tr>
+<tr class="row-odd"><td><p>作者-個人-書目</p></td>
+<td><p>100$a</p></td>
+</tr>
+<tr class="row-even"><td rowspan="12"><p>作者-題名</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>110</p></td>
+</tr>
+<tr class="row-even"><td><p>111</p></td>
+</tr>
+<tr class="row-odd"><td><p>400$t</p></td>
+</tr>
+<tr class="row-even"><td><p>410$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>411$t</p></td>
+</tr>
+<tr class="row-even"><td><p>700$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>710$t</p></td>
+</tr>
+<tr class="row-even"><td><p>711$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>800$t</p></td>
+</tr>
+<tr class="row-even"><td><p>810$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>811$t</p></td>
+</tr>
+<tr class="row-even"><td><p>條碼</p></td>
+<td><p>952$p</p></td>
+</tr>
+<tr class="row-odd"><td><p>bgf-編號</p></td>
+<td><p>015</p></td>
+</tr>
+<tr class="row-even"><td><p>bib-level</p></td>
+<td><p>leader/7</p></td>
+</tr>
+<tr class="row-odd"><td><p>書目編號</p></td>
+<td><p>999$d</p></td>
+</tr>
+<tr class="row-even"><td><p>書目</p></td>
+<td><p>008/34</p></td>
+</tr>
+<tr class="row-odd"><td><p>bnb-card-number</p></td>
+<td><p>015</p></td>
+</tr>
+<tr class="row-even"><td><p>ccode</p></td>
+<td><p>952$8</p></td>
+</tr>
+<tr class="row-odd"><td><p>classification-source</p></td>
+<td><p>952$2</p></td>
+</tr>
+<tr class="row-even"><td><p>cn-bib-sort</p></td>
+<td><p>942$6</p></td>
+</tr>
+<tr class="row-odd"><td><p>cn-bib-source</p></td>
+<td><p>942$2</p></td>
+</tr>
+<tr class="row-even"><td><p>cn-class</p></td>
+<td><p>942$h</p></td>
+</tr>
+<tr class="row-odd"><td><p>cn-item</p></td>
+<td><p>942$i</p></td>
+</tr>
+<tr class="row-even"><td><p>cn-prefix</p></td>
+<td><p>942$k</p></td>
+</tr>
+<tr class="row-odd"><td><p>cn-sort</p></td>
+<td><p>952$6</p></td>
+</tr>
+<tr class="row-even"><td><p>cn-suffix</p></td>
+<td><p>942$m</p></td>
+</tr>
+<tr class="row-odd"><td><p>代碼-地理</p></td>
+<td><p>043</p></td>
+</tr>
+<tr class="row-even"><td><p>code-institution</p></td>
+<td><p>040</p></td>
+</tr>
+<tr class="row-odd"><td><p>coded-location-qualifier</p></td>
+<td><p>952$f</p></td>
+</tr>
+<tr class="row-even"><td><p>coden</p></td>
+<td><p>030</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>會議-名稱</p></td>
+<td><p>111</p></td>
+</tr>
+<tr class="row-even"><td><p>411</p></td>
+</tr>
+<tr class="row-odd"><td><p>611</p></td>
+</tr>
+<tr class="row-even"><td><p>711</p></td>
+</tr>
+<tr class="row-odd"><td><p>811</p></td>
+</tr>
+<tr class="row-even"><td><p>control-number</p></td>
+<td><p>001</p></td>
+</tr>
+<tr class="row-odd"><td><p>copydate</p></td>
+<td><p>260$c</p></td>
+</tr>
+<tr class="row-even"><td><p>copynumber</p></td>
+<td><p>952$t</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>公司-名稱</p></td>
+<td><p>110</p></td>
+</tr>
+<tr class="row-even"><td><p>410</p></td>
+</tr>
+<tr class="row-odd"><td><p>610</p></td>
+</tr>
+<tr class="row-even"><td><p>710</p></td>
+</tr>
+<tr class="row-odd"><td><p>810</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>cross-reference</p></td>
+<td><p>100$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>245$9</p></td>
+</tr>
+<tr class="row-even"><td><p>700$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>ctype</p></td>
+<td><p>008/24-27</p></td>
+</tr>
+<tr class="row-even"><td><p>課程</p></td>
+<td><p>658$a $b $c</p></td>
+</tr>
+<tr class="row-odd"><td><p>damaged</p></td>
+<td><p>952$4</p></td>
+</tr>
+<tr class="row-even"><td><p>date-entered-on-file</p></td>
+<td><p>008/00-05</p></td>
+</tr>
+<tr class="row-odd"><td><p>採訪日期</p></td>
+<td><p>952$d</p></td>
+</tr>
+<tr class="row-even"><td><p>出版日期</p></td>
+<td><p>008/07-10</p></td>
+</tr>
+<tr class="row-odd"><td><p>date-time-last-modified</p></td>
+<td><p>005</p></td>
+</tr>
+<tr class="row-even"><td><p>datelastborrowed</p></td>
+<td><p>952$s</p></td>
+</tr>
+<tr class="row-odd"><td><p>datelastseen</p></td>
+<td><p>952$r</p></td>
+</tr>
+<tr class="row-even"><td><p>dewey-classification</p></td>
+<td><p>082</p></td>
+</tr>
+<tr class="row-odd"><td><p>dissertation-information</p></td>
+<td><p>502</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>editor</p></td>
+<td><p>100$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>700</p></td>
+</tr>
+<tr class="row-even"><td><p>extent</p></td>
+<td><p>300</p></td>
+</tr>
+<tr class="row-odd"><td><p>ff7-00</p></td>
+<td><p>007/00</p></td>
+</tr>
+<tr class="row-even"><td><p>ff7-01</p></td>
+<td><p>007/01</p></td>
+</tr>
+<tr class="row-odd"><td><p>ff7-01-02</p></td>
+<td><p>007/00-01</p></td>
+</tr>
+<tr class="row-even"><td><p>ff7-02</p></td>
+<td><p>007/02</p></td>
+</tr>
+<tr class="row-odd"><td><p>ff8-23</p></td>
+<td><p>008/23</p></td>
+</tr>
+<tr class="row-even"><td><p>ff8-29</p></td>
+<td><p>008/29</p></td>
+</tr>
+<tr class="row-odd"><td><p>geographic-class</p></td>
+<td><p>052</p></td>
+</tr>
+<tr class="row-even"><td><p>holdingbranch</p></td>
+<td><p>952$b</p></td>
+</tr>
+<tr class="row-odd"><td><p>homebranch</p></td>
+<td><p>952$a</p></td>
+</tr>
+<tr class="row-even"><td><p>host-item</p></td>
+<td><p>773$a $t</p></td>
+</tr>
+<tr class="row-odd"><td><p>host-item-number</p></td>
+<td><p>773$9</p></td>
+</tr>
+<tr class="row-even"><td><p>identifier-other</p></td>
+<td><p>024$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>identifier-publisher-for-music</p></td>
+<td><p>028</p></td>
+</tr>
+<tr class="row-even"><td rowspan="7"><p>識別碼-標準</p></td>
+<td><p>010</p></td>
+</tr>
+<tr class="row-odd"><td><p>011</p></td>
+</tr>
+<tr class="row-even"><td><p>015</p></td>
+</tr>
+<tr class="row-odd"><td><p>017</p></td>
+</tr>
+<tr class="row-even"><td><p>018</p></td>
+</tr>
+<tr class="row-odd"><td><p>020$a</p></td>
+</tr>
+<tr class="row-even"><td><p>022$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>index-term-genre</p></td>
+<td><p>655$a</p></td>
+</tr>
+<tr class="row-even"><td><p>index-term-uncontrolled</p></td>
+<td><p>653$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>indexed-by</p></td>
+<td><p>510</p></td>
+</tr>
+<tr class="row-even"><td><p>interest-age-level</p></td>
+<td><p>521$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>interest-grade-level</p></td>
+<td><p>521$a</p></td>
+</tr>
+<tr class="row-even"><td><p>國際標準書號</p></td>
+<td><p>020$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>國際標準期刊編號</p></td>
+<td><p>022$a</p></td>
+</tr>
+<tr class="row-even"><td><p>issues</p></td>
+<td><p>952$l</p></td>
+</tr>
+<tr class="row-odd"><td><p>itemnumber</p></td>
+<td><p>952$9</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>itemtype</p></td>
+<td><p>942$c</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$y</p></td>
+</tr>
+<tr class="row-even"><td rowspan="47"><p>koha-auth-number</p></td>
+<td><p>100$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>110$9</p></td>
+</tr>
+<tr class="row-even"><td><p>111$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>130$9</p></td>
+</tr>
+<tr class="row-even"><td><p>245$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>400$9</p></td>
+</tr>
+<tr class="row-even"><td><p>410$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>440$9</p></td>
+</tr>
+<tr class="row-even"><td><p>490$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>600$9</p></td>
+</tr>
+<tr class="row-even"><td><p>610$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>611$9</p></td>
+</tr>
+<tr class="row-even"><td><p>630$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>648$9</p></td>
+</tr>
+<tr class="row-even"><td><p>650$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>651$9</p></td>
+</tr>
+<tr class="row-even"><td><p>652$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>653$9</p></td>
+</tr>
+<tr class="row-even"><td><p>654$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>655$9</p></td>
+</tr>
+<tr class="row-even"><td><p>656$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>657$9</p></td>
+</tr>
+<tr class="row-even"><td><p>662$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>690$9</p></td>
+</tr>
+<tr class="row-even"><td><p>691$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>696$9</p></td>
+</tr>
+<tr class="row-even"><td><p>697$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>698$9</p></td>
+</tr>
+<tr class="row-even"><td><p>699$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>700$9</p></td>
+</tr>
+<tr class="row-even"><td><p>710$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>711$9</p></td>
+</tr>
+<tr class="row-even"><td><p>730$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>751$9</p></td>
+</tr>
+<tr class="row-even"><td><p>796$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>797$9</p></td>
+</tr>
+<tr class="row-even"><td><p>797$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>798$9</p></td>
+</tr>
+<tr class="row-even"><td><p>799$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>800$9</p></td>
+</tr>
+<tr class="row-even"><td><p>810$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>811$9</p></td>
+</tr>
+<tr class="row-even"><td><p>830$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>896$9</p></td>
+</tr>
+<tr class="row-even"><td><p>897$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>898$9</p></td>
+</tr>
+<tr class="row-even"><td><p>899$9</p></td>
+</tr>
+<tr class="row-odd"><td><p>原文</p></td>
+<td><p>041$h</p></td>
+</tr>
+<tr class="row-even"><td><p>lc-call-number</p></td>
+<td><p>050$b</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>lc-card-number</p></td>
+<td><p>010</p></td>
+</tr>
+<tr class="row-even"><td><p>011</p></td>
+</tr>
+<tr class="row-odd"><td><p>lexile-number</p></td>
+<td><p>521$a</p></td>
+</tr>
+<tr class="row-even"><td><p>lf</p></td>
+<td><p>008/33</p></td>
+</tr>
+<tr class="row-odd"><td><p>llength</p></td>
+<td><p>leader/00-04</p></td>
+</tr>
+<tr class="row-even"><td><p>ln</p></td>
+<td><p>008/35-37</p></td>
+</tr>
+<tr class="row-odd"><td><p>ln-audio</p></td>
+<td><p>041$a</p></td>
+</tr>
+<tr class="row-even"><td><p>在副書名</p></td>
+<td><p>041$j</p></td>
+</tr>
+<tr class="row-odd"><td><p>本地-分類</p></td>
+<td><p>952$o</p></td>
+</tr>
+<tr class="row-even"><td><p>local-number</p></td>
+<td><p>999$c</p></td>
+</tr>
+<tr class="row-odd"><td><p>位置</p></td>
+<td><p>952$c</p></td>
+</tr>
+<tr class="row-even"><td><p>lost</p></td>
+<td><p>952$1</p></td>
+</tr>
+<tr class="row-odd"><td><p>map-scale</p></td>
+<td><p>034</p></td>
+</tr>
+<tr class="row-even"><td><p>material-type</p></td>
+<td><p>007</p></td>
+</tr>
+<tr class="row-odd"><td><p>materials-specified</p></td>
+<td><p>952$3</p></td>
+</tr>
+<tr class="row-even"><td><p>microform-generation</p></td>
+<td><p>007/11</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="6"><p>music-key</p></td>
+<td><p>130$r</p></td>
+</tr>
+<tr class="row-even"><td><p>240$r</p></td>
+</tr>
+<tr class="row-odd"><td><p>243$r</p></td>
+</tr>
+<tr class="row-even"><td><p>630$r</p></td>
+</tr>
+<tr class="row-odd"><td><p>700$r</p></td>
+</tr>
+<tr class="row-even"><td><p>730$r</p></td>
+</tr>
+<tr class="row-odd"><td><p>nal-call-number</p></td>
+<td><p>070</p></td>
+</tr>
+<tr class="row-even"><td rowspan="13"><p>name</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>110</p></td>
+</tr>
+<tr class="row-even"><td><p>111</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+</tr>
+<tr class="row-even"><td><p>600$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>610</p></td>
+</tr>
+<tr class="row-even"><td><p>611</p></td>
+</tr>
+<tr class="row-odd"><td><p>700</p></td>
+</tr>
+<tr class="row-even"><td><p>710</p></td>
+</tr>
+<tr class="row-odd"><td><p>711</p></td>
+</tr>
+<tr class="row-even"><td><p>800</p></td>
+</tr>
+<tr class="row-odd"><td><p>810</p></td>
+</tr>
+<tr class="row-even"><td><p>811</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="15"><p>name-and-title</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-even"><td><p>110</p></td>
+</tr>
+<tr class="row-odd"><td><p>111</p></td>
+</tr>
+<tr class="row-even"><td><p>400$a $t</p></td>
+</tr>
+<tr class="row-odd"><td><p>410$a</p></td>
+</tr>
+<tr class="row-even"><td><p>411$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>600$a $t</p></td>
+</tr>
+<tr class="row-even"><td><p>610$a $t</p></td>
+</tr>
+<tr class="row-odd"><td><p>611$a $t</p></td>
+</tr>
+<tr class="row-even"><td><p>700$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>710$a $t</p></td>
+</tr>
+<tr class="row-even"><td><p>711$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>800$a $t</p></td>
+</tr>
+<tr class="row-even"><td><p>810$a $t</p></td>
+</tr>
+<tr class="row-odd"><td><p>811$a $t</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>name-geographic</p></td>
+<td><p>651</p></td>
+</tr>
+<tr class="row-odd"><td><p>751$a</p></td>
+</tr>
+<tr class="row-even"><td><p>nlm-call-number</p></td>
+<td><p>060</p></td>
+</tr>
+<tr class="row-odd"><td><p>not-onloan-count</p></td>
+<td><p>999$x</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>說明</p></td>
+<td><p>500</p></td>
+</tr>
+<tr class="row-odd"><td><p>505</p></td>
+</tr>
+<tr class="row-even"><td><p>590</p></td>
+</tr>
+<tr class="row-odd"><td><p>952$z</p></td>
+</tr>
+<tr class="row-even"><td><p>notforloan</p></td>
+<td><p>952$7</p></td>
+</tr>
+<tr class="row-odd"><td><p>number-db</p></td>
+<td><p>015</p></td>
+</tr>
+<tr class="row-even"><td><p>number-govt-pub</p></td>
+<td><p>086</p></td>
+</tr>
+<tr class="row-odd"><td><p>number-legal-deposit</p></td>
+<td><p>017</p></td>
+</tr>
+<tr class="row-even"><td><p>number-local-acquisition</p></td>
+<td><p>952$i</p></td>
+</tr>
+<tr class="row-odd"><td><p>number-natl-biblio</p></td>
+<td><p>015</p></td>
+</tr>
+<tr class="row-even"><td><p>外借中</p></td>
+<td><p>952$q</p></td>
+</tr>
+<tr class="row-odd"><td><p>other-control-number</p></td>
+<td><p>035</p></td>
+</tr>
+<tr class="row-even"><td rowspan="5"><p>個人-姓名</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>400</p></td>
+</tr>
+<tr class="row-even"><td><p>600$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>700</p></td>
+</tr>
+<tr class="row-even"><td><p>800</p></td>
+</tr>
+<tr class="row-odd"><td><p>pl</p></td>
+<td><p>008/15-17</p></td>
+</tr>
+<tr class="row-even"><td><p>price</p></td>
+<td><p>952$g</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>provider</p></td>
+<td><p>260</p></td>
+</tr>
+<tr class="row-even"><td><p>264</p></td>
+</tr>
+<tr class="row-odd"><td><p>出版商</p></td>
+<td><p>260$b</p></td>
+</tr>
+<tr class="row-even"><td><p>reading-grade-level</p></td>
+<td><p>521$a</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="14"><p>record-control-number</p></td>
+<td><p>770$w</p></td>
+</tr>
+<tr class="row-even"><td><p>772$w</p></td>
+</tr>
+<tr class="row-odd"><td><p>773$w</p></td>
+</tr>
+<tr class="row-even"><td><p>774$w</p></td>
+</tr>
+<tr class="row-odd"><td><p>775$w</p></td>
+</tr>
+<tr class="row-even"><td><p>776$w</p></td>
+</tr>
+<tr class="row-odd"><td><p>777$w</p></td>
+</tr>
+<tr class="row-even"><td><p>780$w</p></td>
+</tr>
+<tr class="row-odd"><td><p>785$w</p></td>
+</tr>
+<tr class="row-even"><td><p>787$w</p></td>
+</tr>
+<tr class="row-odd"><td><p>800$w</p></td>
+</tr>
+<tr class="row-even"><td><p>810$w</p></td>
+</tr>
+<tr class="row-odd"><td><p>811$w</p></td>
+</tr>
+<tr class="row-even"><td><p>830$w</p></td>
+</tr>
+<tr class="row-odd"><td><p>record-source</p></td>
+<td><p>008/39</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>related-periodical</p></td>
+<td><p>247</p></td>
+</tr>
+<tr class="row-odd"><td><p>780</p></td>
+</tr>
+<tr class="row-even"><td><p>785</p></td>
+</tr>
+<tr class="row-odd"><td><p>renewals</p></td>
+<td><p>952$m</p></td>
+</tr>
+<tr class="row-even"><td><p>replacementprice</p></td>
+<td><p>952$v</p></td>
+</tr>
+<tr class="row-odd"><td><p>replacementpricedate</p></td>
+<td><p>952$w</p></td>
+</tr>
+<tr class="row-even"><td><p>report-number</p></td>
+<td><p>027</p></td>
+</tr>
+<tr class="row-odd"><td><p>reserves</p></td>
+<td><p>952$n</p></td>
+</tr>
+<tr class="row-even"><td><p>restricted</p></td>
+<td><p>952$5</p></td>
+</tr>
+<tr class="row-odd"><td><p>rtype</p></td>
+<td><p>leader/06</p></td>
+</tr>
+<tr class="row-even"><td><p>stack</p></td>
+<td><p>952$j</p></td>
+</tr>
+<tr class="row-odd"><td><p>stock-number</p></td>
+<td><p>037</p></td>
+</tr>
+<tr class="row-even"><td><p>su-geo</p></td>
+<td><p>651$a</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="16"><p>主題</p></td>
+<td><p>600$a</p></td>
+</tr>
+<tr class="row-even"><td><p>600$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>610$a</p></td>
+</tr>
+<tr class="row-even"><td><p>611</p></td>
+</tr>
+<tr class="row-odd"><td><p>630$n</p></td>
+</tr>
+<tr class="row-even"><td><p>630$r</p></td>
+</tr>
+<tr class="row-odd"><td><p>650$a</p></td>
+</tr>
+<tr class="row-even"><td><p>650$b</p></td>
+</tr>
+<tr class="row-odd"><td><p>650$c</p></td>
+</tr>
+<tr class="row-even"><td><p>650$d</p></td>
+</tr>
+<tr class="row-odd"><td><p>650$v</p></td>
+</tr>
+<tr class="row-even"><td><p>650$x</p></td>
+</tr>
+<tr class="row-odd"><td><p>650$y</p></td>
+</tr>
+<tr class="row-even"><td><p>650$z</p></td>
+</tr>
+<tr class="row-odd"><td><p>651</p></td>
+</tr>
+<tr class="row-even"><td><p>653$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>subject-name-personal</p></td>
+<td><p>600$a</p></td>
+</tr>
+<tr class="row-even"><td><p>suppress</p></td>
+<td><p>942$n</p></td>
+</tr>
+<tr class="row-odd"><td><p>ta</p></td>
+<td><p>008/22</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><p>thematic-number</p></td>
+<td><p>130$n</p></td>
+</tr>
+<tr class="row-odd"><td><p>240$n</p></td>
+</tr>
+<tr class="row-even"><td><p>243$n</p></td>
+</tr>
+<tr class="row-odd"><td><p>630$n</p></td>
+</tr>
+<tr class="row-even"><td><p>700$n</p></td>
+</tr>
+<tr class="row-odd"><td><p>730$n</p></td>
+</tr>
+<tr class="row-even"><td rowspan="19"><p>題名</p></td>
+<td><p>130</p></td>
+</tr>
+<tr class="row-odd"><td><p>210</p></td>
+</tr>
+<tr class="row-even"><td><p>211</p></td>
+</tr>
+<tr class="row-odd"><td><p>212</p></td>
+</tr>
+<tr class="row-even"><td><p>214</p></td>
+</tr>
+<tr class="row-odd"><td><p>222</p></td>
+</tr>
+<tr class="row-even"><td><p>240</p></td>
+</tr>
+<tr class="row-odd"><td><p>245$a</p></td>
+</tr>
+<tr class="row-even"><td><p>246</p></td>
+</tr>
+<tr class="row-odd"><td><p>247</p></td>
+</tr>
+<tr class="row-even"><td><p>490$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>505$t</p></td>
+</tr>
+<tr class="row-even"><td><p>700$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>710$t</p></td>
+</tr>
+<tr class="row-even"><td><p>711$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>730</p></td>
+</tr>
+<tr class="row-even"><td><p>740</p></td>
+</tr>
+<tr class="row-odd"><td><p>780</p></td>
+</tr>
+<tr class="row-even"><td><p>785</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>title-abbreviated</p></td>
+<td><p>210</p></td>
+</tr>
+<tr class="row-even"><td><p>211</p></td>
+</tr>
+<tr class="row-odd"><td><p>246</p></td>
+</tr>
+<tr class="row-even"><td><p>title-cover</p></td>
+<td><p>245$a</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>title-expanded</p></td>
+<td><p>214</p></td>
+</tr>
+<tr class="row-even"><td><p>246</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>title-former</p></td>
+<td><p>246</p></td>
+</tr>
+<tr class="row-even"><td><p>247</p></td>
+</tr>
+<tr class="row-odd"><td><p>780</p></td>
+</tr>
+<tr class="row-even"><td><p>title-key</p></td>
+<td><p>222</p></td>
+</tr>
+<tr class="row-odd"><td><p>title-later</p></td>
+<td><p>785</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>title-other-variant</p></td>
+<td><p>212</p></td>
+</tr>
+<tr class="row-odd"><td><p>247</p></td>
+</tr>
+<tr class="row-even"><td><p>740</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>題名-期刊</p></td>
+<td><p>440$a</p></td>
+</tr>
+<tr class="row-even"><td><p>490$a</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="6"><p>title-uniform</p></td>
+<td><p>130</p></td>
+</tr>
+<tr class="row-even"><td><p>240</p></td>
+</tr>
+<tr class="row-odd"><td><p>700$t</p></td>
+</tr>
+<tr class="row-even"><td><p>710$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>711$t</p></td>
+</tr>
+<tr class="row-even"><td><p>730</p></td>
+</tr>
+<tr class="row-odd"><td><p>totalissues</p></td>
+<td><p>942$9</p></td>
+</tr>
+<tr class="row-even"><td><p>udc-classification</p></td>
+<td><p>080</p></td>
+</tr>
+<tr class="row-odd"><td><p>uri</p></td>
+<td><p>952$u</p></td>
+</tr>
+<tr class="row-even"><td><p>withdrawn</p></td>
+<td><p>952$0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="unimarc-bibliographic-indexes">
+<span id="elasticsearch-bibliographic-unimarc-indexes-label"></span><h5>UNIMARC bibliographic indexes<a class="headerlink" href="#unimarc-bibliographic-indexes" title="此标题的永久链接"></a></h5>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>索引名稱</p></th>
+<th class="head"><p>MARC 欄位</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="5"><p>作者</p></td>
+<td><p>200$f</p></td>
+</tr>
+<tr class="row-odd"><td><p>200$g</p></td>
+</tr>
+<tr class="row-even"><td><p>700$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>701</p></td>
+</tr>
+<tr class="row-even"><td><p>700$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>書目</p></td>
+<td><p>105$a/12</p></td>
+</tr>
+<tr class="row-even"><td><p>ccode</p></td>
+<td><p>995$8</p></td>
+</tr>
+<tr class="row-odd"><td><p>ctype</p></td>
+<td><p>105$a/04-07</p></td>
+</tr>
+<tr class="row-even"><td><p>date-entered-on-file</p></td>
+<td><p>099$c</p></td>
+</tr>
+<tr class="row-odd"><td><p>採訪日期</p></td>
+<td><p>995$5</p></td>
+</tr>
+<tr class="row-even"><td><p>出版日期</p></td>
+<td><p>100$a/09-12</p></td>
+</tr>
+<tr class="row-odd"><td><p>date-time-last-modified</p></td>
+<td><p>099$d</p></td>
+</tr>
+<tr class="row-even"><td><p>ff8-29</p></td>
+<td><p>105$a/08</p></td>
+</tr>
+<tr class="row-odd"><td><p>holdingbranch</p></td>
+<td><p>995$c</p></td>
+</tr>
+<tr class="row-even"><td><p>homebranch</p></td>
+<td><p>995$b</p></td>
+</tr>
+<tr class="row-odd"><td><p>host-item-number</p></td>
+<td><p>461$9</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>識別碼-標準</p></td>
+<td><p>010$a $z</p></td>
+</tr>
+<tr class="row-odd"><td><p>011$a $y $z</p></td>
+</tr>
+<tr class="row-even"><td><p>國際標準書號</p></td>
+<td><p>010$a $z</p></td>
+</tr>
+<tr class="row-odd"><td><p>國際標準期刊編號</p></td>
+<td><p>011$a $y $z</p></td>
+</tr>
+<tr class="row-even"><td><p>itemnumber</p></td>
+<td><p>995$9</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>類型</p></td>
+<td><p>200$b</p></td>
+</tr>
+<tr class="row-even"><td><p>995$r</p></td>
+</tr>
+<tr class="row-odd"><td><p>lc-card-number</p></td>
+<td><p>995$j</p></td>
+</tr>
+<tr class="row-even"><td><p>lf</p></td>
+<td><p>105$a/11</p></td>
+</tr>
+<tr class="row-odd"><td><p>ln</p></td>
+<td><p>101$a</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>本地-分類</p></td>
+<td><p>686</p></td>
+</tr>
+<tr class="row-odd"><td><p>995$k</p></td>
+</tr>
+<tr class="row-even"><td><p>local-number</p></td>
+<td><p>001</p></td>
+</tr>
+<tr class="row-odd"><td><p>位置</p></td>
+<td><p>995$e</p></td>
+</tr>
+<tr class="row-even"><td><p>not-onloan-count</p></td>
+<td><p>999$x</p></td>
+</tr>
+<tr class="row-odd"><td><p>notforloan</p></td>
+<td><p>995$o</p></td>
+</tr>
+<tr class="row-even"><td><p>外借中</p></td>
+<td><p>995$n</p></td>
+</tr>
+<tr class="row-odd"><td><p>出版商</p></td>
+<td><p>210$c</p></td>
+</tr>
+<tr class="row-even"><td><p>su-geo</p></td>
+<td><p>607$a</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="10"><p>主題</p></td>
+<td><p>600</p></td>
+</tr>
+<tr class="row-even"><td><p>600$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>601</p></td>
+</tr>
+<tr class="row-even"><td><p>602</p></td>
+</tr>
+<tr class="row-odd"><td><p>604</p></td>
+</tr>
+<tr class="row-even"><td><p>605</p></td>
+</tr>
+<tr class="row-odd"><td><p>606</p></td>
+</tr>
+<tr class="row-even"><td><p>607</p></td>
+</tr>
+<tr class="row-odd"><td><p>608</p></td>
+</tr>
+<tr class="row-even"><td><p>610</p></td>
+</tr>
+<tr class="row-odd"><td><p>suppress</p></td>
+<td><p>955$n</p></td>
+</tr>
+<tr class="row-even"><td><p>ta</p></td>
+<td><p>100$a/17</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="58"><p>題名</p></td>
+<td><p>200$a</p></td>
+</tr>
+<tr class="row-even"><td><p>200$c</p></td>
+</tr>
+<tr class="row-odd"><td><p>200$d</p></td>
+</tr>
+<tr class="row-even"><td><p>200$e</p></td>
+</tr>
+<tr class="row-odd"><td><p>200$h</p></td>
+</tr>
+<tr class="row-even"><td><p>200$i</p></td>
+</tr>
+<tr class="row-odd"><td><p>205</p></td>
+</tr>
+<tr class="row-even"><td><p>304$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>327$a</p></td>
+</tr>
+<tr class="row-even"><td><p>327$b</p></td>
+</tr>
+<tr class="row-odd"><td><p>327$c</p></td>
+</tr>
+<tr class="row-even"><td><p>327$d</p></td>
+</tr>
+<tr class="row-odd"><td><p>327$e</p></td>
+</tr>
+<tr class="row-even"><td><p>327$f</p></td>
+</tr>
+<tr class="row-odd"><td><p>327$g</p></td>
+</tr>
+<tr class="row-even"><td><p>327$h</p></td>
+</tr>
+<tr class="row-odd"><td><p>327$i</p></td>
+</tr>
+<tr class="row-even"><td><p>328$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>410$t</p></td>
+</tr>
+<tr class="row-even"><td><p>411$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>412$t</p></td>
+</tr>
+<tr class="row-even"><td><p>413$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>421$t</p></td>
+</tr>
+<tr class="row-even"><td><p>422$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>423$t</p></td>
+</tr>
+<tr class="row-even"><td><p>424$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>425$t</p></td>
+</tr>
+<tr class="row-even"><td><p>430$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>431$t</p></td>
+</tr>
+<tr class="row-even"><td><p>432$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>433$t</p></td>
+</tr>
+<tr class="row-even"><td><p>434$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>435$t</p></td>
+</tr>
+<tr class="row-even"><td><p>436$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>437$t</p></td>
+</tr>
+<tr class="row-even"><td><p>440$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>441$t</p></td>
+</tr>
+<tr class="row-even"><td><p>442$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>443$t</p></td>
+</tr>
+<tr class="row-even"><td><p>444$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>445$t</p></td>
+</tr>
+<tr class="row-even"><td><p>446$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>447$t</p></td>
+</tr>
+<tr class="row-even"><td><p>448$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>451$t</p></td>
+</tr>
+<tr class="row-even"><td><p>452$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>453$t</p></td>
+</tr>
+<tr class="row-even"><td><p>454$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>455$t</p></td>
+</tr>
+<tr class="row-even"><td><p>456$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>461$t</p></td>
+</tr>
+<tr class="row-even"><td><p>462$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>463$t</p></td>
+</tr>
+<tr class="row-even"><td><p>464$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>470$t</p></td>
+</tr>
+<tr class="row-even"><td><p>481$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>482$t</p></td>
+</tr>
+<tr class="row-even"><td><p>488$t</p></td>
+</tr>
+<tr class="row-odd"><td><p>題名-期刊</p></td>
+<td><p>225$a</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="authority-record-indexes">
+<span id="elasticsearch-authority-indexes-label"></span><h4>Authority record indexes<a class="headerlink" href="#authority-record-indexes" title="此标题的永久链接"></a></h4>
+<section id="marc21-authority-indexes">
+<span id="elasticsearch-authority-marc21-indexes-label"></span><h5>MARC21 authority indexes<a class="headerlink" href="#marc21-authority-indexes" title="此标题的永久链接"></a></h5>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>索引名稱</p></th>
+<th class="head"><p>MARC 欄位</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Corporate-name-see-also-from</p></td>
+<td><p>510(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Corporate-name-see-from</p></td>
+<td><p>410(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>Descriptive-cataloging-rules</p></td>
+<td><p>008/10</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="8"><p>Heading</p></td>
+<td><p>100(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>110(abcdefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>111(acdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>130(adefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>148(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>150(abgvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>151(agvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>155(avxyz)</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="8"><p>Heading-Main</p></td>
+<td><p>100$a</p></td>
+</tr>
+<tr class="row-even"><td><p>110$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>111$a</p></td>
+</tr>
+<tr class="row-even"><td><p>130$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>148$a</p></td>
+</tr>
+<tr class="row-even"><td><p>150$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>151$a</p></td>
+</tr>
+<tr class="row-even"><td><p>155$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>Heading-use-main-or-added-entry</p></td>
+<td><p>008/14</p></td>
+</tr>
+<tr class="row-even"><td><p>Heading-use-series-added-entry</p></td>
+<td><p>008/16</p></td>
+</tr>
+<tr class="row-odd"><td><p>Heading-use-subject-added-entry</p></td>
+<td><p>008/15</p></td>
+</tr>
+<tr class="row-even"><td><p>Kind-of-record</p></td>
+<td><p>008/09</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="8"><p>Match</p></td>
+<td><p>100(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>111(acdefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>400(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>410(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>411(acdefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>500(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>510(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>511(acdefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>Match-heading-see-from</p></td>
+<td><p>400(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>410(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>411(acdefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>Meeting-name</p></td>
+<td><p>111(acdefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Meeting-name-heading</p></td>
+<td><p>111(acdefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>Meeting-name-see-also-from</p></td>
+<td><p>511(acdefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Meeting-name-see-from</p></td>
+<td><p>411(acdefghjklnpqstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>Personal-name-heading</p></td>
+<td><p>100(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Personal-name-see-also-from</p></td>
+<td><p>500(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>Personal-name-see-from</p></td>
+<td><p>400(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="10"><p>See-also-from</p></td>
+<td><p>500(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>510(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>511a(bcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>530(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>547(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>548(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>550(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>551(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>555(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>562(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="10"><p>See-from</p></td>
+<td><p>400(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>410(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>411(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>430(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>440(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>441(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>444(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>447(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>448(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>462(abcdefghklmnoprstvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subject-heading-thesaurus</p></td>
+<td><p>008/11</p></td>
+</tr>
+<tr class="row-even"><td><p>authtype</p></td>
+<td><p>942$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>lc-card-number</p></td>
+<td><p>010$a $z</p></td>
+</tr>
+<tr class="row-even"><td><p>local-number</p></td>
+<td><p>001</p></td>
+</tr>
+<tr class="row-odd"><td><p>個人-姓名</p></td>
+<td><p>100(abcdefghjklmnopqrstvxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>record-source</p></td>
+<td><p>040(acd)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="unimarc-authority-indexes">
+<span id="elasticsearch-authority-unimarc-indexes-label"></span><h5>UNIMARC authority indexes<a class="headerlink" href="#unimarc-authority-indexes" title="此标题的永久链接"></a></h5>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>索引名稱</p></th>
+<th class="head"><p>MARC 欄位</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="11"><p>Heading</p></td>
+<td><p>200(abcdfgjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>210(abcdefghjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>215(ajxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>216(afcjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>220(afjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>230(abhijklmnqrsuwxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>235(abejkmrsuwxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>240(atjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>250(ajxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>260(abcdjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>280(ajxyz)</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="11"><p>Heading-Main</p></td>
+<td><p>200$a</p></td>
+</tr>
+<tr class="row-even"><td><p>210$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>215$a</p></td>
+</tr>
+<tr class="row-even"><td><p>216$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>220$a</p></td>
+</tr>
+<tr class="row-even"><td><p>230$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>235$a</p></td>
+</tr>
+<tr class="row-even"><td><p>240$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>250$a</p></td>
+</tr>
+<tr class="row-even"><td><p>260$a</p></td>
+</tr>
+<tr class="row-odd"><td><p>280$a</p></td>
+</tr>
+<tr class="row-even"><td rowspan="46"><p>Match</p></td>
+<td><p>200(3478abcdfgjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>210(3478abcdefghxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>215(78ajxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>216(378acfjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>220(378afjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>230(8abhijklmqrsuwxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>235(378abeijkmratsuwxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>240(8abcfjtxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>250(8abcdjvxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>260(378abcd)</p></td>
+</tr>
+<tr class="row-even"><td><p>280(378ajxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>400(0234568abcdfgjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>410(02345678abcdefghjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>415(0235678ajxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>416(acfjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>420(afjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>430(0235678abhijklmnqrsuwxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>435(0235678abejkmrsuwxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>440(0235678abcdfjtxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>445(ajtxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>450(0235678ajxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>460(abcd)</p></td>
+</tr>
+<tr class="row-even"><td><p>480(ajxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>500(023456789abcdfgjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>510(02345678abcdefghjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>515(0356789ajxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>516(9acfjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>520(9afjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>530(02356789abhijklmnqrsuwxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>535(02356789abjkmqrsuwxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>540(0235678ajtxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>545(9ajtxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>550(02356789abjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>560(59abcd)</p></td>
+</tr>
+<tr class="row-even"><td><p>580(59ajxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>700(23478abcdfgjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>710(23478abcdefghjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>715(2378ajxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>716(acfjxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>720(afjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>730(2378abhijklmnqrsuwxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>740(2378ajtxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>745(378ajtxyz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>750(23789abjxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>760(abcd)</p></td>
+</tr>
+<tr class="row-odd"><td><p>780(ajxyz)</p></td>
+</tr>
+<tr class="row-even"><td><p>authtype</p></td>
+<td><p>152$b</p></td>
+</tr>
+<tr class="row-odd"><td><p>local-number</p></td>
+<td><p>001</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="opac.html" class="btn btn-neutral float-left" title="OPAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugin system" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

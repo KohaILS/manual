@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interlibrary loans &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Local use" href="localusepreferences.html" />
+    <link rel="prev" title="I18N/L10N" href="i18npreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalogingpreferences.html">编目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Interlibrary loans</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#circulateill">CirculateILL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illcheckavailability">ILLCheckAvailability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illhiddenrequeststatuses">ILLHiddenRequestStatuses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illmodule">ILLModule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illmodulecopyrightclearance">ILLModuleCopyrightClearance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illmoduleunmediated">ILLModuleUnmediated</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#notifications">Notifications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#illdefaultstaffemail">ILLDefaultStaffEmail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#illsendstaffnotices">ILLSendStaffNotices</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opac">OPAC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#illopacbackends">ILLOpacbackends</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">Interlibrary loans</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/illpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="i18npreferences.html" class="btn btn-neutral float-left" title="I18N/L10N" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="localusepreferences.html" class="btn btn-neutral float-right" title="Local use" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="interlibrary-loans">
+<span id="ill-system-preferences-label"></span><h1>Interlibrary loans<a class="headerlink" href="#interlibrary-loans" title="此标题的永久链接"></a></h1>
+<p><em>Get there:</em> More &gt; Administration &gt; Global system preferences &gt; Interlibrary
+loans</p>
+<section id="features">
+<span id="ill-features-label"></span><h2>Features<a class="headerlink" href="#features" title="此标题的永久链接"></a></h2>
+<section id="circulateill">
+<span id="circulateill-label"></span><h3>CirculateILL<a class="headerlink" href="#circulateill" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ the circulation of ILL requested items.</p>
+<p>Default: Disable</p>
+<p>Values:</p>
+<ul class="simple">
+<li><p>Disable</p></li>
+<li><p>Enable</p></li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li><p>This system preference controls whether you have the option to checkout ILL
+items directly from an ILL request. More details can be found in the
+<a class="reference internal" href="ILL_requests.html#circulating-ill-material-label"><span class="std std-ref">Circulating ILL materials</span></a> section.</p></li>
+</ul>
+</section>
+<section id="illcheckavailability">
+<span id="illcheckavailability-label"></span><h3>ILLCheckAvailability<a class="headerlink" href="#illcheckavailability" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ external sources for availability during the request process.</p>
+<p>Default: Don’t check</p>
+<p>Values:</p>
+<ul class="simple">
+<li><p>Don’t check</p></li>
+<li><p>Check</p></li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li><p>This preference controls whether specific external resources will be searched
+prior to a request being placed. The resources available are installed using
+<a class="reference internal" href="plugins.html#plugin-system-label"><span class="std std-ref">plugins</span></a>. These can be located on the Koha
+plugins wiki page at <a class="reference external" href="https://wiki.koha-community.org/wiki/Koha_plugins">https://wiki.koha-community.org/wiki/Koha_plugins</a>.
+Currently there are plugins for EDS (Ebsco Discovery Service), Z39.50
+and Unpaywall. When a patron
+<a class="reference internal" href="opac.html#your-interlibrary-loan-requests-label"><span class="std std-ref">submits an ILL request</span></a>, the
+item metadata in the form is used to search the external resource. The patron
+can then click on the title links in the displayed results. If they find the
+item they were requesting the request can be abandoned. If not, the patron
+can continue with the request in the normal way.</p></li>
+</ul>
+</section>
+<section id="illhiddenrequeststatuses">
+<span id="illhiddenrequeststatuses-label"></span><h3>ILLHiddenRequestStatuses<a class="headerlink" href="#illhiddenrequeststatuses" title="此标题的永久链接"></a></h3>
+<p>Asks: ILL statuses that are considered finished and should not be displayed in
+the ILL module: ___ (separated with |). If left empty, all ILL requests will
+be displayed.</p>
+<p>Description:</p>
+<ul class="simple">
+<li><p>This preference allows libraries to hide requests from the
+<a class="reference internal" href="ILL_requests.html#viewing-ill-requests-label"><span class="std std-ref">View ILL requests list</span></a> based on the status
+of the request. Available ILL statuses are configured in the ILL_STATUS_ALIAS
+<a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">authorized value</span></a> category and in the backends.</p></li>
+</ul>
+</section>
+<section id="illmodule">
+<span id="illmodule-label"></span><h3>ILLModule<a class="headerlink" href="#illmodule" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ the interlibrary loans module (master switch).</p>
+<p>Default: Disable</p>
+<p>Values:</p>
+<ul class="simple">
+<li><p>Disable</p></li>
+<li><p>Enable</p></li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li><p>This preference is used to enable Koha’s <a class="reference internal" href="ILL_requests.html#ill-requests-label"><span class="std std-ref">ILL module</span></a>
+which is used to manage ILL requests.</p></li>
+</ul>
+</section>
+<section id="illmodulecopyrightclearance">
+<span id="illmodulecopyrightclearance-label"></span><h3>ILLModuleCopyrightClearance<a class="headerlink" href="#illmodulecopyrightclearance" title="此标题的永久链接"></a></h3>
+<p>Asks: Adding text will enable the copyright clearance stage in request creation.
+The text you enter will be the text displayed.</p>
+<p>Description:</p>
+<ul class="simple">
+<li><p>This system preference is used to turn on the copyright clearance step when
+<a class="reference internal" href="opac.html#your-interlibrary-loan-requests-label"><span class="std std-ref">creating an ILL request from the OPAC</span></a>.
+Patrons will need to accept the copyright clearance before they can proceed.</p></li>
+<li><p>The text entered here is the text they will need to agree to.</p></li>
+</ul>
+</section>
+<section id="illmoduleunmediated">
+<span id="illmoduleunmediated-label"></span><h3>ILLModuleUnmediated<a class="headerlink" href="#illmoduleunmediated" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ unmediated interlibrary loan requests. If enabled and the ILL backend
+supports it, the newly created requests are immediately requested by backend.</p>
+<p>Default: Disable</p>
+<p>Values:</p>
+<ul class="simple">
+<li><p>Disable</p></li>
+<li><p>Enable</p></li>
+</ul>
+<p>Description:</p>
+<ul class="simple">
+<li><p>When enabled, this system preference allows
+<a class="reference internal" href="opac.html#your-interlibrary-loan-requests-label"><span class="std std-ref">ILL requests placed by patrons on the OPAC</span></a>
+to be directly sent to ILL suppliers without mediation by library staff.</p></li>
+<li><p>If this system preference is disabled, staff members will need to
+<a class="reference internal" href="ILL_requests.html#managing-ill-requests-label"><span class="std std-ref">manage all ILL requests</span></a>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Not all ILL backends can support this feature.</p>
+</div>
+</section>
+</section>
+<section id="notifications">
+<span id="ill-notifications-label"></span><h2>Notifications<a class="headerlink" href="#notifications" title="此标题的永久链接"></a></h2>
+<section id="illdefaultstaffemail">
+<span id="illdefaultstaffemail-label"></span><h3>ILLDefaultStaffEmail<a class="headerlink" href="#illdefaultstaffemail" title="此标题的永久链接"></a></h3>
+<p>Asks: Fallback email address for staff ILL notices to be sent to in the absence
+of a library address: ___ .</p>
+<p>Description:</p>
+<ul class="simple">
+<li><p>By default, replies to ILL request emails will go to the
+<a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">library’s</span></a> ILL staff email address. If the library’s
+ILL staff email field is empty, the address entered here will be used.</p></li>
+</ul>
+</section>
+<section id="illsendstaffnotices">
+<span id="illsendstaffnotices-label"></span><h3>ILLSendStaffNotices<a class="headerlink" href="#illsendstaffnotices" title="此标题的永久链接"></a></h3>
+<p>Asks: Send these ILL notices to staff when appropriate: ___</p>
+<p>Description:</p>
+<ul>
+<li><p>You can configure which ILL notices should be sent to staff. More details
+can be found in the <a class="reference internal" href="ILL_requests.html#ill-email-notification-label"><span class="std std-ref">ILL email notifications</span></a>
+section.</p></li>
+<li><p>Enter the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">letter codes</span></a> for the notifications
+to be sent, separated by pipes (|). For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ILL_REQUEST_CANCEL</span><span class="o">|</span><span class="n">ILL_REQUEST_MODIFIED</span>
+</pre></div>
+</div>
+</li>
+<li><p>If this system preference is left empty, no staff ILL notices will be sent.</p></li>
+</ul>
+</section>
+</section>
+<section id="opac">
+<span id="ill-opac-label"></span><h2>OPAC<a class="headerlink" href="#opac" title="此标题的永久链接"></a></h2>
+<section id="illopacbackends">
+<span id="illbpacbackends-label"></span><h3>ILLOpacbackends<a class="headerlink" href="#illopacbackends" title="此标题的永久链接"></a></h3>
+<p>Asks: Enabled ILL backends for OPAC initiated requests: ___ .</p>
+<p>Description:</p>
+<ul>
+<li><p>This preference controls which ILL backend request forms are available for
+<a class="reference internal" href="opac.html#your-interlibrary-loan-requests-label"><span class="std std-ref">OPAC requests</span></a>.</p></li>
+<li><p>Enter the backend codes, separated by pipes (|). For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FreeForm</span><span class="o">|</span><span class="n">BLDSS</span>
+</pre></div>
+</div>
+</li>
+<li><p>Refer to the backend configuration guidance for the correct terminology
+to enter here.</p></li>
+<li><p>If this system preference is left empty, all installed backends will be&lt;
+enabled for <a class="reference internal" href="opac.html#your-interlibrary-loan-requests-label"><span class="std std-ref">OPAC requests</span></a>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="i18npreferences.html" class="btn btn-neutral float-left" title="I18N/L10N" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="localusepreferences.html" class="btn btn-neutral float-right" title="Local use" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

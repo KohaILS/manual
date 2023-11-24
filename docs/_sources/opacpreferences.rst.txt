@@ -1,0 +1,3899 @@
+.. include:: images.rst
+
+.. _opac-system-preferences-label:
+
+OPAC
+-------------------------------------------------------------------------------
+
+*Get there:* More > Administration > Global system preferences > OPAC
+
+.. _advanced-search-options-label:
+
+Advanced search options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _opacadvancedsearchtypes-label:
+
+OpacAdvancedSearchTypes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show tabs in the OPAC advanced search for limiting searches on the \_\_\_
+fields.
+
+Default: itemtypes
+
+Description:
+
+-  On the advanced search page in the OPAC, you can choose to allow
+   filters on one or all of the following: item types (itemtypes), collection
+   codes (ccode) and shelving location (loc).
+
+|opacadvancedsearch-itypetabs|
+
+-  Separate multiple values with a pipe (\|). For example, enter itemtypes\|loc
+   to allow to limit searches on item type and shelving location.
+
+-  The order in which the options are entered in the system preference is the
+   order in which the tabs will appear. The first option in the system
+   preference is the selected tab.
+
+-  If left empty, "itemtypes" is used.
+
+-  Values within the search type are OR'ed together, while each different
+   search type is AND'ed together in the query limits.
+
+See also:
+
+-  :ref:`AdvancedSearchTypes <AdvancedSearchTypes-label>`
+
+.. _opacadvsearchmoreoptions-label:
+
+OpacAdvSearchMoreOptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show search options for the expanded view \_\_\_
+
+Default: Select all
+
+Values:
+
+-  [Select all]
+
+-  Item types
+
+-  Language
+
+-  Location and availability
+
+-  Publication date
+
+-  Sorting
+
+-  Subtypes
+
+Description:
+
+-  The settings in this preference will determine which search fields
+   will show when the patron is using the 'More options' mode on the
+   advanced search page.
+
+.. _opacadvsearchoptions-label:
+
+OpacAdvSearchOptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Item types, Language, Location and availability, Publication
+date, Sorting
+
+Asks: Show search options \_\_\_
+
+Values:
+
+-  [Select all]
+
+-  Item types
+
+-  Language
+
+-  Location and availability
+
+-  Publication date
+
+-  Sorting
+
+-  Subtypes
+
+Description:
+
+-  The settings in this preference will determine which search fields
+   will show when the patron is using the 'Fewer options' mode on the
+   advanced search page.
+
+.. _appearance-label:
+
+Appearance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These preferences control how things appear in the OPAC.
+
+.. _authorityxsltopacdetailsdisplay-label:
+
+AuthorityXSLTOpacDetailsDisplay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Display authority details in the OPAC using the XSLT stylesheet at: \_\_\_
+
+Default: Empty
+
+Values:
+
+-  Leave empty to disable XSLT display
+
+-  Enter a path to an XSLT file
+
+   -  For example, :code:`/path/to/koha/and/your/stylesheet.xsl`
+
+-  Enter an URL to an external stylesheet
+
+   -  For example, http://mykohaopac.org/stylesheet.xsl
+
+Description:
+
+-  XSLT stylesheets allow for the customization of the details shown on
+   the screen when viewing an authority record. This system preference will
+   allow you to either use the default look that comes with Koha (no XSLT) or
+   design your own stylesheet.
+
+-  This system preference controls the display of the authority records
+   in the OPAC.
+
+-  In a multi-language system, you can enter :code:`{langcode}` in the internal
+   path or external URL to tell Koha to look in the right language folder
+
+   -  For example, :code:`http://mykohaopac.org/{langcode}/stylesheet.xsl`
+
+-  If you have different stylesheets for different authority types, use the
+   :code:`{authtypecode}` placeholder for the authority type code
+
+   -  For example, :code:`http://mykohaopac.org/{authtypecode}/stylesheet.xsl`
+
+See also:
+
+-  :ref:`AuthorityXSLTOpacResultsDisplay <authorityxsltopacresultsdisplay-label>`
+
+-  :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>`
+
+.. _authorityxsltopacresultsdisplay-label:
+
+AuthorityXSLTOpacResultsDisplay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Display authority results in the OPAC using the XSLT stylesheet at: \_\_\_
+
+Default: Empty
+
+Values:
+
+-  Leave empty to disable XSLT display
+
+-  Enter a path to an XSLT file
+
+   -  For example, :code:`/path/to/koha/and/your/stylesheet.xsl`
+
+-  Enter an URL to an external stylesheet
+
+   -  For example, http://mykohaopac.org/stylesheet.xsl
+
+Description:
+
+-  XSLT stylesheets allow for the customization of the details shown on
+   the screen when viewing an authority record. This system preference will
+   allow you to either use the default look that comes with Koha (no XSLT) or
+   design your own stylesheet.
+
+-  This system preference controls the display of the authority search results
+   in the OPAC.
+
+-  In a multi-language system, you can enter :code:`{langcode}` in the internal
+   path or external URL to tell Koha to look in the right language folder
+
+   -  For example, :code:`http://mykohaopac.org/{langcode}/stylesheet.xsl`
+
+-  If you have different stylesheets for different authority types, use the
+   :code:`{authtypecode}` placeholder for the authority type code
+
+   -  For example, :code:`http://mykohaopac.org/{authtypecode}/stylesheet.xsl`
+
+See also:
+
+-  :ref:`OPACXSLTListsDisplay <OPACXSLTListsDisplay-label>`
+
+-  :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>`
+
+-  :ref:`AuthorityXSLTResultsDisplay <authorityxsltresultsdisplay-label>`
+
+.. _bibliodefaultview-label:
+
+BiblioDefaultView
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: in simple form
+
+Asks: By default, show bibliographic records \_\_\_
+
+Values:
+
+-  as specified in the ISBD template.
+
+   -  See :ref:`ISBD <ISBD-label>` preference for more information
+
+-  in simple form.
+
+-  in their MARC format.
+
+Description:
+
+-  This system preference determines the level of bibliographic detail that the
+   patron will see on the OPAC detail page. The simple form displays the
+   graphical interface; MARC format displays the MARC21 cataloging view;
+   ISBD displays the ISBD (International Standard Bibliographic
+   Description, AACR2) view.
+
+.. _coinsinopacresults-label:
+
+COinSinOPACResults
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Include
+
+Asks: \_\_\_ COinS / OpenURL / Z39.88 in OPAC search results.
+
+Values:
+
+-  Don't include
+
+   -  If you choose not to include COinS on the search results, it will
+      still be loaded on the individual bibliographic records.
+
+-  Include
+
+   -  Enabling this feature will slow OPAC search response times.
+
+Description:
+
+-  COinS stands for ContextObjects in Spans. COinS is a method to embed
+   bibliographic metadata in the HTML code of web pages. This allows
+   bibliographic software to publish machine-readable bibliographic
+   items and client reference management software (such as Zotero) to
+   retrieve bibliographic metadata. The metadata can also be sent to an
+   OpenURL resolver. This allows, for instance, searching for a copy of
+   a book in one's own library.
+
+.. _displayopaciconsxslt-label:
+
+DisplayOPACiconsXSLT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the format, audience, and material type icons and descriptions in
+XSLT MARC 21 results and detail pages in the OPAC.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  This system preference is used to show or hide the format, audience and 
+   material type information pulled from the control fields of the MARC 21 
+   bibliographic record.
+
+   |DisplayOPACiconsXSLT|
+
+.. Note::
+
+   See the :ref:`XSLT material type icons <material-type-cataloging-guide-label>`
+   for more information on these icons.
+  
+.. Warning::
+
+   This is only used in XSLT displays, so :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>` and/or
+   :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>` must be set to use an XSLT stylesheet for
+   this to show (default or custom)
+
+See also:
+
+-  :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>`
+
+-  :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>`
+
+-  :ref:`DisplayIconsXSLT <DisplayIconsXSLT-label>`
+
+.. _hidelostitems-label:
+
+hidelostitems
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't show
+
+Asks: \_\_\_ lost items on search and detail pages.
+
+Description:
+
+-  Items that are marked lost by the library can either be shown or not
+   shown on the OPAC. By setting the value to "Don't show," the lost
+   item is not shown on the OPAC. By setting the value "Show," the lost
+   item is shown on the OPAC for patrons to view with a status of
+   'lost.^
+
+Values:
+
+-  Don't show
+
+-  Show
+
+   |image63|
+
+.. _highlightownitemsonopac-label:
+
+HighlightOwnItemsOnOPAC and HighlightOwnItemsOnOPACWhich
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+HighlightOwnItemsOnOPAC Default: Don't emphasize
+
+HighlightOwnItemsOnOPACWhich Default: patron's home library
+
+Asks: \_\_\_ results from the \_\_\_ by moving the results to the front
+and increasing the size or highlighting the rows for those results.
+
+HighlightOwnItemsOnOPAC Values:
+
+-  Don't emphasize
+
+-  Emphasize
+
+HighlightOwnItemsOnOPACWhich Values:
+
+-  OPAC's library based via the URL
+
+   -  The library is chosen based on the Apache environment variable
+      BRANCHCODE. For example, this could be added to the OPAC section
+      of koha-httpd.conf: SetEnv BRANCHCODE "CPL"
+
+-  patron's home library
+
+   -  The items emphasized will be those of the same library as the
+      patron's library. If no one is logged into the OPAC, no items will
+      be highlighted.
+
+    **Important**
+
+    This system preference will only effect sites that are not using an XSLT
+    stylesheet. XSLT stylesheets are defined in the
+    :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>` and
+    :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>` preferences.
+
+.. _libraryname-label:
+
+LibraryName
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show \_\_\_ as the name of the library on the OPAC.
+
+    **Note**
+
+    This value will appear in the title bar of the browser
+
+    **Note**
+
+    Add a news item with the opacheader display location with the 
+    :ref:`news tool <news-label>` if you'd like to add a library name above 
+    your search box on the OPAC
+
+|image64|
+
+.. _opacadditionalstylesheet-label:
+
+OpacAdditionalStylesheet
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the additional CSS stylesheet \_\_\_ to override specified
+settings from the default stylesheet.
+
+Description:
+
+-  The preference can look for stylesheets in the template directory for
+   your OPAC language, for instance: /koha-tmpl/opac-tmpl/prog/en/css.
+   If you upload a custom file, opac-mystyles.css to this directory, you
+   can specify it by entering opac-mystyles.css in your
+   opaccolorstylesheet system preference. This adds your custom
+   stylesheet as a linked stylesheet alongside the OPAC's default CSS
+   files. This method is preferable because linked stylesheets are
+   cached by the user's browser, meaning upon repeat visits to your site
+   the user's browser will not have to re-download the stylesheet,
+   instead using the copy in the browser's cache.
+
+-  If you would rather, you can upload your CSS to another server and
+   enter the full URL pointing to it's location remember to begin the
+   URL with http://
+
+    **Note**
+
+    Leave this field blank to disable it
+
+    **Note**
+
+    This file will add a linked CSS, not replace the existing default
+    CSS.
+
+.. _opacaddmastheadlibrarypulldown-label:
+
+OpacAddMastheadLibraryPulldown
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ a library select pulldown menu on the OPAC masthead.
+
+Default: Don't add
+
+Values:
+
+-  Add
+
+-  Don't add
+
+Description:
+
+-  When set to 'Add' this system preference will add a dropdown menu of
+   :ref:`libraries <libraries-label>` and
+   :ref:`library groups <library-groups-label>` in the simple search bar in the
+   OPAC.
+
+   |OpacAddMastheadLibraryPulldown|
+
+-  This will search for records that have items whose home library is the
+   selected library. It's the same as the
+   :ref:`library limit on the advanced search page <advanced-search-location-availability-label>`.
+
+.. _opacbaseurl-label:
+
+OPACBaseURL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The OPAC is located at \_\_\_
+
+Description:
+
+-  This system preference is looking for the URL of your public catalog (OPAC)
+   with the http:// in front of it (enter http://www.mycatalog.com
+   instead of www.mycatalog.com). Once it is filled in Koha will use it
+   to generate permanent links in your RSS feeds, for your social
+   network share buttons and in your staff interface when generating links
+   to bibliographic records in the OPAC.
+
+    **Important**
+
+    Do not include a trailing slash in the URL this will break links
+    created using this URL. (example: http://www.google.com not
+    http://www.google.com/)
+
+    **Important**
+
+    This must be filled in with the URL of your public catalog for RSS,
+    unAPI, and search plugins to work.
+
+    **Important**
+
+    This must be filled in with the URL of your public catalog to show
+    'OPAC View' links from bibliographic records in the staff interface:
+
+|image67|
+
+
+.. _opacdisplay856uasimage-label:
+
+OPACDisplay856uAsImage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Display the URI in the 856u field as an image on: \_\_\_
+
+Default: Neither details or results page
+
+Values:
+
+-  Both results and details pages
+
+   .. Note::
+
+      Both :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>` and :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>` need
+      to have values in order for this preference to work.
+
+   .. Warning::
+
+      This is only implemented for MARC21.
+
+-  Detail page only
+
+   |OPACDisplay856uAsImage-detail|
+
+   .. Note::
+
+      :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>` needs to have a value in it for this
+      preference to work.
+
+   .. Warning::
+
+      This is only implemented for MARC21.
+
+-  Neither details or results page
+
+-  Results page only
+
+   |OPACDisplay856uAsImage-results|
+
+   .. Note::
+
+      :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>` needs to have a value in it for this
+      preference to work.
+
+   .. Warning::
+
+      This is only implemented for MARC21.
+
+Description:
+
+-  In addition to this option being set, the corresponding XSLT option
+   must be turned on.
+
+-  Also, the corresponding 856q field must have a valid MIME image extension
+   (e.g., "jpg") or MIME image type (i.e. starting with "image/"), or the
+   generic indicator "img" entered in the field.
+
+   |856imagemarc|
+
+   .. Note::
+
+      **Common image MIME types**
+
+      +----------------------------------+-----------------+----------------+
+      | File type                        | Image MIME type | File extension |
+      +==================================+=================+================+
+      | Bitmap                           | image/bmp       | bmp            |
+      +----------------------------------+-----------------+----------------+
+      | Graphic interchange format (gif) | image/gif       | gif            |
+      +----------------------------------+-----------------+----------------+
+      | JPEG image                       | image/jpeg      | jpg            |
+      +----------------------------------+-----------------+----------------+
+      | JPEG image                       | image/jpeg      | jpeg           |
+      +----------------------------------+-----------------+----------------+
+      | Scalable vector graphic          | image/svg+xml   | svg            |
+      +----------------------------------+-----------------+----------------+
+      | TIF image                        | image/tiff      | tiff           |
+      +----------------------------------+-----------------+----------------+
+      | TIF image                        | image/tiff      | tif            |
+      +----------------------------------+-----------------+----------------+
+
+-  When all of the requirements are met, an image file will be displayed
+   instead of the standard link text. Clicking on the image will open it in the
+   same way as clicking on the link text. When you click on the image it should
+   open to full size, in the current window or in a new window depending on the
+   value in the system pref :ref:`OPACURLOpenInNewWindow <OPACURLOpenInNewWindow-label>`.
+
+See also:
+
+-  :ref:`Display856uAsImage <Display856uAsImage-label>`
+
+-  :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>`
+
+-  :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>`
+
+-  :ref:`OPACURLOpenInNewWindow <OPACURLOpenInNewWindow-label>`
+
+.. _opacexportoptions-label:
+
+OpacExportOptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default:
+
+    |image1192|
+
+Asks: Select export options that should be available from OPAC detail
+page: \_\_\_
+
+Description:
+
+-  In the OPAC on the right of each bibliographic record there is a menu that
+   allows for saving the record in various formats. This patch will
+   allow you to define which options are in the pull down menu.
+   Available options are: BIBTEX (bibtex), Dublin Core (dc), MARCXML
+   (marcxml), MARC-8 encoded MARC (marc8), Unicode/UTF-8 encoded MARC
+   (utf8), Unicode/UTF-8 encoded MARC without local use -9xx, x9x, xx9-
+   fields and subfields (marcstd), MODS (mods), and RIS (ris).
+
+.. _opacfallback-label:
+
+OPACFallback
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: bootstrap
+
+Asks: Use the \_\_\_ theme as the fallback theme on the OPAC.
+
+Description:
+
+-  The purpose of this preference is to provide a way to choose to what
+   theme to fallback on when you have a partial theme in place.
+
+.. _opacfavicon-label:
+
+OpacFavicon
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the image at \_\_\_ for the OPAC's favicon.
+
+Description:
+
+-  The favicon is the little icon that appears next to the page title in the
+   tab in most browsers. The default value for this field (if
+   left blank) is the small 'K' of the Koha logo on a white background.
+   
+   |OpacFavicon|   
+   
+-  Enter a complete URL (starting with http:// or https://) to your image
+ 
+.. Note::
+
+   Turn your logo into a favicon with the 
+   `Favicon Generator <http://antifavicon.com/>`__.
+
+.. _opachighlightedwords-and-nothighlightedwords-label:
+
+OpacHighlightedWords and NotHighlightedWords
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+OpacHighlightedWords Default: Don't highlight
+
+NotHighlightedWords Default: and\|or\|not
+
+Asks: \_\_\_ words the patron searched for in their search results and
+detail pages; To prevent certain words from ever being highlighted,
+enter a list of stopwords here \_\_\_ (separate columns with \|)
+
+OpacHighlightedWords Values:
+
+-  Don't highlight
+
+-  Highlight
+
+.. _opacholdingsdefaultsortfield-label:
+
+OPACHoldingsDefaultSortField
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: First column of the table
+
+Asks: \_\_\_ is the default sort field for the holdings table
+
+Values:
+
+-  First column of the table
+
+-  Holding library
+
+-  Home library
+
+.. _opackohaurl-label:
+
+OpacKohaUrl
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  When this preference is set to 'Show' text will appear in the bottom
+   right of the OPAC footer stating 'Powered by Koha' and linking to the
+   official Koha website.
+
+   |image75|
+
+.. _opaclangselectormode-label:
+
+OpacLangSelectorMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: only footer
+
+Asks: Display language selector on \_\_\_.
+
+Values:
+
+-  both top and footer
+
+-  only footer
+
+-  top
+
+Description:
+
+-  If you have the :ref:`opaclanguagesdisplay <opaclanguagesdisplay-label>`
+   preference set to display language options in the public catalog,
+   then this preference will allow you to control where the language
+   selector shows. You can choose to show it only on the top or bottom
+   or in both places.
+
+.. _opaclayoutstylesheet-label:
+
+opaclayoutstylesheet
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: opac.css
+
+Asks: Use the CSS stylesheet /css/ \_\_\_ on all pages in the OPAC,
+instead of the default
+
+Description:
+
+-  This setting's function is to point to the \*.css file used to define
+   the OPAC layout. A \*.css file is a cascading stylesheet which is
+   used in conjunction with HTML to set how the HTML page is formatted
+   and will look on the OPAC. There are two stylesheets that come with
+   the system; opac.css and opac2.css. A custom stylesheet may also be
+   used. The stylesheets listed in the opaclayoutstylesheet preference
+   are held on the Koha server.
+
+    **Note**
+
+    Leave this field blank to disable it and let Koha use the default
+    file instead
+
+    **Important**
+
+    Using a custom value in this preference causes Koha to completely
+    ignore the default layout stylesheet.
+
+.. _opaclocationbranchtodisplay-label:
+
+OpacLocationBranchToDisplay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: holding library
+
+Asks: Display the \_\_\_ for items on the OPAC record details page.
+
+Values:
+
+-  holding library
+
+-  home and holding library
+
+-  home library
+
+Description:
+
+-  Defines whether to display the holding library, the home library, or
+   both for the opac details page.
+
+.. _opaclocationondetail-label:
+
+OpacLocationOnDetail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: below the holding library
+
+Asks: Display the shelving location \_\_\_ for items on the
+OPAC record details page.
+
+Values:
+
+-  below both home and holding libraries
+
+-  on a separate column
+
+-  below the holding library
+
+-  below the home library
+
+Description:
+
+-  Defines where the shelving location should be displayed, under the
+   home library, the holding library, or both, or in a separate column.
+
+.. _opacmaintenance-label:
+
+OpacMaintenance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't show
+
+Asks: \_\_\_ a warning that the OPAC is under maintenance, instead of
+the OPAC itself.
+
+    **Note**
+
+    this shows the same warning as when the database needs to be
+    upgraded, but unconditionally.
+
+Description:
+
+-  This system preference allows the system administrator to turn off the OPAC
+   during maintenance and display a message to users. When this
+   preference is switched to "Show" the OPAC is not usable. The text of
+   this message is not editable at this time.
+
+Values:
+
+-  Don't show
+
+-  Show
+
+   -  When this preference is set to show the maintenance message the
+      ability to search the OPAC is disabled and a message appears. The
+      default message can be altered by using the
+      :ref:`OpacMaintenanceNotice <OpacMaintenanceNotice-label>` preference.
+
+      |image76|
+
+.. _opacmaintenancenotice-label:
+
+OpacMaintenanceNotice
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show the following HTML when OpacMaintenance is enabled
+
+Descritpion:
+
+-  This system preference will allow you to set the text the OPAC displays when
+   the :ref:`OpacMaintenance <OpacMaintenance-label>` preference is set to
+   'Show.^
+
+.. _opacmaxitemstodisplay-label:
+
+OpacMaxItemsToDisplay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 50
+
+Asks: Display up to \_\_\_ items on the bibliographic record detail page
+
+Description:
+
+-  This system preference will help with slow load times on the bibliographic
+   detail pages by limiting the number of items to display by default.
+   If the bibliographic record has more items than this, a link is displayed instead
+   that allows the user to choose to display all items.
+
+.. _opacmetadescription-label:
+
+OpacMetaDescription
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: This description will show in search engine results (160 characters).
+
+Description:
+
+-  This system preference adds functionality to add a meta description tag with content (up to 160 characters).
+   This is used by search engines to add a description to the library in search results.
+
+.. _opacmysummaryhtml-label:
+
+OPACMySummaryHTML
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include a "Links" column on the "your summary" tab when a user is
+logged in to the OPAC, with the following HTML (leave blank to disable).
+
+Description:
+
+-  In this preference you can enter HTML that will appear on the
+   'Checked Out' tab on the 'your summary' section when logged in to the
+   OPAC. The placeholders {BIBLIONUMBER}, {TITLE}, {ISBN} and {AUTHOR}
+   will be replaced with information from the displayed record. This can
+   be used to enter in 'share' links for social networks or generate
+   searches against other library catalogs.
+
+   |image78|
+
+Sample Data:
+
+::
+
+    <p><a href="http://www.facebook.com/sharer.php?u=http://YOUROPAC.ORG/cgi-bin/koha/opac-detail.pl?biblionumber={BIBLIONUMBER}">Share on Facebook</a>
+    <br />TITLE: {TITLE}
+    <br />AUTHOR: {AUTHOR}
+    <br />ISBN: {ISBN}
+    <br />BIBLIONUMBER: {BIBLIONUMBER}</p>
+
+.. _opacnoitemtypeimages-label:
+
+OpacNoItemTypeImages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ itemtype icons in the OPAC.
+
+Default: Show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description: 
+
+-  This system preference allows the system administrator to determine if users will
+   be able to set and see an item type icon in the catalog in the OPAC.
+
+-  If images of item types are disabled, text labels for item types will still 
+   appear in the OPAC.
+
+-  The :ref:`noItemTypeImages <noItemTypeImages-label>` system preference is used to show or hide the 
+   itemtype images in the staff interface.
+
+.. _opacnoresultsfound-label:
+
+OPACNoResultsFound
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+No Default
+
+Asks: Display this HTML when no results are found for a search in the
+OPAC
+
+This HTML will display below the existing notice that no results were
+found for your search.
+
+|image82|
+
+    **Note**
+
+    You can insert placeholders {QUERY\_KW} that will be replaced with
+    the keywords of the query.
+
+.. _opacplaymusicalinscripts-label:
+
+OPACPlayMusicalInscripts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't play
+
+Asks: \_\_\_ MIDI representation of musical inscripts on the OPAC record 
+details page.
+
+Values:
+
+-  Don't play
+
+-  Play
+
+Description:
+
+-  This system preference controls whether a short audio clip is available to play
+   when musical inscripts are added to the detailed view of a bibliographic
+   record.
+   
+    **Note**
+
+    The :ref:`OPACShowMusicalInscripts <OPACShowMusicalInscripts-label>` preference must be set to 'Show' 
+    for these clips to display.   
+
+.. _opacpublic-label:
+
+OpacPublic
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Enable
+
+Asks: \_\_\_ Koha OPAC as public. Private OPAC requires authentication
+before accessing the OPAC.
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Description:
+
+-  This system preference determines if your OPAC is accessible and searchable
+   by anyone or only by members of the library. If set to 'Don't enable'
+   only members who are logged into the OPAC can search. Most libraries
+   will leave this setting at its default of 'Enable' to allow their
+   OPAC to be searched by anyone and only require login for access to
+   personalized content.
+
+.. _opacresultslibrary-label:
+
+OPACResultsLibrary
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: home library
+
+Asks: For search results in the OPAC, show the item's \_\_\_. Please
+note that this feature is currently available for MARC21 and UNIMARC.
+
+Values:
+
+-  current location
+
+-  home library
+
+.. _opacresultsmaxitems-label:
+
+OPACResultsMaxItems
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show no more than \_\_\_ individual (available) items on the OPAC XSLT
+search results
+
+Default: 1
+
+Description:
+
+-  This system preference is used to limit the number of available items shown
+   in the search results in the OPAC.
+
+-  If you show a lot of information in :ref:`OpacItemLocation <opacitemlocation-label>`
+   and have a lot of items, the view can get cluttered or overwhelming for
+   patrons. Use this system preference to show only the information for a limited
+   number of individual items. By default, the details (such as location, call
+   number, etc.) of only one item are displayed in the search results.
+
+   -  Patrons can still click through to the detailed record to see the details
+      of each individual item.
+
+-  This system preference affects the display for 'available' and 'available for
+   reference' items
+
+   .. Note::
+
+      Statuses that are 'available for reference' are managed in the
+      :ref:`Reference_NFL_Statuses <reference_nfl_statuses-label>`.
+
+.. Note::
+
+   :ref:`OPACResultsMaxItemsUnavailable <opacresultsmaxitemsunavailable-label>`
+   does the same as this preference for unavailable items.
+
+.. _opacresultsmaxitemsunavailable-label:
+
+OPACResultsMaxItemsUnavailable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: If OPACResultsUnavailableGroupingBy is set to "library and substatus",
+show no more than \_\_\_ individual (unavailable) items per library and category
+(like Checked out, Damaged, On hold, etc.)
+
+Default: 0
+
+Description:
+
+-  This system preference is used to limit the number of unavailable items shown
+   in the search results in the OPAC.
+
+-  By default, no individual information (such as location, call number, etc.)
+   is shown for unavailable items.
+
+.. Warning::
+
+   This preference only works if
+   :ref:`OPACResultsUnavailableGroupingBy <opacresultsunavailablegroupingby-label>`
+   is set to 'library and substatus'.
+
+   If :ref:`OPACResultsUnavailableGroupingBy <opacresultsunavailablegroupingby-label>`
+   is set to 'library and substatus', and this preference is set to a value higher
+   than 0, you will see the details specified in
+   :ref:`OpacItemLocation <opacitemlocation-label>` for the number of items set.
+
+   If :ref:`OPACResultsUnavailableGroupingBy <opacresultsunavailablegroupingby-label>`
+   is set to 'library only', it will only show the library name with the number
+   of unavailable items for this library in parentheses.
+
+   And if :ref:`OPACResultsUnavailableGroupingBy <opacresultsunavailablegroupingby-label>`
+   is set to 'substatus only', it will only show the status ('checked out',
+   'withdrawn', 'on hold', or 'damaged') with the number of unavailable items
+   with this status in parentheses, across all libraries.
+
+.. _opacresultsunavailablegroupingby-label:
+
+OPACResultsUnavailableGroupingBy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: [...] Group unavailable items by \_\_\_.
+
+Values:
+
+-  library and substatus
+
+-  library only
+
+-  substatus only
+
+Default: library and substatus
+
+Description:
+
+-  This system preference is used to group unavailable items in the OPAC search
+   results.
+
+-  In this context, 'substatus' refers to the nature of the unavailability (for
+   example, 'Checked out', 'withdrawn', or 'on hold')
+
+-  If set to 'library and substatus' the OPAC search results will show the
+   number of items for each substatus in each library.
+
+   -  If :ref:`OPACResultsMaxItemsUnavailable <opacresultsmaxitemsunavailable-label>`
+      is set to a value higher than 0, it will also show the information
+      specified in :ref:`OpacItemLocation <opacitemlocation-label>` for the
+      number of items set in
+      :ref:`OPACResultsMaxItemsUnavailable <opacresultsmaxitemsunavailable-label>`
+
+-  If set to 'library only', the OPAC search results will show the number of
+   unavailable items for each library, regardless of their substatus.
+
+   .. Warning::
+
+      This option will disable
+      :ref:`OPACResultsMaxItemsUnavailable <opacresultsmaxitemsunavailable-label>`
+
+-  If set to 'substatus only', the OPAC search results will show the number of
+   unavailable items by substatus, across all the libraries.
+
+   .. Warning::
+
+      This option will disable
+      :ref:`OPACResultsMaxItemsUnavailable <opacresultsmaxitemsunavailable-label>`
+
+.. _opacresultssidebar-label:
+
+OPACResultsSidebar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following HTML under the facets in OPAC search results
+
+Description:
+
+-  The HTML entered in this preference will appear on the search results
+   pages below the list of facets on the left side of the screen.
+
+.. _opacsearchfortitlein-label:
+
+OPACSearchForTitleIn
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include a "More Searches" box on the detail pages of items on the
+OPAC, with the following HTML (leave blank to disable)
+
+Default::
+
+ <a href="https://worldcat.org/search?q={TITLE}" target="_blank">Other Libraries (WorldCat)</a>
+ <a href="https://scholar.google.com/scholar?q={TITLE}" target="_blank">Other Databases (Google Scholar)</a>
+ <a href="https://www.bookfinder.com/search/?author={AUTHOR}&amp;title={TITLE}&amp;st=xl&amp;ac=qr" target="_blank">Online Stores (Bookfinder.com)</a>
+ <a href="https://openlibrary.org/search?author=({AUTHOR})&title=({TITLE})" target="_blank">Open Library (openlibrary.org)</a>
+
+Description:
+
+-  Enter search links to other catalogs, these will appear in the 'More searches'
+   option in the detailed record in the OPAC.
+
+   |bibmoresearch|
+
+-  The placeholders :code:`{BIBLIONUMBER}`, :code:`{CONTROLNUMBER}`,
+   :code:`{OCLC_NO}`, :code:`{TITLE}`, :code:`{ISBN}`, :code:`{ISSN}` and
+   :code:`{AUTHOR}` will be replaced with information from the displayed record.
+
+-  To search by OCLC number in Worldcat,
+
+   -  the record must have the OCLC number in 035$a, with the (OCoLC) prefix,
+      for example::
+
+        035    _a(OCoLC)62385712
+
+   -  the link to add in the preference is::
+
+        <a href="https://worldcat.org/search?q={OCLC_NO}" target="_blank">WorldCat (via OCLC number)</a>
+
+.. _opacseparateholdings-and-opacseparateholdingsbranch-label:
+
+OpacSeparateHoldings and OpacSeparateHoldingsBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+OpacSeparateHoldings default: Don't separate
+
+OpacSeparateHoldingsBranch default: home library
+
+Asks: \_\_\_ items display into two tabs, where the first tab contains
+items whose \_\_\_ is the logged in user's library. The second tab will
+contain all other items.
+
+OpacSeparateHoldings values:
+
+-  Don't separate
+
+-  Separate
+
+OpacSeparateHoldingsBranch values:
+
+-  holding library
+
+-  home library
+
+Description:
+
+-  This system preference lets you decide if you would like to have the holding
+   information on the bibliographic detail page in the OPAC split in to
+   multiple tabs. The default is to show all holdings on one tab.
+
+   |image83|
+
+.. _opacshowcheckoutname-label:
+
+OPACShowCheckoutName
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't show
+
+Asks: \_\_\_ the name of the patron that has an item checked out on item
+detail pages on the OPAC.
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  This system preference allows all patrons to see who has the item checked
+   out if it is checked out. In small corporate libraries (where the
+   OPAC is behind a firewall and not publicly available) this can be
+   helpful so coworkers can just contact the patron with the book
+   themselves. In larger public and academic libraries setting this to
+   'Show' would pose serious privacy issues.
+
+.. _opacshowholdqueuedetails-label:
+
+OPACShowHoldQueueDetails
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't show any hold details
+
+Asks: \_\_\_ to patrons in the OPAC.
+
+Values:
+
+-  Don't show any hold details
+
+-  Show holds
+
+-  Show holds and their priority level
+
+-  Show priority level
+
+Description:
+
+-  This system preference allows you to choose the type of hold information to
+   make available to patrons when logged in to their account on the OPAC. If
+   you select to include hold priority information the list of holds will
+   initially be sorted by priority.
+
+.. _opacshowmusicalinscripts-label:
+
+OPACShowMusicalInscripts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't show
+
+Asks: \_\_\_ musical inscripts on the OPAC record details page.
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  This system preference allows musical inscripts to be displayed in the detailed
+   view of a bibliographic record on the OPAC. MARC data for the inscripts is
+   added to the 031 MARC21 tag of the record. Audio clips can also be displayed 
+   if the :ref:`OPACPlayMusicalInscripts <OPACPlayMusicalInscripts-label>` preference set to 'Play'.
+
+.. _opacshowrecentcomments-label:
+
+OpacShowRecentComments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't show
+
+Asks: \_\_\_ a link to recent comments in the OPAC masthead.
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If you have chosen to allow comments in your OPAC by setting
+   :ref:`OPACComments <OPACComments-label>` to 'Allow' you can include a link to the
+   recent comments under the search box at the top of your OPAC with
+   this preference.
+
+   |image88|
+
+.. _opacshowunusedauthorities-label:
+
+OPACShowUnusedAuthorities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Show
+
+Asks: \_\_\_ unused authorities in the OPAC authority browser.
+
+Values:
+
+-  Do not show
+
+-  Show
+
+   -  **Important**
+
+          Requires that the :ref:`OpacAuthorities <OpacAuthorities-label>`
+          preference is set to 'Allow'
+
+Description:
+
+-  When patrons search your authority file via the OPAC they will see
+   all authorities in your system even if you don't have them linked to
+   any bibliographic records. This system preference lets you determine what
+   the default behavior is when searching authorities via the OPAC. If
+   you choose 'Do not show' it will only show patrons authority records
+   that are linked to bibliographic records in the search results. Otherwise the
+   system will show all authority records even if they aren't linked to
+   records.
+
+.. _opacstarratings-label:
+
+OpacStarRatings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show star-ratings on \_\_\_ pages.
+
+Default: no
+
+Values:
+
+-  results, details and patron
+
+   -  star ratings appear in
+
+      -  the results list
+
+         |opacsearchresults|
+
+      -  the bibliographic record details page
+
+         |opacrecorddetails|
+
+      -  the patron's checkouts list
+
+         |yoursummary|
+
+      -  the patron's checkout history list
+
+         |yourcheckouthistory|
+
+-  only details
+
+   -  star ratings appear in the bibliographic record details page
+
+-  no
+
+   -  star ratings are deactivated
+
+Description:
+
+-  Star ratings are a way for your patrons to leave ratings without
+   having to leave a full review.
+
+-  Patrons who are not logged in will only be able to see the stars, and the
+   average rating.
+
+-  Logged in patrons can click on the stars on the bibliographic record details
+   page, in their current checkouts list or checkout history list to leave
+   their own rating.
+
+-  Clicking on the stars in the search results will not submit a rating.
+
+.. _opacthemes-label:
+
+opacthemes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: bootstrap
+
+Asks: Use the \_\_\_ theme on the OPAC.
+
+Values:
+
+-  bootstrap
+
+   Bootstrap Theme
+
+   This theme is completely responsive
+
+.. _opacurlopeninnewwindow-label:
+
+OPACURLOpenInNewWindow
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: don't
+
+Asks: When patrons click on a link to another website from your OPAC
+(like Amazon or OCLC), \_\_\_ open the website in a new window.
+
+Values:
+
+-  do
+
+-  don't
+
+Description:
+
+-  This system preference determines if URLs in the OPAC will open in a new
+   window or not. When clicking on a link in the OPAC, a patron does not
+   need to worry about navigating away from their search results.
+
+.. _opacusercss-label:
+
+OPACUserCSS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following CSS on all pages in the OPAC
+
+Description:
+
+-  OPACUserCSS allows the administrator to enter styles that will
+   overwrite the OPAC's default CSS as defined in 'opaclayoutstylesheet'
+   or 'opacstylesheet'. Styles may be entered for any of the selectors
+   found in the default style sheet. The default stylesheet will likely
+   be found at
+   http://your\_koha\_address/opac-tmpl/bootstrap/css/opac.css. Unlike
+   :ref:`OpacAdditionalStylesheet <OpacAdditionalStylesheet-label>` and
+   :ref:`opaclayoutstylesheet <opaclayoutstylesheet-label>` this preference will
+   embed the CSS directly on your OPAC pages.
+
+.. _opacuserjs-label:
+
+OPACUserJS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Include the following JavaScript on all pages in the OPAC
+
+|image91|
+
+|image92|
+
+|image93|
+
+Description:
+
+-  This system preference allows the administrator to enter JavaScript or
+   JQuery that will be embedded across all pages of the OPAC.
+   Administrators may use this preference to customize some of the
+   interactive sections of Koha, customizing the text for the login
+   prompts, for example. Sample JQuery scripts used by Koha libraries
+   can be found on the wiki:
+   http://wiki.koha-community.org/wiki/JQuery_Library.
+
+.. _opacusersummary-label:
+
+OPACUserSummary
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Show
+
+Asks: \_\_\_ a summary of a logged in user's checkouts, overdues, holds and fines on the mainpage
+
+Description:
+
+-  When activated, this preference system replaces the login form on the OPAC main page by a summary when the user is logged in.
+
+.. _opacxsltdetailsdisplay-label:
+
+OPACXSLTDetailsDisplay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Display OPAC details using XSLT stylesheet at: \_\_\_
+
+Default: default
+
+Values:
+
+-  Enter "default" to use the default stylesheet
+
+-  Enter a path to an XSLT file
+
+   -  For example, /path/to/koha/and/your/stylesheet.xsl
+
+   -  In a multi-language system you can enter {langcode} in the path
+      to tell Koha to look in the right language folder
+
+      -  For example,
+         /home/koha/src/koha-tmpl/opac-tmpl/bootstrap/{langcode}/xslt/MARC21slim2OPACDetail.xsl
+
+      -  For example, http://mykohaopac.org/{langcode}/stylesheet.xsl
+
+-  Enter an URL to an external stylesheet
+
+   -  For example, http://mykohaopac.org/stylesheet.xsl
+
+Description:
+
+-  XSLT stylesheets allow for the customization of the details shows on
+   the screen when viewing a bibliographic record. This system preference will allow you
+   either use the default look that comes with Koha or design your own
+   stylesheet.
+
+-  This system preference controls the display of the detailed bibliographic
+   record in the OPAC.
+
+-  If using a custom stylesheet that uses item MARC fields, enable the
+   :ref:`PassItemMarcToXSLT <PassItemMarcToXSLT-label>` system preference. Otherwise, item fields are
+   not available for use in XSLT stylesheets.
+
+See also:
+
+-  :ref:`OPACXSLTListsDisplay <OPACXSLTListsDisplay-label>`
+
+-  :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>`
+
+-  :ref:`XSLTDetailsDisplay <XSLTDetailsDisplay-label>`
+
+-  :ref:`DisplayOPACiconsXSLT <DisplayOPACiconsXSLT-label>`
+
+-  :ref:`PassItemMarcToXSLT <PassItemMarcToXSLT-label>`
+
+.. _opacxsltlistsdisplay-label:
+
+OPACXSLTListsDisplay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Display lists in the OPAC using XSLT stylesheet at: \_\_\_
+
+Default: default
+
+Values:
+
+-  Enter "default" to use the default stylesheet
+
+-  Enter a path to an XSLT file
+
+   -  For example, /path/to/koha/and/your/stylesheet.xsl
+
+   -  In a multi-language system you can enter {langcode} in the path
+      to tell Koha to look in the right language folder
+
+      -  For example,
+         /home/koha/src/koha-tmpl/opac-tmpl/bootstrap/{langcode}/xslt/MARC21slim2OPACResults.xsl
+
+      -  For example, http://mykohaopac.org/{langcode}/stylesheet.xsl
+
+-  Enter an URL to an external stylesheet
+
+   -  For example, http://mykohaopac.org/stylesheet.xsl
+
+Description:
+
+-  XSLT stylesheets allow for the customization of the details shows on
+   the screen when viewing lists. This system preference will
+   allow you either use the default look that comes with Koha or design
+   your own stylesheet.
+
+-  This system preference controls the display of the records in a
+   :ref:`list <lists-label>` in the OPAC.
+
+-  If using a custom stylesheet that uses item MARC fields, enable the
+   :ref:`PassItemMarcToXSLT <PassItemMarcToXSLT-label>` system preference. Otherwise, item fields are
+   not available for use in XSLT stylesheets.
+
+See also:
+
+-  :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>`
+
+-  :ref:`OPACXSLTResultsDisplay <OPACXSLTResultsDisplay-label>`
+
+-  :ref:`XSLTListsDisplay <XSLTListsDisplay-label>`
+
+-  :ref:`PassItemMarcToXSLT <PassItemMarcToXSLT-label>`
+
+.. _opacxsltresultsdisplay-label:
+
+OPACXSLTResultsDisplay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Display OPAC results using XSLT stylesheet at \_\_\_
+
+Default: default
+
+Values:
+
+-  Enter "default" to use the default stylesheet
+
+-  Enter a path to an XSLT file
+
+   -  For example, /path/to/koha/and/your/stylesheet.xsl
+
+   -  In a multi-language system you can enter {langcode} in the path
+      to tell Koha to look in the right language folder
+
+      -  For example,
+         /home/koha/src/koha-tmpl/opac-tmpl/bootstrap/{langcode}/xslt/MARC21slim2OPACResults.xsl
+
+      -  For example, http://mykohaopac.org/{langcode}/stylesheet.xsl
+
+-  Enter an URL to an external stylesheet
+
+   -  For example, http://mykohaopac.org/stylesheet.xsl
+
+Description:
+
+-  XSLT stylesheets allow for the customization of the details shows on
+   the screen when viewing the search results. This system preference will
+   allow you either use the default look that comes with Koha or design
+   your own stylesheet.
+
+-  This system preference controls the display of the records in the
+   :ref:`search results <search-results-label>` in the OPAC.
+
+-  If using a custom stylesheet that uses item MARC fields, enable the
+   :ref:`PassItemMarcToXSLT <PassItemMarcToXSLT-label>` system preference. Otherwise, item fields are
+   not available for use in XSLT stylesheets.
+
+See also:
+
+-  :ref:`OPACXSLTDetailsDisplay <OPACXSLTDetailsDisplay-label>`
+
+-  :ref:`OPACXSLTListsDisplay <OPACXSLTListsDisplay-label>`
+
+-  :ref:`XSLTResultsDisplay <XSLTResultsDisplay-label>`
+
+-  :ref:`DisplayOPACiconsXSLT <DisplayOPACiconsXSLT-label>`
+
+-  :ref:`PassItemMarcToXSLT <PassItemMarcToXSLT-label>`
+
+.. _reference_nfl_statuses-label:
+
+Reference_NFL_Statuses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: List the following not for loan statuses as available for reference in 
+OPAC search results: \_\_\_ 
+
+Default: 1|2
+
+Description:
+
+-  This system preference is used to specify which not for loan statuses should 
+   appear as 'Available for reference'
+   
+   |Reference_NFL_Statuses-Available-for-reference|
+   
+   When the not for loan status is in the Reference\_NFL\_Statuses list, it will 
+   appear as 'Available for reference' in green text in the OPAC.
+   
+   -  The other not for loan statuses will appear as 'Not available'
+   
+      |Reference_NFL_Statuses-Not-available|
+      
+      When the not for loan status is NOT in the Reference\_NFL\_Statuses list, 
+      it will appear as 'Not available' in red text in the OPAC.
+
+-  The values for the not for loan statuses are found in the NOT\_LOAN 
+   :ref:`authorized value category<existing-values-label>`.
+
+-  Values must be separated by a pipe (|).
+
+.. _opacfeatures-label:
+
+Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _numsearchrssresults-label:
+
+numSearchRSSResults
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 50
+
+Asks: Display \_\_\_ search results in the RSS feed.
+
+Description:
+
+-  By default the RSS feed that is automatically generated for every
+   search results page will list 50 items. This can sometimes be too
+   much for some RSS feed readers and for some people this isn't enough.
+   This system preference allows you to adjust this number to show the best
+   number of results for your patrons.
+
+.. _opacacquisitiondetails-label:
+
+OPACAcquisitionDetails
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the acquisition details on OPAC detail pages.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If set to 'Show' this preference shows patrons how many items are on order
+   in the Holdings tab of the detailed record in the OPAC.
+
+   |OPACAcquisitionDetails|
+
+   -  If the items are created when placing the order, it will show how many
+      items are on order and the individual items will have an 'On order' note
+      under the status.
+
+   -  If the item is created when receiving the order, or when cataloging the
+      record, it will only show how many items are on order.
+
+-  If set to "Don't show", the holdings tab will say "No physical items for
+   this record" if the items are created on receiving or when cataloging the
+   record. Items will be displayed without any special note if they are created
+   when placing the order.
+
+.. Note::
+
+   Note that items are considered ordered when the
+   :ref:`basket is closed <ordering-closing-basket-label>`. This preference has
+   no effect while the basket is still open.
+
+.. _opacauthoridentifiers-label:
+
+OPACAuthorIdentifiers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ identifiers for authors and contributors to the detail pages in
+the OPAC.
+
+Values:
+
+-  Display
+
+-  Don't display
+
+Default: Don't display
+
+.. Note::
+
+   This is currently only available for MARC21.
+
+Description:
+
+-  This system preference is used to display an 'Author identifiers' tab in
+   the OPAC bibliographic record details page that contains the authors'
+   identifier numbers with a link to the author's record on the source website.
+
+   |authoridentifiersopac|
+
+-  In order to have the IDs display, the authors' authority records must have
+   identifying information in 024.
+
+   |authority024|
+
+   -  Subfield 2 must contain the source of the identifier.
+
+      .. Note::
+
+         Valid source codes in $2 are currently:
+
+         -  loop
+
+         -  orcid
+
+         -  rid
+
+         -  scopus
+
+         -  viaf
+
+    -  Subfield a must contain the identifier
+
+.. _opacauthorities-label:
+
+OpacAuthorities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to search your authority records.
+
+Description:
+
+-  This system preference displays the link on the OPAC for the authority
+   search. By setting the preference to "Allow" patrons can use this
+   search link of the OPAC.
+
+Values:
+
+-  Allow
+
+   -  A link labeled 'Authority search' will appear at the top of your
+      OPAC under the search box
+
+      |image94|
+
+-  Don't allow
+
+.. _opacbookbag-label:
+
+opacbookbag
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to store items in a temporary "Cart" on the OPAC.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This system preference allows the user to temporarily save a list of items
+   found on the catalog. By using the book bag, or cart, the user can
+   print out or email a list of items found. The user does not need to
+   be logged in. This list is temporary and will be emptied, or cleared,
+   at the end of the session.
+
+.. _opacbrowser-label:
+
+OpacBrowser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Important**
+
+    This system preference only applies to installations using UNIMARC at this time.
+
+Default: Don't allow
+
+Asks: \_\_\_ patrons to browse subject authorities on OPAC
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+    **Important**
+
+    run the :ref:`authorities browser cron job <cron-authorities-browser-label>` to
+    create the browser list
+
+.. _opacbrowseresults-label:
+
+OpacBrowseResults
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: enable
+
+Asks: \_\_\_ browsing and paging search results from the OPAC detail
+page.
+
+Values:
+
+-  disable
+
+-  enable
+
+   |image95|
+
+Description:
+
+-  This system preference will control the option to return to your results
+   and/or browse them from the detail page in the OPAC.
+
+.. _opacbrowsesearch-label:
+
+OpacBrowseSearch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ interface for browsing all holdings (Elasticsearch only).
+
+Values:
+  
+-  Disable
+  
+-  Enable
+
+Default: Disable
+
+Description:
+
+-  This system preference allows Opac users to browse records by Author, Title or Subject.
+
+-  When set to "Enable", the "Browse search" option appears in the Opac "More searches" area.
+
+.. Warning ::
+
+     This system preference only has an effect when Elasticsearch is set up as the search engine.
+     
+     If you are not sure which search engine your Koha system is using, start by checking the :ref:`SearchEngine system preference <searchengine-label>`.
+
+
+.. _opaccatalogconcerns-label:
+
+OpacCatalogConcerns
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ OPAC users to report concerns about catalog records.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Default: Don't allow
+
+Description:
+
+-  This system preference is used to turn on the
+   :ref:`concern reporting feature in the OPAC <report-concern-opac-label>`.
+
+.. _opaccloud-label:
+
+OpacCloud
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Important**
+
+    This system preference only applies to French systems at this time.
+
+Default: Don't show
+
+Asks: \_\_\_ a subject cloud on OPAC
+
+Values:
+
+-  Don't show
+
+-  Show
+
+    **Important**
+
+    run the :ref:`authorities browser cron job <cron-authorities-browser-label>` to
+    create the browser list
+
+.. _opacdetailqrcode-label:
+
+OPACDetailQRCode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't enable
+
+Asks: \_\_\_ the option to show a QR Code on the OPAC bibliographic detail 
+page.
+
+Values:
+
+-  Don't enable
+
+-  Enable
+
+Description:
+
+-  With this preference enabled a new option 'Send to device' displays in the 
+   list of options on the OPAC details page. When this link is clicked a 
+   QR code will be displayed which can be scanned using a compatible device 
+   in order to save the bibliographic details to that device.
+
+.. _opacfinestab-label:
+
+OPACFinesTab
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to access the Fines tab on the 'your summary' page on
+the OPAC.
+
+Values:
+
+-  Allow
+
+   -  :ref:`opacuserlogin <opacuserlogin-label>` needs to be set to 'allow'
+
+-  Don't allow
+
+.. _opacholdnotes-label:
+
+OpacHoldNotes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Do not allow
+
+Asks: \_\_\_ users to add a note when placing a hold.
+
+Values:
+
+-  Allow
+
+   |image96|
+
+-  Do not allow
+
+.. _opacisbd-label:
+
+OPACISBD
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: See `ISBD view configuration
+<https://wiki.koha-community.org/wiki/ISBD_view_configuration>` on the wiki.
+
+Asks: Use the following as the OPAC ISBD template:
+
+Description:
+
+-  This determines how the ISBD information will display in the OPAC.
+   Elements in the list can be reordered to produce a different ISBD
+   view. ISBD, the International Standard Bibliographic Description, was
+   first introduced by IFLA (International Federation of Library
+   Associations) in 1969 in order to provide guidelines for descriptive
+   cataloging. The purpose of ISBD is to aid the international exchange
+   of bibliographic records for a variety of materials.
+
+.. _opacitemlocation-label:
+
+OpacItemLocation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show \_\_\_ for items on the OPAC search results.
+
+Default: library and call number
+
+Values:
+
+-  library and call number
+
+-  library, collection code, and call number
+
+-  only library
+
+-  library, location, and call number
+
+Description:
+
+-  This setting allows users of the OPAC results XSLT stylesheet to
+   choose to display collection code or location in addition to library and call
+   number.
+
+.. _opacnewslibraryselect-label:
+
+OpacNewsLibrarySelect
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ a library selection list for news items in the OPAC.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If set to 'Show' a dropdown menu will be displayed above the news in the
+   OPAC so that patrons can choose which library they want to see the news from.
+
+   |OpacNewsLibrarySelect|
+
+-  If set to "Don't show", unlogged OPAC users will only see system-wide news
+   (news set to 'All libraries') and logged in users will see news for their
+   home library and system-wide news.
+
+.. _opacpasswordchange-label:
+
+OpacPasswordChange
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to change their own password on the OPAC.
+
+Values:
+
+-  Allow
+
+   -  :ref:`opacuserlogin <opacuserlogin-label>` needs to be set to 'allow'
+
+-  Don't allow
+
+    **Important**
+
+    Enabling this will break LDAP authentication.
+
+.. _opacpatronimages-label:
+
+OPACpatronimages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't show
+
+Asks: \_\_\_ patron images on the patron information page in the OPAC.
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If :ref:`patronimages <patronimages-label>` is set to allow the upload of
+   patron images via the staff interface, then setting this preference to
+   'show' will show the patron what image you have on file for them when
+   they view their personal information on their account in the OPAC.
+
+.. _opacpopupauthorssearch-label:
+
+OPACPopupAuthorsSearch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the list of authors/subjects in a popup for a combined
+search on OPAC detail pages.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If this preference is set to 'Show', clicking a subject or
+   author from the details page in the OPAC will present the patron
+   with a pop up box. From this box they can check any of the
+   subjects or authors listed and search them all at once by clicking
+   'Search' at the bottom of the pop up.
+
+   |OPACPopupAuthorsSearch|
+
+-  If this preference is set to "Don't show", the default behavior, Koha will
+   search just the clicked author or subject.
+
+.. _opacreportproblem-label:
+
+OPACReportProblem
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patrons to submit problem reports for OPAC pages to the library 
+or Koha administrator.
+
+Default: Allow
+
+Values:
+
+-  Don't allow
+
+-  Allow
+
+Description:
+
+-  This system preference controls the
+   :ref:`'Report a problem' feature on the OPAC <opac-report-problem-label>`,
+   which enables patrons to send problem reports from the OPAC.
+
+-  Problem reports are sent by email to the address in
+   :ref:`KohaAdminEmailAddress <KohaAdminEmailAddress-label>` or to the
+   :ref:`library <libraries-label>`'s email address.
+
+   .. Note::
+
+      The notice sent by email is customizable in the
+      :ref:`Notices and slips tool <notices-and-slips-label>`. The letter code is
+      PROBLEM\_REPORT.
+
+-  Problem reports are managed in the
+   :ref:`OPAC problem reports tool <opac-problem-reports-tool>`.
+
+.. _opacresetpassword-label:
+
+OpacResetPassword
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: not allowed
+
+Asks: Library users are \_\_\_ to recover their password via e-mail in
+the OPAC.
+
+Values:
+
+-  allowed
+
+    |image1195|
+
+-  not allowed
+
+Description:
+
+-  This system preference controls whether you present users of the public
+   catalog with a 'Forgot your password' link or not. Learn more in the
+   :ref:`OPAC section <resetting-your-password-label>` of this manual.
+
+.. _opacshowsavings-label:
+
+OPACShowSavings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Calculate the amount a patron has 'saved' by using the library based on
+replacement prices, and display: \_\_\_
+
+Default: none
+
+Values (multi-select):
+
+-  [Select all]
+
+-  in user :ref:`summary box on OPAC homepage <your-account-label>` (the system
+   preference :ref:`OPACUserSummary <opacusersummary-label>` must be enabled)
+
+   |OPACShowSavings-summarybox|
+
+-  on patron's :ref:`'your summary' page <your-summary-label>`
+
+   |OPACShowSavings-yoursummary|
+
+-  on patron's :ref:`checkout history page <your-checkout-history-label>` (the
+   system preference :ref:`opacreadinghistory <opacreadinghistory-label>` must
+   be enabled)
+
+   |OPACShowSavings-checkouthistory|
+
+Description:
+
+-  This system preference will check the patron's checkout history, add the
+   replacement prices of all previously and currently checked out items, and
+   display the sum in the selected pages.
+
+.. Important::
+
+   The items' replacement prices are used to add up the savings. Make sure your
+   items have replacement prices before displaying this information.
+
+.. Warning::
+
+   If :ref:`checkout histories are anonymized <patrons-anonymize-bulk-delete-label>`
+   or if old checkouts are deleted through the
+   :ref:`cleanup\_database script <cron-clean-up-database-label>`, the savings
+   information will be inaccurate.
+
+.. Note::
+
+   If a patron checks out an item more than once, it will only be counted once
+   in the savings.
+
+.. _opactopissue-label:
+
+OpacTopissue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ patrons to access a list of the most checked out items on
+the OPAC.
+
+Values:
+
+-  Allow
+
+   -  A link to 'Most Popular' will appear at the top of your OPAC
+
+      |image99|
+
+-  Don't allow
+
+Description:
+
+-  This system preference allows the administrator to choose to show the "Most
+   Popular" link at the top of the OPAC under the search box. The "Most
+   Popular" page shows the top circulated items in the library, as
+   determined by the number of times a title has been circulated. This
+   allows users to see what titles are popular in their community. It is
+   recommended that you leave this preference set to 'Don't allow' until
+   you have been live on Koha for a couple of months, otherwise the data
+   that it shows will not be an accurate portrayal of what's popular in
+   your library.
+
+   |image100|
+
+.. _opacuserlogin-label:
+
+opacuserlogin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to log in to their accounts on the OPAC.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+   -  The OPAC will still be searchable if patrons can't log in, this
+      just disables the patron account access via the OPAC
+
+.. _quoteoftheday-label:
+
+QuoteOfTheDay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Show quote of the day in the \_\_\_ main page
+
+Default: (none)
+
+Values:
+
+-  [Select all]
+
+-  OPAC
+
+-  staff interface
+
+Description:
+
+-  This system preference allows you to choose where the quotes from the 
+   :ref:`quote of the day editor <quote-of-the-day-(qotd)-editor-label>` tool 
+   will appear.
+
+.. _opacholdrequests-label:
+
+OPACHoldRequests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to place holds on items from the OPAC.
+
+Values:
+
+-  Allow
+
+   -  :ref:`opacuserlogin <opacuserlogin-label>` needs to be set to 'allow'
+
+-  Don't allow
+
+.. _opaccomments-label:
+
+OPACComments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patrons to make comments on items on the OPAC.
+
+Default: Allow
+
+Values:
+
+-  Allow
+
+   -  Patrons comments/reviews all require moderation before they appear
+      in the OPAC
+
+   -  :ref:`opacuserlogin <opacuserlogin-label>` needs to be set to 'Allow'
+
+-  Don't allow
+
+Description:
+
+-  This system preference determines if patrons are allowed to submit comments 
+   on titles they have read on the OPAC. If this preference is set to "Allow" 
+   reviews are first sent to the staff interface for staff approval before the 
+   review is displayed in the OPAC. The staff member who reviews and approves
+   comments may find the pending comments on the
+   :ref:`comments tool <comments-label>`. The staff member can then choose to
+   approve or delete the comments.
+
+See also :
+
+-  :ref:`ShowReviewer <ShowReviewer-label>`
+
+-  :ref:`ShowReviewerPhoto <ShowReviewerPhoto-label>`
+
+-  :ref:`OpacShowRecentComments <OpacShowRecentComments-label>`
+
+.. _showreviewer-label:
+
+ShowReviewer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: full name
+
+Asks: Show \_\_\_ of commenter with comments in OPAC.
+
+Values:
+
+-  first name
+
+-  first name and last initial
+
+-  full name
+
+-  last name
+
+-  no name
+
+-  username
+
+Description:
+
+-  If you would like to protect your patron's privacy in the OPAC you
+   can choose to hide their names or parts of their names from any of
+   the comments they leave on bibliographic records in your system.
+   :ref:`OPACComments <OPACComments-label>` needs to be set to 'Allow' for this system preference
+   to come in to play
+
+.. _showreviewerphoto-label:
+
+ShowReviewerPhoto
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ reviewer's avatar beside comments in OPAC.
+
+Default: Show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  This system preference allows libraries to show avatars next to
+   patron's comments in the OPAC.
+
+   |ShowReviewerPhoto|
+
+-  These avatars are pulled from the `Libravatar <https://www.libravatar.org>`_
+   library, an open source powered product that allows Internet users to choose
+   a small icon to display next to their name on various different websites.
+
+-  The library itself has no control over the images the patron chooses to
+   display.
+
+.. Note::
+
+   This system preference requires that :ref:`OPACComments <OPACComments-label>` be set to 'Allow' and
+   :ref:`ShowReviewer <ShowReviewer-label>` be set to 'Show' to have any effect.
+
+.. _socialnetworks-label:
+
+SocialNetworks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Disable
+
+Asks: Show \_\_\_ social network links in opac detail pages
+
+Options:
+
+-  Email
+
+-  Facebook
+
+-  LinkedIn
+
+-  Twitter
+
+   |image102|
+
+Description:
+
+-  This system preference will enable a line of social network share buttons
+   below the right hand column on the detail pages of records in the
+   OPAC.
+
+    **Important**
+
+    In order for these share buttons to work when clicked you must have
+    filled in your :ref:`OPACBaseURL <OPACBaseURL-label>` preference.
+
+.. _payments-label:
+
+Payments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These preferences will allow you control the tools you use to accept
+online payments from your patrons via the OPAC.
+
+.. _enablepaypalopacpayments-and-paypalsandboxmode-label:
+
+EnablePayPalOpacPayments and PayPalSandboxMode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+EnablePayPalOpacPayments Default: Don't allow
+
+PayPalSandboxMode Default: Sandbox
+
+Asks: \_\_\_ patrons to make payments from the OPAC via PayPal in \_\_\_
+mode.
+
+EnablePayPalOpacPayments values:
+
+-  Allow
+
+-  Don't allow
+
+PayPalSandboxMode values:
+
+-  Production
+
+   -  Visit https://developer.paypal.com/ to get information for
+      accepting payments in production
+
+-  Sandbox
+
+   -  Visit https://developer.paypal.com/developer/accounts/ to get
+      information for your sandbox account
+
+Description:
+
+-  This system preference will allow you to accept credit card payments via the
+   OPAC for fines via PayPal. You will need to set up your PayPal
+   account and it is recommended that you run tests before using this in
+   production.
+
+    **Important**
+
+    PayPayl's terms of service state that you cannot charge your patrons
+    for the processing fees and so this plugin will not add additional
+    fees to the charges.
+
+.. _paypalchargedescription-label:
+
+PayPalChargeDescription
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Koha fee payment
+
+Asks: The patron should see the charge description as \_\_\_
+
+Description
+
+-  This system preference controls what the patron will see on their PayPal
+   account/bank account for this charge.
+
+.. _paypalpwd-label:
+
+PayPalPwd
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The password for the PayPal account to receive payments is \_\_\_
+
+.. _paypalreturnurl-label:
+
+PayPalReturnURL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: After payment or cancellation, PayPal should return to the \_\_\_
+
+Default: :ref:`OPACBaseURL <OPACBaseURL-label>`
+
+Values:
+
+-  :ref:`OPACBaseURL <OPACBaseURL-label>`
+
+-  configured return URL
+
+Description:
+
+-  This system preference lets you decide where a patron is redirected after
+   they are done with their transaction, either the :ref:`OPACBaseURL <OPACBaseURL-label>` or
+   the URL specified in the PayPal configuration
+
+.. _paypalsignature-label:
+
+PayPalSignature
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The signature for the PayPal account to receive payments is \_\_\_
+
+.. _paypaluser-label:
+
+PayPalUser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The email address to receive PayPal payments is \_\_\_
+
+.. _policy-label:
+
+Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _blockexpiredpatronopacactions-label:
+
+BlockExpiredPatronOpacActions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't block
+
+Asks: \_\_\_ expired patrons from OPAC actions such as placing a hold or
+renewing.
+
+Values:
+
+-  Block
+
+-  Don't block
+
+Description:
+
+-  This system preference lets you set a default value for how Koha handles
+   permissions for patrons who are expired. This system preference can be
+   overwritten by the setting on :ref:`individual patron
+   categories <patron-categories-label>`.
+
+.. _opacallowpubliclistcreation-label:
+
+OpacAllowPublicListCreation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ opac users to create public lists.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  Public lists are visible to anyone who visits your OPAC. With this
+   preference you can control whether or now patrons are allowed to
+   create these public lists. If this is set to "Don't allow" then only
+   staff will be able to create public lists.
+
+    **Important**
+
+    This system preference will only be taken in to account if you have
+    :ref:`virtualshelves <virtualshelves-label>` set to 'Allow'
+
+.. _opacallowsharingprivatelists-label:
+
+OpacAllowSharingPrivateLists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ OPAC users to share private lists with other patrons.
+
+Default: Don't allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This feature will add the option for patrons to share their lists
+   with other patrons.
+
+-  When this is set to 'Allow' patrons will see a 'Share list' link at the top
+   of their list. When they click that link it will ask for the email of the
+   patron they would like to share with.
+
+-  Koha will then email the patron an invitation to see the list, and, once the
+   other patron accepts the shared list, email the sharing patron to notify them
+   that the share has been accepted.
+
+-  See :ref:`Managing lists <managing-lists-label>` for more information.
+
+.. _opacfinenorenewals-label:
+
+OPACFineNoRenewals
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 99999
+
+Asks: Only allow patrons to renew their own books on the OPAC if they
+have less than \_\_\_ USD in fines
+
+    **Note**
+
+    Leave this field blank to disable
+
+    **Important**
+
+    To allow renewals in the OPAC, :ref:`opacuserlogin <opacuserlogin-label>`
+    needs to be set to 'allow'
+
+.. _opacfinenorenewalsincludecredits-label:
+
+OPACFineNoRenewalsIncludeCredits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Include
+
+Asks: \_\_\_ outstanding/unapplied credits when applying the OPACFineNoRenewals
+rule to users
+
+Values:
+
+-  Include
+
+-  Don't include
+
+Description:
+
+-  This system preference controls whether the :ref:`OPACFineNoRenewals <OPACFineNoRenewals-label>` function uses
+   the account balance (which combines outstanding credits and debits) or
+   account amount outstanding (which excludes any credits) to make the calculation.
+
+    **Note**
+
+    Generally you would set this system preference to align with
+    the :ref:`AccountAutoReconcile <AccountAutoReconcile-label>` system preference. If you have
+    AccountAutoReconcile set to ‘Do’ you should leave this system preference as
+    ‘Include’. If you have AccountAutoReconcile set to ‘Do not’ it would make
+    sense to have this set as ‘Don’t include’.
+
+.. _opachiddenitems-label:
+
+OpacHiddenItems
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Allows to define custom rules for hiding specific items at opac.
+
+Description:
+
+-  In this field you can enter criteria for items you would like to hide
+   from display in the OPAC. This field takes any combination of item
+   fields (from the items table in the Koha database) for blocking. For
+   example a value of:
+
+   ::
+
+       itype: [07, 10]
+       location: [STAFF, ISO]
+
+   Will block items with an itype code of 07 or 10 as well as items that
+   have a shelving location of STAFF or ISO.
+
+.. Warning::
+
+   Requires YAML syntax to work
+
+   This means
+
+   -  Make sure there is NO space between the field name and the colon
+
+   -  Make sure there IS a space between the colon and the value
+
+   -  If there are more than one values for the same field, put them in
+      square brackets, separated by comma and space
+
+   -  Make sure each pair is on its own line
+
+.. _opachiddenitemsexceptions-label:
+
+OpacHiddenItemsExceptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: List of patron categories, that can see items otherwise hidden by
+:ref:`OpacHiddenItems <opachiddenitems-label>`
+
+Default: blank
+
+Description:
+
+-  Patron categories chosen here will be able to view items on the OPAC that
+   would otherwise be hidden by the :ref:`OpacHiddenItems <opachiddenitems-label>`
+   system preference.
+
+.. Note::
+
+   Users need to be logged into the OPAC to be able to see hidden items if they
+   are part of the excepted categories.
+
+.. _opacrenewalallowed-label:
+
+OpacRenewalAllowed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to renew their own books on the OPAC.
+
+Values:
+
+-  Allow
+
+   -  :ref:`opacuserlogin <opacuserlogin-label>` needs to be set to 'allow'
+
+-  Don't allow
+
+   -  Staff will still be able to renew items for patrons via the staff
+      interface
+
+Description:
+
+-  This system preference allows the administration to choose if patrons can
+   renew their checked out materials via their checked out history in
+   the OPAC. It allows patrons to renew their materials without having
+   to contact the library or having to return to the library.
+
+.. _opacrenewalbranch-label:
+
+OpacRenewalBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: the library the item was checked out from
+
+Asks: Use \_\_\_ as branchcode to store in the statistics table
+
+Values:
+
+-  NULL
+
+-  'OPACRenew'
+
+-  the item's home library
+
+-  the patron's home library
+
+-  the library the item was checked out from
+
+Description:
+
+-  This value is used in the statistics table to help with reporting.
+   The statistics table in Koha keeps track of all checkouts and
+   renewals, this preference defines which library is entered in to the
+   table when a patron renews an item for themselves via the OPAC.
+
+.. _searchmylibraryfirst-label:
+
+SearchMyLibraryFirst
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't limit
+
+Asks: \_\_\_ patrons' searches to the library they are registered at.
+
+Values:
+
+-  Don't limit
+
+   -  Searching the OPAC will show results from all libraries
+
+   -  If you're a one library system, choose 'Don't limit'
+
+-  Limit
+
+   -  Patrons will still be able to search other libraries via the
+      Advanced search page - but will be limited to searches for their
+      library only from the basic search box
+
+   -  :ref:`opacuserlogin <opacuserlogin-label>` needs to be set to 'allow'
+
+.. _privacy-label:
+
+Privacy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _allowpatrontosetcheckoutsvisibilityforguarantor-label:
+
+AllowPatronToSetCheckoutsVisibilityForGuarantor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ patrons to choose their own privacy settings for showing
+the patron's checkouts to the patron's guarantor".
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  By default staff can see checkouts to family members via the staff
+   interface. This system preference will allow guarantees (children) to grant
+   permission to guarantors (guardians) to view their current checkouts
+   via the public catalog. This system preference requires that you allow
+   patrons to choose their own privacy with the
+   :ref:`OPACPrivacy <OPACPrivacy-label>` preference.
+
+.. _anonymouspatron-label:
+
+AnonymousPatron
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: 0
+
+Asks: Use borrowernumber \_\_\_ as the Anonymous Patron (for anonymous
+suggestions and reading history)
+
+    **Note**
+
+    Before setting this preference :ref:`create a patron <add-a-new-patron-label>`
+    to be used for all anonymous suggestions and/or reading history
+    items. This patron can be any type and should be named something to
+    make it clear to you that they're anonymous (ex. Anonymous Patron).
+
+    **Important**
+
+    Remember to use the borrowernumber not the patron's cardnumber for
+    this value. The borrowernumber can be found on the patron record
+    under 'Library use' on the right.
+
+    |image1196|
+
+.. _enableopacsearchhistory-label:
+
+EnableOpacSearchHistory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Keep
+
+Asks: \_\_\_ patron search history in the OPAC.
+
+Values:
+
+-  Don't keep
+
+-  Keep
+
+.. _opacholdshistory-label:
+
+OPACHoldsHistory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patrons to see the list of their past holds. 
+
+Default: Don't allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This system preference determines if patrons are allowed to see their 
+   :ref:`holds history on the OPAC <your-holds-history-label>`.
+
+.. _opacprivacy-label:
+
+OPACPrivacy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't allow
+
+Asks: \_\_\_ patrons to choose their own privacy settings for their
+reading history.
+
+    **Important**
+
+    This requires :ref:`opacreadinghistory <opacreadinghistory-label>` set to
+    'Allow' and :ref:`AnonymousPatron <AnonymousPatron-label>` to be set to your
+    anonymous patron's borrowernumber.
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  The default privacy setting for each patron category can be set in
+   the :ref:`patrons categories <patron-categories-label>` area. If you set this
+   preference to 'allow' then patrons can change that for themselves via
+   the OPAC.
+
+    **Important**
+
+    If patron has chosen to have their reading history anonymized and
+    you have :ref:`StoreLastBorrower <StoreLastBorrower-label>` set to "Don't
+    store" then as soon as the item is checked in the last borrower will
+    be anonymized.
+
+.. _opacreadinghistory-label:
+
+opacreadinghistory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Allow
+
+Asks: \_\_\_ patrons to see what books they have checked out in the
+past.
+
+    **Important**
+
+    Enabling this will make it so that patrons can view their
+    circulation history in the OPAC unless you have
+    :ref:`OPACPrivacy <OPACPrivacy-label>` set to 'Allow'.
+
+    **Important**
+
+    This data is stored in the system regardless of your choice, unless
+    your patrons have chosen to never have their reading history kept.
+
+.. _trackclicks-label:
+
+TrackClicks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't track
+
+Asks: \_\_\_ links that patrons click on.
+
+Values:
+
+-  Don't track
+
+-  Track
+
+-  Track anonymously
+
+Description:
+
+-  By setting this preference to one of the track options you will allow
+   Koha to track every link clicked in Koha. This data will be stored in
+   a database table so that you can run reports against that data. If
+   you choose to 'Track' clicks then Koha will record both the link
+   clicked and the logged in user who clicked the link. If you choose to
+   'Track anonymously' then the borrowernumber will not be recorded, but
+   the rest of the data will.
+
+       **Note**
+
+       Remember to update your local privacy policies and link to them
+       from the OPAC to notify your users that you are tracking their
+       information.
+
+.. _restricted-page-label:
+
+Restricted page
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Using the following preference you can create a page within your Koha
+system that is accessible by only specific IP addresses. This can be
+used to house links to databases that can only be accessed from with the
+library or other licensed content.
+
+.. _restrictedpagecontent-label:
+
+RestrictedPageContent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: HTML content of your restricted page.
+
+.. _restrictedpagelocalips-label:
+
+RestrictedPageLocalIPs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Access from IP addresses beginning with \_\_\_ do not need to be
+authenticated
+
+Description:
+
+-  You can enter individual IPs as a comma separated list (ex:
+   '127.0.0,127.0.1') or just the beginning of the IP range allowed (ex:
+   '127.0.^)
+
+.. _restrictedpagetitle-label:
+
+RestrictedPageTitle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use \_\_\_ as title of your restricted page
+
+Description:
+
+-  This title will appear in the breadcrumb and on the top of the
+   restricted page.
+
+.. _self-registration-label:
+
+Self registration and modification
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _emailpatronregistrations-and-emailaddressforpatronregistrations-label:
+
+EmailPatronRegistrations and EmailAddressForPatronRegistrations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Choose email address that new patron self-registrations will be sent to: \_\_\_. If you choose EmailAddressForPatronRegistrations you have to enter a valid email address: \_\_\_
+
+Default: none
+
+Values:
+-  none
+-  email address of library
+-  EmailAddressForPatronRegistrations
+-  KohaAdminEmailAddress
+
+Description:
+
+-  These system preferences allow libraries to receive notifications when patrons self-register. The notice text can be customised in the :ref:`Notices and slips <notices-and-slips-label>` tool; the letter code is OPAC_REG.
+-  If the value of EmailPatronRegistrations is set to 'none', no notifications will be sent.
+-  If the value of EmailPatronRegistrations is set to 'email address of library', notifications will be sent to the registration library using the email address entered in the :ref:`Libraries settings <libraries-label>`.
+-  If the value is set to 'EmailAddressForPatronRegistrations', notifications will be sent to the email address in the input field.
+-  Lastly, when the value of EmailPatronRegistrations is set to 'KohaAdminEmailAddress', notifications will be sent to the email address entered in the :ref:`KohaAdminEmailAddress <kohaadminemailaddress-label>` system preference.
+
+.. Note::
+
+	If verification is required for self-registrations (when PatronSelfRegistrationVerifyByEmail is enabled), then notifications are only sent to the library once the registration is confirmed.
+
+.. _opacpatrondetails-label:
+
+OPACPatronDetails
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patrons to notify the library of changes to their contact
+information from the OPAC.
+
+Default: Allow
+
+Values:
+
+-  Allow
+
+   -  :ref:`opacuserlogin <opacuserlogin-label>` needs to be set to 'allow'
+
+-  Don't allow
+
+Description:
+
+-  If patrons are allowed to notify the library of changes to their
+   account then staff will need to approve the changes via the staff
+   interface. Notification of patron account requests will appear on the
+   dashboard below the list of modules with other pending actions.
+
+   |pendingrequests|
+
+   Once you click the notification you will be presented with the
+   changes the patron would like to make to their account and from there
+   you can choose how to proceed.
+
+   |updatepatronrecords|
+
+       **Note**
+
+       You can control which fields patrons see and can modify via the
+       OPAC by setting the
+       :ref:`PatronSelfModificationBorrowerUnwantedField <patronselfmodificationborrowerunwantedfield-label>` and
+       :ref:`PatronSelfModificationMandatoryField <patronselfmodificationmandatoryfield-label>`
+       preferences.
+
+.. _patronselfmodificationborrowerunwantedfield-label:
+
+PatronSelfModificationBorrowerUnwantedField
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following `database
+columns <http://schema.koha-community.org/master/tables/borrowers.html>`__ will
+not appear on the patron self-modification screen: \_\_\_
+
+Description:
+
+-  This system preference allows you to define which fields patrons can edit if
+   you're allowing them to update their personal information via the
+   public catalog with the :ref:`OPACPatronDetails <OPACPatronDetails-label>`
+   preference.
+
+.. _patronselfmodificationmandatoryfield-label:
+
+PatronSelfModificationMandatoryField
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following `database
+columns <http://schema.koha-community.org/master/tables/borrowers.html>`__ must be filled in on the patron self-modification screen: \_\_\_
+
+Description:
+
+-  This system preference allows you to define which fields patrons must fill in if
+   you're allowing them to update their personal information via the
+   public catalog with the :ref:`OPACPatronDetails <OPACPatronDetails-label>`
+   preference.
+
+.. _patronselfregistration-label:
+
+PatronSelfRegistration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ library patrons to register an account via the OPAC.
+
+Default: Don't allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  Setting this preference to 'Allow' will provide a link on the OPAC to
+   register for a new account. Using the other :ref:`self
+   registration <self-registration-label>` system preferences you
+   can control how this preference will function.
+
+   |opachomeloginform|
+
+-  To be notified when a patron registers via the OPAC, use the :ref:`EmailPatronRegistrations <emailpatronregistrations-and-emailaddressforpatronregistrations-label>` system preference.
+
+.. Important::
+
+    Patrons registering via the OPAC will not need to be approved by a
+    librarian. For this reason it is recommended that you set up a
+    provisional :ref:`patron category <patron-categories-label>` with no :ref:`circulation
+    rights <circulation-and-fines-rules-label>`. That way patrons will have to come in to
+    the library to verify their identity before given circulation rights
+    at the library. Once the patron confirms their identity the library
+    staff can change the category to one with permissions to check items
+    out and place holds.
+
+.. _patronselfregistrationadditionalinstructions-label:
+
+PatronSelfRegistrationAdditionalInstructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Display the following additional instructions for patrons who self
+register via the OPAC ( HTML is allowed ):
+
+Description:
+
+-  This system preference takes any HTML you'd like to display on the page the
+   patron sees after successfully registering for their library card.
+
+.. _patronselfregistrationborrowermandatoryfield-label:
+
+PatronSelfRegistrationBorrowerMandatoryField
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following database columns must be filled in on the patron
+entry screen: \_\_\_
+
+Default: surname\|firstname
+
+Description:
+
+-  This system preference allows you to define what fields patrons must fill in
+   on their self registration form. If any of the required fields are
+   blank Koha will not let the patron register.
+
+    **Important**
+
+    Separate columns with \|
+
+    **Note**
+
+    For help with field names, ask your system administrator or `view
+    the database
+    structure <http://schema.koha-community.org/master/tables/borrowers.html>`__
+    associated with the borrowers table.
+
+    **Note**
+
+    If you're going to require that patrons verify their accounts via
+    email with the
+    :ref:`PatronSelfRegistrationVerifyByEmail <PatronSelfRegistrationVerifyByEmail-label>`
+    preference the email field will automatically be marked as required.
+
+.. _patronselfregistrationborrowerunwantedfield-label:
+
+PatronSelfRegistrationBorrowerUnwantedField
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: The following database columns will not appear on the patron entry
+screen: \_\_\_
+
+Description:
+
+-  Using this preference you can hide fields from the patron registration
+   and update form in the OPAC.
+
+    **Important**
+
+    Separate columns with \|
+
+    **Note**
+
+    For help with field names, ask your system administrator or `view
+    the database
+    structure <http://schema.koha-community.org/master/tables/borrowers.html>`__
+    associated with the borrowers table.
+
+.. _patronselfregistrationconfirmemail-label:
+
+PatronSelfRegistrationConfirmEmail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ users to confirm their email address by entering it twice.
+
+Default: Do not require
+
+Values:
+
+-  Do not require
+
+-  Require
+
+Description:
+
+-  If this preference is set to 'Require', users will have to enter their email 
+   address twice.
+
+-  Make sure to enable this system preference if 
+   :ref:`PatronSelfRegistrationVerifyByEmail <PatronSelfRegistrationVerifyByEmail-label>` is enabled.
+
+.. _patronselfregistrationdefaultcategory-label:
+
+PatronSelfRegistrationDefaultCategory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Use the patron category code \_\_\_ as the default patron category
+for patrons registered via the OPAC.
+
+Description:
+
+-  Enter in the patron :ref:`category code <patron-categories-label>` for the 
+   category that all new patrons registered via the OPAC will be put in to.
+
+.. Warning::
+
+    Do not use a regular :ref:`patron category <patron-categories-label>` for 
+    this, as any patron who has not completed the registration verification 
+    process will be deleted by the 
+    :ref:`cleanup\_database.pl script <cron-clean-up-database-label>` after the 
+    number of days indicated in 
+    :ref:`PatronSelfRegistrationExpireTemporaryAccountsDelay <PatronSelfRegistrationExpireTemporaryAccountsDelay-label>`, including regular 
+    patrons who have not registered online.
+
+.. Warning::
+
+    Patrons registering via the OPAC will not need to be approved by a
+    librarian. For this reason it is recommended that you set up a
+    provisional :ref:`patron category <patron-categories-label>` with no 
+    :ref:`circulation rights <circulation-and-fines-rules-label>`. That way, 
+    patrons will have to come in to the library to verify their identity 
+    before being given circulation rights at the library. Once the patron 
+    confirms their identity, the library staff can change the category to one
+    with permissions to check items out and place holds.
+
+.. Warning::
+
+    If you leave this blank or enter in an invalid code, your patrons
+    will still be able to register but will not be given a username.
+    There will be no errors on the page to explain this, so be sure to
+    enter a valid patron category code.
+
+-  This system preference is required by :ref:`PatronSelfRegistration <PatronSelfRegistration-label>`.
+
+.. _patronselfregistrationemailmustbeunique-label:
+
+PatronSelfRegistrationEmailMustBeUnique
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patron's email (borrowers.email) as unique on self registering.
+An email won't be accepted if it already exists in the database.
+
+Default: Do not consider
+
+Values:
+
+-  Do not consider
+
+-  Consider
+
+Description:
+
+-  If enabled, this system preference will prevent user from creating several 
+   accounts with the same email address.
+
+.. _patronselfregistrationexpiretemporaryaccountsdelay-label:
+
+PatronSelfRegistrationExpireTemporaryAccountsDelay
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Delete patrons still in the category indicated by 
+:ref:`PatronSelfRegistrationDefaultCategory <PatronSelfRegistrationDefaultCategory-label>` \_\_\_ days after account creation.
+
+Default: 0
+
+Description:
+
+-  This system preference links to the
+   :ref:`cleanup\_database cron job <cron-clean-up-database-label>`. If that 
+   cron is set to run nightly with the --del-exp-selfreg parameter, it will clean 
+   up any registrations that have not been verified via email in the number of 
+   days entered on this preference.
+
+-  This system preference is dependent on the :ref:`PatronSelfRegistrationVerifyByEmail <PatronSelfRegistrationVerifyByEmail-label>`
+   system preference.
+
+.. _patronselfregistrationlibrarylist-label:
+
+PatronSelfRegistrationLibraryList
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Enable the self registration for the following libraries: \_\_\_
+(separate branchcode with \|). If empty, all libraries will be listed.
+
+Description:
+
+-  If only some libraries in your system are accepting self-registered patrons,
+   enter the list of :ref:`codes <libraries-label>` here and separate each with 
+   a pipe (\|).
+
+-  If this system preference is left empty, all libraries will be listed.
+
+.. _patronselfregistrationprefillform-label:
+
+PatronSelfRegistrationPrefillForm
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ password and login form after a patron has self registered.
+
+Default: Show and prefill
+
+Values:
+
+-  Don't show and prefill
+
+-  Show and prefill
+
+Description:
+
+-  This system preference is used to prefill (or not) the login form on the 
+   OPAC after :ref:`self registration<opac-self-registration-label>`, so the
+   patron doesn't have to type in the information.
+
+.. _patronselfregistrationverifybyemail-label:
+
+PatronSelfRegistrationVerifyByEmail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ that a self-registering patron verify themselves via email.
+
+Default: Don't require
+
+Values:
+
+-  Don't require
+
+-  Require
+
+Description:
+
+-  If you require patrons to verify their accounts via email they will
+   not be able to log in to the OPAC until they acknowledge the email
+   sent by Koha. If you don't require this then patrons will be able to
+   log in as soon as they fill in the registration form. You can set the
+   :ref:`PatronSelfRegistrationExpireTemporaryAccountsDelay <PatronSelfRegistrationExpireTemporaryAccountsDelay-label>`
+   preference to delete the un-verified self registrations after a
+   certain number of days.
+
+    **Note**
+
+    If you're going to require that patrons verify their accounts via
+    email then the email field will automatically be marked as required.
+
+    **Important**
+
+    If you require email verification, also set 
+    :ref:`PatronSelfRegistrationConfirmEmail <PatronSelfRegistrationConfirmEmail-label>` to 'Require' to prevent patrons
+    from entering an erroneous email address and never being able to confirm 
+    their account.
+
+.. _shelf-browser-label:
+
+Shelf browser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _opacshelfbrowser-label:
+
+OPACShelfBrowser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Show
+
+Asks: \_\_\_ a shelf browser on item details pages, allowing patrons to
+see what's near that item on the shelf.
+
+Values:
+
+-  Don't show
+
+-  Show
+
+   |image104|
+
+Description:
+
+-  This system preference allows patrons to view what is located on the shelf
+   near the item they looked up. The shelf browser option appears on the
+   details page to the right of each items' call number. Clicking the
+   'Browse Shelf' link allows for a virtual shelf browsing experience
+   via the OPAC and lets patrons see other books that may relate to
+   their search and items that sit on the shelf near the item they are
+   looking at.
+
+    **Important**
+
+    This uses up a fairly large amount of resources on your server, and
+    should be avoided if your collection has a large number of items.
+
+.. _shelfbrowserusesccode-label:
+
+ShelfBrowserUsesCcode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Don't use
+
+Asks: \_\_\_ the item collection code when finding items for the shelf
+browser.
+
+Values:
+
+-  Don't use
+
+-  Use
+
+Description:
+
+-  If your library uses collection codes then you might want the shelf
+   browser to take into consideration what collection the books belong
+   to when populating the virtual shelf browser.
+
+.. _shelfbrowseruseshomebranch-label:
+
+ShelfBrowserUsesHomeBranch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Use
+
+Asks: \_\_\_ the item home library when finding items for the shelf
+browser.
+
+Values:
+
+-  Don't use
+
+-  Use
+
+Description:
+
+-  If you have a multiple library system you may want to make sure that
+   Koha takes into consideration what library owns the books when
+   populating the virtual shelf browser for accuracy.
+
+.. _shelfbrowseruseslocation-label:
+
+ShelfBrowserUsesLocation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default: Use
+
+Asks: \_\_\_ the item location when finding items for the shelf browser.
+
+Values:
+
+-  Don't use
+
+-  Use
+
+Description:
+
+-  If your library uses shelving locations then you might want the shelf
+   browser to take into consideration what shelving location the books
+   belong to when populating the virtual shelf browser.
+
+.. _suggestionspreferences-label:
+
+Suggestions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _anonsuggestions-label:
+
+AnonSuggestions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ patrons that aren't logged in to make purchase suggestions.
+
+Default: Don't allow
+
+Values:
+
+-  Allow
+
+-  Don't allow
+
+Description:
+
+-  This system preference determines whether or not patrons who aren't logged
+   into the OPAC, or people who aren't patrons of the library can make
+   :ref:`purchase suggestions <purchase-suggestions-opac-label>`.
+
+.. Warning::
+
+   If set to 'Allow', suggestions are connected to the
+   :ref:`AnonymousPatron <AnonymousPatron-label>`. Make sure that system
+   preference is set to a patron account.
+
+.. _maxopensuggestions-label:
+
+MaxOpenSuggestions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Limit patrons to \_\_\_ open suggestions.
+
+Default: blank
+
+Description:
+
+-  This system preference is used to limit how many
+   :ref:`purchase suggestions <purchase-suggestions-opac-label>` patrons can
+   have open at one time.
+
+-  Leave empty to have no limit.
+
+.. Note::
+
+   This setting does not affect :ref:`anonymous suggestions <anonsuggestions-label>`.
+
+.. Note::
+
+   This affects only suggestions that are 'pending'. Once the status of the
+   suggestion changes, it is no longer considered 'open'.
+
+   .. Bug 35049
+
+.. Note::
+
+   This setting only affects suggestions made by the patron in the OPAC. It does
+   not prevent staff from
+   :ref:`making suggestions in the name of the patron in the staff interface <purchase-suggestions-label>`.
+
+   .. Bug 21889
+
+.. _maxtotalsuggestions-numberofsuggestionsdays-label:
+
+MaxTotalSuggestions and NumberOfSuggestionDays
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Number of total suggestions allowed \_\_\_ in \_\_\_ days.
+
+Default: blank
+
+Description:
+
+-  This system preference is used to limit the number of
+   :ref:`purchase suggestions <purchase-suggestions-opac-label>` a patron
+   can make in a certain number of days.
+
+-  For example, if you want to limit patrons to 10 suggestions per week, enter
+   10 and 7.
+
+-  Leave empty to have no limit.
+
+.. _opacsuggestionautofill-label:
+
+OPACSuggestionAutoFill
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ OPAC suggestions form automatically filling with data from Google
+Books API.
+
+Default: Disable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  When this system preference is enabled, the
+   :ref:`purchase suggestions <purchase-suggestions-opac-label>` form on the
+   OPAC will have a 'Search Google Books' button next to the ISBN field. When a
+   patron enters a valid ISBN, Koha will check the Google Books API for the
+   information, such as title, author, and publication date and automatically
+   fill out the suggestion form for the patron.
+
+.. _opacsuggestionmanagedby-label:
+
+OpacSuggestionManagedBy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ the name of the staff member who managed a suggestion in OPAC.
+
+Default: Show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  If you're :ref:`allowing patrons to make purchase
+   suggestions <suggestion-label>`, they will see the 'your purchase
+   suggestions' tab when logged in. By default, this tab displays the name of
+   the staff member who approved or rejected the purchase suggestion. This
+   preference controls if the patron sees the staff member's name or not.
+
+.. _opacsuggestionmandatoryfields-label:
+
+OPACSuggestionMandatoryFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Fields that should be mandatory for patron purchase suggestions: \_\_\_
+
+Default: Blank
+
+.. Note::
+
+   The 'Title' field is always mandatory.
+
+Values:
+
+-  [Select all]
+
+-  Author
+
+-  Collection title
+
+-  Copyright date
+
+-  ISBN
+
+-  Item type
+
+-  Library
+
+-  Note
+
+-  Patron reason
+
+-  Place of publication
+
+-  Publisher
+
+-  Quantity
+
+-  Title
+
+Description:
+
+-  This system preference allows you to choose which fields are mandatory when
+   patrons :ref:`make purchase suggestions from the OPAC <purchase-suggestions-opac-label>`.
+
+.. _opacsuggestionunwantedfields-label:
+
+OPACSuggestionUnwantedFields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: Fields that should be hidden for patron purchase suggestions: \_\_\_
+
+Default: Blank
+
+Values: As for :ref:`OPACSuggestionMandatoryFields <OPACSuggestionMandatoryFields-label>` shown above.
+
+Description:
+
+-  This system preference allows you to hide fields from the :ref:`purchase suggestion <purchase-suggestions-opac-label>`
+   form in the OPAC.
+
+.. Warning::
+
+   Do not make fields in
+   :ref:`OPACSuggestionMandatoryFields <opacsuggestionmandatoryfields-label>`
+   unwanted fields.
+
+.. _opacviewotherssuggestions-label:
+
+OPACViewOthersSuggestions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ purchase suggestions from other patrons on the OPAC.
+
+Default: Don't show
+
+Values:
+
+-  Don't show
+
+-  Show
+
+Description:
+
+-  This system preference determines whether or not patrons can see and
+   search through :ref:`purchase suggestions <purchase-suggestions-opac-label>`
+   made by other patrons.
+
+-  Only patrons logged in will be able to see purchase suggestions made by other
+   patrons.
+
+.. Warning::
+
+   The :ref:`opacuserlogin <opacuserlogin-label>` system preference needs to be
+   set to 'Allow'.
+
+.. _suggestion-label:
+
+suggestion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: \_\_\_ purchase suggestions in the OPAC.
+
+Default: Enable
+
+Values:
+
+-  Disable
+
+-  Enable
+
+Description:
+
+-  This system preference is the main switch for the
+   :ref:`purchase suggestion <purchase-suggestions-opac-label>` feature.
+
+-  If enabled, :ref:`opacuserlogin <opacuserlogin-label>` needs to be set to 'allow'
+   unless :ref:`AnonSuggestions <AnonSuggestions-label>` is set to 'allow'.
+
+.. _suggestionpatroncategoryexceptions-label:
+
+suggestionPatronCategoryExceptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asks: When :ref:`suggestion <suggestion-label>` is enabled and
+:ref:`AnonSuggestions <anonsuggestions-label>` is disabled, the following patron
+categories are not allowed to make purchase suggestions: \_\_\_
+
+Default: blank
+
+Values: your :ref:`patron categories <patron-categories-label>`
+
+Description:
+
+-  This system preference is used to limit some patrons from making
+   :ref:`purchase suggestion <purchase-suggestions-opac-label>` in the OPAC.

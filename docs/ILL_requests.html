@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ILL 館際互借申請 / 館際互借送出 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="應用核對清單" href="implementation_checklist.html" />
+    <link rel="prev" title="关于 Koha" href="about.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ILL 館際互借申請 / 館際互借送出</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#set-up">設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ill-email-notifications">ILL 電子郵件通知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-ill-requests">新增館際互借申請</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-ill-requests">檢視館際互借申請</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-ill-requests">管理館際互借申請</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#request-statuses">請求狀態</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#place-request-with-partners">送出申請給合作的圖書館。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#circulating-ill-materials">流通館際互借資料</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ILL 館際互借申請 / 館際互借送出</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ILL_requests.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="about.html" class="btn btn-neutral float-left" title="关于 Koha" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="implementation_checklist.html" class="btn btn-neutral float-right" title="應用核對清單" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ill-requests-interlibrary-loans">
+<span id="ill-requests-label"></span><h1>ILL 館際互借申請 / 館際互借送出<a class="headerlink" href="#ill-requests-interlibrary-loans" title="此标题的永久链接"></a></h1>
+<p>ILL (館際互借) 需求模組加入了可申請及管理館際互借或從外部資源取得複本的功能。讀者經由 OPAC他們帳戶的標籤 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>您的館際互借申請 &lt;your-interlibrary-loan-requests-label&gt;`提出申請單，經由圖書館管理者複審及處理。不同的管理者可從館員工作台提出申請。</p>
+<section id="set-up">
+<span id="setup-ill-requests-label"></span><h2>設定<a class="headerlink" href="#set-up" title="此标题的永久链接"></a></h2>
+<p>在使用館際互借模組前，您必須確認您完成了所有的設定。</p>
+<p>館際互借模組可以在後端定義不同的申請模式以及工作流程。請參考在 <a class="reference external" href="https://wiki.koha-community.org/wiki/ILL_backends">https://wiki.koha-community.org/wiki/ILL_backends</a> 的文件。您至少要定義一個後端。</p>
+<p>Next, set your <a class="reference internal" href="illpreferences.html#ill-system-preferences-label"><span class="std std-ref">system preferences for interlibrary loans</span></a>.</p>
+<p>負責館際互借的圖書館館員需要得到以下的授權以設定他們的帳號：<em>ill: Create and modify Interlibrary loan requests</em></p>
+<p>館際互借申請模組使用系統判定狀態。您可以新增自定狀態以符合您的館際互借工作流程如 ILLSTATUS <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">容許值</span></a>。</p>
+</section>
+<section id="ill-email-notifications">
+<span id="ill-email-notification-label"></span><h2>ILL 電子郵件通知<a class="headerlink" href="#ill-email-notifications" title="此标题的永久链接"></a></h2>
+<p>Email notifications can be sent to ILL staff when a patron makes a request to modify or cancel an existing request. The notice templates are
+ILL_REQUEST_CANCEL and ILL_REQUEST_MODIFIED. The ILL staff email address can be configured per library. If this is not set the <a class="reference internal" href="illpreferences.html#illdefaultstaffemail-label"><span class="std std-ref">ILLDefaultStaffEmail</span></a> system preference will be used.</p>
+<p>Notifications can also be sent to patrons for requests that are either available for pick-up or are unavailable and have been canceled. The notice templates are ILL_PICKUP_READY and ILL_REQUEST_UNAVAIL.  The notifications are enabled from the <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron categories</span></a> default patron messaging preferences. You can customize the notice text for these notices in <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices &amp; slips</span></a> in the Tools module.</p>
+</section>
+<section id="create-ill-requests">
+<span id="create-ill-requests-label"></span><h2>新增館際互借申請<a class="headerlink" href="#create-ill-requests" title="此标题的永久链接"></a></h2>
+<p><em>Get there:</em> More &gt; ILL requests</p>
+<p><img alt="The &quot;New ILL request&quot; button is clicked; a menu for picking a backend is displayed, with options for BLDSS and FreeForm." src="_images/ILLformpickerstaff.png" /></p>
+<ul class="simple">
+<li><p>選擇 ‘New ILL request’ and then Freeform.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>此圖示僅供 FreeFrom backend 使用</p>
+</div>
+<p><img alt="New ILL request page, with no request type selected, showing a section to add custom fields and another for patron options." src="_images/createILLstaff.png" /></p>
+<ul class="simple">
+<li><p>Select a Type: Book, Chapter, Journal, Journal article, Thesis, Conference, Other, Generic resource.</p></li>
+<li><p>A different set of fields will display for each type.</p></li>
+</ul>
+<p><img alt="Showing the top part of the new ILL request page with the type &quot;Book&quot; selected; a section for Book details is displayed." src="_images/createILLstaffbook.png" /></p>
+<ul class="simple">
+<li><p>Enter as much as information as you like.</p></li>
+<li><p>Add custom fields, for example if you wished to add a note or if you are using the “Other” type of request.</p></li>
+<li><p>Under the patron options, enter the patron card number and the library associated with the request.</p></li>
+</ul>
+<p>點擊 “建立”，你將看到一個請求詳情摘要頁面。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you have enabled the <a class="reference internal" href="illpreferences.html#illcheckavailability-label"><span class="std std-ref">ILLCheckAvailability</span></a> system preference and installed plugins for the staff interface you will be presented
+with search results. The user can click on a link to a relevant resource if found or proceed with the ILL request. If no results are found
+the ILL is completed in the usual way.</p>
+</div>
+<p>You can now <a class="reference internal" href="#managing-ill-requests-label"><span class="std std-ref">manage your request</span></a> or return to the list of ILL requests by clicking “List requests”.</p>
+</section>
+<section id="viewing-ill-requests">
+<span id="viewing-ill-requests-label"></span><h2>檢視館際互借申請<a class="headerlink" href="#viewing-ill-requests" title="此标题的永久链接"></a></h2>
+<p>From the main ILL requests screen you can view, filter and sort your ILL requests. Click on the ‘List requests’ button from other pages in the ILL module to return to this list.</p>
+<p><img alt="Part of the ILL module homepage, showing a list of ILL requests." src="_images/viewILLrequests.png" /></p>
+<p>There is a large amount of data available in the Requests table; scroll right to see all the columns. You can customize the columns of this table in the <a class="reference internal" href="administration.html#column-settings-label"><span class="std std-ref">‘Table settings’</span></a> section of the
+Administration module (table id: ill-requests).</p>
+<p>You can use the <a class="reference internal" href="illpreferences.html#illhiddenrequeststatuses-label"><span class="std std-ref">ILLHiddenRequestStatuses</span></a>
+preference to hide requests with completed statuses by default. Use the filters on the left of the page to display a subset of requests based on your chosen criteria.</p>
+<p><img alt="ILL requests filters; shows options for keyword, status, date placed between, updated between, library, patron." src="_images/ILLrequestsfilters.png" /></p>
+</section>
+<section id="managing-ill-requests">
+<span id="managing-ill-requests-label"></span><h2>管理館際互借申請<a class="headerlink" href="#managing-ill-requests" title="此标题的永久链接"></a></h2>
+<p>點擊 ‘Manage request’ 最後一欄的按鈕。取決於申請狀態，您可能看到如下的按鈕：</p>
+<ul class="simple">
+<li><p>編輯請求</p>
+<ul>
+<li><p>you can edit the borrowernumber, biblionumber, branch and can add notes. If you have added custom
+ILL statuses you can also edit these.</p></li>
+</ul>
+</li>
+<li><p>確認申請</p>
+<ul>
+<li><p>送出申請及透過後端一份文件供應服務，像是BLDSS。</p></li>
+</ul>
+</li>
+<li><p>送出申請給合作的圖書館。</p>
+<ul>
+<li><p>透過電子郵件送出申請：<a class="reference internal" href="#place-request-with-partners-label"><span class="std std-ref">partner library</span></a></p></li>
+</ul>
+</li>
+<li><p>轉換供應商</p>
+<ul>
+<li><p>這允許你將請求轉移到一個不同的提供者（後端）。</p></li>
+</ul>
+</li>
+<li><p>刪除</p>
+<ul>
+<li><p>完全刪除申請。刪除原因並不會儲存在Koha系統。</p></li>
+</ul>
+</li>
+<li><p>還原申請</p>
+<ul>
+<li><p>依照 ‘請求’ 或 ‘由夥伴請求’ 的狀態，館員可以由外部取消請求。狀能回復為 ‘新增’</p></li>
+</ul>
+</li>
+<li><p>註記完成</p>
+<ul>
+<li><p>當館際互借申請已填妥使用。</p></li>
+</ul>
+</li>
+<li><p>編輯館藏的元數據</p>
+<ul>
+<li><p>Dependent on the backend used for the request you may be able to edit,
+add or delete some or all of the request metadata. For example, if the
+metadata has originated from a requester using the FreeForm backend this
+may need to be edited, whereas metadata from an external recognized source
+such as BLDSS should not.</p></li>
+</ul>
+</li>
+<li><p>顯示供應商的元資料</p>
+<ul>
+<li><p>顯示來自 ILL 供應商的額外元資料，即不在標準請求欄位內元資料。</p></li>
+</ul>
+</li>
+<li><p>館際互借請求紀錄</p>
+<ul>
+<li><p>顯示對請求進行修改的歷史記錄。</p></li>
+</ul>
+</li>
+<li><p>評論</p>
+<ul>
+<li><p>可以在 ILL 請求中增加評論，讓 ILL 同仁追踪工作的進度。評論以時間依序儲存。包括借閱者詳情及評論的日期。顯示的時候，評論的數量顯示在請求清單中。</p></li>
+</ul>
+</li>
+<li><p>借出</p>
+<ul>
+<li><p>This option is only available if you have the <a class="reference internal" href="illpreferences.html#circulateill-label"><span class="std std-ref">CirculateILL</span></a> preference enabled. See the
+<a class="reference internal" href="#circulating-ill-material-label"><span class="std std-ref">Circulating ILL materials</span></a> section.</p></li>
+</ul>
+</li>
+</ul>
+<section id="request-statuses">
+<h3>請求狀態<a class="headerlink" href="#request-statuses" title="此标题的永久链接"></a></h3>
+<p>已安裝的館際互借狀態的完整列表是：</p>
+<ul class="simple">
+<li><p>新增請求</p></li>
+<li><p>已申請</p></li>
+<li><p>來自合作圖書館的申請</p></li>
+<li><p>請求回復</p></li>
+<li><p>取消申請 - 一位讀者已取消申請。</p></li>
+<li><p>完成</p></li>
+<li><p>借出</p></li>
+<li><p>Returned to library</p></li>
+</ul>
+</section>
+</section>
+<section id="place-request-with-partners">
+<span id="place-request-with-partners-label"></span><h2>送出申請給合作的圖書館。<a class="headerlink" href="#place-request-with-partners" title="此标题的永久链接"></a></h2>
+<p>If you have a network of partner libraries which permit ILL requests you can manage this through Koha. First, you need to create your partner library accounts:</p>
+<ul class="simple">
+<li><p>Check you have a <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">patron category</span></a> with the code IL. If you don’t, simply <a class="reference internal" href="administration.html#adding-a-patron-category-label"><span class="std std-ref">create one</span></a> with this code. You may want to give it the description “Inter-Library Loan” and a category type of Organization.</p></li>
+<li><p>You will need to create a patron account with this patron category for each partner library.</p></li>
+<li><p>Each library must have an email address as this will be the mechanism for sending the inter-library loan request.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The notice template is ILL_PARTNER_REQ and the text can be customized from
+the <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p>
+</div>
+<p>您可以使用 ‘Place request with partners’ 選項當在處理申請時。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you have enabled the <a class="reference internal" href="illpreferences.html#illcheckavailability-label"><span class="std std-ref">ILLCheckAvailability</span></a> preference enabled you can use plugins to search the catalogs of your partner libraries using Z39.50 prior to confirming the request with a partner.</p>
+</div>
+</section>
+<section id="circulating-ill-materials">
+<span id="circulating-ill-material-label"></span><h2>流通館際互借資料<a class="headerlink" href="#circulating-ill-materials" title="此标题的永久链接"></a></h2>
+<p>If you have enabled the <a class="reference internal" href="illpreferences.html#circulateill-label"><span class="std std-ref">CirculateILL</span></a> preference you can checkout ILL items directly from the ILL request.</p>
+<p>當你建立一個*書*類型的請求時，會根據快速新增MARC框架自動建立一個簡短的書目記錄。一旦請求有了合適的狀態，在管理請求的工具欄上就會顯示一個借出按鈕。點擊這個按鈕將使用者能夠向提出請求的用戶或內部統計的讀者借出該館藏。</p>
+<p>要借出一個館藏：</p>
+<ul class="simple">
+<li><p>點擊借出按鈕。</p></li>
+<li><p>Select an item type when prompted. An item is created automatically which is attached to the biblio record that was created for the
+request. The barcode of the item is in the format ILL-requestid.</p></li>
+<li><p>Next, at the patron checkout screen select a due date. If you do not select a due date the relevant circulation rule will be used to calculate
+the due date.</p></li>
+<li><p>一旦館藏被借出，申請的狀態就會變成 ‘已借出’，而在被借入後，狀態會更新為 ‘已退還圖書館’。</p></li>
+<li><p>作為ILL請求的一部分而建立的書目記錄將在預約表中有一個額外的標籤，允許你在ILL模組中連結到請求。</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="about.html" class="btn btn-neutral float-left" title="关于 Koha" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="implementation_checklist.html" class="btn btn-neutral float-right" title="應用核對清單" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

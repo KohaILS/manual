@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>编目 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="流通" href="circulationpreferences.html" />
+    <link rel="prev" title="權威" href="authoritiespreferences.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="globalpreferences.html">System preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accountspreferences.html">帳戶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisitionspreferences.html">採訪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administrationpreferences.html">管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authoritiespreferences.html">權威</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">编目</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#display">显示</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acquisitiondetails">AcquisitionDetails</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authorityseparator">AuthoritySeparator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hide-marc">hide_marc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intranetbibliodefaultview">IntranetBiblioDefaultView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isbd">ISBD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#labelmarcview">LabelMARCView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcfielddocurl">MARCFieldDocURL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mergereportfields">MergeReportFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notestohide">NotesToHide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opacsuppression-opacsuppressionbyiprange-opacsuppressionredirect-and-opacsuppressionmessage">OpacSuppression、OpacSuppressionByIPRange、OpacSuppressionRedirect 與 OpacSuppressionMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showcomponentrecords-maxcomponentrecords-componentsortfield-and-componentsortorder">ShowComponentRecords, MaxComponentRecords, ComponentSortField, and ComponentSortOrder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#separateholdings-and-separateholdingsbranch">SeparateHoldings 與 SeparateHoldingsBranch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#urllinktext">URLLinkText</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usecontrolnumber">UseControlNumber</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#exporting">匯出</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bibtexexportadditionalfields">BibtexExportAdditionalFields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#risexportadditionalfields">RisExportAdditionalFields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#importing">匯入</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#additionalfieldsinz3950resultsearch">AdditionalFieldsInZ3950ResultSearch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aggressivematchonisbn">AggressiveMatchOnISBN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aggressivematchonissn">AggressiveMatchOnISSN</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interface">介面</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advancedmarceditor">advancedMARCeditor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#catalogconcerns">CatalogConcerns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#catalogeremails">CatalogerEmails</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultclassificationsource">DefaultClassificationSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultsaverecordfileid">DefaultSaveRecordFileID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#easyanalyticalrecords">EasyAnalyticalRecords</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enableadvancedcatalogingeditor">EnableAdvancedCatalogingEditor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#record-structure">Record structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#alternateholdingsfield-and-alternateholdingsseparator">AlternateHoldingsField 與 AlternateHoldingsSeparator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#applyframeworkdefaults">ApplyFrameworkDefaults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autobarcode">自動條碼</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autocontrolnumber">autoControlNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contentwarningfield">ContentWarningField</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultcountryfield008">DefaultCountryField008</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultlanguagefield008">DefaultLanguageField008</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#item-level-itypes">item-level_itypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#itemcallnumber">itemcallnumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcfieldforcreatorid-marcfieldforcreatorname-marcfieldformodifierid-marcfieldformodifiername">MarcFieldForCreatorId, MarcFieldForCreatorName, MarcFieldForModifierId, MarcFieldForModifierName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcflavour">marcflavour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#marcorgcode">MARCOrgCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#newitemsdefaultlocation">NewItemsDefaultLocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prefillitem">PrefillItem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stripwhitespacechars">StripWhitespaceChars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subfieldstoallowforrestrictedbatchmod">SubfieldsToAllowForRestrictedBatchmod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subfieldstoallowforrestrictedediting">SubfieldsToAllowForRestrictedEditing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subfieldstousewhenprefill">SubfieldsToUseWhenPrefill</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unimarcfield100language">UNIMARCField100Language</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useoclcencodinglevels">UseOCLCEncodingLevels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#z3950normalizeauthor-and-z3950authorauthfields">z3950NormalizeAuthor 與 z3950AuthorAuthFields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#spine-labels">Spine labels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spinelabelautoprint">SpineLabelAutoPrint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spinelabelformat">SpineLabelFormat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spinelabelshowprintonbibdetails">SpineLabelShowPrintOnBibDetails</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="circulationpreferences.html">流通</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancedcontentpreferences.html">強化內容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ermpreferences.html">E-Resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18npreferences.html">I18N/L10N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="illpreferences.html">Interlibrary loans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localusepreferences.html">Local use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logspreferences.html">日誌</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opacpreferences.html">OPAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patronspreferences.html">讀者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchingpreferences.html">搜尋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialspreferences.html">期刊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffclientpreferences.html">館員介面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolspreferences.html">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webservicespreferences.html">網頁服務</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="globalpreferences.html">System preferences</a></li>
+      <li class="breadcrumb-item active">编目</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/catalogingpreferences.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="authoritiespreferences.html" class="btn btn-neutral float-left" title="權威" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulationpreferences.html" class="btn btn-neutral float-right" title="流通" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cataloging">
+<span id="cataloging-system-preferences-label"></span><h1>编目<a class="headerlink" href="#cataloging" title="此标题的永久链接"></a></h1>
+<p><em>在这里：</em> 更多 &gt; 管理 &gt; 全局系统参数 &gt; 编目</p>
+<section id="display">
+<span id="display-label"></span><h2>显示<a class="headerlink" href="#display" title="此标题的永久链接"></a></h2>
+<section id="acquisitiondetails">
+<span id="acquisitiondetails-label"></span><h3>AcquisitionDetails<a class="headerlink" href="#acquisitiondetails" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ acquisition details on the bibliographic record detail page.</p>
+<p>默认值：Show</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不显示</p></li>
+<li><p>Show</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This system preference controls whether a tab will show on the detail page
+in the staff interface that includes detailed acquisitions information
+for the title. This tab will include links to order information
+stored in the acquisitions module.</p>
+<p><img alt="Acquisition details tab in the detailed record" src="_images/AcquisitionDetails.png" /></p>
+</li>
+</ul>
+</section>
+<section id="authorityseparator">
+<span id="authorityseparator-label"></span><h3>AuthoritySeparator<a class="headerlink" href="#authorityseparator" title="此标题的永久链接"></a></h3>
+<p>要求：用 ___ 分隔主要條目和子條目。</p>
+<p>默认: –</p>
+<p>说明：</p>
+<ul>
+<li><p>這個系統偏好允許你選擇一個或多個字符，用來分隔主要條目和權威中的子款目。</p>
+<p>例如，–將使權威出現這樣的情況：</p>
+<p>貓–小說</p>
+</li>
+<li><p>這僅用於非XSLT視圖。是否使用XSLT視圖是由以下系統偏好決定的：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltlistsdisplay-label"><span class="std std-ref">OPACXSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#xsltdetailsdisplay-label"><span class="std std-ref">XSLTDetailsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#xsltlistsdisplay-label"><span class="std std-ref">XSLTListsDisplay</span></a></p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#xsltresultsdisplay-label"><span class="std std-ref">XSLTResultsDisplay</span></a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="hide-marc">
+<span id="hide-marc-label"></span><h3>hide_marc<a class="headerlink" href="#hide-marc" title="此标题的永久链接"></a></h3>
+<p>詢問：於 MARC 檢視時 ___ MARC 欄號、分欄代碼及指標。</p>
+<p>默认值：Show</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不显示</p></li>
+<li><p>Show</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This system preference can be used to hide the MARC tag numbers and
+indicators in the staff interface and OPAC MARC views.</p></li>
+<li><p>When set to ‘Show’, the MARC view of a bibliographic record will display the
+MARC field numbers and indicators.</p>
+<p>In the MARC view of the staff interface:</p>
+<p><img alt="The MARC view of a record in the staff interface, the MARC field numbers and indicator values are displayed." src="_images/hide_marc-dontshow-staff.png" /></p>
+<p>In the MARC view of the OPAC:</p>
+<p><img alt="The MARC view of a record in the OPAC, the MARC field numbers and indicator values are displayed." src="_images/hide_marc-dontshow-opac.png" /></p>
+</li>
+<li><p>When set to “Don’t show”, the MARC view of a bibliographic record will only
+display the field name.</p>
+<p>In the MARC view of the staff interface:</p>
+<p><img alt="The MARC view of a record in the staff interface, the MARC field numbers and indicator values are not displayed." src="_images/hide_marc-dontshow-staff.png" /></p>
+<p>In the MARC view of the OPAC:</p>
+<p><img alt="The MARC view of a record in the OPAC, the MARC field numbers and indicator values are not displayed." src="_images/hide_marc-dontshow-opac.png" /></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Contrary to the description, the subfield codes are not affected by this
+system preference.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This system preference only affects the bibliographic record display.</p>
+</div>
+</section>
+<section id="intranetbibliodefaultview">
+<span id="intranetbibliodefaultview-label"></span><h3>IntranetBiblioDefaultView<a class="headerlink" href="#intranetbibliodefaultview" title="此标题的永久链接"></a></h3>
+<p>預設值：ISBD 格式</p>
+<p>Asks: By default, display bibliographic records in ___</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>ISBD form – displays records in the staff interface in the old card
+catalog format</p>
+<ul>
+<li><p>See <a class="reference internal" href="#isbd-label"><span class="std std-ref">ISBD</span></a> preference for more information</p></li>
+</ul>
+</li>
+<li><p>Labelled MARC form – displays records in the staff interface in MARC
+with text labels to explain the different fields</p></li>
+<li><p>MARC form – displays records in the staff interface in MARC</p></li>
+<li><p>normal form – visual display in the staff interface (for the average
+person)</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This setting determines the bibliographic record display when
+searching the catalog on the staff interface. This setting does not
+affect the display in the OPAC which is changed using the
+<a class="reference internal" href="opacpreferences.html#bibliodefaultview-label"><span class="std std-ref">BiblioDefaultView</span></a> preference under the OPAC
+preference tab. This setting changes the look of the record when
+first displayed. The MARC and ISBD views can still be seen by
+clicking in the sidebar.</p></li>
+</ul>
+</section>
+<section id="isbd">
+<span id="isbd-label"></span><h3>ISBD<a class="headerlink" href="#isbd" title="此标题的永久链接"></a></h3>
+<p>預設：見共筆的`ISBD 檢視組態 &lt;<a class="reference external" href="https://wiki.koha-community.org/wiki/ISBD_view_configuration">https://wiki.koha-community.org/wiki/ISBD_view_configuration</a>&gt;`。</p>
+<p>詢問：使用以下的 ISBD 模版：</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>此設定決定 ISBD 資訊的顯示方式。在此清單內的元素可以用不同的 ISBD 方式呈現。ISBD 全稱是 International Standard Bibliographic Description 譯名是國際書目著錄標準，1969年由國際圖書館協會聯合會 (International Federation of Library Associations, IFLA) 首次發佈做為敘述編目的指南。ISBD 的目的是協助不同類型的書目資料在國際間交換。</p></li>
+</ul>
+</section>
+<section id="labelmarcview">
+<span id="labelmarcview-label"></span><h3>LabelMARCView<a class="headerlink" href="#labelmarcview" title="此标题的永久链接"></a></h3>
+<p>預設值：不要</p>
+<p>詢問：___ 收折重複的欄位。</p>
+<p>值:</p>
+<ul>
+<li><p>要 – 在 OPAC 與館員介面的 MARC 檢視時，把相同欄號收在一起</p>
+<p><img alt="image17" src="_images/LabelMARCView-do.png" /></p>
+</li>
+<li><p>不要 – 在 OPAC 與館員介面的 MARC 檢視時，列出每個欄號</p>
+<p><img alt="image18" src="_images/LabelMARCView-dont.png" /></p>
+</li>
+</ul>
+</section>
+<section id="marcfielddocurl">
+<span id="marcfielddocurl-label"></span><h3>MARCFieldDocURL<a class="headerlink" href="#marcfielddocurl" title="此标题的永久链接"></a></h3>
+<p>預設值：空白</p>
+<p>詢問：以 ___ 做為 MARC 欄位文件的 URL。可能的取代是 {MARC} (如，”MARC21” 或 “UNIMARC”)、{FIELD} (如，”000” 或 “048”)、{LANG} (如，”zh_TW” 或 “fi-FI”)。若空白，則使用 <a class="reference external" href="http://loc.gov">http://loc.gov</a> (MARC21) 或 <a class="reference external" href="http://archive.ifla.org">http://archive.ifla.org</a> (UNIMARC)。如 <a class="reference external" href="http://fielddoc.example.com/">http://fielddoc.example.com/</a>?marc={MARC}&amp;field={FIELD}&amp;language={LANG}</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference lets you choose the source of the MARC documentation available through the “?” next to MARC fields.</p></li>
+</ul>
+</section>
+<section id="mergereportfields">
+<span id="mergereportfields-label"></span><h3>MergeReportFields<a class="headerlink" href="#mergereportfields" title="此标题的永久链接"></a></h3>
+<p>詢問：___ 欄位顯示合併後刪除的記錄</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>合併完成後可收取合併過程的報表，此偏好讓您設定此報表的預設值。</p></li>
+</ul>
+<p>例如：’001,245ab,600’ 顯示為：</p>
+<ul class="simple">
+<li><p>001 的值</p></li>
+<li><p>欄位 245 的分欄 A 和 B</p></li>
+<li><p>欄段 600 的所有分欄</p></li>
+</ul>
+</section>
+<section id="notestohide">
+<span id="notestohide-label"></span><h3>NotesToHide<a class="headerlink" href="#notestohide" title="此标题的永久链接"></a></h3>
+<p>詢問：不要顯示這些 ___ 附註欄位，於題名附註區隔符號 (OPAC 記錄詳情) 與在敘述區隔符號 (館員介面記錄詳情)。</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference lets you define which of your note fields are hidden
+from the title notes (OPAC) and descriptions (Staff) tabs. Enter the
+values as a comma separated list. For example to hide the local note
+and the bibliography note in MARC21 enter 504, 590.</p></li>
+</ul>
+</section>
+<section id="opacsuppression-opacsuppressionbyiprange-opacsuppressionredirect-and-opacsuppressionmessage">
+<span id="opacsuppression-preferences-label"></span><h3>OpacSuppression、OpacSuppressionByIPRange、OpacSuppressionRedirect 與 OpacSuppressionMessage<a class="headerlink" href="#opacsuppression-opacsuppressionbyiprange-opacsuppressionredirect-and-opacsuppressionmessage" title="此标题的永久链接"></a></h3>
+<section id="opacsuppression">
+<span id="opacsuppression-label"></span><h4>OpacSuppression<a class="headerlink" href="#opacsuppression" title="此标题的永久链接"></a></h4>
+<p>詢問：___ 從 OPAC 搜尋結果中標記為禁止顯示的書目記錄。</p>
+<p>預設值：不隱藏</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不要隱藏</p>
+<ul>
+<li><p>將在 OPAC 搜尋結果顯示紀錄若被標示為隱藏</p></li>
+</ul>
+</li>
+<li><p>隱藏</p>
+<ul>
+<li><p>將在 OPAC 搜尋結果顯示紀錄若被標示為隱藏</p></li>
+</ul>
+</li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference controls hiding of bibliographic records in the OPAC. Enter
+“1” in the field mapped to the suppress index (942$n in MARC21, no official
+field in UNIMARC) in each bibliographic record you want to hide from
+the OPAC. The indexer then hides it from display in OPAC but will still
+display it in the staff interface.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>應該為MARC21的942$n欄段（或相應的UNIMARC欄段）設置一個 <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">容許值</span></a>，以消除錯誤。你可以使用YES_NO容許值類別，或者建立一個名為SUPPRESS的新類別，例如，數值為0表示不抑制，1表示抑制。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>若此偏好設為 ‘隱藏’ 且將 942$n 欄位設為 1，則隱藏整個書目記錄，不只是個別的館藏。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>不顯示的記錄在館員介面有個說明，指出該記錄不顯示在 OPAC。</p>
+<p><img alt="Example of a bibliographic record in the staff interface with the 'Suppressed in OPAC' note at the top" src="_images/suppressedstaff.png" /></p>
+<p>This note can be styled by using the <a class="reference internal" href="staffclientpreferences.html#intranetusercss-label"><span class="std std-ref">IntranetUserCSS</span></a> preference to
+stand out more if you’d like.</p>
+<p><img alt="Example of a bibliographic record in the staff interface with the 'Suppressed in OPAC' note at the top; the note is red and large" src="_images/suppressedstyled.png" /></p>
+<p>Fot the example above, the following snippet was added to
+<a class="reference internal" href="staffclientpreferences.html#intranetusercss-label"><span class="std std-ref">IntranetUserCSS</span></a></p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">suppressed_opac</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="kc">larger</span><span class="p">;</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="opacsuppressionbyiprange">
+<span id="opacsuppressionbyiprange-label"></span><h4>OpacSuppressionByIPRange<a class="headerlink" href="#opacsuppressionbyiprange" title="此标题的永久链接"></a></h4>
+<p>要求：限制對IP範圍以外的IP地址進行抑制 ___（如果不使用，請留空。 定義一個範圍，如192.168..）</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>如果你想進一步控制抑制，你可以設置一個IP地址範圍，以便顯示被抑制的館藏。定義一個範圍，如192.168.. 如果你不想以這種方式限制壓制，請將IP欄位留空。</p></li>
+</ul>
+</section>
+<section id="opacsuppressionredirect">
+<span id="opacsuppressionredirect-label"></span><h4>OpacSuppressionRedirect<a class="headerlink" href="#opacsuppressionredirect" title="此标题的永久链接"></a></h4>
+<p>詢問：將禁止記錄的 opac 詳細訊息頁面重新定向到 ___</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>404 錯誤頁面 (‘找不到’)。</p></li>
+<li><p>解釋頁面 (‘此紀錄被禁止’)。</p></li>
+</ul>
+<p>預設值:解釋頁面 (‘此紀錄被禁止’)</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference lets you decide what the patrons will see in the OPAC when
+a record is suppressed. You can either show the patron a 404 error page or
+an explanatory page when they try to see a suppressed record. You can change
+the message of the explanatory page with the
+<a class="reference internal" href="#opacsuppressionmessage-label"><span class="std std-ref">OpacSuppressionMessage</span></a> system preference.</p></li>
+</ul>
+</section>
+<section id="opacsuppressionmessage">
+<span id="opacsuppressionmessage-label"></span><h4>OpacSuppressionMessage<a class="headerlink" href="#opacsuppressionmessage" title="此标题的永久链接"></a></h4>
+<p>詢問：在重新定向頁面上顯示以下消息，用於禁止顯示的書目記錄 ___。</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>如果你選擇在讀者試圖訪問被壓制的書目記錄時顯示一個解釋頁，你可以用HTML來定制訊息。</p></li>
+</ul>
+</section>
+</section>
+<section id="showcomponentrecords-maxcomponentrecords-componentsortfield-and-componentsortorder">
+<span id="showcomponentrecords-preferences-label"></span><h3>ShowComponentRecords, MaxComponentRecords, ComponentSortField, and ComponentSortOrder<a class="headerlink" href="#showcomponentrecords-maxcomponentrecords-componentsortfield-and-componentsortorder" title="此标题的永久链接"></a></h3>
+<p>These preferences determine whether or not children records, or component
+records, are displayed in the host record’s detail page.</p>
+<p>This is especially useful for cataloging music, but it can be used in any
+situation where there is a host record, such a cataloging serials or kits.</p>
+<section id="showcomponentrecords">
+<span id="showcomponentrecords-label"></span><h4>ShowComponentRecords<a class="headerlink" href="#showcomponentrecords" title="此标题的永久链接"></a></h4>
+<p>Asks: Show a list of component records, as linked via field 773, in ___
+record detail pages.</p>
+<p>Default: no</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>both staff interface and OPAC</p></li>
+<li><p>no</p></li>
+<li><p>OPAC</p></li>
+<li><p>staff interface</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This is the main switch for the display of component records.</p></li>
+<li><p>If set to ‘no’, the display is disabled.</p></li>
+<li><p>If set to ‘staff interface’ (or ‘both staff interface and OPAC’), the
+component records will appear in the host record’s detail page in the
+staff interface, under the ‘Components’ tab.</p>
+<p><img alt="Record with component records shown in the 'Component' tab, in the staff interface" src="_images/ShowComponentRecordsStaffInterface.png" /></p>
+</li>
+<li><p>If set to ‘OPAC’ (or ‘both staff interface and OPAC’), the component records
+will appear in the host record’s detail page in the OPAC, under the
+‘Components’ tab.</p>
+<p><img alt="Record with component records shown in the 'Component' tab, in the OPAC" src="_images/ShowComponentRecordsOPAC.png" /></p>
+</li>
+<li><p>Components to be displayed are found using the host record’s control number
+(001) in the child record’s 773$w subfield, regardless of the
+<a class="reference internal" href="#usecontrolnumber-label"><span class="std std-ref">UseControlNumber</span></a> system preference.</p>
+<p>For example, the host record is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>001 4379599
+003 FI-BTJ
+245 00 ‡aEasy piano pieces for children.
+</pre></div>
+</div>
+<p>The component record is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>001 4401194
+003 FI-BTJ
+100 1/ ‡aVivaldi, Antonio.
+245 10 ‡aAutumn :
+       ‡bfrom The four seasons.
+773 0/ ‡w4379599
+       ‡tEasy piano pieces for children
+</pre></div>
+</div>
+<p>773$w must contain the control number of the host record, with or without
+the control number identifier.</p>
+<p>Both of these will work</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>773 0/ ‡w4379599
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>773 0/ ‡w(FI-BTJ)4379599
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This feature only works with MARC21. UNIMARC is not supported at this time.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This system preference does not work with <a class="reference internal" href="#easyanalyticalrecords-label"><span class="std std-ref">EasyAnalyticalRecords</span></a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This system preference does not work with <a class="reference internal" href="#usecontrolnumber-label"><span class="std std-ref">UseControlNumber</span></a>.</p>
+</div>
+</section>
+<section id="maxcomponentrecords">
+<span id="maxcomponentrecords-label"></span><h4>MaxComponentRecords<a class="headerlink" href="#maxcomponentrecords" title="此标题的永久链接"></a></h4>
+<p>Asks: A maximum of ___ records will be displayed.</p>
+<p>Default: 300</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference determines how many component records are displayed
+in the ‘Components’ tab, both in the staff interface and in the OPAC.</p></li>
+<li><p>If the host record has more components than the system preference dictates,
+there will be a link at the end to display the remaining records.</p></li>
+</ul>
+</section>
+<section id="componentsortfield">
+<span id="componentsortfield-label"></span><h4>ComponentSortField<a class="headerlink" href="#componentsortfield" title="此标题的永久链接"></a></h4>
+<p>Asks: By default, sort component results in the staff interface by ___,
+(<a class="reference internal" href="#componentsortorder-label"><span class="std std-ref">ComponentSortOrder</span></a>).</p>
+<p>Default: title</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>date added</p></li>
+<li><p>author</p></li>
+<li><p>biblionumber</p></li>
+<li><p>call number</p></li>
+<li><p>date of publication</p></li>
+<li><p>title</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference, along with <a class="reference internal" href="#componentsortorder-label"><span class="std std-ref">ComponentSortOrder</span></a>, determines how
+the component records are sorted in the ‘Components’ tab.</p></li>
+</ul>
+</section>
+<section id="componentsortorder">
+<span id="componentsortorder-label"></span><h4>ComponentSortOrder<a class="headerlink" href="#componentsortorder" title="此标题的永久链接"></a></h4>
+<p>Asks: By default, sort component results in the staff interface by
+(<a class="reference internal" href="#componentsortfield-label"><span class="std std-ref">ComponentSortField</span></a>), ___.</p>
+<p>Default: ascending</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>ascending</p></li>
+<li><p>descending</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference, along with <a class="reference internal" href="#componentsortfield-label"><span class="std std-ref">ComponentSortField</span></a>, determines how
+the component records are sorted in the ‘Components’ tab.</p></li>
+</ul>
+</section>
+</section>
+<section id="separateholdings-and-separateholdingsbranch">
+<span id="separateholdings-and-separateholdingsbranch-label"></span><h3>SeparateHoldings 與 SeparateHoldingsBranch<a class="headerlink" href="#separateholdings-and-separateholdingsbranch" title="此标题的永久链接"></a></h3>
+<p>SeparateHoldings 預設值：不區隔</p>
+<p>SeparateHoldingsBranch 預設值：所屬圖書館</p>
+<p>詢問：___ 館藏顯示為兩個分頁，第一分頁包括館藏是 ___ 登入讀者的圖書館。第二分頁將包括所有的其他館藏。</p>
+<p>SeparateHoldings 值：</p>
+<ul class="simple">
+<li><p>不區隔</p></li>
+<li><p>區隔</p></li>
+</ul>
+<p>SeparateHoldingsBranch 值：</p>
+<ul class="simple">
+<li><p>預約圖書館</p></li>
+<li><p>預約圖書館</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This system preference lets you decide if you would like to have the holding
+information on the bibliographic detail page in the staff interface
+split in to multiple tabs. The default is to show all holdings on one
+tab.</p>
+<p><img alt="image19" src="_images/SeparateHoldings.png" /></p>
+</li>
+</ul>
+</section>
+<section id="urllinktext">
+<span id="urllinktext-label"></span><h3>URLLinkText<a class="headerlink" href="#urllinktext" title="此标题的永久链接"></a></h3>
+<p>預設值：線上資源</p>
+<p>詢問：顯示 ___ 做為 MARC 記錄嵌入的連結文字。</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>若 856 欄位沒有分欄 3 或 y，OPAC 將顯示 ‘按此進入線上資源。^在此鍵入此欄位的其他內容。</p></li>
+</ul>
+</section>
+<section id="usecontrolnumber">
+<span id="usecontrolnumber-label"></span><h3>UseControlNumber<a class="headerlink" href="#usecontrolnumber" title="此标题的永久链接"></a></h3>
+<p>預設值：不用</p>
+<p>詢問：___ 以書目控制號碼 (分欄 $w) 及控制碼 (001) 連結書目記錄。</p>
+<p>值:</p>
+<ul>
+<li><p>不使用</p>
+<ul class="simple">
+<li><p>在詳情顯示頁面點選題名旁的 ‘繼續’ 與 ‘續自’ 連結時，Koha 將執行題名搜尋</p></li>
+</ul>
+</li>
+<li><p>使用</p>
+<ul class="simple">
+<li><p>在詳情顯示頁面點選題名旁的 ‘繼續’ 與 ‘續自’ 連結時，Koha 將執行控制碼 (MARC 欄位 001) 搜尋</p></li>
+</ul>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>Unless you are going in and manually changing 773$w to match your
+rigorously-defined bibliographic relationships, you should set this
+preference to “Don’t use” and instead set
+<a class="reference internal" href="#easyanalyticalrecords-label"><span class="std std-ref">EasyAnalyticalRecords</span></a> to “Display”</p>
+</div></blockquote>
+</li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>假設有個期刊 “Journal of Interesting Things”，舊名為 “Transactions of the Interesting Stuff Society”，各有獨立的書目記錄，可加入連結欄位，展現兩者的關係。UseControlNumber 允許使用在地的近用編號。在 MARC21 裡，兩者的關係如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>=001    12345
+=110  2_$aInteresting Stuff Society.
+=245  10$aTransactions of the Interesting Stuff Society.
+=785  00$aInteresting Stuff Society$tJournal of Interesting Things.$w12346
+
+=001    12346
+=110  2_$aInteresting Stuff Society.
+=245  10$aJournal of Interesting Things.
+=780  00$aInteresting Stuff Society$tTransactions of the Interesting Stuff Society.$w12345
+</pre></div>
+</div>
+<p>將 UseControlNumber 設為 ‘使用’，78x 連結將使用的控制碼是分欄 $w，而不是執行 “Journal of Interesting Things” 與 “Transactions of the Interesting Stuff Society” 的題名搜尋。</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>You can use the <a class="reference internal" href="#autocontrolnumber-label"><span class="std std-ref">autoControlNumber</span></a> system
+preference to automatically fill 001 with the biblionumber of the record.</p>
+</div>
+</section>
+</section>
+<section id="exporting">
+<span id="exporting-label"></span><h2>匯出<a class="headerlink" href="#exporting" title="此标题的永久链接"></a></h2>
+<section id="bibtexexportadditionalfields">
+<span id="bibtexexportadditionalfields-label"></span><h3>BibtexExportAdditionalFields<a class="headerlink" href="#bibtexexportadditionalfields" title="此标题的永久链接"></a></h3>
+<p>詢問：匯出 BibTeX 格式時，使用以下的欄位</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>在 BT_TAG: TAG$SUBFIELD (如 美國國會圖書館控制號碼: 010$a ) 裡每個欄號佔一列</p></li>
+<li><p>採用以下的格式：BT_TAG: [TAG2$SUBFIELD1, TAG2$SUBFIELD2] (如說明：[501$a, 505$g])，於做為重複 BibTeX 標籤的多個 marc 欄號/分欄目標</p></li>
+<li><p>重複欄位與分欄的值都將與指定的 BibTex 欄號列印在一起。</p></li>
+<li><p>使用 ^&#64;^ (含引號) 做為 BT_TAG 取代 bibtex 記錄類型包括選定的欄位值。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>需要YAML語法才能運行</p>
+<p>這表示</p>
+<ul class="simple">
+<li><p>確保欄位名和冒號之間沒有空格</p></li>
+<li><p>確認在第一個值與冒號之間，存在一個空格</p></li>
+<li><p>如果同一欄位有多個數值，請將它們放在方格內，用逗號和空格隔開</p></li>
+<li><p>確認每組都在同一列中</p></li>
+</ul>
+</div>
+</section>
+<section id="risexportadditionalfields">
+<span id="risexportadditionalfields-label"></span><h3>RisExportAdditionalFields<a class="headerlink" href="#risexportadditionalfields" title="此标题的永久链接"></a></h3>
+<p>詢問：匯出 RIS 格式時，使用以下的欄位</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>在 RIS_TAG: TAG$SUBFIELD (如 LC: 010$a) 內每個欄位佔一列</p></li>
+<li><p>指定多個 marc 欄位/分欄做為重複 RIS 欄號的標的，使用以下的格式：RIS_TAG: [TAG2$SUBFIELD1, TAG2$SUBFIELD2] (如 NT: [501$a, 505$g])</p></li>
+<li><p>重複欄位與分欄的值都將與指定的 RIS 欄號列印在一起。</p></li>
+<li><p>以 TY (記錄類型) 做為鍵值將以選定的欄位值 <em>取代</em> 預設的 TY。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>需要YAML語法才能運行</p>
+<p>這表示</p>
+<ul class="simple">
+<li><p>確保欄位名和冒號之間沒有空格</p></li>
+<li><p>確認在第一個值與冒號之間，存在一個空格</p></li>
+<li><p>如果同一欄位有多個數值，請將它們放在方格內，用逗號和空格隔開</p></li>
+<li><p>確認每組都在同一列中</p></li>
+</ul>
+</div>
+<p>需要YAML語法才能運行</p>
+</section>
+</section>
+<section id="importing">
+<span id="importing-label"></span><h2>匯入<a class="headerlink" href="#importing" title="此标题的永久链接"></a></h2>
+<section id="additionalfieldsinz3950resultsearch">
+<span id="additionalfieldsinz3950resultsearch-label"></span><h3>AdditionalFieldsInZ3950ResultSearch<a class="headerlink" href="#additionalfieldsinz3950resultsearch" title="此标题的永久链接"></a></h3>
+<p>詢問：顯示 MARC 欄位/分欄 ___ 於 Z39.50 搜尋結果 (以逗點為區隔符號如：”001, 082$ab, 090$ab”) 的 ‘其他欄位’。</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference lets you define additional fields and subfields to display on the Z39.50 result list.</p></li>
+</ul>
+</section>
+<section id="aggressivematchonisbn">
+<span id="aggressivematchonisbn-label"></span><h3>AggressiveMatchOnISBN<a class="headerlink" href="#aggressivematchonisbn" title="此标题的永久链接"></a></h3>
+<p>預設值：不使用</p>
+<p>詢問：對映 ISBN 與匯入記錄工具時，在匯入記錄的 ISBN 欄位內 ___ 變通地對映 ISBN 的各種變形。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>要</p></li>
+<li><p>不要</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to choose to alter the ISBN matching rule
+used when staging records for import to be more aggressive. This
+means that all text will be stripped from the ISBN field so that a
+pure number match is possible. If this preference is set to “Don’t”
+then Koha will find a match only if the ISBN fields are identical.</p></li>
+</ul>
+</section>
+<section id="aggressivematchonissn">
+<span id="aggressivematchonissn-label"></span><h3>AggressiveMatchOnISSN<a class="headerlink" href="#aggressivematchonissn" title="此标题的永久链接"></a></h3>
+<p>預設值：不使用</p>
+<p>詢問：對映 ISSN 與匯入記錄工具時，在匯入記錄的 ISSN 欄位內 ___ 變通地對映 ISSNs 的各種變形。</p>
+</section>
+</section>
+<section id="interface">
+<span id="interface-label"></span><h2>介面<a class="headerlink" href="#interface" title="此标题的永久链接"></a></h2>
+<section id="advancedmarceditor">
+<span id="advancedmarceditor-label"></span><h3>advancedMARCeditor<a class="headerlink" href="#advancedmarceditor" title="此标题的永久链接"></a></h3>
+<p>詢問：___ MARC 編輯器裡的欄位及分欄說明。</p>
+<p>默认值：Show</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不显示</p></li>
+<li><p>Show</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This system preference determines whether or not MARC field names will be
+present when editing or creating MARC records.</p></li>
+<li><p>When set to ‘Show’, the field and subfield names appear next to the field
+and subfield numbers and codes.</p>
+<p><img alt="Basic cataloging form" src="_images/catalogingform.png" /></p>
+</li>
+<li><p>When set to “Don’t show”, only the field numbers and subfield codes are
+displayed.</p>
+<p><img alt="The basic editor in cataloging, only the field numbers and subfield codes are shown next to the fields and subfields." src="_images/advancedMARCeditor-dontshow.png" /></p>
+</li>
+</ul>
+</section>
+<section id="catalogconcerns">
+<span id="catalogconcerns-label"></span><h3>CatalogConcerns<a class="headerlink" href="#catalogconcerns" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ staff to report concerns about catalog records.</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>Allow</p></li>
+<li><p>Don’t allow</p></li>
+</ul>
+<p>Default: Don’t allow</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference is used to turn on the
+<a class="reference internal" href="cataloging.html#report-concern-staff-label"><span class="std std-ref">concern reporting feature in the staff interface</span></a>.</p></li>
+<li><p>When set to ‘Allow’ staff members can create concern tickets.</p></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#catalogeremails-label"><span class="std std-ref">CatalogerEmails</span></a></p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opaccatalogconcerns-label"><span class="std std-ref">OpacCatalogConcerns</span></a></p></li>
+</ul>
+</section>
+<section id="catalogeremails">
+<span id="catalogeremails-label"></span><h3>CatalogerEmails<a class="headerlink" href="#catalogeremails" title="此标题的永久链接"></a></h3>
+<p>Asks: Use ___ as the notification address for catalog concerns.</p>
+<p>Default: empty</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference is used to define to which email address new catalog
+concerns should be sent.</p></li>
+<li><p>You can input more than one email address by separating them with commas.</p></li>
+<li><p>If left empty, no email will be sent.</p></li>
+<li><p>The email sent is the TICKET_NOTIFY notice, which can be customized in the
+<a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">Notices and slips tool</span></a>.</p></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#catalogconcerns-label"><span class="std std-ref">CatalogConcerns</span></a></p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opaccatalogconcerns-label"><span class="std std-ref">OpacCatalogConcerns</span></a></p></li>
+</ul>
+</section>
+<section id="defaultclassificationsource">
+<span id="defaultclassificationsource-label"></span><h3>DefaultClassificationSource<a class="headerlink" href="#defaultclassificationsource" title="此标题的永久链接"></a></h3>
+<p>預設值：杜威十進分類法</p>
+<p>詢問：使用 ___ 做為預設分類法來源。</p>
+<p>值:</p>
+<ul>
+<li><p>ANSCR (錄音資料)</p></li>
+<li><p>杜威十進分類法</p></li>
+<li><p>美國國會圖書館分類法</p></li>
+<li><p>其他/通用分類法</p></li>
+<li><p>SuDoc 分類法 (美國官書局)</p></li>
+<li><p>國際十進分類法</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>在 管理 &gt; 分類法來源 新增分類法使其顯示在表單內。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="defaultsaverecordfileid">
+<span id="defaultsaverecordfileid-label"></span><h3>DefaultSaveRecordFileID<a class="headerlink" href="#defaultsaverecordfileid" title="此标题的永久链接"></a></h3>
+<p>要求：當在高級編目編輯器中保存MARC/MARCXML文件或從館員介面的詳細頁面匯出時，在文件名中使用 ___。</p>
+<p>預設值：書目記錄號</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>書目記錄控制號碼</p></li>
+<li><p>控制號</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference determines what is the default file name that is used when
+downloading a MARC record.</p></li>
+<li><p>選擇 ‘書目記錄號’ 將產生一個文件名，如bib-123456.mrc，其中123456是書目號。</p></li>
+<li><p>選擇 ‘控制號’ 會產生一個檔案名，如record-123456.mrc，其中123456是記錄控制號（在MARC21中，這是001欄位）。</p></li>
+</ul>
+</section>
+<section id="easyanalyticalrecords">
+<span id="easyanalyticalrecords-label"></span><h3>EasyAnalyticalRecords<a class="headerlink" href="#easyanalyticalrecords" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ easy ways to create analytical record relationships.</p>
+<p>Default: Don’t show</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不显示</p></li>
+<li><p>Show</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>An analytic entry in a catalog is one that describes a part of a
+larger work that is also described in the catalog. In bibliographic
+cataloging, analytic entries may be made for chapters in books or
+special issues of articles in periodicals. In archival cataloging,
+analytic entries may be made for series or items within a collection.
+This feature in Koha allows for an <a class="reference internal" href="cataloging.html#easy-analytics-label"><span class="std std-ref">easy way of linking analytic
+entries to the host records</span></a>, and this system
+preference adds several new menu options to the staff cataloging detail
+pages to allow that to happen.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If you decide to use this feature, make sure that the <a class="reference internal" href="#usecontrolnumber-label"><span class="std std-ref">UseControlNumber</span></a>
+system preference is set to “Don’t use”. Otherwise, the “Show analytics”
+links in the staff interface and the OPAC will be broken.</p>
+</div>
+</section>
+</section>
+<section id="enableadvancedcatalogingeditor">
+<span id="enableadvancedcatalogingeditor-label"></span><h2>EnableAdvancedCatalogingEditor<a class="headerlink" href="#enableadvancedcatalogingeditor" title="此标题的永久链接"></a></h2>
+<p>預設值：不啟用</p>
+<p>詢問：___ 進階編目編輯器。</p>
+<p>说明：</p>
+<ul>
+<li><p>This system preference will allow you to choose between a basic editor and a
+advanced editor for cataloging.</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>此功能不支援 UNIMARC 或 NORMARC 的固長欄位。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="record-structure">
+<span id="record-structure-label"></span><h2>Record structure<a class="headerlink" href="#record-structure" title="此标题的永久链接"></a></h2>
+<section id="alternateholdingsfield-and-alternateholdingsseparator">
+<span id="alternateholdingsfield-and-alternateholdingsseparator-label"></span><h3>AlternateHoldingsField 與 AlternateHoldingsSeparator<a class="headerlink" href="#alternateholdingsfield-and-alternateholdingsseparator" title="此标题的永久链接"></a></h3>
+<p>詢問：顯示 MARC 分欄 ___ 做為無館藏資訊的書目記錄，這些分欄以 ___ 區隔。</p>
+<p>说明：</p>
+<ul>
+<li><p>某些圖書館把不打算流通的館藏資訊匯入 852 欄位 (OCLC 的館藏資訊欄位)，而不是 952 欄位(Koha 的館藏資訊欄位)。852 欄位有資料時，應顯示之，此偏好讓圖書館選擇以 952 欄位的內容當成館藏資訊。AlternateHoldingsField 偏好可以包括多個分欄，如：852abhi，表示 852 欄位的分欄 a、b、h 與 i。</p></li>
+<li><p>當 AlternateHoldingsField 設為 852abhi，且 AlternateHoldingsSeparator 設為空白，其館藏資訊當如是：</p>
+<p><img alt="image22" src="_images/AlternateHoldingsField.png" /></p>
+</li>
+</ul>
+</section>
+<section id="applyframeworkdefaults">
+<span id="applyframeworkdefaults-label"></span><h3>ApplyFrameworkDefaults<a class="headerlink" href="#applyframeworkdefaults" title="此标题的永久链接"></a></h3>
+<p>Asks: Apply framework default values ___</p>
+<p>Default: when cataloguing new records</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>[Select all]</p></li>
+<li><p>when cataloguing new records</p></li>
+<li><p>when changing the framework while editing the existing record</p></li>
+<li><p>when editing records as new (duplicating)</p></li>
+<li><p>when importing a record via z39.50</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference is used to determine when default values as defined
+in the <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC bibliographic frameworks</span></a>
+or the <a class="reference internal" href="administration.html#authority-types-label"><span class="std std-ref">authority frameworks</span></a>.</p></li>
+<li><p>If choosing values other than for a new record, the default values will
+only be filled if the fields are empty. It will not overwrite the existing
+information.</p></li>
+</ul>
+</section>
+<section id="autobarcode">
+<span id="autobarcode-label"></span><h3>自動條碼<a class="headerlink" href="#autobarcode" title="此标题的永久链接"></a></h3>
+<p>預設值：以此型式 &lt;branchcode&gt;yymm0001 產生</p>
+<p>詢問：條碼是 ___</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>以此形式 &lt;branchcode&gt;yymm0001 產生</p></li>
+<li><p>以&lt;year&gt;-0001, &lt;year&gt;-0002的形式生成</p></li>
+<li><p>以此型式產生1, 2, 3</p></li>
+<li><p>續增 EAN-13 條碼</p></li>
+<li><p>未自動產生</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>此設定係由 Koha 自動生成條碼 (不是掃瞄事先印好的條碼或人工鍵入條碼)。預設的作為是讓館員點選條碼欄位 (MARC21 是 952$p) 即自動生成事先選定格式的條碼。也可點選外掛程式 (欄位右方的 …) 改變框架內的欄位內容。設定給 952$p 的外掛程式 (若使用 MARC21 或相當的欄位對映至在地 MARC 格式的 items.barcode) 給 barcode_manual.pl 而不是 barcode.pl。編輯框架的詳情見本手冊的 <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC 書目框架</span></a> 章節。</p></li>
+</ul>
+</section>
+<section id="autocontrolnumber">
+<span id="autocontrolnumber-label"></span><h3>autoControlNumber<a class="headerlink" href="#autocontrolnumber" title="此标题的永久链接"></a></h3>
+<p>Asks: Control Number (001) is ___.</p>
+<p>Default: not generated automatically</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>generated as biblionumber</p></li>
+<li><p>未自動產生</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference is used to automatically generate a control number in
+the MARC field 001.</p></li>
+<li><p>By default, Koha does not generate a control number for records.</p></li>
+<li><p>If set to ‘generated as biblionumber’, the control number will be filled
+with the biblionumber once the record is saved.</p>
+<ul>
+<li><p>This will not affect existing records that already have a value in 001.
+The existing value will be preserved.</p></li>
+<li><p>If an existing record has no value in 001, the biblionumber will be added.</p></li>
+<li><p>When duplicating a record, 001 will not be copied to the new record. The
+biblionumber will be added to 001 upon saving the new record.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="contentwarningfield">
+<span id="contentwarningfield-label"></span><h3>ContentWarningField<a class="headerlink" href="#contentwarningfield" title="此标题的永久链接"></a></h3>
+<p>Asks: Use MARC field __­_ for storing content warnings.</p>
+<p>Default: none</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference is used to choose the MARC field that is used to
+add content warnings to a bibliographic record.</p></li>
+<li><p>It is recommended to use a local notes field (599 in MARC21 for example).</p></li>
+<li><p>Make sure to <a class="reference internal" href="administration.html#add-fields-to-frameworks-label"><span class="std std-ref">add the field in the MARC bibliographic framework</span></a>
+in order to be able to edit it.</p></li>
+<li><p>Subfield x will not appear in the OPAC. Use it to add non-public notes about
+the content warning.</p></li>
+<li><p>Subfield u will be used as the URL for the field. Make sure to add http(s)://.
+Subfield a (non repeatable) will be used as the text of the URL.</p></li>
+<li><p>All other subfields will be displayed in order.</p></li>
+</ul>
+</section>
+<section id="defaultcountryfield008">
+<span id="defaultcountryfield008-label"></span><h3>DefaultCountryField008<a class="headerlink" href="#defaultcountryfield008" title="此标题的永久链接"></a></h3>
+<p>默认值：空白默认为美国的 xxu</p>
+<p>詢問：在 MARC21 欄位 008 位址 15-17 填入預設的國家代碼 - 出版地區。___。</p>
+<p>说明：</p>
+<ul>
+<li><p>This system preference will allow you to set the country code for your MARC21
+008 field by default. If this is left empty it will default to
+United States (xxu). See the <a class="reference external" href="http://www.loc.gov/marc/countries/countries_code.html">MARC Code List for
+Countries</a>
+for additional values for this preference.</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>This system preference won’t have any effect if your records are in
+UNIMARC.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="defaultlanguagefield008">
+<span id="defaultlanguagefield008-label"></span><h3>DefaultLanguageField008<a class="headerlink" href="#defaultlanguagefield008" title="此标题的永久链接"></a></h3>
+<p>預設值：空白表示為英文</p>
+<p>詢問：在 MARC21 欄位 008 位址 35-37 填入預設的語系 ___。</p>
+<p>说明：</p>
+<ul>
+<li><p>This system preference will allow you to set the language for your MARC21
+008 field by default. If this is left empty it will default to
+English (eng). See the <a class="reference external" href="http://www.loc.gov/marc/languages/language_code.html">MARC Code List for
+Languages</a>
+for additional values for this preference.</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>This system preference won’t have any effect if your records are in
+UNIMARC.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="item-level-itypes">
+<span id="item-level-itypes-label"></span><h3>item-level_itypes<a class="headerlink" href="#item-level-itypes" title="此标题的永久链接"></a></h3>
+<p>預設值：特定館藏</p>
+<p>詢問：使用館藏類型 ___ 做為權威館藏類型 (供流通與罰款規則使用)。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>bibliographic record</p></li>
+<li><p>特定館藏</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This system preference determines whether the item type Koha uses for
+issuing rules will be an attribute of the bibliographic record or the
+item record. Most libraries refer to the item record for item types.
+It also determines if the item type icon appears on the OPAC search
+results. If you have the preference set to ‘bibliographic record’ then Koha
+displays the item type icon on the search results to the left of the
+result info.</p>
+<p><img alt="image23" src="_images/item-level_itypes.png" /></p>
+</li>
+</ul>
+</section>
+<section id="itemcallnumber">
+<span id="itemcallnumber-label"></span><h3>itemcallnumber<a class="headerlink" href="#itemcallnumber" title="此标题的永久链接"></a></h3>
+<p>預設值：082ab</p>
+<p>詢問：對眏 MARC 分欄至館藏的索書號。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>可以用多個分欄對映，如：082ab，表示用到 082 的分欄 a 與 b。</p>
+</div></blockquote>
+<p>说明：</p>
+<ul>
+<li><p>此偏好決定自動填入館藏記錄索書號 (952$o) 的內容。其內容為 MARC 的欄號(MARC21 常用 050、082、090、852 等)及分欄，不需使用區隔符號 ($a、$b 應著錄為 ab)。</p></li>
+<li><p>按優先度包涵幾個MARC欄.例如，082ab，050ab，080ab，090ab在082ab中將優先顯示，如果未填寫082，它將在050ab中顯示，依此類推。</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>重要**當輸入多個MARC欄時,用逗號分隔它們,但不要在逗號後放置空格。</p>
+</li>
+</ul>
+<p>例子：</p>
+<ul class="simple">
+<li><p>杜威分類法：082ab 或 092ab；美國國會圖書館分類法：050ab 或 090ab；館藏紀錄：852hi</p></li>
+</ul>
+</section>
+<section id="marcfieldforcreatorid-marcfieldforcreatorname-marcfieldformodifierid-marcfieldformodifiername">
+<span id="marcfieldforcreatorid-label"></span><h3>MarcFieldForCreatorId, MarcFieldForCreatorName, MarcFieldForModifierId, MarcFieldForModifierName<a class="headerlink" href="#marcfieldforcreatorid-marcfieldforcreatorname-marcfieldformodifierid-marcfieldformodifiername" title="此标题的永久链接"></a></h3>
+<p>要求：在MARC分欄___中儲存記錄的建立者借款號碼，在MARC分欄___中儲存記錄的建立者姓名，在MARC分欄___中儲存記錄的最後修改者借款號碼，在MARC分欄___中儲存記錄的最後修改者姓名，注意：在欄位和分欄之間使用美元符號，如123$a。</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference allows you to define which MARC subfields to use to
+automatically save the details of the logged in user.  You can save details
+for the record creator and the most recent modifier.</p></li>
+</ul>
+</section>
+<section id="marcflavour">
+<span id="marcflavour-label"></span><h3>marcflavour<a class="headerlink" href="#marcflavour" title="此标题的永久链接"></a></h3>
+<p>預設值：MARC21</p>
+<p>詢問：解讀與儲存 MARC 為 ___ 格式。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>MARC21</p>
+<ul>
+<li><p>美國、加拿大、澳洲、紐西蘭、英國、德國等國採用</p></li>
+</ul>
+</li>
+<li><p>UNIMARC</p>
+<ul>
+<li><p>法國、義大利、萄葡牙、俄國等國採用</p></li>
+</ul>
+</li>
+<li><p>NORMARC</p>
+<ul>
+<li><p>挪威採用</p></li>
+</ul>
+</li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This system preference defines global MARC style (MARC21, UNIMARC or
+NORMARC) used for encoding.</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>改變此設定，不會自動把記錄轉換成指定的 MARC 格式。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="marcorgcode">
+<span id="marcorgcode-label"></span><h3>MARCOrgCode<a class="headerlink" href="#marcorgcode" title="此标题的永久链接"></a></h3>
+<p>預設值：OSt</p>
+<p>詢問：填寫 MARC 機構代碼表 ___ 預設為新的 MARC21 記錄 (空白表示不用它)。</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>此 MARC 機構代碼表用於辨識圖書館的館藏及其他。</p></li>
+</ul>
+<p>MARC21 代碼的詳情，請見美國國會圖書館的 <a class="reference external" href="http://www.loc.gov/marc/organizations/orgshome.html">MARC 機構代碼表</a> 或加拿大的 <a class="reference external" href="http://www.collectionscanada.gc.ca/illcandir-bin/illsear/l=0/c=1">Canadian 代碼指南</a> 內各圖書館的代碼。</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>This system preference won’t have any effect if your records are in
+UNIMARC.</p>
+</div></blockquote>
+</section>
+<section id="newitemsdefaultlocation">
+<span id="newitemsdefaultlocation-label"></span><h3>NewItemsDefaultLocation<a class="headerlink" href="#newitemsdefaultlocation" title="此标题的永久链接"></a></h3>
+<p>詢問：新增館藏記錄時，暫記其館藏地為 ___ (應該是地區代碼，空白表示不用它)。</p>
+<p>说明：</p>
+<ul class="simple">
+<li><p>這允許你為所有新館藏設定一個特定的位置。</p></li>
+<li><p>確保使用位置代碼，從 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>LOC容許值列表&lt;existing-values-label&gt;`中獲取</p></li>
+<li><p>You can use the <a class="reference internal" href="circulationpreferences.html#updateitemlocationoncheckin-label"><span class="std std-ref">UpdateItemLocationOnCheckin</span></a> system preference along
+with this one to update the location upon checkin</p></li>
+</ul>
+</section>
+<section id="prefillitem">
+<span id="prefillitem-label"></span><h3>PrefillItem<a class="headerlink" href="#prefillitem" title="此标题的永久链接"></a></h3>
+<p>預設值：不會事先填入前個館藏的值。</p>
+<p>詢問：新增館藏時 ___</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不會事先填入前個館藏的值。</p></li>
+<li><p>會事先填入前個館藏的值。</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>This system preference controls the behavior used when adding new items.
+Using the options here you can choose to have your next new item
+prefill with the values used in the last item was added to save time
+typing values or to have the item form appear completely blank. Using
+<a class="reference internal" href="#subfieldstousewhenprefill-label"><span class="std std-ref">SubfieldsToUseWhenPrefill</span></a> you can
+control specifically which fields are prefilled.</p></li>
+</ul>
+</section>
+<section id="stripwhitespacechars">
+<span id="stripwhitespacechars-label"></span><h3>StripWhitespaceChars<a class="headerlink" href="#stripwhitespacechars" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ leading and trailing whitespace characters (including spaces, tabs,
+line breaks and carriage returns) and inner newlines from data fields when
+cataloguing bibliographic and authority records. The leader and control fields
+will not be affected.</p>
+<p>Default: Don’t strip</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>Don’t strip</p></li>
+<li><p>Strip</p></li>
+</ul>
+<p>说明：</p>
+<ul class="simple">
+<li><p>Sometimes, invisible characters are inadvertently added when copy-pasting
+data from elsewhere and these can cause data discrepancies, when linking
+authorities automatically for example.</p></li>
+<li><p>This system preference is used to automatically remove unwanted invisible
+characters from fields when
+<a class="reference internal" href="cataloging.html#basic-editor-cataloging-label"><span class="std std-ref">cataloging bibliographic records</span></a> or
+<a class="reference internal" href="cataloging.html#adding-authorities-label"><span class="std std-ref">cataloging authority records</span></a>.</p></li>
+<li><p>When set to ‘Strip’, the following characters will be removed automatically</p>
+<ul>
+<li><p>space at the beginning of the field</p></li>
+<li><p>space at the end of the field</p></li>
+<li><p>tabulation at the beginning of the field</p></li>
+<li><p>tabulation at the end of the field</p></li>
+<li><p>line break or carriage return at the beginning of the field</p></li>
+<li><p>line break or carriage return within the field</p></li>
+<li><p>line break of carriage return at the end of the field</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Only data fields (fields with subfields) are affected by this system
+preference. The leader and control fields are not affected as they often must
+contain spaces.</p>
+</div>
+</section>
+<section id="subfieldstoallowforrestrictedbatchmod">
+<span id="subfieldstoallowforrestrictedbatchmod-label"></span><h3>SubfieldsToAllowForRestrictedBatchmod<a class="headerlink" href="#subfieldstoallowforrestrictedbatchmod" title="此标题的永久链接"></a></h3>
+<p>問：設定分欄清單為可編輯的容許值當 <a class="reference external" href="#items_batchmod_restricted">items_batchmod_restricted</a> 偏好被啟用，以空白區格。___</p>
+<p>例子：</p>
+<ul class="simple">
+<li><p>UNIMARC: “995$f 995$h 995$j”</p></li>
+<li><p>MARC21: “952$a 952$b 952$c”</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This system preference lets you define what fields can be edited via the
+<a class="reference internal" href="cataloging.html#batch-item-modification-label"><span class="std std-ref">batch item modification tool</span></a> if the
+items_batchmod_restricted permission is enabled.</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>快速新增 FA 框架排除在授權之列。若偏好是空白，則沒有欄位受限。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="subfieldstoallowforrestrictedediting">
+<span id="subfieldstoallowforrestrictedediting-label"></span><h3>SubfieldsToAllowForRestrictedEditing<a class="headerlink" href="#subfieldstoallowforrestrictedediting" title="此标题的永久链接"></a></h3>
+<p>要求：定義一個分欄的列表，當編輯_館藏_受限制的權限被啟用時，這些分欄的編輯被授權，用空格分隔。 ___</p>
+<p>例子：</p>
+<ul class="simple">
+<li><p>UNIMARC: “995$f 995$h 995$j”</p></li>
+<li><p>MARC21: “952$a 952$b 952$c”</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This system preference lets you define what fields can be edited via
+cataloging if the
+<a class="reference external" href="#edit_items_restricted">edit_items_restricted</a> permission is
+enabled</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>快速新增 (Fast Add, FA) 框架排除在授權之列。若偏好是空白，則沒有欄位受限。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="subfieldstousewhenprefill">
+<span id="subfieldstousewhenprefill-label"></span><h3>SubfieldsToUseWhenPrefill<a class="headerlink" href="#subfieldstousewhenprefill" title="此标题的永久链接"></a></h3>
+<p>詢問：設定分欄清單以預填館藏 ___</p>
+<blockquote>
+<div><p><strong>重要</strong></p>
+<p>各值之間以空格區隔。</p>
+</div></blockquote>
+<p>说明：</p>
+<ul class="simple">
+<li><p>When the <a class="reference internal" href="#prefillitem-label"><span class="std std-ref">PrefillItem</span></a> preference is set to prefill
+item values with those from the last added item, this preference can
+control which fields are prefilled (and which are not). Enter a space
+separated list of fields that you would like to prefill when adding a
+new item.</p></li>
+</ul>
+</section>
+<section id="unimarcfield100language">
+<span id="unimarcfield100language-label"></span><h3>UNIMARCField100Language<a class="headerlink" href="#unimarcfield100language" title="此标题的永久链接"></a></h3>
+<p>預設值：fre</p>
+<p>詢問：新增紀錄或外掛欄位時，使用語系 (ISO 690-2) ___ 做為 UNIMARC 欄號 100 的預設語系。</p>
+</section>
+<section id="useoclcencodinglevels">
+<span id="useoclcencodinglevels-label"></span><h3>UseOCLCEncodingLevels<a class="headerlink" href="#useoclcencodinglevels" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ OCLC defined values for MARC encoding level in leader value
+builder for position 17.</p>
+<p>預設值：不顯示</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不顯示</p></li>
+<li><p>显示</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>This system preference controls whether or not the OCLC values for encoding
+levels are shown in the leader value builder.</p></li>
+<li><p>When set to “Display”, the extra OCLC values are displayed in the drop-down
+menu in the leader value builder.</p>
+<p><img alt="The leader value builder pop-up window, the drop-down menu for position 17 - Encoding level is open, and the extra OCLC values are displayed (I - Full-level input by OCLC participants, J - Deleted record, K - Less-than-full input by OCLC participants, M - Added from a batch process)" src="_images/UseOCLCEncodingLevels.png" /></p>
+</li>
+</ul>
+</section>
+<section id="z3950normalizeauthor-and-z3950authorauthfields">
+<span id="z3950normalizeauthor-and-z3950authorauthfields-label"></span><h3>z3950NormalizeAuthor 與 z3950AuthorAuthFields<a class="headerlink" href="#z3950normalizeauthor-and-z3950authorauthfields" title="此标题的永久链接"></a></h3>
+<p>預設值：不要複製與 701、702、700</p>
+<p>詢問：從 Z39.50 伺服器匯入記錄時，___ 作者由 UNIMARC ___ 欄號 (以逗點區隔) 取得正確的著者欄號。</p>
+<p>z3950NormalizeAuthor 说明：</p>
+<ul class="simple">
+<li><p>This system preference allows for ‘Personal Name Authorities’ to replace
+authors as the bibliographic authority. This system preference should only
+be considered by libraries using UNIMARC.</p></li>
+</ul>
+<p>z3950NormalizeAuthor 的值：</p>
+<ul class="simple">
+<li><p>複本</p></li>
+<li><p>不複製</p></li>
+</ul>
+<p>z3950AuthorAuthFields 的说明：</p>
+<ul class="simple">
+<li><p>This system preference defines which MARC fields will be used for ‘Personal
+Name Authorities’ to replace authors as the bibliographic
+authorities. This system preference only applies to those using UNIMARC
+encoding. The MARC fields selected here will only be used if
+‘z3950NormalizeAuthor’ is set to “Copy”. The default field are 700,
+701, and 702.</p></li>
+</ul>
+</section>
+</section>
+<section id="spine-labels">
+<span id="spine-labels-label"></span><h2>Spine labels<a class="headerlink" href="#spine-labels" title="此标题的永久链接"></a></h2>
+<section id="spinelabelautoprint">
+<span id="spinelabelautoprint-label"></span><h3>SpineLabelAutoPrint<a class="headerlink" href="#spinelabelautoprint" title="此标题的永久链接"></a></h3>
+<p>預設值：不使用</p>
+<p>詢問：使用快速書標印表機時， ___ 動彈出列印對話窗。</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>要</p></li>
+<li><p>不要</p></li>
+</ul>
+</section>
+<section id="spinelabelformat">
+<span id="spinelabelformat-label"></span><h3>SpineLabelFormat<a class="headerlink" href="#spinelabelformat" title="此标题的永久链接"></a></h3>
+<p>預設值：&lt;itemcallnumber&gt;&lt;copynumber&gt;</p>
+<p>Asks: Include the following fields on a quick-printed spine label:
+(Enter in columns from the bibliographic, biblioitems or items tables,
+surrounded by &lt; and &gt;.)</p>
+</section>
+<section id="spinelabelshowprintonbibdetails">
+<span id="spinelabelshowprintonbibdetails-label"></span><h3>SpineLabelShowPrintOnBibDetails<a class="headerlink" href="#spinelabelshowprintonbibdetails" title="此标题的永久链接"></a></h3>
+<p>Asks: ___ buttons on the bibliographic details page to print item spine
+labels.</p>
+<p>Default: Don’t show</p>
+<p>值:</p>
+<ul class="simple">
+<li><p>不显示</p></li>
+<li><p>Show</p></li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>If set to ‘Show’, there will be a ‘Print label’ button in the holdings
+table in the staff interface for each item.</p>
+<p><img alt="A holdings table in the catalog in the staff interface, the next to last column on the right is titled 'Spine label' and there is a 'Print button' label for each item in the table" src="_images/SpineLabelShowPrintOnBibDetails.png" /></p>
+</li>
+<li><p>This button opens the
+<a class="reference internal" href="cataloging.html#quick-spine-label-creator-label"><span class="std std-ref">Quick spine label creator tool</span></a>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="authoritiespreferences.html" class="btn btn-neutral float-left" title="權威" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="circulationpreferences.html" class="btn btn-neutral float-right" title="流通" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

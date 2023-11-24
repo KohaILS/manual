@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>答客問 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="GNU 通用公共許可證第 3 版" href="license.html" />
+    <link rel="prev" title="Important links" href="links.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_checklist.html">應用核對清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">答客問</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">安裝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opac-and-staff-interface">OPAC 與館員介面</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cookies">快取</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-item-type-authorized-value-icons">客製化館藏類型/容許值圖示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customizing-koha-images">客製化 Koha 圖示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opac-display-fields">OPAC 顯示欄位</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#show-patrons-the-barcodes-of-items-they-have-checked-out">顯示借出館藏的條碼給讀者看</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#circulation-notices">Circulation/notices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fees-and-fines">費用及罰款</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#book-drop">還書箱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#holds-to-pull-and-holds-queue">取出預約與預約佇列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#printing-overdue-notices">列印逾期通知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unable-to-renew-items">不能續借館藏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unable-to-place-holds">不能預約</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyboard-shortcuts">鍵盤捷徑</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sms-notices-messages">SMS 通知/訊息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#email-notices-messages">電子郵件通知/訊息</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cataloging">編目</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authorities">權威</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#koha-to-marc-mapping">Koha對映至MARC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#number-of-items-per-bibliographic-record">每筆書目記錄的館藏數</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#analytics">分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#acquisitions">採訪</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#planning-categories">規畫範疇</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#serials">期刊</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-patterns">進階模式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reports">報表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sql-help">SQL幫助</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#codes-stored-in-the-database">代碼儲存在資料庫裡</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#statistics-table">統計表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reserves-holds-table">Reserves (holds) table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reports-dictionary-table">報表字典表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#messages-table">訊息表單</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serial-table">期刊表單</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#borrowers-table">借閱者表單</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patron-categories-table">讀者類型表單</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#messaging-preferences">訊息優先</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recalls-table">催還列表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#action-logs-modules-and-actions">執行日誌模組和執行</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#runtime-parameters">執行參數</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#searching">搜尋</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-search">進階搜尋</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scan-indexes">掃瞄索引</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#searching-for-terms-that-start-with-a-character">搜尋以字元開始的關鍵字</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#wildcard-searching">萬用字元搜尋</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#title-searching">題名搜尋</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reset-the-zebra-index">重設 Zebra 索引</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#enhanced-content">增強內容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#amazon">Amazon</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#all-amazon-content">Amazon全部內容</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#server-administration">伺服器管理人員</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bcrypt-settings">Bcrypt settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-z39-50-target-public">讓Z39.50成為公開的目標</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shelving-location-authorized-values">書架位置容許值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-do-i-need-authorized-values">為什麼我需要容許值？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-clean-up-the-sessions-table">如何設定活動表單？</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware">硬體</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#barcode-scanners">條碼掃瞄器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#printers">印表機</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#printers-used-by-koha-libraries">Koha 圖書館使用的印表機</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#braille-support">支援盲文點字法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-information">附加訊息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">答客問</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/faq.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="links.html" class="btn btn-neutral float-left" title="Important links" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="GNU 通用公共許可證第 3 版" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="faqs">
+<span id="faqs-label"></span><h1>答客問<a class="headerlink" href="#faqs" title="此标题的永久链接"></a></h1>
+<section id="installation">
+<span id="faq-installation-label"></span><h2>安裝<a class="headerlink" href="#installation" title="此标题的永久链接"></a></h2>
+<p><strong>問：</strong> 如何確認我使用的 Koha 版本？</p>
+<p><strong>回答：</strong> 從館員介面點選關於頁面，就能簡單看到 Koha 版本。</p>
+<p>從 OPAC 就能查看 HTML 原始碼。看起來類似這樣：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;meta name=&quot;generator&quot; content=&quot;Koha 18.1200000&quot; /&gt; &lt;!-- leave this for stats --&gt;
+</pre></div>
+</div>
+<p><strong>詢問：</strong> 安裝 Koha 時，應使用 Debian 套件或 tarball?</p>
+<p><strong>答：</strong> 對初學者而言，強力推薦使用 Debian 套件安裝 Koha - 以簡單又強大的命令安裝 Koha。套件永遠是安裝 Koha 的首選。以少許系統管理技術就能以 Debian 套件安裝 Koha.</p>
+<p>從 <a class="reference external" href="https://wiki.koha-community.org/wiki/Debian">Debian</a> 找到安裝的套件。</p>
+<p>安裝在 Debian 或 Ubuntu 以外作業系統時，採用 tarball 或 git 是唯一的選擇。</p>
+<p>軟體發展者應查看 <a class="reference external" href="https://gitlab.com/koha-community/kohadevbox">KohaDevBox</a> 的內容，能夠找到發展者可用的 Koha 實例。</p>
+</section>
+<section id="opac-and-staff-interface">
+<span id="faq-opac-and-staff-interface-label"></span><h2>OPAC 與館員介面<a class="headerlink" href="#opac-and-staff-interface" title="此标题的永久链接"></a></h2>
+<section id="cookies">
+<span id="faq-cookies-label"></span><h3>快取<a class="headerlink" href="#cookies" title="此标题的永久链接"></a></h3>
+<p><strong>詢問</strong>：Koha 使用那些快取?</p>
+<p><strong>回答：</strong> Koha 在 OPAC 與館員介面用到的快取都列在 Koha Community wiki：</p>
+<p><a class="reference external" href="https://wiki.koha-community.org/wiki/Use_of_Cookies">https://wiki.koha-community.org/wiki/Use_of_Cookies</a></p>
+</section>
+<section id="custom-item-type-authorized-value-icons">
+<span id="faq-custom-item-type-authorized-value-icons-label"></span><h3>客製化館藏類型/容許值圖示<a class="headerlink" href="#custom-item-type-authorized-value-icons" title="此标题的永久链接"></a></h3>
+<p><strong>問：</strong> 可以客製化自己的館藏類型 (或容許值) 圖示嗎？</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>答：<a href="#id3"><span class="problematic" id="id4">**</span></a>一定可以的。新增一個資料夾於 koha-tmpl/intranet-tmpl/prog/img/itemtypeimg/ 與 koha-tmpl/opac-tmpl/prog/itemtypeimg 內，再把新增的圖示置入其中。您的圖示將顯示在新的分頁裡。</p>
+<ul>
+<li><p><strong>說明</strong></p>
+<blockquote>
+<div><p>記兩個地方都要放圖示 (OPAC 與館員介面)。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="customizing-koha-images">
+<span id="faq-customizing-koha-images-label"></span><h3>客製化 Koha 圖示<a class="headerlink" href="#customizing-koha-images" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：可以客製化 OPAC 內的圖片嗎？</p>
+<p><strong>答</strong>：一定可以的。Koha 預設若干圖片供您選用。置於 misc/interface_customization/ 資料夾內。</p>
+</section>
+<section id="opac-display-fields">
+<span id="faq-opac-display-fields-label"></span><h3>OPAC 顯示欄位<a class="headerlink" href="#opac-display-fields" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：可以在 Koha 的 OPAC 顯示不同的 MARC 欄位嗎？</p>
+<p><strong>答</strong>：必須設定 XSLT 偏好才能顯示以下的欄位</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltresultsdisplay-label"><span class="std std-ref">OPACXSLTResultsDisplay</span></a> = using XSLT
+stylesheets</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacxsltdetailsdisplay-label"><span class="std std-ref">OPACXSLTDetailsDisplay</span></a> = using XSLT
+stylesheets</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#displayopaciconsxslt-label"><span class="std std-ref">DisplayOPACiconsXSLT</span></a> = show</p></li>
+</ul>
+<p>OPAC 結果頁面顯示：</p>
+<ul class="simple">
+<li><p>245</p></li>
+<li><p>100, 110, 111</p></li>
+<li><p>700, 710, 711</p></li>
+<li><p>250</p></li>
+<li><p>260</p></li>
+<li><p>246</p></li>
+<li><p>856</p></li>
+</ul>
+<p>OPAC 詳情頁面顯示：</p>
+<ul class="simple">
+<li><p>245</p></li>
+<li><p>100, 110, 111</p></li>
+<li><p>700, 710, 711</p></li>
+<li><p>440, 490</p></li>
+<li><p>260</p></li>
+<li><p>250</p></li>
+<li><p>300</p></li>
+<li><p>020</p></li>
+<li><p>022</p></li>
+<li><p>246</p></li>
+<li><p>130, 240</p></li>
+<li><p>6xx</p></li>
+<li><p>856</p></li>
+<li><p>505</p></li>
+<li><p>773</p></li>
+<li><p>520</p></li>
+<li><p>866</p></li>
+<li><p>775</p></li>
+<li><p>780</p></li>
+<li><p>785</p></li>
+<li><p>加在下方 ‘附註’ 分頁顯示所有的 5xx 欄位</p></li>
+</ul>
+</section>
+<section id="show-patrons-the-barcodes-of-items-they-have-checked-out">
+<span id="faq-show-patrons-the-barcodes-of-items-they-have-checked-out-label"></span><h3>顯示借出館藏的條碼給讀者看<a class="headerlink" href="#show-patrons-the-barcodes-of-items-they-have-checked-out" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：讀者可以看自己借出館藏的條碼嗎。</p>
+<p><strong>答</strong>：預設是不行，但修改讀者紀錄的幾個地方後就能讓條碼欄位顯示在 OPAC 內讀者借出摘要欄內。設定 <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">讀者屬性</span></a> 中 SHOW_BCODE 的值與 <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">容許值</span></a> 中 YES_NO 的值就可以。</p>
+<p><img alt="Example of adding a patron attribute type with code SHOW_BCODE, the description is &quot;Show barcode on patrons' checkouts in the OPAC&quot; and the authorized value is YES_NO" src="_images/SHOW_BCODEadd.png" /></p>
+<p>然後在 <a class="reference internal" href="patrons.html#editing-patrons-label"><span class="std std-ref">讀者紀錄設定值</span></a> 裡把 SHOW_BCODE 設為 yes。</p>
+<p><img alt="Example of modifying patron attributes in a patron's file. The mouse cursor is on the 'Yes' option for &quot;Show barcode on patron's checkouts in the OPAC&quot;" src="_images/SHOW_BCODEattribute.png" /></p>
+<p>將在 OPAC 新增借出摘要欄，顯示借出館藏的條碼。</p>
+<p><img alt="View of the account summary on the OPAC" src="_images/yoursummary.png" /></p>
+<p>按 ‘逾期’ 分頁將祗顯示逾期的館藏。</p>
+</section>
+</section>
+<section id="circulation-notices">
+<span id="faq-circulation-notices-label"></span><h2>Circulation/notices<a class="headerlink" href="#circulation-notices" title="此标题的永久链接"></a></h2>
+<section id="fees-and-fines">
+<span id="faq-fees-and-fines-label"></span><h3>費用及罰款<a class="headerlink" href="#fees-and-fines" title="此标题的永久链接"></a></h3>
+<p><strong>詢問</strong>：為什麼每筆借出都收到 5.00 的罰款？</p>
+<p><strong>回答</strong>：不是罰款，是租金。Koha 範例可能包括租金。以下列程序移除該等租金：</p>
+<ul class="simple">
+<li><p>按更多 &gt; 管理</p></li>
+<li><p>按館藏類型</p></li>
+<li><p>找出含 5.00 費用的館藏類型，勾選以備編輯</p></li>
+<li><p>移除費用，儲存該館藏類型</p></li>
+</ul>
+</section>
+<section id="book-drop">
+<span id="faq-book-drop-date-label"></span><h3>還書箱<a class="headerlink" href="#book-drop" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：如何決定擲入還書箱的日期？是借出分館的最近開館日嗎？是今天的日期減一天嗎？可以設定擲入還書箱的日期嗎？</p>
+<p><strong>答</strong>：假設，圖書館關閉四天重新裝潢，還書箱實際上開放超過一天。您必須設定擲入還書箱的日期為上個圖書館的開放日 (定義在圖書館行事曆內) 因為無法得知在 4 天的閉館期該館藏實際投入的日期。改變實質擲入還入箱日期的方法是修改行事曆。</p>
+<p>If you need to set a different checkin date, you can use
+the <a class="reference internal" href="circulationpreferences.html#specifyreturndate-label"><span class="std std-ref">SpecifyReturnDate</span></a> system preference. This will allow you to
+set an arbitrary date and any overdue fines will be recalculated
+accordingly.</p>
+</section>
+<section id="holds-to-pull-and-holds-queue">
+<span id="faq-holds-to-pull-and-holds-queue-label"></span><h3>取出預約與預約佇列<a class="headerlink" href="#holds-to-pull-and-holds-queue" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：<a class="reference internal" href="circulation.html#holds-queue-label"><span class="std std-ref">預約佇列</span></a> 報告與 <a class="reference internal" href="circulation.html#holds-to-pull-label"><span class="std std-ref">取出預約</span></a> 報告有何不同？</p>
+<p><strong>答</strong>：取出預約報告是一個清單，取出可借的館藏供預約之用。它顯示資料庫的 ‘活性’ 資料，可以立即顯示新的預約。顯示所有圖書館可供預約的每筆資料。</p>
+<p>預約佇列報表依圖書館排序，列出該圖書可被預約的資料。多筆預約與分館的圖書館，將不會同時拉出該等館藏。</p>
+<p>預約佇列報表由 <a class="reference internal" href="cron_jobs.html#cron-holds-queue-report-label"><span class="std std-ref">build_holds_queue.pl</span></a> 工作排程製作。預設每小時執行一次，也可以隨時變更。多種組態選項供圖書館取用。例如：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="administration.html#library-transfer-limits-label"><span class="std std-ref">圖書館轉移限制</span></a></p></li>
+<li><p><a class="reference internal" href="administration.html#transport-cost-matrix-label"><span class="std std-ref">轉移成本矩陣</span></a></p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">StaticHoldsQueueWeight</span></a>、<a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">HoldsQueueSkipClosed</span></a> 與 <a class="reference internal" href="circulationpreferences.html#holds-queue-system-preferences-label"><span class="std std-ref">RandomizeHoldsQueueWeight</span></a> 系統偏好</p></li>
+</ul>
+</section>
+<section id="printing-overdue-notices">
+<span id="faq-printing-overdue-notices-label"></span><h3>列印逾期通知<a class="headerlink" href="#printing-overdue-notices" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：可以列印逾期通知而不發送電子郵件給讀者嗎？</p>
+<p><strong>答</strong>：是的，圖書館可以發送逾期通知給沒有圖書館官方電子郵件的讀者。</p>
+<p>還有 <a class="reference internal" href="cron_jobs.html#cron-overdue-notice-label"><span class="std std-ref">逾期通知工作排程</span></a> 可以設定列印 HTML 格式的逾期通知。範例如：</p>
+<dl class="simple">
+<dt>::</dt><dd><p>overdue_notices.pl -t -html /tmp/noticedir -itemscontent issuedate,date_due,title,barcode,author</p>
+</dd>
+</dl>
+<p>在此例中，我們在通知內祗使用館藏的特定欄位，因此指定 itemscontent 欄位於排程款目內；這個不是必備的功能。</p>
+<p>The command line needs to specify a web-accessible directory where the
+print notices will go – they get a filename like
+notices-2018-11-24.html (or holdnotices-2018-11-24.html). The overdue
+notice itself can be formatted to fit a Z-mailer. Within the notice
+file, the text is spaced down or over to where it will print properly on
+the form. The script has code that wraps around the notice file to tell
+the HTML to obey the formatting, and to do a page break between notices.
+The system preference <a class="reference internal" href="circulationpreferences.html#printnoticesmaxlines-label"><span class="std std-ref">PrintNoticesMaxLines</span></a> can be used to specify
+the page length for libraries that allow a lot of checkouts which can lead
+to some notices running onto multiple pages. That system preference
+says to truncate the print notice at that page length and put in a
+message about go check your OPAC account for the full list.</p>
+<p>排程款目是 <a class="reference internal" href="cron_jobs.html#cron-print-hold-notices-label"><span class="std std-ref">gather_print_notices.pl</span></a> /tmp/noticedir</p>
+</section>
+<section id="unable-to-renew-items">
+<span id="faq-unable-to-renew-items-label"></span><h3>不能續借館藏<a class="headerlink" href="#unable-to-renew-items" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：我們想為讀者續借。其中一個館藏被別人預約無法續借，另兩個館藏沒人預約卻不能續借。我想啟用凌駕續借限制功能，卻得到 “續借失敗” 訊息。怎麼辦？</p>
+<p><strong>回答</strong>：首先應設定 <span class="xref std std-ref">預設的流通規則</span>。此規則為所有圖書館的基本規則，’所有’ 預設館藏類型與 ‘所有’ 讀者類型。就能抓住不適用於其他流通規則的狀況。不適用其他流通規則的讀者就會被阻止在預約或續借的行列，因為沒有可預約或續借的條件。</p>
+</section>
+<section id="unable-to-place-holds">
+<span id="faq-unable-to-place-holds-label"></span><h3>不能預約<a class="headerlink" href="#unable-to-place-holds" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：為什麼把所有的偏好都開啟仍不能借出?</p>
+<p><strong>答</strong>：很可能需要設定預設流通規則 <a class="reference internal" href="administration.html#circulation-and-fines-rules-label"><span class="std std-ref">流通與罰款規則</span></a>。這應該是所有圖書館、所有讀者類別和館藏類型的標準規則。不符合特殊流通規則的情況都到這裡來。</p>
+<p>預約的能力也取決於使用流通規則的’允許預約書架’的設定。根據不同的設定，如果某條記錄的任何或所有館藏都被借出，可能就無法預約。</p>
+</section>
+<section id="keyboard-shortcuts">
+<span id="faq-keyboard-shortcuts-label"></span><h3>鍵盤捷徑<a class="headerlink" href="#keyboard-shortcuts" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：必須使用滑鼠才能從流通頁面上方借出、還入與編目館藏嗎？</p>
+<p><strong>答</strong>：可以使用以下的鍵盤熱鍵在螢幕上方的搜尋盒分頁間移動 (若定位鍵可用)：</p>
+<ul>
+<li><p>按著Alt+q，進入搜尋目錄</p></li>
+<li><p>按 Alt+u 進入借出</p>
+<ul class="simple">
+<li><p>麥金塔電腦不能使用此功能</p></li>
+</ul>
+</li>
+<li><p>按著Alt+w，進入續借分頁</p></li>
+<li><p>按著Alt+r，進入還入</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>麥金塔電腦以 OPTION 鈕取代 Alt</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="sms-notices-messages">
+<span id="faq-sms-notices-messages-label"></span><h3>SMS 通知/訊息<a class="headerlink" href="#sms-notices-messages" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：讓 Koha 以 SMS 方式送出通知，怎麼做？</p>
+<p><strong>答</strong>：首先選定Koha使用的SMS服務商。有個清單在此：<a class="reference external" href="http://search.cpan.org/search?query=sms%3A%3Asend&amp;mode=all">http://search.cpan.org/search?query=sms%3A%3Asend&amp;mode=all</a> 並非所有的SMS服務商提供圖書館所需的Perl驅動程式，應再次確認清單的正確性。不行的話，換服務商。美國常用到的服務商(提供Perl驅動程式)如下：</p>
+<ul class="simple">
+<li><p>AQL (<a class="reference external" href="http://www.aql.com">www.aql.com</a>)</p></li>
+<li><p>Wadja (<a class="reference external" href="http://wadja.com">wadja.com</a>)</p></li>
+<li><p>Ipipi (<a class="reference external" href="http://ipipi.com">ipipi.com</a>)</p></li>
+<li><p>T-mobile</p></li>
+<li><p>SMSDiscount (<a class="reference external" href="http://smsdiscount.com">smsdiscount.com</a>)</p></li>
+<li><p>Clickatell</p></li>
+</ul>
+<p>Alternatively you can configure Koha to send SMS via Email. In order
+to use this feature you need to set the <a class="reference internal" href="patronspreferences.html#smssenddriver-label"><span class="std std-ref">SMSSendDriver</span></a> system
+preference to ‘Email’ and configure the email gateways for the different
+<a class="reference internal" href="administration.html#sms-cellular-providers-label"><span class="std std-ref">SMS cellular providers</span></a> of your patrons. Be aware that many mobile providers have deprecated support for the SMS::Send::Email feature. It is not recommended for use unless you have a dedicated SMS to Email gateway.</p>
+<p>在任何案子下您可能要檢查寄送SMS給您的顧客在您的位置是否合法.</p>
+<p><strong>問</strong>：印度如何？</p>
+<p><strong>回答</strong>: 印度在這裡沒有太多的選擇. 這有部分是因為Telecom regulatory authority’s (TRAI)交易SMSes的規定以及限制每位使用者每天可以寄送/收到SMSes的數量. 在印度特定的驅動程式包括:</p>
+<ul class="simple">
+<li><p>Unicel Technologies Pvt Ltd (<a class="reference external" href="http://unicel.in">unicel.in</a>)</p></li>
+</ul>
+</section>
+<section id="email-notices-messages">
+<span id="faq-email-notices-messages-label"></span><h3>電子郵件通知/訊息<a class="headerlink" href="#email-notices-messages" title="此标题的永久链接"></a></h3>
+<p><strong>問題</strong>: 如何防止我的圖書館通知最後標記成垃圾郵件?</p>
+<p><strong>回答</strong>: 這是一個複雜的主題, 但幸好Koha透過各種系統偏好為您提供良好的控制程度.</p>
+<p>從Koha寄出的每個電子郵件有三個重要的地址是系統用來確認, <em>來自</em>, <em>回覆*和*寄件人</em>. 這些都可以在系統和圖書館級別設置，並且如果未定義他們，則應該以適合的方式退回。</p>
+<ul class="simple">
+<li><p>KohaAdminEmailAddress - 這個將會作為*來自*電子郵件地址以及位址應該與koha伺服器相同網域 [for example <a class="reference external" href="mailto:noreply&#37;&#52;&#48;koha-hosting&#46;org">noreply<span>&#64;</span>koha-hosting<span>&#46;</span>org</a>]</p></li>
+<li><p>ReplytoDefault - 這個將會作為 <em>回覆</em> 電子郵件地址和可以適任何網域[for example <a class="reference external" href="mailto:librarian&#37;&#52;&#48;mylibrary&#46;com">librarian<span>&#64;</span>mylibrary<span>&#46;</span>com</a>] 以及如果/當讀者在他們的電子郵件客戶端點擊 ‘回覆’ 這個電子郵件網址將會被使用. 注意: 如果未被設定它將會退回到KohaAdminEmailAddress.</p></li>
+<li><p>ReturnpathDefault - 這個將被作為*寄件人* 電子郵件地址以及也需要在koha/email伺服務網域內[for example <a class="reference external" href="mailto:postmaster&#37;&#52;&#48;koha-hosting&#46;org">postmaster<span>&#64;</span>koha-hosting<span>&#46;</span>org</a>] 還有如果一封電子郵件因為任意原因退回這個電子郵件地址將被回報.</p></li>
+</ul>
+<p>每個分館與上述優先權有相似之處在要求退回上述系統偏好前以上述相同的順序退回。</p>
+<p>如果您正確配置上述這些但您的電子郵件還是被當成垃圾郵件那您可能需要聯繫您的電子郵件系統供應者/dns供應者以及調查MX,SPF和DKIM紀錄.</p>
+</section>
+</section>
+<section id="cataloging">
+<span id="faq-cataloging-label"></span><h2>編目<a class="headerlink" href="#cataloging" title="此标题的永久链接"></a></h2>
+<section id="authorities">
+<span id="faq-authorities-label"></span><h3>權威<a class="headerlink" href="#authorities" title="此标题的永久链接"></a></h3>
+<p><strong>Question:</strong> Why can’t I edit 1xx, 6xx, or 7xx fields in my bibliographic
+record?</p>
+<p><img alt="View of the 100 MARC21 field, Main entry personal name, and subfields 100$a, Personal name, and 100$d, dates associated with a name. 100$a, Personal name, is grayed out and has a lock icon in the field." src="_images/lockedauthority.png" /></p>
+<p><strong>Answer:</strong> These fields are authority controlled and you probably have
+the <a class="reference internal" href="authoritiespreferences.html#requirechoosingexistingauthority-label"><span class="std std-ref">RequireChoosingExistingAuthority</span></a>
+system preference set to “require”. When it is set to “require”, these fields
+will be locked and require you to search for an existing authority record to
+populate the field with. To allow typing in these authority fields set
+<a class="reference internal" href="authoritiespreferences.html#requirechoosingexistingauthority-label"><span class="std std-ref">RequireChoosingExistingAuthority</span></a>
+to “don’t require”.</p>
+<p><strong>問題:</strong> 我可以不創建權威紀錄就使用Koha嗎?</p>
+<p><strong>回答:</strong> 如果你不想為您的紀錄建立權威, 您可以移除您MARC書目結構裡欄位的索引典設置來移除權威連結. 參見: <a class="reference internal" href="administration.html#edit-framework-fields-and-subfields-label"><span class="std std-ref">編輯框架子字段</span></a></p>
+<p>You can also set the
+<a class="reference internal" href="authoritiespreferences.html#requirechoosingexistingauthority-label"><span class="std std-ref">RequireChoosingExistingAuthority</span></a>
+system preference to “don’t require” and the
+<a class="reference internal" href="authoritiespreferences.html#autocreateauthorities-label"><span class="std std-ref">AutoCreateAuthorities</span></a> system preference to
+“don’t generate”. This will allow you to enter anything in controlled fields,
+and no authority will be created.</p>
+</section>
+<section id="koha-to-marc-mapping">
+<span id="faq-koha-to-marc-mapping-label"></span><h3>Koha對映至MARC<a class="headerlink" href="#koha-to-marc-mapping" title="此标题的永久链接"></a></h3>
+<p><strong>問題</strong>: ‘Koha對映至MARC’和’MARC書目結構’之間的關聯?</p>
+<p><strong>回答</strong>: 可以透過’MARC書目結構’或是’Koha對映至MARC’來說明定義. ‘Koha對映至MARC’只是一種加速關聯的捷徑. 如果你改變了其中一個模組的對映, 對映也會跟著改變. 換句話說, 為了防止來自Koha現存的衝突兩個模組相互’覆蓋’對方.</p>
+</section>
+<section id="number-of-items-per-bibliographic-record">
+<span id="faq-number-of-items-per-bib-record-label"></span><h3>每筆書目記錄的館藏數<a class="headerlink" href="#number-of-items-per-bibliographic-record" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：每筆書目紀錄的館藏數是否有上限？</p>
+<p><strong>回答</strong>:一個書目記錄可以連接的館藏數沒有限制。對於大量館藏數的紀錄，導出MARC記錄作為ISO 2709可能會有格式大小限制的問題。在一個’普通的’書目記錄上館藏數大約在600到1000之間是可以的。</p>
+</section>
+<section id="analytics">
+<span id="faq-analytics-label"></span><h3>分析<a class="headerlink" href="#analytics" title="此标题的永久链接"></a></h3>
+<p><strong>Question</strong>: I am using the
+<a class="reference internal" href="catalogingpreferences.html#easyanalyticalrecords-label"><span class="std std-ref">EasyAnalyticalRecords</span></a> feature, but my links
+in the OPAC and Staff client to ‘Show analytics’ are not working.</p>
+<p><strong>Answer</strong>: If you plan on using
+<a class="reference internal" href="catalogingpreferences.html#easyanalyticalrecords-label"><span class="std std-ref">EasyAnalyticalRecords</span></a> you will want to make
+sure to set your <a class="reference internal" href="catalogingpreferences.html#usecontrolnumber-label"><span class="std std-ref">UseControlNumber</span></a> preference to
+“Don’t use,” this will prevent broken links.</p>
+</section>
+</section>
+<section id="acquisitions">
+<span id="faq-acquisitions-label"></span><h2>採訪<a class="headerlink" href="#acquisitions" title="此标题的永久链接"></a></h2>
+<section id="planning-categories">
+<span id="faq-planning-categories-label"></span><h3>規畫範疇<a class="headerlink" href="#planning-categories" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：規畫範疇是什麼？</p>
+<p><strong>答</strong>：事先規畫預算時，會畫出一個使用的計算，事情就是這麼來的。</p>
+<p>假設計畫在一月使用 $1000、二月使用 $1000、三月使用 $3000 等。就可依月份規畫它。</p>
+<p>就有一個像這樣的清單：</p>
+<ul class="simple">
+<li><p>小於 1 個月</p></li>
+<li><p>小於 6 個月</p></li>
+<li><p>小於 1 年</p></li>
+<li><p>小於 3 年</p></li>
+<li><p>小於 10 年</p></li>
+<li><p>大於 10 年</p></li>
+</ul>
+<p>這個清單意思是表達取得書籍的出版時間.然後您計畫得到它,說: 我們想要花費我們至少40%的預算在這本出版少於一年的書,10%的預算在已出版大於十年的書, 等等.</p>
+<p>在取得新的資料上, 您將能夠選擇, 對特定的館藏, 在下拉式列表中清單的價值. 然後, 在取得資料後, 在年底, 您將能夠比對設定的目標和達到的目標.</p>
+</section>
+</section>
+<section id="serials">
+<span id="faq-serials-label"></span><h2>期刊<a class="headerlink" href="#serials" title="此标题的永久链接"></a></h2>
+<section id="advanced-patterns">
+<span id="faq-advanced-patterns-label"></span><h3>進階模式<a class="headerlink" href="#advanced-patterns" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：在進階期刊模式介面裡 ‘內部計數器’ 是什麼？</p>
+<p><strong>答</strong>：我想還是以範例來說明較清楚：</p>
+<p>月刊的範例：</p>
+<ul class="simple">
+<li><p>第一期的出版年：2010 年 4 月</p></li>
+<li><p>編碼：{X}號，{Y}年</p></li>
+<li><p>第一期：4 號，2010 年</p></li>
+</ul>
+<p>對 Y 年而言：您需要在 2011 年元月變更它</p>
+<p>所以，Y 的進階模式將是：</p>
+<ul class="simple">
+<li><p>增加：1</p></li>
+<li><p>全部 : 12</p></li>
+<li><p>當多於: 9999999</p></li>
+<li><p>內部計算器：3</p></li>
+<li><p>設定回: 0</p></li>
+<li><p>開始於: 2010</p></li>
+</ul>
+<p>如果您沒有設定內部計算器, 從2010年4月開始到2011年4月收到12期就要變更年份. 設定內部計算器為3將會告知Koha: 收到12-3=9期開始改變年份.</p>
+<p>內部計數器告訴 Koha 把第一期的出版月份納入考量，即使沒有簽收亦然。若第一期從一月開始可以設定為 0 或不設定。</p>
+</section>
+</section>
+<section id="reports">
+<span id="faq-reports-label"></span><h2>報表<a class="headerlink" href="#reports" title="此标题的永久链接"></a></h2>
+<section id="sql-help">
+<span id="faq-sql-help-label"></span><h3>SQL幫助<a class="headerlink" href="#sql-help" title="此标题的永久链接"></a></h3>
+<p><strong>問題:</strong> 我不知道SQL, 但我想要寫一份關於X報表. 可以告訴我怎麼做嗎?</p>
+<p><strong>回答:</strong> <a class="reference external" href="https://wiki.koha-community.org/wiki/SQL_Reports_Library">在Koha wiki上的Koha報表庫</a> 是一個好的開始點以及包含很多其他圖書館分享的SQL報表可以再利用和改編.</p>
+<p><a class="reference external" href="https://schema.koha-community.org">Koha’s database schema</a> 是公開的文件以及包含有關於如何使用各種表格裡的列有用的說明.</p>
+<p>如果您陷入困境, 在社群郵件名單裡的人通常會很樂意幫助你.</p>
+</section>
+<section id="codes-stored-in-the-database">
+<span id="faq-define-codes-stored-in-db-label"></span><h3>代碼儲存在資料庫裡<a class="headerlink" href="#codes-stored-in-the-database" title="此标题的永久链接"></a></h3>
+<section id="statistics-table">
+<span id="faq-statistics-table-label"></span><h4>統計表<a class="headerlink" href="#statistics-table" title="此标题的永久链接"></a></h4>
+<p><strong>詢問：</strong> 統計表格裡類型欄位代碼是什麼？</p>
+<p><strong>答案：</strong></p>
+<ul class="simple">
+<li><p>localuse</p>
+<ul>
+<li><p>若館藏已被統計讀者 (類型 = ‘X’) 借出，登記為還回</p></li>
+</ul>
+</li>
+<li><p>期</p></li>
+<li><p>還入</p></li>
+<li><p>續借</p></li>
+<li><p>核銷</p></li>
+<li><p>付款</p></li>
+<li><p>CreditXXX</p>
+<ul>
+<li><p>以 XXX 代表不同類型的罰款額度，所以詢問時將包括像這樣的句子 “type LIKE ‘Credit%’”</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="reserves-holds-table">
+<span id="faq-reserves-table-label"></span><h4>Reserves (holds) table<a class="headerlink" href="#reserves-holds-table" title="此标题的永久链接"></a></h4>
+<p><strong>詢問</strong>：在 reserves 與 old_reserves 表單裡可能的代碼為何？</p>
+<p><strong>答案</strong>：</p>
+<ul class="simple">
+<li><p>NULL：表示讀者要求第 1 個可用的館藏，我們沒有選擇該館藏</p></li>
+<li><p>T = 輸送: 預約已連結到一個館藏但是正在運送至圖書館</p></li>
+<li><p>W = 等待: 預約已連結一個館藏,正在提取到圖書館,以及正在預約書架等待</p></li>
+<li><p>F = Finished: the hold has been completed, and is done</p></li>
+</ul>
+</section>
+<section id="reports-dictionary-table">
+<span id="faq-reports-dictionary-table-label"></span><h4>報表字典表<a class="headerlink" href="#reports-dictionary-table" title="此标题的永久链接"></a></h4>
+<p><strong>詢問</strong>：在 reports_dictionary 表單裡可能的區域代碼為何？</p>
+<p><strong>答案</strong>：</p>
+<ul class="simple">
+<li><p>1 = 流通</p></li>
+<li><p>2 = 目錄</p></li>
+<li><p>3 = 讀者</p></li>
+<li><p>4 = 採訪</p></li>
+<li><p>5 = 帳號</p></li>
+</ul>
+</section>
+<section id="messages-table">
+<span id="faq-messages-table-label"></span><h4>訊息表單<a class="headerlink" href="#messages-table" title="此标题的永久链接"></a></h4>
+<p><strong>詢問</strong>：在訊息表單的 message_type 欄位裡可能的代碼為何？</p>
+<p><strong>答案</strong>：</p>
+<ul class="simple">
+<li><p>L = 圖書館員</p></li>
+<li><p>B = 供讀者之用</p></li>
+</ul>
+</section>
+<section id="serial-table">
+<span id="faq-serial-table-label"></span><h4>期刊表單<a class="headerlink" href="#serial-table" title="此标题的永久链接"></a></h4>
+<p><strong>詢問</strong>：在期刊表單的狀態欄位裡可能的代碼為何？</p>
+<p><strong>答案</strong>：</p>
+<ul class="simple">
+<li><p>1 = 預期</p></li>
+<li><p>2 = 到館</p></li>
+<li><p>3 = 遲到</p></li>
+<li><p>4 = 遺失</p></li>
+<li><p>5 = 不可得</p></li>
+<li><p>6 = 刪除</p></li>
+<li><p>7 = 催缺</p></li>
+<li><p>8 = 停訂</p></li>
+<li><p>41 = 遺失 (未簽收)</p></li>
+<li><p>42 = 遺失 (售完)</p></li>
+<li><p>43 = 遺失 (毀損)</p></li>
+<li><p>44 = 遺失 (不見)</p></li>
+</ul>
+</section>
+<section id="borrowers-table">
+<span id="faq-borrowers-table-label"></span><h4>借閱者表單<a class="headerlink" href="#borrowers-table" title="此标题的永久链接"></a></h4>
+<p><strong>問題</strong>: 借閱者表單和刪除_借閱者表單中隱私欄位可能的代碼是什麼?</p>
+<p><strong>答案</strong>：</p>
+<ul class="simple">
+<li><p>0 = 永遠</p></li>
+<li><p>1 = 預設</p></li>
+<li><p>2 = 永不</p></li>
+</ul>
+</section>
+<section id="patron-categories-table">
+<span id="faq-patron-categories-table-label"></span><h4>讀者類型表單<a class="headerlink" href="#patron-categories-table" title="此标题的永久链接"></a></h4>
+<p><strong>問題</strong>: 類型表單可能的代碼是什麼?</p>
+<p><strong>答案</strong>：</p>
+<ul class="simple">
+<li><p>A = 大人</p></li>
+<li><p>C = 孩童</p></li>
+<li><p>I = 組織</p></li>
+<li><p>P = 專業人員</p></li>
+<li><p>S = 員工</p></li>
+<li><p>X = 統計學的</p></li>
+</ul>
+</section>
+<section id="messaging-preferences">
+<span id="faq-messaging-preferences-label"></span><h4>訊息優先<a class="headerlink" href="#messaging-preferences" title="此标题的永久链接"></a></h4>
+<p><strong>問</strong>： borrower_message_preferences 表單的 message_attribute_id 欄位裡有那些代碼？</p>
+<p><strong>答案</strong>：</p>
+<ul class="simple">
+<li><p>2 = 進階通知</p></li>
+<li><p>6 = 借出館藏</p></li>
+<li><p>4 = 預約可取</p></li>
+<li><p>1 = 館藏到期</p></li>
+<li><p>5 = 館藏還入</p></li>
+</ul>
+</section>
+<section id="recalls-table">
+<span id="faq-recalls-table-label"></span><h4>催還列表<a class="headerlink" href="#recalls-table" title="此标题的永久链接"></a></h4>
+<p><strong>詢問</strong>：在催還表單的狀態欄位裡可能的代碼為何？</p>
+<p><strong>答案</strong>：</p>
+<ul class="simple">
+<li><p>已申請</p>
+<ul>
+<li><p>已提出新的催還請求且必須歸還館藏</p></li>
+</ul>
+</li>
+<li><p>等待</p>
+<ul>
+<li><p>被催還的館藏正在請求者選擇的分館等待取件</p></li>
+</ul>
+</li>
+<li><p>在_途中</p>
+<ul>
+<li><p>一件館藏已被分配為催還，並正在運送到請求者選擇的取件分館</p></li>
+</ul>
+</li>
+<li><p>逾期的</p>
+<ul>
+<li><p>逾期還入的催還館藏</p></li>
+</ul>
+</li>
+<li><p>已履行</p>
+<ul>
+<li><p>被催還的館藏已被借出給催還請求者，並且催還已經完成</p></li>
+</ul>
+</li>
+<li><p>失效</p>
+<ul>
+<li><p>在規定的到期日之前沒有完成催還，或者催還請求者沒有在領取期限內領取他們等待的催還</p></li>
+</ul>
+</li>
+<li><p>已取消</p>
+<ul>
+<li><p>催還請求被取消了。</p></li>
+<li><p>只有要求的或逾期的催還可以被取消。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="action-logs-modules-and-actions">
+<span id="faq-action-logs-modules"></span><h4>執行日誌模組和執行<a class="headerlink" href="#action-logs-modules-and-actions" title="此标题的永久链接"></a></h4>
+<p><strong>詢問</strong>：action_logs表中有哪些可能的模組，而每個模組又有哪些可能的行動？</p>
+<p><strong>答案</strong>：</p>
+<ul>
+<li><p>採訪</p>
+<ul class="simple">
+<li><p>在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>採訪&lt;acquisitions-label&gt;`以及 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>預算管理&lt;budgets-label&gt;`中記錄訂單和採購籃的變化</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>新增_採購籃: 一個 <a class="reference internal" href="acquisitions.html#create-a-basket-label"><span class="std std-ref">新採購籃已建立</span></a></p></li>
+<li><p>APPROVE_BASKET: 一個 EDI 採購籃已獲得批准</p></li>
+<li><p>取消_訂單: 訂單被取消</p></li>
+<li><p>關閉_採購籃: 一個 <a class="reference internal" href="acquisitions.html#ordering-closing-basket-label"><span class="std std-ref">採購籃已關閉</span></a></p></li>
+<li><p>建立_基金: 一個 <a class="reference internal" href="administration.html#add-a-fund-label"><span class="std std-ref">基金已建立</span></a></p></li>
+<li><p>新增_發票_調整：調整已新增到發票</p></li>
+<li><p>新增_訂單: 一個 <a class="reference internal" href="acquisitions.html#add-to-basket-label"><span class="std std-ref">訂單已新增到採購籃</span></a></p></li>
+<li><p>刪除_基金：基金被刪除</p></li>
+<li><p>刪除_發票_調整：從發票中刪除了一項調整</p></li>
+<li><p>修改_採購籃: 一個 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>採購籃被編輯&lt;edit-basket-label&gt;`（新增或修改訂單）</p></li>
+<li><p>修正_採購籃_標題：編輯了一個採購籃的訊息（如採購籃名稱或結算地點）</p></li>
+<li><p>編輯_採購籃_使用者：編輯了採購籃的使用者</p></li>
+<li><p>編輯_預算：預算已編輯（這不包括 clo）</p></li>
+<li><p>編輯_基金：一個基金被編輯了</p></li>
+<li><p>編輯_訂單：訂單已編輯</p></li>
+<li><p>收到_訂單: 一個 <a class="reference internal" href="acquisitions.html#receiving-orders-label"><span class="std std-ref">訂單已收到</span></a></p></li>
+<li><p>重新打開_採購籃：關閉的採購籃被重新打開</p></li>
+<li><p>更新_發票_調整：對一張發票的調整進行編輯</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#acquisitionlog-label"><span class="std std-ref">AcquisitionLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>AUTH</p>
+<ul class="simple">
+<li><p>記錄讀者或館員登入OPAC或館員介面的時間</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>失敗：讀者或館員試圖使用錯誤的身份驗證登入</p></li>
+<li><p>成功：讀者或館員成功登入</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#authfailurelog-label"><span class="std std-ref">AuthFailureLog</span></a> and <a class="reference internal" href="logspreferences.html#authsuccesslog-label"><span class="std std-ref">AuthSuccessLog</span></a> system
+preferences</p></li>
+</ul>
+</li>
+<li><p>權威</p>
+<ul class="simple">
+<li><p>記錄變更為 <a class="reference internal" href="cataloging.html#authorities-label"><span class="std std-ref">權威紀錄</span></a></p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>新增: 建立權威記錄</p></li>
+<li><p>刪除：權威記錄被刪除</p></li>
+<li><p>修改：權威記錄被修改</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#authoritieslog-label"><span class="std std-ref">AuthoritiesLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>編目</p>
+<ul class="simple">
+<li><p>記錄變更為 <a class="reference internal" href="cataloging.html#bibliographic-records-label"><span class="std std-ref">書目記錄和館藏</span></a></p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>新增: 書目記錄或館藏已建立</p></li>
+<li><p>刪除: 書目記錄或館藏被刪除了</p></li>
+<li><p>修改：書目記錄或館藏被修改，或在記錄中加入了封面圖片</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#cataloguinglog-label"><span class="std std-ref">CataloguingLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>流通</p>
+<ul class="simple">
+<li><p>記錄 <a class="reference internal" href="circulation.html#check-out-issuing-label"><span class="std std-ref">借出</span></a>, <a class="reference internal" href="circulation.html#check-in-returning-label"><span class="std std-ref">還入</span></a> 和 <a class="reference internal" href="circulation.html#renewing-label"><span class="std std-ref">續借</span></a></p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>問題: 一個 <a class="reference internal" href="circulation.html#check-out-issuing-label"><span class="std std-ref">館藏已借出</span></a></p></li>
+<li><p>還入: 一個 <a class="reference internal" href="circulation.html#check-in-returning-label"><span class="std std-ref">館藏已還入</span></a></p></li>
+<li><p>續借：a <a class="reference internal" href="circulation.html#renewing-label"><span class="std std-ref">借出已續借</span></a></p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#issuelog-label"><span class="std std-ref">IssueLog</span></a>, <a class="reference internal" href="logspreferences.html#renewallog-label"><span class="std std-ref">RenewalLog</span></a>, and <a class="reference internal" href="logspreferences.html#returnlog-label"><span class="std std-ref">ReturnLog</span></a>
+system preferences</p></li>
+</ul>
+</li>
+<li><p>索賠</p>
+<ul class="simple">
+<li><p>記錄當 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>逾期訂單被索賠&lt;claims-and-ate-orders-label&gt;`時的情況</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>採訪索賠：a <span class="xref std std-ref">後期訂單被索賠</span></p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#claimslog-label"><span class="std std-ref">ClaimsLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>工作排程</p>
+<ul class="simple">
+<li><p>當一個 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>工作排程&lt;cron-jobs-label&gt;`被運行時的記錄</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>執行：執行了一個工作排程</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>罰款</p>
+<ul class="simple">
+<li><p>記錄對 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>收費&lt;fines-label&gt;`的更改</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>建立：一個費用被新增到一個讀者的帳戶中（手動或自動）</p></li>
+<li><p>修：一項收費被修改（豁免）</p></li>
+<li><p>更新：更新了一項收費（僅在罰款仍在累積的情況下）</p></li>
+<li><p>作廢: 一個 <a class="reference internal" href="patrons.html#void-payments-label"><span class="std std-ref">付款作廢</span></a></p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#fineslog-label"><span class="std std-ref">FinesLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>預約</p>
+<ul class="simple">
+<li><p>記錄對 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>預約&lt;holds-circulation-label&gt;`的改變</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>取消：預約已取消</p></li>
+<li><p>建立：預約保留</p></li>
+<li><p>刪除：預約已刪除，預約的館藏已由讀者借出</p></li>
+<li><p>FILL: 一個預約被 <a class="reference internal" href="circulation.html#receiving-holds-label"><span class="std std-ref">確認並擱置以等待取件</span></a></p></li>
+<li><p>修改：預約的館藏被修改（優先級被改變，到期日被改變等）</p></li>
+<li><p>恢復：一個暫停的預約被恢復了</p></li>
+<li><p>暫停：暫停預約</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#holdslog-label"><span class="std std-ref">HoldsLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>ILL</p>
+<ul class="simple">
+<li><p>記錄對 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>ILL 請求&lt;ill-requests-label&gt;`的更改</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>讀者_通知: 向一位讀者寄送了關於他們的借閱請求的通知</p></li>
+<li><p>狀態_修改: 一個ILL請求的狀態被修改了</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#illlog-label"><span class="std std-ref">IllLog</span></a> system preference.</p></li>
+</ul>
+</li>
+<li><p>成員</p>
+<ul class="simple">
+<li><p>記錄對 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>讀者文件&lt;patrons-label&gt;`的更改</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>ADDCIRCMESSAGE：一條內部訊息或OPAC訊息被新增到讀者的帳戶中</p></li>
+<li><p>更改通行證：讀者的密碼已更改</p></li>
+<li><p>新增: 一個 <a class="reference internal" href="patrons.html#add-a-new-patron-label"><span class="std std-ref">新增了新讀者</span></a></p></li>
+<li><p>DELCIRCMESSAGE：內部消息或 OPAC 消息已刪除</p></li>
+<li><p>刪除: 一個 <a class="reference internal" href="patrons.html#delete-patron-account-label"><span class="std std-ref">讀者的帳號已刪除</span></a></p></li>
+<li><p>修改: 一個 <a class="reference internal" href="patrons.html#editing-patrons-label"><span class="std std-ref">讀者的帳號已被編輯</span></a></p></li>
+<li><p>續借：一個 <a class="reference internal" href="patrons.html#renew-patron-account-label"><span class="std std-ref">讀者的會員資格已更新</span></a></p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#borrowerslog-label"><span class="std std-ref">BorrowersLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>消息</p>
+<ul class="simple">
+<li><p>記錄對 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>新的&lt;news-label&gt;`和 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>HTML 自定義 &lt;html-customizations-label&gt;`的修改。</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>新增：建立了新的新聞館藏或 HTML 自定義</p></li>
+<li><p>刪除：一個新聞館藏或 HTML 自定義被刪除了</p></li>
+<li><p>修改: 一個新聞館藏或 HTML 自定義被編輯了</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#newslog-label"><span class="std std-ref">NewsLog</span></a> system preference.</p></li>
+</ul>
+</li>
+<li><p>注意事項</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>記錄對 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>通知和單據模板&lt;notices-and-slips-label&gt;`的更改。</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>新增: 一個 <a class="reference internal" href="tools.html#adding-notices-and-slips-label"><span class="std std-ref">新的通知或單據模板已建立</span></a></p></li>
+<li><p>刪除：一個通知或單據模板被刪除了</p></li>
+<li><p>修改：編輯了一個通知或單據模板</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#noticeslog-label"><span class="std std-ref">NoticesLog</span></a> system preference.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>催還</p>
+<ul class="simple">
+<li><p>Records changes to recalls</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>取消：取消催還</p></li>
+<li><p>過期：催還過期</p></li>
+<li><p>FILL: a recall was filled (confirmed and set aside to wait for
+pickup)</p></li>
+<li><p>過期：催還的狀態設定為’過期’</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#recallslog-label"><span class="std std-ref">RecallsLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>報表</p>
+<ul class="simple">
+<li><p>記錄對 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>報告&lt;reports-label&gt;`的更改</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>新增: 建立了一個新的報表</p></li>
+<li><p>刪除：一份報表被刪除</p></li>
+<li><p>修改：一份報表被編輯了</p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#reportslog-label"><span class="std std-ref">ReportsLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>搜尋_引擎</p>
+<ul class="simple">
+<li><p>記錄對映射的更改</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>編輯_映射：映射已修改（編輯、刪除）</p></li>
+<li><p>重置_映射：映射被重置為原始定義</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>期刊</p>
+<ul class="simple">
+<li><p>紀錄期刊訂閱的變化</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>新增：建立了一個新的 <a class="reference internal" href="serials.html#add-a-subscription-label"><span class="std std-ref">期刊訂閱</span></a></p></li>
+<li><p>刪除: 一個期刊訂閱被刪除</p></li>
+<li><p>修改: 一個 <a class="reference internal" href="serials.html#edit-subscription-label"><span class="std std-ref">期刊訂閱被編輯</span></a></p></li>
+<li><p>續借: a <a class="reference internal" href="serials.html#renewing-serials-label"><span class="std std-ref">期刊訂閱已續借</span></a></p></li>
+</ul>
+</li>
+<li><p>Enabled by the <a class="reference internal" href="logspreferences.html#subscriptionlog-label"><span class="std std-ref">SubscriptionLog</span></a> system preference</p></li>
+</ul>
+</li>
+<li><p>SYSTEMPREFERENCE</p>
+<ul class="simple">
+<li><p>記錄對 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>系統偏好&lt;global-system-preferences-label&gt;`的更改</p></li>
+<li><p>可能的行動</p>
+<ul>
+<li><p>新增：新增了一個新的定義</p></li>
+<li><p>刪除：</p></li>
+<li><p>修改：編輯了系統偏好，增加了定義（例如 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>按年齡自動修改館藏&lt;automatic-item-modifications-by-age-label&gt;`的情況），記錄被重新索引</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="runtime-parameters">
+<span id="faq-runtime-parameters-label"></span><h3>執行參數<a class="headerlink" href="#runtime-parameters" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：可以在執行前篩選客製化的 SQL 報表嗎？</p>
+<p><strong>回答</strong>: 如果您想要讓您的報表易於使用不同的篩選器和日期範圍來再利用, 您可以添加執行參數到查詢中. 執行參數基本上使篩選器在執行報表前出現.</p>
+<p>參見 <a class="reference internal" href="reports.html#report-writing-tips-label"><span class="std std-ref">關於運行時參數的報告編寫技巧</span></a>。</p>
+</section>
+</section>
+<section id="searching">
+<span id="faq-searching-label"></span><h2>搜尋<a class="headerlink" href="#searching" title="此标题的永久链接"></a></h2>
+<section id="advanced-search">
+<span id="faq-advanced-search-label"></span><h3>進階搜尋<a class="headerlink" href="#advanced-search" title="此标题的永久链接"></a></h3>
+<section id="scan-indexes">
+<span id="faq-scan-indexes-label"></span><h4>掃瞄索引<a class="headerlink" href="#scan-indexes" title="此标题的永久链接"></a></h4>
+<p><strong>問</strong>：在進階搜尋頁面 ‘掃瞄索引’ 是什麼意思？</p>
+<p><strong>回答</strong>: 當您選擇一個索引, 輸入關鍵字, 點擊’掃描索引’搜索它, Koha顯示搜索到的關鍵字以及在這個索引以下關鍵字和相應的紀錄. 這個不是直接搜尋目錄,而是先進入索引. 它一次只針對一個索引, 且不限於圖書館或是圖書館群(需要所有圖書館).</p>
+</section>
+<section id="searching-for-terms-that-start-with-a-character">
+<span id="faq-searching-for-terms-that-start-with-a-character-label"></span><h4>搜尋以字元開始的關鍵字<a class="headerlink" href="#searching-for-terms-that-start-with-a-character" title="此标题的永久链接"></a></h4>
+<p><strong>問</strong>：如何搜尋以 ‘C’ 起頭的館藏？</p>
+<p><strong>答</strong>：使用 CCL ‘first-in-subfield’ 功能就可以搜尋開始的單一或一群字元</p>
+<ul class="simple">
+<li><p>範例：ti,first-in-subfield=C</p></li>
+</ul>
+</section>
+</section>
+<section id="wildcard-searching">
+<span id="faq-wildcard-searching-label"></span><h3>萬用字元搜尋<a class="headerlink" href="#wildcard-searching" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：使用 ‘*’ (星號) 與使用 ‘%’ (百分號) 的鍵詞搜尋有何不同？搜尋目錄時，兩者送回不同的結果。為什麼？</p>
+<p><strong>答</strong>：可用四個萬用字元 (*、?、%、.) 代表英文字裡的一個或多個字母。Koha 祗使用星號 (’*’) 與百分號 (‘%’) 兩個萬用字元。然而，這兩個字元在搜尋時作用不同。</p>
+<p>星號 ‘*’ 取代在 ‘*’ 之後的字元。搜尋時祗要前幾個字元相同，星號就可取代無限制的字元。例如，搜尋作者，Smi*，將搜尋 Smith、Smithers、Smithfield、Smiley 等，在資料庫裡的作者。</p>
+<p>百分號 ‘%’ 將輸入的鍵詞視為 “是這樣”。所以搜尋 Smi% 會搜尋出像 Smi 的鍵詞。此結果與搜尋清單大為不同。例如，搜尋 Smi% 將送回資料庫裡包括 Smothers、Smith、Smelley、Smithfield 與其他鍵詞。</p>
+<p>以萬用字元搜尋的底線: ‘*’更精確而’%’搜尋相似關鍵字.</p>
+</section>
+<section id="title-searching">
+<span id="faq-title-searching-label"></span><h3>題名搜尋<a class="headerlink" href="#title-searching" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：為什麼我的 Zebra 題名搜尋 ‘Help’，在第一頁的搜尋結果，找不到 ‘The help’ 呢？</p>
+<p><strong>回答</strong>: 通常, 您輸入越多關鍵字, 您的結果會更好. Koha沒有使用停用詞, 所以搜尋”the”和”an”還是會運作. 所以”the help”會比只用題名搜尋幫助的結果更好. 使用”Title, phrase”會促進改進結果因為這意味的這些關鍵字要照順序出現且沒有其他關鍵字在之間。</p>
+<p>Some system preferences are known to affect relevancy ranking negatively.
+These are <a class="reference internal" href="searchingpreferences.html#queryautotruncate-label"><span class="std std-ref">QueryAutoTruncate</span></a> and <a class="reference internal" href="searchingpreferences.html#useicustylequotes-label"><span class="std std-ref">UseICUStyleQuotes</span></a>.</p>
+<p>注意: 如果多個結果都是相同的關聯性分數, 它們將會按照書目號作為第二標準.</p>
+</section>
+<section id="reset-the-zebra-index">
+<span id="faq-reset-the-zebra-index-label"></span><h3>重設 Zebra 索引<a class="headerlink" href="#reset-the-zebra-index" title="此标题的永久链接"></a></h3>
+<p>執行以下的指令以重設 Zebra 的權威與書目索引。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ zebraidx -c /etc/koha/zebradb/zebra-authorities-dom.cfg -g iso2709 -d authorities init
+$ zebraidx -c /etc/koha/zebradb/zebra-biblios.cfg -g iso2709 -d biblios init
+</pre></div>
+</div>
+<p>執行套件安裝時，需執行下列指令以重設 Zebra 權威與書目索引：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo zebraidx -c /etc/koha/sites/YOURLIBRARY/zebra-authorities-dom.cfg  -g iso2709 -d authorities init
+$ sudo zebraidx -c /etc/koha/sites/YOURLIBRARY/zebra-biblios.cfg  -g iso2709 -d biblios init
+</pre></div>
+</div>
+<p>以安裝 Koha 時的名稱取代 YOURLIBRARY。</p>
+</section>
+</section>
+<section id="enhanced-content">
+<span id="faq-enhanced-content-label"></span><h2>增強內容<a class="headerlink" href="#enhanced-content" title="此标题的永久链接"></a></h2>
+<section id="amazon">
+<span id="faq-amazon-label"></span><h3>Amazon<a class="headerlink" href="#amazon" title="此标题的永久链接"></a></h3>
+<section id="all-amazon-content">
+<span id="faq-all-amazon-content-label"></span><h4>Amazon全部內容<a class="headerlink" href="#all-amazon-content" title="此标题的永久链接"></a></h4>
+<p><strong>問</strong>：我打開 Amazon 所有的偏好，且鍵入我的密碼，但沒有任何內容顯示在系統內，為什麼？</p>
+<p><strong>答</strong>：Amazon 的 API 檢查所有詢問的伺服器時間，若沒有適當的設定伺服器時間，不會回應詢問。祗要妥當地設定系統時間，就可解決此問題。改變後，Amazon 內容應會立即出現。</p>
+<p>Debian 的指令是 <em>date -s “2010-06-30 17:21”</em> (就是您時區的日期與時間)。</p>
+<p>Amazon也要求ISBN來顯示書的封面 - 確保您的題名有正確的ISBN. 如果您的書遇到似乎沒有封面的問題請不要翻閱, 嘗試第一個020a中第10位數的ISBN. 如果您有第10位數以及它沒有翻閱, 嘗試第一個020a中第13位數.</p>
+</section>
+</section>
+</section>
+<section id="server-administration">
+<span id="faq-system-administration-label"></span><h2>伺服器管理人員<a class="headerlink" href="#server-administration" title="此标题的永久链接"></a></h2>
+<section id="bcrypt-settings">
+<span id="bcrypt-settings-faq"></span><h3>Bcrypt settings<a class="headerlink" href="#bcrypt-settings" title="此标题的永久链接"></a></h3>
+<p><strong>Question</strong>: How do I configure bcrypt_settings in the Koha configuration file?</p>
+<p><strong>Answer</strong>: You need to generate a key and put it in the koha-conf.xml file.</p>
+<p>The following command will generate one:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">htpasswd</span> <span class="o">-</span><span class="n">bnBC</span> <span class="mi">10</span> <span class="s2">&quot;&quot;</span> <span class="n">password</span> <span class="o">|</span> <span class="n">tr</span> <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/$2y/$2a/&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Then edit $KOHA_CONF and paste the generated key into &lt;bcrypt_settings&gt;. If that section does not exist, add it before the end of the config section (&lt;/config)
+It should look something like:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;bcrypt_settings&gt;$2a$10$PfdrEBdRcL2MZlEtKueyLegxI6zg735jD07GRnc1bt.N/ZYMvBAB2&lt;/bcrypt_settings&gt;
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Do not, under any circumstances, copy the example above in your own configuration! A key is like a password: using one that has been posted online is the opposite of secure.
+Instead, use the command to generate your own key.</p>
+</div>
+<p>Finally, restart memcached then plack (alias restart_all)</p>
+</section>
+<section id="making-z39-50-target-public">
+<span id="faq-making-z39-50-target-public-label"></span><h3>讓Z39.50成為公開的目標<a class="headerlink" href="#making-z39-50-target-public" title="此标题的永久链接"></a></h3>
+<p><strong>問題</strong>: 我要如何設置Zebra來讓我的資料庫可以透過Z39.50搜尋?</p>
+<p><strong>答</strong>：編輯 KOHA_CONF 檔案。其 publicserver 列如下：</p>
+<p>&lt;!– &lt;listen id=”publicserver” &gt;tcp:&#64;:9999&lt;/listen&gt; –&gt;</p>
+<p>改為：</p>
+<p>&lt;listen id=”publicserver” &gt;tcp:&#64;:9999&lt;/listen&gt;</p>
+<p>然後重新啟動 zebasrv 並連結至指定的埠 (9999)。</p>
+</section>
+<section id="shelving-location-authorized-values">
+<span id="faq-shelving-location-authorized-values-label"></span><h3>書架位置容許值<a class="headerlink" href="#shelving-location-authorized-values" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：編輯館藏後，新增的書架位置未顯示於我指定的預設館藏。</p>
+<p><strong>回答</strong>: 一個可能的原因是你在LOC容許值類別裡使用代碼’’或是0 (zero)創建了一個位置. 這將會被視為’沒位置’以及無法正確地顯示.</p>
+</section>
+<section id="why-do-i-need-authorized-values">
+<span id="faq-why-do-i-need-authorized-values-label"></span><h3>為什麼我需要容許值？<a class="headerlink" href="#why-do-i-need-authorized-values" title="此标题的永久链接"></a></h3>
+<p><strong>詢問</strong>：為什麼要在 MARC 欄位中設定容許值？</p>
+<p><strong>回答</strong>: 容許值為您的員工創建一個’控制詞彙’. 舉例來說, 讓我們假設您的Koha安裝被許多圖書館使用,而您使用MARC21. 您可能會想將850a MARC分欄位限制成只有這些圖書館的機構代碼. 既然如此, 您可以界定一個容許值類別(可能叫做”INST”)以及輸入機構代碼當作該類別的容許值.</p>
+<blockquote>
+<div><p><strong>說明</strong></p>
+<p>Koha 自動設定館藏類型與分館代碼的容許值範疇，且在設定 MARC 欄位結構時把這些容許值連結至 MARC 分欄。</p>
+</div></blockquote>
+</section>
+<section id="how-do-i-clean-up-the-sessions-table">
+<span id="faq-how-do-i-clean-up-the-sessions-table-label"></span><h3>如何設定活動表單？<a class="headerlink" href="#how-do-i-clean-up-the-sessions-table" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：有沒有定期的工作排程可以從表單裡剔除舊的活動？我氜不想每晚備份無用的活動。</p>
+<p><strong>答</strong>：您可執行 <a class="reference internal" href="cron_jobs.html#cron-clean-up-database-label"><span class="std std-ref">清除資料庫工作排程</span></a>。</p>
+<p>或在執行備份指令 (mysqldump) 前，先切截活動表單：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span><span class="o">&lt;</span><span class="n">kohauser</span> <span class="o">-</span><span class="n">p</span><span class="o">&lt;</span><span class="n">password</span> <span class="o">&lt;</span><span class="n">koha</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">name</span> <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;TRUNCATE TABLE sessions&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="hardware">
+<span id="faq-hardware-label"></span><h2>硬體<a class="headerlink" href="#hardware" title="此标题的永久链接"></a></h2>
+<section id="barcode-scanners">
+<span id="faq-barcode-scanners-label"></span><h3>條碼掃瞄器<a class="headerlink" href="#barcode-scanners" title="此标题的永久链接"></a></h3>
+<p><strong>問</strong>：那種條碼掃瞄器適用於 Koha？</p>
+<p><strong>回答</strong>: 簡單的經驗法則是: 它表現得像是鍵盤裝置嗎? 如果是, 它將會運作. (i.e. 您可以拿掃瞄機嗎, 掃描一個條碼以及把它放在文字編輯器裡.)</p>
+<p>檢查的重點是，它和您的 PC 可以輕鬆地連結 (經由 USB 或 “鍵盤機制” 就是與鍵盤連在一起，舊型電腦用這種方法)，且可掃瞄您使用的條碼類型。</p>
+<p>測試 ‘使用中’ 的條碼不失為好主意，可以讀出資料就可以。大部份的掃瞄器可以讀取多種格式的條碼 – 有很多，且列出可以讀者的規格。或許需要稍為調整設定，前置或後置字元，或同時送出 ‘歸位’ 字元。</p>
+<p>還有一點 - 某些機種可以設為 ‘總是開啟’ 且有支架，有些在把手下有個按鈕，有些在上方有個鈕，有些看起來像隻筆。以館員工作的舒適度為選取的依據，錯誤位置的鈕使用起來很怪。</p>
+</section>
+<section id="printers">
+<span id="faq-printers-label"></span><h3>印表機<a class="headerlink" href="#printers" title="此标题的永久链接"></a></h3>
+<section id="printers-used-by-koha-libraries">
+<span id="faq-printers-used-by-koha-libraries-label"></span><h4>Koha 圖書館使用的印表機<a class="headerlink" href="#printers-used-by-koha-libraries" title="此标题的永久链接"></a></h4>
+<p>在這裡一般的經驗法則是如果您可以從瀏覽器用印表機列印, 它將會和Koha一起運作.</p>
+<ul class="simple">
+<li><p>POS-X 收條印表機</p></li>
+<li><p>Star Micronics 列表機 (正確型號不詳) 含通用/文字驅動程式。</p></li>
+<li><p>Star SP2000 (Nelsonville)</p></li>
+<li><p>Star TSP-100 futurePRINT (Geauga)</p>
+<ul>
+<li><p>“我知道收條印表很有問題，所以提供我的經驗。我們試過 Star TSP-100 futurePRINT。該款印表機很容易組態給 Koha 使用。甚至在每個收條加上我們系統的標籤 (一個 .gif 檔案)。也可在收條最後加上若干連絡資訊、開館時間與圖書館網址等與借出有關的資料”。</p></li>
+</ul>
+</li>
+<li><p>Epson TM 88 IIIP 熱感應收條印表機</p></li>
+<li><p>Epson TM-T88IV</p></li>
+<li><p>Dymolabelwriter 印表機用的 1x1 書標</p></li>
+</ul>
+</section>
+<section id="braille-support">
+<span id="faq-braille-support-label"></span><h4>支援盲文點字法<a class="headerlink" href="#braille-support" title="此标题的永久链接"></a></h4>
+<p><strong>問題</strong>: 請問有內建點字轉換器且可以在UNIX的環境下取得的點字壓印機或是印表機?</p>
+<p><strong>答覆</strong>：您可查看 <a class="reference external" href="http://mielke.cc/brltty/">BRLTTY</a>。</p>
+</section>
+<section id="additional-information">
+<span id="faq-additional-support-label"></span><h4>附加訊息<a class="headerlink" href="#additional-information" title="此标题的永久链接"></a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.nexpresslibrary.org/go-live/configure-your-receipt-printers/">http://www.nexpresslibrary.org/go-live/configure-your-receipt-printers/</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="links.html" class="btn btn-neutral float-left" title="Important links" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="GNU 通用公共許可證第 3 版" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>應用核對清單 &mdash; Koha Manual 23.11 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="关于此文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="工作排程與守護行程" href="cron_jobs.html" />
+    <link rel="prev" title="ILL 館際互借申請 / 館際互借送出" href="ILL_requests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #4a9b32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Koha Manual
+          </a>
+              <div class="version">
+                23.11
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Koha 安裝過程介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#web-installer">網頁安裝器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#onboarding-tool">使用者導引工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#advanced-configurations">進階的設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalpreferences.html">System preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration.html">管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrons.html">讀者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cash_management.html">銷售點</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circulation.html">流通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cataloging.html">编目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_reserves.html">課程指定參考書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serials.html">期刊</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisitions.html">採訪</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erm.html">电子资源管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">虛擬書架與書目清單</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">報表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opac.html">OPAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searching.html">搜尋</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugin system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">关于 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILL_requests.html">ILL 館際互借申請 / 館際互借送出</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">應用核對清單</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-migration">資料轉換</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-configuration">管理組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#localization-configuration">本土化組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#circulation-configuration">流通組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#patron-configuration">讀者組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cataloging-configuration">編目組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authorities-configuration">權威組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#searching-configuration">搜尋組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opac-configuration">OPAC 組態</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#editable-opac-regions">可編輯的 OPAC 區塊</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#enhanced-content-configuration">強化內容組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acquisitions-configuration">採訪組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serials-configuration">期刊組態</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#planning-for-go-live">準備啟用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cron_jobs.html">工作排程與守護行程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valuebuilder.html">Cataloguing plugins (value builders)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservices.html">Web services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis_protocols.html">其他的 API 與通訊協定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_koha.html">擴展 Koha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_software.html">在 Koha 使用第三方軟體</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Configuring receipt printers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Important links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">答客問</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU 通用公共許可證第 3 版</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #4a9b32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Koha Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">應用核對清單</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/implementation_checklist.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
+        <a href="ILL_requests.html" class="btn btn-neutral float-left" title="ILL 館際互借申請 / 館際互借送出" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cron_jobs.html" class="btn btn-neutral float-right" title="工作排程與守護行程" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="implementation-checklist">
+<span id="implementation-checklist-label"></span><h1>應用核對清單<a class="headerlink" href="#implementation-checklist" title="此标题的永久链接"></a></h1>
+<p>以下的指南帶您巡視 Koha，做為啟用前的準備。</p>
+<p>這並不是一份你需要做的所有事情的詳盡清單。請考慮你自己圖書館的做法，以及對於你自己的圖書館和環境，還有哪些檢查是必要的。</p>
+<section id="data-migration">
+<span id="data-migration-label"></span><h2>資料轉換<a class="headerlink" href="#data-migration" title="此标题的永久链接"></a></h2>
+<p>使用 Koha 前應已有相當資料。可以人工逐筆鍵入，但多數情況是已有電子格式的資料祗需重新格式它們就能匯入 Koha。</p>
+<ul class="simple">
+<li><p>新增圖書館清單並建入其資訊及代碼 <a class="reference internal" href="administration.html#libraries-label"><span class="std std-ref">圖書館</span></a></p></li>
+<li><p>定義你的清單 <a class="reference internal" href="administration.html#item-types-label"><span class="std std-ref">館藏類型</span></a></p></li>
+<li><p>設定讀者類型並輸入代碼於 <a class="reference internal" href="administration.html#patron-categories-label"><span class="std std-ref">讀者類型</span></a></p></li>
+<li><p>輸入其他的讀者資訊於 <a class="reference internal" href="administration.html#patron-attribute-types-label"><span class="std std-ref">讀者屬性</span></a></p>
+<ul>
+<li><p>This requires that you first enable the <a class="reference internal" href="patronspreferences.html#extendedpatronattributes-label"><span class="std std-ref">ExtendedPatronAttributes</span></a>
+system preference if you have custom fields</p></li>
+</ul>
+</li>
+<li><p>定義所有 <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">容許值</span></a></p>
+<ul>
+<li><p>合集代碼 (<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">CCODE</span></a>)</p></li>
+<li><p>排架位置（<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">LOC</span></a>）</p></li>
+<li><p>館藏狀態</p>
+<ul>
+<li><p>遺失狀態（<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">遺失</span></a>）</p></li>
+<li><p>不外借狀態（<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">不_外借</span></a>）</p></li>
+<li><p>損壞狀態（<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">損壞</span></a>）</p></li>
+<li><p>撤銷狀態 (<a class="reference internal" href="administration.html#existing-values-label"><span class="std std-ref">撤銷</span></a>)</p></li>
+</ul>
+</li>
+<li><p>加上圖書館所需的其他資料</p></li>
+</ul>
+</li>
+<li><p>可選定義 <a class="reference internal" href="administration.html#cities-and-towns-label"><span class="std std-ref">城市和鄉鎮</span></a></p></li>
+<li><p><a class="reference internal" href="administration.html#koha-to-marc-mapping-label"><span class="std std-ref">對映您的書目資料</span></a> 由原來的系統至 Koha 欄位並轉換 (記得使用在設定區鍵入的館藏、排架、館藏類型與圖書館代碼)</p></li>
+<li><p><a class="reference internal" href="tools.html#patron-import-label"><span class="std std-ref">對映您的讀者資料</span></a> 由原來的系統至 Koha 欄位並轉換 (記得使用稍早設定的讀者與圖書館代碼)</p></li>
+<li><p>測試匯入的資料，包括：</p>
+<ul>
+<li><p>檢查讀音符號，是否正常。</p></li>
+<li><p>檢查集叢題名並確認集叢資訊正確地匯入。</p></li>
+<li><p>確認讀者的連絡資訊在正確的欄位。</p></li>
+<li><p>搜尋目錄裡已匯入的集叢資料確認人其正確性。</p></li>
+<li><p>搜尋目錄裡已匯入的集叢資料確認人其正確性。</p></li>
+<li><p>檢查機讀編目格式確認館藏都已正確編目</p></li>
+<li><p>檢查編目程序查看必要欄位都沒少</p></li>
+<li><p>檢查罰款的正確性</p></li>
+<li><p>檢查預約資料裡的書目記錄與讀者記錄</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="admin-configuration">
+<span id="admin-configuration-label"></span><h2>管理組態<a class="headerlink" href="#admin-configuration" title="此标题的永久链接"></a></h2>
+<p>大部份的偏好不需要改變，祗有少數幾個偏好需要客製化。</p>
+<ul class="simple">
+<li><p>若使用CAS認證，則需要設定 <a class="reference internal" href="administrationpreferences.html#cas-authentication-label"><span class="std std-ref">CAS系統偏好</span></a></p></li>
+<li><p>管理系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="administrationpreferences.html#kohaadminemailaddress-label"><span class="std std-ref">KohaAdminEmailAddress</span></a> : This is the
+email address that will be used by the system in ‘from’ lines and
+to send errors to if there is no email set for the branch</p></li>
+<li><p><a class="reference internal" href="administrationpreferences.html#noitemtypeimages-label"><span class="std std-ref">noItemTypeImages</span></a> : Decide if you want to
+show item type icons in the staff client and opac</p></li>
+<li><p><a class="reference internal" href="administrationpreferences.html#csvdelimiter-label"><span class="std std-ref">csvdelimiter</span></a> : This value will be put in between
+fields when exporting data from Koha</p></li>
+<li><p><a class="reference internal" href="administrationpreferences.html#virtualshelves-label"><span class="std std-ref">virtualshelves</span></a> : Decide if you want the
+staff and/or patrons to use lists in Koha</p></li>
+<li><p><a class="reference internal" href="administrationpreferences.html#autolocation-label"><span class="std std-ref">AutoLocation</span></a> : Require staff to log in to the
+staff client from a specific IP range</p></li>
+<li><p><a class="reference internal" href="administrationpreferences.html#independentbranches-label"><span class="std std-ref">IndependentBranches</span></a> : Prevent
+librarians from editing content that belongs to other branches</p></li>
+</ul>
+</li>
+<li><p>進入 <a class="reference internal" href="logspreferences.html#logs-label"><span class="std std-ref">記錄系統偏好</span></a> 並決定你想在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>記錄 &lt;log-viewer-label&gt;`中追蹤哪些操作</p></li>
+<li><p>經由 <a class="reference internal" href="administrationpreferences.html#share-anonymous-usage-statistics-label"><span class="std std-ref">共享系統偏好</span></a> 與 Koha 社群共享您圖書館的資訊。</p></li>
+<li><p>決定你需要執行什麼 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>工作排程 &lt;cron-jobs-label&gt;`以及何時執行。</p>
+<ul>
+<li><p>If you’re using the <a class="reference internal" href="cron_jobs.html#cron-long-overdues-label"><span class="std std-ref">long overdue cron job</span></a>
+be sure to set your <a class="reference internal" href="circulationpreferences.html#defaultlongoverduechargevalue-label"><span class="std std-ref">DefaultLongOverdueChargeValue</span></a>,
+<a class="reference internal" href="circulationpreferences.html#defaultlongoverduelostvalue-and-defaultlongoverduedays-label"><span class="std std-ref">DefaultLongOverdueLostValue</span></a> and
+<a class="reference internal" href="circulationpreferences.html#defaultlongoverduelostvalue-and-defaultlongoverduedays-label"><span class="std std-ref">DefaultLongOverdueDays</span></a>
+preferences.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="localization-configuration">
+<span id="localization-configuration-label"></span><h2>本土化組態<a class="headerlink" href="#localization-configuration" title="此标题的永久链接"></a></h2>
+<p>Koha 的用戶遍及全世界，需要設定在地的偏好，才能以在地的語言與位置呈現其內容。</p>
+<ul class="simple">
+<li><p>在地化/國際化系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="i18npreferences.html#dateformat-label"><span class="std std-ref">dateformat</span></a> : Decide how dates are displayed throughout Koha</p></li>
+<li><p><a class="reference internal" href="i18npreferences.html#opaclanguagesdisplay-label"><span class="std std-ref">opaclanguagesdisplay</span></a> : Decide if patrons can choose what language
+the OPAC appears in</p>
+<ul>
+<li><p><a class="reference internal" href="i18npreferences.html#opaclanguages-label"><span class="std std-ref">OPACLanguages</span></a> : Decide which languages the patrons can choose
+from</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="i18npreferences.html#language-label"><span class="std std-ref">language</span></a> : Decide which languages appear in the staff interface</p></li>
+<li><p><a class="reference internal" href="i18npreferences.html#calendarfirstdayofweek-label"><span class="std std-ref">CalendarFirstDayOfWeek</span></a> : Define your first day of the week</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="circulation-configuration">
+<span id="circulation-configuration-label"></span><h2>流通組態<a class="headerlink" href="#circulation-configuration" title="此标题的永久链接"></a></h2>
+<p>流通館藏之前，必須設定流通的規則與偏好。</p>
+<ul class="simple">
+<li><p>設定您的 <span class="xref std std-ref">流通與罰款規則</span></p></li>
+<li><p>鍵入 <a class="reference internal" href="tools.html#calendar-label"><span class="std std-ref">圖書館閉館日</span></a> 供計算罰款與到期日之用</p></li>
+<li><p>流通系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="circulationpreferences.html#circcontrol-label"><span class="std std-ref">CircControl</span></a> : Define whether circ rules are based on item’s
+location, patron’s location or transaction location</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#usedaysmode-label"><span class="std std-ref">useDaysMode</span></a> : Define how due dates are calculated</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#finescalendar-label"><span class="std std-ref">finesCalendar</span></a> : Define how fines are calculated (for every late
+date or only for days the library is open)</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#specifyduedate-label"><span class="std std-ref">SpecifyDueDate</span></a> : Decide if staff are allowed to override due dates
+on checkout</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#specifyreturndate-label"><span class="std std-ref">SpecifyReturnDate</span></a> : Decide if you want to let the staff specify
+an arbitrary return date on checkin</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#itembarcodefallbacksearch-label"><span class="std std-ref">itemBarcodeFallbackSearch</span></a> :
+Decide if you want staff to be able to checkout using a keyword
+search (title, call number, etc)</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#automaticitemreturn-label"><span class="std std-ref">AutomaticItemReturn</span></a> : Decide if items are sent back to the owning
+branch when checked in</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#todaysissuesdefaultsortorder-label"><span class="std std-ref">todaysIssuesDefaultSortOrder</span></a> :
+Decide how items checked out today display on the patron record</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#previousissuesdefaultsortorder-label"><span class="std std-ref">previousIssuesDefaultSortOrder</span></a> : Decide how items checked out
+prior to today display on the patron record</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#noissuescharge-label"><span class="std std-ref">noissuescharge</span></a> : Define the maximum amount a patron can owe
+before checkouts are blocked</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#returnbeforeexpiry-label"><span class="std std-ref">ReturnBeforeExpiry</span></a> : Decide if patrons need to return items
+before their accounts expire</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#allowholdsondamageditems-label"><span class="std std-ref">AllowHoldsOnDamagedItems</span></a> : Decide
+if patrons can place holds on items that are marked as damaged</p>
+<ul>
+<li><p><a class="reference internal" href="circulationpreferences.html#allowholdpolicyoverride-label"><span class="std std-ref">AllowHoldPolicyOverride</span></a> : Decide if you want the staff to be
+able to override this setting</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="circulationpreferences.html#maxreserves-label"><span class="std std-ref">maxreserves</span></a> : Decide how many items a patron
+can have on hold at once</p>
+<ul>
+<li><p><a class="reference internal" href="circulationpreferences.html#allowholdpolicyoverride-label"><span class="std std-ref">AllowHoldPolicyOverride</span></a> : Decide if you want the staff to be
+able to override this setting</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="circulationpreferences.html#maxoutstanding-label"><span class="std std-ref">maxoutstanding</span></a> : Define the maximum amount a
+patron can owe before holds are blocked</p>
+<ul>
+<li><p><a class="reference internal" href="circulationpreferences.html#allowholdpolicyoverride-label"><span class="std std-ref">AllowHoldPolicyOverride</span></a> : Decide if you want the staff to be
+able to override this setting</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="circulationpreferences.html#reservesmaxpickupdelay-label"><span class="std std-ref">ReservesMaxPickUpDelay</span></a> : Define the number of days before a hold
+expires</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#webbasedselfcheck-label"><span class="std std-ref">WebBasedSelfCheck</span></a> : Decide if you want to use the built in
+web-based self-checkout system</p>
+<ul>
+<li><p><a class="reference internal" href="circulationpreferences.html#autoselfcheck-preferences-label"><span class="std std-ref">AutoSelfCheckAllowed</span></a>：決定是否需要登入自助借出系統</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#showpatronimageinwebbasedselfcheck-label"><span class="std std-ref">ShowPatronImageInWebBasedSelfCheck</span></a>: Decide if you want patron
+images to show on the self checkout screen</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="circulationpreferences.html#allownotforloanoverride-label"><span class="std std-ref">AllowNotForLoanOverride</span></a> : Decide if you want the staff to be able
+to checkout items marked as ‘not for loan’</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#allowrenewallimitoverride-label"><span class="std std-ref">AllowRenewalLimitOverride</span></a> : Decide if you want staff to override
+the limit put on renewals</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#allowfineoverride-label"><span class="std std-ref">AllowFineOverride</span></a> : Decide if you want staff to be able to
+override fine limits</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#allowtoomanyoverride-label"><span class="std std-ref">AllowTooManyOverride</span></a> : Descide if you want staff to be able to
+check out more than the limit to a patron</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#renewalperiodbase-label"><span class="std std-ref">RenewalPeriodBase</span></a> : Decide what date renewals are based on</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#finesmode-label"><span class="std std-ref">finesMode</span></a> : Switch to ‘Calculate and Charge’ before you go live if
+you charge fines</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#noticebcc-label"><span class="std std-ref">NoticeBcc</span></a>: If you want to receive a copy of every notice, enter your
+email address</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#emaillibrarianwhenholdisplaced-label"><span class="std std-ref">emailLibrarianWhenHoldIsPlaced</span></a>: Decide if you want an email every
+time a hold is placed</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#reservescontrolbranch-label"><span class="std std-ref">ReservesControlBranch</span></a> : Decide which branch’s hold rules are
+considered first</p></li>
+<li><p><a class="reference internal" href="staffclientpreferences.html#audioalerts-label"><span class="std std-ref">AudioAlerts</span></a>: Decide if you want to have sounds for circulation
+actions</p>
+<ul>
+<li><p>在管理模組的 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>音頻警報 &lt;audio-alerts-label&gt;`部分設定聲音和動作</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="circulationpreferences.html#filterbeforeoverduereport-label"><span class="std std-ref">FilterBeforeOverdueReport</span></a> : If you have a large amount of
+overdues, you might want to turn this preference on so as to allow you to
+filter before results appear</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#displayclearscreenbutton-label"><span class="std std-ref">DisplayClearScreenButton</span></a> : If you have a lot of staff members
+sharing one circulation computer you might want to enable this so that
+staff can clear the screen in between checkouts to protect patrons’
+privacy</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#circautoprintquickslip-label"><span class="std std-ref">CircAutoPrintQuickSlip</span></a> : Decide how you want Koha to react if you
+scan in a blank barcode on the checkout screen</p></li>
+<li><p><a class="reference internal" href="circulationpreferences.html#suspendholdsintranet-label"><span class="std std-ref">SuspendHoldsIntranet</span></a> and/or <a class="reference internal" href="circulationpreferences.html#suspendholdsopac-label"><span class="std std-ref">SuspendHoldsOpac</span></a> : Decide if
+you want patrons and/or staff to be able to suspend holds</p>
+<ul>
+<li><p><a class="reference internal" href="circulationpreferences.html#autoresumesuspendedholds-label"><span class="std std-ref">AutoResumeSuspendedHolds</span></a> : If you allow holds to be suspended
+decide if you want them to automatically resume on the date entered
+by the staff and/or patron</p></li>
+</ul>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="circulationpreferences.html#onsitecheckouts-label"><span class="std std-ref">OnSiteCheckouts</span></a><span class="classifier">決定是否要允許檢查館藏</span></dt><dd><p>在圖書館內使用</p>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="circulationpreferences.html#recordlocaluseonreturn-label"><span class="std std-ref">RecordLocalUseOnReturn</span></a> : Set this to record local use of items
+when you check them in</p></li>
+</ul>
+</li>
+<li><p>客製化您的 <a class="reference internal" href="tools.html#notices-and-slips-label"><span class="std std-ref">通知和收條</span></a></p></li>
+<li><p>設定 <a class="reference internal" href="tools.html#overdue-notice-status-triggers-label"><span class="std std-ref">逾期通知啟動機制</span></a></p></li>
+<li><p>設定 <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">工作排程</span></a></p>
+<ul>
+<li><p>啟用 <a class="reference internal" href="circulation.html#holds-queue-label"><span class="std std-ref">預約順位</span></a> (1-4 小時一次)</p></li>
+<li><p>決定 <a class="reference internal" href="cron_jobs.html#cron-expired-holds-label"><span class="std std-ref">預約失效</span></a> (逐日)</p></li>
+<li><p><a class="reference internal" href="cron_jobs.html#cron-fines-label"><span class="std std-ref">計算罰款</span></a> (逐日)</p>
+<ul>
+<li><p>於還入時計算以時借出的館藏</p></li>
+</ul>
+</li>
+<li><p>:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>逾期過久的館藏標記為遺失 &lt;cron-long-overdues-label&gt;`(逐日)</p></li>
+<li><p>設定系統 <a class="reference internal" href="cron_jobs.html#cron-message-queue-label"><span class="std std-ref">送出訊息的時間</span></a> (1-4 小時)</p></li>
+<li><p>設定 <a class="reference internal" href="cron_jobs.html#cron-overdue-notice-label"><span class="std std-ref">逾期通知順位</span></a> (逐日)</p></li>
+<li><p>設定 <a class="reference internal" href="cron_jobs.html#cron-print-hold-notices-label"><span class="std std-ref">不列印預約通知</span></a> (逾期與訊息序位後逐日)</p></li>
+<li><p>設定 <a class="reference internal" href="cron_jobs.html#cron-advanced-notice-label"><span class="std std-ref">提早通知館藏將到期</span></a> (逐日)</p></li>
+<li><p>找出需要 <a class="reference internal" href="cron_jobs.html#cron-unsuspend-holds-label"><span class="std std-ref">恢復與移除延遲的預約</span></a> (逐日)</p></li>
+<li><p>允許自動續借 <a class="reference internal" href="cron_jobs.html#cron-automatic-renewal-label"><span class="std std-ref">設定他們為續借</span></a> (每晚)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="patron-configuration">
+<span id="patron-configuration-label"></span><h2>讀者組態<a class="headerlink" href="#patron-configuration" title="此标题的永久链接"></a></h2>
+<p>從舊系統匯入讀者資料後，還需設定若干事項。</p>
+<ul class="simple">
+<li><p>以 <a class="reference internal" href="patrons.html#add-a-staff-patron-label"><span class="std std-ref">館員身份進入做為讀者</span></a></p>
+<ul>
+<li><p>設定 <a class="reference internal" href="patrons.html#patron-permissions-label"><span class="std std-ref">館員的權限</span></a></p></li>
+</ul>
+</li>
+<li><p>讀者系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="patronspreferences.html#automembernum-label"><span class="std std-ref">autoMemberNum</span></a> : Decide if the patron barcodes are auto-generated
+or if you enter them yourself</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#maxfine-label"><span class="std std-ref">MaxFine</span></a> : Determine the maximum amount that people can owe in fines</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#notifyborrowerdeparture-label"><span class="std std-ref">NotifyBorrowerDeparture</span></a> : Decide when to warn staff that the
+patron account is about to expire</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#intranetreadinghistory-label"><span class="std std-ref">intranetreadinghistory</span></a> : Decide if the staff can see the patron’s
+reading/checkout history</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#borrowermandatoryfield-label"><span class="std std-ref">BorrowerMandatoryField</span></a> : List fields that you want to appear as
+mandatory on the patron add/edit form</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#borrowerstitles-label"><span class="std std-ref">BorrowersTitles</span></a> : Add or change the titles for your patrons</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#borrowerrelationship-label"><span class="std std-ref">borrowerRelationship</span></a> : Add or change borrower relationships
+(child to adult and professional to organization)</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#autoemailnewuser-label"><span class="std std-ref">AutoEmailNewUser</span></a> : Determine if the patrons get an email
+confirming the creation of their account</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferences-label"><span class="std std-ref">EnhancedMessagingPreferences</span></a> : Decide if staff can choose from a
+series of notices (other than overdues) for patrons</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#enhancedmessagingpreferencesopac-label"><span class="std std-ref">EnhancedMessagingPreferencesOPAC</span></a>: Decide if patrons can choose
+from a series of notices (other than ovedues) for themselves</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#patronimages-label"><span class="std std-ref">patronimages</span></a> : Decide if you want to save patron pictures in your
+system</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#extendedpatronattributes-label"><span class="std std-ref">ExtendedPatronAttributes</span></a> : Decide if you want to enable custom
+patron fields</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#minpasswordlength-label"><span class="std std-ref">minPasswordLength</span></a> : Enter the minimum number of characters you
+want passwords to have</p></li>
+<li><p><a class="reference internal" href="patronspreferences.html#borrowerunwantedfield-label"><span class="std std-ref">BorrowerUnwantedField</span></a> : Decide what fields your library doesn’t
+need to see on the patron entry form</p></li>
+</ul>
+</li>
+<li><p>設定 <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">工作排程</span></a></p>
+<ul>
+<li><p>通過設定 <a class="reference internal" href="cron_jobs.html#cron-update-patron-categories-label"><span class="std std-ref">更新讀者類別的工作排程</span></a> ，決定你是否希望兒童讀者自動成為成人讀者。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="cataloging-configuration">
+<span id="cataloging-configuration-label"></span><h2>編目組態<a class="headerlink" href="#cataloging-configuration" title="此标题的永久链接"></a></h2>
+<p>編目之前，需要設定以下的偏好與規則。</p>
+<ul class="simple">
+<li><p>設定編目框架，或 <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">MARC 書目框架</span></a></p>
+<ul>
+<li><p>執行 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>MARC書目框架測試 &lt;marc-bibliographic-framework-test-label&gt;`確認修改後框架的有效性</p></li>
+</ul>
+</li>
+<li><p>設定編目用的 <a class="reference internal" href="administration.html#authorized-values-label"><span class="std std-ref">容許值</span></a></p></li>
+<li><p>設定 <a class="reference internal" href="administration.html#classification-sources-label"><span class="std std-ref">客製化分類法來源</span></a> (若使用預設以外的分類法)</p></li>
+<li><p>設定 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>MARC 匹配規則 &lt;record-matching-rules-label&gt;`供匯入 mrc 檔案</p></li>
+<li><p>設定編目(與採訪)用的 <a class="reference internal" href="administration.html#z39-50-sru-servers-label"><span class="std std-ref">Z39.50 伺服器</span></a></p></li>
+<li><p>編目系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="catalogingpreferences.html#urllinktext-label"><span class="std std-ref">URLLinkText</span></a> : Enter text to display when 856 fields do not have
+pre-defined labels</p></li>
+<li><p><a class="reference internal" href="catalogingpreferences.html#hide-marc-label"><span class="std std-ref">hide_marc</span></a>：若不熟悉 MARC 可以隱藏其欄號</p></li>
+<li><p><a class="reference internal" href="catalogingpreferences.html#labelmarcview-label"><span class="std std-ref">LabelMARCView</span></a> : Choose how you want duplicate fields to appear on
+the editor</p></li>
+<li><p><a class="reference internal" href="catalogingpreferences.html#defaultclassificationsource-label"><span class="std std-ref">DefaultClassificationSource</span></a> : Choose which classification source
+is the default in your library</p></li>
+<li><p><a class="reference internal" href="catalogingpreferences.html#advancedmarceditor-label"><span class="std std-ref">advancedMARCeditor</span></a> : Decide if you want to use the advanced MARC
+editor</p></li>
+<li><p><a class="reference internal" href="catalogingpreferences.html#marcflavour-label"><span class="std std-ref">marcflavour</span></a> : Choose your MARC format</p></li>
+<li><p><a class="reference internal" href="catalogingpreferences.html#itemcallnumber-label"><span class="std std-ref">itemcallnumber</span></a> : Enter which field and subfields to look into for
+the call number</p></li>
+<li><p><a class="reference internal" href="catalogingpreferences.html#marcorgcode-label"><span class="std std-ref">MARCOrgCode</span></a> : Enter your MARC organizational code (not the same as
+your OCLC number)</p></li>
+<li><p><a class="reference internal" href="catalogingpreferences.html#autobarcode-label"><span class="std std-ref">autoBarcode</span></a> : Decide if Koha generates item barcodes for you</p></li>
+<li><p><a class="reference internal" href="catalogingpreferences.html#opacsuppression-preferences-label"><span class="std std-ref">OpacSuppression</span></a> : 設定是否於 OPAC 搜尋結果設定隱藏的記錄</p></li>
+</ul>
+</li>
+<li><p>設定 <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">工作排程</span></a></p>
+<ul>
+<li><p>系統 <a class="reference internal" href="cron_jobs.html#cron-check-url-quick-label"><span class="std std-ref">檢查書目記錄內網址有效性</span></a> 的間隔</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="authorities-configuration">
+<span id="authorities-configuration-label"></span><h2>權威組態<a class="headerlink" href="#authorities-configuration" title="此标题的永久链接"></a></h2>
+<p>Koha 能追蹤權威記錄及其連結的書目記錄。使用之前應組態若干偏好。</p>
+<ul class="simple">
+<li><p>設定 <a class="reference internal" href="administration.html#authority-types-label"><span class="std std-ref">權威記錄框架</span></a> ，或模版</p></li>
+<li><p>權威記錄系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="authoritiespreferences.html#requirechoosingexistingauthority-label"><span class="std std-ref">RequireChoosingExistingAuthority</span></a>:
+Decide if catalogers can type into controlled fields, or if they have to
+search for existing authority records.</p></li>
+<li><p><a class="reference internal" href="authoritiespreferences.html#autocreateauthorities-label"><span class="std std-ref">AutoCreateAuthorities</span></a>: Decide if Koha
+creates authorities when cataloging.</p></li>
+<li><p><a class="reference internal" href="authoritiespreferences.html#authoritymergelimit-label"><span class="std std-ref">AuthorityMergeLimit</span></a>: Decide if updates to authorities trigger
+updates to the bibliographic records that link to them</p></li>
+<li><p><a class="reference internal" href="authoritiespreferences.html#linkermodule-label"><span class="std std-ref">LinkerModule</span></a> : Decide which match the authority linker should use</p></li>
+<li><p><a class="reference internal" href="authoritiespreferences.html#linkeroptions-label"><span class="std std-ref">LinkerOptions</span></a> : Decide if you want authority linking to be broader
+or more specific</p></li>
+<li><p><a class="reference internal" href="authoritiespreferences.html#catalogmodulerelink-label"><span class="std std-ref">CatalogModuleRelink</span></a> : Decide if you want to enable authority
+linking while cataloging</p></li>
+</ul>
+</li>
+<li><p>設定 <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">工作排程</span></a></p>
+<ul>
+<li><p>設定系統查看權威記錄的更新，以 <a class="reference internal" href="cron_jobs.html#cron-update-authorities-label"><span class="std std-ref">合併改變入書目記錄</span></a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="searching-configuration">
+<span id="searching-configuration-label"></span><h2>搜尋組態<a class="headerlink" href="#searching-configuration" title="此标题的永久链接"></a></h2>
+<p>若干系統偏好與搜尋有關，不建議修改太多的偏好，原始設定讓您取得最相關的結果。從:ref:<cite>搜尋系統偏好 &lt;searchingsystem-preferences-label&gt;</cite> 分頁，可修改偏好。</p>
+<ul class="simple">
+<li><p>設定 <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">工作排程</span></a></p></li>
+<li><p>搜尋系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="searchingpreferences.html#advancedsearchtypes-label"><span class="std std-ref">AdvancedSearchTypes</span></a> : Decide which authorized value fields you
+want patrons and staff to be able to limit their advanced searches by</p></li>
+<li><p><a class="reference internal" href="searchingpreferences.html#advancedsearchlanguages-label"><span class="std std-ref">AdvancedSearchLanguages</span></a> : Decide which languages you want people
+to be able to limit to via the search engine</p></li>
+<li><p><a class="reference internal" href="authoritiespreferences.html#useauthoritiesfortracings-label"><span class="std std-ref">UseAuthoritiesForTracings</span></a> : Decide how you want Koha to handle
+subject searches in the OPAC</p>
+<ul>
+<li><p><a class="reference internal" href="searchingpreferences.html#tracecompletesubfields-label"><span class="std std-ref">TraceCompleteSubfields</span></a> : Decide how you want Koha to handle
+subject searches in the OPAC</p></li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="searchingpreferences.html#tracesubjectsubdivisions-label"><span class="std std-ref">TraceSubjectSubdivisions</span></a><span class="classifier">決定你希望 Koha 如何處理</span></dt><dd><p>OPAC 中的主題搜尋</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="searchingpreferences.html#displayfacetcount-label"><span class="std std-ref">displayFacetCount</span></a> : Decide whether to show facet counts on search
+results</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="opac-configuration">
+<span id="opac-configuration-label"></span><h2>OPAC 組態<a class="headerlink" href="#opac-configuration" title="此标题的永久链接"></a></h2>
+<p>很多組態 OPAC 的方法。</p>
+<ul>
+<li><p>決定 OPAC 的外觀及顯示在主頁的內容</p></li>
+<li><p>以 CSS 新增圖書館的樣式表</p>
+<p><strong>重要</strong></p>
+<p>不要編輯預設的 CSS 檔案，複製預設的 CSS 再修改它，保留預設的 CSS ，系統才能回到它。</p>
+</li>
+<li><p>新增客製化的 XSLT 樣式表改變在 OPAC 的搜尋結果與書目記錄顯示方式</p></li>
+<li><p>OPAC 系統偏好</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="opacpreferences.html#opacbaseurl-label"><span class="std std-ref">OPACBaseURL</span></a> : Enter your library’s URL</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacuserlogin-label"><span class="std std-ref">opacuserlogin</span></a> : Decide if you want to allow patrons to login to
+the OPAC to access customized functionality (searching will be allowed
+without logging in)</p>
+<ul>
+<li><p><a class="reference internal" href="opacpreferences.html#opacholdrequests-label"><span class="std std-ref">OPACHoldRequests</span></a> : Decide if patrons can place holds via the OPAC</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacpasswordchange-label"><span class="std std-ref">OpacPasswordChange</span></a> : Decide if patrons can change their
+password (don’t allow this if you’re using LDAP)</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacrenewalallowed-label"><span class="std std-ref">OpacRenewalAllowed</span></a> : Decide if patrons can renew their checked
+out items via the OPAC</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacreadinghistory-label"><span class="std std-ref">opacreadinghistory</span></a> : Decide if patrons can view their reading/
+checkout history via the OPAC</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opaccomments-label"><span class="std std-ref">OPACComments</span></a> : Decide if you want to allow patrons to comment on
+bibliographic records via the OPAC</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacstarratings-label"><span class="std std-ref">OpacStarRatings</span></a> : Decide if patrons can leave star ratings</p></li>
+<li><p><a class="reference internal" href="administrationpreferences.html#virtualshelves-label"><span class="std std-ref">virtualshelves</span></a> : Decide if you want patrons to be able to
+create lists</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacallowpubliclistcreation-label"><span class="std std-ref">OpacAllowPublicListCreation</span></a>: If patrons can create lists then
+decide if they are allowed to create public lists</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#suggestion-label"><span class="std std-ref">suggestion</span></a> : Decide if you want patrons to be able to submit
+purchase suggestions</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacviewotherssuggestions-label"><span class="std std-ref">OPACViewOthersSuggestions</span></a> : Decide if you want patrons to be
+able to see purchase suggestions made by other patrons</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacbookbag-label"><span class="std std-ref">opacbookbag</span></a> : Decide if patrons can save items into their cart</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#anonsuggestions-label"><span class="std std-ref">AnonSuggestions</span></a> : Decide if you want non logged in users to be
+able to make purchase suggestions</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#libraryname-label"><span class="std std-ref">LibraryName</span></a> : Enter your library name for display in the &lt;title&gt;
+tag and on the top of the OPAC</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacnoresultsfound-label"><span class="std std-ref">OPACNoResultsFound</span></a> : Enter the HTML that will appear when no
+results are found</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacresultssidebar-label"><span class="std std-ref">OPACResultsSidebar</span></a> : Enter the HTML that will appear below the
+facets on your search results</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacmysummaryhtml-label"><span class="std std-ref">OPACMySummaryHTML</span></a> : Enter the HTML that will appear in the far
+right of the circulation summary in the OPAC</p></li>
+<li><p>客製化樣式表：</p>
+<ul>
+<li><p><a class="reference internal" href="opacpreferences.html#opacusercss-label"><span class="std std-ref">OPACUserCSS</span></a> : Enter any additional fields you want to define
+styles for</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opaclayoutstylesheet-label"><span class="std std-ref">opaclayoutstylesheet</span></a> : Point to a CSS file on your Koha server</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="opacpreferences.html#opachighlightedwords-and-nothighlightedwords-label"><span class="std std-ref">OpacHighlightedWords</span></a>：在搜尋結果以強調方式顯示搜尋字詞</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#hidelostitems-label"><span class="std std-ref">hidelostitems</span></a> : Decide if you want to show patrons items you have
+marked as lost</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#bibliodefaultview-label"><span class="std std-ref">BiblioDefaultView</span></a> : Decide what view is the default for
+bibliographic records on the OPAC</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacshelfbrowser-label"><span class="std std-ref">OPACShelfBrowser</span></a> : Decide if you want to enable the shelf browse
+functionality</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacurlopeninnewwindow-label"><span class="std std-ref">OPACURLOpenInNewWindow</span></a> : Decide if URLs clicked in the OPAC are
+opened in a new window</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#searchmylibraryfirst-label"><span class="std std-ref">SearchMyLibraryFirst</span></a> : If you have a multi-branch system decide if
+you want patrons to search their library first</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacauthorities-label"><span class="std std-ref">OpacAuthorities</span></a> : Decide if you want patrons to be able to search
+your authority file</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacbrowser-label"><span class="std std-ref">OpacBrowser</span></a> : Decide if you want patrons to browse your authority
+file (French libraries only)</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacsearchfortitlein-label"><span class="std std-ref">OPACSearchForTitleIn</span></a> : Choose which libraries you want patrons to
+be able to re-run their search in</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#opacaddmastheadlibrarypulldown-label"><span class="std std-ref">OpacAddMastheadLibraryPulldown</span></a> : If you’re a multi-branch system
+you can add a pull down to the search bar for patrons to search which
+library to search</p></li>
+<li><p><a class="reference internal" href="opacpreferences.html#enableopacsearchhistory-label"><span class="std std-ref">EnableOpacSearchHistory</span></a> : Decide if you want the system to keep a
+search history</p></li>
+</ul>
+</li>
+<li><p>設定 <a class="reference internal" href="cron_jobs.html#cron-jobs-label"><span class="std std-ref">工作排程</span></a></p>
+<ul class="simple">
+<li><p>If you have the <a class="reference internal" href="opacpreferences.html#opacbrowser-label"><span class="std std-ref">OpacBrowser</span></a> preference set decide
+<a class="reference internal" href="cron_jobs.html#cron-authorities-browser-label"><span class="std std-ref">when you want the contents to rebuild</span></a>
+(French libraries only)</p></li>
+<li><p>若您有 <a class="reference internal" href="opac.html#custom-rss-feeds-label"><span class="std std-ref">客製化 RSS</span></a>，則可決定 <a class="reference internal" href="cron_jobs.html#cron-rss-feeds-label"><span class="std std-ref">送出</span></a> 的時機</p></li>
+</ul>
+</li>
+</ul>
+<section id="editable-opac-regions">
+<span id="editable-opac-regions-label"></span><h3>可編輯的 OPAC 區塊<a class="headerlink" href="#editable-opac-regions" title="此标题的永久链接"></a></h3>
+<p>Using the <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">HTML customizations tool</span></a> you can customize various
+blocks of the OPAC. The following graphic shows what each display location
+updates.</p>
+<p><img alt="View of the main page of the OPAC with each customizable section highlighted" src="_images/opacregionsbootstrap.png" /></p>
+<p><img alt="View of the main page of the OPAC, customized, and with each section highlighted and labeled" src="_images/opacregionsbootstrap-customized.png" /></p>
+<p>而 ‘每日引句’ 是在 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>每日引句編輯器&lt;quote-of-day-(qotd)-editor-label&gt;`中管理</p>
+<p>The <a class="reference internal" href="tools.html#news-label"><span class="std std-ref">news tool</span></a> can be used to add news items to the OPAC’s
+main page.</p>
+<p>The <a class="reference internal" href="tools.html#additional-content-pages-label"><span class="std std-ref">pages tool</span></a> can be used to add more
+content pages to the OPAC.</p>
+</section>
+</section>
+<section id="enhanced-content-configuration">
+<span id="enhanced-content-configuration-label"></span><h2>強化內容組態<a class="headerlink" href="#enhanced-content-configuration" title="此标题的永久链接"></a></h2>
+<p>Koha 允許引入外部資源強化書目記錄。所有的內容都可以 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>強化內容系統偏好&lt;enhanced-content-system-preferences-label&gt;`來切換它。</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#frbrizeeditions-label"><span class="std std-ref">FRBR/版本</span></a></p>
+<ul>
+<li><p>If you would like to have your OPAC and/or staff interdace show an
+‘Editions’ tab on the bibliographic record, you want to enable one or the
+other FRBR preferences and then the ISBN service <a class="reference internal" href="enhancedcontentpreferences.html#thingisbn-label"><span class="std std-ref">ThingISBN</span></a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#amazon-system-preferences-label"><span class="std std-ref">Amazon</span></a> : 此免費的服務要求您先登入 <a class="reference external" href="http://aws.amazon.com">http://aws.amazon.com</a></p>
+<ul>
+<li><p>使用 Amazon 偏好，就能使用它提供的封面。</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#babeltheque-system-preferences-label"><span class="std std-ref">Babelthèque</span></a></p>
+<ul>
+<li><p>此為付費服務。連繫 Babelthèque 以便在 OPAC 啟用其內容。</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#baker-and-taylor-label"><span class="std std-ref">Baker and Taylor</span></a></p>
+<ul>
+<li><p>此為 Baker &amp;amp; Taylor 提供的付費服務。連繫 Baker &amp;amp; Taylor 以便取得該等偏好的設定資訊。</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#html5-media-label"><span class="std std-ref">HTML5 media</span></a></p>
+<ul>
+<li><p>允許圖書館將串流媒體嵌入目錄內</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#googlejackets-label"><span class="std std-ref">Google</span></a></p>
+<ul>
+<li><p>This service is free and does not require registration, simply
+enable <a class="reference internal" href="enhancedcontentpreferences.html#googlejackets-label"><span class="std std-ref">GoogleJackets</span></a> and you’re set to go.</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#librarything-label"><span class="std std-ref">LibraryThing</span></a></p>
+<ul>
+<li><p>With the exception of <a class="reference internal" href="enhancedcontentpreferences.html#thingisbn-label"><span class="std std-ref">ThingISBN</span></a>, you will need to contact
+LibraryThing for the information to enter into these preferences</p></li>
+<li><p>Enabling <a class="reference internal" href="enhancedcontentpreferences.html#thingisbn-label"><span class="std std-ref">ThingISBN</span></a> will help to populate the editions tab on the
+bibliographic record display if you have enabled FRBR.</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#novelist-select-label"><span class="std std-ref">Novelist Select</span></a></p>
+<ul>
+<li><p>來自 Ebsco 的付費服務。聯繫 Ebsco 公司取得鍵入此偏好的資訊</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#open-library-label"><span class="std std-ref">Open Library</span></a></p>
+<ul>
+<li><p>開放圖書館計畫是個開放的計畫，可從此擷取封面 (未來可能增加其他服務)</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#overdrive-label"><span class="std std-ref">Overdrive</span></a></p>
+<ul>
+<li><p>圖書館可訂閱此付費服務取得電子書內容。若訂閱 Overdrive 則可將該內容整合入 Koha。</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#syndetics-label"><span class="std std-ref">Syndetics</span></a></p>
+<ul>
+<li><p>由 Syndetics 提供的付費服務，為書目記錄增加內容。連繫 Syndetics 公司，取得鍵入此偏好所需的資訊。</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="enhancedcontentpreferences.html#tagging-label"><span class="std std-ref">標籤</span></a></p>
+<ul>
+<li><p>設定讀者新增標籤的權限。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="acquisitions-configuration">
+<span id="acquisitions-configuration-label"></span><h2>採訪組態<a class="headerlink" href="#acquisitions-configuration" title="此标题的永久链接"></a></h2>
+<p>必須先設定採訪偏好，才能使用採訪模組。</p>
+<ul class="simple">
+<li><p>設定 <a class="reference internal" href="administration.html#budgets-label"><span class="std std-ref">基金與預算</span></a></p></li>
+<li><p>指定 <a class="reference internal" href="administration.html#currencies-and-exchange-rates-label"><span class="std std-ref">預設幣別</span></a>，再加入其他幣別</p></li>
+<li><p>鍵入 <a class="reference internal" href="acquisitions.html#vendors-label"><span class="std std-ref">供應商資訊</span></a></p></li>
+<li><p>新增 <a class="reference internal" href="administration.html#marc-bibliographic-frameworks-label"><span class="std std-ref">代碼為 ACQ 的框架</span></a> (才能在發出訂單或收到時輸入館藏記錄)</p></li>
+<li><p>採訪系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="acquisitionspreferences.html#acqcreateitem-label"><span class="std std-ref">AcqCreateItem</span></a> : Decide if an item record is created during
+acquisition</p></li>
+<li><p><a class="reference internal" href="acquisitionspreferences.html#currencyformat-label"><span class="std std-ref">CurrencyFormat</span></a> : Decide how you want monetary amounts to display</p></li>
+<li><p><a class="reference internal" href="acquisitionspreferences.html#taxrates-label"><span class="std std-ref">TaxRates</span></a> : Enter your sales tax (if you are billed for tax)</p></li>
+<li><p><a class="reference internal" href="acquisitionspreferences.html#orderpdfformat-label"><span class="std std-ref">OrderPdfFormat</span></a> : Decide what format you want your print orders to
+use</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="serials-configuration">
+<span id="serials-configuration-label"></span><h2>期刊組態<a class="headerlink" href="#serials-configuration" title="此标题的永久链接"></a></h2>
+<p>必須先設定期刊偏好，才能使用期刊模組。</p>
+<ul class="simple">
+<li><p>期刊系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="serialspreferences.html#renewserialaddssuggestion-label"><span class="std std-ref">RenewSerialAddsSuggestion</span></a> : Decide if you want renewing serials
+to add a suggestion for easy purchasing</p></li>
+<li><p><a class="reference internal" href="serialspreferences.html#routingserials-label"><span class="std std-ref">RoutingSerials</span></a> : Decide if you want to route serials around your
+library</p></li>
+<li><p><a class="reference internal" href="serialspreferences.html#routinglistaddreserves-label"><span class="std std-ref">RoutingListAddReserves</span></a> : Decide if holds are placed on serials
+when there is a routing list in place</p></li>
+</ul>
+</li>
+<li><p>編目系統偏好</p>
+<ul>
+<li><p><a class="reference internal" href="serialspreferences.html#staffserialissuedisplaycount-label"><span class="std std-ref">StaffSerialIssueDisplayCount</span></a> : Decide how many of the most recent
+issues to display in the staff interface</p></li>
+<li><p><a class="reference internal" href="serialspreferences.html#opacserialissuedisplaycount-label"><span class="std std-ref">OPACSerialIssueDisplayCount</span></a> : Decide how many of the most recent
+issues to display in the OPAC</p></li>
+<li><p><a class="reference internal" href="serialspreferences.html#subscriptionhistory-label"><span class="std std-ref">SubscriptionHistory</span></a> : Decide how you want the subscription
+information to display in the OPAC</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="planning-for-go-live">
+<span id="planning-for-go-live-label"></span><h2>準備啟用<a class="headerlink" href="#planning-for-go-live" title="此标题的永久链接"></a></h2>
+<p>設定完成後，準備啟用Koha系統：</p>
+<ul class="simple">
+<li><p>教育訓練，外部服務提供商或自我訓練。</p></li>
+<li><p>足夠的時間供館員試用，習慣新系統</p></li>
+<li><p>資料轉移時，與舊系統的廠商保持聯繫，取出完整的資料，並匯入新系統</p></li>
+<li><p>決定你新的Koha OPAC和館員介面的URLs，如果使用現有的系統URLs，則安排這些URLs切換，如果是新的URLs，則建立這些URLs</p></li>
+<li><p>確保如果你託管自己的系統，你有一個程序來備份你的系統數據。</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="ILL_requests.html" class="btn btn-neutral float-left" title="ILL 館際互借申請 / 館際互借送出" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cron_jobs.html" class="btn btn-neutral float-right" title="工作排程與守護行程" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022-23, Koha Community.
+      <span class="lastupdated">最后更新于 2023-11-24 11:26:22.
+      </span></p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
